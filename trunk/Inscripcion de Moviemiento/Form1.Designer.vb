@@ -48,7 +48,7 @@ Partial Class Form1
         'XtraTabPage2
         '
         Me.XtraTabPage2.Name = "XtraTabPage2"
-        Me.XtraTabPage2.Size = New System.Drawing.Size(0, 0)
+        Me.XtraTabPage2.Size = New System.Drawing.Size(294, 272)
         Me.XtraTabPage2.Text = "XtraTabPage2"
         '
         'SimpleButton1
