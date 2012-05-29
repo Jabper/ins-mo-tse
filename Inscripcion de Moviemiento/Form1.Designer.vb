@@ -25,6 +25,7 @@ Partial Class Form1
         Me.XtraTabControl1 = New DevExpress.XtraTab.XtraTabControl
         Me.XtraTabPage1 = New DevExpress.XtraTab.XtraTabPage
         Me.XtraTabPage2 = New DevExpress.XtraTab.XtraTabPage
+        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton
         CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.XtraTabControl1.SuspendLayout()
         Me.SuspendLayout()
@@ -50,11 +51,20 @@ Partial Class Form1
         Me.XtraTabPage2.Size = New System.Drawing.Size(0, 0)
         Me.XtraTabPage2.Text = "XtraTabPage2"
         '
+        'SimpleButton1
+        '
+        Me.SimpleButton1.Location = New System.Drawing.Point(356, 74)
+        Me.SimpleButton1.Name = "SimpleButton1"
+        Me.SimpleButton1.Size = New System.Drawing.Size(75, 23)
+        Me.SimpleButton1.TabIndex = 1
+        Me.SimpleButton1.Text = "SimpleButton1"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(450, 262)
+        Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.XtraTabControl1)
         Me.Name = "Form1"
         Me.Text = "Form1"
@@ -66,5 +76,6 @@ Partial Class Form1
     Friend WithEvents XtraTabControl1 As DevExpress.XtraTab.XtraTabControl
     Friend WithEvents XtraTabPage1 As DevExpress.XtraTab.XtraTabPage
     Friend WithEvents XtraTabPage2 As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
 
 End Class
