@@ -25,6 +25,11 @@ Partial Class XFrmMenuPrincipal
         Me.BtnPartidos = New DevExpress.XtraBars.BarButtonItem
         Me.BtnMunicipio = New DevExpress.XtraBars.BarButtonItem
         Me.BtnDepartamento = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnCargos = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnNivelesElectivos = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnIncompatibilidades = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnCenso = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnParametros = New DevExpress.XtraBars.BarButtonItem
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage
@@ -43,9 +48,9 @@ Partial Class XFrmMenuPrincipal
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ExpandCollapseItem.Name = ""
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnIncompatibilidades, Me.BtnCenso, Me.BtnParametros})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 5
+        Me.RibbonControl.MaxItemId = 12
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5, Me.RibbonPage6})
         Me.RibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010
@@ -55,32 +60,66 @@ Partial Class XFrmMenuPrincipal
         'BtnMovimeintos
         '
         Me.BtnMovimeintos.Caption = "Movimientos"
-        Me.BtnMovimeintos.Glyph = Global.Inscripcion_de_Moviemiento.My.Resources.Resources.movimientos
+        Me.BtnMovimeintos.Glyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.movimientos
         Me.BtnMovimeintos.Id = 1
-        Me.BtnMovimeintos.LargeGlyph = Global.Inscripcion_de_Moviemiento.My.Resources.Resources.movimientos
+        Me.BtnMovimeintos.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.movimientos
         Me.BtnMovimeintos.Name = "BtnMovimeintos"
         '
         'BtnPartidos
         '
         Me.BtnPartidos.Caption = "Partidos Políticos"
-        Me.BtnPartidos.Glyph = Global.Inscripcion_de_Moviemiento.My.Resources.Resources.partidos
+        Me.BtnPartidos.Glyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.partidos
         Me.BtnPartidos.Id = 2
-        Me.BtnPartidos.LargeGlyph = Global.Inscripcion_de_Moviemiento.My.Resources.Resources.partidos
+        Me.BtnPartidos.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.partidos
         Me.BtnPartidos.Name = "BtnPartidos"
         '
         'BtnMunicipio
         '
         Me.BtnMunicipio.Caption = "Municipio"
         Me.BtnMunicipio.Id = 3
-        Me.BtnMunicipio.LargeGlyph = Global.Inscripcion_de_Moviemiento.My.Resources.Resources.municipios
+        Me.BtnMunicipio.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.municipios
         Me.BtnMunicipio.Name = "BtnMunicipio"
         '
         'BtnDepartamento
         '
         Me.BtnDepartamento.Caption = "Departamento"
         Me.BtnDepartamento.Id = 4
-        Me.BtnDepartamento.LargeGlyph = Global.Inscripcion_de_Moviemiento.My.Resources.Resources.departamento
+        Me.BtnDepartamento.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.departamento
         Me.BtnDepartamento.Name = "BtnDepartamento"
+        '
+        'BtnCargos
+        '
+        Me.BtnCargos.Caption = "Cargos Electivos"
+        Me.BtnCargos.Id = 5
+        Me.BtnCargos.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.cargos
+        Me.BtnCargos.Name = "BtnCargos"
+        '
+        'BtnNivelesElectivos
+        '
+        Me.BtnNivelesElectivos.Caption = "Niveles Electivos"
+        Me.BtnNivelesElectivos.Id = 6
+        Me.BtnNivelesElectivos.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.nivelesElectivos
+        Me.BtnNivelesElectivos.Name = "BtnNivelesElectivos"
+        '
+        'BtnIncompatibilidades
+        '
+        Me.BtnIncompatibilidades.Caption = "Incompatibilidades"
+        Me.BtnIncompatibilidades.Id = 7
+        Me.BtnIncompatibilidades.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.incompatibilidades
+        Me.BtnIncompatibilidades.Name = "BtnIncompatibilidades"
+        '
+        'BtnCenso
+        '
+        Me.BtnCenso.Caption = "Censo"
+        Me.BtnCenso.Id = 8
+        Me.BtnCenso.Name = "BtnCenso"
+        '
+        'BtnParametros
+        '
+        Me.BtnParametros.Caption = "Parámetros"
+        Me.BtnParametros.Id = 9
+        Me.BtnParametros.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.parametros
+        Me.BtnParametros.Name = "BtnParametros"
         '
         'RibbonPage1
         '
@@ -90,12 +129,16 @@ Partial Class XFrmMenuPrincipal
         '
         'RibbonPageGroup1
         '
+        Me.RibbonPageGroup1.ItemLinks.Add(Me.BtnParametros)
+        Me.RibbonPageGroup1.ItemLinks.Add(Me.BtnIncompatibilidades)
+        Me.RibbonPageGroup1.ItemLinks.Add(Me.BtnNivelesElectivos)
+        Me.RibbonPageGroup1.ItemLinks.Add(Me.BtnCargos)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.BtnPartidos)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.BtnMovimeintos)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.BtnMunicipio)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.BtnDepartamento)
         Me.RibbonPageGroup1.Name = "RibbonPageGroup1"
-        Me.RibbonPageGroup1.Text = "RibbonPageGroup1"
+        Me.RibbonPageGroup1.Text = "Acciones"
         '
         'RibbonPage2
         '
@@ -170,6 +213,11 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents BtnMunicipio As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BtnDepartamento As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents XtraTabbedMdiManager1 As DevExpress.XtraTabbedMdi.XtraTabbedMdiManager
+    Friend WithEvents BtnCargos As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnNivelesElectivos As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnIncompatibilidades As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnCenso As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnParametros As DevExpress.XtraBars.BarButtonItem
 
 
 End Class
