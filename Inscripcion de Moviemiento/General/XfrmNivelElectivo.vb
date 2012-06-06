@@ -7,14 +7,14 @@
     End Sub
 
     Sub guardar()
-        Me.Validate()
+
         Me.IMNIVELELECTIVOBindingSource.EndEdit()
         Me.IM_NIVEL_ELECTIVOTableAdapter.Update(Me.DataSet1.IM_NIVEL_ELECTIVO)
 
     End Sub
 
     Sub nuevo()
-        Me.Validate()
+
         Me.IMNIVELELECTIVOBindingSource.CancelEdit()
         Me.IMNIVELELECTIVOBindingSource.AddNew()
         Me.GCNivelElectivo.Enabled = False
@@ -31,5 +31,11 @@
 
     Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
 
+    End Sub
+
+    Private Sub BtnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnCancelar.Click
+        Me.IMNIVELELECTIVOBindingSource.CancelEdit()
+
+        Me.GCNivelElectivo.Enabled = True
     End Sub
 End Class
