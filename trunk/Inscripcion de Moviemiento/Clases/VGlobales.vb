@@ -1,3 +1,3 @@
 ﻿Module VGlobales
-    Public usuario As Integer
+    Public usuario As Integer = 1
 End Module

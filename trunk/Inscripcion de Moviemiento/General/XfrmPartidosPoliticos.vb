@@ -40,7 +40,7 @@
             Me.IM_PARTIDOS_POLITICOSTableAdapter.Update(Me.DataSet1.IM_PARTIDOS_POLITICOS)
 
             'ACTUALIZANDO EL GRID DE BUSQUEDA Y EDICION
-            ActualizarGrid()
+
         Catch ex As Exception
             'CONTROL DE ERRORES
             Mensajes.MensajeError(ex.Message)
