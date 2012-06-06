@@ -326,12 +326,12 @@ Partial Class XfrmDepartamentos
         'CODIGO_DEPARTAMENTOSpinEdit
         '
         Me.CODIGO_DEPARTAMENTOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMDEPARTAMENTOSBindingSource, "CODIGO_DEPARTAMENTO", True))
-        Me.CODIGO_DEPARTAMENTOSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
         Me.CODIGO_DEPARTAMENTOSpinEdit.Location = New System.Drawing.Point(144, 12)
         Me.CODIGO_DEPARTAMENTOSpinEdit.Name = "CODIGO_DEPARTAMENTOSpinEdit"
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.Mask.EditMask = "00"
-        Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple
+        Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.MaxLength = 2
         Me.CODIGO_DEPARTAMENTOSpinEdit.Size = New System.Drawing.Size(366, 20)
         Me.CODIGO_DEPARTAMENTOSpinEdit.StyleController = Me.DataLayoutControl2
         Me.CODIGO_DEPARTAMENTOSpinEdit.TabIndex = 4
@@ -343,8 +343,6 @@ Partial Class XfrmDepartamentos
         Me.CANTIDAD_DIPUTADOSSpinEdit.Location = New System.Drawing.Point(144, 60)
         Me.CANTIDAD_DIPUTADOSSpinEdit.Name = "CANTIDAD_DIPUTADOSSpinEdit"
         Me.CANTIDAD_DIPUTADOSSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
-        Me.CANTIDAD_DIPUTADOSSpinEdit.Properties.Mask.EditMask = "99"
-        Me.CANTIDAD_DIPUTADOSSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.CANTIDAD_DIPUTADOSSpinEdit.Size = New System.Drawing.Size(366, 20)
         Me.CANTIDAD_DIPUTADOSSpinEdit.StyleController = Me.DataLayoutControl2
         Me.CANTIDAD_DIPUTADOSSpinEdit.TabIndex = 6
