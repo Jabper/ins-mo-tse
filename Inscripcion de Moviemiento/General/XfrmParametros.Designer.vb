@@ -21,48 +21,48 @@ Partial Class XfrmParametros
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
+        Me.DataLayoutControl1 = New DevExpress.XtraDataLayout.DataLayoutControl
+        Me.PARTICIPACION_MUJER_PORCENSpinEdit = New DevExpress.XtraEditors.TextEdit
         Me.IMPARAMETROSGENERALESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataSet1 = New Inscripcion_de_Moviemientos.DataSet1
-        Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
-        Me.IM_PARAMETROS_GENERALESTableAdapter = New Inscripcion_de_Moviemientos.DataSet1TableAdapters.IM_PARAMETROS_GENERALESTableAdapter
-        Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem
-        Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
-        Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
-        Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.DataLayoutControl1 = New DevExpress.XtraDataLayout.DataLayoutControl
-        Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.Root = New DevExpress.XtraLayout.LayoutControlGroup
-        Me.ItemForPARTICIPACION_MUJER_PORCEN = New DevExpress.XtraLayout.LayoutControlItem
-        Me.LayoutControlGroup2 = New DevExpress.XtraLayout.LayoutControlGroup
-        Me.ItemForFORMULAS_DEPART_MIN = New DevExpress.XtraLayout.LayoutControlItem
-        Me.ItemForFORMULAS_MUNICIPIO_MIN = New DevExpress.XtraLayout.LayoutControlItem
-        Me.ItemForFIRMAS_REPETIDAS_PORCEN = New DevExpress.XtraLayout.LayoutControlItem
-        Me.PARTICIPACION_MUJER_PORCENSpinEdit = New DevExpress.XtraEditors.TextEdit
         Me.FORMULAS_DEPART_MINSpinEdit = New DevExpress.XtraEditors.TextEdit
         Me.FORMULAS_MUNICIPIO_MINSpinEdit = New DevExpress.XtraEditors.TextEdit
         Me.FIRMAS_REPETIDAS_PORCENSpinEdit = New DevExpress.XtraEditors.TextEdit
+        Me.Root = New DevExpress.XtraLayout.LayoutControlGroup
+        Me.LayoutControlGroup2 = New DevExpress.XtraLayout.LayoutControlGroup
+        Me.ItemForPARTICIPACION_MUJER_PORCEN = New DevExpress.XtraLayout.LayoutControlItem
+        Me.ItemForFORMULAS_DEPART_MIN = New DevExpress.XtraLayout.LayoutControlItem
+        Me.ItemForFORMULAS_MUNICIPIO_MIN = New DevExpress.XtraLayout.LayoutControlItem
+        Me.ItemForFIRMAS_REPETIDAS_PORCEN = New DevExpress.XtraLayout.LayoutControlItem
+        Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
+        Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
+        Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
+        Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem
+        Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.IM_PARAMETROS_GENERALESTableAdapter = New Inscripcion_de_Moviemientos.DataSet1TableAdapters.IM_PARAMETROS_GENERALESTableAdapter
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
-        CType(Me.IMPARAMETROSGENERALESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelControl1.SuspendLayout()
-        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DataLayoutControl1.SuspendLayout()
-        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Root, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ItemForPARTICIPACION_MUJER_PORCEN, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ItemForFORMULAS_DEPART_MIN, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ItemForFORMULAS_MUNICIPIO_MIN, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ItemForFIRMAS_REPETIDAS_PORCEN, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PARTICIPACION_MUJER_PORCENSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMPARAMETROSGENERALESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FORMULAS_DEPART_MINSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FORMULAS_MUNICIPIO_MINSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FIRMAS_REPETIDAS_PORCENSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Root, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ItemForPARTICIPACION_MUJER_PORCEN, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ItemForFORMULAS_DEPART_MIN, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ItemForFORMULAS_MUNICIPIO_MIN, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ItemForFIRMAS_REPETIDAS_PORCEN, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl1.SuspendLayout()
+        CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -78,78 +78,6 @@ Partial Class XfrmParametros
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
-        'IMPARAMETROSGENERALESBindingSource
-        '
-        Me.IMPARAMETROSGENERALESBindingSource.DataMember = "IM_PARAMETROS_GENERALES"
-        Me.IMPARAMETROSGENERALESBindingSource.DataSource = Me.DataSet1
-        '
-        'DataSet1
-        '
-        Me.DataSet1.DataSetName = "DataSet1"
-        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'LayoutControlGroup1
-        '
-        Me.LayoutControlGroup1.CustomizationFormText = "LayoutControlGroup1"
-        Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
-        Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.EmptySpaceItem1, Me.LayoutControlItem1, Me.LayoutControlItem2})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(657, 327)
-        Me.LayoutControlGroup1.Text = "Root"
-        Me.LayoutControlGroup1.TextVisible = False
-        '
-        'IM_PARAMETROS_GENERALESTableAdapter
-        '
-        Me.IM_PARAMETROS_GENERALESTableAdapter.ClearBeforeFill = True
-        '
-        'EmptySpaceItem1
-        '
-        Me.EmptySpaceItem1.AllowHotTrack = False
-        Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 186)
-        Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(637, 121)
-        Me.EmptySpaceItem1.Text = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
-        '
-        'PanelControl1
-        '
-        Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PanelControl1.Controls.Add(Me.BtnGuardar)
-        Me.PanelControl1.Location = New System.Drawing.Point(12, 12)
-        Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(632, 61)
-        Me.PanelControl1.TabIndex = 6
-        '
-        'BtnGuardar
-        '
-        Me.BtnGuardar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnGuardar.Appearance.Options.UseFont = True
-        Me.BtnGuardar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.guardar1
-        Me.BtnGuardar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnGuardar.Location = New System.Drawing.Point(3, 1)
-        Me.BtnGuardar.Name = "BtnGuardar"
-        Me.BtnGuardar.Size = New System.Drawing.Size(55, 55)
-        Me.BtnGuardar.TabIndex = 1
-        Me.BtnGuardar.Text = "Guardar"
-        '
-        'LayoutControlItem1
-        '
-        Me.LayoutControlItem1.Control = Me.PanelControl1
-        Me.LayoutControlItem1.CustomizationFormText = "LayoutControlItem1"
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(636, 65)
-        Me.LayoutControlItem1.MinSize = New System.Drawing.Size(636, 65)
-        Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(637, 65)
-        Me.LayoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.LayoutControlItem1.Text = "LayoutControlItem1"
-        Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem1.TextToControlDistance = 0
-        Me.LayoutControlItem1.TextVisible = False
-        '
         'DataLayoutControl1
         '
         Me.DataLayoutControl1.Controls.Add(Me.PARTICIPACION_MUJER_PORCENSpinEdit)
@@ -164,84 +92,6 @@ Partial Class XfrmParametros
         Me.DataLayoutControl1.TabIndex = 7
         Me.DataLayoutControl1.Text = "DataLayoutControl1"
         '
-        'LayoutControlItem2
-        '
-        Me.LayoutControlItem2.Control = Me.DataLayoutControl1
-        Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 65)
-        Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(637, 121)
-        Me.LayoutControlItem2.MinSize = New System.Drawing.Size(637, 121)
-        Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(637, 121)
-        Me.LayoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.LayoutControlItem2.Text = "LayoutControlItem2"
-        Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem2.TextToControlDistance = 0
-        Me.LayoutControlItem2.TextVisible = False
-        '
-        'Root
-        '
-        Me.Root.CustomizationFormText = "Root"
-        Me.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
-        Me.Root.GroupBordersVisible = False
-        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup2})
-        Me.Root.Location = New System.Drawing.Point(0, 0)
-        Me.Root.Name = "Root"
-        Me.Root.Size = New System.Drawing.Size(633, 117)
-        Me.Root.Text = "Root"
-        Me.Root.TextVisible = False
-        '
-        'ItemForPARTICIPACION_MUJER_PORCEN
-        '
-        Me.ItemForPARTICIPACION_MUJER_PORCEN.Control = Me.PARTICIPACION_MUJER_PORCENSpinEdit
-        Me.ItemForPARTICIPACION_MUJER_PORCEN.CustomizationFormText = "Porcentaje de Participación Femenina"
-        Me.ItemForPARTICIPACION_MUJER_PORCEN.Location = New System.Drawing.Point(0, 0)
-        Me.ItemForPARTICIPACION_MUJER_PORCEN.Name = "ItemForPARTICIPACION_MUJER_PORCEN"
-        Me.ItemForPARTICIPACION_MUJER_PORCEN.Size = New System.Drawing.Size(613, 24)
-        Me.ItemForPARTICIPACION_MUJER_PORCEN.Text = "Porcentaje de Participación Femenina"
-        Me.ItemForPARTICIPACION_MUJER_PORCEN.TextSize = New System.Drawing.Size(179, 13)
-        '
-        'LayoutControlGroup2
-        '
-        Me.LayoutControlGroup2.AllowDrawBackground = False
-        Me.LayoutControlGroup2.CustomizationFormText = "autoGeneratedGroup0"
-        Me.LayoutControlGroup2.GroupBordersVisible = False
-        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForPARTICIPACION_MUJER_PORCEN, Me.ItemForFORMULAS_DEPART_MIN, Me.ItemForFORMULAS_MUNICIPIO_MIN, Me.ItemForFIRMAS_REPETIDAS_PORCEN})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlGroup2.Name = "autoGeneratedGroup0"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(613, 97)
-        Me.LayoutControlGroup2.Text = "autoGeneratedGroup0"
-        '
-        'ItemForFORMULAS_DEPART_MIN
-        '
-        Me.ItemForFORMULAS_DEPART_MIN.Control = Me.FORMULAS_DEPART_MINSpinEdit
-        Me.ItemForFORMULAS_DEPART_MIN.CustomizationFormText = "FORMULAS_DEPART_MIN"
-        Me.ItemForFORMULAS_DEPART_MIN.Location = New System.Drawing.Point(0, 24)
-        Me.ItemForFORMULAS_DEPART_MIN.Name = "ItemForFORMULAS_DEPART_MIN"
-        Me.ItemForFORMULAS_DEPART_MIN.Size = New System.Drawing.Size(613, 24)
-        Me.ItemForFORMULAS_DEPART_MIN.Text = "FORMULAS_DEPART_MIN"
-        Me.ItemForFORMULAS_DEPART_MIN.TextSize = New System.Drawing.Size(179, 13)
-        '
-        'ItemForFORMULAS_MUNICIPIO_MIN
-        '
-        Me.ItemForFORMULAS_MUNICIPIO_MIN.Control = Me.FORMULAS_MUNICIPIO_MINSpinEdit
-        Me.ItemForFORMULAS_MUNICIPIO_MIN.CustomizationFormText = "FORMULAS_MUNICIPIO_MIN"
-        Me.ItemForFORMULAS_MUNICIPIO_MIN.Location = New System.Drawing.Point(0, 48)
-        Me.ItemForFORMULAS_MUNICIPIO_MIN.Name = "ItemForFORMULAS_MUNICIPIO_MIN"
-        Me.ItemForFORMULAS_MUNICIPIO_MIN.Size = New System.Drawing.Size(613, 24)
-        Me.ItemForFORMULAS_MUNICIPIO_MIN.Text = "FORMULAS_MUNICIPIO_MIN"
-        Me.ItemForFORMULAS_MUNICIPIO_MIN.TextSize = New System.Drawing.Size(179, 13)
-        '
-        'ItemForFIRMAS_REPETIDAS_PORCEN
-        '
-        Me.ItemForFIRMAS_REPETIDAS_PORCEN.Control = Me.FIRMAS_REPETIDAS_PORCENSpinEdit
-        Me.ItemForFIRMAS_REPETIDAS_PORCEN.CustomizationFormText = "Porcentaje de Firmas Repetidas"
-        Me.ItemForFIRMAS_REPETIDAS_PORCEN.Location = New System.Drawing.Point(0, 72)
-        Me.ItemForFIRMAS_REPETIDAS_PORCEN.Name = "ItemForFIRMAS_REPETIDAS_PORCEN"
-        Me.ItemForFIRMAS_REPETIDAS_PORCEN.Size = New System.Drawing.Size(613, 25)
-        Me.ItemForFIRMAS_REPETIDAS_PORCEN.Text = "Porcentaje de Firmas Repetidas"
-        Me.ItemForFIRMAS_REPETIDAS_PORCEN.TextSize = New System.Drawing.Size(179, 13)
-        '
         'PARTICIPACION_MUJER_PORCENSpinEdit
         '
         Me.PARTICIPACION_MUJER_PORCENSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMPARAMETROSGENERALESBindingSource, "PARTICIPACION_MUJER_PORCEN", True))
@@ -253,6 +103,16 @@ Partial Class XfrmParametros
         Me.PARTICIPACION_MUJER_PORCENSpinEdit.Size = New System.Drawing.Size(426, 20)
         Me.PARTICIPACION_MUJER_PORCENSpinEdit.StyleController = Me.DataLayoutControl1
         Me.PARTICIPACION_MUJER_PORCENSpinEdit.TabIndex = 4
+        '
+        'IMPARAMETROSGENERALESBindingSource
+        '
+        Me.IMPARAMETROSGENERALESBindingSource.DataMember = "IM_PARAMETROS_GENERALES"
+        Me.IMPARAMETROSGENERALESBindingSource.DataSource = Me.DataSet1
+        '
+        'DataSet1
+        '
+        Me.DataSet1.DataSetName = "DataSet1"
+        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'FORMULAS_DEPART_MINSpinEdit
         '
@@ -290,6 +150,146 @@ Partial Class XfrmParametros
         Me.FIRMAS_REPETIDAS_PORCENSpinEdit.StyleController = Me.DataLayoutControl1
         Me.FIRMAS_REPETIDAS_PORCENSpinEdit.TabIndex = 7
         '
+        'Root
+        '
+        Me.Root.CustomizationFormText = "Root"
+        Me.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
+        Me.Root.GroupBordersVisible = False
+        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup2})
+        Me.Root.Location = New System.Drawing.Point(0, 0)
+        Me.Root.Name = "Root"
+        Me.Root.Size = New System.Drawing.Size(633, 117)
+        Me.Root.Text = "Root"
+        Me.Root.TextVisible = False
+        '
+        'LayoutControlGroup2
+        '
+        Me.LayoutControlGroup2.AllowDrawBackground = False
+        Me.LayoutControlGroup2.CustomizationFormText = "autoGeneratedGroup0"
+        Me.LayoutControlGroup2.GroupBordersVisible = False
+        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForPARTICIPACION_MUJER_PORCEN, Me.ItemForFORMULAS_DEPART_MIN, Me.ItemForFORMULAS_MUNICIPIO_MIN, Me.ItemForFIRMAS_REPETIDAS_PORCEN})
+        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlGroup2.Name = "autoGeneratedGroup0"
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(613, 97)
+        Me.LayoutControlGroup2.Text = "autoGeneratedGroup0"
+        '
+        'ItemForPARTICIPACION_MUJER_PORCEN
+        '
+        Me.ItemForPARTICIPACION_MUJER_PORCEN.Control = Me.PARTICIPACION_MUJER_PORCENSpinEdit
+        Me.ItemForPARTICIPACION_MUJER_PORCEN.CustomizationFormText = "Porcentaje de Participación Femenina"
+        Me.ItemForPARTICIPACION_MUJER_PORCEN.Location = New System.Drawing.Point(0, 0)
+        Me.ItemForPARTICIPACION_MUJER_PORCEN.Name = "ItemForPARTICIPACION_MUJER_PORCEN"
+        Me.ItemForPARTICIPACION_MUJER_PORCEN.Size = New System.Drawing.Size(613, 24)
+        Me.ItemForPARTICIPACION_MUJER_PORCEN.Text = "Porcentaje de Participación Femenina"
+        Me.ItemForPARTICIPACION_MUJER_PORCEN.TextSize = New System.Drawing.Size(179, 13)
+        '
+        'ItemForFORMULAS_DEPART_MIN
+        '
+        Me.ItemForFORMULAS_DEPART_MIN.Control = Me.FORMULAS_DEPART_MINSpinEdit
+        Me.ItemForFORMULAS_DEPART_MIN.CustomizationFormText = "FORMULAS_DEPART_MIN"
+        Me.ItemForFORMULAS_DEPART_MIN.Location = New System.Drawing.Point(0, 24)
+        Me.ItemForFORMULAS_DEPART_MIN.Name = "ItemForFORMULAS_DEPART_MIN"
+        Me.ItemForFORMULAS_DEPART_MIN.Size = New System.Drawing.Size(613, 24)
+        Me.ItemForFORMULAS_DEPART_MIN.Text = "FORMULAS_DEPART_MIN"
+        Me.ItemForFORMULAS_DEPART_MIN.TextSize = New System.Drawing.Size(179, 13)
+        '
+        'ItemForFORMULAS_MUNICIPIO_MIN
+        '
+        Me.ItemForFORMULAS_MUNICIPIO_MIN.Control = Me.FORMULAS_MUNICIPIO_MINSpinEdit
+        Me.ItemForFORMULAS_MUNICIPIO_MIN.CustomizationFormText = "FORMULAS_MUNICIPIO_MIN"
+        Me.ItemForFORMULAS_MUNICIPIO_MIN.Location = New System.Drawing.Point(0, 48)
+        Me.ItemForFORMULAS_MUNICIPIO_MIN.Name = "ItemForFORMULAS_MUNICIPIO_MIN"
+        Me.ItemForFORMULAS_MUNICIPIO_MIN.Size = New System.Drawing.Size(613, 24)
+        Me.ItemForFORMULAS_MUNICIPIO_MIN.Text = "FORMULAS_MUNICIPIO_MIN"
+        Me.ItemForFORMULAS_MUNICIPIO_MIN.TextSize = New System.Drawing.Size(179, 13)
+        '
+        'ItemForFIRMAS_REPETIDAS_PORCEN
+        '
+        Me.ItemForFIRMAS_REPETIDAS_PORCEN.Control = Me.FIRMAS_REPETIDAS_PORCENSpinEdit
+        Me.ItemForFIRMAS_REPETIDAS_PORCEN.CustomizationFormText = "Porcentaje de Firmas Repetidas"
+        Me.ItemForFIRMAS_REPETIDAS_PORCEN.Location = New System.Drawing.Point(0, 72)
+        Me.ItemForFIRMAS_REPETIDAS_PORCEN.Name = "ItemForFIRMAS_REPETIDAS_PORCEN"
+        Me.ItemForFIRMAS_REPETIDAS_PORCEN.Size = New System.Drawing.Size(613, 25)
+        Me.ItemForFIRMAS_REPETIDAS_PORCEN.Text = "Porcentaje de Firmas Repetidas"
+        Me.ItemForFIRMAS_REPETIDAS_PORCEN.TextSize = New System.Drawing.Size(179, 13)
+        '
+        'PanelControl1
+        '
+        Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl1.Controls.Add(Me.BtnGuardar)
+        Me.PanelControl1.Location = New System.Drawing.Point(12, 12)
+        Me.PanelControl1.Name = "PanelControl1"
+        Me.PanelControl1.Size = New System.Drawing.Size(632, 61)
+        Me.PanelControl1.TabIndex = 6
+        '
+        'BtnGuardar
+        '
+        Me.BtnGuardar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnGuardar.Appearance.Options.UseFont = True
+        Me.BtnGuardar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.guardar1
+        Me.BtnGuardar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnGuardar.Location = New System.Drawing.Point(3, 1)
+        Me.BtnGuardar.Name = "BtnGuardar"
+        Me.BtnGuardar.Size = New System.Drawing.Size(55, 55)
+        Me.BtnGuardar.TabIndex = 1
+        Me.BtnGuardar.Text = "Guardar"
+        '
+        'LayoutControlGroup1
+        '
+        Me.LayoutControlGroup1.CustomizationFormText = "LayoutControlGroup1"
+        Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
+        Me.LayoutControlGroup1.GroupBordersVisible = False
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.EmptySpaceItem1, Me.LayoutControlItem1, Me.LayoutControlItem2})
+        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlGroup1.Name = "Root"
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(657, 327)
+        Me.LayoutControlGroup1.Text = "Root"
+        Me.LayoutControlGroup1.TextVisible = False
+        '
+        'EmptySpaceItem1
+        '
+        Me.EmptySpaceItem1.AllowHotTrack = False
+        Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 186)
+        Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(637, 121)
+        Me.EmptySpaceItem1.Text = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'LayoutControlItem1
+        '
+        Me.LayoutControlItem1.Control = Me.PanelControl1
+        Me.LayoutControlItem1.CustomizationFormText = "LayoutControlItem1"
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(636, 65)
+        Me.LayoutControlItem1.MinSize = New System.Drawing.Size(636, 65)
+        Me.LayoutControlItem1.Name = "LayoutControlItem1"
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(637, 65)
+        Me.LayoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem1.Text = "LayoutControlItem1"
+        Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem1.TextToControlDistance = 0
+        Me.LayoutControlItem1.TextVisible = False
+        '
+        'LayoutControlItem2
+        '
+        Me.LayoutControlItem2.Control = Me.DataLayoutControl1
+        Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 65)
+        Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(637, 121)
+        Me.LayoutControlItem2.MinSize = New System.Drawing.Size(637, 121)
+        Me.LayoutControlItem2.Name = "LayoutControlItem2"
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(637, 121)
+        Me.LayoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem2.Text = "LayoutControlItem2"
+        Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem2.TextToControlDistance = 0
+        Me.LayoutControlItem2.TextVisible = False
+        '
+        'IM_PARAMETROS_GENERALESTableAdapter
+        '
+        Me.IM_PARAMETROS_GENERALESTableAdapter.ClearBeforeFill = True
+        '
         'XfrmParametros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -300,26 +300,26 @@ Partial Class XfrmParametros
         Me.Text = "Parámetros"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
-        CType(Me.IMPARAMETROSGENERALESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanelControl1.ResumeLayout(False)
-        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DataLayoutControl1.ResumeLayout(False)
-        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Root, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ItemForPARTICIPACION_MUJER_PORCEN, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ItemForFORMULAS_DEPART_MIN, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ItemForFORMULAS_MUNICIPIO_MIN, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ItemForFIRMAS_REPETIDAS_PORCEN, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PARTICIPACION_MUJER_PORCENSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMPARAMETROSGENERALESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FORMULAS_DEPART_MINSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FORMULAS_MUNICIPIO_MINSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FIRMAS_REPETIDAS_PORCENSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Root, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ItemForPARTICIPACION_MUJER_PORCEN, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ItemForFORMULAS_DEPART_MIN, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ItemForFORMULAS_MUNICIPIO_MIN, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ItemForFIRMAS_REPETIDAS_PORCEN, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl1.ResumeLayout(False)
+        CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
