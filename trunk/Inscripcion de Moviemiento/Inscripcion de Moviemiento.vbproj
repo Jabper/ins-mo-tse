@@ -99,6 +99,7 @@
     <Compile Include="Clases\Mensajes.vb" />
     <Compile Include="Clases\OCN.vb" />
     <Compile Include="Clases\VControles.vb" />
+    <Compile Include="Clases\VGlobales.vb" />
     <Compile Include="DataSet1.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -21,7 +21,7 @@
     End Sub
     Sub guardar()
 
-        Dim usuario As Integer = 2
+
 
         Try
             Me.IMMUNICIPIOSBindingSource.EndEdit()
