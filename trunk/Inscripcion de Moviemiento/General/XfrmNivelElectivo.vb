@@ -7,10 +7,37 @@
     End Sub
 
     Sub guardar()
+        Dim usuario As Integer = 2
 
-        Me.IMNIVELELECTIVOBindingSource.EndEdit()
-        Me.IM_NIVEL_ELECTIVOTableAdapter.Update(Me.DataSet1.IM_NIVEL_ELECTIVO)
 
+        Try
+            Me.IMNIVELELECTIVOBindingSource.EndEdit()
+            'AGREGAR INFORMACION DE AUDITORIA (MODIFICA EL REGISTRO ANTES DE AGREGARLO A LA BASE )
+            For Each _datar As DataSet1.IM_NIVEL_ELECTIVORow In DataSet1.IM_NIVEL_ELECTIVO
+                'SI ES UN NUEVO REGITRO
+                If _datar.RowState = DataRowState.Added Then
+                    _datar.ADICIONADO_POR = usuario
+                    _datar.FECHA_ADICION = DateTime.Now
+                    'SI EL REGISTRO SE MODIFICA
+                ElseIf _datar.RowState = DataRowState.Modified Then
+                    _datar.MODIFICADO_POR = usuario
+                    _datar.FECHA_MODIFICACION = DateTime.Now
+
+
+                End If
+            Next
+
+            Me.IM_NIVEL_ELECTIVOTableAdapter.Update(Me.DataSet1.IM_NIVEL_ELECTIVO)
+        Catch ex As Exception
+            'CONTROL DE ERRORES
+            Mensajes.MensajeError(ex.Message)
+        End Try
+       
+
+
+
+
+        
     End Sub
 
     Sub nuevo()
