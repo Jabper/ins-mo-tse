@@ -265,9 +265,9 @@ Partial Class Municipios
         'TextEdit1
         '
         Me.TextEdit1.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMUNICIPIOSBindingSource, "DESCRIPCION", True))
-        Me.TextEdit1.Location = New System.Drawing.Point(144, 36)
+        Me.TextEdit1.Location = New System.Drawing.Point(125, 36)
         Me.TextEdit1.Name = "TextEdit1"
-        Me.TextEdit1.Size = New System.Drawing.Size(426, 20)
+        Me.TextEdit1.Size = New System.Drawing.Size(445, 20)
         Me.TextEdit1.StyleController = Me.DataLayoutControl1
         Me.TextEdit1.TabIndex = 11
         '
@@ -326,7 +326,7 @@ Partial Class Municipios
         '
         Me.CODIGO_DEPARTAMENTOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMUNICIPIOSBindingSource, "CODIGO_DEPARTAMENTO", True))
         Me.CODIGO_DEPARTAMENTOSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CODIGO_DEPARTAMENTOSpinEdit.Location = New System.Drawing.Point(144, 60)
+        Me.CODIGO_DEPARTAMENTOSpinEdit.Location = New System.Drawing.Point(125, 60)
         Me.CODIGO_DEPARTAMENTOSpinEdit.Name = "CODIGO_DEPARTAMENTOSpinEdit"
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_DEPARTAMENTO", "CODIGO_DEPARTAMENTO", 151, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
@@ -335,7 +335,7 @@ Partial Class Municipios
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.NullText = ""
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.ValueMember = "CODIGO_DEPARTAMENTO"
-        Me.CODIGO_DEPARTAMENTOSpinEdit.Size = New System.Drawing.Size(426, 20)
+        Me.CODIGO_DEPARTAMENTOSpinEdit.Size = New System.Drawing.Size(445, 20)
         Me.CODIGO_DEPARTAMENTOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_DEPARTAMENTOSpinEdit.TabIndex = 9
         '
@@ -347,12 +347,12 @@ Partial Class Municipios
         'CODIGO_MUNICIPIOSpinEdit
         '
         Me.CODIGO_MUNICIPIOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMUNICIPIOSBindingSource, "CODIGO_MUNICIPIO", True))
-        Me.CODIGO_MUNICIPIOSpinEdit.Location = New System.Drawing.Point(144, 12)
+        Me.CODIGO_MUNICIPIOSpinEdit.Location = New System.Drawing.Point(125, 12)
         Me.CODIGO_MUNICIPIOSpinEdit.Name = "CODIGO_MUNICIPIOSpinEdit"
         Me.CODIGO_MUNICIPIOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CODIGO_MUNICIPIOSpinEdit.Properties.Mask.EditMask = "00"
         Me.CODIGO_MUNICIPIOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple
-        Me.CODIGO_MUNICIPIOSpinEdit.Size = New System.Drawing.Size(426, 20)
+        Me.CODIGO_MUNICIPIOSpinEdit.Size = New System.Drawing.Size(445, 20)
         Me.CODIGO_MUNICIPIOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_MUNICIPIOSpinEdit.TabIndex = 8
         '
@@ -360,11 +360,11 @@ Partial Class Municipios
         '
         Me.CANTIDAD_REGIDORESSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMUNICIPIOSBindingSource, "CANTIDAD_REGIDORES", True))
         Me.CANTIDAD_REGIDORESSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CANTIDAD_REGIDORESSpinEdit.Location = New System.Drawing.Point(144, 84)
+        Me.CANTIDAD_REGIDORESSpinEdit.Location = New System.Drawing.Point(125, 84)
         Me.CANTIDAD_REGIDORESSpinEdit.Name = "CANTIDAD_REGIDORESSpinEdit"
         Me.CANTIDAD_REGIDORESSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CANTIDAD_REGIDORESSpinEdit.Properties.Mask.BeepOnError = True
-        Me.CANTIDAD_REGIDORESSpinEdit.Size = New System.Drawing.Size(426, 20)
+        Me.CANTIDAD_REGIDORESSpinEdit.Size = New System.Drawing.Size(445, 20)
         Me.CANTIDAD_REGIDORESSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CANTIDAD_REGIDORESSpinEdit.TabIndex = 10
         '
@@ -442,8 +442,8 @@ Partial Class Municipios
         Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 48)
         Me.LayoutControlItem6.Name = "ItemForCODIGO_DEPARTAMENTO"
         Me.LayoutControlItem6.Size = New System.Drawing.Size(562, 24)
-        Me.LayoutControlItem6.Text = "CODIGO_DEPARTAMENTO"
-        Me.LayoutControlItem6.TextSize = New System.Drawing.Size(128, 13)
+        Me.LayoutControlItem6.Text = "Departamento"
+        Me.LayoutControlItem6.TextSize = New System.Drawing.Size(109, 13)
         '
         'LayoutControlItem7
         '
@@ -452,8 +452,8 @@ Partial Class Municipios
         Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 72)
         Me.LayoutControlItem7.Name = "ItemForCANTIDAD_REGIDORES"
         Me.LayoutControlItem7.Size = New System.Drawing.Size(562, 44)
-        Me.LayoutControlItem7.Text = "CANTIDAD_REGIDORES"
-        Me.LayoutControlItem7.TextSize = New System.Drawing.Size(128, 13)
+        Me.LayoutControlItem7.Text = "Cantidad de Regidores"
+        Me.LayoutControlItem7.TextSize = New System.Drawing.Size(109, 13)
         '
         'LayoutControlItem8
         '
@@ -462,8 +462,8 @@ Partial Class Municipios
         Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 24)
         Me.LayoutControlItem8.Name = "ItemForDESCRIPCION"
         Me.LayoutControlItem8.Size = New System.Drawing.Size(562, 24)
-        Me.LayoutControlItem8.Text = "DESCRIPCION"
-        Me.LayoutControlItem8.TextSize = New System.Drawing.Size(128, 13)
+        Me.LayoutControlItem8.Text = "Descripción"
+        Me.LayoutControlItem8.TextSize = New System.Drawing.Size(109, 13)
         '
         'LayoutControlItem5
         '
@@ -472,8 +472,8 @@ Partial Class Municipios
         Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem5.Name = "ItemForCODIGO_MUNICIPIO"
         Me.LayoutControlItem5.Size = New System.Drawing.Size(562, 24)
-        Me.LayoutControlItem5.Text = "CODIGO_MUNICIPIO"
-        Me.LayoutControlItem5.TextSize = New System.Drawing.Size(128, 13)
+        Me.LayoutControlItem5.Text = "Código Municipio"
+        Me.LayoutControlItem5.TextSize = New System.Drawing.Size(109, 13)
         '
         'LayoutControlGroup1
         '

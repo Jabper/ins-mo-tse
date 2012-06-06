@@ -212,6 +212,7 @@ Partial Class XfrmDepartamentos
         '
         'colCODIGO_DEPARTAMENTO
         '
+        Me.colCODIGO_DEPARTAMENTO.Caption = "Código Departamento"
         Me.colCODIGO_DEPARTAMENTO.FieldName = "CODIGO_DEPARTAMENTO"
         Me.colCODIGO_DEPARTAMENTO.Name = "colCODIGO_DEPARTAMENTO"
         Me.colCODIGO_DEPARTAMENTO.Visible = True
@@ -219,6 +220,7 @@ Partial Class XfrmDepartamentos
         '
         'colDESCRIPCION
         '
+        Me.colDESCRIPCION.Caption = "Descripción"
         Me.colDESCRIPCION.FieldName = "DESCRIPCION"
         Me.colDESCRIPCION.Name = "colDESCRIPCION"
         Me.colDESCRIPCION.Visible = True
@@ -226,6 +228,7 @@ Partial Class XfrmDepartamentos
         '
         'colCANTIDAD_DIPUTADOS
         '
+        Me.colCANTIDAD_DIPUTADOS.Caption = "Cantidad de Diputados"
         Me.colCANTIDAD_DIPUTADOS.FieldName = "CANTIDAD_DIPUTADOS"
         Me.colCANTIDAD_DIPUTADOS.Name = "colCANTIDAD_DIPUTADOS"
         Me.colCANTIDAD_DIPUTADOS.Visible = True
@@ -266,9 +269,9 @@ Partial Class XfrmDepartamentos
         'DESCRIPCIONTextEdit
         '
         Me.DESCRIPCIONTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMDEPARTAMENTOSBindingSource, "DESCRIPCION", True))
-        Me.DESCRIPCIONTextEdit.Location = New System.Drawing.Point(144, 36)
+        Me.DESCRIPCIONTextEdit.Location = New System.Drawing.Point(125, 36)
         Me.DESCRIPCIONTextEdit.Name = "DESCRIPCIONTextEdit"
-        Me.DESCRIPCIONTextEdit.Size = New System.Drawing.Size(366, 20)
+        Me.DESCRIPCIONTextEdit.Size = New System.Drawing.Size(385, 20)
         Me.DESCRIPCIONTextEdit.StyleController = Me.DataLayoutControl2
         Me.DESCRIPCIONTextEdit.TabIndex = 5
         '
@@ -326,13 +329,13 @@ Partial Class XfrmDepartamentos
         'CODIGO_DEPARTAMENTOSpinEdit
         '
         Me.CODIGO_DEPARTAMENTOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMDEPARTAMENTOSBindingSource, "CODIGO_DEPARTAMENTO", True))
-        Me.CODIGO_DEPARTAMENTOSpinEdit.Location = New System.Drawing.Point(144, 12)
+        Me.CODIGO_DEPARTAMENTOSpinEdit.Location = New System.Drawing.Point(125, 12)
         Me.CODIGO_DEPARTAMENTOSpinEdit.Name = "CODIGO_DEPARTAMENTOSpinEdit"
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.Mask.EditMask = "00"
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.MaxLength = 2
-        Me.CODIGO_DEPARTAMENTOSpinEdit.Size = New System.Drawing.Size(366, 20)
+        Me.CODIGO_DEPARTAMENTOSpinEdit.Size = New System.Drawing.Size(385, 20)
         Me.CODIGO_DEPARTAMENTOSpinEdit.StyleController = Me.DataLayoutControl2
         Me.CODIGO_DEPARTAMENTOSpinEdit.TabIndex = 4
         '
@@ -340,10 +343,10 @@ Partial Class XfrmDepartamentos
         '
         Me.CANTIDAD_DIPUTADOSSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMDEPARTAMENTOSBindingSource, "CANTIDAD_DIPUTADOS", True))
         Me.CANTIDAD_DIPUTADOSSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CANTIDAD_DIPUTADOSSpinEdit.Location = New System.Drawing.Point(144, 60)
+        Me.CANTIDAD_DIPUTADOSSpinEdit.Location = New System.Drawing.Point(125, 60)
         Me.CANTIDAD_DIPUTADOSSpinEdit.Name = "CANTIDAD_DIPUTADOSSpinEdit"
         Me.CANTIDAD_DIPUTADOSSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
-        Me.CANTIDAD_DIPUTADOSSpinEdit.Size = New System.Drawing.Size(366, 20)
+        Me.CANTIDAD_DIPUTADOSSpinEdit.Size = New System.Drawing.Size(385, 20)
         Me.CANTIDAD_DIPUTADOSSpinEdit.StyleController = Me.DataLayoutControl2
         Me.CANTIDAD_DIPUTADOSSpinEdit.TabIndex = 6
         '
@@ -421,8 +424,8 @@ Partial Class XfrmDepartamentos
         Me.ItemForCODIGO_DEPARTAMENTO.Location = New System.Drawing.Point(0, 0)
         Me.ItemForCODIGO_DEPARTAMENTO.Name = "ItemForCODIGO_DEPARTAMENTO"
         Me.ItemForCODIGO_DEPARTAMENTO.Size = New System.Drawing.Size(502, 24)
-        Me.ItemForCODIGO_DEPARTAMENTO.Text = "CODIGO_DEPARTAMENTO"
-        Me.ItemForCODIGO_DEPARTAMENTO.TextSize = New System.Drawing.Size(128, 13)
+        Me.ItemForCODIGO_DEPARTAMENTO.Text = "Código Departamento"
+        Me.ItemForCODIGO_DEPARTAMENTO.TextSize = New System.Drawing.Size(109, 13)
         '
         'ItemForDESCRIPCION
         '
@@ -431,8 +434,8 @@ Partial Class XfrmDepartamentos
         Me.ItemForDESCRIPCION.Location = New System.Drawing.Point(0, 24)
         Me.ItemForDESCRIPCION.Name = "ItemForDESCRIPCION"
         Me.ItemForDESCRIPCION.Size = New System.Drawing.Size(502, 24)
-        Me.ItemForDESCRIPCION.Text = "DESCRIPCION"
-        Me.ItemForDESCRIPCION.TextSize = New System.Drawing.Size(128, 13)
+        Me.ItemForDESCRIPCION.Text = "Descripción"
+        Me.ItemForDESCRIPCION.TextSize = New System.Drawing.Size(109, 13)
         '
         'ItemForCANTIDAD_DIPUTADOS
         '
@@ -441,8 +444,8 @@ Partial Class XfrmDepartamentos
         Me.ItemForCANTIDAD_DIPUTADOS.Location = New System.Drawing.Point(0, 48)
         Me.ItemForCANTIDAD_DIPUTADOS.Name = "ItemForCANTIDAD_DIPUTADOS"
         Me.ItemForCANTIDAD_DIPUTADOS.Size = New System.Drawing.Size(502, 31)
-        Me.ItemForCANTIDAD_DIPUTADOS.Text = "CANTIDAD_DIPUTADOS"
-        Me.ItemForCANTIDAD_DIPUTADOS.TextSize = New System.Drawing.Size(128, 13)
+        Me.ItemForCANTIDAD_DIPUTADOS.Text = "Cantidad de Diputados"
+        Me.ItemForCANTIDAD_DIPUTADOS.TextSize = New System.Drawing.Size(109, 13)
         '
         'Root
         '
