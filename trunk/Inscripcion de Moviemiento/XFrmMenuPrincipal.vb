@@ -52,4 +52,16 @@ Public Class XFrmMenuPrincipal
     Private Sub BtnNivelesElectivos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnNivelesElectivos.ItemClick
         Padre(XfrmNivelElectivo)
     End Sub
+
+    Private Sub BtnIncompatibilidades_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnIncompatibilidades.ItemClick
+
+    End Sub
+
+    Private Sub BtnPartidos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnPartidos.ItemClick
+        Padre(XfrmPartidosPoliticos)
+    End Sub
+
+    Private Sub BtnMovimeintos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnMovimeintos.ItemClick
+        Padre(XfrmMovimientos)
+    End Sub
 End Class
