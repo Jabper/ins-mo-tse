@@ -48,4 +48,8 @@ Public Class XFrmMenuPrincipal
     Private Sub BtnCargos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCargos.ItemClick
         Padre(XfrmCargoElectivo)
     End Sub
+
+    Private Sub BtnNivelesElectivos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnNivelesElectivos.ItemClick
+        Padre(XfrmNivelElectivo)
+    End Sub
 End Class
