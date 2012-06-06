@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Inscripcion de Moviemiento")> 
+<Assembly: AssemblyTitle("Inscripcion de Moviemientos")> 
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("Inscripcion de Moviemiento")> 
+<Assembly: AssemblyProduct("Inscripcion de Moviemientos")> 
 <Assembly: AssemblyCopyright("Copyright ©  2012")> 
 <Assembly: AssemblyTrademark("")> 
 

@@ -53,6 +53,17 @@ Namespace My
                 Return defaultInstance
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=TERUEL-PC;Persist Security Info=True;User ID=tse;Password=oracle;Unic"& _ 
+            "ode=True")>  _
+        Public ReadOnly Property ConnectionString() As String
+            Get
+                Return CType(Me("ConnectionString"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 
@@ -64,9 +75,9 @@ Namespace My
     Friend Module MySettingsProperty
         
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.Inscripcion_de_Moviemiento.My.MySettings
+        Friend ReadOnly Property Settings() As Global.Inscripcion_de_Moviemientos.My.MySettings
             Get
-                Return Global.Inscripcion_de_Moviemiento.My.MySettings.Default
+                Return Global.Inscripcion_de_Moviemientos.My.MySettings.Default
             End Get
         End Property
     End Module
