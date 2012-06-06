@@ -347,13 +347,11 @@ Partial Class Municipios
         'CODIGO_MUNICIPIOSpinEdit
         '
         Me.CODIGO_MUNICIPIOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMUNICIPIOSBindingSource, "CODIGO_MUNICIPIO", True))
-        Me.CODIGO_MUNICIPIOSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
         Me.CODIGO_MUNICIPIOSpinEdit.Location = New System.Drawing.Point(144, 12)
         Me.CODIGO_MUNICIPIOSpinEdit.Name = "CODIGO_MUNICIPIOSpinEdit"
         Me.CODIGO_MUNICIPIOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
-        Me.CODIGO_MUNICIPIOSpinEdit.Properties.Mask.BeepOnError = True
         Me.CODIGO_MUNICIPIOSpinEdit.Properties.Mask.EditMask = "00"
-        Me.CODIGO_MUNICIPIOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.CODIGO_MUNICIPIOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple
         Me.CODIGO_MUNICIPIOSpinEdit.Size = New System.Drawing.Size(426, 20)
         Me.CODIGO_MUNICIPIOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_MUNICIPIOSpinEdit.TabIndex = 8
@@ -366,8 +364,6 @@ Partial Class Municipios
         Me.CANTIDAD_REGIDORESSpinEdit.Name = "CANTIDAD_REGIDORESSpinEdit"
         Me.CANTIDAD_REGIDORESSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CANTIDAD_REGIDORESSpinEdit.Properties.Mask.BeepOnError = True
-        Me.CANTIDAD_REGIDORESSpinEdit.Properties.Mask.EditMask = "99"
-        Me.CANTIDAD_REGIDORESSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.CANTIDAD_REGIDORESSpinEdit.Size = New System.Drawing.Size(426, 20)
         Me.CANTIDAD_REGIDORESSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CANTIDAD_REGIDORESSpinEdit.TabIndex = 10
