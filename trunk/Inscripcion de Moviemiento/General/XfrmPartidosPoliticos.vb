@@ -1,10 +1,14 @@
-﻿Public Class XfrmPartidosPoliticos 
+﻿
+Imports DevExpress.XtraEditors
+Imports DevExpress.XtraGrid.Views.Grid
+Public Class XfrmPartidosPoliticos
 
     Private Sub XfrmPartidosPoliticos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        ActualizarGrid()
 
-        
         'TODO: This line of code loads data into the 'DataSet1.IM_PARTIDOS_POLITICOS' table. You can move, or remove it, as needed.
         Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DataSet1.IM_PARTIDOS_POLITICOS)
+        Me.IMPARTIDOSPOLITICOSBindingSource.AddNew()
 
     End Sub
 
@@ -15,7 +19,7 @@
 
     Sub guardar()
 
-        Dim usuario As Integer = 2
+
 
         Try
 
@@ -66,5 +70,51 @@
 
     Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
         Nuevo()
+    End Sub
+
+    Sub MostrarDatos()
+
+        Try
+
+            'SE LE ASIGNA A UNA VARIABLE EL VALOR DE LA CELDA QUE SE DESEA
+            Dim cellValue As String = Data.CapturarDatoGrid(Me.GCPartidos_Politicos, 0)
+            'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
+            'Me.IM_DEPARTAMENTOSTableAdapter.FillBy(Me.DataSet1.IM_DEPARTAMENTOS, CType(cellValue, Integer))
+            'writedata = False
+
+
+        Catch ex As System.Exception
+            Mensajes.MensajeError("Seleccione una Fila con Datos para Realizar la Edición")
+        End Try
+    End Sub
+
+    Private Sub GCPartidos_Politicos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GCPartidos_Politicos.Click
+        MostrarDatos()
+    End Sub
+
+    Sub ActualizarGrid()
+        'TODO: This line of code loads data into the 'DataSet1.IM_DEPARTAMENTOS1' table. You can move, or remove it, as needed.
+        Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DataSet1.TA_PARTIDOS_POLITICOS)
+    End Sub
+
+    Sub Eliminar()
+
+        Try
+            Dim cellValue As String = Data.CapturarDatoGrid(Me.GCPartidos_Politicos, 0)
+
+
+            Dim deptosrow As DataSet1.IM_PARTIDOS_POLITICOSRow
+
+            deptosrow = Me.DataSet1.IM_PARTIDOS_POLITICOS.FindByCODIGO_PARTIDO(cellValue)
+
+            deptosrow.Delete()
+
+            Me.IM_PARTIDOS_POLITICOSTableAdapter.Update(Me.DataSet1.IM_PARTIDOS_POLITICOS)
+
+            ActualizarGrid()
+        Catch ex As Exception
+            Mensajes.MensajeError(ex.Message)
+        End Try
+
     End Sub
 End Class
