@@ -27,9 +27,9 @@ Partial Class Municipios
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.colCODIGO_MUNICIPIO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCODIGO_DEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colCANTIDAD_REGIDORES = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colDESCRIPCION = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colDEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCANTIDAD_REGIDORES = New DevExpress.XtraGrid.Columns.GridColumn
         Me.ButtonEdit1 = New DevExpress.XtraEditors.ButtonEdit
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
         Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
@@ -168,14 +168,6 @@ Partial Class Municipios
         Me.colCODIGO_DEPARTAMENTO.Visible = True
         Me.colCODIGO_DEPARTAMENTO.VisibleIndex = 1
         '
-        'colCANTIDAD_REGIDORES
-        '
-        Me.colCANTIDAD_REGIDORES.Caption = "Cantidad de Regidores"
-        Me.colCANTIDAD_REGIDORES.FieldName = "CANTIDAD_REGIDORES"
-        Me.colCANTIDAD_REGIDORES.Name = "colCANTIDAD_REGIDORES"
-        Me.colCANTIDAD_REGIDORES.Visible = True
-        Me.colCANTIDAD_REGIDORES.VisibleIndex = 2
-        '
         'colDESCRIPCION
         '
         Me.colDESCRIPCION.Caption = "Municipio"
@@ -191,6 +183,14 @@ Partial Class Municipios
         Me.colDEPARTAMENTO.Name = "colDEPARTAMENTO"
         Me.colDEPARTAMENTO.Visible = True
         Me.colDEPARTAMENTO.VisibleIndex = 4
+        '
+        'colCANTIDAD_REGIDORES
+        '
+        Me.colCANTIDAD_REGIDORES.Caption = "Cantidad de Regidores"
+        Me.colCANTIDAD_REGIDORES.FieldName = "CANTIDAD_REGIDORES"
+        Me.colCANTIDAD_REGIDORES.Name = "colCANTIDAD_REGIDORES"
+        Me.colCANTIDAD_REGIDORES.Visible = True
+        Me.colCANTIDAD_REGIDORES.VisibleIndex = 2
         '
         'ButtonEdit1
         '
