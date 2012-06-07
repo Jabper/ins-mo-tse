@@ -21,7 +21,7 @@
             Me.IMROLESBindingSource.EndEdit()
 
             'AGREGAR INFORMACION DE AUDITORIA (MODIFICA EL REGISTRO ANTES DE AGREGARLO A LA BASE )
-            For Each _datar As DTUsers.IM_OPCIONESRow In DTUsers.IM_OPCIONES
+            For Each _datar As DTUsers.IM_ROLESRow In DTUsers.IM_ROLES
                 'SI ES UN NUEVO REGITRO
                 If _datar.RowState = DataRowState.Added Then
                     _datar.ADICIONADO_POR = usuario
