@@ -190,10 +190,10 @@
     <Compile Include="Usuarios\DTUsers.vb">
       <DependentUpon>DTUsers.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Usuarios\XfmOpciones.Designer.vb">
-      <DependentUpon>XfmOpciones.vb</DependentUpon>
+    <Compile Include="Usuarios\XfmOpcion.Designer.vb">
+      <DependentUpon>XfmOpcion.vb</DependentUpon>
     </Compile>
-    <Compile Include="Usuarios\XfmOpciones.vb">
+    <Compile Include="Usuarios\XfmOpcion.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Usuarios\XfrmOperacionesPorRol.Designer.vb">
@@ -269,8 +269,8 @@
       <DependentUpon>StandarControles.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Usuarios\XfmOpciones.resx">
-      <DependentUpon>XfmOpciones.vb</DependentUpon>
+    <EmbeddedResource Include="Usuarios\XfmOpcion.resx">
+      <DependentUpon>XfmOpcion.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\XfrmOperacionesPorRol.resx">

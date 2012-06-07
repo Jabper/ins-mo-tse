@@ -750,8 +750,6 @@ Partial Public Class DTUsers
             Me.columnRESPUESTA_SEGURIDAD.MaxLength = 100
             Me.columnNIVEL.AllowDBNull = false
             Me.columnCODIGO_PARTIDO.AllowDBNull = false
-            Me.columnADICIONADO_POR.AllowDBNull = false
-            Me.columnFECHA_ADICION.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1050,8 +1048,6 @@ Partial Public Class DTUsers
             Me.columnCODIGO_ROL.Unique = true
             Me.columnDESCRIPCION.AllowDBNull = false
             Me.columnDESCRIPCION.MaxLength = 100
-            Me.columnADICIONADO_POR.AllowDBNull = false
-            Me.columnFECHA_ADICION.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1354,8 +1350,6 @@ Partial Public Class DTUsers
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_OPCION, Me.columnCODIGO_ROL}, true))
             Me.columnCODIGO_OPCION.AllowDBNull = false
             Me.columnCODIGO_ROL.AllowDBNull = false
-            Me.columnADICIONADO_POR.AllowDBNull = false
-            Me.columnFECHA_ADICION.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1668,8 +1662,6 @@ Partial Public Class DTUsers
             Me.columnDESCRIPCION.MaxLength = 300
             Me.columnNOMBRE_CONTROL.AllowDBNull = false
             Me.columnNOMBRE_CONTROL.MaxLength = 100
-            Me.columnADICIONADO_POR.AllowDBNull = false
-            Me.columnFECHA_ADICION.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -2432,7 +2424,11 @@ Partial Public Class DTUsers
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property ADICIONADO_POR() As Decimal
             Get
-                Return CType(Me(Me.tableIM_USUARIOS.ADICIONADO_PORColumn),Decimal)
+                Try 
+                    Return CType(Me(Me.tableIM_USUARIOS.ADICIONADO_PORColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ADICIONADO_POR' in table 'IM_USUARIOS' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableIM_USUARIOS.ADICIONADO_PORColumn) = value
@@ -2442,7 +2438,11 @@ Partial Public Class DTUsers
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property FECHA_ADICION() As Date
             Get
-                Return CType(Me(Me.tableIM_USUARIOS.FECHA_ADICIONColumn),Date)
+                Try 
+                    Return CType(Me(Me.tableIM_USUARIOS.FECHA_ADICIONColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FECHA_ADICION' in table 'IM_USUARIOS' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableIM_USUARIOS.FECHA_ADICIONColumn) = value
@@ -2496,6 +2496,26 @@ Partial Public Class DTUsers
                 Me.SetParentRow(value, Me.Table.ParentRelations("USUARIOS_ROLES_FK1"))
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsADICIONADO_PORNull() As Boolean
+            Return Me.IsNull(Me.tableIM_USUARIOS.ADICIONADO_PORColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetADICIONADO_PORNull()
+            Me(Me.tableIM_USUARIOS.ADICIONADO_PORColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsFECHA_ADICIONNull() As Boolean
+            Return Me.IsNull(Me.tableIM_USUARIOS.FECHA_ADICIONColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetFECHA_ADICIONNull()
+            Me(Me.tableIM_USUARIOS.FECHA_ADICIONColumn) = Global.System.Convert.DBNull
+        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsMODIFICADO_PORNull() As Boolean
@@ -2556,7 +2576,11 @@ Partial Public Class DTUsers
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property ADICIONADO_POR() As Decimal
             Get
-                Return CType(Me(Me.tableIM_ROLES.ADICIONADO_PORColumn),Decimal)
+                Try 
+                    Return CType(Me(Me.tableIM_ROLES.ADICIONADO_PORColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ADICIONADO_POR' in table 'IM_ROLES' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableIM_ROLES.ADICIONADO_PORColumn) = value
@@ -2566,7 +2590,11 @@ Partial Public Class DTUsers
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property FECHA_ADICION() As Date
             Get
-                Return CType(Me(Me.tableIM_ROLES.FECHA_ADICIONColumn),Date)
+                Try 
+                    Return CType(Me(Me.tableIM_ROLES.FECHA_ADICIONColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FECHA_ADICION' in table 'IM_ROLES' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableIM_ROLES.FECHA_ADICIONColumn) = value
@@ -2600,6 +2628,26 @@ Partial Public Class DTUsers
                 Me(Me.tableIM_ROLES.FECHA_MODIFICACIONColumn) = value
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsADICIONADO_PORNull() As Boolean
+            Return Me.IsNull(Me.tableIM_ROLES.ADICIONADO_PORColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetADICIONADO_PORNull()
+            Me(Me.tableIM_ROLES.ADICIONADO_PORColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsFECHA_ADICIONNull() As Boolean
+            Return Me.IsNull(Me.tableIM_ROLES.FECHA_ADICIONColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetFECHA_ADICIONNull()
+            Me(Me.tableIM_ROLES.FECHA_ADICIONColumn) = Global.System.Convert.DBNull
+        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsMODIFICADO_PORNull() As Boolean
@@ -2678,7 +2726,12 @@ Partial Public Class DTUsers
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property ADICIONADO_POR() As Decimal
             Get
-                Return CType(Me(Me.tableIM_OPERACIONES_POR_ROL.ADICIONADO_PORColumn),Decimal)
+                Try 
+                    Return CType(Me(Me.tableIM_OPERACIONES_POR_ROL.ADICIONADO_PORColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ADICIONADO_POR' in table 'IM_OPERACIONES_POR_ROL' is DBNull"& _ 
+                            ".", e)
+                End Try
             End Get
             Set
                 Me(Me.tableIM_OPERACIONES_POR_ROL.ADICIONADO_PORColumn) = value
@@ -2688,7 +2741,12 @@ Partial Public Class DTUsers
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property FECHA_ADICION() As Date
             Get
-                Return CType(Me(Me.tableIM_OPERACIONES_POR_ROL.FECHA_ADICIONColumn),Date)
+                Try 
+                    Return CType(Me(Me.tableIM_OPERACIONES_POR_ROL.FECHA_ADICIONColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FECHA_ADICION' in table 'IM_OPERACIONES_POR_ROL' is DBNull."& _ 
+                            "", e)
+                End Try
             End Get
             Set
                 Me(Me.tableIM_OPERACIONES_POR_ROL.FECHA_ADICIONColumn) = value
@@ -2766,6 +2824,26 @@ Partial Public Class DTUsers
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsADICIONADO_PORNull() As Boolean
+            Return Me.IsNull(Me.tableIM_OPERACIONES_POR_ROL.ADICIONADO_PORColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetADICIONADO_PORNull()
+            Me(Me.tableIM_OPERACIONES_POR_ROL.ADICIONADO_PORColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsFECHA_ADICIONNull() As Boolean
+            Return Me.IsNull(Me.tableIM_OPERACIONES_POR_ROL.FECHA_ADICIONColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetFECHA_ADICIONNull()
+            Me(Me.tableIM_OPERACIONES_POR_ROL.FECHA_ADICIONColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsMODIFICADO_PORNull() As Boolean
             Return Me.IsNull(Me.tableIM_OPERACIONES_POR_ROL.MODIFICADO_PORColumn)
         End Function
@@ -2834,7 +2912,11 @@ Partial Public Class DTUsers
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property ADICIONADO_POR() As Decimal
             Get
-                Return CType(Me(Me.tableIM_OPCIONES.ADICIONADO_PORColumn),Decimal)
+                Try 
+                    Return CType(Me(Me.tableIM_OPCIONES.ADICIONADO_PORColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ADICIONADO_POR' in table 'IM_OPCIONES' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableIM_OPCIONES.ADICIONADO_PORColumn) = value
@@ -2844,7 +2926,11 @@ Partial Public Class DTUsers
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property FECHA_ADICION() As Date
             Get
-                Return CType(Me(Me.tableIM_OPCIONES.FECHA_ADICIONColumn),Date)
+                Try 
+                    Return CType(Me(Me.tableIM_OPCIONES.FECHA_ADICIONColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FECHA_ADICION' in table 'IM_OPCIONES' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableIM_OPCIONES.FECHA_ADICIONColumn) = value
@@ -2878,6 +2964,26 @@ Partial Public Class DTUsers
                 Me(Me.tableIM_OPCIONES.FECHA_MODIFICACIONColumn) = value
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsADICIONADO_PORNull() As Boolean
+            Return Me.IsNull(Me.tableIM_OPCIONES.ADICIONADO_PORColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetADICIONADO_PORNull()
+            Me(Me.tableIM_OPCIONES.ADICIONADO_PORColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsFECHA_ADICIONNull() As Boolean
+            Return Me.IsNull(Me.tableIM_OPCIONES.FECHA_ADICIONColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetFECHA_ADICIONNull()
+            Me(Me.tableIM_OPCIONES.FECHA_ADICIONColumn) = Global.System.Convert.DBNull
+        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsMODIFICADO_PORNull() As Boolean
@@ -3566,7 +3672,7 @@ Namespace DTUsersTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_CODIGO_USUARIO As Decimal, ByVal Original_CODIGO_ROL As Decimal, ByVal Original_NOMBRE As String, ByVal Original_IDENTIDAD As String, ByVal Original_CONTRASENA As String, ByVal Original_ESTADO As String, ByVal Original_CODIGO_MOVIMIENTO As Decimal, ByVal Original_PREGUNTA_SEGURIDAD As String, ByVal Original_RESPUESTA_SEGURIDAD As String, ByVal Original_NIVEL As Decimal, ByVal Original_CODIGO_PARTIDO As Decimal, ByVal Original_ADICIONADO_POR As Decimal, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_CODIGO_USUARIO As Decimal, ByVal Original_CODIGO_ROL As Decimal, ByVal Original_NOMBRE As String, ByVal Original_IDENTIDAD As String, ByVal Original_CONTRASENA As String, ByVal Original_ESTADO As String, ByVal Original_CODIGO_MOVIMIENTO As Decimal, ByVal Original_PREGUNTA_SEGURIDAD As String, ByVal Original_RESPUESTA_SEGURIDAD As String, ByVal Original_NIVEL As Decimal, ByVal Original_CODIGO_PARTIDO As Decimal, ByVal Original_ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date), ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CODIGO_USUARIO,Decimal)
             Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_CODIGO_ROL,Decimal)
             If (Original_NOMBRE Is Nothing) Then
@@ -3602,8 +3708,16 @@ Namespace DTUsersTableAdapters
             End If
             Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_NIVEL,Decimal)
             Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_CODIGO_PARTIDO,Decimal)
-            Me.Adapter.DeleteCommand.Parameters(11).Value = CType(Original_ADICIONADO_POR,Decimal)
-            Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_FECHA_ADICION,Date)
+            If (Original_ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(Original_ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            If (Original_FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
             If (Original_MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_MODIFICADO_POR.Value,Decimal)
@@ -3636,7 +3750,7 @@ Namespace DTUsersTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal CODIGO_USUARIO As Decimal, ByVal CODIGO_ROL As Decimal, ByVal NOMBRE As String, ByVal IDENTIDAD As String, ByVal CONTRASENA As String, ByVal ESTADO As String, ByVal CODIGO_MOVIMIENTO As Decimal, ByVal PREGUNTA_SEGURIDAD As String, ByVal RESPUESTA_SEGURIDAD As String, ByVal NIVEL As Decimal, ByVal CODIGO_PARTIDO As Decimal, ByVal ADICIONADO_POR As Decimal, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Insert(ByVal CODIGO_USUARIO As Decimal, ByVal CODIGO_ROL As Decimal, ByVal NOMBRE As String, ByVal IDENTIDAD As String, ByVal CONTRASENA As String, ByVal ESTADO As String, ByVal CODIGO_MOVIMIENTO As Decimal, ByVal PREGUNTA_SEGURIDAD As String, ByVal RESPUESTA_SEGURIDAD As String, ByVal NIVEL As Decimal, ByVal CODIGO_PARTIDO As Decimal, ByVal ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_ADICION As Global.System.Nullable(Of Date), ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(CODIGO_USUARIO,Decimal)
             Me.Adapter.InsertCommand.Parameters(1).Value = CType(CODIGO_ROL,Decimal)
             If (NOMBRE Is Nothing) Then
@@ -3672,8 +3786,16 @@ Namespace DTUsersTableAdapters
             End If
             Me.Adapter.InsertCommand.Parameters(9).Value = CType(NIVEL,Decimal)
             Me.Adapter.InsertCommand.Parameters(10).Value = CType(CODIGO_PARTIDO,Decimal)
-            Me.Adapter.InsertCommand.Parameters(11).Value = CType(ADICIONADO_POR,Decimal)
-            Me.Adapter.InsertCommand.Parameters(12).Value = CType(FECHA_ADICION,Date)
+            If (ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            If (FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
             If (MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(13).Value = CType(MODIFICADO_POR.Value,Decimal)
             Else
@@ -3714,8 +3836,8 @@ Namespace DTUsersTableAdapters
                     ByVal RESPUESTA_SEGURIDAD As String,  _
                     ByVal NIVEL As Decimal,  _
                     ByVal CODIGO_PARTIDO As Decimal,  _
-                    ByVal ADICIONADO_POR As Decimal,  _
-                    ByVal FECHA_ADICION As Date,  _
+                    ByVal ADICIONADO_POR As Global.System.Nullable(Of Decimal),  _
+                    ByVal FECHA_ADICION As Global.System.Nullable(Of Date),  _
                     ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal),  _
                     ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date),  _
                     ByVal Original_CODIGO_USUARIO As Decimal,  _
@@ -3729,8 +3851,8 @@ Namespace DTUsersTableAdapters
                     ByVal Original_RESPUESTA_SEGURIDAD As String,  _
                     ByVal Original_NIVEL As Decimal,  _
                     ByVal Original_CODIGO_PARTIDO As Decimal,  _
-                    ByVal Original_ADICIONADO_POR As Decimal,  _
-                    ByVal Original_FECHA_ADICION As Date,  _
+                    ByVal Original_ADICIONADO_POR As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date),  _
                     ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal),  _
                     ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CODIGO_USUARIO,Decimal)
@@ -3768,8 +3890,16 @@ Namespace DTUsersTableAdapters
             End If
             Me.Adapter.UpdateCommand.Parameters(9).Value = CType(NIVEL,Decimal)
             Me.Adapter.UpdateCommand.Parameters(10).Value = CType(CODIGO_PARTIDO,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(ADICIONADO_POR,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(FECHA_ADICION,Date)
+            If (ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            If (FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
             If (MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(13).Value = CType(MODIFICADO_POR.Value,Decimal)
             Else
@@ -3815,8 +3945,16 @@ Namespace DTUsersTableAdapters
             End If
             Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_NIVEL,Decimal)
             Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_CODIGO_PARTIDO,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_ADICIONADO_POR,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_FECHA_ADICION,Date)
+            If (Original_ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+            End If
+            If (Original_FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+            End If
             If (Original_MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_MODIFICADO_POR.Value,Decimal)
@@ -3860,8 +3998,8 @@ Namespace DTUsersTableAdapters
                     ByVal RESPUESTA_SEGURIDAD As String,  _
                     ByVal NIVEL As Decimal,  _
                     ByVal CODIGO_PARTIDO As Decimal,  _
-                    ByVal ADICIONADO_POR As Decimal,  _
-                    ByVal FECHA_ADICION As Date,  _
+                    ByVal ADICIONADO_POR As Global.System.Nullable(Of Decimal),  _
+                    ByVal FECHA_ADICION As Global.System.Nullable(Of Date),  _
                     ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal),  _
                     ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date),  _
                     ByVal Original_CODIGO_USUARIO As Decimal,  _
@@ -3875,8 +4013,8 @@ Namespace DTUsersTableAdapters
                     ByVal Original_RESPUESTA_SEGURIDAD As String,  _
                     ByVal Original_NIVEL As Decimal,  _
                     ByVal Original_CODIGO_PARTIDO As Decimal,  _
-                    ByVal Original_ADICIONADO_POR As Decimal,  _
-                    ByVal Original_FECHA_ADICION As Date,  _
+                    ByVal Original_ADICIONADO_POR As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date),  _
                     ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal),  _
                     ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Return Me.Update(Original_CODIGO_USUARIO, CODIGO_ROL, NOMBRE, IDENTIDAD, CONTRASENA, ESTADO, CODIGO_MOVIMIENTO, PREGUNTA_SEGURIDAD, RESPUESTA_SEGURIDAD, NIVEL, CODIGO_PARTIDO, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, Original_CODIGO_USUARIO, Original_CODIGO_ROL, Original_NOMBRE, Original_IDENTIDAD, Original_CONTRASENA, Original_ESTADO, Original_CODIGO_MOVIMIENTO, Original_PREGUNTA_SEGURIDAD, Original_RESPUESTA_SEGURIDAD, Original_NIVEL, Original_CODIGO_PARTIDO, Original_ADICIONADO_POR, Original_FECHA_ADICION, Original_MODIFICADO_POR, Original_FECHA_MODIFICACION)
@@ -4163,15 +4301,23 @@ Namespace DTUsersTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_CODIGO_ROL As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_ADICIONADO_POR As Decimal, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_CODIGO_ROL As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date), ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CODIGO_ROL,Decimal)
             If (Original_DESCRIPCION Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_DESCRIPCION")
             Else
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_DESCRIPCION,String)
             End If
-            Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_ADICIONADO_POR,Decimal)
-            Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_FECHA_ADICION,Date)
+            If (Original_ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (Original_FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
             If (Original_MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(4).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_MODIFICADO_POR.Value,Decimal)
@@ -4204,15 +4350,23 @@ Namespace DTUsersTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal CODIGO_ROL As Decimal, ByVal DESCRIPCION As String, ByVal ADICIONADO_POR As Decimal, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Insert(ByVal CODIGO_ROL As Decimal, ByVal DESCRIPCION As String, ByVal ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_ADICION As Global.System.Nullable(Of Date), ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(CODIGO_ROL,Decimal)
             If (DESCRIPCION Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("DESCRIPCION")
             Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = CType(DESCRIPCION,String)
             End If
-            Me.Adapter.InsertCommand.Parameters(2).Value = CType(ADICIONADO_POR,Decimal)
-            Me.Adapter.InsertCommand.Parameters(3).Value = CType(FECHA_ADICION,Date)
+            If (ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
             If (MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(4).Value = CType(MODIFICADO_POR.Value,Decimal)
             Else
@@ -4241,15 +4395,23 @@ Namespace DTUsersTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal CODIGO_ROL As Decimal, ByVal DESCRIPCION As String, ByVal ADICIONADO_POR As Decimal, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_ROL As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_ADICIONADO_POR As Decimal, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Update(ByVal CODIGO_ROL As Decimal, ByVal DESCRIPCION As String, ByVal ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_ADICION As Global.System.Nullable(Of Date), ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_ROL As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date), ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CODIGO_ROL,Decimal)
             If (DESCRIPCION Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("DESCRIPCION")
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = CType(DESCRIPCION,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(ADICIONADO_POR,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(FECHA_ADICION,Date)
+            If (ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
             If (MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(4).Value = CType(MODIFICADO_POR.Value,Decimal)
             Else
@@ -4266,8 +4428,16 @@ Namespace DTUsersTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_DESCRIPCION,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_ADICIONADO_POR,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_FECHA_ADICION,Date)
+            If (Original_ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (Original_FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
             If (Original_MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_MODIFICADO_POR.Value,Decimal)
@@ -4300,7 +4470,7 @@ Namespace DTUsersTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal DESCRIPCION As String, ByVal ADICIONADO_POR As Decimal, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_ROL As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_ADICIONADO_POR As Decimal, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Update(ByVal DESCRIPCION As String, ByVal ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_ADICION As Global.System.Nullable(Of Date), ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_ROL As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date), ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Return Me.Update(Original_CODIGO_ROL, DESCRIPCION, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, Original_CODIGO_ROL, Original_DESCRIPCION, Original_ADICIONADO_POR, Original_FECHA_ADICION, Original_MODIFICADO_POR, Original_FECHA_MODIFICACION)
         End Function
     End Class
@@ -4590,11 +4760,19 @@ Namespace DTUsersTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_CODIGO_OPCION As Decimal, ByVal Original_CODIGO_ROL As Decimal, ByVal Original_ADICIONADO_POR As Decimal, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_CODIGO_OPCION As Decimal, ByVal Original_CODIGO_ROL As Decimal, ByVal Original_ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date), ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CODIGO_OPCION,Decimal)
             Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_CODIGO_ROL,Decimal)
-            Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_ADICIONADO_POR,Decimal)
-            Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_FECHA_ADICION,Date)
+            If (Original_ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (Original_FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
             If (Original_MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(4).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_MODIFICADO_POR.Value,Decimal)
@@ -4627,11 +4805,19 @@ Namespace DTUsersTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal CODIGO_OPCION As Decimal, ByVal CODIGO_ROL As Decimal, ByVal ADICIONADO_POR As Decimal, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Insert(ByVal CODIGO_OPCION As Decimal, ByVal CODIGO_ROL As Decimal, ByVal ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_ADICION As Global.System.Nullable(Of Date), ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(CODIGO_OPCION,Decimal)
             Me.Adapter.InsertCommand.Parameters(1).Value = CType(CODIGO_ROL,Decimal)
-            Me.Adapter.InsertCommand.Parameters(2).Value = CType(ADICIONADO_POR,Decimal)
-            Me.Adapter.InsertCommand.Parameters(3).Value = CType(FECHA_ADICION,Date)
+            If (ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
             If (MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(4).Value = CType(MODIFICADO_POR.Value,Decimal)
             Else
@@ -4660,11 +4846,19 @@ Namespace DTUsersTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal CODIGO_OPCION As Decimal, ByVal CODIGO_ROL As Decimal, ByVal ADICIONADO_POR As Decimal, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_OPCION As Decimal, ByVal Original_CODIGO_ROL As Decimal, ByVal Original_ADICIONADO_POR As Decimal, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Update(ByVal CODIGO_OPCION As Decimal, ByVal CODIGO_ROL As Decimal, ByVal ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_ADICION As Global.System.Nullable(Of Date), ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_OPCION As Decimal, ByVal Original_CODIGO_ROL As Decimal, ByVal Original_ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date), ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CODIGO_OPCION,Decimal)
             Me.Adapter.UpdateCommand.Parameters(1).Value = CType(CODIGO_ROL,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(ADICIONADO_POR,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(FECHA_ADICION,Date)
+            If (ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
             If (MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(4).Value = CType(MODIFICADO_POR.Value,Decimal)
             Else
@@ -4677,8 +4871,16 @@ Namespace DTUsersTableAdapters
             End If
             Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_CODIGO_OPCION,Decimal)
             Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_CODIGO_ROL,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_ADICIONADO_POR,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_FECHA_ADICION,Date)
+            If (Original_ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (Original_FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
             If (Original_MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_MODIFICADO_POR.Value,Decimal)
@@ -4711,7 +4913,7 @@ Namespace DTUsersTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal ADICIONADO_POR As Decimal, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_OPCION As Decimal, ByVal Original_CODIGO_ROL As Decimal, ByVal Original_ADICIONADO_POR As Decimal, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Update(ByVal ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_ADICION As Global.System.Nullable(Of Date), ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_OPCION As Decimal, ByVal Original_CODIGO_ROL As Decimal, ByVal Original_ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date), ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Return Me.Update(Original_CODIGO_OPCION, Original_CODIGO_ROL, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, Original_CODIGO_OPCION, Original_CODIGO_ROL, Original_ADICIONADO_POR, Original_FECHA_ADICION, Original_MODIFICADO_POR, Original_FECHA_MODIFICACION)
         End Function
     End Class
@@ -5005,7 +5207,7 @@ Namespace DTUsersTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_CODIGO_OPCION As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_NOMBRE_CONTROL As String, ByVal Original_ADICIONADO_POR As Decimal, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_CODIGO_OPCION As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_NOMBRE_CONTROL As String, ByVal Original_ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date), ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CODIGO_OPCION,Decimal)
             If (Original_DESCRIPCION Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_DESCRIPCION")
@@ -5017,8 +5219,16 @@ Namespace DTUsersTableAdapters
             Else
                 Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_NOMBRE_CONTROL,String)
             End If
-            Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_ADICIONADO_POR,Decimal)
-            Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_FECHA_ADICION,Date)
+            If (Original_ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (Original_FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
             If (Original_MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_MODIFICADO_POR.Value,Decimal)
@@ -5051,7 +5261,7 @@ Namespace DTUsersTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal CODIGO_OPCION As Decimal, ByVal DESCRIPCION As String, ByVal NOMBRE_CONTROL As String, ByVal ADICIONADO_POR As Decimal, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Insert(ByVal CODIGO_OPCION As Decimal, ByVal DESCRIPCION As String, ByVal NOMBRE_CONTROL As String, ByVal ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_ADICION As Global.System.Nullable(Of Date), ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(CODIGO_OPCION,Decimal)
             If (DESCRIPCION Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("DESCRIPCION")
@@ -5063,8 +5273,16 @@ Namespace DTUsersTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(2).Value = CType(NOMBRE_CONTROL,String)
             End If
-            Me.Adapter.InsertCommand.Parameters(3).Value = CType(ADICIONADO_POR,Decimal)
-            Me.Adapter.InsertCommand.Parameters(4).Value = CType(FECHA_ADICION,Date)
+            If (ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
             If (MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(5).Value = CType(MODIFICADO_POR.Value,Decimal)
             Else
@@ -5093,7 +5311,7 @@ Namespace DTUsersTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal CODIGO_OPCION As Decimal, ByVal DESCRIPCION As String, ByVal NOMBRE_CONTROL As String, ByVal ADICIONADO_POR As Decimal, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_OPCION As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_NOMBRE_CONTROL As String, ByVal Original_ADICIONADO_POR As Decimal, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Update(ByVal CODIGO_OPCION As Decimal, ByVal DESCRIPCION As String, ByVal NOMBRE_CONTROL As String, ByVal ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_ADICION As Global.System.Nullable(Of Date), ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_OPCION As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_NOMBRE_CONTROL As String, ByVal Original_ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date), ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CODIGO_OPCION,Decimal)
             If (DESCRIPCION Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("DESCRIPCION")
@@ -5105,8 +5323,16 @@ Namespace DTUsersTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(2).Value = CType(NOMBRE_CONTROL,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(ADICIONADO_POR,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(FECHA_ADICION,Date)
+            If (ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
             If (MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(5).Value = CType(MODIFICADO_POR.Value,Decimal)
             Else
@@ -5128,8 +5354,16 @@ Namespace DTUsersTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_NOMBRE_CONTROL,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_ADICIONADO_POR,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_FECHA_ADICION,Date)
+            If (Original_ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (Original_FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
             If (Original_MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_MODIFICADO_POR.Value,Decimal)
@@ -5162,7 +5396,7 @@ Namespace DTUsersTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal DESCRIPCION As String, ByVal NOMBRE_CONTROL As String, ByVal ADICIONADO_POR As Decimal, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_OPCION As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_NOMBRE_CONTROL As String, ByVal Original_ADICIONADO_POR As Decimal, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Update(ByVal DESCRIPCION As String, ByVal NOMBRE_CONTROL As String, ByVal ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_ADICION As Global.System.Nullable(Of Date), ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_OPCION As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_NOMBRE_CONTROL As String, ByVal Original_ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date), ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Return Me.Update(Original_CODIGO_OPCION, DESCRIPCION, NOMBRE_CONTROL, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, Original_CODIGO_OPCION, Original_DESCRIPCION, Original_NOMBRE_CONTROL, Original_ADICIONADO_POR, Original_FECHA_ADICION, Original_MODIFICADO_POR, Original_FECHA_MODIFICACION)
         End Function
     End Class
