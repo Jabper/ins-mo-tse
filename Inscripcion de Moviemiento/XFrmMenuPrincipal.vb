@@ -74,6 +74,6 @@ Public Class XFrmMenuPrincipal
     End Sub
 
     Private Sub BtnOpciones_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnOpciones.ItemClick
-
+        Padre(fmOpcion)
     End Sub
 End Class
