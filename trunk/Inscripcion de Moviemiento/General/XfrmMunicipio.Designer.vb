@@ -143,7 +143,7 @@ Partial Class Municipios
         '
         'GridView1
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_MUNICIPIO, Me.colCODIGO_DEPARTAMENTO, Me.colCANTIDAD_REGIDORES, Me.colDESCRIPCION, Me.colDEPARTAMENTO})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_MUNICIPIO, Me.colCODIGO_DEPARTAMENTO, Me.colDESCRIPCION, Me.colDEPARTAMENTO, Me.colCANTIDAD_REGIDORES})
         Me.GridView1.GridControl = Me.GridControl1
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[False]
@@ -154,6 +154,7 @@ Partial Class Municipios
         '
         'colCODIGO_MUNICIPIO
         '
+        Me.colCODIGO_MUNICIPIO.Caption = "Código Municipio"
         Me.colCODIGO_MUNICIPIO.FieldName = "CODIGO_MUNICIPIO"
         Me.colCODIGO_MUNICIPIO.Name = "colCODIGO_MUNICIPIO"
         Me.colCODIGO_MUNICIPIO.Visible = True
@@ -161,6 +162,7 @@ Partial Class Municipios
         '
         'colCODIGO_DEPARTAMENTO
         '
+        Me.colCODIGO_DEPARTAMENTO.Caption = "Código Departamento"
         Me.colCODIGO_DEPARTAMENTO.FieldName = "CODIGO_DEPARTAMENTO"
         Me.colCODIGO_DEPARTAMENTO.Name = "colCODIGO_DEPARTAMENTO"
         Me.colCODIGO_DEPARTAMENTO.Visible = True
@@ -168,6 +170,7 @@ Partial Class Municipios
         '
         'colCANTIDAD_REGIDORES
         '
+        Me.colCANTIDAD_REGIDORES.Caption = "Cantidad de Regidores"
         Me.colCANTIDAD_REGIDORES.FieldName = "CANTIDAD_REGIDORES"
         Me.colCANTIDAD_REGIDORES.Name = "colCANTIDAD_REGIDORES"
         Me.colCANTIDAD_REGIDORES.Visible = True
@@ -175,6 +178,7 @@ Partial Class Municipios
         '
         'colDESCRIPCION
         '
+        Me.colDESCRIPCION.Caption = "Municipio"
         Me.colDESCRIPCION.FieldName = "DESCRIPCION"
         Me.colDESCRIPCION.Name = "colDESCRIPCION"
         Me.colDESCRIPCION.Visible = True
@@ -182,6 +186,7 @@ Partial Class Municipios
         '
         'colDEPARTAMENTO
         '
+        Me.colDEPARTAMENTO.Caption = "Departamento"
         Me.colDEPARTAMENTO.FieldName = "DEPARTAMENTO"
         Me.colDEPARTAMENTO.Name = "colDEPARTAMENTO"
         Me.colDEPARTAMENTO.Visible = True
@@ -351,7 +356,7 @@ Partial Class Municipios
         Me.CODIGO_MUNICIPIOSpinEdit.Name = "CODIGO_MUNICIPIOSpinEdit"
         Me.CODIGO_MUNICIPIOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CODIGO_MUNICIPIOSpinEdit.Properties.Mask.EditMask = "00"
-        Me.CODIGO_MUNICIPIOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple
+        Me.CODIGO_MUNICIPIOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.CODIGO_MUNICIPIOSpinEdit.Size = New System.Drawing.Size(445, 20)
         Me.CODIGO_MUNICIPIOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_MUNICIPIOSpinEdit.TabIndex = 8
@@ -364,6 +369,8 @@ Partial Class Municipios
         Me.CANTIDAD_REGIDORESSpinEdit.Name = "CANTIDAD_REGIDORESSpinEdit"
         Me.CANTIDAD_REGIDORESSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CANTIDAD_REGIDORESSpinEdit.Properties.Mask.BeepOnError = True
+        Me.CANTIDAD_REGIDORESSpinEdit.Properties.Mask.EditMask = "00"
+        Me.CANTIDAD_REGIDORESSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.CANTIDAD_REGIDORESSpinEdit.Size = New System.Drawing.Size(445, 20)
         Me.CANTIDAD_REGIDORESSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CANTIDAD_REGIDORESSpinEdit.TabIndex = 10
@@ -574,7 +581,7 @@ Partial Class Municipios
         Me.ClientSize = New System.Drawing.Size(606, 430)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Name = "Municipios"
-        Me.Text = "XfrmMunicipio"
+        Me.Text = "Municipio"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
         CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()

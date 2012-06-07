@@ -4,11 +4,14 @@
        'TODO: This line of code loads data into the 'DataSet1.IM_PARAMETROS_GENERALES' table. You can move, or remove it, as needed.
         Me.IM_PARAMETROS_GENERALESTableAdapter.Fill(Me.DataSet1.IM_PARAMETROS_GENERALES)
         'Me.IMPARAMETROSGENERALESBindingSource.AddNew()
+
     End Sub
 
     Sub guardar()
         Try
-
+            'TEXTO ENLAZADO
+            Me.txtfecha.Visible = True
+            Me.txtfecha.Text = DateTime.Now
 
             Me.IMPARAMETROSGENERALESBindingSource.EndEdit()
 
@@ -26,7 +29,7 @@
             Next
 
             Me.IM_PARAMETROS_GENERALESTableAdapter.Update(Me.DataSet1.IM_PARAMETROS_GENERALES)
-
+            Me.txtfecha.Visible = False
             Mensajes.MensajeActualizar()
 
         Catch ex As Exception
@@ -39,5 +42,10 @@
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
         guardar()
+    End Sub
+
+    Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
+        Me.IMPARAMETROSGENERALESBindingSource.CancelEdit()
+        Me.IMPARAMETROSGENERALESBindingSource.AddNew()
     End Sub
 End Class
