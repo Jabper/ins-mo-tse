@@ -65,9 +65,9 @@
         Try
 
             'SE LE ASIGNA A UNA VARIABLE EL VALOR DE LA CELDA QUE SE DESEA
-            Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
+            Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 3)
             'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
-            Me.IM_MUNICIPIOSTableAdapter.FillBy(Me.DataSet1.IM_MUNICIPIOS, CType(cellValue, Integer))
+            Me.IM_MUNICIPIOSTableAdapter.FillBy(Me.DataSet1.IM_MUNICIPIOS, cellValue)
             'writedata = False
 
 
