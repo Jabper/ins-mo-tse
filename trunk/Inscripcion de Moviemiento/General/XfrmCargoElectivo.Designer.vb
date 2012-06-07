@@ -47,11 +47,13 @@ Partial Class XfrmCargoElectivo
         Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
         Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
-        Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
         Me.IM_CARGOS_ELECTIVOSTableAdapter = New Inscripcion_de_Moviemientos.DataSet1TableAdapters.IM_CARGOS_ELECTIVOSTableAdapter
-        Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
+        Me.GCDepartamento = New DevExpress.XtraGrid.GridControl
+        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
+        Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
+        Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -81,14 +83,17 @@ Partial Class XfrmCargoElectivo
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GCDepartamento, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.GCDepartamento)
         Me.LayoutControl1.Controls.Add(Me.DataLayoutControl1)
         Me.LayoutControl1.Controls.Add(Me.PanelControl1)
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -302,7 +307,7 @@ Partial Class XfrmCargoElectivo
         Me.ItemForCODIGO_CARGO_ELECTIVO.Location = New System.Drawing.Point(0, 0)
         Me.ItemForCODIGO_CARGO_ELECTIVO.Name = "ItemForCODIGO_CARGO_ELECTIVO"
         Me.ItemForCODIGO_CARGO_ELECTIVO.Size = New System.Drawing.Size(568, 24)
-        Me.ItemForCODIGO_CARGO_ELECTIVO.Text = "CODIGO_CARGO_ELECTIVO"
+        Me.ItemForCODIGO_CARGO_ELECTIVO.Text = "Código Cargo Electivo"
         Me.ItemForCODIGO_CARGO_ELECTIVO.TextSize = New System.Drawing.Size(140, 13)
         '
         'ItemForCODIGO_CARGO_SUPERIOR
@@ -322,13 +327,12 @@ Partial Class XfrmCargoElectivo
         Me.ItemForDESCRIPCION.Location = New System.Drawing.Point(0, 48)
         Me.ItemForDESCRIPCION.Name = "ItemForDESCRIPCION"
         Me.ItemForDESCRIPCION.Size = New System.Drawing.Size(568, 36)
-        Me.ItemForDESCRIPCION.Text = "DESCRIPCION"
+        Me.ItemForDESCRIPCION.Text = "Descripción"
         Me.ItemForDESCRIPCION.TextSize = New System.Drawing.Size(140, 13)
         '
         'PanelControl1
         '
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PanelControl1.Controls.Add(Me.PictureEdit1)
         Me.PanelControl1.Controls.Add(Me.BtnEliminar)
         Me.PanelControl1.Controls.Add(Me.BtnNuevo)
         Me.PanelControl1.Controls.Add(Me.BtnGuardar)
@@ -378,22 +382,12 @@ Partial Class XfrmCargoElectivo
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.EmptySpaceItem1, Me.LayoutControlItem1, Me.LayoutControlItem2})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(612, 317)
         Me.LayoutControlGroup1.Text = "Root"
         Me.LayoutControlGroup1.TextVisible = False
-        '
-        'EmptySpaceItem1
-        '
-        Me.EmptySpaceItem1.AllowHotTrack = False
-        Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 174)
-        Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(592, 123)
-        Me.EmptySpaceItem1.Text = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem1
         '
@@ -429,12 +423,42 @@ Partial Class XfrmCargoElectivo
         '
         Me.IM_CARGOS_ELECTIVOSTableAdapter.ClearBeforeFill = True
         '
-        'PictureEdit1
+        'GCDepartamento
         '
-        Me.PictureEdit1.Location = New System.Drawing.Point(237, 25)
-        Me.PictureEdit1.Name = "PictureEdit1"
-        Me.PictureEdit1.Size = New System.Drawing.Size(152, 20)
-        Me.PictureEdit1.TabIndex = 3
+        Me.GCDepartamento.Location = New System.Drawing.Point(12, 186)
+        Me.GCDepartamento.MainView = Me.GridView1
+        Me.GCDepartamento.Name = "GCDepartamento"
+        Me.GCDepartamento.Size = New System.Drawing.Size(588, 119)
+        Me.GCDepartamento.TabIndex = 8
+        Me.GCDepartamento.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
+        '
+        'GridView1
+        '
+        Me.GridView1.GridControl = Me.GCDepartamento
+        Me.GridView1.Name = "GridView1"
+        Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GridView1.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GridView1.OptionsBehavior.Editable = False
+        Me.GridView1.OptionsView.ShowDetailButtons = False
+        Me.GridView1.OptionsView.ShowGroupPanel = False
+        '
+        'GridView2
+        '
+        Me.GridView2.GridControl = Me.GCDepartamento
+        Me.GridView2.Name = "GridView2"
+        '
+        'LayoutControlItem3
+        '
+        Me.LayoutControlItem3.Control = Me.GCDepartamento
+        Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 174)
+        Me.LayoutControlItem3.Name = "LayoutControlItem3"
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(592, 123)
+        Me.LayoutControlItem3.Text = "LayoutControlItem3"
+        Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem3.TextToControlDistance = 0
+        Me.LayoutControlItem3.TextVisible = False
         '
         'XfrmCargoElectivo
         '
@@ -443,7 +467,7 @@ Partial Class XfrmCargoElectivo
         Me.ClientSize = New System.Drawing.Size(608, 334)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Name = "XfrmCargoElectivo"
-        Me.Text = "XfrmCargoElectivo"
+        Me.Text = "Cargo Electivo"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -473,16 +497,17 @@ Partial Class XfrmCargoElectivo
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GCDepartamento, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents LayoutControl1 As DevExpress.XtraLayout.LayoutControl
     Friend WithEvents LayoutControlGroup1 As DevExpress.XtraLayout.LayoutControlGroup
-    Friend WithEvents EmptySpaceItem1 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents DataLayoutControl1 As DevExpress.XtraDataLayout.DataLayoutControl
     Friend WithEvents Root As DevExpress.XtraLayout.LayoutControlGroup
     Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
@@ -511,5 +536,8 @@ Partial Class XfrmCargoElectivo
     Friend WithEvents ItemForCODIGO_CARGO_ELECTIVO As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents ItemForCODIGO_CARGO_SUPERIOR As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents ItemForDESCRIPCION As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents PictureEdit1 As DevExpress.XtraEditors.PictureEdit
+    Friend WithEvents GCDepartamento As DevExpress.XtraGrid.GridControl
+    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
 End Class

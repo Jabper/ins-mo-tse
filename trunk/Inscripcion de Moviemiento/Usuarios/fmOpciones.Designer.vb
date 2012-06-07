@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class XfmOpcion
+Partial Class fmOpcion
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
@@ -426,8 +426,11 @@ Partial Class XfmOpcion
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
         Me.EmptySpaceItem2.Location = New System.Drawing.Point(242, 0)
+        Me.EmptySpaceItem2.MaxSize = New System.Drawing.Size(242, 67)
+        Me.EmptySpaceItem2.MinSize = New System.Drawing.Size(242, 67)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
         Me.EmptySpaceItem2.Size = New System.Drawing.Size(242, 67)
+        Me.EmptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -436,8 +439,11 @@ Partial Class XfmOpcion
         Me.LayoutControlItem1.Control = Me.DataLayoutControl1
         Me.LayoutControlItem1.CustomizationFormText = "LayoutControlItem1"
         Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 67)
+        Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(484, 111)
+        Me.LayoutControlItem1.MinSize = New System.Drawing.Size(484, 111)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
         Me.LayoutControlItem1.Size = New System.Drawing.Size(484, 111)
+        Me.LayoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem1.Text = "LayoutControlItem1"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem1.TextToControlDistance = 0
@@ -460,8 +466,11 @@ Partial Class XfmOpcion
         Me.LayoutControlItem3.Control = Me.GCOpciones
         Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
         Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 178)
+        Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(484, 0)
+        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(484, 24)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
         Me.LayoutControlItem3.Size = New System.Drawing.Size(484, 154)
+        Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem3.Text = "LayoutControlItem3"
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextToControlDistance = 0
@@ -475,13 +484,13 @@ Partial Class XfmOpcion
         '
         Me.TA_OPCIONESTableAdapter.ClearBeforeFill = True
         '
-        'XfmOpciones
+        'fmOpcion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(504, 352)
         Me.Controls.Add(Me.LayoutControl1)
-        Me.Name = "XfmOpciones"
+        Me.Name = "fmOpcion"
         Me.Text = "Opciones"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)

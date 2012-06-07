@@ -38,6 +38,8 @@ Partial Class XfrmUsuarios
         Me.MODIFICADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.FECHA_MODIFICACIONDateEdit = New DevExpress.XtraEditors.DateEdit
         Me.PREGUNTA_SEGURIDADTextEdit = New DevExpress.XtraEditors.TextEdit
+        Me.CODIGO_ROLSpinEdit = New DevExpress.XtraEditors.LookUpEdit
+        Me.TAROLESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ItemForADICIONADO_POR = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForFECHA_ADICION = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForMODIFICADO_POR = New DevExpress.XtraLayout.LayoutControlItem
@@ -46,22 +48,20 @@ Partial Class XfrmUsuarios
         Me.LayoutControlGroup2 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.ItemForCODIGO_USUARIO = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForCODIGO_ROL = New DevExpress.XtraLayout.LayoutControlItem
-        Me.ItemForNOMBRE = New DevExpress.XtraLayout.LayoutControlItem
-        Me.ItemForIDENTIDAD = New DevExpress.XtraLayout.LayoutControlItem
-        Me.ItemForCONTRASENA = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForESTADO = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForCODIGO_MOVIMIENTO = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForPREGUNTA_SEGURIDAD = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForRESPUESTA_SEGURIDAD = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForNIVEL = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForCODIGO_PARTIDO = New DevExpress.XtraLayout.LayoutControlItem
+        Me.ItemForNOMBRE = New DevExpress.XtraLayout.LayoutControlItem
+        Me.ItemForIDENTIDAD = New DevExpress.XtraLayout.LayoutControlItem
+        Me.ItemForCONTRASENA = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.EmptySpaceItem3 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
         Me.IM_USUARIOSTableAdapter = New Inscripcion_de_Moviemientos.DTUsersTableAdapters.IM_USUARIOSTableAdapter
-        Me.CODIGO_ROLSpinEdit = New DevExpress.XtraEditors.LookUpEdit
-        Me.TAROLESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TA_ROLESTableAdapter = New Inscripcion_de_Moviemientos.DTUsersTableAdapters.TA_ROLESTableAdapter
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
@@ -85,6 +85,8 @@ Partial Class XfrmUsuarios
         CType(Me.FECHA_MODIFICACIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_MODIFICACIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PREGUNTA_SEGURIDADTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CODIGO_ROLSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TAROLESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForADICIONADO_POR, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForFECHA_ADICION, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForMODIFICADO_POR, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -93,21 +95,19 @@ Partial Class XfrmUsuarios
         CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForCODIGO_USUARIO, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForCODIGO_ROL, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ItemForNOMBRE, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ItemForIDENTIDAD, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ItemForCONTRASENA, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForESTADO, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForCODIGO_MOVIMIENTO, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForPREGUNTA_SEGURIDAD, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForRESPUESTA_SEGURIDAD, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForNIVEL, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForCODIGO_PARTIDO, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ItemForNOMBRE, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ItemForIDENTIDAD, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ItemForCONTRASENA, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CODIGO_ROLSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TAROLESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -302,6 +302,28 @@ Partial Class XfrmUsuarios
         Me.PREGUNTA_SEGURIDADTextEdit.StyleController = Me.DataLayoutControl1
         Me.PREGUNTA_SEGURIDADTextEdit.TabIndex = 11
         '
+        'CODIGO_ROLSpinEdit
+        '
+        Me.CODIGO_ROLSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMUSUARIOSBindingSource, "CODIGO_ROL", True))
+        Me.CODIGO_ROLSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.CODIGO_ROLSpinEdit.Location = New System.Drawing.Point(137, 108)
+        Me.CODIGO_ROLSpinEdit.Name = "CODIGO_ROLSpinEdit"
+        Me.CODIGO_ROLSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CODIGO_ROLSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Rol", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
+        Me.CODIGO_ROLSpinEdit.Properties.DataSource = Me.TAROLESBindingSource
+        Me.CODIGO_ROLSpinEdit.Properties.DisplayMember = "DESCRIPCION"
+        Me.CODIGO_ROLSpinEdit.Properties.NullText = ""
+        Me.CODIGO_ROLSpinEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
+        Me.CODIGO_ROLSpinEdit.Properties.ValueMember = "CODIGO_ROL"
+        Me.CODIGO_ROLSpinEdit.Size = New System.Drawing.Size(400, 20)
+        Me.CODIGO_ROLSpinEdit.StyleController = Me.DataLayoutControl1
+        Me.CODIGO_ROLSpinEdit.TabIndex = 5
+        '
+        'TAROLESBindingSource
+        '
+        Me.TAROLESBindingSource.DataMember = "TA_ROLES"
+        Me.TAROLESBindingSource.DataSource = Me.DTUsers
+        '
         'ItemForADICIONADO_POR
         '
         Me.ItemForADICIONADO_POR.Control = Me.ADICIONADO_PORSpinEdit
@@ -389,36 +411,6 @@ Partial Class XfrmUsuarios
         Me.ItemForCODIGO_ROL.Text = "Rol Usuario"
         Me.ItemForCODIGO_ROL.TextSize = New System.Drawing.Size(121, 13)
         '
-        'ItemForNOMBRE
-        '
-        Me.ItemForNOMBRE.Control = Me.NOMBRETextEdit
-        Me.ItemForNOMBRE.CustomizationFormText = "NOMBRE"
-        Me.ItemForNOMBRE.Location = New System.Drawing.Point(0, 24)
-        Me.ItemForNOMBRE.Name = "ItemForNOMBRE"
-        Me.ItemForNOMBRE.Size = New System.Drawing.Size(529, 24)
-        Me.ItemForNOMBRE.Text = "NOMBRE"
-        Me.ItemForNOMBRE.TextSize = New System.Drawing.Size(121, 13)
-        '
-        'ItemForIDENTIDAD
-        '
-        Me.ItemForIDENTIDAD.Control = Me.IDENTIDADTextEdit
-        Me.ItemForIDENTIDAD.CustomizationFormText = "IDENTIDAD"
-        Me.ItemForIDENTIDAD.Location = New System.Drawing.Point(0, 48)
-        Me.ItemForIDENTIDAD.Name = "ItemForIDENTIDAD"
-        Me.ItemForIDENTIDAD.Size = New System.Drawing.Size(529, 24)
-        Me.ItemForIDENTIDAD.Text = "IDENTIDAD"
-        Me.ItemForIDENTIDAD.TextSize = New System.Drawing.Size(121, 13)
-        '
-        'ItemForCONTRASENA
-        '
-        Me.ItemForCONTRASENA.Control = Me.CONTRASENATextEdit
-        Me.ItemForCONTRASENA.CustomizationFormText = "CONTRASENA"
-        Me.ItemForCONTRASENA.Location = New System.Drawing.Point(0, 72)
-        Me.ItemForCONTRASENA.Name = "ItemForCONTRASENA"
-        Me.ItemForCONTRASENA.Size = New System.Drawing.Size(529, 24)
-        Me.ItemForCONTRASENA.Text = "CONTRASENA"
-        Me.ItemForCONTRASENA.TextSize = New System.Drawing.Size(121, 13)
-        '
         'ItemForESTADO
         '
         Me.ItemForESTADO.Control = Me.ESTADOTextEdit
@@ -479,6 +471,36 @@ Partial Class XfrmUsuarios
         Me.ItemForCODIGO_PARTIDO.Text = "CODIGO_PARTIDO"
         Me.ItemForCODIGO_PARTIDO.TextSize = New System.Drawing.Size(121, 13)
         '
+        'ItemForNOMBRE
+        '
+        Me.ItemForNOMBRE.Control = Me.NOMBRETextEdit
+        Me.ItemForNOMBRE.CustomizationFormText = "NOMBRE"
+        Me.ItemForNOMBRE.Location = New System.Drawing.Point(0, 24)
+        Me.ItemForNOMBRE.Name = "ItemForNOMBRE"
+        Me.ItemForNOMBRE.Size = New System.Drawing.Size(529, 24)
+        Me.ItemForNOMBRE.Text = "NOMBRE"
+        Me.ItemForNOMBRE.TextSize = New System.Drawing.Size(121, 13)
+        '
+        'ItemForIDENTIDAD
+        '
+        Me.ItemForIDENTIDAD.Control = Me.IDENTIDADTextEdit
+        Me.ItemForIDENTIDAD.CustomizationFormText = "IDENTIDAD"
+        Me.ItemForIDENTIDAD.Location = New System.Drawing.Point(0, 48)
+        Me.ItemForIDENTIDAD.Name = "ItemForIDENTIDAD"
+        Me.ItemForIDENTIDAD.Size = New System.Drawing.Size(529, 24)
+        Me.ItemForIDENTIDAD.Text = "IDENTIDAD"
+        Me.ItemForIDENTIDAD.TextSize = New System.Drawing.Size(121, 13)
+        '
+        'ItemForCONTRASENA
+        '
+        Me.ItemForCONTRASENA.Control = Me.CONTRASENATextEdit
+        Me.ItemForCONTRASENA.CustomizationFormText = "CONTRASENA"
+        Me.ItemForCONTRASENA.Location = New System.Drawing.Point(0, 72)
+        Me.ItemForCONTRASENA.Name = "ItemForCONTRASENA"
+        Me.ItemForCONTRASENA.Size = New System.Drawing.Size(529, 24)
+        Me.ItemForCONTRASENA.Text = "CONTRASENA"
+        Me.ItemForCONTRASENA.TextSize = New System.Drawing.Size(121, 13)
+        '
         'LayoutControlGroup1
         '
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
@@ -527,28 +549,6 @@ Partial Class XfrmUsuarios
         '
         Me.IM_USUARIOSTableAdapter.ClearBeforeFill = True
         '
-        'CODIGO_ROLSpinEdit
-        '
-        Me.CODIGO_ROLSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMUSUARIOSBindingSource, "CODIGO_ROL", True))
-        Me.CODIGO_ROLSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CODIGO_ROLSpinEdit.Location = New System.Drawing.Point(137, 108)
-        Me.CODIGO_ROLSpinEdit.Name = "CODIGO_ROLSpinEdit"
-        Me.CODIGO_ROLSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.CODIGO_ROLSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Rol", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
-        Me.CODIGO_ROLSpinEdit.Properties.DataSource = Me.TAROLESBindingSource
-        Me.CODIGO_ROLSpinEdit.Properties.DisplayMember = "DESCRIPCION"
-        Me.CODIGO_ROLSpinEdit.Properties.NullText = ""
-        Me.CODIGO_ROLSpinEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
-        Me.CODIGO_ROLSpinEdit.Properties.ValueMember = "CODIGO_ROL"
-        Me.CODIGO_ROLSpinEdit.Size = New System.Drawing.Size(400, 20)
-        Me.CODIGO_ROLSpinEdit.StyleController = Me.DataLayoutControl1
-        Me.CODIGO_ROLSpinEdit.TabIndex = 5
-        '
-        'TAROLESBindingSource
-        '
-        Me.TAROLESBindingSource.DataMember = "TA_ROLES"
-        Me.TAROLESBindingSource.DataSource = Me.DTUsers
-        '
         'TA_ROLESTableAdapter
         '
         Me.TA_ROLESTableAdapter.ClearBeforeFill = True
@@ -560,7 +560,7 @@ Partial Class XfrmUsuarios
         Me.ClientSize = New System.Drawing.Size(573, 395)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Name = "XfrmUsuarios"
-        Me.Text = "XfrmUsuarios"
+        Me.Text = "Usuarios"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -583,6 +583,8 @@ Partial Class XfrmUsuarios
         CType(Me.FECHA_MODIFICACIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_MODIFICACIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PREGUNTA_SEGURIDADTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CODIGO_ROLSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TAROLESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForADICIONADO_POR, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForFECHA_ADICION, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForMODIFICADO_POR, System.ComponentModel.ISupportInitialize).EndInit()
@@ -591,21 +593,19 @@ Partial Class XfrmUsuarios
         CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForCODIGO_USUARIO, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForCODIGO_ROL, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ItemForNOMBRE, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ItemForIDENTIDAD, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ItemForCONTRASENA, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForESTADO, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForCODIGO_MOVIMIENTO, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForPREGUNTA_SEGURIDAD, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForRESPUESTA_SEGURIDAD, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForNIVEL, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForCODIGO_PARTIDO, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ItemForNOMBRE, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ItemForIDENTIDAD, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ItemForCONTRASENA, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CODIGO_ROLSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TAROLESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

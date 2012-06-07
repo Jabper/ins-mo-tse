@@ -1,4 +1,4 @@
-﻿Public Class XfmOpcion
+﻿Public Class fmOpcion
 
     Private Sub XfmOpciones_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ActualizarGrid()
