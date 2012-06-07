@@ -22,15 +22,13 @@ Partial Class XfrmNivelElectivo
         Me.components = New System.ComponentModel.Container
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
         Me.GCNivelElectivo = New DevExpress.XtraGrid.GridControl
+        Me.IMNIVELELECTIVOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataSet1 = New Inscripcion_de_Moviemientos.DataSet1
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
-        Me.colCODIGO_NIVEL_ELECTIVO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colDESCRIPCION = New DevExpress.XtraGrid.Columns.GridColumn
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.ButtonEdit1 = New DevExpress.XtraEditors.ButtonEdit
         Me.DataLayoutControl1 = New DevExpress.XtraDataLayout.DataLayoutControl
         Me.DESCRIPCIONTextEdit = New DevExpress.XtraEditors.TextEdit
-        Me.IMNIVELELECTIVOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataSet1 = New Inscripcion_de_Moviemientos.DataSet1
         Me.ADICIONADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.FECHA_ADICIONDateEdit = New DevExpress.XtraEditors.DateEdit
         Me.MODIFICADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
@@ -45,7 +43,6 @@ Partial Class XfrmNivelElectivo
         Me.ItemForCODIGO_NIVEL_ELECTIVO = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForDESCRIPCION = New DevExpress.XtraLayout.LayoutControlItem
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
-        Me.BtnCancelar = New DevExpress.XtraEditors.SimpleButton
         Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
         Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
         Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
@@ -55,17 +52,21 @@ Partial Class XfrmNivelElectivo
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem
         Me.IM_NIVEL_ELECTIVOTableAdapter = New Inscripcion_de_Moviemientos.DataSet1TableAdapters.IM_NIVEL_ELECTIVOTableAdapter
+        Me.TANIVELELECTIVOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TA_NIVEL_ELECTIVOTableAdapter = New Inscripcion_de_Moviemientos.DataSet1TableAdapters.TA_NIVEL_ELECTIVOTableAdapter
+        Me.colCODIGO_NIVEL_ELECTIVO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colDESCRIPCION = New DevExpress.XtraGrid.Columns.GridColumn
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.GCNivelElectivo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMNIVELELECTIVOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ButtonEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DataLayoutControl1.SuspendLayout()
         CType(Me.DESCRIPCIONTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IMNIVELELECTIVOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,6 +89,7 @@ Partial Class XfrmNivelElectivo
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TANIVELELECTIVOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -107,13 +109,23 @@ Partial Class XfrmNivelElectivo
         '
         'GCNivelElectivo
         '
-        Me.GCNivelElectivo.DataSource = Me.IMNIVELELECTIVOBindingSource
+        Me.GCNivelElectivo.DataSource = Me.TANIVELELECTIVOBindingSource
         Me.GCNivelElectivo.Location = New System.Drawing.Point(12, 194)
         Me.GCNivelElectivo.MainView = Me.GridView1
         Me.GCNivelElectivo.Name = "GCNivelElectivo"
         Me.GCNivelElectivo.Size = New System.Drawing.Size(561, 155)
         Me.GCNivelElectivo.TabIndex = 7
         Me.GCNivelElectivo.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
+        '
+        'IMNIVELELECTIVOBindingSource
+        '
+        Me.IMNIVELELECTIVOBindingSource.DataMember = "IM_NIVEL_ELECTIVO"
+        Me.IMNIVELELECTIVOBindingSource.DataSource = Me.DataSet1
+        '
+        'DataSet1
+        '
+        Me.DataSet1.DataSetName = "DataSet1"
+        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GridView1
         '
@@ -126,20 +138,6 @@ Partial Class XfrmNivelElectivo
         Me.GridView1.OptionsBehavior.Editable = False
         Me.GridView1.OptionsView.ShowDetailButtons = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
-        '
-        'colCODIGO_NIVEL_ELECTIVO
-        '
-        Me.colCODIGO_NIVEL_ELECTIVO.FieldName = "CODIGO_NIVEL_ELECTIVO"
-        Me.colCODIGO_NIVEL_ELECTIVO.Name = "colCODIGO_NIVEL_ELECTIVO"
-        Me.colCODIGO_NIVEL_ELECTIVO.Visible = True
-        Me.colCODIGO_NIVEL_ELECTIVO.VisibleIndex = 0
-        '
-        'colDESCRIPCION
-        '
-        Me.colDESCRIPCION.FieldName = "DESCRIPCION"
-        Me.colDESCRIPCION.Name = "colDESCRIPCION"
-        Me.colDESCRIPCION.Visible = True
-        Me.colDESCRIPCION.VisibleIndex = 1
         '
         'GridView2
         '
@@ -175,21 +173,11 @@ Partial Class XfrmNivelElectivo
         'DESCRIPCIONTextEdit
         '
         Me.DESCRIPCIONTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMNIVELELECTIVOBindingSource, "DESCRIPCION", True))
-        Me.DESCRIPCIONTextEdit.Location = New System.Drawing.Point(145, 36)
+        Me.DESCRIPCIONTextEdit.Location = New System.Drawing.Point(115, 36)
         Me.DESCRIPCIONTextEdit.Name = "DESCRIPCIONTextEdit"
-        Me.DESCRIPCIONTextEdit.Size = New System.Drawing.Size(404, 20)
+        Me.DESCRIPCIONTextEdit.Size = New System.Drawing.Size(434, 20)
         Me.DESCRIPCIONTextEdit.StyleController = Me.DataLayoutControl1
         Me.DESCRIPCIONTextEdit.TabIndex = 5
-        '
-        'IMNIVELELECTIVOBindingSource
-        '
-        Me.IMNIVELELECTIVOBindingSource.DataMember = "IM_NIVEL_ELECTIVO"
-        Me.IMNIVELELECTIVOBindingSource.DataSource = Me.DataSet1
-        '
-        'DataSet1
-        '
-        Me.DataSet1.DataSetName = "DataSet1"
-        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ADICIONADO_PORSpinEdit
         '
@@ -241,11 +229,11 @@ Partial Class XfrmNivelElectivo
         '
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMNIVELELECTIVOBindingSource, "CODIGO_NIVEL_ELECTIVO", True))
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Location = New System.Drawing.Point(145, 12)
+        Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Location = New System.Drawing.Point(115, 12)
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Name = "CODIGO_NIVEL_ELECTIVOSpinEdit"
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Size = New System.Drawing.Size(404, 20)
+        Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Size = New System.Drawing.Size(434, 20)
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.TabIndex = 4
         '
@@ -323,8 +311,8 @@ Partial Class XfrmNivelElectivo
         Me.ItemForCODIGO_NIVEL_ELECTIVO.Location = New System.Drawing.Point(0, 0)
         Me.ItemForCODIGO_NIVEL_ELECTIVO.Name = "ItemForCODIGO_NIVEL_ELECTIVO"
         Me.ItemForCODIGO_NIVEL_ELECTIVO.Size = New System.Drawing.Size(541, 24)
-        Me.ItemForCODIGO_NIVEL_ELECTIVO.Text = "CODIGO_NIVEL_ELECTIVO"
-        Me.ItemForCODIGO_NIVEL_ELECTIVO.TextSize = New System.Drawing.Size(129, 13)
+        Me.ItemForCODIGO_NIVEL_ELECTIVO.Text = "Código Nivel Electivo"
+        Me.ItemForCODIGO_NIVEL_ELECTIVO.TextSize = New System.Drawing.Size(99, 13)
         '
         'ItemForDESCRIPCION
         '
@@ -333,13 +321,12 @@ Partial Class XfrmNivelElectivo
         Me.ItemForDESCRIPCION.Location = New System.Drawing.Point(0, 24)
         Me.ItemForDESCRIPCION.Name = "ItemForDESCRIPCION"
         Me.ItemForDESCRIPCION.Size = New System.Drawing.Size(541, 44)
-        Me.ItemForDESCRIPCION.Text = "DESCRIPCION"
-        Me.ItemForDESCRIPCION.TextSize = New System.Drawing.Size(129, 13)
+        Me.ItemForDESCRIPCION.Text = "Descripción"
+        Me.ItemForDESCRIPCION.TextSize = New System.Drawing.Size(99, 13)
         '
         'PanelControl1
         '
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PanelControl1.Controls.Add(Me.BtnCancelar)
         Me.PanelControl1.Controls.Add(Me.BtnEliminar)
         Me.PanelControl1.Controls.Add(Me.BtnNuevo)
         Me.PanelControl1.Controls.Add(Me.BtnGuardar)
@@ -348,25 +335,13 @@ Partial Class XfrmNivelElectivo
         Me.PanelControl1.Size = New System.Drawing.Size(561, 62)
         Me.PanelControl1.TabIndex = 6
         '
-        'BtnCancelar
-        '
-        Me.BtnCancelar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnCancelar.Appearance.Options.UseFont = True
-        Me.BtnCancelar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.eliminar
-        Me.BtnCancelar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnCancelar.Location = New System.Drawing.Point(124, 2)
-        Me.BtnCancelar.Name = "BtnCancelar"
-        Me.BtnCancelar.Size = New System.Drawing.Size(55, 55)
-        Me.BtnCancelar.TabIndex = 3
-        Me.BtnCancelar.Text = "Cancelar"
-        '
         'BtnEliminar
         '
         Me.BtnEliminar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
         Me.BtnEliminar.Appearance.Options.UseFont = True
         Me.BtnEliminar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.eliminar
         Me.BtnEliminar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnEliminar.Location = New System.Drawing.Point(184, 3)
+        Me.BtnEliminar.Location = New System.Drawing.Point(125, 2)
         Me.BtnEliminar.Name = "BtnEliminar"
         Me.BtnEliminar.Size = New System.Drawing.Size(55, 55)
         Me.BtnEliminar.TabIndex = 2
@@ -461,6 +436,31 @@ Partial Class XfrmNivelElectivo
         '
         Me.IM_NIVEL_ELECTIVOTableAdapter.ClearBeforeFill = True
         '
+        'TANIVELELECTIVOBindingSource
+        '
+        Me.TANIVELELECTIVOBindingSource.DataMember = "TA_NIVEL_ELECTIVO"
+        Me.TANIVELELECTIVOBindingSource.DataSource = Me.DataSet1
+        '
+        'TA_NIVEL_ELECTIVOTableAdapter
+        '
+        Me.TA_NIVEL_ELECTIVOTableAdapter.ClearBeforeFill = True
+        '
+        'colCODIGO_NIVEL_ELECTIVO
+        '
+        Me.colCODIGO_NIVEL_ELECTIVO.Caption = "Nivel Electivo"
+        Me.colCODIGO_NIVEL_ELECTIVO.FieldName = "CODIGO_NIVEL_ELECTIVO"
+        Me.colCODIGO_NIVEL_ELECTIVO.Name = "colCODIGO_NIVEL_ELECTIVO"
+        Me.colCODIGO_NIVEL_ELECTIVO.Visible = True
+        Me.colCODIGO_NIVEL_ELECTIVO.VisibleIndex = 0
+        '
+        'colDESCRIPCION
+        '
+        Me.colDESCRIPCION.Caption = "Descripción"
+        Me.colDESCRIPCION.FieldName = "DESCRIPCION"
+        Me.colDESCRIPCION.Name = "colDESCRIPCION"
+        Me.colDESCRIPCION.Visible = True
+        Me.colDESCRIPCION.VisibleIndex = 1
+        '
         'XfrmNivelElectivo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -472,14 +472,14 @@ Partial Class XfrmNivelElectivo
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
         CType(Me.GCNivelElectivo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMNIVELELECTIVOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ButtonEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DataLayoutControl1.ResumeLayout(False)
         CType(Me.DESCRIPCIONTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IMNIVELELECTIVOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -502,6 +502,7 @@ Partial Class XfrmNivelElectivo
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TANIVELELECTIVOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -537,7 +538,8 @@ Partial Class XfrmNivelElectivo
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents TANIVELELECTIVOBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents TA_NIVEL_ELECTIVOTableAdapter As Inscripcion_de_Moviemientos.DataSet1TableAdapters.TA_NIVEL_ELECTIVOTableAdapter
     Friend WithEvents colCODIGO_NIVEL_ELECTIVO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colDESCRIPCION As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents BtnCancelar As DevExpress.XtraEditors.SimpleButton
 End Class

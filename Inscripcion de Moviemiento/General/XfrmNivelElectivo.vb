@@ -1,11 +1,17 @@
 ﻿Public Class XfrmNivelElectivo 
 
     Private Sub XfrmNivelElectivo_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-         'TODO: This line of code loads data into the 'DataSet1.IM_NIVEL_ELECTIVO' table. You can move, or remove it, as needed.
         Me.IM_NIVEL_ELECTIVOTableAdapter.Fill(Me.DataSet1.IM_NIVEL_ELECTIVO)
-
+        ActualizarGrid()
+        Me.IMNIVELELECTIVOBindingSource.AddNew()
     End Sub
 
+
+
+    Sub ActualizarGrid()
+        Me.TA_NIVEL_ELECTIVOTableAdapter.Fill(Me.DataSet1.TA_NIVEL_ELECTIVO)
+
+    End Sub
     Sub guardar()
 
 
@@ -28,6 +34,8 @@
             Next
 
             Me.IM_NIVEL_ELECTIVOTableAdapter.Update(Me.DataSet1.IM_NIVEL_ELECTIVO)
+            ActualizarGrid()
+            Mensajes.MensajeGuardar()
         Catch ex As Exception
             'CONTROL DE ERRORES
             Mensajes.MensajeError(ex.Message)
@@ -44,8 +52,23 @@
 
         Me.IMNIVELELECTIVOBindingSource.CancelEdit()
         Me.IMNIVELELECTIVOBindingSource.AddNew()
-        Me.GCNivelElectivo.Enabled = False
+      
+    End Sub
 
+    Sub MostrarDatos()
+
+        Try
+
+            'SE LE ASIGNA A UNA VARIABLE EL VALOR DE LA CELDA QUE SE DESEA
+            Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
+            'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
+            Me.IM_NIVEL_ELECTIVOTableAdapter.FillBy(Me.DataSet1.IM_NIVEL_ELECTIVO, CType(cellValue, Integer))
+            'writedata = False
+
+
+        Catch ex As System.Exception
+            Mensajes.MensajeError("Seleccione una Fila con Datos para Realizar la Edición")
+        End Try
     End Sub
 
     Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
@@ -56,13 +79,9 @@
         guardar()
     End Sub
 
-    Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
+   
 
-    End Sub
-
-    Private Sub BtnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnCancelar.Click
-        Me.IMNIVELELECTIVOBindingSource.CancelEdit()
-
-        Me.GCNivelElectivo.Enabled = True
+    Private Sub GridView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.Click
+        MostrarDatos()
     End Sub
 End Class

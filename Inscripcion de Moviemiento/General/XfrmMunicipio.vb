@@ -7,11 +7,11 @@
         Me.IM_DEPARTAMENTOSTableAdapter.Fill(Me.DataSet1.IM_DEPARTAMENTOS)
         'TODO: This line of code loads data into the 'DataSet1.IM_MUNICIPIOS' table. You can move, or remove it, as needed.
         Me.IM_MUNICIPIOSTableAdapter.Fill(Me.DataSet1.IM_MUNICIPIOS)
-
+        ActualizarGrid()
         Me.IMMUNICIPIOSBindingSource.AddNew()
     End Sub
 
-    Sub ActualizarBusqueda()
+    Sub ActualizarGrid()
         'TODO: This line of code loads data into the 'DataSet1.TA_DEPTOSMUNI' table. You can move, or remove it, as needed.
         Me.TA_DEPTOSMUNITableAdapter.Fill(Me.DataSet1.TA_DEPTOSMUNI)
     End Sub
@@ -44,7 +44,7 @@
 
 
             'ACTUALIZANDO EL GRID DE BUSQUEDA Y EDICION
-            ActualizarBusqueda()
+            ActualizarGrid()
         Catch ex As Exception
             'CONTROL DE ERRORES
             Mensajes.MensajeError(ex.Message)
@@ -58,5 +58,25 @@
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
         guardar()
+    End Sub
+
+    Sub MostrarDatos()
+
+        Try
+
+            'SE LE ASIGNA A UNA VARIABLE EL VALOR DE LA CELDA QUE SE DESEA
+            Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
+            'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
+            Me.IM_MUNICIPIOSTableAdapter.FillBy(Me.DataSet1.IM_MUNICIPIOS, CType(cellValue, Integer))
+            'writedata = False
+
+
+        Catch ex As System.Exception
+            Mensajes.MensajeError("Seleccione una Fila con Datos para Realizar la Edición")
+        End Try
+    End Sub
+
+    Private Sub GridView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.Click
+        MostrarDatos()
     End Sub
 End Class
