@@ -69,6 +69,7 @@
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core">
@@ -181,6 +182,32 @@
     <Compile Include="StandarControles.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Usuarios\DTUsers.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DTUsers.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\DTUsers.vb">
+      <DependentUpon>DTUsers.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\XfmOpciones.Designer.vb">
+      <DependentUpon>XfmOpciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\XfmOpciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\XfrmOperacionesPorRol.Designer.vb">
+      <DependentUpon>XfrmOperacionesPorRol.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\XfrmOperacionesPorRol.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\XfrmRoles.Designer.vb">
+      <DependentUpon>XfrmRoles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\XfrmRoles.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Usuarios\XfrmUsuarios.Designer.vb">
       <DependentUpon>XfrmUsuarios.vb</DependentUpon>
     </Compile>
@@ -240,6 +267,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StandarControles.resx">
       <DependentUpon>StandarControles.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\XfmOpciones.resx">
+      <DependentUpon>XfmOpciones.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\XfrmOperacionesPorRol.resx">
+      <DependentUpon>XfrmOperacionesPorRol.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\XfrmRoles.resx">
+      <DependentUpon>XfrmRoles.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\XfrmUsuarios.resx">
@@ -328,6 +367,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\eliminar.png" />
+    <None Include="Usuarios\DTUsers.xsc">
+      <DependentUpon>DTUsers.xsd</DependentUpon>
+    </None>
+    <None Include="Usuarios\DTUsers.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DTUsers.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Usuarios\DTUsers.xss">
+      <DependentUpon>DTUsers.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Usuarios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Roles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpcionesdeAcceso.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -30,6 +30,9 @@ Partial Class XFrmMenuPrincipal
         Me.BtnIncompatibilidades = New DevExpress.XtraBars.BarButtonItem
         Me.BtnCenso = New DevExpress.XtraBars.BarButtonItem
         Me.BtnParametros = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnUsuarios = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnRoles = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnOpciones = New DevExpress.XtraBars.BarButtonItem
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage
@@ -37,6 +40,7 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonPage4 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPage5 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPage6 = New DevExpress.XtraBars.Ribbon.RibbonPage
+        Me.RibbonPageGroup2 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonStatusBar = New DevExpress.XtraBars.Ribbon.RibbonStatusBar
         Me.DefaultLookAndFeel1 = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
         Me.XtraTabbedMdiManager1 = New DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(Me.components)
@@ -48,9 +52,9 @@ Partial Class XFrmMenuPrincipal
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ExpandCollapseItem.Name = ""
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnIncompatibilidades, Me.BtnCenso, Me.BtnParametros})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnIncompatibilidades, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 12
+        Me.RibbonControl.MaxItemId = 15
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5, Me.RibbonPage6})
         Me.RibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010
@@ -121,6 +125,27 @@ Partial Class XFrmMenuPrincipal
         Me.BtnParametros.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.parametros
         Me.BtnParametros.Name = "BtnParametros"
         '
+        'BtnUsuarios
+        '
+        Me.BtnUsuarios.Caption = "Usuarios"
+        Me.BtnUsuarios.Id = 12
+        Me.BtnUsuarios.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Usuarios
+        Me.BtnUsuarios.Name = "BtnUsuarios"
+        '
+        'BtnRoles
+        '
+        Me.BtnRoles.Caption = "Roles"
+        Me.BtnRoles.Id = 13
+        Me.BtnRoles.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Roles
+        Me.BtnRoles.Name = "BtnRoles"
+        '
+        'BtnOpciones
+        '
+        Me.BtnOpciones.Caption = "Opciones"
+        Me.BtnOpciones.Id = 14
+        Me.BtnOpciones.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.OpcionesdeAcceso
+        Me.BtnOpciones.Name = "BtnOpciones"
+        '
         'RibbonPage1
         '
         Me.RibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1})
@@ -162,8 +187,17 @@ Partial Class XFrmMenuPrincipal
         '
         'RibbonPage6
         '
+        Me.RibbonPage6.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup2})
         Me.RibbonPage6.Name = "RibbonPage6"
         Me.RibbonPage6.Text = "Seguridad"
+        '
+        'RibbonPageGroup2
+        '
+        Me.RibbonPageGroup2.ItemLinks.Add(Me.BtnUsuarios)
+        Me.RibbonPageGroup2.ItemLinks.Add(Me.BtnRoles)
+        Me.RibbonPageGroup2.ItemLinks.Add(Me.BtnOpciones)
+        Me.RibbonPageGroup2.Name = "RibbonPageGroup2"
+        Me.RibbonPageGroup2.Text = "Seguridad del Sistema"
         '
         'RibbonStatusBar
         '
@@ -218,6 +252,10 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents BtnIncompatibilidades As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BtnCenso As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BtnParametros As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnUsuarios As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnRoles As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnOpciones As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonPageGroup2 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
 
 
 End Class
