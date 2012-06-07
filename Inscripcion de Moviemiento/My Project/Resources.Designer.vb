@@ -123,6 +123,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property OpcionesdeAcceso() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("OpcionesdeAcceso", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property parametros() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("parametros", resourceCulture)
@@ -133,6 +140,20 @@ Namespace My.Resources
         Friend ReadOnly Property partidos() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("partidos", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property Roles() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Roles", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property Usuarios() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Usuarios", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
