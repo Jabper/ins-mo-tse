@@ -4,9 +4,12 @@
 Public Class XfrmCargoElectivo
 
     Private Sub XfrmCargoElectivo_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DataSet1.IM_CARGOS_ELECTIVOS' table. You can move, or remove it, as needed.
-        Me.IM_CARGOS_ELECTIVOSTableAdapter.Fill(Me.DataSet1.IM_CARGOS_ELECTIVOS)
-
+        'TODO: This line of code loads data into the 'DSPolitico.IM_NIVEL_ELECTIVO' table. You can move, or remove it, as needed.
+        Me.IM_NIVEL_ELECTIVOTableAdapter.Fill(Me.DSPolitico.IM_NIVEL_ELECTIVO)
+        'TODO: This line of code loads data into the 'DSPolitico.IM_CARGOS_ELECTIVOS' table. You can move, or remove it, as needed.
+        Me.IM_CARGOS_ELECTIVOSTableAdapter.Fill(Me.DSPolitico.IM_CARGOS_ELECTIVOS)
+       
+        Me.IMCARGOSELECTIVOSBindingSource.AddNew()
 
     End Sub
 
@@ -22,7 +25,7 @@ Public Class XfrmCargoElectivo
             Me.IMCARGOSELECTIVOSBindingSource.EndEdit()
 
             'AGREGAR INFORMACION DE AUDITORIA (MODIFICA EL REGISTRO ANTES DE AGREGARLO A LA BASE )
-            For Each _datar As DataSet1.IM_CARGOS_ELECTIVOSRow In DataSet1.IM_CARGOS_ELECTIVOS
+            For Each _datar As DSPolitico.IM_CARGOS_ELECTIVOSRow In DSPolitico.IM_CARGOS_ELECTIVOS
                 'SI ES UN NUEVO REGITRO
                 If _datar.RowState = DataRowState.Added Then
                     _datar.ADICIONADO_POR = usuario
@@ -35,7 +38,7 @@ Public Class XfrmCargoElectivo
             Next
 
             'AGREGANDO LA INFORMACION A LA BASE DE DATOS
-            Me.IM_CARGOS_ELECTIVOSTableAdapter.Update(Me.DataSet1.IM_CARGOS_ELECTIVOS)
+            Me.IM_CARGOS_ELECTIVOSTableAdapter.Update(Me.DSPolitico.IM_CARGOS_ELECTIVOS)
 
 
             'ACTUALIZANDO EL GRID DE BUSQUEDA Y EDICION
@@ -58,7 +61,7 @@ Public Class XfrmCargoElectivo
             'SE LE ASIGNA A UNA VARIABLE EL VALOR DE LA CELDA QUE SE DESEA
             Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
             'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
-            'Me.IM_CARGOS_ELECTIVOSTableAdapter.FillBy(Me.DataSet1.IM_MUNICIPIOS, cellValue)
+            'Me.IM_CARGOS_ELECTIVOSTableAdapter.FillBy(Me.DSPolitico.IM_MUNICIPIOS, cellValue)
             'writedata = False
 
 
@@ -71,9 +74,9 @@ Public Class XfrmCargoElectivo
     End Sub
 
     Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
-        Dim currentImage As Bitmap = TryCast(PictureEdit1.EditValue, Bitmap)
-        
-        MsgBox(ConvertImageToByteArray(currentImage))
+        'Dim currentImage As Bitmap = TryCast(PictureEdit1.EditValue, Bitmap)
+
+        'MsgBox(ConvertImageToByteArray(currentImage))
     End Sub
     Public Shared Function ConvertImageToByteArray(ByVal imageIn As System.Drawing.Image) As Byte()
         Dim ms As New IO.MemoryStream()

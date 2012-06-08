@@ -22,14 +22,9 @@ Partial Class Municipios
         Me.components = New System.ComponentModel.Container
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
         Me.GridControl1 = New DevExpress.XtraGrid.GridControl
-        Me.TADEPTOSMUNIBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataSet1 = New Inscripcion_de_Moviemientos.DataSet1
+        Me.TAMUNICIPIOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DSDeptoMuni = New Inscripcion_de_Moviemientos.DSDeptoMuni
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
-        Me.colCODIGO_MUNICIPIO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colCODIGO_DEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colDESCRIPCION = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colDEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colCANTIDAD_REGIDORES = New DevExpress.XtraGrid.Columns.GridColumn
         Me.ButtonEdit1 = New DevExpress.XtraEditors.ButtonEdit
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
         Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
@@ -62,14 +57,19 @@ Partial Class Municipios
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.IM_MUNICIPIOSTableAdapter = New Inscripcion_de_Moviemientos.DataSet1TableAdapters.IM_MUNICIPIOSTableAdapter
-        Me.IM_DEPARTAMENTOSTableAdapter = New Inscripcion_de_Moviemientos.DataSet1TableAdapters.IM_DEPARTAMENTOSTableAdapter
-        Me.TA_DEPTOSMUNITableAdapter = New Inscripcion_de_Moviemientos.DataSet1TableAdapters.TA_DEPTOSMUNITableAdapter
+        Me.TA_MUNICIPIOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_MUNICIPIOSTableAdapter
+        Me.IM_MUNICIPIOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.IM_MUNICIPIOSTableAdapter
+        Me.IM_DEPARTAMENTOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.IM_DEPARTAMENTOSTableAdapter
+        Me.colCODIGO_MUNICIPIO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCODIGO_DEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCANTIDAD_REGIDORES = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colDESCRIPCION = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colDEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TADEPTOSMUNIBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TAMUNICIPIOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ButtonEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -123,7 +123,7 @@ Partial Class Municipios
         '
         'GridControl1
         '
-        Me.GridControl1.DataSource = Me.TADEPTOSMUNIBindingSource
+        Me.GridControl1.DataSource = Me.TAMUNICIPIOSBindingSource
         Me.GridControl1.Location = New System.Drawing.Point(12, 241)
         Me.GridControl1.MainView = Me.GridView1
         Me.GridControl1.Name = "GridControl1"
@@ -131,19 +131,19 @@ Partial Class Municipios
         Me.GridControl1.TabIndex = 8
         Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
-        'TADEPTOSMUNIBindingSource
+        'TAMUNICIPIOSBindingSource
         '
-        Me.TADEPTOSMUNIBindingSource.DataMember = "TA_DEPTOSMUNI"
-        Me.TADEPTOSMUNIBindingSource.DataSource = Me.DataSet1
+        Me.TAMUNICIPIOSBindingSource.DataMember = "TA_MUNICIPIOS"
+        Me.TAMUNICIPIOSBindingSource.DataSource = Me.DSDeptoMuni
         '
-        'DataSet1
+        'DSDeptoMuni
         '
-        Me.DataSet1.DataSetName = "DataSet1"
-        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.DSDeptoMuni.DataSetName = "DSDeptoMuni"
+        Me.DSDeptoMuni.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GridView1
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_MUNICIPIO, Me.colCODIGO_DEPARTAMENTO, Me.colDESCRIPCION, Me.colDEPARTAMENTO, Me.colCANTIDAD_REGIDORES})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_MUNICIPIO, Me.colCODIGO_DEPARTAMENTO, Me.colCANTIDAD_REGIDORES, Me.colDESCRIPCION, Me.colDEPARTAMENTO})
         Me.GridView1.GridControl = Me.GridControl1
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[False]
@@ -151,46 +151,6 @@ Partial Class Municipios
         Me.GridView1.OptionsBehavior.Editable = False
         Me.GridView1.OptionsView.ShowDetailButtons = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
-        '
-        'colCODIGO_MUNICIPIO
-        '
-        Me.colCODIGO_MUNICIPIO.Caption = "Código Municipio"
-        Me.colCODIGO_MUNICIPIO.FieldName = "CODIGO_MUNICIPIO"
-        Me.colCODIGO_MUNICIPIO.Name = "colCODIGO_MUNICIPIO"
-        Me.colCODIGO_MUNICIPIO.Visible = True
-        Me.colCODIGO_MUNICIPIO.VisibleIndex = 0
-        '
-        'colCODIGO_DEPARTAMENTO
-        '
-        Me.colCODIGO_DEPARTAMENTO.Caption = "Código Departamento"
-        Me.colCODIGO_DEPARTAMENTO.FieldName = "CODIGO_DEPARTAMENTO"
-        Me.colCODIGO_DEPARTAMENTO.Name = "colCODIGO_DEPARTAMENTO"
-        Me.colCODIGO_DEPARTAMENTO.Visible = True
-        Me.colCODIGO_DEPARTAMENTO.VisibleIndex = 1
-        '
-        'colDESCRIPCION
-        '
-        Me.colDESCRIPCION.Caption = "Municipio"
-        Me.colDESCRIPCION.FieldName = "DESCRIPCION"
-        Me.colDESCRIPCION.Name = "colDESCRIPCION"
-        Me.colDESCRIPCION.Visible = True
-        Me.colDESCRIPCION.VisibleIndex = 3
-        '
-        'colDEPARTAMENTO
-        '
-        Me.colDEPARTAMENTO.Caption = "Departamento"
-        Me.colDEPARTAMENTO.FieldName = "DEPARTAMENTO"
-        Me.colDEPARTAMENTO.Name = "colDEPARTAMENTO"
-        Me.colDEPARTAMENTO.Visible = True
-        Me.colDEPARTAMENTO.VisibleIndex = 4
-        '
-        'colCANTIDAD_REGIDORES
-        '
-        Me.colCANTIDAD_REGIDORES.Caption = "Cantidad de Regidores"
-        Me.colCANTIDAD_REGIDORES.FieldName = "CANTIDAD_REGIDORES"
-        Me.colCANTIDAD_REGIDORES.Name = "colCANTIDAD_REGIDORES"
-        Me.colCANTIDAD_REGIDORES.Visible = True
-        Me.colCANTIDAD_REGIDORES.VisibleIndex = 2
         '
         'ButtonEdit1
         '
@@ -279,11 +239,10 @@ Partial Class Municipios
         'IMMUNICIPIOSBindingSource
         '
         Me.IMMUNICIPIOSBindingSource.DataMember = "IM_MUNICIPIOS"
-        Me.IMMUNICIPIOSBindingSource.DataSource = Me.DataSet1
+        Me.IMMUNICIPIOSBindingSource.DataSource = Me.DSDeptoMuni
         '
         'ADICIONADO_PORSpinEdit
         '
-        Me.ADICIONADO_PORSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMUNICIPIOSBindingSource, "ADICIONADO_POR", True))
         Me.ADICIONADO_PORSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
         Me.ADICIONADO_PORSpinEdit.Location = New System.Drawing.Point(0, 0)
         Me.ADICIONADO_PORSpinEdit.Name = "ADICIONADO_PORSpinEdit"
@@ -294,7 +253,6 @@ Partial Class Municipios
         '
         'FECHA_ADICIONDateEdit
         '
-        Me.FECHA_ADICIONDateEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMUNICIPIOSBindingSource, "FECHA_ADICION", True))
         Me.FECHA_ADICIONDateEdit.EditValue = Nothing
         Me.FECHA_ADICIONDateEdit.Location = New System.Drawing.Point(0, 0)
         Me.FECHA_ADICIONDateEdit.Name = "FECHA_ADICIONDateEdit"
@@ -306,7 +264,6 @@ Partial Class Municipios
         '
         'MODIFICADO_PORSpinEdit
         '
-        Me.MODIFICADO_PORSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMUNICIPIOSBindingSource, "MODIFICADO_POR", True))
         Me.MODIFICADO_PORSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
         Me.MODIFICADO_PORSpinEdit.Location = New System.Drawing.Point(0, 0)
         Me.MODIFICADO_PORSpinEdit.Name = "MODIFICADO_PORSpinEdit"
@@ -317,7 +274,6 @@ Partial Class Municipios
         '
         'FECHA_MODIFICACIONDateEdit
         '
-        Me.FECHA_MODIFICACIONDateEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMUNICIPIOSBindingSource, "FECHA_MODIFICACION", True))
         Me.FECHA_MODIFICACIONDateEdit.EditValue = Nothing
         Me.FECHA_MODIFICACIONDateEdit.Location = New System.Drawing.Point(0, 0)
         Me.FECHA_MODIFICACIONDateEdit.Name = "FECHA_MODIFICACIONDateEdit"
@@ -347,7 +303,7 @@ Partial Class Municipios
         'IMDEPARTAMENTOSBindingSource
         '
         Me.IMDEPARTAMENTOSBindingSource.DataMember = "IM_DEPARTAMENTOS"
-        Me.IMDEPARTAMENTOSBindingSource.DataSource = Me.DataSet1
+        Me.IMDEPARTAMENTOSBindingSource.DataSource = Me.DSDeptoMuni
         '
         'CODIGO_MUNICIPIOSpinEdit
         '
@@ -562,6 +518,10 @@ Partial Class Municipios
         Me.LayoutControlItem4.TextToControlDistance = 0
         Me.LayoutControlItem4.TextVisible = False
         '
+        'TA_MUNICIPIOSTableAdapter
+        '
+        Me.TA_MUNICIPIOSTableAdapter.ClearBeforeFill = True
+        '
         'IM_MUNICIPIOSTableAdapter
         '
         Me.IM_MUNICIPIOSTableAdapter.ClearBeforeFill = True
@@ -570,9 +530,40 @@ Partial Class Municipios
         '
         Me.IM_DEPARTAMENTOSTableAdapter.ClearBeforeFill = True
         '
-        'TA_DEPTOSMUNITableAdapter
+        'colCODIGO_MUNICIPIO
         '
-        Me.TA_DEPTOSMUNITableAdapter.ClearBeforeFill = True
+        Me.colCODIGO_MUNICIPIO.FieldName = "CODIGO_MUNICIPIO"
+        Me.colCODIGO_MUNICIPIO.Name = "colCODIGO_MUNICIPIO"
+        Me.colCODIGO_MUNICIPIO.Visible = True
+        Me.colCODIGO_MUNICIPIO.VisibleIndex = 0
+        '
+        'colCODIGO_DEPARTAMENTO
+        '
+        Me.colCODIGO_DEPARTAMENTO.FieldName = "CODIGO_DEPARTAMENTO"
+        Me.colCODIGO_DEPARTAMENTO.Name = "colCODIGO_DEPARTAMENTO"
+        Me.colCODIGO_DEPARTAMENTO.Visible = True
+        Me.colCODIGO_DEPARTAMENTO.VisibleIndex = 1
+        '
+        'colCANTIDAD_REGIDORES
+        '
+        Me.colCANTIDAD_REGIDORES.FieldName = "CANTIDAD_REGIDORES"
+        Me.colCANTIDAD_REGIDORES.Name = "colCANTIDAD_REGIDORES"
+        Me.colCANTIDAD_REGIDORES.Visible = True
+        Me.colCANTIDAD_REGIDORES.VisibleIndex = 2
+        '
+        'colDESCRIPCION
+        '
+        Me.colDESCRIPCION.FieldName = "DESCRIPCION"
+        Me.colDESCRIPCION.Name = "colDESCRIPCION"
+        Me.colDESCRIPCION.Visible = True
+        Me.colDESCRIPCION.VisibleIndex = 3
+        '
+        'colDEPARTAMENTO
+        '
+        Me.colDEPARTAMENTO.FieldName = "DEPARTAMENTO"
+        Me.colDEPARTAMENTO.Name = "colDEPARTAMENTO"
+        Me.colDEPARTAMENTO.Visible = True
+        Me.colDEPARTAMENTO.VisibleIndex = 4
         '
         'Municipios
         '
@@ -585,8 +576,8 @@ Partial Class Municipios
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
         CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TADEPTOSMUNIBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TAMUNICIPIOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ButtonEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -629,11 +620,6 @@ Partial Class Municipios
     Friend WithEvents DataLayoutControl1 As DevExpress.XtraDataLayout.DataLayoutControl
     Friend WithEvents Root As DevExpress.XtraLayout.LayoutControlGroup
     Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents DataSet1 As Inscripcion_de_Moviemientos.DataSet1
-    Friend WithEvents IMMUNICIPIOSBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents IM_MUNICIPIOSTableAdapter As Inscripcion_de_Moviemientos.DataSet1TableAdapters.IM_MUNICIPIOSTableAdapter
-    Friend WithEvents IMDEPARTAMENTOSBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents IM_DEPARTAMENTOSTableAdapter As Inscripcion_de_Moviemientos.DataSet1TableAdapters.IM_DEPARTAMENTOSTableAdapter
     Friend WithEvents EmptySpaceItem1 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents BtnEliminar As DevExpress.XtraEditors.SimpleButton
@@ -645,13 +631,6 @@ Partial Class Municipios
     Friend WithEvents GridControl1 As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents TADEPTOSMUNIBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents TA_DEPTOSMUNITableAdapter As Inscripcion_de_Moviemientos.DataSet1TableAdapters.TA_DEPTOSMUNITableAdapter
-    Friend WithEvents colCODIGO_MUNICIPIO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colCODIGO_DEPARTAMENTO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colCANTIDAD_REGIDORES As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colDESCRIPCION As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colDEPARTAMENTO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents TextEdit1 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents ADICIONADO_PORSpinEdit As DevExpress.XtraEditors.SpinEdit
     Friend WithEvents FECHA_ADICIONDateEdit As DevExpress.XtraEditors.DateEdit
@@ -669,4 +648,16 @@ Partial Class Municipios
     Friend WithEvents LayoutControlItem7 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem8 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem5 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents DSDeptoMuni As Inscripcion_de_Moviemientos.DSDeptoMuni
+    Friend WithEvents TAMUNICIPIOSBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents TA_MUNICIPIOSTableAdapter As Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_MUNICIPIOSTableAdapter
+    Friend WithEvents IMMUNICIPIOSBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents IM_MUNICIPIOSTableAdapter As Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.IM_MUNICIPIOSTableAdapter
+    Friend WithEvents IMDEPARTAMENTOSBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents IM_DEPARTAMENTOSTableAdapter As Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.IM_DEPARTAMENTOSTableAdapter
+    Friend WithEvents colCODIGO_MUNICIPIO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colCODIGO_DEPARTAMENTO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colCANTIDAD_REGIDORES As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colDESCRIPCION As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colDEPARTAMENTO As DevExpress.XtraGrid.Columns.GridColumn
 End Class

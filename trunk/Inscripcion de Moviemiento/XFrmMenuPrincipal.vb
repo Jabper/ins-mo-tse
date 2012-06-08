@@ -29,13 +29,7 @@ Public Class XFrmMenuPrincipal
         Padre(XfrmDepartamentos)
     End Sub
 
-    Private Sub BtnGuardar_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs)
-        XfrmDepartamentos.guardar()
-    End Sub
-
-    Private Sub BtnNuevo_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs)
-        XfrmDepartamentos.Nuevo()
-    End Sub
+    
 
     Private Sub BtnMunicipio_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnMunicipio.ItemClick
         Padre(Municipios)

@@ -1,13 +1,16 @@
-﻿
+﻿Imports System.IO
+Imports System.Drawing.Imaging
 Imports DevExpress.XtraEditors
 Imports DevExpress.XtraGrid.Views.Grid
 Public Class XfrmPartidosPoliticos
 
+    Public UrlImagen As String
     Private Sub XfrmPartidosPoliticos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+       
+        'TODO: This line of code loads data into the 'DSPolitico.IM_PARTIDOS_POLITICOS' table. You can move, or remove it, as needed.
+        Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
         ActualizarGrid()
 
-        'TODO: This line of code loads data into the 'DataSet1.IM_PARTIDOS_POLITICOS' table. You can move, or remove it, as needed.
-        Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DataSet1.IM_PARTIDOS_POLITICOS)
         Me.IMPARTIDOSPOLITICOSBindingSource.AddNew()
 
     End Sub
@@ -27,24 +30,32 @@ Public Class XfrmPartidosPoliticos
             Me.IMPARTIDOSPOLITICOSBindingSource.EndEdit()
 
             'AGREGAR INFORMACION DE AUDITORIA (MODIFICA EL REGISTRO ANTES DE AGREGARLO A LA BASE )
-            For Each _datar As DataSet1.IM_PARTIDOS_POLITICOSRow In DataSet1.IM_PARTIDOS_POLITICOS
+            For Each _datar As DSPolitico.IM_PARTIDOS_POLITICOSRow In DSPolitico.IM_PARTIDOS_POLITICOS
 
                 'SI ES UN NUEVO REGITRO
                 If _datar.RowState = DataRowState.Added Then
                     _datar.ADICIONADO_POR = usuario
                     _datar.FECHA_ADICION = DateTime.Now
+                    _datar.IMAGEN = Data.ConvertImageToByteArray(Me.IMAGENPictureEdit.Image)
                     'SI EL REGISTRO SE MODIFICA
                 ElseIf _datar.RowState = DataRowState.Modified Then
                     _datar.MODIFICADO_POR = usuario
                     _datar.FECHA_MODIFICACION = DateTime.Now
+                    _datar.IMAGEN = Data.ConvertImageToByteArray(Me.IMAGENPictureEdit.Image)
+
                 End If
             Next
 
             'AGREGANDO LA INFORMACION A LA BASE DE DATOS
-            Me.IM_PARTIDOS_POLITICOSTableAdapter.Update(Me.DataSet1.IM_PARTIDOS_POLITICOS)
+            Me.IM_PARTIDOS_POLITICOSTableAdapter.Update(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
+
+            Dim ThumImg As String = Application.StartupPath.ToString & "\Img\" & CODIGO_PARTIDOSpinEdit.EditValue.ToString & NOMBRETextEdit.EditValue.ToString & ".jpg"
+            If File.Exists(ThumImg) Then
+                Data.CopiarArchivo(UrlImagen, ThumImg)
+            End If
 
             'ACTUALIZANDO EL GRID DE BUSQUEDA Y EDICION
-
+            ActualizarGrid()
         Catch ex As Exception
             'CONTROL DE ERRORES
             Mensajes.MensajeError(ex.Message)
@@ -60,7 +71,7 @@ Public Class XfrmPartidosPoliticos
 
             'LIMPIA LOS CONTROLES PARA AGREGAR UN NUEVO REGISTRO
             Me.IMPARTIDOSPOLITICOSBindingSource.AddNew()
-
+            IMAGENPictureEdit.EditValue = Nothing
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
         End Try
@@ -77,11 +88,16 @@ Public Class XfrmPartidosPoliticos
         Try
 
             'SE LE ASIGNA A UNA VARIABLE EL VALOR DE LA CELDA QUE SE DESEA
-            Dim cellValue As String = Data.CapturarDatoGrid(Me.GCPartidos_Politicos, 0)
+            Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
             'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
-            'Me.IM_DEPARTAMENTOSTableAdapter.FillBy(Me.DataSet1.IM_DEPARTAMENTOS, CType(cellValue, Integer))
+            Me.IM_PARTIDOS_POLITICOSTableAdapter.FillBy(Me.DSPolitico.IM_PARTIDOS_POLITICOS, CType(cellValue, Integer))
             'writedata = False
-
+            UrlImagen = Application.StartupPath.ToString & "\Img\" & CODIGO_PARTIDOSpinEdit.EditValue.ToString & NOMBRETextEdit.EditValue.ToString & ".jpg"
+            If File.Exists(UrlImagen) Then
+                cargarimagen()
+            Else
+                IMAGENPictureEdit.EditValue = Nothing
+            End If
 
         Catch ex As System.Exception
             Mensajes.MensajeError("Seleccione una Fila con Datos para Realizar la Edición")
@@ -93,8 +109,7 @@ Public Class XfrmPartidosPoliticos
     End Sub
 
     Sub ActualizarGrid()
-        'TODO: This line of code loads data into the 'DataSet1.IM_DEPARTAMENTOS1' table. You can move, or remove it, as needed.
-        Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DataSet1.TA_PARTIDOS_POLITICOS)
+         Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
     End Sub
 
     Sub Eliminar()
@@ -103,18 +118,35 @@ Public Class XfrmPartidosPoliticos
             Dim cellValue As String = Data.CapturarDatoGrid(Me.GCPartidos_Politicos, 0)
 
 
-            Dim deptosrow As DataSet1.IM_PARTIDOS_POLITICOSRow
+            Dim deptosrow As DSPolitico.IM_PARTIDOS_POLITICOSRow
 
-            deptosrow = Me.DataSet1.IM_PARTIDOS_POLITICOS.FindByCODIGO_PARTIDO(cellValue)
+            deptosrow = Me.DSPolitico.IM_PARTIDOS_POLITICOS.FindByCODIGO_PARTIDO(cellValue)
 
             deptosrow.Delete()
 
-            Me.IM_PARTIDOS_POLITICOSTableAdapter.Update(Me.DataSet1.IM_PARTIDOS_POLITICOS)
+            Me.IM_PARTIDOS_POLITICOSTableAdapter.Update(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
 
             ActualizarGrid()
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
         End Try
+
+    End Sub
+
+    Private Sub IMAGENPictureEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles IMAGENPictureEdit.EditValueChanged
+
+    End Sub
+
+    Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton1.Click
+        'OpenFileDialog1.Filter = "Archivos de imagen(*.JPG;)"
+        OpenFileDialog1.ShowDialog()
+
+        UrlImagen = OpenFileDialog1.FileName
+        cargarimagen()
+    End Sub
+    Sub cargarimagen()
+
+        Me.IMAGENPictureEdit.Image = Image.FromFile(UrlImagen)
 
     End Sub
 End Class
