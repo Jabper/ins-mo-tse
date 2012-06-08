@@ -33,9 +33,12 @@ Partial Class XFrmMenuPrincipal
         Me.BtnUsuarios = New DevExpress.XtraBars.BarButtonItem
         Me.BtnRoles = New DevExpress.XtraBars.BarButtonItem
         Me.BtnOpciones = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnRequisitos = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnCandidatos = New DevExpress.XtraBars.BarButtonItem
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage
+        Me.RibbonPageGroup3 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage3 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPage4 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPage5 = New DevExpress.XtraBars.Ribbon.RibbonPage
@@ -52,9 +55,9 @@ Partial Class XFrmMenuPrincipal
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ExpandCollapseItem.Name = ""
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnIncompatibilidades, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnIncompatibilidades, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 15
+        Me.RibbonControl.MaxItemId = 17
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5, Me.RibbonPage6})
         Me.RibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010
@@ -146,6 +149,20 @@ Partial Class XFrmMenuPrincipal
         Me.BtnOpciones.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.OpcionesdeAcceso
         Me.BtnOpciones.Name = "BtnOpciones"
         '
+        'BtnRequisitos
+        '
+        Me.BtnRequisitos.Caption = "Requisitos"
+        Me.BtnRequisitos.Id = 15
+        Me.BtnRequisitos.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.requisitos
+        Me.BtnRequisitos.Name = "BtnRequisitos"
+        '
+        'BtnCandidatos
+        '
+        Me.BtnCandidatos.Caption = "Candidatos"
+        Me.BtnCandidatos.Id = 16
+        Me.BtnCandidatos.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.candidato
+        Me.BtnCandidatos.Name = "BtnCandidatos"
+        '
         'RibbonPage1
         '
         Me.RibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1})
@@ -167,8 +184,16 @@ Partial Class XFrmMenuPrincipal
         '
         'RibbonPage2
         '
+        Me.RibbonPage2.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup3})
         Me.RibbonPage2.Name = "RibbonPage2"
         Me.RibbonPage2.Text = "Operaciones"
+        '
+        'RibbonPageGroup3
+        '
+        Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnRequisitos)
+        Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnCandidatos)
+        Me.RibbonPageGroup3.Name = "RibbonPageGroup3"
+        Me.RibbonPageGroup3.Text = "RibbonPageGroup3"
         '
         'RibbonPage3
         '
@@ -256,6 +281,9 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents BtnRoles As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BtnOpciones As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RibbonPageGroup2 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents BtnRequisitos As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonPageGroup3 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents BtnCandidatos As DevExpress.XtraBars.BarButtonItem
 
 
 End Class

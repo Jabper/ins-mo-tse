@@ -136,6 +136,9 @@
   <data name="partidos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\partidos.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="requisitos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\requisitos.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="cargos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cargos.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -144,6 +147,9 @@
   </data>
   <data name="Usuarios" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Usuarios.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cerrarventana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cerrarventana.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="incompatibilidades" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\incompatibilidades.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,7 +166,7 @@
   <data name="municipios" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\municipios.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cerrarventana" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cerrarventana.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="candidato" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\candidato.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

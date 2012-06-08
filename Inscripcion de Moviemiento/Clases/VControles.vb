@@ -11,4 +11,15 @@
             e.Handled = True
         End If
     End Sub
+
+    Public Shared Function ComprobarFormAbierto(ByVal formulario As Object) As Boolean
+        For Each OpenForm As Form In Application.OpenForms
+            If OpenForm.Name = formulario.name Then
+                Return True
+            End If
+        Next
+
+        Return False
+    End Function
+    
 End Class

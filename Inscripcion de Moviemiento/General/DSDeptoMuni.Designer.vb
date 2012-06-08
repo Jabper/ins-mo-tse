@@ -2830,7 +2830,7 @@ Namespace DSDeptoMuniTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(1) {}
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT CODIGO_MUNICIPIO, CODIGO_DEPARTAMENTO, CANTIDAD_REGIDORES, DESCRIPCION, AD"& _ 
@@ -2844,6 +2844,13 @@ Namespace DSDeptoMuniTableAdapters
                 "CIPIOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where CODIGO_MUNICIPIO = :id"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id", Global.System.Data.OracleClient.OracleType.VarChar, 2, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT CODIGO_MUNICIPIO, CODIGO_DEPARTAMENTO, CANTIDAD_REGIDORES, DESCRIPCION, AD"& _ 
+                "ICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION FROM TSE.IM_MUNI"& _ 
+                "CIPIOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where CODIGO_DEPARTAMENTO=:id"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id", Global.System.Data.OracleClient.OracleType.VarChar, 2, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2890,6 +2897,38 @@ Namespace DSDeptoMuniTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataBy(ByVal id As String) As DSDeptoMuni.IM_MUNICIPIOSDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (id Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("id")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(id,String)
+            End If
+            Dim dataTable As DSDeptoMuni.IM_MUNICIPIOSDataTable = New DSDeptoMuni.IM_MUNICIPIOSDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy1(ByVal dataTable As DSDeptoMuni.IM_MUNICIPIOSDataTable, ByVal id As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (id Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("id")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(id,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy1(ByVal id As String) As DSDeptoMuni.IM_MUNICIPIOSDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
             If (id Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("id")
             Else

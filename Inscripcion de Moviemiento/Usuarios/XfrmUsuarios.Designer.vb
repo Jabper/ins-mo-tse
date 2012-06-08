@@ -112,6 +112,7 @@ Partial Class XfrmUsuarios
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.AllowCustomizationMenu = False
         Me.LayoutControl1.Controls.Add(Me.DataLayoutControl1)
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)

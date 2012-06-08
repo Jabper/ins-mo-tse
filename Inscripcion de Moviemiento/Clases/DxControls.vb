@@ -1,18 +1,19 @@
-﻿Imports System.Collections.Generic
-Imports System.ComponentModel
-Imports System.Data
-Imports System.Drawing
-Imports System.Text
-Imports System.Windows.Forms
+﻿Imports System.IO
 Imports DevExpress.XtraEditors
-Imports DevExpress.XtraEditors.Controls
-Imports System.Reflection
-
-
-
 
 Public Class DxControls
-    Public Shared Function ObtenerDireccion(ByVal PEdit As PictureEdit) As String
-        Return PEdit.EditValue.ToString()
-    End Function
+    Public Shared Sub CargarImagen(ByVal PEdit As PictureEdit, ByVal dir As String)
+        PEdit.Image = Image.FromFile(dir)
+    End Sub
+
+
+    Public Shared Sub EnumerateControls(ByVal ctrl As System.Windows.Forms.Control)
+
+        If ctrl.Controls.Count > 0 Then
+            For Each control As System.Windows.Forms.Control In ctrl.Controls
+                EnumerateControls(control)
+            Next
+        End If
+    End Sub
+
 End Class

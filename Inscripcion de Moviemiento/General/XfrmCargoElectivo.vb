@@ -8,7 +8,7 @@ Public Class XfrmCargoElectivo
         Me.IM_NIVEL_ELECTIVOTableAdapter.Fill(Me.DSPolitico.IM_NIVEL_ELECTIVO)
         'TODO: This line of code loads data into the 'DSPolitico.IM_CARGOS_ELECTIVOS' table. You can move, or remove it, as needed.
         Me.IM_CARGOS_ELECTIVOSTableAdapter.Fill(Me.DSPolitico.IM_CARGOS_ELECTIVOS)
-       
+        ActualizarGrid()
         Me.IMCARGOSELECTIVOSBindingSource.AddNew()
 
     End Sub
@@ -18,8 +18,6 @@ Public Class XfrmCargoElectivo
         Me.IMCARGOSELECTIVOSBindingSource.AddNew()
     End Sub
     Sub guardar()
-
-
 
         Try
             Me.IMCARGOSELECTIVOSBindingSource.EndEdit()
@@ -51,6 +49,7 @@ Public Class XfrmCargoElectivo
     End Sub
 
     Sub ActualizarGrid()
+        Me.TA_CARGOS_ELECTIVOSTableAdapter.Fill(Me.DSPolitico.TA_CARGOS_ELECTIVOS)
 
     End Sub
 
@@ -61,9 +60,7 @@ Public Class XfrmCargoElectivo
             'SE LE ASIGNA A UNA VARIABLE EL VALOR DE LA CELDA QUE SE DESEA
             Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
             'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
-            'Me.IM_CARGOS_ELECTIVOSTableAdapter.FillBy(Me.DSPolitico.IM_MUNICIPIOS, cellValue)
-            'writedata = False
-
+            Me.IM_CARGOS_ELECTIVOSTableAdapter.FillBy(Me.DSPolitico.IM_CARGOS_ELECTIVOS, cellValue)
 
         Catch ex As System.Exception
             Mensajes.MensajeError("Seleccione una Fila con Datos para Realizar la Edición")
@@ -92,5 +89,9 @@ Public Class XfrmCargoElectivo
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
         guardar()
+    End Sub
+
+    Private Sub GridView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.Click
+        MostrarDatos()
     End Sub
 End Class
