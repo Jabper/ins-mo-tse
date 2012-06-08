@@ -62,6 +62,19 @@ Partial Class XfrmMovimientos
         Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl
+        Me.LayoutControlItem7 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.PanelControl4 = New DevExpress.XtraEditors.PanelControl
+        Me.LayoutControlItem8 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.SimpleButton4 = New DevExpress.XtraEditors.SimpleButton
+        Me.SimpleButton5 = New DevExpress.XtraEditors.SimpleButton
+        Me.DSPolitico = New Inscripcion_de_Moviemientos.DSPolitico
+        Me.IMMOVIMIENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IM_MOVIMIENTOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.IM_MOVIMIENTOSTableAdapter
+        Me.IMPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IM_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.IM_PARTIDOS_POLITICOSTableAdapter
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
+        Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.GCDepartamento, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -104,6 +117,15 @@ Partial Class XfrmMovimientos
         Me.PanelControl1.SuspendLayout()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl3.SuspendLayout()
+        CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PanelControl4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl4.SuspendLayout()
+        CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMMOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -117,16 +139,16 @@ Partial Class XfrmMovimientos
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(468, 175, 250, 350)
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(503, 385)
+        Me.LayoutControl1.Size = New System.Drawing.Size(518, 439)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
         'GCDepartamento
         '
-        Me.GCDepartamento.Location = New System.Drawing.Point(12, 274)
+        Me.GCDepartamento.Location = New System.Drawing.Point(12, 335)
         Me.GCDepartamento.MainView = Me.GridView1
         Me.GCDepartamento.Name = "GCDepartamento"
-        Me.GCDepartamento.Size = New System.Drawing.Size(477, 82)
+        Me.GCDepartamento.Size = New System.Drawing.Size(494, 92)
         Me.GCDepartamento.TabIndex = 8
         Me.GCDepartamento.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -148,10 +170,10 @@ Partial Class XfrmMovimientos
         '
         'ButtonEdit1
         '
-        Me.ButtonEdit1.Location = New System.Drawing.Point(63, 250)
+        Me.ButtonEdit1.Location = New System.Drawing.Point(63, 311)
         Me.ButtonEdit1.Name = "ButtonEdit1"
         Me.ButtonEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
-        Me.ButtonEdit1.Size = New System.Drawing.Size(426, 20)
+        Me.ButtonEdit1.Size = New System.Drawing.Size(443, 20)
         Me.ButtonEdit1.StyleController = Me.LayoutControl1
         Me.ButtonEdit1.TabIndex = 7
         '
@@ -163,7 +185,7 @@ Partial Class XfrmMovimientos
         Me.PanelControl2.Controls.Add(Me.SimpleButton3)
         Me.PanelControl2.Location = New System.Drawing.Point(12, 12)
         Me.PanelControl2.Name = "PanelControl2"
-        Me.PanelControl2.Size = New System.Drawing.Size(238, 60)
+        Me.PanelControl2.Size = New System.Drawing.Size(253, 60)
         Me.PanelControl2.TabIndex = 6
         '
         'SimpleButton1
@@ -204,6 +226,8 @@ Partial Class XfrmMovimientos
         '
         'DataLayoutControl1
         '
+        Me.DataLayoutControl1.Controls.Add(Me.PanelControl4)
+        Me.DataLayoutControl1.Controls.Add(Me.PanelControl3)
         Me.DataLayoutControl1.Controls.Add(Me.NOMBRE_MOVIMIENTOTextEdit)
         Me.DataLayoutControl1.Controls.Add(Me.INSIGNIAPictureEdit)
         Me.DataLayoutControl1.Controls.Add(Me.EMBLEMAPictureEdit)
@@ -213,19 +237,21 @@ Partial Class XfrmMovimientos
         Me.DataLayoutControl1.Controls.Add(Me.FECHA_MODIFICACIONDateEdit)
         Me.DataLayoutControl1.Controls.Add(Me.CODIGO_PARTIDOSpinEdit)
         Me.DataLayoutControl1.Controls.Add(Me.CODIGO_MOVIMIENTOSpinEdit)
+        Me.DataLayoutControl1.DataSource = Me.IMMOVIMIENTOSBindingSource
         Me.DataLayoutControl1.HiddenItems.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForADICIONADO_POR, Me.ItemForFECHA_ADICION, Me.ItemForMODIFICADO_POR, Me.ItemForFECHA_MODIFICACION})
         Me.DataLayoutControl1.Location = New System.Drawing.Point(12, 76)
         Me.DataLayoutControl1.Name = "DataLayoutControl1"
         Me.DataLayoutControl1.Root = Me.Root
-        Me.DataLayoutControl1.Size = New System.Drawing.Size(477, 170)
+        Me.DataLayoutControl1.Size = New System.Drawing.Size(494, 231)
         Me.DataLayoutControl1.TabIndex = 4
         Me.DataLayoutControl1.Text = "DataLayoutControl1"
         '
         'NOMBRE_MOVIMIENTOTextEdit
         '
+        Me.NOMBRE_MOVIMIENTOTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMOVIMIENTOSBindingSource, "NOMBRE_MOVIMIENTO", True))
         Me.NOMBRE_MOVIMIENTOTextEdit.Location = New System.Drawing.Point(127, 36)
         Me.NOMBRE_MOVIMIENTOTextEdit.Name = "NOMBRE_MOVIMIENTOTextEdit"
-        Me.NOMBRE_MOVIMIENTOTextEdit.Size = New System.Drawing.Size(338, 20)
+        Me.NOMBRE_MOVIMIENTOTextEdit.Size = New System.Drawing.Size(355, 20)
         Me.NOMBRE_MOVIMIENTOTextEdit.StyleController = Me.DataLayoutControl1
         Me.NOMBRE_MOVIMIENTOTextEdit.TabIndex = 5
         '
@@ -233,15 +259,15 @@ Partial Class XfrmMovimientos
         '
         Me.INSIGNIAPictureEdit.Location = New System.Drawing.Point(12, 100)
         Me.INSIGNIAPictureEdit.Name = "INSIGNIAPictureEdit"
-        Me.INSIGNIAPictureEdit.Size = New System.Drawing.Size(223, 58)
+        Me.INSIGNIAPictureEdit.Size = New System.Drawing.Size(231, 88)
         Me.INSIGNIAPictureEdit.StyleController = Me.DataLayoutControl1
         Me.INSIGNIAPictureEdit.TabIndex = 7
         '
         'EMBLEMAPictureEdit
         '
-        Me.EMBLEMAPictureEdit.Location = New System.Drawing.Point(239, 100)
+        Me.EMBLEMAPictureEdit.Location = New System.Drawing.Point(247, 100)
         Me.EMBLEMAPictureEdit.Name = "EMBLEMAPictureEdit"
-        Me.EMBLEMAPictureEdit.Size = New System.Drawing.Size(226, 58)
+        Me.EMBLEMAPictureEdit.Size = New System.Drawing.Size(235, 88)
         Me.EMBLEMAPictureEdit.StyleController = Me.DataLayoutControl1
         Me.EMBLEMAPictureEdit.TabIndex = 8
         '
@@ -289,27 +315,30 @@ Partial Class XfrmMovimientos
         '
         'CODIGO_PARTIDOSpinEdit
         '
+        Me.CODIGO_PARTIDOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMOVIMIENTOSBindingSource, "CODIGO_PARTIDO", True))
         Me.CODIGO_PARTIDOSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
         Me.CODIGO_PARTIDOSpinEdit.Location = New System.Drawing.Point(127, 60)
         Me.CODIGO_PARTIDOSpinEdit.Name = "CODIGO_PARTIDOSpinEdit"
         Me.CODIGO_PARTIDOSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.CODIGO_PARTIDOSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE", "NOMBRE", 52, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("IMAGEN", "IMAGEN", 49, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
+        Me.CODIGO_PARTIDOSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_PARTIDO", "CODIGO_PARTIDO", 115, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE", "NOMBRE", 52, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CANTIDAD_FIRMAS", "CANTIDAD_FIRMAS", 106, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far)})
+        Me.CODIGO_PARTIDOSpinEdit.Properties.DataSource = Me.IMPARTIDOSPOLITICOSBindingSource
         Me.CODIGO_PARTIDOSpinEdit.Properties.DisplayMember = "NOMBRE"
         Me.CODIGO_PARTIDOSpinEdit.Properties.NullText = ""
         Me.CODIGO_PARTIDOSpinEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
         Me.CODIGO_PARTIDOSpinEdit.Properties.ValueMember = "CODIGO_PARTIDO"
-        Me.CODIGO_PARTIDOSpinEdit.Size = New System.Drawing.Size(338, 20)
+        Me.CODIGO_PARTIDOSpinEdit.Size = New System.Drawing.Size(355, 20)
         Me.CODIGO_PARTIDOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_PARTIDOSpinEdit.TabIndex = 6
         '
         'CODIGO_MOVIMIENTOSpinEdit
         '
+        Me.CODIGO_MOVIMIENTOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMOVIMIENTOSBindingSource, "CODIGO_MOVIMIENTO", True))
         Me.CODIGO_MOVIMIENTOSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
         Me.CODIGO_MOVIMIENTOSpinEdit.Location = New System.Drawing.Point(127, 12)
         Me.CODIGO_MOVIMIENTOSpinEdit.Name = "CODIGO_MOVIMIENTOSpinEdit"
         Me.CODIGO_MOVIMIENTOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CODIGO_MOVIMIENTOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.CODIGO_MOVIMIENTOSpinEdit.Size = New System.Drawing.Size(338, 20)
+        Me.CODIGO_MOVIMIENTOSpinEdit.Size = New System.Drawing.Size(355, 20)
         Me.CODIGO_MOVIMIENTOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_MOVIMIENTOSpinEdit.TabIndex = 4
         '
@@ -365,7 +394,7 @@ Partial Class XfrmMovimientos
         Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup2})
         Me.Root.Location = New System.Drawing.Point(0, 0)
         Me.Root.Name = "Root"
-        Me.Root.Size = New System.Drawing.Size(477, 170)
+        Me.Root.Size = New System.Drawing.Size(494, 231)
         Me.Root.Text = "Root"
         Me.Root.TextVisible = False
         '
@@ -374,10 +403,10 @@ Partial Class XfrmMovimientos
         Me.LayoutControlGroup2.AllowDrawBackground = False
         Me.LayoutControlGroup2.CustomizationFormText = "autoGeneratedGroup0"
         Me.LayoutControlGroup2.GroupBordersVisible = False
-        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForCODIGO_MOVIMIENTO, Me.ItemForNOMBRE_MOVIMIENTO, Me.ItemForCODIGO_PARTIDO, Me.ItemForINSIGNIA, Me.ItemForEMBLEMA})
+        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForCODIGO_MOVIMIENTO, Me.ItemForNOMBRE_MOVIMIENTO, Me.ItemForCODIGO_PARTIDO, Me.ItemForINSIGNIA, Me.ItemForEMBLEMA, Me.LayoutControlItem7, Me.LayoutControlItem8})
         Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "autoGeneratedGroup0"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(457, 150)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(474, 211)
         Me.LayoutControlGroup2.Text = "autoGeneratedGroup0"
         '
         'ItemForCODIGO_MOVIMIENTO
@@ -386,7 +415,7 @@ Partial Class XfrmMovimientos
         Me.ItemForCODIGO_MOVIMIENTO.CustomizationFormText = "CODIGO_MOVIMIENTO"
         Me.ItemForCODIGO_MOVIMIENTO.Location = New System.Drawing.Point(0, 0)
         Me.ItemForCODIGO_MOVIMIENTO.Name = "ItemForCODIGO_MOVIMIENTO"
-        Me.ItemForCODIGO_MOVIMIENTO.Size = New System.Drawing.Size(457, 24)
+        Me.ItemForCODIGO_MOVIMIENTO.Size = New System.Drawing.Size(474, 24)
         Me.ItemForCODIGO_MOVIMIENTO.Text = "Código Movimiento"
         Me.ItemForCODIGO_MOVIMIENTO.TextSize = New System.Drawing.Size(111, 13)
         '
@@ -396,7 +425,7 @@ Partial Class XfrmMovimientos
         Me.ItemForNOMBRE_MOVIMIENTO.CustomizationFormText = "NOMBRE_MOVIMIENTO"
         Me.ItemForNOMBRE_MOVIMIENTO.Location = New System.Drawing.Point(0, 24)
         Me.ItemForNOMBRE_MOVIMIENTO.Name = "ItemForNOMBRE_MOVIMIENTO"
-        Me.ItemForNOMBRE_MOVIMIENTO.Size = New System.Drawing.Size(457, 24)
+        Me.ItemForNOMBRE_MOVIMIENTO.Size = New System.Drawing.Size(474, 24)
         Me.ItemForNOMBRE_MOVIMIENTO.Text = "Nombre del Movimiento"
         Me.ItemForNOMBRE_MOVIMIENTO.TextSize = New System.Drawing.Size(111, 13)
         '
@@ -406,7 +435,7 @@ Partial Class XfrmMovimientos
         Me.ItemForCODIGO_PARTIDO.CustomizationFormText = "CODIGO_PARTIDO"
         Me.ItemForCODIGO_PARTIDO.Location = New System.Drawing.Point(0, 48)
         Me.ItemForCODIGO_PARTIDO.Name = "ItemForCODIGO_PARTIDO"
-        Me.ItemForCODIGO_PARTIDO.Size = New System.Drawing.Size(457, 24)
+        Me.ItemForCODIGO_PARTIDO.Size = New System.Drawing.Size(474, 24)
         Me.ItemForCODIGO_PARTIDO.Text = "Partido Pólitico"
         Me.ItemForCODIGO_PARTIDO.TextSize = New System.Drawing.Size(111, 13)
         '
@@ -416,7 +445,7 @@ Partial Class XfrmMovimientos
         Me.ItemForINSIGNIA.CustomizationFormText = "INSIGNIA"
         Me.ItemForINSIGNIA.Location = New System.Drawing.Point(0, 72)
         Me.ItemForINSIGNIA.Name = "ItemForINSIGNIA"
-        Me.ItemForINSIGNIA.Size = New System.Drawing.Size(227, 78)
+        Me.ItemForINSIGNIA.Size = New System.Drawing.Size(235, 108)
         Me.ItemForINSIGNIA.Text = "Insignia"
         Me.ItemForINSIGNIA.TextLocation = DevExpress.Utils.Locations.Top
         Me.ItemForINSIGNIA.TextSize = New System.Drawing.Size(111, 13)
@@ -425,9 +454,9 @@ Partial Class XfrmMovimientos
         '
         Me.ItemForEMBLEMA.Control = Me.EMBLEMAPictureEdit
         Me.ItemForEMBLEMA.CustomizationFormText = "EMBLEMA"
-        Me.ItemForEMBLEMA.Location = New System.Drawing.Point(227, 72)
+        Me.ItemForEMBLEMA.Location = New System.Drawing.Point(235, 72)
         Me.ItemForEMBLEMA.Name = "ItemForEMBLEMA"
-        Me.ItemForEMBLEMA.Size = New System.Drawing.Size(230, 78)
+        Me.ItemForEMBLEMA.Size = New System.Drawing.Size(239, 108)
         Me.ItemForEMBLEMA.Text = "Emblema"
         Me.ItemForEMBLEMA.TextLocation = DevExpress.Utils.Locations.Top
         Me.ItemForEMBLEMA.TextSize = New System.Drawing.Size(111, 13)
@@ -440,7 +469,7 @@ Partial Class XfrmMovimientos
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.EspMenu, Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem5, Me.LayoutControlItem6})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(503, 385)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(518, 439)
         Me.LayoutControlGroup1.Text = "Root"
         Me.LayoutControlGroup1.TextVisible = False
         '
@@ -448,7 +477,7 @@ Partial Class XfrmMovimientos
         '
         Me.EspMenu.AllowHotTrack = False
         Me.EspMenu.CustomizationFormText = "EspMenu"
-        Me.EspMenu.Location = New System.Drawing.Point(242, 0)
+        Me.EspMenu.Location = New System.Drawing.Point(257, 0)
         Me.EspMenu.MaxSize = New System.Drawing.Size(241, 64)
         Me.EspMenu.MinSize = New System.Drawing.Size(241, 64)
         Me.EspMenu.Name = "EspMenu"
@@ -462,11 +491,8 @@ Partial Class XfrmMovimientos
         Me.LayoutControlItem1.Control = Me.DataLayoutControl1
         Me.LayoutControlItem1.CustomizationFormText = "LayoutControlItem1"
         Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 64)
-        Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(481, 174)
-        Me.LayoutControlItem1.MinSize = New System.Drawing.Size(481, 174)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(483, 174)
-        Me.LayoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(498, 235)
         Me.LayoutControlItem1.Text = "LayoutControlItem1"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem1.TextToControlDistance = 0
@@ -478,7 +504,7 @@ Partial Class XfrmMovimientos
         Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
         Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(242, 64)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(257, 64)
         Me.LayoutControlItem2.Text = "LayoutControlItem2"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextToControlDistance = 0
@@ -488,12 +514,9 @@ Partial Class XfrmMovimientos
         '
         Me.LayoutControlItem5.Control = Me.ButtonEdit1
         Me.LayoutControlItem5.CustomizationFormText = "LayoutControlItem5"
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 238)
-        Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(481, 24)
-        Me.LayoutControlItem5.MinSize = New System.Drawing.Size(481, 24)
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 299)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(483, 24)
-        Me.LayoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(498, 24)
         Me.LayoutControlItem5.Text = "Búsqueda"
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(47, 13)
         '
@@ -501,12 +524,9 @@ Partial Class XfrmMovimientos
         '
         Me.LayoutControlItem6.Control = Me.GCDepartamento
         Me.LayoutControlItem6.CustomizationFormText = "LayoutControlItem6"
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 262)
-        Me.LayoutControlItem6.MaxSize = New System.Drawing.Size(481, 86)
-        Me.LayoutControlItem6.MinSize = New System.Drawing.Size(481, 86)
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 323)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(483, 103)
-        Me.LayoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(498, 96)
         Me.LayoutControlItem6.Text = "LayoutControlItem6"
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem6.TextToControlDistance = 0
@@ -579,11 +599,100 @@ Partial Class XfrmMovimientos
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(47, 13)
         Me.LayoutControlItem3.TextToControlDistance = 5
         '
+        'PanelControl3
+        '
+        Me.PanelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl3.Controls.Add(Me.SimpleButton4)
+        Me.PanelControl3.Location = New System.Drawing.Point(12, 192)
+        Me.PanelControl3.Name = "PanelControl3"
+        Me.PanelControl3.Size = New System.Drawing.Size(231, 27)
+        Me.PanelControl3.TabIndex = 13
+        '
+        'LayoutControlItem7
+        '
+        Me.LayoutControlItem7.Control = Me.PanelControl3
+        Me.LayoutControlItem7.CustomizationFormText = "LayoutControlItem7"
+        Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 180)
+        Me.LayoutControlItem7.Name = "LayoutControlItem7"
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(235, 31)
+        Me.LayoutControlItem7.Text = "LayoutControlItem7"
+        Me.LayoutControlItem7.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem7.TextToControlDistance = 0
+        Me.LayoutControlItem7.TextVisible = False
+        '
+        'PanelControl4
+        '
+        Me.PanelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl4.Controls.Add(Me.SimpleButton5)
+        Me.PanelControl4.Location = New System.Drawing.Point(247, 192)
+        Me.PanelControl4.Name = "PanelControl4"
+        Me.PanelControl4.Size = New System.Drawing.Size(235, 27)
+        Me.PanelControl4.TabIndex = 14
+        '
+        'LayoutControlItem8
+        '
+        Me.LayoutControlItem8.Control = Me.PanelControl4
+        Me.LayoutControlItem8.CustomizationFormText = "LayoutControlItem8"
+        Me.LayoutControlItem8.Location = New System.Drawing.Point(235, 180)
+        Me.LayoutControlItem8.Name = "LayoutControlItem8"
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(239, 31)
+        Me.LayoutControlItem8.Text = "LayoutControlItem8"
+        Me.LayoutControlItem8.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem8.TextToControlDistance = 0
+        Me.LayoutControlItem8.TextVisible = False
+        '
+        'SimpleButton4
+        '
+        Me.SimpleButton4.Location = New System.Drawing.Point(135, 1)
+        Me.SimpleButton4.Name = "SimpleButton4"
+        Me.SimpleButton4.Size = New System.Drawing.Size(91, 23)
+        Me.SimpleButton4.TabIndex = 1
+        Me.SimpleButton4.Text = "Cargar Imágen"
+        '
+        'SimpleButton5
+        '
+        Me.SimpleButton5.Location = New System.Drawing.Point(139, 1)
+        Me.SimpleButton5.Name = "SimpleButton5"
+        Me.SimpleButton5.Size = New System.Drawing.Size(91, 23)
+        Me.SimpleButton5.TabIndex = 1
+        Me.SimpleButton5.Text = "Cargar Imágen"
+        '
+        'DSPolitico
+        '
+        Me.DSPolitico.DataSetName = "DSPolitico"
+        Me.DSPolitico.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'IMMOVIMIENTOSBindingSource
+        '
+        Me.IMMOVIMIENTOSBindingSource.DataMember = "IM_MOVIMIENTOS"
+        Me.IMMOVIMIENTOSBindingSource.DataSource = Me.DSPolitico
+        '
+        'IM_MOVIMIENTOSTableAdapter
+        '
+        Me.IM_MOVIMIENTOSTableAdapter.ClearBeforeFill = True
+        '
+        'IMPARTIDOSPOLITICOSBindingSource
+        '
+        Me.IMPARTIDOSPOLITICOSBindingSource.DataMember = "IM_PARTIDOS_POLITICOS"
+        Me.IMPARTIDOSPOLITICOSBindingSource.DataSource = Me.DSPolitico
+        '
+        'IM_PARTIDOS_POLITICOSTableAdapter
+        '
+        Me.IM_PARTIDOS_POLITICOSTableAdapter.ClearBeforeFill = True
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'OpenFileDialog2
+        '
+        Me.OpenFileDialog2.FileName = "OpenFileDialog2"
+        '
         'XfrmMovimientos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(503, 385)
+        Me.ClientSize = New System.Drawing.Size(518, 439)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Name = "XfrmMovimientos"
         Me.Text = "Movimientos"
@@ -629,6 +738,15 @@ Partial Class XfrmMovimientos
         Me.PanelControl1.ResumeLayout(False)
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl3.ResumeLayout(False)
+        CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PanelControl4, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl4.ResumeLayout(False)
+        CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMMOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -674,4 +792,17 @@ Partial Class XfrmMovimientos
     Friend WithEvents LayoutControlItem6 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents CODIGO_PARTIDOSpinEdit As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents CODIGO_MOVIMIENTOSpinEdit As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents PanelControl4 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents PanelControl3 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents LayoutControlItem7 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlItem8 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents SimpleButton5 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton4 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents DSPolitico As Inscripcion_de_Moviemientos.DSPolitico
+    Friend WithEvents IMMOVIMIENTOSBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents IM_MOVIMIENTOSTableAdapter As Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.IM_MOVIMIENTOSTableAdapter
+    Friend WithEvents IMPARTIDOSPOLITICOSBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents IM_PARTIDOS_POLITICOSTableAdapter As Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.IM_PARTIDOS_POLITICOSTableAdapter
+    Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents OpenFileDialog2 As System.Windows.Forms.OpenFileDialog
 End Class

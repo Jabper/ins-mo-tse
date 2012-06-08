@@ -10,7 +10,6 @@ Public Class XfrmPartidosPoliticos
         'TODO: This line of code loads data into the 'DSPolitico.IM_PARTIDOS_POLITICOS' table. You can move, or remove it, as needed.
         Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
         ActualizarGrid()
-
         Me.IMPARTIDOSPOLITICOSBindingSource.AddNew()
 
     End Sub
@@ -50,6 +49,7 @@ Public Class XfrmPartidosPoliticos
             Me.IM_PARTIDOS_POLITICOSTableAdapter.Update(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
 
             Dim ThumImg As String = Application.StartupPath.ToString & "\Img\" & CODIGO_PARTIDOSpinEdit.EditValue.ToString & NOMBRETextEdit.EditValue.ToString & ".jpg"
+
             If File.Exists(ThumImg) Then
                 Data.CopiarArchivo(UrlImagen, ThumImg)
             End If
