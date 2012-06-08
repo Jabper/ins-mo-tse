@@ -20,9 +20,6 @@ Partial Class XfrmMovimientos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Me.IMMOVIMIENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataSet1 = New Inscripcion_de_Moviemientos.DataSet1
-        Me.IM_MOVIMIENTOSTableAdapter = New Inscripcion_de_Moviemientos.DataSet1TableAdapters.IM_MOVIMIENTOSTableAdapter
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
         Me.GCDepartamento = New DevExpress.XtraGrid.GridControl
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
@@ -40,6 +37,8 @@ Partial Class XfrmMovimientos
         Me.FECHA_ADICIONDateEdit = New DevExpress.XtraEditors.DateEdit
         Me.MODIFICADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.FECHA_MODIFICACIONDateEdit = New DevExpress.XtraEditors.DateEdit
+        Me.CODIGO_PARTIDOSpinEdit = New DevExpress.XtraEditors.LookUpEdit
+        Me.CODIGO_MOVIMIENTOSpinEdit = New DevExpress.XtraEditors.TextEdit
         Me.ItemForADICIONADO_POR = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForFECHA_ADICION = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForMODIFICADO_POR = New DevExpress.XtraLayout.LayoutControlItem
@@ -63,12 +62,6 @@ Partial Class XfrmMovimientos
         Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.CODIGO_PARTIDOSpinEdit = New DevExpress.XtraEditors.LookUpEdit
-        Me.IMPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.IM_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DataSet1TableAdapters.IM_PARTIDOS_POLITICOSTableAdapter
-        Me.CODIGO_MOVIMIENTOSpinEdit = New DevExpress.XtraEditors.TextEdit
-        CType(Me.IMMOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.GCDepartamento, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,6 +81,8 @@ Partial Class XfrmMovimientos
         CType(Me.MODIFICADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_MODIFICACIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_MODIFICACIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CODIGO_PARTIDOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CODIGO_MOVIMIENTOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForADICIONADO_POR, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForFECHA_ADICION, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForMODIFICADO_POR, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -109,24 +104,7 @@ Partial Class XfrmMovimientos
         Me.PanelControl1.SuspendLayout()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CODIGO_PARTIDOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IMPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CODIGO_MOVIMIENTOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'IMMOVIMIENTOSBindingSource
-        '
-        Me.IMMOVIMIENTOSBindingSource.DataMember = "IM_MOVIMIENTOS"
-        Me.IMMOVIMIENTOSBindingSource.DataSource = Me.DataSet1
-        '
-        'DataSet1
-        '
-        Me.DataSet1.DataSetName = "DataSet1"
-        Me.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'IM_MOVIMIENTOSTableAdapter
-        '
-        Me.IM_MOVIMIENTOSTableAdapter.ClearBeforeFill = True
         '
         'LayoutControl1
         '
@@ -235,7 +213,6 @@ Partial Class XfrmMovimientos
         Me.DataLayoutControl1.Controls.Add(Me.FECHA_MODIFICACIONDateEdit)
         Me.DataLayoutControl1.Controls.Add(Me.CODIGO_PARTIDOSpinEdit)
         Me.DataLayoutControl1.Controls.Add(Me.CODIGO_MOVIMIENTOSpinEdit)
-        Me.DataLayoutControl1.DataSource = Me.IMMOVIMIENTOSBindingSource
         Me.DataLayoutControl1.HiddenItems.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForADICIONADO_POR, Me.ItemForFECHA_ADICION, Me.ItemForMODIFICADO_POR, Me.ItemForFECHA_MODIFICACION})
         Me.DataLayoutControl1.Location = New System.Drawing.Point(12, 76)
         Me.DataLayoutControl1.Name = "DataLayoutControl1"
@@ -246,7 +223,6 @@ Partial Class XfrmMovimientos
         '
         'NOMBRE_MOVIMIENTOTextEdit
         '
-        Me.NOMBRE_MOVIMIENTOTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMOVIMIENTOSBindingSource, "NOMBRE_MOVIMIENTO", True))
         Me.NOMBRE_MOVIMIENTOTextEdit.Location = New System.Drawing.Point(127, 36)
         Me.NOMBRE_MOVIMIENTOTextEdit.Name = "NOMBRE_MOVIMIENTOTextEdit"
         Me.NOMBRE_MOVIMIENTOTextEdit.Size = New System.Drawing.Size(338, 20)
@@ -255,7 +231,6 @@ Partial Class XfrmMovimientos
         '
         'INSIGNIAPictureEdit
         '
-        Me.INSIGNIAPictureEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMOVIMIENTOSBindingSource, "INSIGNIA", True))
         Me.INSIGNIAPictureEdit.Location = New System.Drawing.Point(12, 100)
         Me.INSIGNIAPictureEdit.Name = "INSIGNIAPictureEdit"
         Me.INSIGNIAPictureEdit.Size = New System.Drawing.Size(223, 58)
@@ -264,7 +239,6 @@ Partial Class XfrmMovimientos
         '
         'EMBLEMAPictureEdit
         '
-        Me.EMBLEMAPictureEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMOVIMIENTOSBindingSource, "EMBLEMA", True))
         Me.EMBLEMAPictureEdit.Location = New System.Drawing.Point(239, 100)
         Me.EMBLEMAPictureEdit.Name = "EMBLEMAPictureEdit"
         Me.EMBLEMAPictureEdit.Size = New System.Drawing.Size(226, 58)
@@ -273,7 +247,6 @@ Partial Class XfrmMovimientos
         '
         'ADICIONADO_PORSpinEdit
         '
-        Me.ADICIONADO_PORSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMOVIMIENTOSBindingSource, "ADICIONADO_POR", True))
         Me.ADICIONADO_PORSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
         Me.ADICIONADO_PORSpinEdit.Location = New System.Drawing.Point(0, 0)
         Me.ADICIONADO_PORSpinEdit.Name = "ADICIONADO_PORSpinEdit"
@@ -284,7 +257,6 @@ Partial Class XfrmMovimientos
         '
         'FECHA_ADICIONDateEdit
         '
-        Me.FECHA_ADICIONDateEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMOVIMIENTOSBindingSource, "FECHA_ADICION", True))
         Me.FECHA_ADICIONDateEdit.EditValue = Nothing
         Me.FECHA_ADICIONDateEdit.Location = New System.Drawing.Point(0, 0)
         Me.FECHA_ADICIONDateEdit.Name = "FECHA_ADICIONDateEdit"
@@ -296,7 +268,6 @@ Partial Class XfrmMovimientos
         '
         'MODIFICADO_PORSpinEdit
         '
-        Me.MODIFICADO_PORSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMOVIMIENTOSBindingSource, "MODIFICADO_POR", True))
         Me.MODIFICADO_PORSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
         Me.MODIFICADO_PORSpinEdit.Location = New System.Drawing.Point(0, 0)
         Me.MODIFICADO_PORSpinEdit.Name = "MODIFICADO_PORSpinEdit"
@@ -307,7 +278,6 @@ Partial Class XfrmMovimientos
         '
         'FECHA_MODIFICACIONDateEdit
         '
-        Me.FECHA_MODIFICACIONDateEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMOVIMIENTOSBindingSource, "FECHA_MODIFICACION", True))
         Me.FECHA_MODIFICACIONDateEdit.EditValue = Nothing
         Me.FECHA_MODIFICACIONDateEdit.Location = New System.Drawing.Point(0, 0)
         Me.FECHA_MODIFICACIONDateEdit.Name = "FECHA_MODIFICACIONDateEdit"
@@ -316,6 +286,32 @@ Partial Class XfrmMovimientos
         Me.FECHA_MODIFICACIONDateEdit.Size = New System.Drawing.Size(0, 20)
         Me.FECHA_MODIFICACIONDateEdit.StyleController = Me.DataLayoutControl1
         Me.FECHA_MODIFICACIONDateEdit.TabIndex = 12
+        '
+        'CODIGO_PARTIDOSpinEdit
+        '
+        Me.CODIGO_PARTIDOSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.CODIGO_PARTIDOSpinEdit.Location = New System.Drawing.Point(127, 60)
+        Me.CODIGO_PARTIDOSpinEdit.Name = "CODIGO_PARTIDOSpinEdit"
+        Me.CODIGO_PARTIDOSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CODIGO_PARTIDOSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE", "NOMBRE", 52, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("IMAGEN", "IMAGEN", 49, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
+        Me.CODIGO_PARTIDOSpinEdit.Properties.DisplayMember = "NOMBRE"
+        Me.CODIGO_PARTIDOSpinEdit.Properties.NullText = ""
+        Me.CODIGO_PARTIDOSpinEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
+        Me.CODIGO_PARTIDOSpinEdit.Properties.ValueMember = "CODIGO_PARTIDO"
+        Me.CODIGO_PARTIDOSpinEdit.Size = New System.Drawing.Size(338, 20)
+        Me.CODIGO_PARTIDOSpinEdit.StyleController = Me.DataLayoutControl1
+        Me.CODIGO_PARTIDOSpinEdit.TabIndex = 6
+        '
+        'CODIGO_MOVIMIENTOSpinEdit
+        '
+        Me.CODIGO_MOVIMIENTOSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.CODIGO_MOVIMIENTOSpinEdit.Location = New System.Drawing.Point(127, 12)
+        Me.CODIGO_MOVIMIENTOSpinEdit.Name = "CODIGO_MOVIMIENTOSpinEdit"
+        Me.CODIGO_MOVIMIENTOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
+        Me.CODIGO_MOVIMIENTOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.CODIGO_MOVIMIENTOSpinEdit.Size = New System.Drawing.Size(338, 20)
+        Me.CODIGO_MOVIMIENTOSpinEdit.StyleController = Me.DataLayoutControl1
+        Me.CODIGO_MOVIMIENTOSpinEdit.TabIndex = 4
         '
         'ItemForADICIONADO_POR
         '
@@ -583,44 +579,6 @@ Partial Class XfrmMovimientos
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(47, 13)
         Me.LayoutControlItem3.TextToControlDistance = 5
         '
-        'CODIGO_PARTIDOSpinEdit
-        '
-        Me.CODIGO_PARTIDOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMOVIMIENTOSBindingSource, "CODIGO_PARTIDO", True))
-        Me.CODIGO_PARTIDOSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CODIGO_PARTIDOSpinEdit.Location = New System.Drawing.Point(127, 60)
-        Me.CODIGO_PARTIDOSpinEdit.Name = "CODIGO_PARTIDOSpinEdit"
-        Me.CODIGO_PARTIDOSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.CODIGO_PARTIDOSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE", "NOMBRE", 52, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("IMAGEN", "IMAGEN", 49, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
-        Me.CODIGO_PARTIDOSpinEdit.Properties.DataSource = Me.IMPARTIDOSPOLITICOSBindingSource
-        Me.CODIGO_PARTIDOSpinEdit.Properties.DisplayMember = "NOMBRE"
-        Me.CODIGO_PARTIDOSpinEdit.Properties.NullText = ""
-        Me.CODIGO_PARTIDOSpinEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
-        Me.CODIGO_PARTIDOSpinEdit.Properties.ValueMember = "CODIGO_PARTIDO"
-        Me.CODIGO_PARTIDOSpinEdit.Size = New System.Drawing.Size(338, 20)
-        Me.CODIGO_PARTIDOSpinEdit.StyleController = Me.DataLayoutControl1
-        Me.CODIGO_PARTIDOSpinEdit.TabIndex = 6
-        '
-        'IMPARTIDOSPOLITICOSBindingSource
-        '
-        Me.IMPARTIDOSPOLITICOSBindingSource.DataMember = "IM_PARTIDOS_POLITICOS"
-        Me.IMPARTIDOSPOLITICOSBindingSource.DataSource = Me.DataSet1
-        '
-        'IM_PARTIDOS_POLITICOSTableAdapter
-        '
-        Me.IM_PARTIDOS_POLITICOSTableAdapter.ClearBeforeFill = True
-        '
-        'CODIGO_MOVIMIENTOSpinEdit
-        '
-        Me.CODIGO_MOVIMIENTOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMOVIMIENTOSBindingSource, "CODIGO_MOVIMIENTO", True))
-        Me.CODIGO_MOVIMIENTOSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CODIGO_MOVIMIENTOSpinEdit.Location = New System.Drawing.Point(127, 12)
-        Me.CODIGO_MOVIMIENTOSpinEdit.Name = "CODIGO_MOVIMIENTOSpinEdit"
-        Me.CODIGO_MOVIMIENTOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
-        Me.CODIGO_MOVIMIENTOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.CODIGO_MOVIMIENTOSpinEdit.Size = New System.Drawing.Size(338, 20)
-        Me.CODIGO_MOVIMIENTOSpinEdit.StyleController = Me.DataLayoutControl1
-        Me.CODIGO_MOVIMIENTOSpinEdit.TabIndex = 4
-        '
         'XfrmMovimientos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -629,8 +587,6 @@ Partial Class XfrmMovimientos
         Me.Controls.Add(Me.LayoutControl1)
         Me.Name = "XfrmMovimientos"
         Me.Text = "Movimientos"
-        CType(Me.IMMOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
         CType(Me.GCDepartamento, System.ComponentModel.ISupportInitialize).EndInit()
@@ -650,6 +606,8 @@ Partial Class XfrmMovimientos
         CType(Me.MODIFICADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_MODIFICACIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_MODIFICACIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CODIGO_PARTIDOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CODIGO_MOVIMIENTOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForADICIONADO_POR, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForFECHA_ADICION, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForMODIFICADO_POR, System.ComponentModel.ISupportInitialize).EndInit()
@@ -671,15 +629,9 @@ Partial Class XfrmMovimientos
         Me.PanelControl1.ResumeLayout(False)
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CODIGO_PARTIDOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IMPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CODIGO_MOVIMIENTOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents DataSet1 As Inscripcion_de_Moviemientos.DataSet1
-    Friend WithEvents IMMOVIMIENTOSBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents IM_MOVIMIENTOSTableAdapter As Inscripcion_de_Moviemientos.DataSet1TableAdapters.IM_MOVIMIENTOSTableAdapter
     Friend WithEvents LayoutControl1 As DevExpress.XtraLayout.LayoutControl
     Friend WithEvents DataLayoutControl1 As DevExpress.XtraDataLayout.DataLayoutControl
     Friend WithEvents NOMBRE_MOVIMIENTOTextEdit As DevExpress.XtraEditors.TextEdit
@@ -721,7 +673,5 @@ Partial Class XfrmMovimientos
     Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents LayoutControlItem6 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents CODIGO_PARTIDOSpinEdit As DevExpress.XtraEditors.LookUpEdit
-    Friend WithEvents IMPARTIDOSPOLITICOSBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents IM_PARTIDOS_POLITICOSTableAdapter As Inscripcion_de_Moviemientos.DataSet1TableAdapters.IM_PARTIDOS_POLITICOSTableAdapter
     Friend WithEvents CODIGO_MOVIMIENTOSpinEdit As DevExpress.XtraEditors.TextEdit
 End Class

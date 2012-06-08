@@ -2,18 +2,21 @@
 
 
     Private Sub XfrmMunicipio_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DSDeptoMuni.IM_DEPARTAMENTOS' table. You can move, or remove it, as needed.
+        Me.IM_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.IM_DEPARTAMENTOS)
+        'TODO: This line of code loads data into the 'DSDeptoMuni.IM_MUNICIPIOS' table. You can move, or remove it, as needed.
+        Me.IM_MUNICIPIOSTableAdapter.Fill(Me.DSDeptoMuni.IM_MUNICIPIOS)
+        'TODO: This line of code loads data into the 'DSDeptoMuni.TA_MUNICIPIOS' table. You can move, or remove it, as needed.
+        Me.TA_MUNICIPIOSTableAdapter.Fill(Me.DSDeptoMuni.TA_MUNICIPIOS)
 
-        'TODO: This line of code loads data into the 'DataSet1.IM_DEPARTAMENTOS' table. You can move, or remove it, as needed.
-        Me.IM_DEPARTAMENTOSTableAdapter.Fill(Me.DataSet1.IM_DEPARTAMENTOS)
-        'TODO: This line of code loads data into the 'DataSet1.IM_MUNICIPIOS' table. You can move, or remove it, as needed.
-        Me.IM_MUNICIPIOSTableAdapter.Fill(Me.DataSet1.IM_MUNICIPIOS)
+        
         ActualizarGrid()
         Me.IMMUNICIPIOSBindingSource.AddNew()
     End Sub
 
     Sub ActualizarGrid()
-        'TODO: This line of code loads data into the 'DataSet1.TA_DEPTOSMUNI' table. You can move, or remove it, as needed.
-        Me.TA_DEPTOSMUNITableAdapter.Fill(Me.DataSet1.TA_DEPTOSMUNI)
+        'TODO: This line of code loads data into the 'DSDeptoMuni.TA_DEPTOSMUNI' table. You can move, or remove it, as needed.
+        Me.IM_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.IM_DEPARTAMENTOS)
     End Sub
     Sub nuevo()
         Me.IMMUNICIPIOSBindingSource.CancelEdit()
@@ -27,7 +30,7 @@
             Me.IMMUNICIPIOSBindingSource.EndEdit()
 
             'AGREGAR INFORMACION DE AUDITORIA (MODIFICA EL REGISTRO ANTES DE AGREGARLO A LA BASE )
-            For Each _datar As DataSet1.IM_MUNICIPIOSRow In DataSet1.IM_MUNICIPIOS
+            For Each _datar As DSDeptoMuni.IM_MUNICIPIOSRow In DSDeptoMuni.IM_MUNICIPIOS
                 'SI ES UN NUEVO REGITRO
                 If _datar.RowState = DataRowState.Added Then
                     _datar.ADICIONADO_POR = usuario
@@ -40,7 +43,7 @@
             Next
 
             'AGREGANDO LA INFORMACION A LA BASE DE DATOS
-            Me.IM_MUNICIPIOSTableAdapter.Update(Me.DataSet1.IM_MUNICIPIOS)
+            Me.IM_MUNICIPIOSTableAdapter.Update(Me.DSDeptoMuni.IM_MUNICIPIOS)
 
 
             'ACTUALIZANDO EL GRID DE BUSQUEDA Y EDICION
@@ -65,9 +68,9 @@
         Try
 
             'SE LE ASIGNA A UNA VARIABLE EL VALOR DE LA CELDA QUE SE DESEA
-            Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 3)
+            Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
             'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
-            Me.IM_MUNICIPIOSTableAdapter.FillBy(Me.DataSet1.IM_MUNICIPIOS, cellValue)
+            Me.IM_MUNICIPIOSTableAdapter.FillBy(Me.DSDeptoMuni.IM_MUNICIPIOS, cellValue)
             'writedata = False
 
 

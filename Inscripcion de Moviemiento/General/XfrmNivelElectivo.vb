@@ -1,7 +1,11 @@
 ﻿Public Class XfrmNivelElectivo 
 
     Private Sub XfrmNivelElectivo_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Me.IM_NIVEL_ELECTIVOTableAdapter.Fill(Me.DataSet1.IM_NIVEL_ELECTIVO)
+        'TODO: This line of code loads data into the 'DSPolitico.TA_NIVEL_ELECTIVO' table. You can move, or remove it, as needed.
+        Me.TA_NIVEL_ELECTIVOTableAdapter.Fill(Me.DSPolitico.TA_NIVEL_ELECTIVO)
+        'TODO: This line of code loads data into the 'DSPolitico.IM_NIVEL_ELECTIVO' table. You can move, or remove it, as needed.
+        Me.IM_NIVEL_ELECTIVOTableAdapter.Fill(Me.DSPolitico.IM_NIVEL_ELECTIVO)
+
         ActualizarGrid()
         Me.IMNIVELELECTIVOBindingSource.AddNew()
     End Sub
@@ -9,7 +13,7 @@
 
 
     Sub ActualizarGrid()
-        Me.TA_NIVEL_ELECTIVOTableAdapter.Fill(Me.DataSet1.TA_NIVEL_ELECTIVO)
+        Me.TA_NIVEL_ELECTIVOTableAdapter.Fill(Me.DSPolitico.TA_NIVEL_ELECTIVO)
 
     End Sub
     Sub guardar()
@@ -19,7 +23,7 @@
         Try
             Me.IMNIVELELECTIVOBindingSource.EndEdit()
             'AGREGAR INFORMACION DE AUDITORIA (MODIFICA EL REGISTRO ANTES DE AGREGARLO A LA BASE )
-            For Each _datar As DataSet1.IM_NIVEL_ELECTIVORow In DataSet1.IM_NIVEL_ELECTIVO
+            For Each _datar As DSPolitico.IM_NIVEL_ELECTIVORow In DSPolitico.IM_NIVEL_ELECTIVO
                 'SI ES UN NUEVO REGITRO
                 If _datar.RowState = DataRowState.Added Then
                     _datar.ADICIONADO_POR = usuario
@@ -33,26 +37,26 @@
                 End If
             Next
 
-            Me.IM_NIVEL_ELECTIVOTableAdapter.Update(Me.DataSet1.IM_NIVEL_ELECTIVO)
+            Me.IM_NIVEL_ELECTIVOTableAdapter.Update(Me.DSPolitico.IM_NIVEL_ELECTIVO)
             ActualizarGrid()
             Mensajes.MensajeGuardar()
         Catch ex As Exception
             'CONTROL DE ERRORES
             Mensajes.MensajeError(ex.Message)
         End Try
-       
 
 
 
 
-        
+
+
     End Sub
 
     Sub nuevo()
 
         Me.IMNIVELELECTIVOBindingSource.CancelEdit()
         Me.IMNIVELELECTIVOBindingSource.AddNew()
-      
+
     End Sub
 
     Sub MostrarDatos()
@@ -62,7 +66,7 @@
             'SE LE ASIGNA A UNA VARIABLE EL VALOR DE LA CELDA QUE SE DESEA
             Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
             'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
-            Me.IM_NIVEL_ELECTIVOTableAdapter.FillBy(Me.DataSet1.IM_NIVEL_ELECTIVO, CType(cellValue, Integer))
+            Me.IM_NIVEL_ELECTIVOTableAdapter.FillBy(Me.DSPolitico.IM_NIVEL_ELECTIVO, CType(cellValue, Integer))
             'writedata = False
 
 
@@ -79,7 +83,7 @@
         guardar()
     End Sub
 
-   
+
 
     Private Sub GridView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.Click
         MostrarDatos()

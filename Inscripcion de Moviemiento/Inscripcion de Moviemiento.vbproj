@@ -97,6 +97,7 @@
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Clases\Data.vb" />
+    <Compile Include="Clases\DxControls.vb" />
     <Compile Include="Clases\Mensajes.vb" />
     <Compile Include="Clases\OCN.vb" />
     <Compile Include="Clases\VControles.vb" />
@@ -112,6 +113,24 @@
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="General\DSDeptoMuni.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSDeptoMuni.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="General\DSDeptoMuni.vb">
+      <DependentUpon>DSDeptoMuni.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="General\DSParametros.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSParametros.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="General\DSPolitico.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSPolitico.xsd</DependentUpon>
     </Compile>
     <Compile Include="General\XfrmCargoElectivo.Designer.vb">
       <DependentUpon>XfrmCargoElectivo.vb</DependentUpon>
@@ -386,7 +405,46 @@
     <None Include="Resources\Roles.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="General\DSDeptoMuni.xsc">
+      <DependentUpon>DSDeptoMuni.xsd</DependentUpon>
+    </None>
+    <None Include="General\DSDeptoMuni.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSDeptoMuni.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="General\DSDeptoMuni.xss">
+      <DependentUpon>DSDeptoMuni.xsd</DependentUpon>
+    </None>
+    <None Include="General\DSParametros.xsc">
+      <DependentUpon>DSParametros.xsd</DependentUpon>
+    </None>
+    <None Include="General\DSParametros.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSParametros.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="General\DSParametros.xss">
+      <DependentUpon>DSParametros.xsd</DependentUpon>
+    </None>
+    <None Include="General\DSPolitico.xsc">
+      <DependentUpon>DSPolitico.xsd</DependentUpon>
+    </None>
+    <None Include="General\DSPolitico.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSPolitico.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="General\DSPolitico.xss">
+      <DependentUpon>DSPolitico.xsd</DependentUpon>
+    </None>
     <None Include="Resources\OpcionesdeAcceso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Img\DUMMY">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\cerrarventana.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
