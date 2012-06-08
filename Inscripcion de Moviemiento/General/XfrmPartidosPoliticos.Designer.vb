@@ -22,9 +22,12 @@ Partial Class XfrmPartidosPoliticos
         Me.components = New System.ComponentModel.Container
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
         Me.GCPartidos_Politicos = New DevExpress.XtraGrid.GridControl
-        Me.IMPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TAPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DSPolitico = New Inscripcion_de_Moviemientos.DSPolitico
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
+        Me.colCODIGO_PARTIDO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colNOMBRE = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCANTIDAD_FIRMAS = New DevExpress.XtraGrid.Columns.GridColumn
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
         Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
@@ -34,6 +37,7 @@ Partial Class XfrmPartidosPoliticos
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton
         Me.CODIGO_PARTIDOSpinEdit = New DevExpress.XtraEditors.SpinEdit
+        Me.IMPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.NOMBRETextEdit = New DevExpress.XtraEditors.TextEdit
         Me.CANTIDAD_FIRMASSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.ADICIONADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
@@ -58,15 +62,11 @@ Partial Class XfrmPartidosPoliticos
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
         Me.IM_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.IM_PARTIDOS_POLITICOSTableAdapter
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
-        Me.TAPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TA_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_PARTIDOS_POLITICOSTableAdapter
-        Me.colCODIGO_PARTIDO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colNOMBRE = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colCANTIDAD_FIRMAS = New DevExpress.XtraGrid.Columns.GridColumn
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.GCPartidos_Politicos, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IMPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TAPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,6 +77,7 @@ Partial Class XfrmPartidosPoliticos
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl2.SuspendLayout()
         CType(Me.CODIGO_PARTIDOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NOMBRETextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CANTIDAD_FIRMASSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -101,7 +102,6 @@ Partial Class XfrmPartidosPoliticos
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TAPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -129,10 +129,10 @@ Partial Class XfrmPartidosPoliticos
         Me.GCPartidos_Politicos.TabIndex = 8
         Me.GCPartidos_Politicos.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
-        'IMPARTIDOSPOLITICOSBindingSource
+        'TAPARTIDOSPOLITICOSBindingSource
         '
-        Me.IMPARTIDOSPOLITICOSBindingSource.DataMember = "IM_PARTIDOS_POLITICOS"
-        Me.IMPARTIDOSPOLITICOSBindingSource.DataSource = Me.DSPolitico
+        Me.TAPARTIDOSPOLITICOSBindingSource.DataMember = "TA_PARTIDOS_POLITICOS"
+        Me.TAPARTIDOSPOLITICOSBindingSource.DataSource = Me.DSPolitico
         '
         'DSPolitico
         '
@@ -150,6 +150,27 @@ Partial Class XfrmPartidosPoliticos
         Me.GridView1.OptionsBehavior.Editable = False
         Me.GridView1.OptionsView.ShowDetailButtons = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
+        '
+        'colCODIGO_PARTIDO
+        '
+        Me.colCODIGO_PARTIDO.FieldName = "CODIGO_PARTIDO"
+        Me.colCODIGO_PARTIDO.Name = "colCODIGO_PARTIDO"
+        Me.colCODIGO_PARTIDO.Visible = True
+        Me.colCODIGO_PARTIDO.VisibleIndex = 0
+        '
+        'colNOMBRE
+        '
+        Me.colNOMBRE.FieldName = "NOMBRE"
+        Me.colNOMBRE.Name = "colNOMBRE"
+        Me.colNOMBRE.Visible = True
+        Me.colNOMBRE.VisibleIndex = 1
+        '
+        'colCANTIDAD_FIRMAS
+        '
+        Me.colCANTIDAD_FIRMAS.FieldName = "CANTIDAD_FIRMAS"
+        Me.colCANTIDAD_FIRMAS.Name = "colCANTIDAD_FIRMAS"
+        Me.colCANTIDAD_FIRMAS.Visible = True
+        Me.colCANTIDAD_FIRMAS.VisibleIndex = 2
         '
         'GridView2
         '
@@ -245,19 +266,24 @@ Partial Class XfrmPartidosPoliticos
         '
         Me.CODIGO_PARTIDOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMPARTIDOSPOLITICOSBindingSource, "CODIGO_PARTIDO", True))
         Me.CODIGO_PARTIDOSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CODIGO_PARTIDOSpinEdit.Location = New System.Drawing.Point(316, 12)
+        Me.CODIGO_PARTIDOSpinEdit.Location = New System.Drawing.Point(312, 12)
         Me.CODIGO_PARTIDOSpinEdit.Name = "CODIGO_PARTIDOSpinEdit"
         Me.CODIGO_PARTIDOSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
-        Me.CODIGO_PARTIDOSpinEdit.Size = New System.Drawing.Size(181, 20)
+        Me.CODIGO_PARTIDOSpinEdit.Size = New System.Drawing.Size(185, 20)
         Me.CODIGO_PARTIDOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_PARTIDOSpinEdit.TabIndex = 4
+        '
+        'IMPARTIDOSPOLITICOSBindingSource
+        '
+        Me.IMPARTIDOSPOLITICOSBindingSource.DataMember = "IM_PARTIDOS_POLITICOS"
+        Me.IMPARTIDOSPOLITICOSBindingSource.DataSource = Me.DSPolitico
         '
         'NOMBRETextEdit
         '
         Me.NOMBRETextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMPARTIDOSPOLITICOSBindingSource, "NOMBRE", True))
-        Me.NOMBRETextEdit.Location = New System.Drawing.Point(316, 36)
+        Me.NOMBRETextEdit.Location = New System.Drawing.Point(312, 36)
         Me.NOMBRETextEdit.Name = "NOMBRETextEdit"
-        Me.NOMBRETextEdit.Size = New System.Drawing.Size(181, 20)
+        Me.NOMBRETextEdit.Size = New System.Drawing.Size(185, 20)
         Me.NOMBRETextEdit.StyleController = Me.DataLayoutControl1
         Me.NOMBRETextEdit.TabIndex = 6
         '
@@ -265,10 +291,10 @@ Partial Class XfrmPartidosPoliticos
         '
         Me.CANTIDAD_FIRMASSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMPARTIDOSPOLITICOSBindingSource, "CANTIDAD_FIRMAS", True))
         Me.CANTIDAD_FIRMASSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CANTIDAD_FIRMASSpinEdit.Location = New System.Drawing.Point(316, 60)
+        Me.CANTIDAD_FIRMASSpinEdit.Location = New System.Drawing.Point(312, 60)
         Me.CANTIDAD_FIRMASSpinEdit.Name = "CANTIDAD_FIRMASSpinEdit"
         Me.CANTIDAD_FIRMASSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
-        Me.CANTIDAD_FIRMASSpinEdit.Size = New System.Drawing.Size(181, 20)
+        Me.CANTIDAD_FIRMASSpinEdit.Size = New System.Drawing.Size(185, 20)
         Me.CANTIDAD_FIRMASSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CANTIDAD_FIRMASSpinEdit.TabIndex = 7
         '
@@ -316,10 +342,10 @@ Partial Class XfrmPartidosPoliticos
         '
         'IMAGENPictureEdit
         '
-        Me.IMAGENPictureEdit.Location = New System.Drawing.Point(12, 28)
+        Me.IMAGENPictureEdit.Location = New System.Drawing.Point(12, 12)
         Me.IMAGENPictureEdit.Name = "IMAGENPictureEdit"
         Me.IMAGENPictureEdit.Properties.ShowMenu = False
-        Me.IMAGENPictureEdit.Size = New System.Drawing.Size(200, 117)
+        Me.IMAGENPictureEdit.Size = New System.Drawing.Size(200, 133)
         Me.IMAGENPictureEdit.StyleController = Me.DataLayoutControl1
         Me.IMAGENPictureEdit.TabIndex = 5
         '
@@ -398,8 +424,8 @@ Partial Class XfrmPartidosPoliticos
         Me.ItemForCANTIDAD_FIRMAS.Location = New System.Drawing.Point(204, 48)
         Me.ItemForCANTIDAD_FIRMAS.Name = "ItemForCANTIDAD_FIRMAS"
         Me.ItemForCANTIDAD_FIRMAS.Size = New System.Drawing.Size(285, 123)
-        Me.ItemForCANTIDAD_FIRMAS.Text = "CANTIDAD_FIRMAS"
-        Me.ItemForCANTIDAD_FIRMAS.TextSize = New System.Drawing.Size(96, 13)
+        Me.ItemForCANTIDAD_FIRMAS.Text = "Cantidad de Firmas"
+        Me.ItemForCANTIDAD_FIRMAS.TextSize = New System.Drawing.Size(92, 13)
         '
         'ItemForNOMBRE
         '
@@ -408,8 +434,8 @@ Partial Class XfrmPartidosPoliticos
         Me.ItemForNOMBRE.Location = New System.Drawing.Point(204, 24)
         Me.ItemForNOMBRE.Name = "ItemForNOMBRE"
         Me.ItemForNOMBRE.Size = New System.Drawing.Size(285, 24)
-        Me.ItemForNOMBRE.Text = "NOMBRE"
-        Me.ItemForNOMBRE.TextSize = New System.Drawing.Size(96, 13)
+        Me.ItemForNOMBRE.Text = "Nombre"
+        Me.ItemForNOMBRE.TextSize = New System.Drawing.Size(92, 13)
         '
         'ItemForCODIGO_PARTIDO
         '
@@ -418,8 +444,8 @@ Partial Class XfrmPartidosPoliticos
         Me.ItemForCODIGO_PARTIDO.Location = New System.Drawing.Point(204, 0)
         Me.ItemForCODIGO_PARTIDO.Name = "ItemForCODIGO_PARTIDO"
         Me.ItemForCODIGO_PARTIDO.Size = New System.Drawing.Size(285, 24)
-        Me.ItemForCODIGO_PARTIDO.Text = "CODIGO_PARTIDO"
-        Me.ItemForCODIGO_PARTIDO.TextSize = New System.Drawing.Size(96, 13)
+        Me.ItemForCODIGO_PARTIDO.Text = "Código del Partido"
+        Me.ItemForCODIGO_PARTIDO.TextSize = New System.Drawing.Size(92, 13)
         '
         'ItemForIMAGEN
         '
@@ -428,9 +454,11 @@ Partial Class XfrmPartidosPoliticos
         Me.ItemForIMAGEN.Location = New System.Drawing.Point(0, 0)
         Me.ItemForIMAGEN.Name = "ItemForIMAGEN"
         Me.ItemForIMAGEN.Size = New System.Drawing.Size(204, 137)
-        Me.ItemForIMAGEN.Text = "IMAGEN"
+        Me.ItemForIMAGEN.Text = "Imágen"
         Me.ItemForIMAGEN.TextLocation = DevExpress.Utils.Locations.Top
-        Me.ItemForIMAGEN.TextSize = New System.Drawing.Size(96, 13)
+        Me.ItemForIMAGEN.TextSize = New System.Drawing.Size(0, 0)
+        Me.ItemForIMAGEN.TextToControlDistance = 0
+        Me.ItemForIMAGEN.TextVisible = False
         '
         'LayoutControlItem4
         '
@@ -510,35 +538,9 @@ Partial Class XfrmPartidosPoliticos
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         Me.OpenFileDialog1.Filter = "Archivos de Imagen (*.jpg)|*.jpg"
         '
-        'TAPARTIDOSPOLITICOSBindingSource
-        '
-        Me.TAPARTIDOSPOLITICOSBindingSource.DataMember = "TA_PARTIDOS_POLITICOS"
-        Me.TAPARTIDOSPOLITICOSBindingSource.DataSource = Me.DSPolitico
-        '
         'TA_PARTIDOS_POLITICOSTableAdapter
         '
         Me.TA_PARTIDOS_POLITICOSTableAdapter.ClearBeforeFill = True
-        '
-        'colCODIGO_PARTIDO
-        '
-        Me.colCODIGO_PARTIDO.FieldName = "CODIGO_PARTIDO"
-        Me.colCODIGO_PARTIDO.Name = "colCODIGO_PARTIDO"
-        Me.colCODIGO_PARTIDO.Visible = True
-        Me.colCODIGO_PARTIDO.VisibleIndex = 0
-        '
-        'colNOMBRE
-        '
-        Me.colNOMBRE.FieldName = "NOMBRE"
-        Me.colNOMBRE.Name = "colNOMBRE"
-        Me.colNOMBRE.Visible = True
-        Me.colNOMBRE.VisibleIndex = 1
-        '
-        'colCANTIDAD_FIRMAS
-        '
-        Me.colCANTIDAD_FIRMAS.FieldName = "CANTIDAD_FIRMAS"
-        Me.colCANTIDAD_FIRMAS.Name = "colCANTIDAD_FIRMAS"
-        Me.colCANTIDAD_FIRMAS.Visible = True
-        Me.colCANTIDAD_FIRMAS.VisibleIndex = 2
         '
         'XfrmPartidosPoliticos
         '
@@ -551,7 +553,7 @@ Partial Class XfrmPartidosPoliticos
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
         CType(Me.GCPartidos_Politicos, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IMPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TAPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -562,6 +564,7 @@ Partial Class XfrmPartidosPoliticos
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl2.ResumeLayout(False)
         CType(Me.CODIGO_PARTIDOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NOMBRETextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CANTIDAD_FIRMASSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -586,7 +589,6 @@ Partial Class XfrmPartidosPoliticos
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TAPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
