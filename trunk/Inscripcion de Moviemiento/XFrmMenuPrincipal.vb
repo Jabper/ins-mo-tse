@@ -20,9 +20,17 @@ Public Class XFrmMenuPrincipal
         'Next
 
     End Sub
-    Sub Padre(ByVal formulario As Object) 'HACE HIJOS A LOS FORMULARIOS PARA MOSTRARLOS DENTRO DEL MDI
-        formulario.MdiParent = Me
-        formulario.Show()
+
+    Sub Padre(ByVal formulario As DevExpress.XtraEditors.XtraForm) 'HACE HIJOS A LOS FORMULARIOS PARA MOSTRARLOS DENTRO DEL MDI
+        If VControles.ComprobarFormAbierto(formulario) Then
+            formulario.Focus()
+        Else
+            formulario.MdiParent = Me
+            formulario.Show()
+        End If
+
+        
+
     End Sub
 
     Private Sub BtnDepartamento_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnDepartamento.ItemClick
@@ -69,5 +77,13 @@ Public Class XFrmMenuPrincipal
 
     Private Sub BtnOpciones_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnOpciones.ItemClick
         Padre(fmOpcion)
+    End Sub
+
+    Private Sub BtnRequisitos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnRequisitos.ItemClick
+        Padre(XfrmRequisitos)
+    End Sub
+
+    Private Sub BtnCandidatos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCandidatos.ItemClick
+        Padre(XfrmCandidato)
     End Sub
 End Class

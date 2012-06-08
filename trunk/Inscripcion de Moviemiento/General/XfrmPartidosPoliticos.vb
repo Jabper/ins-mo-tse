@@ -21,8 +21,6 @@ Public Class XfrmPartidosPoliticos
 
     Sub guardar()
 
-
-
         Try
 
             'INDICACION QUE HA TERMINADO LA EDICION
@@ -71,6 +69,7 @@ Public Class XfrmPartidosPoliticos
 
             'LIMPIA LOS CONTROLES PARA AGREGAR UN NUEVO REGISTRO
             Me.IMPARTIDOSPOLITICOSBindingSource.AddNew()
+            '   LIMPIAR EL LA IMAGEN
             IMAGENPictureEdit.EditValue = Nothing
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
@@ -91,21 +90,21 @@ Public Class XfrmPartidosPoliticos
             Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
             'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
             Me.IM_PARTIDOS_POLITICOSTableAdapter.FillBy(Me.DSPolitico.IM_PARTIDOS_POLITICOS, CType(cellValue, Integer))
-            'writedata = False
+
+            'OBTENEMOS LA INFORMACION PARA LA BUSQUEDA DE LA IMAGEN
             UrlImagen = Application.StartupPath.ToString & "\Img\" & CODIGO_PARTIDOSpinEdit.EditValue.ToString & NOMBRETextEdit.EditValue.ToString & ".jpg"
+
             If File.Exists(UrlImagen) Then
+                'SI EL ARCHIVO EXISTE MOSTRAMOS LA IMAGEN
                 cargarimagen()
             Else
+                'SI NO SE ENCUENTRA LIMPIAMOS EL PICTURE EDIT
                 IMAGENPictureEdit.EditValue = Nothing
             End If
 
         Catch ex As System.Exception
             Mensajes.MensajeError("Seleccione una Fila con Datos para Realizar la Edición")
         End Try
-    End Sub
-
-    Private Sub GCPartidos_Politicos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GCPartidos_Politicos.Click
-        MostrarDatos()
     End Sub
 
     Sub ActualizarGrid()
@@ -133,20 +132,27 @@ Public Class XfrmPartidosPoliticos
 
     End Sub
 
-    Private Sub IMAGENPictureEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles IMAGENPictureEdit.EditValueChanged
-
-    End Sub
 
     Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton1.Click
-        'OpenFileDialog1.Filter = "Archivos de imagen(*.JPG;)"
+        'ABRE EL EXPLORADOR PARA CAPTURAR LA DIRECCION DE LA IMAGEN
         OpenFileDialog1.ShowDialog()
-
+        'LA VARIABLE URLIMAGEN CAPTURA LA DIRECCION DE LA IMAGEN
         UrlImagen = OpenFileDialog1.FileName
+
         cargarimagen()
     End Sub
-    Sub cargarimagen()
+    Sub cargarimagen() ' MUESTRA LA IMAGEN SELECCIONADA EN EL PICUTURE EDIT
 
         Me.IMAGENPictureEdit.Image = Image.FromFile(UrlImagen)
 
+    End Sub
+
+    Private Sub GridView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.Click
+        MostrarDatos()
+    End Sub
+
+    Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
+
+      
     End Sub
 End Class

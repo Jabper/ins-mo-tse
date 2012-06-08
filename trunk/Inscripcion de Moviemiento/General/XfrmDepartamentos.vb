@@ -106,9 +106,7 @@ Public Class XfrmDepartamentos
 
 
     Sub MostrarDatos()
-
         Try
-
             'SE LE ASIGNA A UNA VARIABLE EL VALOR DE LA CELDA QUE SE DESEA
             Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
             'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA

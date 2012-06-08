@@ -96,6 +96,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Candidatos\DSCandidato.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSCandidato.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Candidatos\XfrmCandidato.Designer.vb">
+      <DependentUpon>XfrmCandidato.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Candidatos\XfrmCandidato.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Candidatos\XfrmRequisitos.Designer.vb">
+      <DependentUpon>XfrmRequisitos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Candidatos\XfrmRequisitos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Clases\Data.vb" />
     <Compile Include="Clases\DxControls.vb" />
     <Compile Include="Clases\Mensajes.vb" />
@@ -241,6 +258,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Candidatos\XfrmCandidato.resx">
+      <DependentUpon>XfrmCandidato.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Candidatos\XfrmRequisitos.resx">
+      <DependentUpon>XfrmRequisitos.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -441,10 +466,27 @@
     <None Include="Resources\OpcionesdeAcceso.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Candidatos\DSCandidato.xsc">
+      <DependentUpon>DSCandidato.xsd</DependentUpon>
+    </None>
+    <None Include="Candidatos\DSCandidato.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSCandidato.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Candidatos\DSCandidato.xss">
+      <DependentUpon>DSCandidato.xsd</DependentUpon>
+    </None>
     <None Include="Img\DUMMY">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\cerrarventana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\requisitos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\candidato.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

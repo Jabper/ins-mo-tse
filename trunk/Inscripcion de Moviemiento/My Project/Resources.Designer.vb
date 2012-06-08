@@ -67,6 +67,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property candidato() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("candidato", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property cargos() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("cargos", resourceCulture)
@@ -147,6 +154,13 @@ Namespace My.Resources
         Friend ReadOnly Property partidos() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("partidos", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property requisitos() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("requisitos", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
