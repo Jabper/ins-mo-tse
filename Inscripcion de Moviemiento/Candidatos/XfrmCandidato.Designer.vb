@@ -300,10 +300,10 @@ Partial Class XfrmCandidato
         '
         Me.CODIGO_CANDIDATOSSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMCANDIDATOSBindingSource, "CODIGO_CANDIDATOS", True))
         Me.CODIGO_CANDIDATOSSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CODIGO_CANDIDATOSSpinEdit.Location = New System.Drawing.Point(153, 12)
+        Me.CODIGO_CANDIDATOSSpinEdit.Location = New System.Drawing.Point(126, 12)
         Me.CODIGO_CANDIDATOSSpinEdit.Name = "CODIGO_CANDIDATOSSpinEdit"
         Me.CODIGO_CANDIDATOSSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
-        Me.CODIGO_CANDIDATOSSpinEdit.Size = New System.Drawing.Size(392, 20)
+        Me.CODIGO_CANDIDATOSSpinEdit.Size = New System.Drawing.Size(419, 20)
         Me.CODIGO_CANDIDATOSSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_CANDIDATOSSpinEdit.TabIndex = 4
         '
@@ -315,9 +315,9 @@ Partial Class XfrmCandidato
         'NOMBRETextEdit
         '
         Me.NOMBRETextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMCANDIDATOSBindingSource, "NOMBRE", True))
-        Me.NOMBRETextEdit.Location = New System.Drawing.Point(153, 60)
+        Me.NOMBRETextEdit.Location = New System.Drawing.Point(126, 60)
         Me.NOMBRETextEdit.Name = "NOMBRETextEdit"
-        Me.NOMBRETextEdit.Size = New System.Drawing.Size(392, 20)
+        Me.NOMBRETextEdit.Size = New System.Drawing.Size(419, 20)
         Me.NOMBRETextEdit.StyleController = Me.DataLayoutControl1
         Me.NOMBRETextEdit.TabIndex = 5
         '
@@ -325,28 +325,28 @@ Partial Class XfrmCandidato
         '
         Me.POSICIONSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMCANDIDATOSBindingSource, "POSICION", True))
         Me.POSICIONSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.POSICIONSpinEdit.Location = New System.Drawing.Point(153, 132)
+        Me.POSICIONSpinEdit.Location = New System.Drawing.Point(126, 132)
         Me.POSICIONSpinEdit.Name = "POSICIONSpinEdit"
         Me.POSICIONSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
-        Me.POSICIONSpinEdit.Size = New System.Drawing.Size(392, 20)
+        Me.POSICIONSpinEdit.Size = New System.Drawing.Size(419, 20)
         Me.POSICIONSpinEdit.StyleController = Me.DataLayoutControl1
         Me.POSICIONSpinEdit.TabIndex = 6
         '
         'APELLIDOTextEdit
         '
         Me.APELLIDOTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMCANDIDATOSBindingSource, "APELLIDO", True))
-        Me.APELLIDOTextEdit.Location = New System.Drawing.Point(153, 84)
+        Me.APELLIDOTextEdit.Location = New System.Drawing.Point(126, 84)
         Me.APELLIDOTextEdit.Name = "APELLIDOTextEdit"
-        Me.APELLIDOTextEdit.Size = New System.Drawing.Size(392, 20)
+        Me.APELLIDOTextEdit.Size = New System.Drawing.Size(419, 20)
         Me.APELLIDOTextEdit.StyleController = Me.DataLayoutControl1
         Me.APELLIDOTextEdit.TabIndex = 8
         '
         'IDENTIDADTextEdit
         '
         Me.IDENTIDADTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMCANDIDATOSBindingSource, "IDENTIDAD", True))
-        Me.IDENTIDADTextEdit.Location = New System.Drawing.Point(153, 36)
+        Me.IDENTIDADTextEdit.Location = New System.Drawing.Point(126, 36)
         Me.IDENTIDADTextEdit.Name = "IDENTIDADTextEdit"
-        Me.IDENTIDADTextEdit.Size = New System.Drawing.Size(392, 20)
+        Me.IDENTIDADTextEdit.Size = New System.Drawing.Size(419, 20)
         Me.IDENTIDADTextEdit.StyleController = Me.DataLayoutControl1
         Me.IDENTIDADTextEdit.TabIndex = 12
         '
@@ -399,7 +399,7 @@ Partial Class XfrmCandidato
         'CODIGO_DEPARTAMENTOTextEdit
         '
         Me.CODIGO_DEPARTAMENTOTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMCANDIDATOSBindingSource, "CODIGO_DEPARTAMENTO", True))
-        Me.CODIGO_DEPARTAMENTOTextEdit.Location = New System.Drawing.Point(153, 156)
+        Me.CODIGO_DEPARTAMENTOTextEdit.Location = New System.Drawing.Point(126, 156)
         Me.CODIGO_DEPARTAMENTOTextEdit.Name = "CODIGO_DEPARTAMENTOTextEdit"
         Me.CODIGO_DEPARTAMENTOTextEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CODIGO_DEPARTAMENTOTextEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_DEPARTAMENTO", "CODIGO_DEPARTAMENTO", 151, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
@@ -407,7 +407,7 @@ Partial Class XfrmCandidato
         Me.CODIGO_DEPARTAMENTOTextEdit.Properties.DisplayMember = "DESCRIPCION"
         Me.CODIGO_DEPARTAMENTOTextEdit.Properties.NullText = "Seleccione"
         Me.CODIGO_DEPARTAMENTOTextEdit.Properties.ValueMember = "CODIGO_DEPARTAMENTO"
-        Me.CODIGO_DEPARTAMENTOTextEdit.Size = New System.Drawing.Size(392, 20)
+        Me.CODIGO_DEPARTAMENTOTextEdit.Size = New System.Drawing.Size(419, 20)
         Me.CODIGO_DEPARTAMENTOTextEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_DEPARTAMENTOTextEdit.TabIndex = 9
         '
@@ -424,7 +424,7 @@ Partial Class XfrmCandidato
         'CODIGO_MUNICIPIOTextEdit
         '
         Me.CODIGO_MUNICIPIOTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMCANDIDATOSBindingSource, "CODIGO_MUNICIPIO", True))
-        Me.CODIGO_MUNICIPIOTextEdit.Location = New System.Drawing.Point(153, 180)
+        Me.CODIGO_MUNICIPIOTextEdit.Location = New System.Drawing.Point(126, 180)
         Me.CODIGO_MUNICIPIOTextEdit.Name = "CODIGO_MUNICIPIOTextEdit"
         Me.CODIGO_MUNICIPIOTextEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CODIGO_MUNICIPIOTextEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MUNICIPIO", "CODIGO_MUNICIPIO", 125, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
@@ -432,7 +432,7 @@ Partial Class XfrmCandidato
         Me.CODIGO_MUNICIPIOTextEdit.Properties.DisplayMember = "DESCRIPCION"
         Me.CODIGO_MUNICIPIOTextEdit.Properties.NullText = "Seleccione"
         Me.CODIGO_MUNICIPIOTextEdit.Properties.ValueMember = "CODIGO_MUNICIPIO"
-        Me.CODIGO_MUNICIPIOTextEdit.Size = New System.Drawing.Size(392, 20)
+        Me.CODIGO_MUNICIPIOTextEdit.Size = New System.Drawing.Size(419, 20)
         Me.CODIGO_MUNICIPIOTextEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_MUNICIPIOTextEdit.TabIndex = 10
         '
@@ -445,7 +445,7 @@ Partial Class XfrmCandidato
         '
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMCANDIDATOSBindingSource, "CODIGO_CARGO_ELECTIVO", True))
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CODIGO_CARGO_ELECTIVOSpinEdit.Location = New System.Drawing.Point(153, 108)
+        Me.CODIGO_CARGO_ELECTIVOSpinEdit.Location = New System.Drawing.Point(126, 108)
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Name = "CODIGO_CARGO_ELECTIVOSpinEdit"
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_CARGO_ELECTIVO", "CODIGO_CARGO_ELECTIVO", 160, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
@@ -454,7 +454,7 @@ Partial Class XfrmCandidato
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties.NullText = "Seleccione"
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties.ValueMember = "CODIGO_CARGO_ELECTIVO"
-        Me.CODIGO_CARGO_ELECTIVOSpinEdit.Size = New System.Drawing.Size(392, 20)
+        Me.CODIGO_CARGO_ELECTIVOSpinEdit.Size = New System.Drawing.Size(419, 20)
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.TabIndex = 7
         '
@@ -471,7 +471,7 @@ Partial Class XfrmCandidato
         'CODIGO_PARTIDOSpinEdit
         '
         Me.CODIGO_PARTIDOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMCANDIDATOSBindingSource, "CODIGO_PARTIDO", True))
-        Me.CODIGO_PARTIDOSpinEdit.Location = New System.Drawing.Point(153, 204)
+        Me.CODIGO_PARTIDOSpinEdit.Location = New System.Drawing.Point(126, 204)
         Me.CODIGO_PARTIDOSpinEdit.Name = "CODIGO_PARTIDOSpinEdit"
         Me.CODIGO_PARTIDOSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CODIGO_PARTIDOSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_PARTIDO", "CODIGO_PARTIDO", 115, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE", "NOMBRE", 52, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
@@ -480,7 +480,7 @@ Partial Class XfrmCandidato
         Me.CODIGO_PARTIDOSpinEdit.Properties.NullText = "Seleccione"
         Me.CODIGO_PARTIDOSpinEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
         Me.CODIGO_PARTIDOSpinEdit.Properties.ValueMember = "CODIGO_PARTIDO"
-        Me.CODIGO_PARTIDOSpinEdit.Size = New System.Drawing.Size(392, 20)
+        Me.CODIGO_PARTIDOSpinEdit.Size = New System.Drawing.Size(419, 20)
         Me.CODIGO_PARTIDOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_PARTIDOSpinEdit.TabIndex = 13
         '
@@ -493,7 +493,7 @@ Partial Class XfrmCandidato
         '
         Me.CODIGO_MOVIMIENTOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMCANDIDATOSBindingSource, "CODIGO_MOVIMIENTO", True))
         Me.CODIGO_MOVIMIENTOSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CODIGO_MOVIMIENTOSpinEdit.Location = New System.Drawing.Point(153, 228)
+        Me.CODIGO_MOVIMIENTOSpinEdit.Location = New System.Drawing.Point(126, 228)
         Me.CODIGO_MOVIMIENTOSpinEdit.Name = "CODIGO_MOVIMIENTOSpinEdit"
         Me.CODIGO_MOVIMIENTOSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CODIGO_MOVIMIENTOSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MOVIMIENTO", "CODIGO_MOVIMIENTO", 135, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE_MOVIMIENTO", "NOMBRE_MOVIMIENTO", 123, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
@@ -502,7 +502,7 @@ Partial Class XfrmCandidato
         Me.CODIGO_MOVIMIENTOSpinEdit.Properties.NullText = "Seleccione"
         Me.CODIGO_MOVIMIENTOSpinEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
         Me.CODIGO_MOVIMIENTOSpinEdit.Properties.ValueMember = "CODIGO_MOVIMIENTO"
-        Me.CODIGO_MOVIMIENTOSpinEdit.Size = New System.Drawing.Size(392, 20)
+        Me.CODIGO_MOVIMIENTOSpinEdit.Size = New System.Drawing.Size(419, 20)
         Me.CODIGO_MOVIMIENTOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_MOVIMIENTOSpinEdit.TabIndex = 11
         '
@@ -586,7 +586,7 @@ Partial Class XfrmCandidato
         Me.ItemForNOMBRE.Name = "ItemForNOMBRE"
         Me.ItemForNOMBRE.Size = New System.Drawing.Size(537, 24)
         Me.ItemForNOMBRE.Text = "NOMBRE"
-        Me.ItemForNOMBRE.TextSize = New System.Drawing.Size(137, 13)
+        Me.ItemForNOMBRE.TextSize = New System.Drawing.Size(110, 13)
         '
         'ItemForCODIGO_CARGO_ELECTIVO
         '
@@ -595,8 +595,8 @@ Partial Class XfrmCandidato
         Me.ItemForCODIGO_CARGO_ELECTIVO.Location = New System.Drawing.Point(0, 96)
         Me.ItemForCODIGO_CARGO_ELECTIVO.Name = "ItemForCODIGO_CARGO_ELECTIVO"
         Me.ItemForCODIGO_CARGO_ELECTIVO.Size = New System.Drawing.Size(537, 24)
-        Me.ItemForCODIGO_CARGO_ELECTIVO.Text = "CODIGO_CARGO_ELECTIVO"
-        Me.ItemForCODIGO_CARGO_ELECTIVO.TextSize = New System.Drawing.Size(137, 13)
+        Me.ItemForCODIGO_CARGO_ELECTIVO.Text = "CARGO ELECTIVO"
+        Me.ItemForCODIGO_CARGO_ELECTIVO.TextSize = New System.Drawing.Size(110, 13)
         '
         'ItemForCODIGO_DEPARTAMENTO
         '
@@ -606,7 +606,7 @@ Partial Class XfrmCandidato
         Me.ItemForCODIGO_DEPARTAMENTO.Name = "ItemForCODIGO_DEPARTAMENTO"
         Me.ItemForCODIGO_DEPARTAMENTO.Size = New System.Drawing.Size(537, 24)
         Me.ItemForCODIGO_DEPARTAMENTO.Text = "Departamento"
-        Me.ItemForCODIGO_DEPARTAMENTO.TextSize = New System.Drawing.Size(137, 13)
+        Me.ItemForCODIGO_DEPARTAMENTO.TextSize = New System.Drawing.Size(110, 13)
         '
         'ItemForCODIGO_MOVIMIENTO
         '
@@ -616,7 +616,7 @@ Partial Class XfrmCandidato
         Me.ItemForCODIGO_MOVIMIENTO.Name = "ItemForCODIGO_MOVIMIENTO"
         Me.ItemForCODIGO_MOVIMIENTO.Size = New System.Drawing.Size(537, 27)
         Me.ItemForCODIGO_MOVIMIENTO.Text = "Movimiento"
-        Me.ItemForCODIGO_MOVIMIENTO.TextSize = New System.Drawing.Size(137, 13)
+        Me.ItemForCODIGO_MOVIMIENTO.TextSize = New System.Drawing.Size(110, 13)
         '
         'ItemForCODIGO_MUNICIPIO
         '
@@ -626,7 +626,7 @@ Partial Class XfrmCandidato
         Me.ItemForCODIGO_MUNICIPIO.Name = "ItemForCODIGO_MUNICIPIO"
         Me.ItemForCODIGO_MUNICIPIO.Size = New System.Drawing.Size(537, 24)
         Me.ItemForCODIGO_MUNICIPIO.Text = "Municipio"
-        Me.ItemForCODIGO_MUNICIPIO.TextSize = New System.Drawing.Size(137, 13)
+        Me.ItemForCODIGO_MUNICIPIO.TextSize = New System.Drawing.Size(110, 13)
         '
         'ItemForCODIGO_PARTIDO
         '
@@ -636,7 +636,7 @@ Partial Class XfrmCandidato
         Me.ItemForCODIGO_PARTIDO.Name = "ItemForCODIGO_PARTIDO"
         Me.ItemForCODIGO_PARTIDO.Size = New System.Drawing.Size(537, 24)
         Me.ItemForCODIGO_PARTIDO.Text = "Partido Político"
-        Me.ItemForCODIGO_PARTIDO.TextSize = New System.Drawing.Size(137, 13)
+        Me.ItemForCODIGO_PARTIDO.TextSize = New System.Drawing.Size(110, 13)
         '
         'ItemForIDENTIDAD
         '
@@ -646,7 +646,7 @@ Partial Class XfrmCandidato
         Me.ItemForIDENTIDAD.Name = "ItemForIDENTIDAD"
         Me.ItemForIDENTIDAD.Size = New System.Drawing.Size(537, 24)
         Me.ItemForIDENTIDAD.Text = "IDENTIDAD"
-        Me.ItemForIDENTIDAD.TextSize = New System.Drawing.Size(137, 13)
+        Me.ItemForIDENTIDAD.TextSize = New System.Drawing.Size(110, 13)
         '
         'ItemForCODIGO_CANDIDATOS
         '
@@ -655,8 +655,8 @@ Partial Class XfrmCandidato
         Me.ItemForCODIGO_CANDIDATOS.Location = New System.Drawing.Point(0, 0)
         Me.ItemForCODIGO_CANDIDATOS.Name = "ItemForCODIGO_CANDIDATOS"
         Me.ItemForCODIGO_CANDIDATOS.Size = New System.Drawing.Size(537, 24)
-        Me.ItemForCODIGO_CANDIDATOS.Text = "CODIGO_CANDIDATOS"
-        Me.ItemForCODIGO_CANDIDATOS.TextSize = New System.Drawing.Size(137, 13)
+        Me.ItemForCODIGO_CANDIDATOS.Text = "CODIGO CANDIDATOS"
+        Me.ItemForCODIGO_CANDIDATOS.TextSize = New System.Drawing.Size(110, 13)
         '
         'ItemForPOSICION
         '
@@ -666,7 +666,7 @@ Partial Class XfrmCandidato
         Me.ItemForPOSICION.Name = "ItemForPOSICION"
         Me.ItemForPOSICION.Size = New System.Drawing.Size(537, 24)
         Me.ItemForPOSICION.Text = "POSICION"
-        Me.ItemForPOSICION.TextSize = New System.Drawing.Size(137, 13)
+        Me.ItemForPOSICION.TextSize = New System.Drawing.Size(110, 13)
         '
         'ItemForAPELLIDO
         '
@@ -676,7 +676,7 @@ Partial Class XfrmCandidato
         Me.ItemForAPELLIDO.Name = "ItemForAPELLIDO"
         Me.ItemForAPELLIDO.Size = New System.Drawing.Size(537, 24)
         Me.ItemForAPELLIDO.Text = "APELLIDO"
-        Me.ItemForAPELLIDO.TextSize = New System.Drawing.Size(137, 13)
+        Me.ItemForAPELLIDO.TextSize = New System.Drawing.Size(110, 13)
         '
         'PanelControl1
         '
@@ -782,8 +782,7 @@ Partial Class XfrmCandidato
         Me.LayoutControlItem3.Control = Me.GCDepartamento
         Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
         Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 331)
-        Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(561, 0)
-        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(561, 24)
+        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(104, 24)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
         Me.LayoutControlItem3.Size = New System.Drawing.Size(561, 75)
         Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
