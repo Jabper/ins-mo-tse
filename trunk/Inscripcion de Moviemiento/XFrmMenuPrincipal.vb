@@ -84,6 +84,6 @@ Public Class XFrmMenuPrincipal
     End Sub
 
     Private Sub BtnCandidatos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCandidatos.ItemClick
-        Padre(XfrmIngresoCandidatos)
+        'Padre(XfrmIngresoCandidatos)
     End Sub
 End Class
