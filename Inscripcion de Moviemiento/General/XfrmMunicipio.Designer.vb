@@ -25,6 +25,11 @@ Partial Class Municipios
         Me.TAMUNICIPIOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DSDeptoMuni = New Inscripcion_de_Moviemientos.DSDeptoMuni
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
+        Me.colCODIGO_MUNICIPIO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCODIGO_DEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colDESCRIPCION = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colDEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCANTIDAD_REGIDORES = New DevExpress.XtraGrid.Columns.GridColumn
         Me.ButtonEdit1 = New DevExpress.XtraEditors.ButtonEdit
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
         Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
@@ -60,11 +65,6 @@ Partial Class Municipios
         Me.TA_MUNICIPIOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_MUNICIPIOSTableAdapter
         Me.IM_MUNICIPIOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.IM_MUNICIPIOSTableAdapter
         Me.IM_DEPARTAMENTOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.IM_DEPARTAMENTOSTableAdapter
-        Me.colCODIGO_MUNICIPIO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colCODIGO_DEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colCANTIDAD_REGIDORES = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colDESCRIPCION = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colDEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -143,7 +143,7 @@ Partial Class Municipios
         '
         'GridView1
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_MUNICIPIO, Me.colCODIGO_DEPARTAMENTO, Me.colCANTIDAD_REGIDORES, Me.colDESCRIPCION, Me.colDEPARTAMENTO})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_MUNICIPIO, Me.colCODIGO_DEPARTAMENTO, Me.colDESCRIPCION, Me.colDEPARTAMENTO, Me.colCANTIDAD_REGIDORES})
         Me.GridView1.GridControl = Me.GridControl1
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[False]
@@ -151,6 +151,46 @@ Partial Class Municipios
         Me.GridView1.OptionsBehavior.Editable = False
         Me.GridView1.OptionsView.ShowDetailButtons = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
+        '
+        'colCODIGO_MUNICIPIO
+        '
+        Me.colCODIGO_MUNICIPIO.Caption = "Código Municipio"
+        Me.colCODIGO_MUNICIPIO.FieldName = "CODIGO_MUNICIPIO"
+        Me.colCODIGO_MUNICIPIO.Name = "colCODIGO_MUNICIPIO"
+        Me.colCODIGO_MUNICIPIO.Visible = True
+        Me.colCODIGO_MUNICIPIO.VisibleIndex = 0
+        '
+        'colCODIGO_DEPARTAMENTO
+        '
+        Me.colCODIGO_DEPARTAMENTO.Caption = "Código Departamento"
+        Me.colCODIGO_DEPARTAMENTO.FieldName = "CODIGO_DEPARTAMENTO"
+        Me.colCODIGO_DEPARTAMENTO.Name = "colCODIGO_DEPARTAMENTO"
+        Me.colCODIGO_DEPARTAMENTO.Visible = True
+        Me.colCODIGO_DEPARTAMENTO.VisibleIndex = 1
+        '
+        'colDESCRIPCION
+        '
+        Me.colDESCRIPCION.Caption = "Municipio"
+        Me.colDESCRIPCION.FieldName = "DESCRIPCION"
+        Me.colDESCRIPCION.Name = "colDESCRIPCION"
+        Me.colDESCRIPCION.Visible = True
+        Me.colDESCRIPCION.VisibleIndex = 3
+        '
+        'colDEPARTAMENTO
+        '
+        Me.colDEPARTAMENTO.Caption = "Departamento"
+        Me.colDEPARTAMENTO.FieldName = "DEPARTAMENTO"
+        Me.colDEPARTAMENTO.Name = "colDEPARTAMENTO"
+        Me.colDEPARTAMENTO.Visible = True
+        Me.colDEPARTAMENTO.VisibleIndex = 4
+        '
+        'colCANTIDAD_REGIDORES
+        '
+        Me.colCANTIDAD_REGIDORES.Caption = "Cantidad de Regidores"
+        Me.colCANTIDAD_REGIDORES.FieldName = "CANTIDAD_REGIDORES"
+        Me.colCANTIDAD_REGIDORES.Name = "colCANTIDAD_REGIDORES"
+        Me.colCANTIDAD_REGIDORES.Visible = True
+        Me.colCANTIDAD_REGIDORES.VisibleIndex = 2
         '
         'ButtonEdit1
         '
@@ -290,7 +330,7 @@ Partial Class Municipios
         Me.CODIGO_DEPARTAMENTOSpinEdit.Location = New System.Drawing.Point(125, 60)
         Me.CODIGO_DEPARTAMENTOSpinEdit.Name = "CODIGO_DEPARTAMENTOSpinEdit"
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_DEPARTAMENTO", "CODIGO_DEPARTAMENTO", 151, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
+        Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_DEPARTAMENTO", "Código Departamento", 151, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Departamento", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.DataSource = Me.IMDEPARTAMENTOSBindingSource
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.DisplayMember = "DESCRIPCION"
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.NullText = ""
@@ -529,41 +569,6 @@ Partial Class Municipios
         'IM_DEPARTAMENTOSTableAdapter
         '
         Me.IM_DEPARTAMENTOSTableAdapter.ClearBeforeFill = True
-        '
-        'colCODIGO_MUNICIPIO
-        '
-        Me.colCODIGO_MUNICIPIO.FieldName = "CODIGO_MUNICIPIO"
-        Me.colCODIGO_MUNICIPIO.Name = "colCODIGO_MUNICIPIO"
-        Me.colCODIGO_MUNICIPIO.Visible = True
-        Me.colCODIGO_MUNICIPIO.VisibleIndex = 0
-        '
-        'colCODIGO_DEPARTAMENTO
-        '
-        Me.colCODIGO_DEPARTAMENTO.FieldName = "CODIGO_DEPARTAMENTO"
-        Me.colCODIGO_DEPARTAMENTO.Name = "colCODIGO_DEPARTAMENTO"
-        Me.colCODIGO_DEPARTAMENTO.Visible = True
-        Me.colCODIGO_DEPARTAMENTO.VisibleIndex = 1
-        '
-        'colCANTIDAD_REGIDORES
-        '
-        Me.colCANTIDAD_REGIDORES.FieldName = "CANTIDAD_REGIDORES"
-        Me.colCANTIDAD_REGIDORES.Name = "colCANTIDAD_REGIDORES"
-        Me.colCANTIDAD_REGIDORES.Visible = True
-        Me.colCANTIDAD_REGIDORES.VisibleIndex = 2
-        '
-        'colDESCRIPCION
-        '
-        Me.colDESCRIPCION.FieldName = "DESCRIPCION"
-        Me.colDESCRIPCION.Name = "colDESCRIPCION"
-        Me.colDESCRIPCION.Visible = True
-        Me.colDESCRIPCION.VisibleIndex = 3
-        '
-        'colDEPARTAMENTO
-        '
-        Me.colDEPARTAMENTO.FieldName = "DEPARTAMENTO"
-        Me.colDEPARTAMENTO.Name = "colDEPARTAMENTO"
-        Me.colDEPARTAMENTO.Visible = True
-        Me.colDEPARTAMENTO.VisibleIndex = 4
         '
         'Municipios
         '
