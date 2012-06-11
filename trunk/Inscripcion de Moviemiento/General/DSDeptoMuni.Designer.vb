@@ -40,10 +40,6 @@ Partial Public Class DSDeptoMuni
     
     Private relationCODIGO_DEPARTAMENTO_FK2 As Global.System.Data.DataRelation
     
-    Private relationCODIGO_DEPARTAMENTO_FK3 As Global.System.Data.DataRelation
-    
-    Private relationCODIGO_DEPARTAMENTO_FK4 As Global.System.Data.DataRelation
-    
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -263,8 +259,6 @@ Partial Public Class DSDeptoMuni
         Me.relationCODIGO_DEPARTAMENTO_FK = Me.Relations("CODIGO_DEPARTAMENTO_FK")
         Me.relationCODIGO_DEPARTAMENTO_FK1 = Me.Relations("CODIGO_DEPARTAMENTO_FK1")
         Me.relationCODIGO_DEPARTAMENTO_FK2 = Me.Relations("CODIGO_DEPARTAMENTO_FK2")
-        Me.relationCODIGO_DEPARTAMENTO_FK3 = Me.Relations("CODIGO_DEPARTAMENTO_FK3")
-        Me.relationCODIGO_DEPARTAMENTO_FK4 = Me.Relations("CODIGO_DEPARTAMENTO_FK4")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -284,14 +278,10 @@ Partial Public Class DSDeptoMuni
         MyBase.Tables.Add(Me.tableTA_DEPARTAMENTOS)
         Me.relationCODIGO_DEPARTAMENTO_FK = New Global.System.Data.DataRelation("CODIGO_DEPARTAMENTO_FK", New Global.System.Data.DataColumn() {Me.tableIM_DEPARTAMENTOS.CODIGO_DEPARTAMENTOColumn}, New Global.System.Data.DataColumn() {Me.tableIM_MUNICIPIOS.CODIGO_DEPARTAMENTOColumn}, false)
         Me.Relations.Add(Me.relationCODIGO_DEPARTAMENTO_FK)
-        Me.relationCODIGO_DEPARTAMENTO_FK1 = New Global.System.Data.DataRelation("CODIGO_DEPARTAMENTO_FK1", New Global.System.Data.DataColumn() {Me.tableIM_DEPARTAMENTOS.CODIGO_DEPARTAMENTOColumn}, New Global.System.Data.DataColumn() {Me.tableTA_MUNICIPIOS.CODIGO_DEPARTAMENTOColumn}, false)
+        Me.relationCODIGO_DEPARTAMENTO_FK1 = New Global.System.Data.DataRelation("CODIGO_DEPARTAMENTO_FK1", New Global.System.Data.DataColumn() {Me.tableTA_MUNICIPIOS.CODIGO_DEPARTAMENTOColumn}, New Global.System.Data.DataColumn() {Me.tableIM_MUNICIPIOS.CODIGO_DEPARTAMENTOColumn}, false)
         Me.Relations.Add(Me.relationCODIGO_DEPARTAMENTO_FK1)
         Me.relationCODIGO_DEPARTAMENTO_FK2 = New Global.System.Data.DataRelation("CODIGO_DEPARTAMENTO_FK2", New Global.System.Data.DataColumn() {Me.tableTA_DEPARTAMENTOS.CODIGO_DEPARTAMENTOColumn}, New Global.System.Data.DataColumn() {Me.tableIM_MUNICIPIOS.CODIGO_DEPARTAMENTOColumn}, false)
         Me.Relations.Add(Me.relationCODIGO_DEPARTAMENTO_FK2)
-        Me.relationCODIGO_DEPARTAMENTO_FK3 = New Global.System.Data.DataRelation("CODIGO_DEPARTAMENTO_FK3", New Global.System.Data.DataColumn() {Me.tableTA_DEPARTAMENTOS.CODIGO_DEPARTAMENTOColumn}, New Global.System.Data.DataColumn() {Me.tableTA_MUNICIPIOS.CODIGO_DEPARTAMENTOColumn}, false)
-        Me.Relations.Add(Me.relationCODIGO_DEPARTAMENTO_FK3)
-        Me.relationCODIGO_DEPARTAMENTO_FK4 = New Global.System.Data.DataRelation("CODIGO_DEPARTAMENTO_FK4", New Global.System.Data.DataColumn() {Me.tableTA_MUNICIPIOS.CODIGO_DEPARTAMENTOColumn}, New Global.System.Data.DataColumn() {Me.tableIM_MUNICIPIOS.CODIGO_DEPARTAMENTOColumn}, false)
-        Me.Relations.Add(Me.relationCODIGO_DEPARTAMENTO_FK4)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -511,7 +501,7 @@ Partial Public Class DSDeptoMuni
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddIM_DEPARTAMENTOSRow(ByVal CODIGO_DEPARTAMENTO As String, ByVal DESCRIPCION As String, ByVal CANTIDAD_DIPUTADOS As Decimal, ByVal ADICIONADO_POR As Decimal, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As Decimal, ByVal FECHA_MODIFICACION As Date) As IM_DEPARTAMENTOSRow
+        Public Overloads Function AddIM_DEPARTAMENTOSRow(ByVal CODIGO_DEPARTAMENTO As Decimal, ByVal DESCRIPCION As String, ByVal CANTIDAD_DIPUTADOS As Decimal, ByVal ADICIONADO_POR As Decimal, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As Decimal, ByVal FECHA_MODIFICACION As Date) As IM_DEPARTAMENTOSRow
             Dim rowIM_DEPARTAMENTOSRow As IM_DEPARTAMENTOSRow = CType(Me.NewRow,IM_DEPARTAMENTOSRow)
             Dim columnValuesArray() As Object = New Object() {CODIGO_DEPARTAMENTO, DESCRIPCION, CANTIDAD_DIPUTADOS, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION}
             rowIM_DEPARTAMENTOSRow.ItemArray = columnValuesArray
@@ -520,7 +510,7 @@ Partial Public Class DSDeptoMuni
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function FindByCODIGO_DEPARTAMENTO(ByVal CODIGO_DEPARTAMENTO As String) As IM_DEPARTAMENTOSRow
+        Public Function FindByCODIGO_DEPARTAMENTO(ByVal CODIGO_DEPARTAMENTO As Decimal) As IM_DEPARTAMENTOSRow
             Return CType(Me.Rows.Find(New Object() {CODIGO_DEPARTAMENTO}),IM_DEPARTAMENTOSRow)
         End Function
         
@@ -549,7 +539,7 @@ Partial Public Class DSDeptoMuni
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitClass()
-            Me.columnCODIGO_DEPARTAMENTO = New Global.System.Data.DataColumn("CODIGO_DEPARTAMENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnCODIGO_DEPARTAMENTO = New Global.System.Data.DataColumn("CODIGO_DEPARTAMENTO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCODIGO_DEPARTAMENTO)
             Me.columnDESCRIPCION = New Global.System.Data.DataColumn("DESCRIPCION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDESCRIPCION)
@@ -566,12 +556,9 @@ Partial Public Class DSDeptoMuni
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_DEPARTAMENTO}, true))
             Me.columnCODIGO_DEPARTAMENTO.AllowDBNull = false
             Me.columnCODIGO_DEPARTAMENTO.Unique = true
-            Me.columnCODIGO_DEPARTAMENTO.MaxLength = 2
             Me.columnDESCRIPCION.AllowDBNull = false
             Me.columnDESCRIPCION.MaxLength = 100
             Me.columnCANTIDAD_DIPUTADOS.AllowDBNull = false
-            Me.columnADICIONADO_POR.AllowDBNull = false
-            Me.columnFECHA_ADICION.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -834,7 +821,7 @@ Partial Public Class DSDeptoMuni
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddIM_MUNICIPIOSRow(ByVal CODIGO_MUNICIPIO As String, ByVal parentIM_DEPARTAMENTOSRowByCODIGO_DEPARTAMENTO_FK As IM_DEPARTAMENTOSRow, ByVal CANTIDAD_REGIDORES As Decimal, ByVal DESCRIPCION As String, ByVal ADICIONADO_POR As Decimal, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As Decimal, ByVal FECHA_MODIFICACION As Date) As IM_MUNICIPIOSRow
+        Public Overloads Function AddIM_MUNICIPIOSRow(ByVal CODIGO_MUNICIPIO As Decimal, ByVal parentIM_DEPARTAMENTOSRowByCODIGO_DEPARTAMENTO_FK As IM_DEPARTAMENTOSRow, ByVal CANTIDAD_REGIDORES As Decimal, ByVal DESCRIPCION As String, ByVal ADICIONADO_POR As Decimal, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As Decimal, ByVal FECHA_MODIFICACION As Date) As IM_MUNICIPIOSRow
             Dim rowIM_MUNICIPIOSRow As IM_MUNICIPIOSRow = CType(Me.NewRow,IM_MUNICIPIOSRow)
             Dim columnValuesArray() As Object = New Object() {CODIGO_MUNICIPIO, Nothing, CANTIDAD_REGIDORES, DESCRIPCION, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION}
             If (Not (parentIM_DEPARTAMENTOSRowByCODIGO_DEPARTAMENTO_FK) Is Nothing) Then
@@ -846,7 +833,7 @@ Partial Public Class DSDeptoMuni
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function FindByCODIGO_MUNICIPIOCODIGO_DEPARTAMENTO(ByVal CODIGO_MUNICIPIO As String, ByVal CODIGO_DEPARTAMENTO As String) As IM_MUNICIPIOSRow
+        Public Function FindByCODIGO_MUNICIPIOCODIGO_DEPARTAMENTO(ByVal CODIGO_MUNICIPIO As Decimal, ByVal CODIGO_DEPARTAMENTO As Decimal) As IM_MUNICIPIOSRow
             Return CType(Me.Rows.Find(New Object() {CODIGO_MUNICIPIO, CODIGO_DEPARTAMENTO}),IM_MUNICIPIOSRow)
         End Function
         
@@ -876,9 +863,9 @@ Partial Public Class DSDeptoMuni
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitClass()
-            Me.columnCODIGO_MUNICIPIO = New Global.System.Data.DataColumn("CODIGO_MUNICIPIO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnCODIGO_MUNICIPIO = New Global.System.Data.DataColumn("CODIGO_MUNICIPIO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCODIGO_MUNICIPIO)
-            Me.columnCODIGO_DEPARTAMENTO = New Global.System.Data.DataColumn("CODIGO_DEPARTAMENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnCODIGO_DEPARTAMENTO = New Global.System.Data.DataColumn("CODIGO_DEPARTAMENTO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCODIGO_DEPARTAMENTO)
             Me.columnCANTIDAD_REGIDORES = New Global.System.Data.DataColumn("CANTIDAD_REGIDORES", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCANTIDAD_REGIDORES)
@@ -894,14 +881,10 @@ Partial Public Class DSDeptoMuni
             MyBase.Columns.Add(Me.columnFECHA_MODIFICACION)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_MUNICIPIO, Me.columnCODIGO_DEPARTAMENTO}, true))
             Me.columnCODIGO_MUNICIPIO.AllowDBNull = false
-            Me.columnCODIGO_MUNICIPIO.MaxLength = 2
             Me.columnCODIGO_DEPARTAMENTO.AllowDBNull = false
-            Me.columnCODIGO_DEPARTAMENTO.MaxLength = 2
             Me.columnCANTIDAD_REGIDORES.AllowDBNull = false
             Me.columnDESCRIPCION.AllowDBNull = false
             Me.columnDESCRIPCION.MaxLength = 100
-            Me.columnADICIONADO_POR.AllowDBNull = false
-            Me.columnFECHA_ADICION.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1137,19 +1120,16 @@ Partial Public Class DSDeptoMuni
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddTA_MUNICIPIOSRow(ByVal CODIGO_MUNICIPIO As String, ByVal parentIM_DEPARTAMENTOSRowByCODIGO_DEPARTAMENTO_FK1 As IM_DEPARTAMENTOSRow, ByVal CANTIDAD_REGIDORES As Decimal, ByVal DESCRIPCION As String, ByVal DEPARTAMENTO As String) As TA_MUNICIPIOSRow
+        Public Overloads Function AddTA_MUNICIPIOSRow(ByVal CODIGO_MUNICIPIO As Decimal, ByVal CODIGO_DEPARTAMENTO As Decimal, ByVal CANTIDAD_REGIDORES As Decimal, ByVal DESCRIPCION As String, ByVal DEPARTAMENTO As String) As TA_MUNICIPIOSRow
             Dim rowTA_MUNICIPIOSRow As TA_MUNICIPIOSRow = CType(Me.NewRow,TA_MUNICIPIOSRow)
-            Dim columnValuesArray() As Object = New Object() {CODIGO_MUNICIPIO, Nothing, CANTIDAD_REGIDORES, DESCRIPCION, DEPARTAMENTO}
-            If (Not (parentIM_DEPARTAMENTOSRowByCODIGO_DEPARTAMENTO_FK1) Is Nothing) Then
-                columnValuesArray(1) = parentIM_DEPARTAMENTOSRowByCODIGO_DEPARTAMENTO_FK1(0)
-            End If
+            Dim columnValuesArray() As Object = New Object() {CODIGO_MUNICIPIO, CODIGO_DEPARTAMENTO, CANTIDAD_REGIDORES, DESCRIPCION, DEPARTAMENTO}
             rowTA_MUNICIPIOSRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowTA_MUNICIPIOSRow)
             Return rowTA_MUNICIPIOSRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function FindByCODIGO_MUNICIPIOCODIGO_DEPARTAMENTO(ByVal CODIGO_MUNICIPIO As String, ByVal CODIGO_DEPARTAMENTO As String) As TA_MUNICIPIOSRow
+        Public Function FindByCODIGO_MUNICIPIOCODIGO_DEPARTAMENTO(ByVal CODIGO_MUNICIPIO As Decimal, ByVal CODIGO_DEPARTAMENTO As Decimal) As TA_MUNICIPIOSRow
             Return CType(Me.Rows.Find(New Object() {CODIGO_MUNICIPIO, CODIGO_DEPARTAMENTO}),TA_MUNICIPIOSRow)
         End Function
         
@@ -1176,9 +1156,9 @@ Partial Public Class DSDeptoMuni
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitClass()
-            Me.columnCODIGO_MUNICIPIO = New Global.System.Data.DataColumn("CODIGO_MUNICIPIO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnCODIGO_MUNICIPIO = New Global.System.Data.DataColumn("CODIGO_MUNICIPIO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCODIGO_MUNICIPIO)
-            Me.columnCODIGO_DEPARTAMENTO = New Global.System.Data.DataColumn("CODIGO_DEPARTAMENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnCODIGO_DEPARTAMENTO = New Global.System.Data.DataColumn("CODIGO_DEPARTAMENTO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCODIGO_DEPARTAMENTO)
             Me.columnCANTIDAD_REGIDORES = New Global.System.Data.DataColumn("CANTIDAD_REGIDORES", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCANTIDAD_REGIDORES)
@@ -1188,9 +1168,7 @@ Partial Public Class DSDeptoMuni
             MyBase.Columns.Add(Me.columnDEPARTAMENTO)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_MUNICIPIO, Me.columnCODIGO_DEPARTAMENTO}, true))
             Me.columnCODIGO_MUNICIPIO.AllowDBNull = false
-            Me.columnCODIGO_MUNICIPIO.MaxLength = 2
             Me.columnCODIGO_DEPARTAMENTO.AllowDBNull = false
-            Me.columnCODIGO_DEPARTAMENTO.MaxLength = 2
             Me.columnCANTIDAD_REGIDORES.AllowDBNull = false
             Me.columnDESCRIPCION.AllowDBNull = false
             Me.columnDESCRIPCION.MaxLength = 100
@@ -1413,7 +1391,7 @@ Partial Public Class DSDeptoMuni
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddTA_DEPARTAMENTOSRow(ByVal CODIGO_DEPARTAMENTO As String, ByVal DESCRIPCION As String, ByVal CANTIDAD_DIPUTADOS As Decimal) As TA_DEPARTAMENTOSRow
+        Public Overloads Function AddTA_DEPARTAMENTOSRow(ByVal CODIGO_DEPARTAMENTO As Decimal, ByVal DESCRIPCION As String, ByVal CANTIDAD_DIPUTADOS As Decimal) As TA_DEPARTAMENTOSRow
             Dim rowTA_DEPARTAMENTOSRow As TA_DEPARTAMENTOSRow = CType(Me.NewRow,TA_DEPARTAMENTOSRow)
             Dim columnValuesArray() As Object = New Object() {CODIGO_DEPARTAMENTO, DESCRIPCION, CANTIDAD_DIPUTADOS}
             rowTA_DEPARTAMENTOSRow.ItemArray = columnValuesArray
@@ -1422,7 +1400,7 @@ Partial Public Class DSDeptoMuni
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function FindByCODIGO_DEPARTAMENTO(ByVal CODIGO_DEPARTAMENTO As String) As TA_DEPARTAMENTOSRow
+        Public Function FindByCODIGO_DEPARTAMENTO(ByVal CODIGO_DEPARTAMENTO As Decimal) As TA_DEPARTAMENTOSRow
             Return CType(Me.Rows.Find(New Object() {CODIGO_DEPARTAMENTO}),TA_DEPARTAMENTOSRow)
         End Function
         
@@ -1447,7 +1425,7 @@ Partial Public Class DSDeptoMuni
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitClass()
-            Me.columnCODIGO_DEPARTAMENTO = New Global.System.Data.DataColumn("CODIGO_DEPARTAMENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnCODIGO_DEPARTAMENTO = New Global.System.Data.DataColumn("CODIGO_DEPARTAMENTO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCODIGO_DEPARTAMENTO)
             Me.columnDESCRIPCION = New Global.System.Data.DataColumn("DESCRIPCION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDESCRIPCION)
@@ -1456,7 +1434,6 @@ Partial Public Class DSDeptoMuni
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_DEPARTAMENTO}, true))
             Me.columnCODIGO_DEPARTAMENTO.AllowDBNull = false
             Me.columnCODIGO_DEPARTAMENTO.Unique = true
-            Me.columnCODIGO_DEPARTAMENTO.MaxLength = 2
             Me.columnDESCRIPCION.AllowDBNull = false
             Me.columnDESCRIPCION.MaxLength = 100
             Me.columnCANTIDAD_DIPUTADOS.AllowDBNull = false
@@ -1596,9 +1573,9 @@ Partial Public Class DSDeptoMuni
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property CODIGO_DEPARTAMENTO() As String
+        Public Property CODIGO_DEPARTAMENTO() As Decimal
             Get
-                Return CType(Me(Me.tableIM_DEPARTAMENTOS.CODIGO_DEPARTAMENTOColumn),String)
+                Return CType(Me(Me.tableIM_DEPARTAMENTOS.CODIGO_DEPARTAMENTOColumn),Decimal)
             End Get
             Set
                 Me(Me.tableIM_DEPARTAMENTOS.CODIGO_DEPARTAMENTOColumn) = value
@@ -1628,7 +1605,11 @@ Partial Public Class DSDeptoMuni
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property ADICIONADO_POR() As Decimal
             Get
-                Return CType(Me(Me.tableIM_DEPARTAMENTOS.ADICIONADO_PORColumn),Decimal)
+                Try 
+                    Return CType(Me(Me.tableIM_DEPARTAMENTOS.ADICIONADO_PORColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ADICIONADO_POR' in table 'IM_DEPARTAMENTOS' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableIM_DEPARTAMENTOS.ADICIONADO_PORColumn) = value
@@ -1638,7 +1619,11 @@ Partial Public Class DSDeptoMuni
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property FECHA_ADICION() As Date
             Get
-                Return CType(Me(Me.tableIM_DEPARTAMENTOS.FECHA_ADICIONColumn),Date)
+                Try 
+                    Return CType(Me(Me.tableIM_DEPARTAMENTOS.FECHA_ADICIONColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FECHA_ADICION' in table 'IM_DEPARTAMENTOS' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableIM_DEPARTAMENTOS.FECHA_ADICIONColumn) = value
@@ -1674,6 +1659,26 @@ Partial Public Class DSDeptoMuni
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsADICIONADO_PORNull() As Boolean
+            Return Me.IsNull(Me.tableIM_DEPARTAMENTOS.ADICIONADO_PORColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetADICIONADO_PORNull()
+            Me(Me.tableIM_DEPARTAMENTOS.ADICIONADO_PORColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsFECHA_ADICIONNull() As Boolean
+            Return Me.IsNull(Me.tableIM_DEPARTAMENTOS.FECHA_ADICIONColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetFECHA_ADICIONNull()
+            Me(Me.tableIM_DEPARTAMENTOS.FECHA_ADICIONColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsMODIFICADO_PORNull() As Boolean
             Return Me.IsNull(Me.tableIM_DEPARTAMENTOS.MODIFICADO_PORColumn)
         End Function
@@ -1701,15 +1706,6 @@ Partial Public Class DSDeptoMuni
                 Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("CODIGO_DEPARTAMENTO_FK")),IM_MUNICIPIOSRow())
             End If
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function GetTA_MUNICIPIOSRows() As TA_MUNICIPIOSRow()
-            If (Me.Table.ChildRelations("CODIGO_DEPARTAMENTO_FK1") Is Nothing) Then
-                Return New TA_MUNICIPIOSRow(-1) {}
-            Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("CODIGO_DEPARTAMENTO_FK1")),TA_MUNICIPIOSRow())
-            End If
-        End Function
     End Class
     
     '''<summary>
@@ -1728,9 +1724,9 @@ Partial Public Class DSDeptoMuni
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property CODIGO_MUNICIPIO() As String
+        Public Property CODIGO_MUNICIPIO() As Decimal
             Get
-                Return CType(Me(Me.tableIM_MUNICIPIOS.CODIGO_MUNICIPIOColumn),String)
+                Return CType(Me(Me.tableIM_MUNICIPIOS.CODIGO_MUNICIPIOColumn),Decimal)
             End Get
             Set
                 Me(Me.tableIM_MUNICIPIOS.CODIGO_MUNICIPIOColumn) = value
@@ -1738,9 +1734,9 @@ Partial Public Class DSDeptoMuni
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property CODIGO_DEPARTAMENTO() As String
+        Public Property CODIGO_DEPARTAMENTO() As Decimal
             Get
-                Return CType(Me(Me.tableIM_MUNICIPIOS.CODIGO_DEPARTAMENTOColumn),String)
+                Return CType(Me(Me.tableIM_MUNICIPIOS.CODIGO_DEPARTAMENTOColumn),Decimal)
             End Get
             Set
                 Me(Me.tableIM_MUNICIPIOS.CODIGO_DEPARTAMENTOColumn) = value
@@ -1770,7 +1766,11 @@ Partial Public Class DSDeptoMuni
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property ADICIONADO_POR() As Decimal
             Get
-                Return CType(Me(Me.tableIM_MUNICIPIOS.ADICIONADO_PORColumn),Decimal)
+                Try 
+                    Return CType(Me(Me.tableIM_MUNICIPIOS.ADICIONADO_PORColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ADICIONADO_POR' in table 'IM_MUNICIPIOS' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableIM_MUNICIPIOS.ADICIONADO_PORColumn) = value
@@ -1780,7 +1780,11 @@ Partial Public Class DSDeptoMuni
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property FECHA_ADICION() As Date
             Get
-                Return CType(Me(Me.tableIM_MUNICIPIOS.FECHA_ADICIONColumn),Date)
+                Try 
+                    Return CType(Me(Me.tableIM_MUNICIPIOS.FECHA_ADICIONColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FECHA_ADICION' in table 'IM_MUNICIPIOS' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableIM_MUNICIPIOS.FECHA_ADICIONColumn) = value
@@ -1826,6 +1830,16 @@ Partial Public Class DSDeptoMuni
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property TA_MUNICIPIOSRow() As TA_MUNICIPIOSRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("CODIGO_DEPARTAMENTO_FK1")),TA_MUNICIPIOSRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("CODIGO_DEPARTAMENTO_FK1"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property TA_DEPARTAMENTOSRow() As TA_DEPARTAMENTOSRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("CODIGO_DEPARTAMENTO_FK2")),TA_DEPARTAMENTOSRow)
@@ -1836,14 +1850,24 @@ Partial Public Class DSDeptoMuni
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property TA_MUNICIPIOSRow() As TA_MUNICIPIOSRow
-            Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("CODIGO_DEPARTAMENTO_FK4")),TA_MUNICIPIOSRow)
-            End Get
-            Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("CODIGO_DEPARTAMENTO_FK4"))
-            End Set
-        End Property
+        Public Function IsADICIONADO_PORNull() As Boolean
+            Return Me.IsNull(Me.tableIM_MUNICIPIOS.ADICIONADO_PORColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetADICIONADO_PORNull()
+            Me(Me.tableIM_MUNICIPIOS.ADICIONADO_PORColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsFECHA_ADICIONNull() As Boolean
+            Return Me.IsNull(Me.tableIM_MUNICIPIOS.FECHA_ADICIONColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetFECHA_ADICIONNull()
+            Me(Me.tableIM_MUNICIPIOS.FECHA_ADICIONColumn) = Global.System.Convert.DBNull
+        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsMODIFICADO_PORNull() As Boolean
@@ -1882,9 +1906,9 @@ Partial Public Class DSDeptoMuni
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property CODIGO_MUNICIPIO() As String
+        Public Property CODIGO_MUNICIPIO() As Decimal
             Get
-                Return CType(Me(Me.tableTA_MUNICIPIOS.CODIGO_MUNICIPIOColumn),String)
+                Return CType(Me(Me.tableTA_MUNICIPIOS.CODIGO_MUNICIPIOColumn),Decimal)
             End Get
             Set
                 Me(Me.tableTA_MUNICIPIOS.CODIGO_MUNICIPIOColumn) = value
@@ -1892,9 +1916,9 @@ Partial Public Class DSDeptoMuni
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property CODIGO_DEPARTAMENTO() As String
+        Public Property CODIGO_DEPARTAMENTO() As Decimal
             Get
-                Return CType(Me(Me.tableTA_MUNICIPIOS.CODIGO_DEPARTAMENTOColumn),String)
+                Return CType(Me(Me.tableTA_MUNICIPIOS.CODIGO_DEPARTAMENTOColumn),Decimal)
             End Get
             Set
                 Me(Me.tableTA_MUNICIPIOS.CODIGO_DEPARTAMENTOColumn) = value
@@ -1932,31 +1956,11 @@ Partial Public Class DSDeptoMuni
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property IM_DEPARTAMENTOSRow() As IM_DEPARTAMENTOSRow
-            Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("CODIGO_DEPARTAMENTO_FK1")),IM_DEPARTAMENTOSRow)
-            End Get
-            Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("CODIGO_DEPARTAMENTO_FK1"))
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property TA_DEPARTAMENTOSRow() As TA_DEPARTAMENTOSRow
-            Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("CODIGO_DEPARTAMENTO_FK3")),TA_DEPARTAMENTOSRow)
-            End Get
-            Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("CODIGO_DEPARTAMENTO_FK3"))
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function GetIM_MUNICIPIOSRows() As IM_MUNICIPIOSRow()
-            If (Me.Table.ChildRelations("CODIGO_DEPARTAMENTO_FK4") Is Nothing) Then
+            If (Me.Table.ChildRelations("CODIGO_DEPARTAMENTO_FK1") Is Nothing) Then
                 Return New IM_MUNICIPIOSRow(-1) {}
             Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("CODIGO_DEPARTAMENTO_FK4")),IM_MUNICIPIOSRow())
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("CODIGO_DEPARTAMENTO_FK1")),IM_MUNICIPIOSRow())
             End If
         End Function
     End Class
@@ -1977,9 +1981,9 @@ Partial Public Class DSDeptoMuni
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property CODIGO_DEPARTAMENTO() As String
+        Public Property CODIGO_DEPARTAMENTO() As Decimal
             Get
-                Return CType(Me(Me.tableTA_DEPARTAMENTOS.CODIGO_DEPARTAMENTOColumn),String)
+                Return CType(Me(Me.tableTA_DEPARTAMENTOS.CODIGO_DEPARTAMENTOColumn),Decimal)
             End Get
             Set
                 Me(Me.tableTA_DEPARTAMENTOS.CODIGO_DEPARTAMENTOColumn) = value
@@ -2012,15 +2016,6 @@ Partial Public Class DSDeptoMuni
                 Return New IM_MUNICIPIOSRow(-1) {}
             Else
                 Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("CODIGO_DEPARTAMENTO_FK2")),IM_MUNICIPIOSRow())
-            End If
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function GetTA_MUNICIPIOSRows() As TA_MUNICIPIOSRow()
-            If (Me.Table.ChildRelations("CODIGO_DEPARTAMENTO_FK3") Is Nothing) Then
-                Return New TA_MUNICIPIOSRow(-1) {}
-            Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("CODIGO_DEPARTAMENTO_FK3")),TA_MUNICIPIOSRow())
             End If
         End Function
     End Class
@@ -2299,7 +2294,7 @@ Namespace DSDeptoMuniTableAdapters
                 "ICADO_POR)) AND ((:IsNull_FECHA_MODIFICACION = 1 AND ""FECHA_MODIFICACION"" IS NUL"& _ 
                 "L) OR (""FECHA_MODIFICACION"" = :Original_FECHA_MODIFICACION)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_DESCRIPCION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CANTIDAD_DIPUTADOS", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CANTIDAD_DIPUTADOS", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -2315,7 +2310,7 @@ Namespace DSDeptoMuniTableAdapters
                 "IFICACION"") VALUES (:CODIGO_DEPARTAMENTO, :DESCRIPCION, :CANTIDAD_DIPUTADOS, :AD"& _ 
                 "ICIONADO_POR, :FECHA_ADICION, :MODIFICADO_POR, :FECHA_MODIFICACION)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("DESCRIPCION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CANTIDAD_DIPUTADOS", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CANTIDAD_DIPUTADOS", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -2336,14 +2331,14 @@ Namespace DSDeptoMuniTableAdapters
                 " ""FECHA_MODIFICACION"" IS NULL) OR (""FECHA_MODIFICACION"" = :Original_FECHA_MODIFI"& _ 
                 "CACION)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("DESCRIPCION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CANTIDAD_DIPUTADOS", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CANTIDAD_DIPUTADOS", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FECHA_ADICION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FECHA_MODIFICACION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_MODIFICACION", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_DESCRIPCION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CANTIDAD_DIPUTADOS", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CANTIDAD_DIPUTADOS", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -2374,7 +2369,7 @@ Namespace DSDeptoMuniTableAdapters
                 "A_ADICION, MODIFICADO_POR, FECHA_MODIFICACION FROM TSE.IM_DEPARTAMENTOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where C"& _ 
                 "ODIGO_DEPARTAMENTO= :id"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id", Global.System.Data.OracleClient.OracleType.VarChar, 2, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2402,13 +2397,9 @@ Namespace DSDeptoMuniTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy(ByVal dataTable As DSDeptoMuni.IM_DEPARTAMENTOSDataTable, ByVal id As String) As Integer
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DSDeptoMuni.IM_DEPARTAMENTOSDataTable, ByVal id As Decimal) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (id Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("id")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(id,String)
-            End If
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id,Decimal)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -2419,13 +2410,9 @@ Namespace DSDeptoMuniTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataBy(ByVal id As String) As DSDeptoMuni.IM_DEPARTAMENTOSDataTable
+        Public Overloads Overridable Function GetDataBy(ByVal id As Decimal) As DSDeptoMuni.IM_DEPARTAMENTOSDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (id Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("id")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(id,String)
-            End If
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id,Decimal)
             Dim dataTable As DSDeptoMuni.IM_DEPARTAMENTOSDataTable = New DSDeptoMuni.IM_DEPARTAMENTOSDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -2458,20 +2445,24 @@ Namespace DSDeptoMuniTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_CODIGO_DEPARTAMENTO As String, ByVal Original_DESCRIPCION As String, ByVal Original_CANTIDAD_DIPUTADOS As Decimal, ByVal Original_ADICIONADO_POR As Decimal, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
-            If (Original_CODIGO_DEPARTAMENTO Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_CODIGO_DEPARTAMENTO")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CODIGO_DEPARTAMENTO,String)
-            End If
+        Public Overloads Overridable Function Delete(ByVal Original_CODIGO_DEPARTAMENTO As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_CANTIDAD_DIPUTADOS As Decimal, ByVal Original_ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date), ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CODIGO_DEPARTAMENTO,Decimal)
             If (Original_DESCRIPCION Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_DESCRIPCION")
             Else
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_DESCRIPCION,String)
             End If
             Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_CANTIDAD_DIPUTADOS,Decimal)
-            Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_ADICIONADO_POR,Decimal)
-            Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_FECHA_ADICION,Date)
+            If (Original_ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (Original_FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
             If (Original_MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_MODIFICADO_POR.Value,Decimal)
@@ -2504,20 +2495,24 @@ Namespace DSDeptoMuniTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal CODIGO_DEPARTAMENTO As String, ByVal DESCRIPCION As String, ByVal CANTIDAD_DIPUTADOS As Decimal, ByVal ADICIONADO_POR As Decimal, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
-            If (CODIGO_DEPARTAMENTO Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("CODIGO_DEPARTAMENTO")
-            Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(CODIGO_DEPARTAMENTO,String)
-            End If
+        Public Overloads Overridable Function Insert(ByVal CODIGO_DEPARTAMENTO As Decimal, ByVal DESCRIPCION As String, ByVal CANTIDAD_DIPUTADOS As Decimal, ByVal ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_ADICION As Global.System.Nullable(Of Date), ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+            Me.Adapter.InsertCommand.Parameters(0).Value = CType(CODIGO_DEPARTAMENTO,Decimal)
             If (DESCRIPCION Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("DESCRIPCION")
             Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = CType(DESCRIPCION,String)
             End If
             Me.Adapter.InsertCommand.Parameters(2).Value = CType(CANTIDAD_DIPUTADOS,Decimal)
-            Me.Adapter.InsertCommand.Parameters(3).Value = CType(ADICIONADO_POR,Decimal)
-            Me.Adapter.InsertCommand.Parameters(4).Value = CType(FECHA_ADICION,Date)
+            If (ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
             If (MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(5).Value = CType(MODIFICADO_POR.Value,Decimal)
             Else
@@ -2546,20 +2541,24 @@ Namespace DSDeptoMuniTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal CODIGO_DEPARTAMENTO As String, ByVal DESCRIPCION As String, ByVal CANTIDAD_DIPUTADOS As Decimal, ByVal ADICIONADO_POR As Decimal, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_DEPARTAMENTO As String, ByVal Original_DESCRIPCION As String, ByVal Original_CANTIDAD_DIPUTADOS As Decimal, ByVal Original_ADICIONADO_POR As Decimal, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
-            If (CODIGO_DEPARTAMENTO Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("CODIGO_DEPARTAMENTO")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CODIGO_DEPARTAMENTO,String)
-            End If
+        Public Overloads Overridable Function Update(ByVal CODIGO_DEPARTAMENTO As Decimal, ByVal DESCRIPCION As String, ByVal CANTIDAD_DIPUTADOS As Decimal, ByVal ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_ADICION As Global.System.Nullable(Of Date), ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_DEPARTAMENTO As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_CANTIDAD_DIPUTADOS As Decimal, ByVal Original_ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date), ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CODIGO_DEPARTAMENTO,Decimal)
             If (DESCRIPCION Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("DESCRIPCION")
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = CType(DESCRIPCION,String)
             End If
             Me.Adapter.UpdateCommand.Parameters(2).Value = CType(CANTIDAD_DIPUTADOS,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(ADICIONADO_POR,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(FECHA_ADICION,Date)
+            If (ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
             If (MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(5).Value = CType(MODIFICADO_POR.Value,Decimal)
             Else
@@ -2570,19 +2569,23 @@ Namespace DSDeptoMuniTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
-            If (Original_CODIGO_DEPARTAMENTO Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_CODIGO_DEPARTAMENTO")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_CODIGO_DEPARTAMENTO,String)
-            End If
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_CODIGO_DEPARTAMENTO,Decimal)
             If (Original_DESCRIPCION Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_DESCRIPCION")
             Else
                 Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_DESCRIPCION,String)
             End If
             Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_CANTIDAD_DIPUTADOS,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_ADICIONADO_POR,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_FECHA_ADICION,Date)
+            If (Original_ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (Original_FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
             If (Original_MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_MODIFICADO_POR.Value,Decimal)
@@ -2615,7 +2618,7 @@ Namespace DSDeptoMuniTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal DESCRIPCION As String, ByVal CANTIDAD_DIPUTADOS As Decimal, ByVal ADICIONADO_POR As Decimal, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_DEPARTAMENTO As String, ByVal Original_DESCRIPCION As String, ByVal Original_CANTIDAD_DIPUTADOS As Decimal, ByVal Original_ADICIONADO_POR As Decimal, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Update(ByVal DESCRIPCION As String, ByVal CANTIDAD_DIPUTADOS As Decimal, ByVal ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_ADICION As Global.System.Nullable(Of Date), ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_DEPARTAMENTO As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_CANTIDAD_DIPUTADOS As Decimal, ByVal Original_ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date), ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Return Me.Update(Original_CODIGO_DEPARTAMENTO, DESCRIPCION, CANTIDAD_DIPUTADOS, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, Original_CODIGO_DEPARTAMENTO, Original_DESCRIPCION, Original_CANTIDAD_DIPUTADOS, Original_ADICIONADO_POR, Original_FECHA_ADICION, Original_MODIFICADO_POR, Original_FECHA_MODIFICACION)
         End Function
     End Class
@@ -2761,8 +2764,8 @@ Namespace DSDeptoMuniTableAdapters
                 "HA_MODIFICACION = 1 AND ""FECHA_MODIFICACION"" IS NULL) OR (""FECHA_MODIFICACION"" ="& _ 
                 " :Original_FECHA_MODIFICACION)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_MUNICIPIO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_MUNICIPIO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CANTIDAD_REGIDORES", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CANTIDAD_REGIDORES", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_DESCRIPCION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -2779,8 +2782,8 @@ Namespace DSDeptoMuniTableAdapters
                 "ANTIDAD_REGIDORES, :DESCRIPCION, :ADICIONADO_POR, :FECHA_ADICION, :MODIFICADO_PO"& _ 
                 "R, :FECHA_MODIFICACION)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_MUNICIPIO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_MUNICIPIO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CANTIDAD_REGIDORES", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CANTIDAD_REGIDORES", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("DESCRIPCION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -2802,16 +2805,16 @@ Namespace DSDeptoMuniTableAdapters
                 "ION = 1 AND ""FECHA_MODIFICACION"" IS NULL) OR (""FECHA_MODIFICACION"" = :Original_F"& _ 
                 "ECHA_MODIFICACION)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_MUNICIPIO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_MUNICIPIO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CANTIDAD_REGIDORES", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CANTIDAD_REGIDORES", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("DESCRIPCION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FECHA_ADICION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FECHA_MODIFICACION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_MODIFICACION", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_MUNICIPIO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_MUNICIPIO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CANTIDAD_REGIDORES", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CANTIDAD_REGIDORES", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_DESCRIPCION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -2843,14 +2846,14 @@ Namespace DSDeptoMuniTableAdapters
                 "ICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION FROM TSE.IM_MUNI"& _ 
                 "CIPIOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where CODIGO_MUNICIPIO = :id"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id", Global.System.Data.OracleClient.OracleType.VarChar, 2, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(2) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT CODIGO_MUNICIPIO, CODIGO_DEPARTAMENTO, CANTIDAD_REGIDORES, DESCRIPCION, AD"& _ 
                 "ICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION FROM TSE.IM_MUNI"& _ 
-                "CIPIOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where CODIGO_DEPARTAMENTO=:id"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+                "CIPIOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where CODIGO_DEPARTAMENTO=:id"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id", Global.System.Data.OracleClient.OracleType.VarChar, 2, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2878,13 +2881,9 @@ Namespace DSDeptoMuniTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy(ByVal dataTable As DSDeptoMuni.IM_MUNICIPIOSDataTable, ByVal id As String) As Integer
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DSDeptoMuni.IM_MUNICIPIOSDataTable, ByVal id As Decimal) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (id Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("id")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(id,String)
-            End If
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id,Decimal)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -2895,13 +2894,9 @@ Namespace DSDeptoMuniTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataBy(ByVal id As String) As DSDeptoMuni.IM_MUNICIPIOSDataTable
+        Public Overloads Overridable Function GetDataBy(ByVal id As Decimal) As DSDeptoMuni.IM_MUNICIPIOSDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (id Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("id")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(id,String)
-            End If
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id,Decimal)
             Dim dataTable As DSDeptoMuni.IM_MUNICIPIOSDataTable = New DSDeptoMuni.IM_MUNICIPIOSDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -2910,13 +2905,9 @@ Namespace DSDeptoMuniTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy1(ByVal dataTable As DSDeptoMuni.IM_MUNICIPIOSDataTable, ByVal id As String) As Integer
+        Public Overloads Overridable Function FillBy1(ByVal dataTable As DSDeptoMuni.IM_MUNICIPIOSDataTable, ByVal id As Decimal) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            If (id Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("id")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(id,String)
-            End If
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id,Decimal)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -2927,13 +2918,9 @@ Namespace DSDeptoMuniTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataBy1(ByVal id As String) As DSDeptoMuni.IM_MUNICIPIOSDataTable
+        Public Overloads Overridable Function GetDataBy1(ByVal id As Decimal) As DSDeptoMuni.IM_MUNICIPIOSDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            If (id Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("id")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(id,String)
-            End If
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id,Decimal)
             Dim dataTable As DSDeptoMuni.IM_MUNICIPIOSDataTable = New DSDeptoMuni.IM_MUNICIPIOSDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -2966,25 +2953,25 @@ Namespace DSDeptoMuniTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_CODIGO_MUNICIPIO As String, ByVal Original_CODIGO_DEPARTAMENTO As String, ByVal Original_CANTIDAD_REGIDORES As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_ADICIONADO_POR As Decimal, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
-            If (Original_CODIGO_MUNICIPIO Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_CODIGO_MUNICIPIO")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CODIGO_MUNICIPIO,String)
-            End If
-            If (Original_CODIGO_DEPARTAMENTO Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_CODIGO_DEPARTAMENTO")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_CODIGO_DEPARTAMENTO,String)
-            End If
+        Public Overloads Overridable Function Delete(ByVal Original_CODIGO_MUNICIPIO As Decimal, ByVal Original_CODIGO_DEPARTAMENTO As Decimal, ByVal Original_CANTIDAD_REGIDORES As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date), ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CODIGO_MUNICIPIO,Decimal)
+            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_CODIGO_DEPARTAMENTO,Decimal)
             Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_CANTIDAD_REGIDORES,Decimal)
             If (Original_DESCRIPCION Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_DESCRIPCION")
             Else
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_DESCRIPCION,String)
             End If
-            Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_ADICIONADO_POR,Decimal)
-            Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_FECHA_ADICION,Date)
+            If (Original_ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (Original_FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
             If (Original_MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(6).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_MODIFICADO_POR.Value,Decimal)
@@ -3017,25 +3004,25 @@ Namespace DSDeptoMuniTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal CODIGO_MUNICIPIO As String, ByVal CODIGO_DEPARTAMENTO As String, ByVal CANTIDAD_REGIDORES As Decimal, ByVal DESCRIPCION As String, ByVal ADICIONADO_POR As Decimal, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
-            If (CODIGO_MUNICIPIO Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("CODIGO_MUNICIPIO")
-            Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(CODIGO_MUNICIPIO,String)
-            End If
-            If (CODIGO_DEPARTAMENTO Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("CODIGO_DEPARTAMENTO")
-            Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(CODIGO_DEPARTAMENTO,String)
-            End If
+        Public Overloads Overridable Function Insert(ByVal CODIGO_MUNICIPIO As Decimal, ByVal CODIGO_DEPARTAMENTO As Decimal, ByVal CANTIDAD_REGIDORES As Decimal, ByVal DESCRIPCION As String, ByVal ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_ADICION As Global.System.Nullable(Of Date), ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+            Me.Adapter.InsertCommand.Parameters(0).Value = CType(CODIGO_MUNICIPIO,Decimal)
+            Me.Adapter.InsertCommand.Parameters(1).Value = CType(CODIGO_DEPARTAMENTO,Decimal)
             Me.Adapter.InsertCommand.Parameters(2).Value = CType(CANTIDAD_REGIDORES,Decimal)
             If (DESCRIPCION Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("DESCRIPCION")
             Else
                 Me.Adapter.InsertCommand.Parameters(3).Value = CType(DESCRIPCION,String)
             End If
-            Me.Adapter.InsertCommand.Parameters(4).Value = CType(ADICIONADO_POR,Decimal)
-            Me.Adapter.InsertCommand.Parameters(5).Value = CType(FECHA_ADICION,Date)
+            If (ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
             If (MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(6).Value = CType(MODIFICADO_POR.Value,Decimal)
             Else
@@ -3065,40 +3052,40 @@ Namespace DSDeptoMuniTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
         Public Overloads Overridable Function Update( _
-                    ByVal CODIGO_MUNICIPIO As String,  _
-                    ByVal CODIGO_DEPARTAMENTO As String,  _
+                    ByVal CODIGO_MUNICIPIO As Decimal,  _
+                    ByVal CODIGO_DEPARTAMENTO As Decimal,  _
                     ByVal CANTIDAD_REGIDORES As Decimal,  _
                     ByVal DESCRIPCION As String,  _
-                    ByVal ADICIONADO_POR As Decimal,  _
-                    ByVal FECHA_ADICION As Date,  _
+                    ByVal ADICIONADO_POR As Global.System.Nullable(Of Decimal),  _
+                    ByVal FECHA_ADICION As Global.System.Nullable(Of Date),  _
                     ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal),  _
                     ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date),  _
-                    ByVal Original_CODIGO_MUNICIPIO As String,  _
-                    ByVal Original_CODIGO_DEPARTAMENTO As String,  _
+                    ByVal Original_CODIGO_MUNICIPIO As Decimal,  _
+                    ByVal Original_CODIGO_DEPARTAMENTO As Decimal,  _
                     ByVal Original_CANTIDAD_REGIDORES As Decimal,  _
                     ByVal Original_DESCRIPCION As String,  _
-                    ByVal Original_ADICIONADO_POR As Decimal,  _
-                    ByVal Original_FECHA_ADICION As Date,  _
+                    ByVal Original_ADICIONADO_POR As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date),  _
                     ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal),  _
                     ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
-            If (CODIGO_MUNICIPIO Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("CODIGO_MUNICIPIO")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CODIGO_MUNICIPIO,String)
-            End If
-            If (CODIGO_DEPARTAMENTO Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("CODIGO_DEPARTAMENTO")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(CODIGO_DEPARTAMENTO,String)
-            End If
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CODIGO_MUNICIPIO,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(CODIGO_DEPARTAMENTO,Decimal)
             Me.Adapter.UpdateCommand.Parameters(2).Value = CType(CANTIDAD_REGIDORES,Decimal)
             If (DESCRIPCION Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("DESCRIPCION")
             Else
                 Me.Adapter.UpdateCommand.Parameters(3).Value = CType(DESCRIPCION,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(ADICIONADO_POR,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(FECHA_ADICION,Date)
+            If (ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
             If (MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(6).Value = CType(MODIFICADO_POR.Value,Decimal)
             Else
@@ -3109,24 +3096,24 @@ Namespace DSDeptoMuniTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             End If
-            If (Original_CODIGO_MUNICIPIO Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_CODIGO_MUNICIPIO")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_CODIGO_MUNICIPIO,String)
-            End If
-            If (Original_CODIGO_DEPARTAMENTO Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_CODIGO_DEPARTAMENTO")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_CODIGO_DEPARTAMENTO,String)
-            End If
+            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_CODIGO_MUNICIPIO,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_CODIGO_DEPARTAMENTO,Decimal)
             Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_CANTIDAD_REGIDORES,Decimal)
             If (Original_DESCRIPCION Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_DESCRIPCION")
             Else
                 Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_DESCRIPCION,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_ADICIONADO_POR,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_FECHA_ADICION,Date)
+            If (Original_ADICIONADO_POR.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_ADICIONADO_POR.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            If (Original_FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+            End If
             If (Original_MODIFICADO_POR.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_MODIFICADO_POR.Value,Decimal)
@@ -3159,7 +3146,7 @@ Namespace DSDeptoMuniTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal CANTIDAD_REGIDORES As Decimal, ByVal DESCRIPCION As String, ByVal ADICIONADO_POR As Decimal, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_MUNICIPIO As String, ByVal Original_CODIGO_DEPARTAMENTO As String, ByVal Original_CANTIDAD_REGIDORES As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_ADICIONADO_POR As Decimal, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Update(ByVal CANTIDAD_REGIDORES As Decimal, ByVal DESCRIPCION As String, ByVal ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_ADICION As Global.System.Nullable(Of Date), ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_MUNICIPIO As Decimal, ByVal Original_CODIGO_DEPARTAMENTO As Decimal, ByVal Original_CANTIDAD_REGIDORES As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_ADICIONADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date), ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Return Me.Update(Original_CODIGO_MUNICIPIO, Original_CODIGO_DEPARTAMENTO, CANTIDAD_REGIDORES, DESCRIPCION, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, Original_CODIGO_MUNICIPIO, Original_CODIGO_DEPARTAMENTO, Original_CANTIDAD_REGIDORES, Original_DESCRIPCION, Original_ADICIONADO_POR, Original_FECHA_ADICION, Original_MODIFICADO_POR, Original_FECHA_MODIFICACION)
         End Function
     End Class
@@ -3466,7 +3453,7 @@ Namespace DSDeptoMuniTableAdapters
                 "EPARTAMENTO) AND (""DESCRIPCION"" = :Original_DESCRIPCION) AND (""CANTIDAD_DIPUTADO"& _ 
                 "S"" = :Original_CANTIDAD_DIPUTADOS))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_DESCRIPCION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CANTIDAD_DIPUTADOS", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CANTIDAD_DIPUTADOS", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OracleClient.OracleCommand
@@ -3476,10 +3463,10 @@ Namespace DSDeptoMuniTableAdapters
                 "IGO_DEPARTAMENTO"" = :Original_CODIGO_DEPARTAMENTO) AND (""DESCRIPCION"" = :Origina"& _ 
                 "l_DESCRIPCION) AND (""CANTIDAD_DIPUTADOS"" = :Original_CANTIDAD_DIPUTADOS))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("DESCRIPCION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CANTIDAD_DIPUTADOS", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CANTIDAD_DIPUTADOS", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_DESCRIPCION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CANTIDAD_DIPUTADOS", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CANTIDAD_DIPUTADOS", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
@@ -3587,12 +3574,8 @@ Namespace DSDeptoMuniTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_CODIGO_DEPARTAMENTO As String, ByVal Original_DESCRIPCION As String, ByVal Original_CANTIDAD_DIPUTADOS As Decimal) As Integer
-            If (Original_CODIGO_DEPARTAMENTO Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_CODIGO_DEPARTAMENTO")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CODIGO_DEPARTAMENTO,String)
-            End If
+        Public Overloads Overridable Function Delete(ByVal Original_CODIGO_DEPARTAMENTO As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_CANTIDAD_DIPUTADOS As Decimal) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CODIGO_DEPARTAMENTO,Decimal)
             If (Original_DESCRIPCION Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_DESCRIPCION")
             Else
@@ -3617,23 +3600,15 @@ Namespace DSDeptoMuniTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal CODIGO_DEPARTAMENTO As String, ByVal DESCRIPCION As String, ByVal CANTIDAD_DIPUTADOS As Decimal, ByVal Original_CODIGO_DEPARTAMENTO As String, ByVal Original_DESCRIPCION As String, ByVal Original_CANTIDAD_DIPUTADOS As Decimal) As Integer
-            If (CODIGO_DEPARTAMENTO Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("CODIGO_DEPARTAMENTO")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CODIGO_DEPARTAMENTO,String)
-            End If
+        Public Overloads Overridable Function Update(ByVal CODIGO_DEPARTAMENTO As Decimal, ByVal DESCRIPCION As String, ByVal CANTIDAD_DIPUTADOS As Decimal, ByVal Original_CODIGO_DEPARTAMENTO As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_CANTIDAD_DIPUTADOS As Decimal) As Integer
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CODIGO_DEPARTAMENTO,Decimal)
             If (DESCRIPCION Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("DESCRIPCION")
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = CType(DESCRIPCION,String)
             End If
             Me.Adapter.UpdateCommand.Parameters(2).Value = CType(CANTIDAD_DIPUTADOS,Decimal)
-            If (Original_CODIGO_DEPARTAMENTO Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_CODIGO_DEPARTAMENTO")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_CODIGO_DEPARTAMENTO,String)
-            End If
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_CODIGO_DEPARTAMENTO,Decimal)
             If (Original_DESCRIPCION Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_DESCRIPCION")
             Else
@@ -3658,7 +3633,7 @@ Namespace DSDeptoMuniTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal DESCRIPCION As String, ByVal CANTIDAD_DIPUTADOS As Decimal, ByVal Original_CODIGO_DEPARTAMENTO As String, ByVal Original_DESCRIPCION As String, ByVal Original_CANTIDAD_DIPUTADOS As Decimal) As Integer
+        Public Overloads Overridable Function Update(ByVal DESCRIPCION As String, ByVal CANTIDAD_DIPUTADOS As Decimal, ByVal Original_CODIGO_DEPARTAMENTO As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_CANTIDAD_DIPUTADOS As Decimal) As Integer
             Return Me.Update(Original_CODIGO_DEPARTAMENTO, DESCRIPCION, CANTIDAD_DIPUTADOS, Original_CODIGO_DEPARTAMENTO, Original_DESCRIPCION, Original_CANTIDAD_DIPUTADOS)
         End Function
     End Class

@@ -21,29 +21,16 @@ Partial Class XfrmDepartamentos
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
-        Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
-        Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
-        Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
-        Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
-        Me.DataLayoutControl1 = New DevExpress.XtraDataLayout.DataLayoutControl
-        Me.GCDepartamento = New DevExpress.XtraGrid.GridControl
-        Me.TADEPARTAMENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DSDeptoMuni = New Inscripcion_de_Moviemientos.DSDeptoMuni
-        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
-        Me.colCODIGO_DEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colDESCRIPCION = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colCANTIDAD_DIPUTADOS = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
-        Me.BteBusqueda = New DevExpress.XtraEditors.ButtonEdit
         Me.DataLayoutControl2 = New DevExpress.XtraDataLayout.DataLayoutControl
+        Me.CODIGO_DEPARTAMENTOSpinEdit = New DevExpress.XtraEditors.SpinEdit
+        Me.IMDEPARTAMENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DSDeptoMuni = New Inscripcion_de_Moviemientos.DSDeptoMuni
         Me.DESCRIPCIONTextEdit = New DevExpress.XtraEditors.TextEdit
+        Me.CANTIDAD_DIPUTADOSSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.ADICIONADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.FECHA_ADICIONDateEdit = New DevExpress.XtraEditors.DateEdit
         Me.MODIFICADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.FECHA_MODIFICACIONDateEdit = New DevExpress.XtraEditors.DateEdit
-        Me.CODIGO_DEPARTAMENTOSpinEdit = New DevExpress.XtraEditors.TextEdit
-        Me.CANTIDAD_DIPUTADOSSpinEdit = New DevExpress.XtraEditors.TextEdit
-        Me.IMDEPARTAMENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ItemForADICIONADO_POR = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForFECHA_ADICION = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForMODIFICADO_POR = New DevExpress.XtraLayout.LayoutControlItem
@@ -53,39 +40,43 @@ Partial Class XfrmDepartamentos
         Me.ItemForCODIGO_DEPARTAMENTO = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForDESCRIPCION = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForCANTIDAD_DIPUTADOS = New DevExpress.XtraLayout.LayoutControlItem
+        Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
+        Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
+        Me.DataLayoutControl1 = New DevExpress.XtraDataLayout.DataLayoutControl
+        Me.GCDepartamento = New DevExpress.XtraGrid.GridControl
+        Me.TADEPARTAMENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
+        Me.colCODIGO_DEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colDESCRIPCION = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCANTIDAD_DIPUTADOS = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
+        Me.BteBusqueda = New DevExpress.XtraEditors.ButtonEdit
         Me.Root = New DevExpress.XtraLayout.LayoutControlGroup
-        Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
         Me.TA_DEPARTAMENTOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_DEPARTAMENTOSTableAdapter
         Me.IM_DEPARTAMENTOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.IM_DEPARTAMENTOSTableAdapter
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
-        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelControl1.SuspendLayout()
-        CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.DataLayoutControl1.SuspendLayout()
-        CType(Me.GCDepartamento, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TADEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BteBusqueda.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataLayoutControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DataLayoutControl2.SuspendLayout()
+        CType(Me.CODIGO_DEPARTAMENTOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMDEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DESCRIPCIONTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CANTIDAD_DIPUTADOSSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MODIFICADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_MODIFICACIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_MODIFICACIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CODIGO_DEPARTAMENTOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CANTIDAD_DIPUTADOSSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IMDEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForADICIONADO_POR, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForFECHA_ADICION, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForMODIFICADO_POR, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -95,17 +86,27 @@ Partial Class XfrmDepartamentos
         CType(Me.ItemForCODIGO_DEPARTAMENTO, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForDESCRIPCION, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForCANTIDAD_DIPUTADOS, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl1.SuspendLayout()
+        CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DataLayoutControl1.SuspendLayout()
+        CType(Me.GCDepartamento, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TADEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BteBusqueda.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Root, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.DataLayoutControl2)
         Me.LayoutControl1.Controls.Add(Me.PanelControl1)
         Me.LayoutControl1.Controls.Add(Me.DataLayoutControl1)
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -117,162 +118,68 @@ Partial Class XfrmDepartamentos
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
-        'PanelControl1
+        'DataLayoutControl2
         '
-        Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PanelControl1.Controls.Add(Me.BtnEliminar)
-        Me.PanelControl1.Controls.Add(Me.BtnNuevo)
-        Me.PanelControl1.Controls.Add(Me.BtnGuardar)
-        Me.PanelControl1.Location = New System.Drawing.Point(12, 12)
-        Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(546, 64)
-        Me.PanelControl1.TabIndex = 5
+        Me.DataLayoutControl2.Controls.Add(Me.CODIGO_DEPARTAMENTOSpinEdit)
+        Me.DataLayoutControl2.Controls.Add(Me.DESCRIPCIONTextEdit)
+        Me.DataLayoutControl2.Controls.Add(Me.CANTIDAD_DIPUTADOSSpinEdit)
+        Me.DataLayoutControl2.Controls.Add(Me.ADICIONADO_PORSpinEdit)
+        Me.DataLayoutControl2.Controls.Add(Me.FECHA_ADICIONDateEdit)
+        Me.DataLayoutControl2.Controls.Add(Me.MODIFICADO_PORSpinEdit)
+        Me.DataLayoutControl2.Controls.Add(Me.FECHA_MODIFICACIONDateEdit)
+        Me.DataLayoutControl2.DataSource = Me.IMDEPARTAMENTOSBindingSource
+        Me.DataLayoutControl2.HiddenItems.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForADICIONADO_POR, Me.ItemForFECHA_ADICION, Me.ItemForMODIFICADO_POR, Me.ItemForFECHA_MODIFICACION})
+        Me.DataLayoutControl2.Location = New System.Drawing.Point(12, 80)
+        Me.DataLayoutControl2.Name = "DataLayoutControl2"
+        Me.DataLayoutControl2.Root = Me.LayoutControlGroup2
+        Me.DataLayoutControl2.Size = New System.Drawing.Size(546, 99)
+        Me.DataLayoutControl2.TabIndex = 6
+        Me.DataLayoutControl2.Text = "DataLayoutControl2"
         '
-        'BtnEliminar
+        'CODIGO_DEPARTAMENTOSpinEdit
         '
-        Me.BtnEliminar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnEliminar.Appearance.Options.UseFont = True
-        Me.BtnEliminar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.eliminar
-        Me.BtnEliminar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnEliminar.Location = New System.Drawing.Point(123, 2)
-        Me.BtnEliminar.Name = "BtnEliminar"
-        Me.BtnEliminar.Size = New System.Drawing.Size(55, 55)
-        Me.BtnEliminar.TabIndex = 2
-        Me.BtnEliminar.Text = "Eliminar"
+        Me.CODIGO_DEPARTAMENTOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMDEPARTAMENTOSBindingSource, "CODIGO_DEPARTAMENTO", True))
+        Me.CODIGO_DEPARTAMENTOSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.CODIGO_DEPARTAMENTOSpinEdit.Location = New System.Drawing.Point(144, 12)
+        Me.CODIGO_DEPARTAMENTOSpinEdit.Name = "CODIGO_DEPARTAMENTOSpinEdit"
+        Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
+        Me.CODIGO_DEPARTAMENTOSpinEdit.Size = New System.Drawing.Size(390, 20)
+        Me.CODIGO_DEPARTAMENTOSpinEdit.StyleController = Me.DataLayoutControl2
+        Me.CODIGO_DEPARTAMENTOSpinEdit.TabIndex = 4
         '
-        'BtnNuevo
+        'IMDEPARTAMENTOSBindingSource
         '
-        Me.BtnNuevo.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnNuevo.Appearance.Options.UseFont = True
-        Me.BtnNuevo.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
-        Me.BtnNuevo.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnNuevo.Location = New System.Drawing.Point(5, 2)
-        Me.BtnNuevo.Name = "BtnNuevo"
-        Me.BtnNuevo.Size = New System.Drawing.Size(55, 55)
-        Me.BtnNuevo.TabIndex = 0
-        Me.BtnNuevo.Text = "Nuevo"
-        '
-        'BtnGuardar
-        '
-        Me.BtnGuardar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnGuardar.Appearance.Options.UseFont = True
-        Me.BtnGuardar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.guardar1
-        Me.BtnGuardar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnGuardar.Location = New System.Drawing.Point(64, 2)
-        Me.BtnGuardar.Name = "BtnGuardar"
-        Me.BtnGuardar.Size = New System.Drawing.Size(55, 55)
-        Me.BtnGuardar.TabIndex = 1
-        Me.BtnGuardar.Text = "Guardar"
-        '
-        'DataLayoutControl1
-        '
-        Me.DataLayoutControl1.Controls.Add(Me.GCDepartamento)
-        Me.DataLayoutControl1.Controls.Add(Me.BteBusqueda)
-        Me.DataLayoutControl1.Controls.Add(Me.DataLayoutControl2)
-        Me.DataLayoutControl1.Location = New System.Drawing.Point(12, 80)
-        Me.DataLayoutControl1.Name = "DataLayoutControl1"
-        Me.DataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(820, 257, 250, 350)
-        Me.DataLayoutControl1.Root = Me.Root
-        Me.DataLayoutControl1.Size = New System.Drawing.Size(546, 280)
-        Me.DataLayoutControl1.TabIndex = 4
-        Me.DataLayoutControl1.Text = "DataLayoutControl1"
-        '
-        'GCDepartamento
-        '
-        Me.GCDepartamento.DataSource = Me.TADEPARTAMENTOSBindingSource
-        Me.GCDepartamento.Location = New System.Drawing.Point(12, 139)
-        Me.GCDepartamento.MainView = Me.GridView1
-        Me.GCDepartamento.Name = "GCDepartamento"
-        Me.GCDepartamento.Size = New System.Drawing.Size(522, 129)
-        Me.GCDepartamento.TabIndex = 6
-        Me.GCDepartamento.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
-        '
-        'TADEPARTAMENTOSBindingSource
-        '
-        Me.TADEPARTAMENTOSBindingSource.DataMember = "TA_DEPARTAMENTOS"
-        Me.TADEPARTAMENTOSBindingSource.DataSource = Me.DSDeptoMuni
+        Me.IMDEPARTAMENTOSBindingSource.DataMember = "IM_DEPARTAMENTOS"
+        Me.IMDEPARTAMENTOSBindingSource.DataSource = Me.DSDeptoMuni
         '
         'DSDeptoMuni
         '
         Me.DSDeptoMuni.DataSetName = "DSDeptoMuni"
         Me.DSDeptoMuni.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'GridView1
-        '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_DEPARTAMENTO, Me.colDESCRIPCION, Me.colCANTIDAD_DIPUTADOS})
-        Me.GridView1.GridControl = Me.GCDepartamento
-        Me.GridView1.Name = "GridView1"
-        Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridView1.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridView1.OptionsBehavior.Editable = False
-        Me.GridView1.OptionsView.ShowDetailButtons = False
-        Me.GridView1.OptionsView.ShowGroupPanel = False
-        '
-        'colCODIGO_DEPARTAMENTO
-        '
-        Me.colCODIGO_DEPARTAMENTO.FieldName = "CODIGO_DEPARTAMENTO"
-        Me.colCODIGO_DEPARTAMENTO.Name = "colCODIGO_DEPARTAMENTO"
-        Me.colCODIGO_DEPARTAMENTO.Visible = True
-        Me.colCODIGO_DEPARTAMENTO.VisibleIndex = 0
-        '
-        'colDESCRIPCION
-        '
-        Me.colDESCRIPCION.FieldName = "DESCRIPCION"
-        Me.colDESCRIPCION.Name = "colDESCRIPCION"
-        Me.colDESCRIPCION.Visible = True
-        Me.colDESCRIPCION.VisibleIndex = 1
-        '
-        'colCANTIDAD_DIPUTADOS
-        '
-        Me.colCANTIDAD_DIPUTADOS.FieldName = "CANTIDAD_DIPUTADOS"
-        Me.colCANTIDAD_DIPUTADOS.Name = "colCANTIDAD_DIPUTADOS"
-        Me.colCANTIDAD_DIPUTADOS.Visible = True
-        Me.colCANTIDAD_DIPUTADOS.VisibleIndex = 2
-        '
-        'GridView2
-        '
-        Me.GridView2.GridControl = Me.GCDepartamento
-        Me.GridView2.Name = "GridView2"
-        '
-        'BteBusqueda
-        '
-        Me.BteBusqueda.Location = New System.Drawing.Point(63, 115)
-        Me.BteBusqueda.Name = "BteBusqueda"
-        Me.BteBusqueda.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
-        Me.BteBusqueda.Size = New System.Drawing.Size(471, 20)
-        Me.BteBusqueda.StyleController = Me.DataLayoutControl1
-        Me.BteBusqueda.TabIndex = 5
-        '
-        'DataLayoutControl2
-        '
-        Me.DataLayoutControl2.Controls.Add(Me.DESCRIPCIONTextEdit)
-        Me.DataLayoutControl2.Controls.Add(Me.ADICIONADO_PORSpinEdit)
-        Me.DataLayoutControl2.Controls.Add(Me.FECHA_ADICIONDateEdit)
-        Me.DataLayoutControl2.Controls.Add(Me.MODIFICADO_PORSpinEdit)
-        Me.DataLayoutControl2.Controls.Add(Me.FECHA_MODIFICACIONDateEdit)
-        Me.DataLayoutControl2.Controls.Add(Me.CODIGO_DEPARTAMENTOSpinEdit)
-        Me.DataLayoutControl2.Controls.Add(Me.CANTIDAD_DIPUTADOSSpinEdit)
-        Me.DataLayoutControl2.DataSource = Me.IMDEPARTAMENTOSBindingSource
-        Me.DataLayoutControl2.HiddenItems.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForADICIONADO_POR, Me.ItemForFECHA_ADICION, Me.ItemForMODIFICADO_POR, Me.ItemForFECHA_MODIFICACION})
-        Me.DataLayoutControl2.Location = New System.Drawing.Point(12, 12)
-        Me.DataLayoutControl2.Name = "DataLayoutControl2"
-        Me.DataLayoutControl2.Root = Me.LayoutControlGroup2
-        Me.DataLayoutControl2.Size = New System.Drawing.Size(522, 99)
-        Me.DataLayoutControl2.TabIndex = 4
-        Me.DataLayoutControl2.Text = "DataLayoutControl2"
-        '
         'DESCRIPCIONTextEdit
         '
-        Me.DESCRIPCIONTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TADEPARTAMENTOSBindingSource, "DESCRIPCION", True))
-        Me.DESCRIPCIONTextEdit.Location = New System.Drawing.Point(125, 36)
+        Me.DESCRIPCIONTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMDEPARTAMENTOSBindingSource, "DESCRIPCION", True))
+        Me.DESCRIPCIONTextEdit.Location = New System.Drawing.Point(144, 36)
         Me.DESCRIPCIONTextEdit.Name = "DESCRIPCIONTextEdit"
-        Me.DESCRIPCIONTextEdit.Size = New System.Drawing.Size(385, 20)
+        Me.DESCRIPCIONTextEdit.Size = New System.Drawing.Size(390, 20)
         Me.DESCRIPCIONTextEdit.StyleController = Me.DataLayoutControl2
         Me.DESCRIPCIONTextEdit.TabIndex = 5
         '
+        'CANTIDAD_DIPUTADOSSpinEdit
+        '
+        Me.CANTIDAD_DIPUTADOSSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMDEPARTAMENTOSBindingSource, "CANTIDAD_DIPUTADOS", True))
+        Me.CANTIDAD_DIPUTADOSSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.CANTIDAD_DIPUTADOSSpinEdit.Location = New System.Drawing.Point(144, 60)
+        Me.CANTIDAD_DIPUTADOSSpinEdit.Name = "CANTIDAD_DIPUTADOSSpinEdit"
+        Me.CANTIDAD_DIPUTADOSSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
+        Me.CANTIDAD_DIPUTADOSSpinEdit.Size = New System.Drawing.Size(390, 20)
+        Me.CANTIDAD_DIPUTADOSSpinEdit.StyleController = Me.DataLayoutControl2
+        Me.CANTIDAD_DIPUTADOSSpinEdit.TabIndex = 6
+        '
         'ADICIONADO_PORSpinEdit
         '
+        Me.ADICIONADO_PORSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMDEPARTAMENTOSBindingSource, "ADICIONADO_POR", True))
         Me.ADICIONADO_PORSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
         Me.ADICIONADO_PORSpinEdit.Location = New System.Drawing.Point(0, 0)
         Me.ADICIONADO_PORSpinEdit.Name = "ADICIONADO_PORSpinEdit"
@@ -283,6 +190,7 @@ Partial Class XfrmDepartamentos
         '
         'FECHA_ADICIONDateEdit
         '
+        Me.FECHA_ADICIONDateEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMDEPARTAMENTOSBindingSource, "FECHA_ADICION", True))
         Me.FECHA_ADICIONDateEdit.EditValue = Nothing
         Me.FECHA_ADICIONDateEdit.Location = New System.Drawing.Point(0, 0)
         Me.FECHA_ADICIONDateEdit.Name = "FECHA_ADICIONDateEdit"
@@ -294,6 +202,7 @@ Partial Class XfrmDepartamentos
         '
         'MODIFICADO_PORSpinEdit
         '
+        Me.MODIFICADO_PORSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMDEPARTAMENTOSBindingSource, "MODIFICADO_POR", True))
         Me.MODIFICADO_PORSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
         Me.MODIFICADO_PORSpinEdit.Location = New System.Drawing.Point(0, 0)
         Me.MODIFICADO_PORSpinEdit.Name = "MODIFICADO_PORSpinEdit"
@@ -304,6 +213,7 @@ Partial Class XfrmDepartamentos
         '
         'FECHA_MODIFICACIONDateEdit
         '
+        Me.FECHA_MODIFICACIONDateEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMDEPARTAMENTOSBindingSource, "FECHA_MODIFICACION", True))
         Me.FECHA_MODIFICACIONDateEdit.EditValue = Nothing
         Me.FECHA_MODIFICACIONDateEdit.Location = New System.Drawing.Point(0, 0)
         Me.FECHA_MODIFICACIONDateEdit.Name = "FECHA_MODIFICACIONDateEdit"
@@ -312,35 +222,6 @@ Partial Class XfrmDepartamentos
         Me.FECHA_MODIFICACIONDateEdit.Size = New System.Drawing.Size(0, 20)
         Me.FECHA_MODIFICACIONDateEdit.StyleController = Me.DataLayoutControl2
         Me.FECHA_MODIFICACIONDateEdit.TabIndex = 10
-        '
-        'CODIGO_DEPARTAMENTOSpinEdit
-        '
-        Me.CODIGO_DEPARTAMENTOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TADEPARTAMENTOSBindingSource, "CODIGO_DEPARTAMENTO", True))
-        Me.CODIGO_DEPARTAMENTOSpinEdit.Location = New System.Drawing.Point(125, 12)
-        Me.CODIGO_DEPARTAMENTOSpinEdit.Name = "CODIGO_DEPARTAMENTOSpinEdit"
-        Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
-        Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.Mask.EditMask = "00"
-        Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple
-        Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.MaxLength = 2
-        Me.CODIGO_DEPARTAMENTOSpinEdit.Size = New System.Drawing.Size(385, 20)
-        Me.CODIGO_DEPARTAMENTOSpinEdit.StyleController = Me.DataLayoutControl2
-        Me.CODIGO_DEPARTAMENTOSpinEdit.TabIndex = 4
-        '
-        'CANTIDAD_DIPUTADOSSpinEdit
-        '
-        Me.CANTIDAD_DIPUTADOSSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TADEPARTAMENTOSBindingSource, "CANTIDAD_DIPUTADOS", True))
-        Me.CANTIDAD_DIPUTADOSSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CANTIDAD_DIPUTADOSSpinEdit.Location = New System.Drawing.Point(125, 60)
-        Me.CANTIDAD_DIPUTADOSSpinEdit.Name = "CANTIDAD_DIPUTADOSSpinEdit"
-        Me.CANTIDAD_DIPUTADOSSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
-        Me.CANTIDAD_DIPUTADOSSpinEdit.Size = New System.Drawing.Size(385, 20)
-        Me.CANTIDAD_DIPUTADOSSpinEdit.StyleController = Me.DataLayoutControl2
-        Me.CANTIDAD_DIPUTADOSSpinEdit.TabIndex = 6
-        '
-        'IMDEPARTAMENTOSBindingSource
-        '
-        Me.IMDEPARTAMENTOSBindingSource.DataMember = "IM_DEPARTAMENTOS"
-        Me.IMDEPARTAMENTOSBindingSource.DataSource = Me.DSDeptoMuni
         '
         'ItemForADICIONADO_POR
         '
@@ -394,7 +275,7 @@ Partial Class XfrmDepartamentos
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup3})
         Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "LayoutControlGroup2"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(522, 99)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(546, 99)
         Me.LayoutControlGroup2.Text = "LayoutControlGroup2"
         Me.LayoutControlGroup2.TextVisible = False
         '
@@ -406,7 +287,7 @@ Partial Class XfrmDepartamentos
         Me.LayoutControlGroup3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForCODIGO_DEPARTAMENTO, Me.ItemForDESCRIPCION, Me.ItemForCANTIDAD_DIPUTADOS})
         Me.LayoutControlGroup3.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup3.Name = "autoGeneratedGroup0"
-        Me.LayoutControlGroup3.Size = New System.Drawing.Size(502, 79)
+        Me.LayoutControlGroup3.Size = New System.Drawing.Size(526, 79)
         Me.LayoutControlGroup3.Text = "autoGeneratedGroup0"
         '
         'ItemForCODIGO_DEPARTAMENTO
@@ -415,9 +296,9 @@ Partial Class XfrmDepartamentos
         Me.ItemForCODIGO_DEPARTAMENTO.CustomizationFormText = "CODIGO_DEPARTAMENTO"
         Me.ItemForCODIGO_DEPARTAMENTO.Location = New System.Drawing.Point(0, 0)
         Me.ItemForCODIGO_DEPARTAMENTO.Name = "ItemForCODIGO_DEPARTAMENTO"
-        Me.ItemForCODIGO_DEPARTAMENTO.Size = New System.Drawing.Size(502, 24)
-        Me.ItemForCODIGO_DEPARTAMENTO.Text = "Código Departamento"
-        Me.ItemForCODIGO_DEPARTAMENTO.TextSize = New System.Drawing.Size(109, 13)
+        Me.ItemForCODIGO_DEPARTAMENTO.Size = New System.Drawing.Size(526, 24)
+        Me.ItemForCODIGO_DEPARTAMENTO.Text = "CODIGO_DEPARTAMENTO"
+        Me.ItemForCODIGO_DEPARTAMENTO.TextSize = New System.Drawing.Size(128, 13)
         '
         'ItemForDESCRIPCION
         '
@@ -425,9 +306,9 @@ Partial Class XfrmDepartamentos
         Me.ItemForDESCRIPCION.CustomizationFormText = "DESCRIPCION"
         Me.ItemForDESCRIPCION.Location = New System.Drawing.Point(0, 24)
         Me.ItemForDESCRIPCION.Name = "ItemForDESCRIPCION"
-        Me.ItemForDESCRIPCION.Size = New System.Drawing.Size(502, 24)
-        Me.ItemForDESCRIPCION.Text = "Descripción"
-        Me.ItemForDESCRIPCION.TextSize = New System.Drawing.Size(109, 13)
+        Me.ItemForDESCRIPCION.Size = New System.Drawing.Size(526, 24)
+        Me.ItemForDESCRIPCION.Text = "DESCRIPCION"
+        Me.ItemForDESCRIPCION.TextSize = New System.Drawing.Size(128, 13)
         '
         'ItemForCANTIDAD_DIPUTADOS
         '
@@ -435,42 +316,151 @@ Partial Class XfrmDepartamentos
         Me.ItemForCANTIDAD_DIPUTADOS.CustomizationFormText = "CANTIDAD_DIPUTADOS"
         Me.ItemForCANTIDAD_DIPUTADOS.Location = New System.Drawing.Point(0, 48)
         Me.ItemForCANTIDAD_DIPUTADOS.Name = "ItemForCANTIDAD_DIPUTADOS"
-        Me.ItemForCANTIDAD_DIPUTADOS.Size = New System.Drawing.Size(502, 31)
-        Me.ItemForCANTIDAD_DIPUTADOS.Text = "Cantidad de Diputados"
-        Me.ItemForCANTIDAD_DIPUTADOS.TextSize = New System.Drawing.Size(109, 13)
+        Me.ItemForCANTIDAD_DIPUTADOS.Size = New System.Drawing.Size(526, 31)
+        Me.ItemForCANTIDAD_DIPUTADOS.Text = "CANTIDAD_DIPUTADOS"
+        Me.ItemForCANTIDAD_DIPUTADOS.TextSize = New System.Drawing.Size(128, 13)
+        '
+        'PanelControl1
+        '
+        Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl1.Controls.Add(Me.BtnEliminar)
+        Me.PanelControl1.Controls.Add(Me.BtnNuevo)
+        Me.PanelControl1.Controls.Add(Me.BtnGuardar)
+        Me.PanelControl1.Location = New System.Drawing.Point(12, 12)
+        Me.PanelControl1.Name = "PanelControl1"
+        Me.PanelControl1.Size = New System.Drawing.Size(546, 64)
+        Me.PanelControl1.TabIndex = 5
+        '
+        'BtnEliminar
+        '
+        Me.BtnEliminar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnEliminar.Appearance.Options.UseFont = True
+        Me.BtnEliminar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.eliminar
+        Me.BtnEliminar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnEliminar.Location = New System.Drawing.Point(123, 2)
+        Me.BtnEliminar.Name = "BtnEliminar"
+        Me.BtnEliminar.Size = New System.Drawing.Size(55, 55)
+        Me.BtnEliminar.TabIndex = 2
+        Me.BtnEliminar.Text = "Eliminar"
+        '
+        'BtnNuevo
+        '
+        Me.BtnNuevo.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnNuevo.Appearance.Options.UseFont = True
+        Me.BtnNuevo.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
+        Me.BtnNuevo.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnNuevo.Location = New System.Drawing.Point(5, 2)
+        Me.BtnNuevo.Name = "BtnNuevo"
+        Me.BtnNuevo.Size = New System.Drawing.Size(55, 55)
+        Me.BtnNuevo.TabIndex = 0
+        Me.BtnNuevo.Text = "Nuevo"
+        '
+        'BtnGuardar
+        '
+        Me.BtnGuardar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnGuardar.Appearance.Options.UseFont = True
+        Me.BtnGuardar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.guardar1
+        Me.BtnGuardar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnGuardar.Location = New System.Drawing.Point(64, 2)
+        Me.BtnGuardar.Name = "BtnGuardar"
+        Me.BtnGuardar.Size = New System.Drawing.Size(55, 55)
+        Me.BtnGuardar.TabIndex = 1
+        Me.BtnGuardar.Text = "Guardar"
+        '
+        'DataLayoutControl1
+        '
+        Me.DataLayoutControl1.Controls.Add(Me.GCDepartamento)
+        Me.DataLayoutControl1.Controls.Add(Me.BteBusqueda)
+        Me.DataLayoutControl1.Location = New System.Drawing.Point(12, 183)
+        Me.DataLayoutControl1.Name = "DataLayoutControl1"
+        Me.DataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(820, 257, 250, 350)
+        Me.DataLayoutControl1.Root = Me.Root
+        Me.DataLayoutControl1.Size = New System.Drawing.Size(546, 177)
+        Me.DataLayoutControl1.TabIndex = 4
+        Me.DataLayoutControl1.Text = "DataLayoutControl1"
+        '
+        'GCDepartamento
+        '
+        Me.GCDepartamento.DataSource = Me.TADEPARTAMENTOSBindingSource
+        Me.GCDepartamento.Location = New System.Drawing.Point(12, 36)
+        Me.GCDepartamento.MainView = Me.GridView1
+        Me.GCDepartamento.Name = "GCDepartamento"
+        Me.GCDepartamento.Size = New System.Drawing.Size(522, 129)
+        Me.GCDepartamento.TabIndex = 6
+        Me.GCDepartamento.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
+        '
+        'TADEPARTAMENTOSBindingSource
+        '
+        Me.TADEPARTAMENTOSBindingSource.DataMember = "TA_DEPARTAMENTOS"
+        Me.TADEPARTAMENTOSBindingSource.DataSource = Me.DSDeptoMuni
+        '
+        'GridView1
+        '
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_DEPARTAMENTO, Me.colDESCRIPCION, Me.colCANTIDAD_DIPUTADOS})
+        Me.GridView1.GridControl = Me.GCDepartamento
+        Me.GridView1.Name = "GridView1"
+        Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GridView1.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GridView1.OptionsBehavior.Editable = False
+        Me.GridView1.OptionsView.ShowDetailButtons = False
+        Me.GridView1.OptionsView.ShowGroupPanel = False
+        '
+        'colCODIGO_DEPARTAMENTO
+        '
+        Me.colCODIGO_DEPARTAMENTO.Caption = "Código Departamento"
+        Me.colCODIGO_DEPARTAMENTO.FieldName = "CODIGO_DEPARTAMENTO"
+        Me.colCODIGO_DEPARTAMENTO.Name = "colCODIGO_DEPARTAMENTO"
+        Me.colCODIGO_DEPARTAMENTO.Visible = True
+        Me.colCODIGO_DEPARTAMENTO.VisibleIndex = 0
+        '
+        'colDESCRIPCION
+        '
+        Me.colDESCRIPCION.Caption = "Departamento"
+        Me.colDESCRIPCION.FieldName = "DESCRIPCION"
+        Me.colDESCRIPCION.Name = "colDESCRIPCION"
+        Me.colDESCRIPCION.Visible = True
+        Me.colDESCRIPCION.VisibleIndex = 1
+        '
+        'colCANTIDAD_DIPUTADOS
+        '
+        Me.colCANTIDAD_DIPUTADOS.Caption = "Cantidad de Diputados"
+        Me.colCANTIDAD_DIPUTADOS.FieldName = "CANTIDAD_DIPUTADOS"
+        Me.colCANTIDAD_DIPUTADOS.Name = "colCANTIDAD_DIPUTADOS"
+        Me.colCANTIDAD_DIPUTADOS.Visible = True
+        Me.colCANTIDAD_DIPUTADOS.VisibleIndex = 2
+        '
+        'GridView2
+        '
+        Me.GridView2.GridControl = Me.GCDepartamento
+        Me.GridView2.Name = "GridView2"
+        '
+        'BteBusqueda
+        '
+        Me.BteBusqueda.Location = New System.Drawing.Point(63, 12)
+        Me.BteBusqueda.Name = "BteBusqueda"
+        Me.BteBusqueda.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
+        Me.BteBusqueda.Size = New System.Drawing.Size(471, 20)
+        Me.BteBusqueda.StyleController = Me.DataLayoutControl1
+        Me.BteBusqueda.TabIndex = 5
         '
         'Root
         '
         Me.Root.CustomizationFormText = "Root"
         Me.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.Root.GroupBordersVisible = False
-        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5})
+        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem4, Me.LayoutControlItem5})
         Me.Root.Location = New System.Drawing.Point(0, 0)
         Me.Root.Name = "Root"
-        Me.Root.Size = New System.Drawing.Size(546, 280)
+        Me.Root.Size = New System.Drawing.Size(546, 177)
         Me.Root.Text = "Root"
         Me.Root.TextVisible = False
-        '
-        'LayoutControlItem3
-        '
-        Me.LayoutControlItem3.Control = Me.DataLayoutControl2
-        Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(526, 103)
-        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(526, 103)
-        Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(526, 103)
-        Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.LayoutControlItem3.Text = "LayoutControlItem3"
-        Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem3.TextToControlDistance = 0
-        Me.LayoutControlItem3.TextVisible = False
         '
         'LayoutControlItem4
         '
         Me.LayoutControlItem4.Control = Me.BteBusqueda
         Me.LayoutControlItem4.CustomizationFormText = "LayoutControlItem4"
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 103)
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
         Me.LayoutControlItem4.Size = New System.Drawing.Size(526, 24)
         Me.LayoutControlItem4.Text = "Búsqueda"
@@ -480,7 +470,7 @@ Partial Class XfrmDepartamentos
         '
         Me.LayoutControlItem5.Control = Me.GCDepartamento
         Me.LayoutControlItem5.CustomizationFormText = "LayoutControlItem5"
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 127)
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 24)
         Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(526, 0)
         Me.LayoutControlItem5.MinSize = New System.Drawing.Size(526, 24)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
@@ -496,7 +486,7 @@ Partial Class XfrmDepartamentos
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(570, 372)
@@ -507,11 +497,11 @@ Partial Class XfrmDepartamentos
         '
         Me.LayoutControlItem1.Control = Me.DataLayoutControl1
         Me.LayoutControlItem1.CustomizationFormText = "LayoutControlItem1"
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 68)
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 171)
         Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(550, 0)
         Me.LayoutControlItem1.MinSize = New System.Drawing.Size(550, 120)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(550, 284)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(550, 181)
         Me.LayoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem1.Text = "LayoutControlItem1"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
@@ -533,6 +523,21 @@ Partial Class XfrmDepartamentos
         Me.LayoutControlItem2.TextToControlDistance = 0
         Me.LayoutControlItem2.TextVisible = False
         '
+        'LayoutControlItem3
+        '
+        Me.LayoutControlItem3.Control = Me.DataLayoutControl2
+        Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 68)
+        Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(550, 103)
+        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(550, 103)
+        Me.LayoutControlItem3.Name = "LayoutControlItem3"
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(550, 103)
+        Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem3.Text = "LayoutControlItem3"
+        Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem3.TextToControlDistance = 0
+        Me.LayoutControlItem3.TextVisible = False
+        '
         'TA_DEPARTAMENTOSTableAdapter
         '
         Me.TA_DEPARTAMENTOSTableAdapter.ClearBeforeFill = True
@@ -551,28 +556,19 @@ Partial Class XfrmDepartamentos
         Me.Text = "Departamentos"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
-        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanelControl1.ResumeLayout(False)
-        CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.DataLayoutControl1.ResumeLayout(False)
-        CType(Me.GCDepartamento, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TADEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BteBusqueda.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataLayoutControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DataLayoutControl2.ResumeLayout(False)
+        CType(Me.CODIGO_DEPARTAMENTOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMDEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DESCRIPCIONTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CANTIDAD_DIPUTADOSSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MODIFICADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_MODIFICACIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_MODIFICACIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CODIGO_DEPARTAMENTOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CANTIDAD_DIPUTADOSSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IMDEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForADICIONADO_POR, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForFECHA_ADICION, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForMODIFICADO_POR, System.ComponentModel.ISupportInitialize).EndInit()
@@ -582,13 +578,22 @@ Partial Class XfrmDepartamentos
         CType(Me.ItemForCODIGO_DEPARTAMENTO, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForDESCRIPCION, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForCANTIDAD_DIPUTADOS, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl1.ResumeLayout(False)
+        CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.DataLayoutControl1.ResumeLayout(False)
+        CType(Me.GCDepartamento, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TADEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BteBusqueda.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Root, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -602,8 +607,24 @@ Partial Class XfrmDepartamentos
     Friend WithEvents BtnGuardar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnNuevo As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnEliminar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents GCDepartamento As DevExpress.XtraGrid.GridControl
+    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents BteBusqueda As DevExpress.XtraEditors.ButtonEdit
+    Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlItem5 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents DSDeptoMuni As Inscripcion_de_Moviemientos.DSDeptoMuni
+    Friend WithEvents colCODIGO_DEPARTAMENTO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colDESCRIPCION As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colCANTIDAD_DIPUTADOS As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents TADEPARTAMENTOSBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents TA_DEPARTAMENTOSTableAdapter As Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_DEPARTAMENTOSTableAdapter
+    Friend WithEvents IMDEPARTAMENTOSBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents IM_DEPARTAMENTOSTableAdapter As Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.IM_DEPARTAMENTOSTableAdapter
     Friend WithEvents DataLayoutControl2 As DevExpress.XtraDataLayout.DataLayoutControl
+    Friend WithEvents CODIGO_DEPARTAMENTOSpinEdit As DevExpress.XtraEditors.SpinEdit
     Friend WithEvents DESCRIPCIONTextEdit As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents CANTIDAD_DIPUTADOSSpinEdit As DevExpress.XtraEditors.SpinEdit
     Friend WithEvents ADICIONADO_PORSpinEdit As DevExpress.XtraEditors.SpinEdit
     Friend WithEvents FECHA_ADICIONDateEdit As DevExpress.XtraEditors.DateEdit
     Friend WithEvents MODIFICADO_PORSpinEdit As DevExpress.XtraEditors.SpinEdit
@@ -618,20 +639,4 @@ Partial Class XfrmDepartamentos
     Friend WithEvents ItemForDESCRIPCION As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents ItemForCANTIDAD_DIPUTADOS As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents GCDepartamento As DevExpress.XtraGrid.GridControl
-    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents BteBusqueda As DevExpress.XtraEditors.ButtonEdit
-    Friend WithEvents CODIGO_DEPARTAMENTOSpinEdit As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents CANTIDAD_DIPUTADOSSpinEdit As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents LayoutControlItem5 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents DSDeptoMuni As Inscripcion_de_Moviemientos.DSDeptoMuni
-    Friend WithEvents TADEPARTAMENTOSBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents TA_DEPARTAMENTOSTableAdapter As Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_DEPARTAMENTOSTableAdapter
-    Friend WithEvents colCODIGO_DEPARTAMENTO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colDESCRIPCION As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colCANTIDAD_DIPUTADOS As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents IMDEPARTAMENTOSBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents IM_DEPARTAMENTOSTableAdapter As Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.IM_DEPARTAMENTOSTableAdapter
 End Class

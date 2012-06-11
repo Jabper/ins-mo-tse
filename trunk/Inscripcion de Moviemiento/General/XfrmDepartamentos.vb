@@ -9,9 +9,10 @@ Public Class XfrmDepartamentos
         Me.IM_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.IM_DEPARTAMENTOS)
         'TODO: This line of code loads data into the 'DSDeptoMuni.TA_DEPARTAMENTOS' table. You can move, or remove it, as needed.
         Me.TA_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.TA_DEPARTAMENTOS)
+       
         ActualizarGrid()
        
-        'Me.IMDEPARTAMENTOSBindingSource.AddNew()
+        Me.IMDEPARTAMENTOSBindingSource.AddNew()
     End Sub
 
     Sub ActualizarGrid()
@@ -131,5 +132,9 @@ Public Class XfrmDepartamentos
 
     Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
         Eliminar()
+    End Sub
+
+    Private Sub GCDepartamento_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GCDepartamento.Click
+
     End Sub
 End Class

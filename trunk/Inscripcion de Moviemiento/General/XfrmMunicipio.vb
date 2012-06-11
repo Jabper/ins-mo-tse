@@ -15,8 +15,7 @@
     End Sub
 
     Sub ActualizarGrid()
-        'TODO: This line of code loads data into the 'DSDeptoMuni.TA_DEPTOSMUNI' table. You can move, or remove it, as needed.
-        Me.IM_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.IM_DEPARTAMENTOS)
+        Me.TA_MUNICIPIOSTableAdapter.Fill(Me.DSDeptoMuni.TA_MUNICIPIOS)
     End Sub
     Sub nuevo()
         Me.IMMUNICIPIOSBindingSource.CancelEdit()
