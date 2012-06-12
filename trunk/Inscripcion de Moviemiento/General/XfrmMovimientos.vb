@@ -2,6 +2,13 @@
 Public Class XfrmMovimientos
     Public UrlInsignia As String
     Public UrlEmblema As String
+    Dim idmov As Integer
+    Dim idpartido As Integer
+
+
+    Private Sub XfrmMovimientos_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.GotFocus
+        Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
+    End Sub
 
     Private Sub XfrmMovimientos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
@@ -61,7 +68,7 @@ Public Class XfrmMovimientos
         Me.IMMOVIMIENTOSBindingSource.AddNew()
         Me.INSIGNIAPictureEdit.EditValue = Nothing
         Me.EMBLEMAPictureEdit.EditValue = Nothing
-
+        BtnEliminar.Enabled = False
     End Sub
 
 
@@ -134,5 +141,21 @@ Public Class XfrmMovimientos
 
     Private Sub GridView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.Click
         MostrarDatos()
+    End Sub
+
+    Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
+        Me.Close()
+    End Sub
+
+    Private Sub CODIGO_MOVIMIENTOSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_MOVIMIENTOSpinEdit.EditValueChanged
+
+    End Sub
+
+    Private Sub CODIGO_MOVIMIENTOSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CODIGO_MOVIMIENTOSpinEdit.KeyPress
+        VControles.solonumeros(e)
+    End Sub
+
+    Private Sub NOMBRE_MOVIMIENTOTextEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NOMBRE_MOVIMIENTOTextEdit.EditValueChanged
+        VControles.Mayuscula(NOMBRE_MOVIMIENTOTextEdit)
     End Sub
 End Class

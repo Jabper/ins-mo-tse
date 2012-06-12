@@ -137,7 +137,7 @@ Partial Class XfrmDepartamentos
         Me.DataLayoutControl2.Controls.Add(Me.CODIGO_DEPARTAMENTOSpinEdit)
         Me.DataLayoutControl2.DataSource = Me.IMDEPARTAMENTOSBindingSource
         Me.DataLayoutControl2.HiddenItems.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForADICIONADO_POR, Me.ItemForFECHA_ADICION, Me.ItemForMODIFICADO_POR, Me.ItemForFECHA_MODIFICACION})
-        Me.DataLayoutControl2.Location = New System.Drawing.Point(12, 80)
+        Me.DataLayoutControl2.Location = New System.Drawing.Point(3, 80)
         Me.DataLayoutControl2.Name = "DataLayoutControl2"
         Me.DataLayoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(682, 206, 250, 350)
         Me.DataLayoutControl2.Root = Me.LayoutControlGroup2
@@ -370,7 +370,7 @@ Partial Class XfrmDepartamentos
         Me.PanelControl1.Controls.Add(Me.BtnEliminar)
         Me.PanelControl1.Controls.Add(Me.BtnNuevo)
         Me.PanelControl1.Controls.Add(Me.BtnGuardar)
-        Me.PanelControl1.Location = New System.Drawing.Point(12, 12)
+        Me.PanelControl1.Location = New System.Drawing.Point(3, 12)
         Me.PanelControl1.Name = "PanelControl1"
         Me.PanelControl1.Size = New System.Drawing.Size(546, 64)
         Me.PanelControl1.TabIndex = 5
@@ -428,7 +428,7 @@ Partial Class XfrmDepartamentos
         '
         Me.DataLayoutControl1.Controls.Add(Me.GCDepartamento)
         Me.DataLayoutControl1.Controls.Add(Me.BteBusqueda)
-        Me.DataLayoutControl1.Location = New System.Drawing.Point(12, 183)
+        Me.DataLayoutControl1.Location = New System.Drawing.Point(3, 183)
         Me.DataLayoutControl1.Name = "DataLayoutControl1"
         Me.DataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(820, 257, 250, 350)
         Me.DataLayoutControl1.Root = Me.Root
@@ -545,7 +545,7 @@ Partial Class XfrmDepartamentos
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlGroup1.Location = New System.Drawing.Point(-9, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(570, 372)
         Me.LayoutControlGroup1.Text = "Root"

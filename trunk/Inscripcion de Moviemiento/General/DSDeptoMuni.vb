@@ -4,3 +4,9 @@
     End Class
 
 End Class
+
+Namespace DSDeptoMuniTableAdapters
+    
+    Partial Public Class TA_MUNICIPIOSTableAdapter
+    End Class
+End Namespace

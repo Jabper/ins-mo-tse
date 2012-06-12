@@ -23,4 +23,8 @@ Public Class VControles
         Return False
     End Function
 
+    Public Shared Sub Mayuscula(ByVal texto As Object)
+        UCase(texto.Text)
+
+    End Sub
 End Class
