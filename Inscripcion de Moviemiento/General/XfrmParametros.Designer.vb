@@ -23,6 +23,8 @@ Partial Class XfrmParametros
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
         Me.DataLayoutControl1 = New DevExpress.XtraDataLayout.DataLayoutControl
         Me.ADICIONADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
+        Me.IMPARAMETROSGENERALESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DSParametros = New Inscripcion_de_Moviemientos.DSParametros
         Me.FECHA_ADICIONDateEdit = New DevExpress.XtraEditors.DateEdit
         Me.MODIFICADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.FECHA_MODIFICACIONDateEdit = New DevExpress.XtraEditors.DateEdit
@@ -45,21 +47,25 @@ Partial Class XfrmParametros
         Me.ItemForTIPO_ELECCIONES = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForANNO_ELECCIONES = New DevExpress.XtraLayout.LayoutControlItem
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
+        Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.txtfecha = New System.Windows.Forms.TextBox
+        Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.IMPARAMETROSGENERALESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DSParametros = New Inscripcion_de_Moviemientos.DSParametros
         Me.IM_PARAMETROS_GENERALESTableAdapter = New Inscripcion_de_Moviemientos.DSParametrosTableAdapters.IM_PARAMETROS_GENERALESTableAdapter
-        Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
-        Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
-        Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
+        Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem
+        Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem
+        Me.EmptySpaceItem3 = New DevExpress.XtraLayout.EmptySpaceItem
+        Me.EmptySpaceItem4 = New DevExpress.XtraLayout.EmptySpaceItem
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DataLayoutControl1.SuspendLayout()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMPARAMETROSGENERALESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DSParametros, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MODIFICADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -89,8 +95,10 @@ Partial Class XfrmParametros
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IMPARAMETROSGENERALESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DSParametros, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -122,6 +130,7 @@ Partial Class XfrmParametros
         Me.DataLayoutControl1.HiddenItems.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForADICIONADO_POR, Me.ItemForFECHA_ADICION, Me.ItemForMODIFICADO_POR, Me.ItemForFECHA_MODIFICACION})
         Me.DataLayoutControl1.Location = New System.Drawing.Point(12, 77)
         Me.DataLayoutControl1.Name = "DataLayoutControl1"
+        Me.DataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(798, 49, 250, 350)
         Me.DataLayoutControl1.Root = Me.Root
         Me.DataLayoutControl1.Size = New System.Drawing.Size(438, 206)
         Me.DataLayoutControl1.TabIndex = 7
@@ -137,6 +146,16 @@ Partial Class XfrmParametros
         Me.ADICIONADO_PORSpinEdit.Size = New System.Drawing.Size(0, 20)
         Me.ADICIONADO_PORSpinEdit.StyleController = Me.DataLayoutControl1
         Me.ADICIONADO_PORSpinEdit.TabIndex = 8
+        '
+        'IMPARAMETROSGENERALESBindingSource
+        '
+        Me.IMPARAMETROSGENERALESBindingSource.DataMember = "IM_PARAMETROS_GENERALES"
+        Me.IMPARAMETROSGENERALESBindingSource.DataSource = Me.DSParametros
+        '
+        'DSParametros
+        '
+        Me.DSParametros.DataSetName = "DSParametros"
+        Me.DSParametros.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'FECHA_ADICIONDateEdit
         '
@@ -177,11 +196,11 @@ Partial Class XfrmParametros
         '
         Me.ANNO_ELECCIONESDateEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMPARAMETROSGENERALESBindingSource, "ANNO_ELECCIONES", True))
         Me.ANNO_ELECCIONESDateEdit.EditValue = Nothing
-        Me.ANNO_ELECCIONESDateEdit.Location = New System.Drawing.Point(344, 132)
+        Me.ANNO_ELECCIONESDateEdit.Location = New System.Drawing.Point(309, 132)
         Me.ANNO_ELECCIONESDateEdit.Name = "ANNO_ELECCIONESDateEdit"
         Me.ANNO_ELECCIONESDateEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.ANNO_ELECCIONESDateEdit.Properties.VistaTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
-        Me.ANNO_ELECCIONESDateEdit.Size = New System.Drawing.Size(82, 20)
+        Me.ANNO_ELECCIONESDateEdit.Size = New System.Drawing.Size(117, 20)
         Me.ANNO_ELECCIONESDateEdit.StyleController = Me.DataLayoutControl1
         Me.ANNO_ELECCIONESDateEdit.TabIndex = 13
         '
@@ -189,12 +208,12 @@ Partial Class XfrmParametros
         '
         Me.TIPO_ELECCIONESSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMPARAMETROSGENERALESBindingSource, "TIPO_ELECCIONES", True))
         Me.TIPO_ELECCIONESSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.TIPO_ELECCIONESSpinEdit.Location = New System.Drawing.Point(344, 108)
+        Me.TIPO_ELECCIONESSpinEdit.Location = New System.Drawing.Point(309, 108)
         Me.TIPO_ELECCIONESSpinEdit.Name = "TIPO_ELECCIONESSpinEdit"
         Me.TIPO_ELECCIONESSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.TIPO_ELECCIONESSpinEdit.Properties.NullText = "Seleccione"
         Me.TIPO_ELECCIONESSpinEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
-        Me.TIPO_ELECCIONESSpinEdit.Size = New System.Drawing.Size(82, 20)
+        Me.TIPO_ELECCIONESSpinEdit.Size = New System.Drawing.Size(117, 20)
         Me.TIPO_ELECCIONESSpinEdit.StyleController = Me.DataLayoutControl1
         Me.TIPO_ELECCIONESSpinEdit.TabIndex = 12
         '
@@ -202,12 +221,12 @@ Partial Class XfrmParametros
         '
         Me.PARTICIPACION_MUJER_PORCENSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMPARAMETROSGENERALESBindingSource, "PARTICIPACION_MUJER_PORCEN", True))
         Me.PARTICIPACION_MUJER_PORCENSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.PARTICIPACION_MUJER_PORCENSpinEdit.Location = New System.Drawing.Point(344, 12)
+        Me.PARTICIPACION_MUJER_PORCENSpinEdit.Location = New System.Drawing.Point(309, 12)
         Me.PARTICIPACION_MUJER_PORCENSpinEdit.Name = "PARTICIPACION_MUJER_PORCENSpinEdit"
         Me.PARTICIPACION_MUJER_PORCENSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.PARTICIPACION_MUJER_PORCENSpinEdit.Properties.Mask.EditMask = "00"
         Me.PARTICIPACION_MUJER_PORCENSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.PARTICIPACION_MUJER_PORCENSpinEdit.Size = New System.Drawing.Size(82, 20)
+        Me.PARTICIPACION_MUJER_PORCENSpinEdit.Size = New System.Drawing.Size(50, 20)
         Me.PARTICIPACION_MUJER_PORCENSpinEdit.StyleController = Me.DataLayoutControl1
         Me.PARTICIPACION_MUJER_PORCENSpinEdit.TabIndex = 4
         '
@@ -215,12 +234,12 @@ Partial Class XfrmParametros
         '
         Me.FORMULAS_DEPART_MINSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMPARAMETROSGENERALESBindingSource, "FORMULAS_DEPART_MIN", True))
         Me.FORMULAS_DEPART_MINSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.FORMULAS_DEPART_MINSpinEdit.Location = New System.Drawing.Point(344, 36)
+        Me.FORMULAS_DEPART_MINSpinEdit.Location = New System.Drawing.Point(309, 36)
         Me.FORMULAS_DEPART_MINSpinEdit.Name = "FORMULAS_DEPART_MINSpinEdit"
         Me.FORMULAS_DEPART_MINSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.FORMULAS_DEPART_MINSpinEdit.Properties.Mask.EditMask = "00"
         Me.FORMULAS_DEPART_MINSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.FORMULAS_DEPART_MINSpinEdit.Size = New System.Drawing.Size(82, 20)
+        Me.FORMULAS_DEPART_MINSpinEdit.Size = New System.Drawing.Size(50, 20)
         Me.FORMULAS_DEPART_MINSpinEdit.StyleController = Me.DataLayoutControl1
         Me.FORMULAS_DEPART_MINSpinEdit.TabIndex = 5
         '
@@ -228,12 +247,12 @@ Partial Class XfrmParametros
         '
         Me.FORMULAS_MUNICIPIO_MINSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMPARAMETROSGENERALESBindingSource, "FORMULAS_MUNICIPIO_MIN", True))
         Me.FORMULAS_MUNICIPIO_MINSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.FORMULAS_MUNICIPIO_MINSpinEdit.Location = New System.Drawing.Point(344, 60)
+        Me.FORMULAS_MUNICIPIO_MINSpinEdit.Location = New System.Drawing.Point(309, 60)
         Me.FORMULAS_MUNICIPIO_MINSpinEdit.Name = "FORMULAS_MUNICIPIO_MINSpinEdit"
         Me.FORMULAS_MUNICIPIO_MINSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.FORMULAS_MUNICIPIO_MINSpinEdit.Properties.Mask.EditMask = "00"
         Me.FORMULAS_MUNICIPIO_MINSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.FORMULAS_MUNICIPIO_MINSpinEdit.Size = New System.Drawing.Size(82, 20)
+        Me.FORMULAS_MUNICIPIO_MINSpinEdit.Size = New System.Drawing.Size(50, 20)
         Me.FORMULAS_MUNICIPIO_MINSpinEdit.StyleController = Me.DataLayoutControl1
         Me.FORMULAS_MUNICIPIO_MINSpinEdit.TabIndex = 6
         '
@@ -241,12 +260,12 @@ Partial Class XfrmParametros
         '
         Me.FIRMAS_REPETIDAS_PORCENSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMPARAMETROSGENERALESBindingSource, "FIRMAS_REPETIDAS_PORCEN", True))
         Me.FIRMAS_REPETIDAS_PORCENSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.FIRMAS_REPETIDAS_PORCENSpinEdit.Location = New System.Drawing.Point(344, 84)
+        Me.FIRMAS_REPETIDAS_PORCENSpinEdit.Location = New System.Drawing.Point(309, 84)
         Me.FIRMAS_REPETIDAS_PORCENSpinEdit.Name = "FIRMAS_REPETIDAS_PORCENSpinEdit"
         Me.FIRMAS_REPETIDAS_PORCENSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.FIRMAS_REPETIDAS_PORCENSpinEdit.Properties.Mask.EditMask = "00"
         Me.FIRMAS_REPETIDAS_PORCENSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.FIRMAS_REPETIDAS_PORCENSpinEdit.Size = New System.Drawing.Size(82, 20)
+        Me.FIRMAS_REPETIDAS_PORCENSpinEdit.Size = New System.Drawing.Size(50, 20)
         Me.FIRMAS_REPETIDAS_PORCENSpinEdit.StyleController = Me.DataLayoutControl1
         Me.FIRMAS_REPETIDAS_PORCENSpinEdit.TabIndex = 7
         '
@@ -311,7 +330,7 @@ Partial Class XfrmParametros
         Me.LayoutControlGroup2.AllowDrawBackground = False
         Me.LayoutControlGroup2.CustomizationFormText = "autoGeneratedGroup0"
         Me.LayoutControlGroup2.GroupBordersVisible = False
-        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForPARTICIPACION_MUJER_PORCEN, Me.ItemForFORMULAS_DEPART_MIN, Me.ItemForFORMULAS_MUNICIPIO_MIN, Me.ItemForFIRMAS_REPETIDAS_PORCEN, Me.ItemForTIPO_ELECCIONES, Me.ItemForANNO_ELECCIONES})
+        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForPARTICIPACION_MUJER_PORCEN, Me.ItemForFORMULAS_DEPART_MIN, Me.ItemForFORMULAS_MUNICIPIO_MIN, Me.ItemForFIRMAS_REPETIDAS_PORCEN, Me.ItemForTIPO_ELECCIONES, Me.ItemForANNO_ELECCIONES, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.EmptySpaceItem3, Me.EmptySpaceItem4})
         Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "autoGeneratedGroup0"
         Me.LayoutControlGroup2.Size = New System.Drawing.Size(418, 186)
@@ -323,9 +342,9 @@ Partial Class XfrmParametros
         Me.ItemForPARTICIPACION_MUJER_PORCEN.CustomizationFormText = "Nivel Participación Femenina"
         Me.ItemForPARTICIPACION_MUJER_PORCEN.Location = New System.Drawing.Point(0, 0)
         Me.ItemForPARTICIPACION_MUJER_PORCEN.Name = "ItemForPARTICIPACION_MUJER_PORCEN"
-        Me.ItemForPARTICIPACION_MUJER_PORCEN.Size = New System.Drawing.Size(418, 24)
-        Me.ItemForPARTICIPACION_MUJER_PORCEN.Text = "Nivel Participación Femenina"
-        Me.ItemForPARTICIPACION_MUJER_PORCEN.TextSize = New System.Drawing.Size(328, 13)
+        Me.ItemForPARTICIPACION_MUJER_PORCEN.Size = New System.Drawing.Size(351, 24)
+        Me.ItemForPARTICIPACION_MUJER_PORCEN.Text = "Porcentaje de Participación Femenina"
+        Me.ItemForPARTICIPACION_MUJER_PORCEN.TextSize = New System.Drawing.Size(293, 13)
         '
         'ItemForFORMULAS_DEPART_MIN
         '
@@ -333,9 +352,9 @@ Partial Class XfrmParametros
         Me.ItemForFORMULAS_DEPART_MIN.CustomizationFormText = "Cantidad Mínima de Formulas para Diputados"
         Me.ItemForFORMULAS_DEPART_MIN.Location = New System.Drawing.Point(0, 24)
         Me.ItemForFORMULAS_DEPART_MIN.Name = "ItemForFORMULAS_DEPART_MIN"
-        Me.ItemForFORMULAS_DEPART_MIN.Size = New System.Drawing.Size(418, 24)
+        Me.ItemForFORMULAS_DEPART_MIN.Size = New System.Drawing.Size(351, 24)
         Me.ItemForFORMULAS_DEPART_MIN.Text = "Cantidad Mínima de Formulas para Diputados"
-        Me.ItemForFORMULAS_DEPART_MIN.TextSize = New System.Drawing.Size(328, 13)
+        Me.ItemForFORMULAS_DEPART_MIN.TextSize = New System.Drawing.Size(293, 13)
         '
         'ItemForFORMULAS_MUNICIPIO_MIN
         '
@@ -343,9 +362,9 @@ Partial Class XfrmParametros
         Me.ItemForFORMULAS_MUNICIPIO_MIN.CustomizationFormText = "Cantidad Mínima de Formulas para Corporaciones Municipales Minima"
         Me.ItemForFORMULAS_MUNICIPIO_MIN.Location = New System.Drawing.Point(0, 48)
         Me.ItemForFORMULAS_MUNICIPIO_MIN.Name = "ItemForFORMULAS_MUNICIPIO_MIN"
-        Me.ItemForFORMULAS_MUNICIPIO_MIN.Size = New System.Drawing.Size(418, 24)
-        Me.ItemForFORMULAS_MUNICIPIO_MIN.Text = "Cantidad Mínima de Formulas para Corporaciones Municipales Minima"
-        Me.ItemForFORMULAS_MUNICIPIO_MIN.TextSize = New System.Drawing.Size(328, 13)
+        Me.ItemForFORMULAS_MUNICIPIO_MIN.Size = New System.Drawing.Size(351, 24)
+        Me.ItemForFORMULAS_MUNICIPIO_MIN.Text = "Cantidad Mínima de Formulas para Corporaciones Municipales"
+        Me.ItemForFORMULAS_MUNICIPIO_MIN.TextSize = New System.Drawing.Size(293, 13)
         '
         'ItemForFIRMAS_REPETIDAS_PORCEN
         '
@@ -353,9 +372,9 @@ Partial Class XfrmParametros
         Me.ItemForFIRMAS_REPETIDAS_PORCEN.CustomizationFormText = "Porcentaje de Firmas Repetidas"
         Me.ItemForFIRMAS_REPETIDAS_PORCEN.Location = New System.Drawing.Point(0, 72)
         Me.ItemForFIRMAS_REPETIDAS_PORCEN.Name = "ItemForFIRMAS_REPETIDAS_PORCEN"
-        Me.ItemForFIRMAS_REPETIDAS_PORCEN.Size = New System.Drawing.Size(418, 24)
-        Me.ItemForFIRMAS_REPETIDAS_PORCEN.Text = "Porcentaje de Firmas Repetidas"
-        Me.ItemForFIRMAS_REPETIDAS_PORCEN.TextSize = New System.Drawing.Size(328, 13)
+        Me.ItemForFIRMAS_REPETIDAS_PORCEN.Size = New System.Drawing.Size(351, 24)
+        Me.ItemForFIRMAS_REPETIDAS_PORCEN.Text = "Porcentaje Maximo Permitido de Firmas Repetidas"
+        Me.ItemForFIRMAS_REPETIDAS_PORCEN.TextSize = New System.Drawing.Size(293, 13)
         '
         'ItemForTIPO_ELECCIONES
         '
@@ -365,7 +384,7 @@ Partial Class XfrmParametros
         Me.ItemForTIPO_ELECCIONES.Name = "ItemForTIPO_ELECCIONES"
         Me.ItemForTIPO_ELECCIONES.Size = New System.Drawing.Size(418, 24)
         Me.ItemForTIPO_ELECCIONES.Text = "Tipo Elecciones"
-        Me.ItemForTIPO_ELECCIONES.TextSize = New System.Drawing.Size(328, 13)
+        Me.ItemForTIPO_ELECCIONES.TextSize = New System.Drawing.Size(293, 13)
         '
         'ItemForANNO_ELECCIONES
         '
@@ -375,7 +394,7 @@ Partial Class XfrmParametros
         Me.ItemForANNO_ELECCIONES.Name = "ItemForANNO_ELECCIONES"
         Me.ItemForANNO_ELECCIONES.Size = New System.Drawing.Size(418, 66)
         Me.ItemForANNO_ELECCIONES.Text = "Año Elecciones"
-        Me.ItemForANNO_ELECCIONES.TextSize = New System.Drawing.Size(328, 13)
+        Me.ItemForANNO_ELECCIONES.TextSize = New System.Drawing.Size(293, 13)
         '
         'PanelControl1
         '
@@ -389,6 +408,18 @@ Partial Class XfrmParametros
         Me.PanelControl1.Size = New System.Drawing.Size(438, 61)
         Me.PanelControl1.TabIndex = 6
         '
+        'BtnSalir
+        '
+        Me.BtnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnSalir.Appearance.Options.UseFont = True
+        Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
+        Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnSalir.Location = New System.Drawing.Point(64, 1)
+        Me.BtnSalir.Name = "BtnSalir"
+        Me.BtnSalir.Size = New System.Drawing.Size(55, 55)
+        Me.BtnSalir.TabIndex = 4
+        Me.BtnSalir.Text = "Salir"
+        '
         'txtfecha
         '
         Me.txtfecha.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.IMPARAMETROSGENERALESBindingSource, "FECHA_ADICION", True))
@@ -397,6 +428,31 @@ Partial Class XfrmParametros
         Me.txtfecha.Size = New System.Drawing.Size(10, 21)
         Me.txtfecha.TabIndex = 3
         Me.txtfecha.Visible = False
+        '
+        'BtnNuevo
+        '
+        Me.BtnNuevo.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnNuevo.Appearance.Options.UseFont = True
+        Me.BtnNuevo.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
+        Me.BtnNuevo.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnNuevo.Location = New System.Drawing.Point(123, 1)
+        Me.BtnNuevo.Name = "BtnNuevo"
+        Me.BtnNuevo.Size = New System.Drawing.Size(55, 55)
+        Me.BtnNuevo.TabIndex = 2
+        Me.BtnNuevo.Text = "Nuevo"
+        Me.BtnNuevo.Visible = False
+        '
+        'BtnGuardar
+        '
+        Me.BtnGuardar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnGuardar.Appearance.Options.UseFont = True
+        Me.BtnGuardar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.guardar1
+        Me.BtnGuardar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnGuardar.Location = New System.Drawing.Point(3, 1)
+        Me.BtnGuardar.Name = "BtnGuardar"
+        Me.BtnGuardar.Size = New System.Drawing.Size(55, 55)
+        Me.BtnGuardar.TabIndex = 1
+        Me.BtnGuardar.Text = "Guardar"
         '
         'LayoutControlGroup1
         '
@@ -440,57 +496,49 @@ Partial Class XfrmParametros
         Me.LayoutControlItem2.TextToControlDistance = 0
         Me.LayoutControlItem2.TextVisible = False
         '
-        'IMPARAMETROSGENERALESBindingSource
-        '
-        Me.IMPARAMETROSGENERALESBindingSource.DataMember = "IM_PARAMETROS_GENERALES"
-        Me.IMPARAMETROSGENERALESBindingSource.DataSource = Me.DSParametros
-        '
-        'DSParametros
-        '
-        Me.DSParametros.DataSetName = "DSParametros"
-        Me.DSParametros.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'IM_PARAMETROS_GENERALESTableAdapter
         '
         Me.IM_PARAMETROS_GENERALESTableAdapter.ClearBeforeFill = True
         '
-        'BtnSalir
+        'EmptySpaceItem1
         '
-        Me.BtnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnSalir.Appearance.Options.UseFont = True
-        Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
-        Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnSalir.Location = New System.Drawing.Point(64, 1)
-        Me.BtnSalir.Name = "BtnSalir"
-        Me.BtnSalir.Size = New System.Drawing.Size(55, 55)
-        Me.BtnSalir.TabIndex = 4
-        Me.BtnSalir.Text = "Salir"
-        Me.BtnSalir.Visible = False
+        Me.EmptySpaceItem1.AllowHotTrack = False
+        Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(351, 0)
+        Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(67, 24)
+        Me.EmptySpaceItem1.Text = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
-        'BtnNuevo
+        'EmptySpaceItem2
         '
-        Me.BtnNuevo.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnNuevo.Appearance.Options.UseFont = True
-        Me.BtnNuevo.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
-        Me.BtnNuevo.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnNuevo.Location = New System.Drawing.Point(131, 3)
-        Me.BtnNuevo.Name = "BtnNuevo"
-        Me.BtnNuevo.Size = New System.Drawing.Size(55, 55)
-        Me.BtnNuevo.TabIndex = 2
-        Me.BtnNuevo.Text = "Nuevo"
-        Me.BtnNuevo.Visible = False
+        Me.EmptySpaceItem2.AllowHotTrack = False
+        Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(351, 24)
+        Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(67, 24)
+        Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
+        Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
-        'BtnGuardar
+        'EmptySpaceItem3
         '
-        Me.BtnGuardar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnGuardar.Appearance.Options.UseFont = True
-        Me.BtnGuardar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.guardar1
-        Me.BtnGuardar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnGuardar.Location = New System.Drawing.Point(3, 1)
-        Me.BtnGuardar.Name = "BtnGuardar"
-        Me.BtnGuardar.Size = New System.Drawing.Size(55, 55)
-        Me.BtnGuardar.TabIndex = 1
-        Me.BtnGuardar.Text = "Guardar"
+        Me.EmptySpaceItem3.AllowHotTrack = False
+        Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(351, 48)
+        Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(67, 24)
+        Me.EmptySpaceItem3.Text = "EmptySpaceItem3"
+        Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'EmptySpaceItem4
+        '
+        Me.EmptySpaceItem4.AllowHotTrack = False
+        Me.EmptySpaceItem4.CustomizationFormText = "EmptySpaceItem4"
+        Me.EmptySpaceItem4.Location = New System.Drawing.Point(351, 72)
+        Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
+        Me.EmptySpaceItem4.Size = New System.Drawing.Size(67, 24)
+        Me.EmptySpaceItem4.Text = "EmptySpaceItem4"
+        Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
         '
         'XfrmParametros
         '
@@ -505,6 +553,8 @@ Partial Class XfrmParametros
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DataLayoutControl1.ResumeLayout(False)
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMPARAMETROSGENERALESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DSParametros, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MODIFICADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -535,8 +585,10 @@ Partial Class XfrmParametros
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IMPARAMETROSGENERALESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DSParametros, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -575,4 +627,8 @@ Partial Class XfrmParametros
     Friend WithEvents FORMULAS_MUNICIPIO_MINSpinEdit As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FIRMAS_REPETIDAS_PORCENSpinEdit As DevExpress.XtraEditors.TextEdit
     Friend WithEvents BtnSalir As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents EmptySpaceItem1 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents EmptySpaceItem2 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents EmptySpaceItem3 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents EmptySpaceItem4 As DevExpress.XtraLayout.EmptySpaceItem
 End Class

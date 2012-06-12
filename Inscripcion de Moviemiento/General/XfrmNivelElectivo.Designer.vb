@@ -45,6 +45,8 @@ Partial Class XfrmNivelElectivo
         Me.LayoutControlGroup2 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.ItemForCODIGO_NIVEL_ELECTIVO = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForDESCRIPCION = New DevExpress.XtraLayout.LayoutControlItem
+        Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem
+        Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
         Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
         Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
@@ -83,6 +85,8 @@ Partial Class XfrmNivelElectivo
         CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForCODIGO_NIVEL_ELECTIVO, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForDESCRIPCION, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -110,10 +114,10 @@ Partial Class XfrmNivelElectivo
         'GCNivelElectivo
         '
         Me.GCNivelElectivo.DataSource = Me.TANIVELELECTIVOBindingSource
-        Me.GCNivelElectivo.Location = New System.Drawing.Point(12, 194)
+        Me.GCNivelElectivo.Location = New System.Drawing.Point(12, 176)
         Me.GCNivelElectivo.MainView = Me.GridView1
         Me.GCNivelElectivo.Name = "GCNivelElectivo"
-        Me.GCNivelElectivo.Size = New System.Drawing.Size(561, 155)
+        Me.GCNivelElectivo.Size = New System.Drawing.Size(561, 173)
         Me.GCNivelElectivo.TabIndex = 7
         Me.GCNivelElectivo.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -162,7 +166,7 @@ Partial Class XfrmNivelElectivo
         '
         'ButtonEdit1
         '
-        Me.ButtonEdit1.Location = New System.Drawing.Point(63, 170)
+        Me.ButtonEdit1.Location = New System.Drawing.Point(63, 152)
         Me.ButtonEdit1.Name = "ButtonEdit1"
         Me.ButtonEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
         Me.ButtonEdit1.Size = New System.Drawing.Size(510, 20)
@@ -181,8 +185,9 @@ Partial Class XfrmNivelElectivo
         Me.DataLayoutControl1.HiddenItems.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForADICIONADO_POR, Me.ItemForFECHA_ADICION, Me.ItemForMODIFICADO_POR, Me.ItemForFECHA_MODIFICACION})
         Me.DataLayoutControl1.Location = New System.Drawing.Point(12, 78)
         Me.DataLayoutControl1.Name = "DataLayoutControl1"
+        Me.DataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(854, 78, 250, 350)
         Me.DataLayoutControl1.Root = Me.Root
-        Me.DataLayoutControl1.Size = New System.Drawing.Size(561, 88)
+        Me.DataLayoutControl1.Size = New System.Drawing.Size(561, 70)
         Me.DataLayoutControl1.TabIndex = 7
         Me.DataLayoutControl1.Text = "DataLayoutControl1"
         '
@@ -191,7 +196,7 @@ Partial Class XfrmNivelElectivo
         Me.DESCRIPCIONTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMNIVELELECTIVOBindingSource, "DESCRIPCION", True))
         Me.DESCRIPCIONTextEdit.Location = New System.Drawing.Point(115, 36)
         Me.DESCRIPCIONTextEdit.Name = "DESCRIPCIONTextEdit"
-        Me.DESCRIPCIONTextEdit.Size = New System.Drawing.Size(434, 20)
+        Me.DESCRIPCIONTextEdit.Size = New System.Drawing.Size(189, 20)
         Me.DESCRIPCIONTextEdit.StyleController = Me.DataLayoutControl1
         Me.DESCRIPCIONTextEdit.TabIndex = 5
         '
@@ -250,7 +255,7 @@ Partial Class XfrmNivelElectivo
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Name = "CODIGO_NIVEL_ELECTIVOSpinEdit"
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Size = New System.Drawing.Size(434, 20)
+        Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Size = New System.Drawing.Size(50, 20)
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.TabIndex = 4
         '
@@ -306,7 +311,7 @@ Partial Class XfrmNivelElectivo
         Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup2})
         Me.Root.Location = New System.Drawing.Point(0, 0)
         Me.Root.Name = "Root"
-        Me.Root.Size = New System.Drawing.Size(561, 88)
+        Me.Root.Size = New System.Drawing.Size(561, 70)
         Me.Root.Text = "Root"
         Me.Root.TextVisible = False
         '
@@ -315,10 +320,10 @@ Partial Class XfrmNivelElectivo
         Me.LayoutControlGroup2.AllowDrawBackground = False
         Me.LayoutControlGroup2.CustomizationFormText = "autoGeneratedGroup0"
         Me.LayoutControlGroup2.GroupBordersVisible = False
-        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForCODIGO_NIVEL_ELECTIVO, Me.ItemForDESCRIPCION})
+        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForCODIGO_NIVEL_ELECTIVO, Me.ItemForDESCRIPCION, Me.EmptySpaceItem1, Me.EmptySpaceItem2})
         Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "autoGeneratedGroup0"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(541, 68)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(541, 50)
         Me.LayoutControlGroup2.Text = "autoGeneratedGroup0"
         '
         'ItemForCODIGO_NIVEL_ELECTIVO
@@ -327,7 +332,7 @@ Partial Class XfrmNivelElectivo
         Me.ItemForCODIGO_NIVEL_ELECTIVO.CustomizationFormText = "CODIGO_NIVEL_ELECTIVO"
         Me.ItemForCODIGO_NIVEL_ELECTIVO.Location = New System.Drawing.Point(0, 0)
         Me.ItemForCODIGO_NIVEL_ELECTIVO.Name = "ItemForCODIGO_NIVEL_ELECTIVO"
-        Me.ItemForCODIGO_NIVEL_ELECTIVO.Size = New System.Drawing.Size(541, 24)
+        Me.ItemForCODIGO_NIVEL_ELECTIVO.Size = New System.Drawing.Size(157, 24)
         Me.ItemForCODIGO_NIVEL_ELECTIVO.Text = "Código Nivel Electivo"
         Me.ItemForCODIGO_NIVEL_ELECTIVO.TextSize = New System.Drawing.Size(99, 13)
         '
@@ -337,9 +342,29 @@ Partial Class XfrmNivelElectivo
         Me.ItemForDESCRIPCION.CustomizationFormText = "DESCRIPCION"
         Me.ItemForDESCRIPCION.Location = New System.Drawing.Point(0, 24)
         Me.ItemForDESCRIPCION.Name = "ItemForDESCRIPCION"
-        Me.ItemForDESCRIPCION.Size = New System.Drawing.Size(541, 44)
+        Me.ItemForDESCRIPCION.Size = New System.Drawing.Size(296, 26)
         Me.ItemForDESCRIPCION.Text = "Descripción"
         Me.ItemForDESCRIPCION.TextSize = New System.Drawing.Size(99, 13)
+        '
+        'EmptySpaceItem1
+        '
+        Me.EmptySpaceItem1.AllowHotTrack = False
+        Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(157, 0)
+        Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(384, 24)
+        Me.EmptySpaceItem1.Text = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'EmptySpaceItem2
+        '
+        Me.EmptySpaceItem2.AllowHotTrack = False
+        Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(296, 24)
+        Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(245, 26)
+        Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
+        Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
         'PanelControl1
         '
@@ -420,10 +445,10 @@ Partial Class XfrmNivelElectivo
         Me.LayoutControlItem2.Control = Me.DataLayoutControl1
         Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
         Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 66)
-        Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(565, 92)
-        Me.LayoutControlItem2.MinSize = New System.Drawing.Size(565, 92)
+        Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(565, 74)
+        Me.LayoutControlItem2.MinSize = New System.Drawing.Size(565, 74)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(565, 92)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(565, 74)
         Me.LayoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem2.Text = "LayoutControlItem2"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
@@ -434,7 +459,7 @@ Partial Class XfrmNivelElectivo
         '
         Me.LayoutControlItem3.Control = Me.ButtonEdit1
         Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 158)
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 140)
         Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(565, 24)
         Me.LayoutControlItem3.MinSize = New System.Drawing.Size(565, 24)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
@@ -447,11 +472,11 @@ Partial Class XfrmNivelElectivo
         '
         Me.LayoutControlItem4.Control = Me.GCNivelElectivo
         Me.LayoutControlItem4.CustomizationFormText = "LayoutControlItem4"
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 182)
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 164)
         Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(565, 0)
         Me.LayoutControlItem4.MinSize = New System.Drawing.Size(565, 24)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(565, 159)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(565, 177)
         Me.LayoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem4.Text = "LayoutControlItem4"
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
@@ -501,6 +526,8 @@ Partial Class XfrmNivelElectivo
         CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForCODIGO_NIVEL_ELECTIVO, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForDESCRIPCION, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -547,4 +574,6 @@ Partial Class XfrmNivelElectivo
     Friend WithEvents IM_NIVEL_ELECTIVOTableAdapter As Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.IM_NIVEL_ELECTIVOTableAdapter
     Friend WithEvents TANIVELELECTIVOBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents TA_NIVEL_ELECTIVOTableAdapter As Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_NIVEL_ELECTIVOTableAdapter
+    Friend WithEvents EmptySpaceItem1 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents EmptySpaceItem2 As DevExpress.XtraLayout.EmptySpaceItem
 End Class

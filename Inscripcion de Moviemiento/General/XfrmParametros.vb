@@ -57,7 +57,7 @@
         tbl.Columns.Add("Tipo Elecciones", GetType(String))
         'SE AGREGAN LAS FILAS CON LA INFORMACION
         tbl.Rows.Add(1, "Primarias")
-        tbl.Rows.Add(2, "Secundarias")
+        tbl.Rows.Add(2, "Generales")
 
         'SE ENLAZA EL DATATABLE CREADO PARA MOSTRARLO EN EL CONTROL
         With TIPO_ELECCIONESSpinEdit
