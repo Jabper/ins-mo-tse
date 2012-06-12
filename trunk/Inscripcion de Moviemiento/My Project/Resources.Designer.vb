@@ -67,6 +67,20 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property add() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("add", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property agregar() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("agregar", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property candidato() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("candidato", resourceCulture)
@@ -147,6 +161,13 @@ Namespace My.Resources
         Friend ReadOnly Property OpcionesdeAcceso() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("OpcionesdeAcceso", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property opearaciones() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("opearaciones", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

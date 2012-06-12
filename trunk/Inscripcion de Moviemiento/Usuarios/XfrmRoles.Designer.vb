@@ -21,28 +21,26 @@ Partial Class XfrmRoles
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
-        Me.CheckedListBoxControl1 = New DevExpress.XtraEditors.CheckedListBoxControl
-        Me.IMOPCIONESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DTUsers = New Inscripcion_de_Moviemientos.DTUsers
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
-        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
         Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
         Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
         Me.GCDepartamento = New DevExpress.XtraGrid.GridControl
         Me.TAROLESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DTUsers = New Inscripcion_de_Moviemientos.DTUsers
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.colCODIGO_ROL = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colDESCRIPCION = New DevExpress.XtraGrid.Columns.GridColumn
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.DataLayoutControl1 = New DevExpress.XtraDataLayout.DataLayoutControl
-        Me.CODIGO_ROLSpinEdit = New DevExpress.XtraEditors.SpinEdit
-        Me.IMROLESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DESCRIPCIONTextEdit = New DevExpress.XtraEditors.TextEdit
+        Me.IMROLESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ADICIONADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.FECHA_ADICIONDateEdit = New DevExpress.XtraEditors.DateEdit
         Me.MODIFICADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.FECHA_MODIFICACIONDateEdit = New DevExpress.XtraEditors.DateEdit
+        Me.CODIGO_ROLSpinEdit = New DevExpress.XtraEditors.TextEdit
         Me.ItemForADICIONADO_POR = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForFECHA_ADICION = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForMODIFICADO_POR = New DevExpress.XtraLayout.LayoutControlItem
@@ -51,37 +49,37 @@ Partial Class XfrmRoles
         Me.LayoutControlGroup2 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.ItemForCODIGO_ROL = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForDESCRIPCION = New DevExpress.XtraLayout.LayoutControlItem
+        Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem
+        Me.EmptySpaceItem3 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.IMOPCIONESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_ROLESTableAdapter = New Inscripcion_de_Moviemientos.DTUsersTableAdapters.IM_ROLESTableAdapter
         Me.TA_ROLESTableAdapter = New Inscripcion_de_Moviemientos.DTUsersTableAdapters.TA_ROLESTableAdapter
         Me.IM_OPCIONESTableAdapter = New Inscripcion_de_Moviemientos.DTUsersTableAdapters.IM_OPCIONESTableAdapter
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
-        CType(Me.CheckedListBoxControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IMOPCIONESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DTUsers, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         CType(Me.GCDepartamento, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TAROLESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DTUsers, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DataLayoutControl1.SuspendLayout()
-        CType(Me.CODIGO_ROLSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IMROLESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DESCRIPCIONTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMROLESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MODIFICADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_MODIFICACIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_MODIFICACIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CODIGO_ROLSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForADICIONADO_POR, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForFECHA_ADICION, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForMODIFICADO_POR, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -90,17 +88,18 @@ Partial Class XfrmRoles
         CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForCODIGO_ROL, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForDESCRIPCION, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMOPCIONESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
-        Me.LayoutControl1.Controls.Add(Me.CheckedListBoxControl1)
         Me.LayoutControl1.Controls.Add(Me.PanelControl1)
         Me.LayoutControl1.Controls.Add(Me.GCDepartamento)
         Me.LayoutControl1.Controls.Add(Me.DataLayoutControl1)
@@ -113,50 +112,29 @@ Partial Class XfrmRoles
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
-        'CheckedListBoxControl1
-        '
-        Me.CheckedListBoxControl1.DataSource = Me.IMOPCIONESBindingSource
-        Me.CheckedListBoxControl1.DisplayMember = "DESCRIPCION"
-        Me.CheckedListBoxControl1.Location = New System.Drawing.Point(12, 148)
-        Me.CheckedListBoxControl1.Name = "CheckedListBoxControl1"
-        Me.CheckedListBoxControl1.Size = New System.Drawing.Size(451, 92)
-        Me.CheckedListBoxControl1.StyleController = Me.LayoutControl1
-        Me.CheckedListBoxControl1.TabIndex = 9
-        Me.CheckedListBoxControl1.ValueMember = "CODIGO_OPCION"
-        '
-        'IMOPCIONESBindingSource
-        '
-        Me.IMOPCIONESBindingSource.DataMember = "IM_OPCIONES"
-        Me.IMOPCIONESBindingSource.DataSource = Me.DTUsers
-        '
-        'DTUsers
-        '
-        Me.DTUsers.DataSetName = "DTUsers"
-        Me.DTUsers.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'PanelControl1
         '
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PanelControl1.Controls.Add(Me.SimpleButton1)
+        Me.PanelControl1.Controls.Add(Me.BtnSalir)
         Me.PanelControl1.Controls.Add(Me.BtnEliminar)
         Me.PanelControl1.Controls.Add(Me.BtnNuevo)
         Me.PanelControl1.Controls.Add(Me.BtnGuardar)
         Me.PanelControl1.Location = New System.Drawing.Point(12, 12)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(256, 52)
+        Me.PanelControl1.Size = New System.Drawing.Size(256, 63)
         Me.PanelControl1.TabIndex = 6
         '
-        'SimpleButton1
+        'BtnSalir
         '
-        Me.SimpleButton1.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.SimpleButton1.Appearance.Options.UseFont = True
-        Me.SimpleButton1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.cerrarventana
-        Me.SimpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.SimpleButton1.Location = New System.Drawing.Point(183, 2)
-        Me.SimpleButton1.Name = "SimpleButton1"
-        Me.SimpleButton1.Size = New System.Drawing.Size(55, 55)
-        Me.SimpleButton1.TabIndex = 3
-        Me.SimpleButton1.Text = "Salir"
+        Me.BtnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnSalir.Appearance.Options.UseFont = True
+        Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
+        Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnSalir.Location = New System.Drawing.Point(181, 2)
+        Me.BtnSalir.Name = "BtnSalir"
+        Me.BtnSalir.Size = New System.Drawing.Size(55, 55)
+        Me.BtnSalir.TabIndex = 6
+        Me.BtnSalir.Text = "Salir"
         '
         'BtnEliminar
         '
@@ -197,10 +175,10 @@ Partial Class XfrmRoles
         'GCDepartamento
         '
         Me.GCDepartamento.DataSource = Me.TAROLESBindingSource
-        Me.GCDepartamento.Location = New System.Drawing.Point(12, 244)
+        Me.GCDepartamento.Location = New System.Drawing.Point(12, 159)
         Me.GCDepartamento.MainView = Me.GridView1
         Me.GCDepartamento.Name = "GCDepartamento"
-        Me.GCDepartamento.Size = New System.Drawing.Size(451, 80)
+        Me.GCDepartamento.Size = New System.Drawing.Size(451, 165)
         Me.GCDepartamento.TabIndex = 8
         Me.GCDepartamento.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -208,6 +186,11 @@ Partial Class XfrmRoles
         '
         Me.TAROLESBindingSource.DataMember = "TA_ROLES"
         Me.TAROLESBindingSource.DataSource = Me.DTUsers
+        '
+        'DTUsers
+        '
+        Me.DTUsers.DataSetName = "DTUsers"
+        Me.DTUsers.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GridView1
         '
@@ -244,45 +227,35 @@ Partial Class XfrmRoles
         '
         'DataLayoutControl1
         '
-        Me.DataLayoutControl1.Controls.Add(Me.CODIGO_ROLSpinEdit)
         Me.DataLayoutControl1.Controls.Add(Me.DESCRIPCIONTextEdit)
         Me.DataLayoutControl1.Controls.Add(Me.ADICIONADO_PORSpinEdit)
         Me.DataLayoutControl1.Controls.Add(Me.FECHA_ADICIONDateEdit)
         Me.DataLayoutControl1.Controls.Add(Me.MODIFICADO_PORSpinEdit)
         Me.DataLayoutControl1.Controls.Add(Me.FECHA_MODIFICACIONDateEdit)
+        Me.DataLayoutControl1.Controls.Add(Me.CODIGO_ROLSpinEdit)
         Me.DataLayoutControl1.DataSource = Me.IMROLESBindingSource
         Me.DataLayoutControl1.HiddenItems.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForADICIONADO_POR, Me.ItemForFECHA_ADICION, Me.ItemForMODIFICADO_POR, Me.ItemForFECHA_MODIFICACION})
-        Me.DataLayoutControl1.Location = New System.Drawing.Point(12, 68)
+        Me.DataLayoutControl1.Location = New System.Drawing.Point(12, 79)
         Me.DataLayoutControl1.Name = "DataLayoutControl1"
+        Me.DataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(75, 350, 250, 350)
         Me.DataLayoutControl1.Root = Me.Root
         Me.DataLayoutControl1.Size = New System.Drawing.Size(451, 76)
         Me.DataLayoutControl1.TabIndex = 4
         Me.DataLayoutControl1.Text = "DataLayoutControl1"
-        '
-        'CODIGO_ROLSpinEdit
-        '
-        Me.CODIGO_ROLSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMROLESBindingSource, "CODIGO_ROL", True))
-        Me.CODIGO_ROLSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CODIGO_ROLSpinEdit.Location = New System.Drawing.Point(70, 12)
-        Me.CODIGO_ROLSpinEdit.Name = "CODIGO_ROLSpinEdit"
-        Me.CODIGO_ROLSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
-        Me.CODIGO_ROLSpinEdit.Size = New System.Drawing.Size(369, 20)
-        Me.CODIGO_ROLSpinEdit.StyleController = Me.DataLayoutControl1
-        Me.CODIGO_ROLSpinEdit.TabIndex = 4
-        '
-        'IMROLESBindingSource
-        '
-        Me.IMROLESBindingSource.DataMember = "IM_ROLES"
-        Me.IMROLESBindingSource.DataSource = Me.DTUsers
         '
         'DESCRIPCIONTextEdit
         '
         Me.DESCRIPCIONTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMROLESBindingSource, "DESCRIPCION", True))
         Me.DESCRIPCIONTextEdit.Location = New System.Drawing.Point(70, 36)
         Me.DESCRIPCIONTextEdit.Name = "DESCRIPCIONTextEdit"
-        Me.DESCRIPCIONTextEdit.Size = New System.Drawing.Size(369, 20)
+        Me.DESCRIPCIONTextEdit.Size = New System.Drawing.Size(220, 20)
         Me.DESCRIPCIONTextEdit.StyleController = Me.DataLayoutControl1
         Me.DESCRIPCIONTextEdit.TabIndex = 5
+        '
+        'IMROLESBindingSource
+        '
+        Me.IMROLESBindingSource.DataMember = "IM_ROLES"
+        Me.IMROLESBindingSource.DataSource = Me.DTUsers
         '
         'ADICIONADO_PORSpinEdit
         '
@@ -329,6 +302,18 @@ Partial Class XfrmRoles
         Me.FECHA_MODIFICACIONDateEdit.Size = New System.Drawing.Size(0, 20)
         Me.FECHA_MODIFICACIONDateEdit.StyleController = Me.DataLayoutControl1
         Me.FECHA_MODIFICACIONDateEdit.TabIndex = 9
+        '
+        'CODIGO_ROLSpinEdit
+        '
+        Me.CODIGO_ROLSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMROLESBindingSource, "CODIGO_ROL", True))
+        Me.CODIGO_ROLSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.CODIGO_ROLSpinEdit.Location = New System.Drawing.Point(70, 12)
+        Me.CODIGO_ROLSpinEdit.Name = "CODIGO_ROLSpinEdit"
+        Me.CODIGO_ROLSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
+        Me.CODIGO_ROLSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.CODIGO_ROLSpinEdit.Size = New System.Drawing.Size(50, 20)
+        Me.CODIGO_ROLSpinEdit.StyleController = Me.DataLayoutControl1
+        Me.CODIGO_ROLSpinEdit.TabIndex = 4
         '
         'ItemForADICIONADO_POR
         '
@@ -391,7 +376,7 @@ Partial Class XfrmRoles
         Me.LayoutControlGroup2.AllowDrawBackground = False
         Me.LayoutControlGroup2.CustomizationFormText = "autoGeneratedGroup0"
         Me.LayoutControlGroup2.GroupBordersVisible = False
-        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForCODIGO_ROL, Me.ItemForDESCRIPCION})
+        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForCODIGO_ROL, Me.ItemForDESCRIPCION, Me.EmptySpaceItem1, Me.EmptySpaceItem3})
         Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "autoGeneratedGroup0"
         Me.LayoutControlGroup2.Size = New System.Drawing.Size(431, 56)
@@ -403,7 +388,7 @@ Partial Class XfrmRoles
         Me.ItemForCODIGO_ROL.CustomizationFormText = "CODIGO_ROL"
         Me.ItemForCODIGO_ROL.Location = New System.Drawing.Point(0, 0)
         Me.ItemForCODIGO_ROL.Name = "ItemForCODIGO_ROL"
-        Me.ItemForCODIGO_ROL.Size = New System.Drawing.Size(431, 24)
+        Me.ItemForCODIGO_ROL.Size = New System.Drawing.Size(112, 24)
         Me.ItemForCODIGO_ROL.Text = "Código Rol"
         Me.ItemForCODIGO_ROL.TextSize = New System.Drawing.Size(54, 13)
         '
@@ -413,16 +398,36 @@ Partial Class XfrmRoles
         Me.ItemForDESCRIPCION.CustomizationFormText = "DESCRIPCION"
         Me.ItemForDESCRIPCION.Location = New System.Drawing.Point(0, 24)
         Me.ItemForDESCRIPCION.Name = "ItemForDESCRIPCION"
-        Me.ItemForDESCRIPCION.Size = New System.Drawing.Size(431, 32)
+        Me.ItemForDESCRIPCION.Size = New System.Drawing.Size(282, 32)
         Me.ItemForDESCRIPCION.Text = "Descripción"
         Me.ItemForDESCRIPCION.TextSize = New System.Drawing.Size(54, 13)
+        '
+        'EmptySpaceItem1
+        '
+        Me.EmptySpaceItem1.AllowHotTrack = False
+        Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(112, 0)
+        Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(319, 24)
+        Me.EmptySpaceItem1.Text = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'EmptySpaceItem3
+        '
+        Me.EmptySpaceItem3.AllowHotTrack = False
+        Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(282, 24)
+        Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(149, 32)
+        Me.EmptySpaceItem3.Text = "EmptySpaceItem3"
+        Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlGroup1
         '
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.EmptySpaceItem2, Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.EmptySpaceItem2, Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(475, 336)
@@ -434,10 +439,10 @@ Partial Class XfrmRoles
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
         Me.EmptySpaceItem2.Location = New System.Drawing.Point(260, 0)
-        Me.EmptySpaceItem2.MaxSize = New System.Drawing.Size(195, 56)
-        Me.EmptySpaceItem2.MinSize = New System.Drawing.Size(195, 56)
+        Me.EmptySpaceItem2.MaxSize = New System.Drawing.Size(195, 67)
+        Me.EmptySpaceItem2.MinSize = New System.Drawing.Size(195, 67)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(195, 56)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(195, 67)
         Me.EmptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
@@ -446,7 +451,7 @@ Partial Class XfrmRoles
         '
         Me.LayoutControlItem1.Control = Me.DataLayoutControl1
         Me.LayoutControlItem1.CustomizationFormText = "LayoutControlItem1"
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 56)
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 67)
         Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(455, 80)
         Me.LayoutControlItem1.MinSize = New System.Drawing.Size(455, 80)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
@@ -461,11 +466,11 @@ Partial Class XfrmRoles
         '
         Me.LayoutControlItem2.Control = Me.GCDepartamento
         Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 232)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 147)
         Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(455, 0)
         Me.LayoutControlItem2.MinSize = New System.Drawing.Size(455, 24)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(455, 84)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(455, 169)
         Me.LayoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem2.Text = "LayoutControlItem2"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
@@ -478,26 +483,16 @@ Partial Class XfrmRoles
         Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
         Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(260, 56)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(260, 67)
         Me.LayoutControlItem3.Text = "LayoutControlItem3"
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextToControlDistance = 0
         Me.LayoutControlItem3.TextVisible = False
         '
-        'LayoutControlItem4
+        'IMOPCIONESBindingSource
         '
-        Me.LayoutControlItem4.Control = Me.CheckedListBoxControl1
-        Me.LayoutControlItem4.CustomizationFormText = "LayoutControlItem4"
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 136)
-        Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(455, 96)
-        Me.LayoutControlItem4.MinSize = New System.Drawing.Size(455, 96)
-        Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(455, 96)
-        Me.LayoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.LayoutControlItem4.Text = "LayoutControlItem4"
-        Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem4.TextToControlDistance = 0
-        Me.LayoutControlItem4.TextVisible = False
+        Me.IMOPCIONESBindingSource.DataMember = "IM_OPCIONES"
+        Me.IMOPCIONESBindingSource.DataSource = Me.DTUsers
         '
         'IM_ROLESTableAdapter
         '
@@ -521,26 +516,24 @@ Partial Class XfrmRoles
         Me.Text = "Roles"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
-        CType(Me.CheckedListBoxControl1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IMOPCIONESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DTUsers, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         CType(Me.GCDepartamento, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TAROLESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DTUsers, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DataLayoutControl1.ResumeLayout(False)
-        CType(Me.CODIGO_ROLSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IMROLESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DESCRIPCIONTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMROLESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MODIFICADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_MODIFICACIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_MODIFICACIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CODIGO_ROLSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForADICIONADO_POR, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForFECHA_ADICION, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForMODIFICADO_POR, System.ComponentModel.ISupportInitialize).EndInit()
@@ -549,12 +542,14 @@ Partial Class XfrmRoles
         CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForCODIGO_ROL, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForDESCRIPCION, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMOPCIONESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -567,7 +562,6 @@ Partial Class XfrmRoles
     Friend WithEvents DTUsers As Inscripcion_de_Moviemientos.DTUsers
     Friend WithEvents IMROLESBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents IM_ROLESTableAdapter As Inscripcion_de_Moviemientos.DTUsersTableAdapters.IM_ROLESTableAdapter
-    Friend WithEvents CODIGO_ROLSpinEdit As DevExpress.XtraEditors.SpinEdit
     Friend WithEvents DESCRIPCIONTextEdit As DevExpress.XtraEditors.TextEdit
     Friend WithEvents ADICIONADO_PORSpinEdit As DevExpress.XtraEditors.SpinEdit
     Friend WithEvents FECHA_ADICIONDateEdit As DevExpress.XtraEditors.DateEdit
@@ -593,9 +587,10 @@ Partial Class XfrmRoles
     Friend WithEvents BtnNuevo As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnGuardar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents CheckedListBoxControl1 As DevExpress.XtraEditors.CheckedListBoxControl
-    Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents IMOPCIONESBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents IM_OPCIONESTableAdapter As Inscripcion_de_Moviemientos.DTUsersTableAdapters.IM_OPCIONESTableAdapter
+    Friend WithEvents CODIGO_ROLSpinEdit As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents EmptySpaceItem1 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents EmptySpaceItem3 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents BtnSalir As DevExpress.XtraEditors.SimpleButton
 End Class

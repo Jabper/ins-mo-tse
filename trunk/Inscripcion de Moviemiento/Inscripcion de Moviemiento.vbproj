@@ -118,6 +118,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Clases\Configuracion.vb" />
+    <Compile Include="Clases\COracle.vb" />
     <Compile Include="Clases\Data.vb" />
     <Compile Include="Clases\DxControls.vb" />
     <Compile Include="Clases\Mensajes.vb" />
@@ -249,6 +250,12 @@
     <Compile Include="Usuarios\XfrmOperacionesPorRol.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Usuarios\XfrmOperacionesPorUsuario.Designer.vb">
+      <DependentUpon>XfrmOperacionesPorUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\XfrmOperacionesPorUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Usuarios\XfrmRoles.Designer.vb">
       <DependentUpon>XfrmRoles.vb</DependentUpon>
     </Compile>
@@ -330,6 +337,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\XfrmOperacionesPorRol.resx">
       <DependentUpon>XfrmOperacionesPorRol.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\XfrmOperacionesPorUsuario.resx">
+      <DependentUpon>XfrmOperacionesPorUsuario.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\XfrmRoles.resx">
@@ -512,6 +523,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\im-aim.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\opearaciones.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

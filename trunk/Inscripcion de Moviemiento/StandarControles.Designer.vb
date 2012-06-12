@@ -25,15 +25,15 @@ Partial Class StandarControles
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.BarAndDockingController1 = New DevExpress.XtraBars.BarAndDockingController(Me.components)
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
-        Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
-        Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
-        Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
-        Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
+        Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
+        Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,6 +65,7 @@ Partial Class StandarControles
         Me.GridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridView1.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridView1.OptionsBehavior.Editable = False
+        Me.GridView1.OptionsView.ColumnAutoWidth = False
         Me.GridView1.OptionsView.ShowDetailButtons = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
         '
@@ -82,6 +83,19 @@ Partial Class StandarControles
         Me.PanelControl1.Size = New System.Drawing.Size(225, 57)
         Me.PanelControl1.TabIndex = 8
         '
+        'LayoutControl1
+        '
+        Me.LayoutControl1.Controls.Add(Me.BtnEliminar)
+        Me.LayoutControl1.Controls.Add(Me.SimpleButton1)
+        Me.LayoutControl1.Controls.Add(Me.BtnGuardar)
+        Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControl1.Name = "LayoutControl1"
+        Me.LayoutControl1.Root = Me.LayoutControlGroup1
+        Me.LayoutControl1.Size = New System.Drawing.Size(225, 57)
+        Me.LayoutControl1.TabIndex = 0
+        Me.LayoutControl1.Text = "LayoutControl1"
+        '
         'BtnEliminar
         '
         Me.BtnEliminar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
@@ -96,17 +110,18 @@ Partial Class StandarControles
         Me.BtnEliminar.TabIndex = 2
         Me.BtnEliminar.Text = "Eliminar"
         '
-        'BtnNuevo
+        'SimpleButton1
         '
-        Me.BtnNuevo.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnNuevo.Appearance.Options.UseFont = True
-        Me.BtnNuevo.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
-        Me.BtnNuevo.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnNuevo.Location = New System.Drawing.Point(176, 12)
-        Me.BtnNuevo.Name = "BtnNuevo"
-        Me.BtnNuevo.Size = New System.Drawing.Size(77, 53)
-        Me.BtnNuevo.TabIndex = 0
-        Me.BtnNuevo.Text = "Nuevo"
+        Me.SimpleButton1.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.SimpleButton1.Appearance.Options.UseFont = True
+        Me.SimpleButton1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
+        Me.SimpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.SimpleButton1.Location = New System.Drawing.Point(2, 2)
+        Me.SimpleButton1.Name = "SimpleButton1"
+        Me.SimpleButton1.Size = New System.Drawing.Size(77, 53)
+        Me.SimpleButton1.StyleController = Me.LayoutControl1
+        Me.SimpleButton1.TabIndex = 9
+        Me.SimpleButton1.Text = "Nuevo"
         '
         'BtnGuardar
         '
@@ -121,19 +136,6 @@ Partial Class StandarControles
         Me.BtnGuardar.TabIndex = 1
         Me.BtnGuardar.Text = "Guardar"
         '
-        'LayoutControl1
-        '
-        Me.LayoutControl1.Controls.Add(Me.BtnEliminar)
-        Me.LayoutControl1.Controls.Add(Me.SimpleButton1)
-        Me.LayoutControl1.Controls.Add(Me.BtnGuardar)
-        Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControl1.Name = "LayoutControl1"
-        Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(225, 57)
-        Me.LayoutControl1.TabIndex = 0
-        Me.LayoutControl1.Text = "LayoutControl1"
-        '
         'LayoutControlGroup1
         '
         Me.LayoutControlGroup1.CustomizationFormText = "LayoutControlGroup1"
@@ -146,19 +148,6 @@ Partial Class StandarControles
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(263, 57)
         Me.LayoutControlGroup1.Text = "LayoutControlGroup1"
         Me.LayoutControlGroup1.TextVisible = False
-        '
-        'SimpleButton1
-        '
-        Me.SimpleButton1.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.SimpleButton1.Appearance.Options.UseFont = True
-        Me.SimpleButton1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
-        Me.SimpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.SimpleButton1.Location = New System.Drawing.Point(2, 2)
-        Me.SimpleButton1.Name = "SimpleButton1"
-        Me.SimpleButton1.Size = New System.Drawing.Size(77, 53)
-        Me.SimpleButton1.StyleController = Me.LayoutControl1
-        Me.SimpleButton1.TabIndex = 9
-        Me.SimpleButton1.Text = "Nuevo"
         '
         'LayoutControlItem1
         '
@@ -195,6 +184,18 @@ Partial Class StandarControles
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextToControlDistance = 0
         Me.LayoutControlItem3.TextVisible = False
+        '
+        'BtnNuevo
+        '
+        Me.BtnNuevo.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnNuevo.Appearance.Options.UseFont = True
+        Me.BtnNuevo.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
+        Me.BtnNuevo.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnNuevo.Location = New System.Drawing.Point(176, 12)
+        Me.BtnNuevo.Name = "BtnNuevo"
+        Me.BtnNuevo.Size = New System.Drawing.Size(77, 53)
+        Me.BtnNuevo.TabIndex = 0
+        Me.BtnNuevo.Text = "Nuevo"
         '
         'StandarControles
         '
