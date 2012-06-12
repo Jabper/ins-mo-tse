@@ -501,7 +501,7 @@ Partial Public Class DSDeptoMuni
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddIM_DEPARTAMENTOSRow(ByVal CODIGO_DEPARTAMENTO As Decimal, ByVal DESCRIPCION As String, ByVal CANTIDAD_DIPUTADOS As Decimal, ByVal ADICIONADO_POR As Decimal, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As Decimal, ByVal FECHA_MODIFICACION As Date) As IM_DEPARTAMENTOSRow
+        Public Overloads Function AddIM_DEPARTAMENTOSRow(ByVal CODIGO_DEPARTAMENTO As Decimal, ByVal DESCRIPCION As String, ByVal CANTIDAD_DIPUTADOS As Decimal, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Date) As IM_DEPARTAMENTOSRow
             Dim rowIM_DEPARTAMENTOSRow As IM_DEPARTAMENTOSRow = CType(Me.NewRow,IM_DEPARTAMENTOSRow)
             Dim columnValuesArray() As Object = New Object() {CODIGO_DEPARTAMENTO, DESCRIPCION, CANTIDAD_DIPUTADOS, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION}
             rowIM_DEPARTAMENTOSRow.ItemArray = columnValuesArray
@@ -545,11 +545,11 @@ Partial Public Class DSDeptoMuni
             MyBase.Columns.Add(Me.columnDESCRIPCION)
             Me.columnCANTIDAD_DIPUTADOS = New Global.System.Data.DataColumn("CANTIDAD_DIPUTADOS", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCANTIDAD_DIPUTADOS)
-            Me.columnADICIONADO_POR = New Global.System.Data.DataColumn("ADICIONADO_POR", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnADICIONADO_POR = New Global.System.Data.DataColumn("ADICIONADO_POR", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnADICIONADO_POR)
             Me.columnFECHA_ADICION = New Global.System.Data.DataColumn("FECHA_ADICION", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFECHA_ADICION)
-            Me.columnMODIFICADO_POR = New Global.System.Data.DataColumn("MODIFICADO_POR", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnMODIFICADO_POR = New Global.System.Data.DataColumn("MODIFICADO_POR", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMODIFICADO_POR)
             Me.columnFECHA_MODIFICACION = New Global.System.Data.DataColumn("FECHA_MODIFICACION", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFECHA_MODIFICACION)
@@ -559,6 +559,8 @@ Partial Public Class DSDeptoMuni
             Me.columnDESCRIPCION.AllowDBNull = false
             Me.columnDESCRIPCION.MaxLength = 100
             Me.columnCANTIDAD_DIPUTADOS.AllowDBNull = false
+            Me.columnADICIONADO_POR.MaxLength = 10
+            Me.columnMODIFICADO_POR.MaxLength = 10
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -821,7 +823,7 @@ Partial Public Class DSDeptoMuni
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddIM_MUNICIPIOSRow(ByVal CODIGO_MUNICIPIO As Decimal, ByVal parentIM_DEPARTAMENTOSRowByCODIGO_DEPARTAMENTO_FK As IM_DEPARTAMENTOSRow, ByVal CANTIDAD_REGIDORES As Decimal, ByVal DESCRIPCION As String, ByVal ADICIONADO_POR As Decimal, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As Decimal, ByVal FECHA_MODIFICACION As Date) As IM_MUNICIPIOSRow
+        Public Overloads Function AddIM_MUNICIPIOSRow(ByVal CODIGO_MUNICIPIO As Decimal, ByVal parentIM_DEPARTAMENTOSRowByCODIGO_DEPARTAMENTO_FK As IM_DEPARTAMENTOSRow, ByVal CANTIDAD_REGIDORES As Decimal, ByVal DESCRIPCION As String, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Date) As IM_MUNICIPIOSRow
             Dim rowIM_MUNICIPIOSRow As IM_MUNICIPIOSRow = CType(Me.NewRow,IM_MUNICIPIOSRow)
             Dim columnValuesArray() As Object = New Object() {CODIGO_MUNICIPIO, Nothing, CANTIDAD_REGIDORES, DESCRIPCION, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION}
             If (Not (parentIM_DEPARTAMENTOSRowByCODIGO_DEPARTAMENTO_FK) Is Nothing) Then
@@ -871,11 +873,11 @@ Partial Public Class DSDeptoMuni
             MyBase.Columns.Add(Me.columnCANTIDAD_REGIDORES)
             Me.columnDESCRIPCION = New Global.System.Data.DataColumn("DESCRIPCION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDESCRIPCION)
-            Me.columnADICIONADO_POR = New Global.System.Data.DataColumn("ADICIONADO_POR", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnADICIONADO_POR = New Global.System.Data.DataColumn("ADICIONADO_POR", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnADICIONADO_POR)
             Me.columnFECHA_ADICION = New Global.System.Data.DataColumn("FECHA_ADICION", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFECHA_ADICION)
-            Me.columnMODIFICADO_POR = New Global.System.Data.DataColumn("MODIFICADO_POR", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnMODIFICADO_POR = New Global.System.Data.DataColumn("MODIFICADO_POR", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMODIFICADO_POR)
             Me.columnFECHA_MODIFICACION = New Global.System.Data.DataColumn("FECHA_MODIFICACION", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFECHA_MODIFICACION)
@@ -885,6 +887,8 @@ Partial Public Class DSDeptoMuni
             Me.columnCANTIDAD_REGIDORES.AllowDBNull = false
             Me.columnDESCRIPCION.AllowDBNull = false
             Me.columnDESCRIPCION.MaxLength = 100
+            Me.columnADICIONADO_POR.MaxLength = 10
+            Me.columnMODIFICADO_POR.MaxLength = 10
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1603,10 +1607,10 @@ Partial Public Class DSDeptoMuni
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property ADICIONADO_POR() As Decimal
+        Public Property ADICIONADO_POR() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableIM_DEPARTAMENTOS.ADICIONADO_PORColumn),Decimal)
+                    Return CType(Me(Me.tableIM_DEPARTAMENTOS.ADICIONADO_PORColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'ADICIONADO_POR' in table 'IM_DEPARTAMENTOS' is DBNull.", e)
                 End Try
@@ -1631,10 +1635,10 @@ Partial Public Class DSDeptoMuni
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property MODIFICADO_POR() As Decimal
+        Public Property MODIFICADO_POR() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableIM_DEPARTAMENTOS.MODIFICADO_PORColumn),Decimal)
+                    Return CType(Me(Me.tableIM_DEPARTAMENTOS.MODIFICADO_PORColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'MODIFICADO_POR' in table 'IM_DEPARTAMENTOS' is DBNull.", e)
                 End Try
@@ -1764,10 +1768,10 @@ Partial Public Class DSDeptoMuni
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property ADICIONADO_POR() As Decimal
+        Public Property ADICIONADO_POR() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableIM_MUNICIPIOS.ADICIONADO_PORColumn),Decimal)
+                    Return CType(Me(Me.tableIM_MUNICIPIOS.ADICIONADO_PORColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'ADICIONADO_POR' in table 'IM_MUNICIPIOS' is DBNull.", e)
                 End Try
@@ -1792,10 +1796,10 @@ Partial Public Class DSDeptoMuni
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property MODIFICADO_POR() As Decimal
+        Public Property MODIFICADO_POR() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableIM_MUNICIPIOS.MODIFICADO_PORColumn),Decimal)
+                    Return CType(Me(Me.tableIM_MUNICIPIOS.MODIFICADO_PORColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'MODIFICADO_POR' in table 'IM_MUNICIPIOS' is DBNull.", e)
                 End Try

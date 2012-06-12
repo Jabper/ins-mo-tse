@@ -1,4 +1,5 @@
-﻿Imports System.IO
+﻿'MANEJA METODOS DE LOS CONTROLES EN LOS FORMULARIOS
+Imports System.IO
 Imports DevExpress.XtraEditors
 
 Public Class DxControls
@@ -16,4 +17,13 @@ Public Class DxControls
         End If
     End Sub
 
+    'Public Shared Sub LimpiarChekedListBox(ByVal CLB As CheckedListBox)
+    '    Dim i As Integer = 0
+    '    Do While Not CLB.getiteGetItem(i) Is Nothing
+
+    '        If CLB.GetItemCheckState(i) = CheckState.Unchecked Then
+    '            MsgBox(Me.CheckedListBoxControl1.GetItemValue(i).ToString)
+    '        End If
+    '    Loop
+    'End Sub
 End Class

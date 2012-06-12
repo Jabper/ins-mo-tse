@@ -1,4 +1,5 @@
-﻿Public Class VControles
+﻿'MANEJA METODOS Y PROCEDIMIENTOS DE LOS CONTROLES NORMALES DEL SISTEMA
+Public Class VControles
 
     Public Shared Sub solonumeros(ByVal e As System.Windows.Forms.KeyPressEventArgs)
         If Char.IsNumber(e.KeyChar) Then
@@ -21,5 +22,5 @@
 
         Return False
     End Function
-    
+
 End Class

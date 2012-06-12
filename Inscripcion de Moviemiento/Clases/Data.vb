@@ -1,4 +1,5 @@
-﻿Imports System.Drawing.Imaging
+﻿'CONTIENE PROCEDIMIENTOS Y FUNCIONES QUE MANEJAN LA OBTENCION DE INFORMACION Y CONVERSION DE DATOS LOS DATOS DEL SISTEMA
+Imports System.Drawing.Imaging
 Imports System.IO
 Public Class Data
 

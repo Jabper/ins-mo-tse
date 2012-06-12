@@ -22,11 +22,9 @@ Partial Class XfrmDepartamentos
         Me.components = New System.ComponentModel.Container
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
         Me.DataLayoutControl2 = New DevExpress.XtraDataLayout.DataLayoutControl
-        Me.CODIGO_DEPARTAMENTOSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.IMDEPARTAMENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DSDeptoMuni = New Inscripcion_de_Moviemientos.DSDeptoMuni
         Me.DESCRIPCIONTextEdit = New DevExpress.XtraEditors.TextEdit
-        Me.CANTIDAD_DIPUTADOSSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.ADICIONADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.FECHA_ADICIONDateEdit = New DevExpress.XtraEditors.DateEdit
         Me.MODIFICADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
@@ -62,15 +60,15 @@ Partial Class XfrmDepartamentos
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
         Me.TA_DEPARTAMENTOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_DEPARTAMENTOSTableAdapter
         Me.IM_DEPARTAMENTOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.IM_DEPARTAMENTOSTableAdapter
+        Me.CANTIDAD_DIPUTADOSSpinEdit = New DevExpress.XtraEditors.TextEdit
+        Me.CODIGO_DEPARTAMENTOSpinEdit = New DevExpress.XtraEditors.TextEdit
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.DataLayoutControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DataLayoutControl2.SuspendLayout()
-        CType(Me.CODIGO_DEPARTAMENTOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMDEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DESCRIPCIONTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CANTIDAD_DIPUTADOSSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -102,6 +100,8 @@ Partial Class XfrmDepartamentos
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CANTIDAD_DIPUTADOSSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CODIGO_DEPARTAMENTOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -120,13 +120,13 @@ Partial Class XfrmDepartamentos
         '
         'DataLayoutControl2
         '
-        Me.DataLayoutControl2.Controls.Add(Me.CODIGO_DEPARTAMENTOSpinEdit)
         Me.DataLayoutControl2.Controls.Add(Me.DESCRIPCIONTextEdit)
-        Me.DataLayoutControl2.Controls.Add(Me.CANTIDAD_DIPUTADOSSpinEdit)
         Me.DataLayoutControl2.Controls.Add(Me.ADICIONADO_PORSpinEdit)
         Me.DataLayoutControl2.Controls.Add(Me.FECHA_ADICIONDateEdit)
         Me.DataLayoutControl2.Controls.Add(Me.MODIFICADO_PORSpinEdit)
         Me.DataLayoutControl2.Controls.Add(Me.FECHA_MODIFICACIONDateEdit)
+        Me.DataLayoutControl2.Controls.Add(Me.CANTIDAD_DIPUTADOSSpinEdit)
+        Me.DataLayoutControl2.Controls.Add(Me.CODIGO_DEPARTAMENTOSpinEdit)
         Me.DataLayoutControl2.DataSource = Me.IMDEPARTAMENTOSBindingSource
         Me.DataLayoutControl2.HiddenItems.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForADICIONADO_POR, Me.ItemForFECHA_ADICION, Me.ItemForMODIFICADO_POR, Me.ItemForFECHA_MODIFICACION})
         Me.DataLayoutControl2.Location = New System.Drawing.Point(12, 80)
@@ -135,17 +135,6 @@ Partial Class XfrmDepartamentos
         Me.DataLayoutControl2.Size = New System.Drawing.Size(546, 99)
         Me.DataLayoutControl2.TabIndex = 6
         Me.DataLayoutControl2.Text = "DataLayoutControl2"
-        '
-        'CODIGO_DEPARTAMENTOSpinEdit
-        '
-        Me.CODIGO_DEPARTAMENTOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMDEPARTAMENTOSBindingSource, "CODIGO_DEPARTAMENTO", True))
-        Me.CODIGO_DEPARTAMENTOSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CODIGO_DEPARTAMENTOSpinEdit.Location = New System.Drawing.Point(144, 12)
-        Me.CODIGO_DEPARTAMENTOSpinEdit.Name = "CODIGO_DEPARTAMENTOSpinEdit"
-        Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
-        Me.CODIGO_DEPARTAMENTOSpinEdit.Size = New System.Drawing.Size(390, 20)
-        Me.CODIGO_DEPARTAMENTOSpinEdit.StyleController = Me.DataLayoutControl2
-        Me.CODIGO_DEPARTAMENTOSpinEdit.TabIndex = 4
         '
         'IMDEPARTAMENTOSBindingSource
         '
@@ -165,17 +154,6 @@ Partial Class XfrmDepartamentos
         Me.DESCRIPCIONTextEdit.Size = New System.Drawing.Size(390, 20)
         Me.DESCRIPCIONTextEdit.StyleController = Me.DataLayoutControl2
         Me.DESCRIPCIONTextEdit.TabIndex = 5
-        '
-        'CANTIDAD_DIPUTADOSSpinEdit
-        '
-        Me.CANTIDAD_DIPUTADOSSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMDEPARTAMENTOSBindingSource, "CANTIDAD_DIPUTADOS", True))
-        Me.CANTIDAD_DIPUTADOSSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CANTIDAD_DIPUTADOSSpinEdit.Location = New System.Drawing.Point(144, 60)
-        Me.CANTIDAD_DIPUTADOSSpinEdit.Name = "CANTIDAD_DIPUTADOSSpinEdit"
-        Me.CANTIDAD_DIPUTADOSSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
-        Me.CANTIDAD_DIPUTADOSSpinEdit.Size = New System.Drawing.Size(390, 20)
-        Me.CANTIDAD_DIPUTADOSSpinEdit.StyleController = Me.DataLayoutControl2
-        Me.CANTIDAD_DIPUTADOSSpinEdit.TabIndex = 6
         '
         'ADICIONADO_PORSpinEdit
         '
@@ -546,6 +524,32 @@ Partial Class XfrmDepartamentos
         '
         Me.IM_DEPARTAMENTOSTableAdapter.ClearBeforeFill = True
         '
+        'CANTIDAD_DIPUTADOSSpinEdit
+        '
+        Me.CANTIDAD_DIPUTADOSSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMDEPARTAMENTOSBindingSource, "CANTIDAD_DIPUTADOS", True))
+        Me.CANTIDAD_DIPUTADOSSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.CANTIDAD_DIPUTADOSSpinEdit.Location = New System.Drawing.Point(144, 60)
+        Me.CANTIDAD_DIPUTADOSSpinEdit.Name = "CANTIDAD_DIPUTADOSSpinEdit"
+        Me.CANTIDAD_DIPUTADOSSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
+        Me.CANTIDAD_DIPUTADOSSpinEdit.Properties.Mask.EditMask = "00"
+        Me.CANTIDAD_DIPUTADOSSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.CANTIDAD_DIPUTADOSSpinEdit.Size = New System.Drawing.Size(390, 20)
+        Me.CANTIDAD_DIPUTADOSSpinEdit.StyleController = Me.DataLayoutControl2
+        Me.CANTIDAD_DIPUTADOSSpinEdit.TabIndex = 6
+        '
+        'CODIGO_DEPARTAMENTOSpinEdit
+        '
+        Me.CODIGO_DEPARTAMENTOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMDEPARTAMENTOSBindingSource, "CODIGO_DEPARTAMENTO", True))
+        Me.CODIGO_DEPARTAMENTOSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.CODIGO_DEPARTAMENTOSpinEdit.Location = New System.Drawing.Point(144, 12)
+        Me.CODIGO_DEPARTAMENTOSpinEdit.Name = "CODIGO_DEPARTAMENTOSpinEdit"
+        Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
+        Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.Mask.EditMask = "00"
+        Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.CODIGO_DEPARTAMENTOSpinEdit.Size = New System.Drawing.Size(390, 20)
+        Me.CODIGO_DEPARTAMENTOSpinEdit.StyleController = Me.DataLayoutControl2
+        Me.CODIGO_DEPARTAMENTOSpinEdit.TabIndex = 4
+        '
         'XfrmDepartamentos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -558,11 +562,9 @@ Partial Class XfrmDepartamentos
         Me.LayoutControl1.ResumeLayout(False)
         CType(Me.DataLayoutControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DataLayoutControl2.ResumeLayout(False)
-        CType(Me.CODIGO_DEPARTAMENTOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMDEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DESCRIPCIONTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CANTIDAD_DIPUTADOSSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -594,6 +596,8 @@ Partial Class XfrmDepartamentos
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CANTIDAD_DIPUTADOSSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CODIGO_DEPARTAMENTOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -622,9 +626,7 @@ Partial Class XfrmDepartamentos
     Friend WithEvents IMDEPARTAMENTOSBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents IM_DEPARTAMENTOSTableAdapter As Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.IM_DEPARTAMENTOSTableAdapter
     Friend WithEvents DataLayoutControl2 As DevExpress.XtraDataLayout.DataLayoutControl
-    Friend WithEvents CODIGO_DEPARTAMENTOSpinEdit As DevExpress.XtraEditors.SpinEdit
     Friend WithEvents DESCRIPCIONTextEdit As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents CANTIDAD_DIPUTADOSSpinEdit As DevExpress.XtraEditors.SpinEdit
     Friend WithEvents ADICIONADO_PORSpinEdit As DevExpress.XtraEditors.SpinEdit
     Friend WithEvents FECHA_ADICIONDateEdit As DevExpress.XtraEditors.DateEdit
     Friend WithEvents MODIFICADO_PORSpinEdit As DevExpress.XtraEditors.SpinEdit
@@ -639,4 +641,6 @@ Partial Class XfrmDepartamentos
     Friend WithEvents ItemForDESCRIPCION As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents ItemForCANTIDAD_DIPUTADOS As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents CANTIDAD_DIPUTADOSSpinEdit As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents CODIGO_DEPARTAMENTOSpinEdit As DevExpress.XtraEditors.TextEdit
 End Class

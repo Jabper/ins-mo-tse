@@ -21,12 +21,14 @@ Option Explicit On
  Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
  Global.System.ComponentModel.ToolboxItem(true),  _
  Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema"),  _
- Global.System.Xml.Serialization.XmlRootAttribute("DSParametros"),  _
+ Global.System.Xml.Serialization.XmlRootAttribute("DTUsuario"),  _
  Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")>  _
-Partial Public Class DSParametros
+Partial Public Class DTUsuario
     Inherits Global.System.Data.DataSet
     
-    Private tableIM_PARAMETROS_GENERALES As IM_PARAMETROS_GENERALESDataTable
+    Private tableIM_USUARIOS As IM_USUARIOSDataTable
+    
+    Private relationIM_FK4_USUARIOS As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -55,8 +57,8 @@ Partial Public Class DSParametros
         If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
-            If (Not (ds.Tables("IM_PARAMETROS_GENERALES")) Is Nothing) Then
-                MyBase.Tables.Add(New IM_PARAMETROS_GENERALESDataTable(ds.Tables("IM_PARAMETROS_GENERALES")))
+            If (Not (ds.Tables("IM_USUARIOS")) Is Nothing) Then
+                MyBase.Tables.Add(New IM_USUARIOSDataTable(ds.Tables("IM_USUARIOS")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -78,9 +80,9 @@ Partial Public Class DSParametros
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property IM_PARAMETROS_GENERALES() As IM_PARAMETROS_GENERALESDataTable
+    Public ReadOnly Property IM_USUARIOS() As IM_USUARIOSDataTable
         Get
-            Return Me.tableIM_PARAMETROS_GENERALES
+            Return Me.tableIM_USUARIOS
         End Get
     End Property
     
@@ -121,7 +123,7 @@ Partial Public Class DSParametros
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Public Overrides Function Clone() As Global.System.Data.DataSet
-        Dim cln As DSParametros = CType(MyBase.Clone,DSParametros)
+        Dim cln As DTUsuario = CType(MyBase.Clone,DTUsuario)
         cln.InitVars
         cln.SchemaSerializationMode = Me.SchemaSerializationMode
         Return cln
@@ -143,8 +145,8 @@ Partial Public Class DSParametros
             Me.Reset
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet
             ds.ReadXml(reader)
-            If (Not (ds.Tables("IM_PARAMETROS_GENERALES")) Is Nothing) Then
-                MyBase.Tables.Add(New IM_PARAMETROS_GENERALESDataTable(ds.Tables("IM_PARAMETROS_GENERALES")))
+            If (Not (ds.Tables("IM_USUARIOS")) Is Nothing) Then
+                MyBase.Tables.Add(New IM_USUARIOSDataTable(ds.Tables("IM_USUARIOS")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -175,27 +177,30 @@ Partial Public Class DSParametros
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
-        Me.tableIM_PARAMETROS_GENERALES = CType(MyBase.Tables("IM_PARAMETROS_GENERALES"),IM_PARAMETROS_GENERALESDataTable)
+        Me.tableIM_USUARIOS = CType(MyBase.Tables("IM_USUARIOS"),IM_USUARIOSDataTable)
         If (initTable = true) Then
-            If (Not (Me.tableIM_PARAMETROS_GENERALES) Is Nothing) Then
-                Me.tableIM_PARAMETROS_GENERALES.InitVars
+            If (Not (Me.tableIM_USUARIOS) Is Nothing) Then
+                Me.tableIM_USUARIOS.InitVars
             End If
         End If
+        Me.relationIM_FK4_USUARIOS = Me.Relations("IM_FK4_USUARIOS")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Private Sub InitClass()
-        Me.DataSetName = "DSParametros"
+        Me.DataSetName = "DTUsuario"
         Me.Prefix = ""
-        Me.Namespace = "http://tempuri.org/DSParametros.xsd"
+        Me.Namespace = "http://tempuri.org/DTUsuario.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tableIM_PARAMETROS_GENERALES = New IM_PARAMETROS_GENERALESDataTable
-        MyBase.Tables.Add(Me.tableIM_PARAMETROS_GENERALES)
+        Me.tableIM_USUARIOS = New IM_USUARIOSDataTable
+        MyBase.Tables.Add(Me.tableIM_USUARIOS)
+        Me.relationIM_FK4_USUARIOS = New Global.System.Data.DataRelation("IM_FK4_USUARIOS", New Global.System.Data.DataColumn() {Me.tableIM_USUARIOS.CODIGO_USUARIOColumn}, New Global.System.Data.DataColumn() {Me.tableIM_USUARIOS.ADICIONADO_PORColumn}, false)
+        Me.Relations.Add(Me.relationIM_FK4_USUARIOS)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-    Private Function ShouldSerializeIM_PARAMETROS_GENERALES() As Boolean
+    Private Function ShouldSerializeIM_USUARIOS() As Boolean
         Return false
     End Function
     
@@ -208,7 +213,7 @@ Partial Public Class DSParametros
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Public Shared Function GetTypedDataSetSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-        Dim ds As DSParametros = New DSParametros
+        Dim ds As DTUsuario = New DTUsuario
         Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType
         Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence
         Dim any As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
@@ -255,7 +260,7 @@ Partial Public Class DSParametros
         Return type
     End Function
     
-    Public Delegate Sub IM_PARAMETROS_GENERALESRowChangeEventHandler(ByVal sender As Object, ByVal e As IM_PARAMETROS_GENERALESRowChangeEvent)
+    Public Delegate Sub IM_USUARIOSRowChangeEventHandler(ByVal sender As Object, ByVal e As IM_USUARIOSRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -263,16 +268,30 @@ Partial Public Class DSParametros
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
      Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class IM_PARAMETROS_GENERALESDataTable
-        Inherits Global.System.Data.TypedTableBase(Of IM_PARAMETROS_GENERALESRow)
+    Partial Public Class IM_USUARIOSDataTable
+        Inherits Global.System.Data.TypedTableBase(Of IM_USUARIOSRow)
         
-        Private columnPARTICIPACION_MUJER_PORCEN As Global.System.Data.DataColumn
+        Private columnCODIGO_USUARIO As Global.System.Data.DataColumn
         
-        Private columnFORMULAS_DEPART_MIN As Global.System.Data.DataColumn
+        Private columnCODIGO_ROL As Global.System.Data.DataColumn
         
-        Private columnFORMULAS_MUNICIPIO_MIN As Global.System.Data.DataColumn
+        Private columnNOMBRE As Global.System.Data.DataColumn
         
-        Private columnFIRMAS_REPETIDAS_PORCEN As Global.System.Data.DataColumn
+        Private columnIDENTIDAD As Global.System.Data.DataColumn
+        
+        Private columnCONTRASENA As Global.System.Data.DataColumn
+        
+        Private columnESTADO As Global.System.Data.DataColumn
+        
+        Private columnCODIGO_MOVIMIENTO As Global.System.Data.DataColumn
+        
+        Private columnPREGUNTA_SEGURIDAD As Global.System.Data.DataColumn
+        
+        Private columnNIVEL As Global.System.Data.DataColumn
+        
+        Private columnRESPUESTA_SEGURIDAD As Global.System.Data.DataColumn
+        
+        Private columnCODIGO_PARTIDO As Global.System.Data.DataColumn
         
         Private columnADICIONADO_POR As Global.System.Data.DataColumn
         
@@ -282,14 +301,10 @@ Partial Public Class DSParametros
         
         Private columnFECHA_MODIFICACION As Global.System.Data.DataColumn
         
-        Private columnTIPO_ELECCIONES As Global.System.Data.DataColumn
-        
-        Private columnANNO_ELECCIONES As Global.System.Data.DataColumn
-        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "IM_PARAMETROS_GENERALES"
+            Me.TableName = "IM_USUARIOS"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -319,30 +334,79 @@ Partial Public Class DSParametros
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property PARTICIPACION_MUJER_PORCENColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property CODIGO_USUARIOColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnPARTICIPACION_MUJER_PORCEN
+                Return Me.columnCODIGO_USUARIO
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property FORMULAS_DEPART_MINColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property CODIGO_ROLColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnFORMULAS_DEPART_MIN
+                Return Me.columnCODIGO_ROL
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property FORMULAS_MUNICIPIO_MINColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property NOMBREColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnFORMULAS_MUNICIPIO_MIN
+                Return Me.columnNOMBRE
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property FIRMAS_REPETIDAS_PORCENColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property IDENTIDADColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnFIRMAS_REPETIDAS_PORCEN
+                Return Me.columnIDENTIDAD
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CONTRASENAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCONTRASENA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ESTADOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnESTADO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CODIGO_MOVIMIENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCODIGO_MOVIMIENTO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property PREGUNTA_SEGURIDADColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPREGUNTA_SEGURIDAD
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property NIVELColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNIVEL
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property RESPUESTA_SEGURIDADColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRESPUESTA_SEGURIDAD
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CODIGO_PARTIDOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCODIGO_PARTIDO
             End Get
         End Property
         
@@ -374,20 +438,6 @@ Partial Public Class DSParametros
             End Get
         End Property
         
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property TIPO_ELECCIONESColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnTIPO_ELECCIONES
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property ANNO_ELECCIONESColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnANNO_ELECCIONES
-            End Get
-        End Property
-        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -397,75 +447,97 @@ Partial Public Class DSParametros
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As IM_PARAMETROS_GENERALESRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As IM_USUARIOSRow
             Get
-                Return CType(Me.Rows(index),IM_PARAMETROS_GENERALESRow)
+                Return CType(Me.Rows(index),IM_USUARIOSRow)
             End Get
         End Property
         
-        Public Event IM_PARAMETROS_GENERALESRowChanging As IM_PARAMETROS_GENERALESRowChangeEventHandler
+        Public Event IM_USUARIOSRowChanging As IM_USUARIOSRowChangeEventHandler
         
-        Public Event IM_PARAMETROS_GENERALESRowChanged As IM_PARAMETROS_GENERALESRowChangeEventHandler
+        Public Event IM_USUARIOSRowChanged As IM_USUARIOSRowChangeEventHandler
         
-        Public Event IM_PARAMETROS_GENERALESRowDeleting As IM_PARAMETROS_GENERALESRowChangeEventHandler
+        Public Event IM_USUARIOSRowDeleting As IM_USUARIOSRowChangeEventHandler
         
-        Public Event IM_PARAMETROS_GENERALESRowDeleted As IM_PARAMETROS_GENERALESRowChangeEventHandler
+        Public Event IM_USUARIOSRowDeleted As IM_USUARIOSRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Sub AddIM_PARAMETROS_GENERALESRow(ByVal row As IM_PARAMETROS_GENERALESRow)
+        Public Overloads Sub AddIM_USUARIOSRow(ByVal row As IM_USUARIOSRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddIM_PARAMETROS_GENERALESRow(ByVal PARTICIPACION_MUJER_PORCEN As Decimal, ByVal FORMULAS_DEPART_MIN As Decimal, ByVal FORMULAS_MUNICIPIO_MIN As Decimal, ByVal FIRMAS_REPETIDAS_PORCEN As Decimal, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Date, ByVal TIPO_ELECCIONES As Decimal, ByVal ANNO_ELECCIONES As Date) As IM_PARAMETROS_GENERALESRow
-            Dim rowIM_PARAMETROS_GENERALESRow As IM_PARAMETROS_GENERALESRow = CType(Me.NewRow,IM_PARAMETROS_GENERALESRow)
-            Dim columnValuesArray() As Object = New Object() {PARTICIPACION_MUJER_PORCEN, FORMULAS_DEPART_MIN, FORMULAS_MUNICIPIO_MIN, FIRMAS_REPETIDAS_PORCEN, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, TIPO_ELECCIONES, ANNO_ELECCIONES}
-            rowIM_PARAMETROS_GENERALESRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowIM_PARAMETROS_GENERALESRow)
-            Return rowIM_PARAMETROS_GENERALESRow
+        Public Overloads Function AddIM_USUARIOSRow(ByVal CODIGO_USUARIO As String, ByVal CODIGO_ROL As Decimal, ByVal NOMBRE As String, ByVal IDENTIDAD As String, ByVal CONTRASENA As String, ByVal ESTADO As String, ByVal CODIGO_MOVIMIENTO As Decimal, ByVal PREGUNTA_SEGURIDAD As String, ByVal NIVEL As Decimal, ByVal RESPUESTA_SEGURIDAD As String, ByVal CODIGO_PARTIDO As Decimal, ByVal parentIM_USUARIOSRowByIM_FK4_USUARIOS As IM_USUARIOSRow, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Date) As IM_USUARIOSRow
+            Dim rowIM_USUARIOSRow As IM_USUARIOSRow = CType(Me.NewRow,IM_USUARIOSRow)
+            Dim columnValuesArray() As Object = New Object() {CODIGO_USUARIO, CODIGO_ROL, NOMBRE, IDENTIDAD, CONTRASENA, ESTADO, CODIGO_MOVIMIENTO, PREGUNTA_SEGURIDAD, NIVEL, RESPUESTA_SEGURIDAD, CODIGO_PARTIDO, Nothing, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION}
+            If (Not (parentIM_USUARIOSRowByIM_FK4_USUARIOS) Is Nothing) Then
+                columnValuesArray(11) = parentIM_USUARIOSRowByIM_FK4_USUARIOS(0)
+            End If
+            rowIM_USUARIOSRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowIM_USUARIOSRow)
+            Return rowIM_USUARIOSRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function FindByFECHA_ADICION(ByVal FECHA_ADICION As Date) As IM_PARAMETROS_GENERALESRow
-            Return CType(Me.Rows.Find(New Object() {FECHA_ADICION}),IM_PARAMETROS_GENERALESRow)
+        Public Function FindByCODIGO_USUARIO(ByVal CODIGO_USUARIO As String) As IM_USUARIOSRow
+            Return CType(Me.Rows.Find(New Object() {CODIGO_USUARIO}),IM_USUARIOSRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As IM_PARAMETROS_GENERALESDataTable = CType(MyBase.Clone,IM_PARAMETROS_GENERALESDataTable)
+            Dim cln As IM_USUARIOSDataTable = CType(MyBase.Clone,IM_USUARIOSDataTable)
             cln.InitVars
             Return cln
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New IM_PARAMETROS_GENERALESDataTable
+            Return New IM_USUARIOSDataTable
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Sub InitVars()
-            Me.columnPARTICIPACION_MUJER_PORCEN = MyBase.Columns("PARTICIPACION_MUJER_PORCEN")
-            Me.columnFORMULAS_DEPART_MIN = MyBase.Columns("FORMULAS_DEPART_MIN")
-            Me.columnFORMULAS_MUNICIPIO_MIN = MyBase.Columns("FORMULAS_MUNICIPIO_MIN")
-            Me.columnFIRMAS_REPETIDAS_PORCEN = MyBase.Columns("FIRMAS_REPETIDAS_PORCEN")
+            Me.columnCODIGO_USUARIO = MyBase.Columns("CODIGO_USUARIO")
+            Me.columnCODIGO_ROL = MyBase.Columns("CODIGO_ROL")
+            Me.columnNOMBRE = MyBase.Columns("NOMBRE")
+            Me.columnIDENTIDAD = MyBase.Columns("IDENTIDAD")
+            Me.columnCONTRASENA = MyBase.Columns("CONTRASENA")
+            Me.columnESTADO = MyBase.Columns("ESTADO")
+            Me.columnCODIGO_MOVIMIENTO = MyBase.Columns("CODIGO_MOVIMIENTO")
+            Me.columnPREGUNTA_SEGURIDAD = MyBase.Columns("PREGUNTA_SEGURIDAD")
+            Me.columnNIVEL = MyBase.Columns("NIVEL")
+            Me.columnRESPUESTA_SEGURIDAD = MyBase.Columns("RESPUESTA_SEGURIDAD")
+            Me.columnCODIGO_PARTIDO = MyBase.Columns("CODIGO_PARTIDO")
             Me.columnADICIONADO_POR = MyBase.Columns("ADICIONADO_POR")
             Me.columnFECHA_ADICION = MyBase.Columns("FECHA_ADICION")
             Me.columnMODIFICADO_POR = MyBase.Columns("MODIFICADO_POR")
             Me.columnFECHA_MODIFICACION = MyBase.Columns("FECHA_MODIFICACION")
-            Me.columnTIPO_ELECCIONES = MyBase.Columns("TIPO_ELECCIONES")
-            Me.columnANNO_ELECCIONES = MyBase.Columns("ANNO_ELECCIONES")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitClass()
-            Me.columnPARTICIPACION_MUJER_PORCEN = New Global.System.Data.DataColumn("PARTICIPACION_MUJER_PORCEN", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPARTICIPACION_MUJER_PORCEN)
-            Me.columnFORMULAS_DEPART_MIN = New Global.System.Data.DataColumn("FORMULAS_DEPART_MIN", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFORMULAS_DEPART_MIN)
-            Me.columnFORMULAS_MUNICIPIO_MIN = New Global.System.Data.DataColumn("FORMULAS_MUNICIPIO_MIN", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFORMULAS_MUNICIPIO_MIN)
-            Me.columnFIRMAS_REPETIDAS_PORCEN = New Global.System.Data.DataColumn("FIRMAS_REPETIDAS_PORCEN", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFIRMAS_REPETIDAS_PORCEN)
+            Me.columnCODIGO_USUARIO = New Global.System.Data.DataColumn("CODIGO_USUARIO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_USUARIO)
+            Me.columnCODIGO_ROL = New Global.System.Data.DataColumn("CODIGO_ROL", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_ROL)
+            Me.columnNOMBRE = New Global.System.Data.DataColumn("NOMBRE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNOMBRE)
+            Me.columnIDENTIDAD = New Global.System.Data.DataColumn("IDENTIDAD", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIDENTIDAD)
+            Me.columnCONTRASENA = New Global.System.Data.DataColumn("CONTRASENA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCONTRASENA)
+            Me.columnESTADO = New Global.System.Data.DataColumn("ESTADO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnESTADO)
+            Me.columnCODIGO_MOVIMIENTO = New Global.System.Data.DataColumn("CODIGO_MOVIMIENTO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_MOVIMIENTO)
+            Me.columnPREGUNTA_SEGURIDAD = New Global.System.Data.DataColumn("PREGUNTA_SEGURIDAD", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPREGUNTA_SEGURIDAD)
+            Me.columnNIVEL = New Global.System.Data.DataColumn("NIVEL", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNIVEL)
+            Me.columnRESPUESTA_SEGURIDAD = New Global.System.Data.DataColumn("RESPUESTA_SEGURIDAD", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRESPUESTA_SEGURIDAD)
+            Me.columnCODIGO_PARTIDO = New Global.System.Data.DataColumn("CODIGO_PARTIDO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_PARTIDO)
             Me.columnADICIONADO_POR = New Global.System.Data.DataColumn("ADICIONADO_POR", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnADICIONADO_POR)
             Me.columnFECHA_ADICION = New Global.System.Data.DataColumn("FECHA_ADICION", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
@@ -474,67 +546,81 @@ Partial Public Class DSParametros
             MyBase.Columns.Add(Me.columnMODIFICADO_POR)
             Me.columnFECHA_MODIFICACION = New Global.System.Data.DataColumn("FECHA_MODIFICACION", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFECHA_MODIFICACION)
-            Me.columnTIPO_ELECCIONES = New Global.System.Data.DataColumn("TIPO_ELECCIONES", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnTIPO_ELECCIONES)
-            Me.columnANNO_ELECCIONES = New Global.System.Data.DataColumn("ANNO_ELECCIONES", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnANNO_ELECCIONES)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnFECHA_ADICION}, true))
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_USUARIO}, true))
+            Me.columnCODIGO_USUARIO.AllowDBNull = false
+            Me.columnCODIGO_USUARIO.Unique = true
+            Me.columnCODIGO_USUARIO.MaxLength = 10
+            Me.columnCODIGO_ROL.AllowDBNull = false
+            Me.columnNOMBRE.AllowDBNull = false
+            Me.columnNOMBRE.MaxLength = 100
+            Me.columnIDENTIDAD.AllowDBNull = false
+            Me.columnIDENTIDAD.MaxLength = 15
+            Me.columnCONTRASENA.AllowDBNull = false
+            Me.columnCONTRASENA.MaxLength = 15
+            Me.columnESTADO.AllowDBNull = false
+            Me.columnESTADO.MaxLength = 2
+            Me.columnCODIGO_MOVIMIENTO.AllowDBNull = false
+            Me.columnPREGUNTA_SEGURIDAD.AllowDBNull = false
+            Me.columnPREGUNTA_SEGURIDAD.MaxLength = 100
+            Me.columnNIVEL.AllowDBNull = false
+            Me.columnRESPUESTA_SEGURIDAD.AllowDBNull = false
+            Me.columnRESPUESTA_SEGURIDAD.MaxLength = 100
+            Me.columnCODIGO_PARTIDO.AllowDBNull = false
             Me.columnADICIONADO_POR.AllowDBNull = false
             Me.columnADICIONADO_POR.MaxLength = 10
             Me.columnFECHA_ADICION.AllowDBNull = false
-            Me.columnFECHA_ADICION.Unique = true
             Me.columnMODIFICADO_POR.MaxLength = 10
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function NewIM_PARAMETROS_GENERALESRow() As IM_PARAMETROS_GENERALESRow
-            Return CType(Me.NewRow,IM_PARAMETROS_GENERALESRow)
+        Public Function NewIM_USUARIOSRow() As IM_USUARIOSRow
+            Return CType(Me.NewRow,IM_USUARIOSRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New IM_PARAMETROS_GENERALESRow(builder)
+            Return New IM_USUARIOSRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(IM_PARAMETROS_GENERALESRow)
+            Return GetType(IM_USUARIOSRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.IM_PARAMETROS_GENERALESRowChangedEvent) Is Nothing) Then
-                RaiseEvent IM_PARAMETROS_GENERALESRowChanged(Me, New IM_PARAMETROS_GENERALESRowChangeEvent(CType(e.Row,IM_PARAMETROS_GENERALESRow), e.Action))
+            If (Not (Me.IM_USUARIOSRowChangedEvent) Is Nothing) Then
+                RaiseEvent IM_USUARIOSRowChanged(Me, New IM_USUARIOSRowChangeEvent(CType(e.Row,IM_USUARIOSRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.IM_PARAMETROS_GENERALESRowChangingEvent) Is Nothing) Then
-                RaiseEvent IM_PARAMETROS_GENERALESRowChanging(Me, New IM_PARAMETROS_GENERALESRowChangeEvent(CType(e.Row,IM_PARAMETROS_GENERALESRow), e.Action))
+            If (Not (Me.IM_USUARIOSRowChangingEvent) Is Nothing) Then
+                RaiseEvent IM_USUARIOSRowChanging(Me, New IM_USUARIOSRowChangeEvent(CType(e.Row,IM_USUARIOSRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.IM_PARAMETROS_GENERALESRowDeletedEvent) Is Nothing) Then
-                RaiseEvent IM_PARAMETROS_GENERALESRowDeleted(Me, New IM_PARAMETROS_GENERALESRowChangeEvent(CType(e.Row,IM_PARAMETROS_GENERALESRow), e.Action))
+            If (Not (Me.IM_USUARIOSRowDeletedEvent) Is Nothing) Then
+                RaiseEvent IM_USUARIOSRowDeleted(Me, New IM_USUARIOSRowChangeEvent(CType(e.Row,IM_USUARIOSRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.IM_PARAMETROS_GENERALESRowDeletingEvent) Is Nothing) Then
-                RaiseEvent IM_PARAMETROS_GENERALESRowDeleting(Me, New IM_PARAMETROS_GENERALESRowChangeEvent(CType(e.Row,IM_PARAMETROS_GENERALESRow), e.Action))
+            If (Not (Me.IM_USUARIOSRowDeletingEvent) Is Nothing) Then
+                RaiseEvent IM_USUARIOSRowDeleting(Me, New IM_USUARIOSRowChangeEvent(CType(e.Row,IM_USUARIOSRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub RemoveIM_PARAMETROS_GENERALESRow(ByVal row As IM_PARAMETROS_GENERALESRow)
+        Public Sub RemoveIM_USUARIOSRow(ByVal row As IM_USUARIOSRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -542,7 +628,7 @@ Partial Public Class DSParametros
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence
-            Dim ds As DSParametros = New DSParametros
+            Dim ds As DTUsuario = New DTUsuario
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -560,7 +646,7 @@ Partial Public Class DSParametros
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "IM_PARAMETROS_GENERALESDataTable"
+            attribute2.FixedValue = "IM_USUARIOSDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -608,94 +694,144 @@ Partial Public Class DSParametros
     '''Represents strongly named DataRow class.
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
-    Partial Public Class IM_PARAMETROS_GENERALESRow
+    Partial Public Class IM_USUARIOSRow
         Inherits Global.System.Data.DataRow
         
-        Private tableIM_PARAMETROS_GENERALES As IM_PARAMETROS_GENERALESDataTable
+        Private tableIM_USUARIOS As IM_USUARIOSDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableIM_PARAMETROS_GENERALES = CType(Me.Table,IM_PARAMETROS_GENERALESDataTable)
+            Me.tableIM_USUARIOS = CType(Me.Table,IM_USUARIOSDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property PARTICIPACION_MUJER_PORCEN() As Decimal
+        Public Property CODIGO_USUARIO() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableIM_PARAMETROS_GENERALES.PARTICIPACION_MUJER_PORCENColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'PARTICIPACION_MUJER_PORCEN' in table 'IM_PARAMETROS_GENERAL"& _ 
-                            "ES' is DBNull.", e)
-                End Try
+                Return CType(Me(Me.tableIM_USUARIOS.CODIGO_USUARIOColumn),String)
             End Get
             Set
-                Me(Me.tableIM_PARAMETROS_GENERALES.PARTICIPACION_MUJER_PORCENColumn) = value
+                Me(Me.tableIM_USUARIOS.CODIGO_USUARIOColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property FORMULAS_DEPART_MIN() As Decimal
+        Public Property CODIGO_ROL() As Decimal
             Get
-                Try 
-                    Return CType(Me(Me.tableIM_PARAMETROS_GENERALES.FORMULAS_DEPART_MINColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'FORMULAS_DEPART_MIN' in table 'IM_PARAMETROS_GENERALES' is "& _ 
-                            "DBNull.", e)
-                End Try
+                Return CType(Me(Me.tableIM_USUARIOS.CODIGO_ROLColumn),Decimal)
             End Get
             Set
-                Me(Me.tableIM_PARAMETROS_GENERALES.FORMULAS_DEPART_MINColumn) = value
+                Me(Me.tableIM_USUARIOS.CODIGO_ROLColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property FORMULAS_MUNICIPIO_MIN() As Decimal
+        Public Property NOMBRE() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableIM_PARAMETROS_GENERALES.FORMULAS_MUNICIPIO_MINColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'FORMULAS_MUNICIPIO_MIN' in table 'IM_PARAMETROS_GENERALES' "& _ 
-                            "is DBNull.", e)
-                End Try
+                Return CType(Me(Me.tableIM_USUARIOS.NOMBREColumn),String)
             End Get
             Set
-                Me(Me.tableIM_PARAMETROS_GENERALES.FORMULAS_MUNICIPIO_MINColumn) = value
+                Me(Me.tableIM_USUARIOS.NOMBREColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property FIRMAS_REPETIDAS_PORCEN() As Decimal
+        Public Property IDENTIDAD() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableIM_PARAMETROS_GENERALES.FIRMAS_REPETIDAS_PORCENColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'FIRMAS_REPETIDAS_PORCEN' in table 'IM_PARAMETROS_GENERALES'"& _ 
-                            " is DBNull.", e)
-                End Try
+                Return CType(Me(Me.tableIM_USUARIOS.IDENTIDADColumn),String)
             End Get
             Set
-                Me(Me.tableIM_PARAMETROS_GENERALES.FIRMAS_REPETIDAS_PORCENColumn) = value
+                Me(Me.tableIM_USUARIOS.IDENTIDADColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CONTRASENA() As String
+            Get
+                Return CType(Me(Me.tableIM_USUARIOS.CONTRASENAColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_USUARIOS.CONTRASENAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ESTADO() As String
+            Get
+                Return CType(Me(Me.tableIM_USUARIOS.ESTADOColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_USUARIOS.ESTADOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CODIGO_MOVIMIENTO() As Decimal
+            Get
+                Return CType(Me(Me.tableIM_USUARIOS.CODIGO_MOVIMIENTOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIM_USUARIOS.CODIGO_MOVIMIENTOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property PREGUNTA_SEGURIDAD() As String
+            Get
+                Return CType(Me(Me.tableIM_USUARIOS.PREGUNTA_SEGURIDADColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_USUARIOS.PREGUNTA_SEGURIDADColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property NIVEL() As Decimal
+            Get
+                Return CType(Me(Me.tableIM_USUARIOS.NIVELColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIM_USUARIOS.NIVELColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property RESPUESTA_SEGURIDAD() As String
+            Get
+                Return CType(Me(Me.tableIM_USUARIOS.RESPUESTA_SEGURIDADColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_USUARIOS.RESPUESTA_SEGURIDADColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CODIGO_PARTIDO() As Decimal
+            Get
+                Return CType(Me(Me.tableIM_USUARIOS.CODIGO_PARTIDOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIM_USUARIOS.CODIGO_PARTIDOColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property ADICIONADO_POR() As String
             Get
-                Return CType(Me(Me.tableIM_PARAMETROS_GENERALES.ADICIONADO_PORColumn),String)
+                Return CType(Me(Me.tableIM_USUARIOS.ADICIONADO_PORColumn),String)
             End Get
             Set
-                Me(Me.tableIM_PARAMETROS_GENERALES.ADICIONADO_PORColumn) = value
+                Me(Me.tableIM_USUARIOS.ADICIONADO_PORColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property FECHA_ADICION() As Date
             Get
-                Return CType(Me(Me.tableIM_PARAMETROS_GENERALES.FECHA_ADICIONColumn),Date)
+                Return CType(Me(Me.tableIM_USUARIOS.FECHA_ADICIONColumn),Date)
             End Get
             Set
-                Me(Me.tableIM_PARAMETROS_GENERALES.FECHA_ADICIONColumn) = value
+                Me(Me.tableIM_USUARIOS.FECHA_ADICIONColumn) = value
             End Set
         End Property
         
@@ -703,14 +839,13 @@ Partial Public Class DSParametros
         Public Property MODIFICADO_POR() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableIM_PARAMETROS_GENERALES.MODIFICADO_PORColumn),String)
+                    Return CType(Me(Me.tableIM_USUARIOS.MODIFICADO_PORColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'MODIFICADO_POR' in table 'IM_PARAMETROS_GENERALES' is DBNul"& _ 
-                            "l.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'MODIFICADO_POR' in table 'IM_USUARIOS' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableIM_PARAMETROS_GENERALES.MODIFICADO_PORColumn) = value
+                Me(Me.tableIM_USUARIOS.MODIFICADO_PORColumn) = value
             End Set
         End Property
         
@@ -718,148 +853,76 @@ Partial Public Class DSParametros
         Public Property FECHA_MODIFICACION() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tableIM_PARAMETROS_GENERALES.FECHA_MODIFICACIONColumn),Date)
+                    Return CType(Me(Me.tableIM_USUARIOS.FECHA_MODIFICACIONColumn),Date)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'FECHA_MODIFICACION' in table 'IM_PARAMETROS_GENERALES' is D"& _ 
-                            "BNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FECHA_MODIFICACION' in table 'IM_USUARIOS' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableIM_PARAMETROS_GENERALES.FECHA_MODIFICACIONColumn) = value
+                Me(Me.tableIM_USUARIOS.FECHA_MODIFICACIONColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property TIPO_ELECCIONES() As Decimal
+        Public Property IM_USUARIOSRowParent() As IM_USUARIOSRow
             Get
-                Try 
-                    Return CType(Me(Me.tableIM_PARAMETROS_GENERALES.TIPO_ELECCIONESColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'TIPO_ELECCIONES' in table 'IM_PARAMETROS_GENERALES' is DBNu"& _ 
-                            "ll.", e)
-                End Try
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("IM_FK4_USUARIOS")),IM_USUARIOSRow)
             End Get
             Set
-                Me(Me.tableIM_PARAMETROS_GENERALES.TIPO_ELECCIONESColumn) = value
+                Me.SetParentRow(value, Me.Table.ParentRelations("IM_FK4_USUARIOS"))
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property ANNO_ELECCIONES() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tableIM_PARAMETROS_GENERALES.ANNO_ELECCIONESColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'ANNO_ELECCIONES' in table 'IM_PARAMETROS_GENERALES' is DBNu"& _ 
-                            "ll.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableIM_PARAMETROS_GENERALES.ANNO_ELECCIONESColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsPARTICIPACION_MUJER_PORCENNull() As Boolean
-            Return Me.IsNull(Me.tableIM_PARAMETROS_GENERALES.PARTICIPACION_MUJER_PORCENColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetPARTICIPACION_MUJER_PORCENNull()
-            Me(Me.tableIM_PARAMETROS_GENERALES.PARTICIPACION_MUJER_PORCENColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsFORMULAS_DEPART_MINNull() As Boolean
-            Return Me.IsNull(Me.tableIM_PARAMETROS_GENERALES.FORMULAS_DEPART_MINColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetFORMULAS_DEPART_MINNull()
-            Me(Me.tableIM_PARAMETROS_GENERALES.FORMULAS_DEPART_MINColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsFORMULAS_MUNICIPIO_MINNull() As Boolean
-            Return Me.IsNull(Me.tableIM_PARAMETROS_GENERALES.FORMULAS_MUNICIPIO_MINColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetFORMULAS_MUNICIPIO_MINNull()
-            Me(Me.tableIM_PARAMETROS_GENERALES.FORMULAS_MUNICIPIO_MINColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsFIRMAS_REPETIDAS_PORCENNull() As Boolean
-            Return Me.IsNull(Me.tableIM_PARAMETROS_GENERALES.FIRMAS_REPETIDAS_PORCENColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetFIRMAS_REPETIDAS_PORCENNull()
-            Me(Me.tableIM_PARAMETROS_GENERALES.FIRMAS_REPETIDAS_PORCENColumn) = Global.System.Convert.DBNull
-        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsMODIFICADO_PORNull() As Boolean
-            Return Me.IsNull(Me.tableIM_PARAMETROS_GENERALES.MODIFICADO_PORColumn)
+            Return Me.IsNull(Me.tableIM_USUARIOS.MODIFICADO_PORColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetMODIFICADO_PORNull()
-            Me(Me.tableIM_PARAMETROS_GENERALES.MODIFICADO_PORColumn) = Global.System.Convert.DBNull
+            Me(Me.tableIM_USUARIOS.MODIFICADO_PORColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsFECHA_MODIFICACIONNull() As Boolean
-            Return Me.IsNull(Me.tableIM_PARAMETROS_GENERALES.FECHA_MODIFICACIONColumn)
+            Return Me.IsNull(Me.tableIM_USUARIOS.FECHA_MODIFICACIONColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetFECHA_MODIFICACIONNull()
-            Me(Me.tableIM_PARAMETROS_GENERALES.FECHA_MODIFICACIONColumn) = Global.System.Convert.DBNull
+            Me(Me.tableIM_USUARIOS.FECHA_MODIFICACIONColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsTIPO_ELECCIONESNull() As Boolean
-            Return Me.IsNull(Me.tableIM_PARAMETROS_GENERALES.TIPO_ELECCIONESColumn)
+        Public Function GetIM_USUARIOSRows() As IM_USUARIOSRow()
+            If (Me.Table.ChildRelations("IM_FK4_USUARIOS") Is Nothing) Then
+                Return New IM_USUARIOSRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("IM_FK4_USUARIOS")),IM_USUARIOSRow())
+            End If
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetTIPO_ELECCIONESNull()
-            Me(Me.tableIM_PARAMETROS_GENERALES.TIPO_ELECCIONESColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsANNO_ELECCIONESNull() As Boolean
-            Return Me.IsNull(Me.tableIM_PARAMETROS_GENERALES.ANNO_ELECCIONESColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetANNO_ELECCIONESNull()
-            Me(Me.tableIM_PARAMETROS_GENERALES.ANNO_ELECCIONESColumn) = Global.System.Convert.DBNull
-        End Sub
     End Class
     
     '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
-    Public Class IM_PARAMETROS_GENERALESRowChangeEvent
+    Public Class IM_USUARIOSRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As IM_PARAMETROS_GENERALESRow
+        Private eventRow As IM_USUARIOSRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub New(ByVal row As IM_PARAMETROS_GENERALESRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As IM_USUARIOSRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Row() As IM_PARAMETROS_GENERALESRow
+        Public ReadOnly Property Row() As IM_USUARIOSRow
             Get
                 Return Me.eventRow
             End Get
@@ -874,7 +937,7 @@ Partial Public Class DSParametros
     End Class
 End Class
 
-Namespace DSParametrosTableAdapters
+Namespace DTUsuarioTableAdapters
     
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
@@ -886,7 +949,7 @@ Namespace DSParametrosTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class IM_PARAMETROS_GENERALESTableAdapter
+    Partial Public Class IM_USUARIOSTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.OracleClient.OracleDataAdapter
@@ -996,120 +1059,131 @@ Namespace DSParametrosTableAdapters
             Me._adapter = New Global.System.Data.OracleClient.OracleDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "IM_PARAMETROS_GENERALES"
-            tableMapping.ColumnMappings.Add("PARTICIPACION_MUJER_PORCEN", "PARTICIPACION_MUJER_PORCEN")
-            tableMapping.ColumnMappings.Add("FORMULAS_DEPART_MIN", "FORMULAS_DEPART_MIN")
-            tableMapping.ColumnMappings.Add("FORMULAS_MUNICIPIO_MIN", "FORMULAS_MUNICIPIO_MIN")
-            tableMapping.ColumnMappings.Add("FIRMAS_REPETIDAS_PORCEN", "FIRMAS_REPETIDAS_PORCEN")
+            tableMapping.DataSetTable = "IM_USUARIOS"
+            tableMapping.ColumnMappings.Add("CODIGO_USUARIO", "CODIGO_USUARIO")
+            tableMapping.ColumnMappings.Add("CODIGO_ROL", "CODIGO_ROL")
+            tableMapping.ColumnMappings.Add("NOMBRE", "NOMBRE")
+            tableMapping.ColumnMappings.Add("IDENTIDAD", "IDENTIDAD")
+            tableMapping.ColumnMappings.Add("CONTRASENA", "CONTRASENA")
+            tableMapping.ColumnMappings.Add("ESTADO", "ESTADO")
+            tableMapping.ColumnMappings.Add("CODIGO_MOVIMIENTO", "CODIGO_MOVIMIENTO")
+            tableMapping.ColumnMappings.Add("PREGUNTA_SEGURIDAD", "PREGUNTA_SEGURIDAD")
+            tableMapping.ColumnMappings.Add("NIVEL", "NIVEL")
+            tableMapping.ColumnMappings.Add("RESPUESTA_SEGURIDAD", "RESPUESTA_SEGURIDAD")
+            tableMapping.ColumnMappings.Add("CODIGO_PARTIDO", "CODIGO_PARTIDO")
             tableMapping.ColumnMappings.Add("ADICIONADO_POR", "ADICIONADO_POR")
             tableMapping.ColumnMappings.Add("FECHA_ADICION", "FECHA_ADICION")
             tableMapping.ColumnMappings.Add("MODIFICADO_POR", "MODIFICADO_POR")
             tableMapping.ColumnMappings.Add("FECHA_MODIFICACION", "FECHA_MODIFICACION")
-            tableMapping.ColumnMappings.Add("TIPO_ELECCIONES", "TIPO_ELECCIONES")
-            tableMapping.ColumnMappings.Add("ANNO_ELECCIONES", "ANNO_ELECCIONES")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OracleClient.OracleCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM ""IM_PARAMETROS_GENERALES"" WHERE (((:p3 = 1 AND ""PARTICIPACION_MUJER_P"& _ 
-                "ORCEN"" IS NULL) OR (""PARTICIPACION_MUJER_PORCEN"" = :p2)) AND ((:IsNull_FORMULAS_"& _ 
-                "DEPART_MIN = 1 AND ""FORMULAS_DEPART_MIN"" IS NULL) OR (""FORMULAS_DEPART_MIN"" = :O"& _ 
-                "riginal_FORMULAS_DEPART_MIN)) AND ((:p6 = 1 AND ""FORMULAS_MUNICIPIO_MIN"" IS NULL"& _ 
-                ") OR (""FORMULAS_MUNICIPIO_MIN"" = :p5)) AND ((:p9 = 1 AND ""FIRMAS_REPETIDAS_PORCE"& _ 
-                "N"" IS NULL) OR (""FIRMAS_REPETIDAS_PORCEN"" = :p8)) AND (""ADICIONADO_POR"" = :Origi"& _ 
-                "nal_ADICIONADO_POR) AND (""FECHA_ADICION"" = :Original_FECHA_ADICION) AND ((:IsNul"& _ 
-                "l_MODIFICADO_POR = 1 AND ""MODIFICADO_POR"" IS NULL) OR (""MODIFICADO_POR"" = :Origi"& _ 
-                "nal_MODIFICADO_POR)) AND ((:IsNull_FECHA_MODIFICACION = 1 AND ""FECHA_MODIFICACIO"& _ 
-                "N"" IS NULL) OR (""FECHA_MODIFICACION"" = :Original_FECHA_MODIFICACION)) AND ((:IsN"& _ 
-                "ull_TIPO_ELECCIONES = 1 AND ""TIPO_ELECCIONES"" IS NULL) OR (""TIPO_ELECCIONES"" = :"& _ 
-                "Original_TIPO_ELECCIONES)) AND ((:IsNull_ANNO_ELECCIONES = 1 AND ""ANNO_ELECCIONE"& _ 
-                "S"" IS NULL) OR (""ANNO_ELECCIONES"" = :Original_ANNO_ELECCIONES)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM ""IM_USUARIOS"" WHERE ((""CODIGO_USUARIO"" = :Original_CODIGO_USUARIO) AN"& _ 
+                "D (""CODIGO_ROL"" = :Original_CODIGO_ROL) AND (""NOMBRE"" = :Original_NOMBRE) AND ("""& _ 
+                "IDENTIDAD"" = :Original_IDENTIDAD) AND (""CONTRASENA"" = :Original_CONTRASENA) AND "& _ 
+                "(""ESTADO"" = :Original_ESTADO) AND (""CODIGO_MOVIMIENTO"" = :Original_CODIGO_MOVIMI"& _ 
+                "ENTO) AND (""PREGUNTA_SEGURIDAD"" = :Original_PREGUNTA_SEGURIDAD) AND (""NIVEL"" = :"& _ 
+                "Original_NIVEL) AND (""RESPUESTA_SEGURIDAD"" = :Original_RESPUESTA_SEGURIDAD) AND "& _ 
+                "(""CODIGO_PARTIDO"" = :Original_CODIGO_PARTIDO) AND (""ADICIONADO_POR"" = :Original_"& _ 
+                "ADICIONADO_POR) AND (""FECHA_ADICION"" = :Original_FECHA_ADICION) AND ((:IsNull_MO"& _ 
+                "DIFICADO_POR = 1 AND ""MODIFICADO_POR"" IS NULL) OR (""MODIFICADO_POR"" = :Original_"& _ 
+                "MODIFICADO_POR)) AND ((:IsNull_FECHA_MODIFICACION = 1 AND ""FECHA_MODIFICACION"" I"& _ 
+                "S NULL) OR (""FECHA_MODIFICACION"" = :Original_FECHA_MODIFICACION)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p3", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "PARTICIPACION_MUJER_PORCEN", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p2", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "PARTICIPACION_MUJER_PORCEN", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_FORMULAS_DEPART_MIN", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "FORMULAS_DEPART_MIN", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_FORMULAS_DEPART_MIN", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "FORMULAS_DEPART_MIN", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p6", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "FORMULAS_MUNICIPIO_MIN", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p5", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "FORMULAS_MUNICIPIO_MIN", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p9", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "FIRMAS_REPETIDAS_PORCEN", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p8", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "FIRMAS_REPETIDAS_PORCEN", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_USUARIO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_USUARIO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_ROL", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_ROL", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_NOMBRE", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_IDENTIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "IDENTIDAD", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CONTRASENA", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CONTRASENA", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_ESTADO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "ESTADO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_MOVIMIENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_PREGUNTA_SEGURIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "PREGUNTA_SEGURIDAD", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_NIVEL", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "NIVEL", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_RESPUESTA_SEGURIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "RESPUESTA_SEGURIDAD", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_PARTIDO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_FECHA_ADICION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_FECHA_MODIFICACION", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "FECHA_MODIFICACION", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_FECHA_MODIFICACION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_MODIFICACION", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_TIPO_ELECCIONES", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "TIPO_ELECCIONES", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_TIPO_ELECCIONES", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "TIPO_ELECCIONES", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_ANNO_ELECCIONES", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "ANNO_ELECCIONES", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_ANNO_ELECCIONES", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "ANNO_ELECCIONES", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OracleClient.OracleCommand
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO ""IM_PARAMETROS_GENERALES"" (""PARTICIPACION_MUJER_PORCEN"", ""FORMULAS_DE"& _ 
-                "PART_MIN"", ""FORMULAS_MUNICIPIO_MIN"", ""FIRMAS_REPETIDAS_PORCEN"", ""ADICIONADO_POR"""& _ 
-                ", ""FECHA_ADICION"", ""MODIFICADO_POR"", ""FECHA_MODIFICACION"", ""TIPO_ELECCIONES"", ""A"& _ 
-                "NNO_ELECCIONES"") VALUES (:p1, :FORMULAS_DEPART_MIN, :p4, :p7, :ADICIONADO_POR, :"& _ 
-                "FECHA_ADICION, :MODIFICADO_POR, :FECHA_MODIFICACION, :TIPO_ELECCIONES, :ANNO_ELE"& _ 
-                "CCIONES)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO ""IM_USUARIOS"" (""CODIGO_USUARIO"", ""CODIGO_ROL"", ""NOMBRE"", ""IDENTIDAD"","& _ 
+                " ""CONTRASENA"", ""ESTADO"", ""CODIGO_MOVIMIENTO"", ""PREGUNTA_SEGURIDAD"", ""NIVEL"", ""RE"& _ 
+                "SPUESTA_SEGURIDAD"", ""CODIGO_PARTIDO"", ""ADICIONADO_POR"", ""FECHA_ADICION"", ""MODIFI"& _ 
+                "CADO_POR"", ""FECHA_MODIFICACION"") VALUES (:CODIGO_USUARIO, :CODIGO_ROL, :NOMBRE, "& _ 
+                ":IDENTIDAD, :CONTRASENA, :ESTADO, :CODIGO_MOVIMIENTO, :PREGUNTA_SEGURIDAD, :NIVE"& _ 
+                "L, :RESPUESTA_SEGURIDAD, :CODIGO_PARTIDO, :ADICIONADO_POR, :FECHA_ADICION, :MODI"& _ 
+                "FICADO_POR, :FECHA_MODIFICACION)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p1", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "PARTICIPACION_MUJER_PORCEN", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FORMULAS_DEPART_MIN", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "FORMULAS_DEPART_MIN", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p4", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "FORMULAS_MUNICIPIO_MIN", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p7", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "FIRMAS_REPETIDAS_PORCEN", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_USUARIO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_USUARIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_ROL", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_ROL", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NOMBRE", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IDENTIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "IDENTIDAD", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CONTRASENA", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CONTRASENA", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ESTADO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "ESTADO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_MOVIMIENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("PREGUNTA_SEGURIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "PREGUNTA_SEGURIDAD", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NIVEL", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "NIVEL", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("RESPUESTA_SEGURIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "RESPUESTA_SEGURIDAD", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_PARTIDO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FECHA_ADICION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FECHA_MODIFICACION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_MODIFICACION", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("TIPO_ELECCIONES", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "TIPO_ELECCIONES", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ANNO_ELECCIONES", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "ANNO_ELECCIONES", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OracleClient.OracleCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE ""IM_PARAMETROS_GENERALES"" SET ""PARTICIPACION_MUJER_PORCEN"" = :p1, ""FORMULA"& _ 
-                "S_DEPART_MIN"" = :FORMULAS_DEPART_MIN, ""FORMULAS_MUNICIPIO_MIN"" = :p4, ""FIRMAS_RE"& _ 
-                "PETIDAS_PORCEN"" = :p7, ""ADICIONADO_POR"" = :ADICIONADO_POR, ""FECHA_ADICION"" = :FE"& _ 
-                "CHA_ADICION, ""MODIFICADO_POR"" = :MODIFICADO_POR, ""FECHA_MODIFICACION"" = :FECHA_M"& _ 
-                "ODIFICACION, ""TIPO_ELECCIONES"" = :TIPO_ELECCIONES, ""ANNO_ELECCIONES"" = :ANNO_ELE"& _ 
-                "CCIONES WHERE (((:p3 = 1 AND ""PARTICIPACION_MUJER_PORCEN"" IS NULL) OR (""PARTICIP"& _ 
-                "ACION_MUJER_PORCEN"" = :p2)) AND ((:IsNull_FORMULAS_DEPART_MIN = 1 AND ""FORMULAS_"& _ 
-                "DEPART_MIN"" IS NULL) OR (""FORMULAS_DEPART_MIN"" = :Original_FORMULAS_DEPART_MIN))"& _ 
-                " AND ((:p6 = 1 AND ""FORMULAS_MUNICIPIO_MIN"" IS NULL) OR (""FORMULAS_MUNICIPIO_MIN"& _ 
-                """ = :p5)) AND ((:p9 = 1 AND ""FIRMAS_REPETIDAS_PORCEN"" IS NULL) OR (""FIRMAS_REPET"& _ 
-                "IDAS_PORCEN"" = :p8)) AND (""ADICIONADO_POR"" = :Original_ADICIONADO_POR) AND (""FEC"& _ 
-                "HA_ADICION"" = :Original_FECHA_ADICION) AND ((:IsNull_MODIFICADO_POR = 1 AND ""MOD"& _ 
-                "IFICADO_POR"" IS NULL) OR (""MODIFICADO_POR"" = :Original_MODIFICADO_POR)) AND ((:I"& _ 
-                "sNull_FECHA_MODIFICACION = 1 AND ""FECHA_MODIFICACION"" IS NULL) OR (""FECHA_MODIFI"& _ 
-                "CACION"" = :Original_FECHA_MODIFICACION)) AND ((:IsNull_TIPO_ELECCIONES = 1 AND """& _ 
-                "TIPO_ELECCIONES"" IS NULL) OR (""TIPO_ELECCIONES"" = :Original_TIPO_ELECCIONES)) AN"& _ 
-                "D ((:IsNull_ANNO_ELECCIONES = 1 AND ""ANNO_ELECCIONES"" IS NULL) OR (""ANNO_ELECCIO"& _ 
-                "NES"" = :Original_ANNO_ELECCIONES)))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE ""IM_USUARIOS"" SET ""CODIGO_USUARIO"" = :CODIGO_USUARIO, ""CODIGO_ROL"" = :CODI"& _ 
+                "GO_ROL, ""NOMBRE"" = :NOMBRE, ""IDENTIDAD"" = :IDENTIDAD, ""CONTRASENA"" = :CONTRASENA"& _ 
+                ", ""ESTADO"" = :ESTADO, ""CODIGO_MOVIMIENTO"" = :CODIGO_MOVIMIENTO, ""PREGUNTA_SEGURI"& _ 
+                "DAD"" = :PREGUNTA_SEGURIDAD, ""NIVEL"" = :NIVEL, ""RESPUESTA_SEGURIDAD"" = :RESPUESTA"& _ 
+                "_SEGURIDAD, ""CODIGO_PARTIDO"" = :CODIGO_PARTIDO, ""ADICIONADO_POR"" = :ADICIONADO_P"& _ 
+                "OR, ""FECHA_ADICION"" = :FECHA_ADICION, ""MODIFICADO_POR"" = :MODIFICADO_POR, ""FECHA"& _ 
+                "_MODIFICACION"" = :FECHA_MODIFICACION WHERE ((""CODIGO_USUARIO"" = :Original_CODIGO"& _ 
+                "_USUARIO) AND (""CODIGO_ROL"" = :Original_CODIGO_ROL) AND (""NOMBRE"" = :Original_NO"& _ 
+                "MBRE) AND (""IDENTIDAD"" = :Original_IDENTIDAD) AND (""CONTRASENA"" = :Original_CONT"& _ 
+                "RASENA) AND (""ESTADO"" = :Original_ESTADO) AND (""CODIGO_MOVIMIENTO"" = :Original_C"& _ 
+                "ODIGO_MOVIMIENTO) AND (""PREGUNTA_SEGURIDAD"" = :Original_PREGUNTA_SEGURIDAD) AND "& _ 
+                "(""NIVEL"" = :Original_NIVEL) AND (""RESPUESTA_SEGURIDAD"" = :Original_RESPUESTA_SEG"& _ 
+                "URIDAD) AND (""CODIGO_PARTIDO"" = :Original_CODIGO_PARTIDO) AND (""ADICIONADO_POR"" "& _ 
+                "= :Original_ADICIONADO_POR) AND (""FECHA_ADICION"" = :Original_FECHA_ADICION) AND "& _ 
+                "((:IsNull_MODIFICADO_POR = 1 AND ""MODIFICADO_POR"" IS NULL) OR (""MODIFICADO_POR"" "& _ 
+                "= :Original_MODIFICADO_POR)) AND ((:IsNull_FECHA_MODIFICACION = 1 AND ""FECHA_MOD"& _ 
+                "IFICACION"" IS NULL) OR (""FECHA_MODIFICACION"" = :Original_FECHA_MODIFICACION)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p1", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "PARTICIPACION_MUJER_PORCEN", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FORMULAS_DEPART_MIN", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "FORMULAS_DEPART_MIN", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p4", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "FORMULAS_MUNICIPIO_MIN", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p7", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "FIRMAS_REPETIDAS_PORCEN", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_USUARIO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_USUARIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_ROL", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_ROL", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NOMBRE", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IDENTIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "IDENTIDAD", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CONTRASENA", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CONTRASENA", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ESTADO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "ESTADO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_MOVIMIENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("PREGUNTA_SEGURIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "PREGUNTA_SEGURIDAD", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NIVEL", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "NIVEL", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("RESPUESTA_SEGURIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "RESPUESTA_SEGURIDAD", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_PARTIDO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FECHA_ADICION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FECHA_MODIFICACION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_MODIFICACION", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("TIPO_ELECCIONES", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "TIPO_ELECCIONES", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ANNO_ELECCIONES", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "ANNO_ELECCIONES", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p3", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "PARTICIPACION_MUJER_PORCEN", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p2", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "PARTICIPACION_MUJER_PORCEN", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_FORMULAS_DEPART_MIN", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "FORMULAS_DEPART_MIN", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_FORMULAS_DEPART_MIN", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "FORMULAS_DEPART_MIN", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p6", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "FORMULAS_MUNICIPIO_MIN", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p5", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "FORMULAS_MUNICIPIO_MIN", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p9", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "FIRMAS_REPETIDAS_PORCEN", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p8", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "FIRMAS_REPETIDAS_PORCEN", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_USUARIO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_USUARIO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_ROL", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_ROL", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_NOMBRE", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_IDENTIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "IDENTIDAD", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CONTRASENA", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "CONTRASENA", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_ESTADO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "ESTADO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_MOVIMIENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_PREGUNTA_SEGURIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "PREGUNTA_SEGURIDAD", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_NIVEL", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "NIVEL", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_RESPUESTA_SEGURIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "RESPUESTA_SEGURIDAD", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_PARTIDO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_FECHA_ADICION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_FECHA_MODIFICACION", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "FECHA_MODIFICACION", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_FECHA_MODIFICACION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_MODIFICACION", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_TIPO_ELECCIONES", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "TIPO_ELECCIONES", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_TIPO_ELECCIONES", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "TIPO_ELECCIONES", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_ANNO_ELECCIONES", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "ANNO_ELECCIONES", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_ANNO_ELECCIONES", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "ANNO_ELECCIONES", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1123,17 +1197,17 @@ Namespace DSParametrosTableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        PARTICIPACION_MUJER_PORCEN, FORMULAS_DEPART_MIN, FORMULAS_MUNICIPIO"& _ 
-                "_MIN, FIRMAS_REPETIDAS_PORCEN, ADICIONADO_POR, FECHA_ADICION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
-                "         MODIFICADO_POR, FECHA_MODIFICACION, TIPO_ELECCIONES, ANNO_ELECCIONES"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"F"& _ 
-                "ROM            IM_PARAMETROS_GENERALES"
+            Me._commandCollection(0).CommandText = "SELECT        CODIGO_USUARIO, CODIGO_ROL, NOMBRE, IDENTIDAD, CONTRASENA, ESTADO, "& _ 
+                "CODIGO_MOVIMIENTO, PREGUNTA_SEGURIDAD, NIVEL, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RESPUES"& _ 
+                "TA_SEGURIDAD, CODIGO_PARTIDO, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FEC"& _ 
+                "HA_MODIFICACION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_USUARIOS"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSParametros.IM_PARAMETROS_GENERALESDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DTUsuario.IM_USUARIOSDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -1145,23 +1219,23 @@ Namespace DSParametrosTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DSParametros.IM_PARAMETROS_GENERALESDataTable
+        Public Overloads Overridable Function GetData() As DTUsuario.IM_USUARIOSDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DSParametros.IM_PARAMETROS_GENERALESDataTable = New DSParametros.IM_PARAMETROS_GENERALESDataTable
+            Dim dataTable As DTUsuario.IM_USUARIOSDataTable = New DTUsuario.IM_USUARIOSDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As DSParametros.IM_PARAMETROS_GENERALESDataTable) As Integer
+        Public Overloads Overridable Function Update(ByVal dataTable As DTUsuario.IM_USUARIOSDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As DSParametros) As Integer
-            Return Me.Adapter.Update(dataSet, "IM_PARAMETROS_GENERALES")
+        Public Overloads Overridable Function Update(ByVal dataSet As DTUsuario) As Integer
+            Return Me.Adapter.Update(dataSet, "IM_USUARIOS")
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1179,64 +1253,65 @@ Namespace DSParametrosTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal p2 As Global.System.Nullable(Of Decimal), ByVal Original_FORMULAS_DEPART_MIN As Global.System.Nullable(Of Decimal), ByVal p5 As Global.System.Nullable(Of Decimal), ByVal p8 As Global.System.Nullable(Of Decimal), ByVal Original_ADICIONADO_POR As Decimal, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_TIPO_ELECCIONES As Global.System.Nullable(Of Decimal), ByVal Original_ANNO_ELECCIONES As Global.System.Nullable(Of Date)) As Integer
-            If (p2.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(p2.Value,Decimal)
+        Public Overloads Overridable Function Delete(ByVal Original_CODIGO_USUARIO As String, ByVal Original_CODIGO_ROL As Decimal, ByVal Original_NOMBRE As String, ByVal Original_IDENTIDAD As String, ByVal Original_CONTRASENA As String, ByVal Original_ESTADO As String, ByVal Original_CODIGO_MOVIMIENTO As Decimal, ByVal Original_PREGUNTA_SEGURIDAD As String, ByVal Original_NIVEL As Decimal, ByVal Original_RESPUESTA_SEGURIDAD As String, ByVal Original_CODIGO_PARTIDO As Decimal, ByVal Original_ADICIONADO_POR As String, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As String, ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+            If (Original_CODIGO_USUARIO Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_CODIGO_USUARIO")
             Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(1).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CODIGO_USUARIO,String)
             End If
-            If (Original_FORMULAS_DEPART_MIN.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_FORMULAS_DEPART_MIN.Value,Decimal)
+            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_CODIGO_ROL,Decimal)
+            If (Original_NOMBRE Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_NOMBRE")
             Else
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(3).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_NOMBRE,String)
             End If
-            If (p5.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(p5.Value,Decimal)
+            If (Original_IDENTIDAD Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_IDENTIDAD")
             Else
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(5).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_IDENTIDAD,String)
             End If
-            If (p8.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(p8.Value,Decimal)
+            If (Original_CONTRASENA Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_CONTRASENA")
             Else
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(7).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_CONTRASENA,String)
             End If
-            Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_ADICIONADO_POR,Decimal)
-            Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_FECHA_ADICION,Date)
-            If (Original_MODIFICADO_POR.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(Original_MODIFICADO_POR.Value,Decimal)
+            If (Original_ESTADO Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_ESTADO")
             Else
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(11).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_ESTADO,String)
+            End If
+            Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_CODIGO_MOVIMIENTO,Decimal)
+            If (Original_PREGUNTA_SEGURIDAD Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_PREGUNTA_SEGURIDAD")
+            Else
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_PREGUNTA_SEGURIDAD,String)
+            End If
+            Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_NIVEL,Decimal)
+            If (Original_RESPUESTA_SEGURIDAD Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_RESPUESTA_SEGURIDAD")
+            Else
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_RESPUESTA_SEGURIDAD,String)
+            End If
+            Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_CODIGO_PARTIDO,Decimal)
+            If (Original_ADICIONADO_POR Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_ADICIONADO_POR")
+            Else
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(Original_ADICIONADO_POR,String)
+            End If
+            Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_FECHA_ADICION,Date)
+            If (Original_MODIFICADO_POR Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_MODIFICADO_POR,String)
             End If
             If (Original_FECHA_MODIFICACION.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(Original_FECHA_MODIFICACION.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_FECHA_MODIFICACION.Value,Date)
             Else
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(13).Value = Global.System.DBNull.Value
-            End If
-            If (Original_TIPO_ELECCIONES.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(Original_TIPO_ELECCIONES.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(15).Value = Global.System.DBNull.Value
-            End If
-            If (Original_ANNO_ELECCIONES.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(Original_ANNO_ELECCIONES.Value,Date)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(17).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -1256,48 +1331,61 @@ Namespace DSParametrosTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal p1 As Global.System.Nullable(Of Decimal), ByVal FORMULAS_DEPART_MIN As Global.System.Nullable(Of Decimal), ByVal p4 As Global.System.Nullable(Of Decimal), ByVal p7 As Global.System.Nullable(Of Decimal), ByVal ADICIONADO_POR As Decimal, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal), ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal TIPO_ELECCIONES As Global.System.Nullable(Of Decimal), ByVal ANNO_ELECCIONES As Global.System.Nullable(Of Date)) As Integer
-            If (p1.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(p1.Value,Decimal)
+        Public Overloads Overridable Function Insert(ByVal CODIGO_USUARIO As String, ByVal CODIGO_ROL As Decimal, ByVal NOMBRE As String, ByVal IDENTIDAD As String, ByVal CONTRASENA As String, ByVal ESTADO As String, ByVal CODIGO_MOVIMIENTO As Decimal, ByVal PREGUNTA_SEGURIDAD As String, ByVal NIVEL As Decimal, ByVal RESPUESTA_SEGURIDAD As String, ByVal CODIGO_PARTIDO As Decimal, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+            If (CODIGO_USUARIO Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("CODIGO_USUARIO")
             Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(CODIGO_USUARIO,String)
             End If
-            If (FORMULAS_DEPART_MIN.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(FORMULAS_DEPART_MIN.Value,Decimal)
+            Me.Adapter.InsertCommand.Parameters(1).Value = CType(CODIGO_ROL,Decimal)
+            If (NOMBRE Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("NOMBRE")
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(NOMBRE,String)
             End If
-            If (p4.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(p4.Value,Decimal)
+            If (IDENTIDAD Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("IDENTIDAD")
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(IDENTIDAD,String)
             End If
-            If (p7.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(p7.Value,Decimal)
+            If (CONTRASENA Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("CONTRASENA")
             Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(CONTRASENA,String)
             End If
-            Me.Adapter.InsertCommand.Parameters(4).Value = CType(ADICIONADO_POR,Decimal)
-            Me.Adapter.InsertCommand.Parameters(5).Value = CType(FECHA_ADICION,Date)
-            If (MODIFICADO_POR.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(MODIFICADO_POR.Value,Decimal)
+            If (ESTADO Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("ESTADO")
             Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(ESTADO,String)
+            End If
+            Me.Adapter.InsertCommand.Parameters(6).Value = CType(CODIGO_MOVIMIENTO,Decimal)
+            If (PREGUNTA_SEGURIDAD Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("PREGUNTA_SEGURIDAD")
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(PREGUNTA_SEGURIDAD,String)
+            End If
+            Me.Adapter.InsertCommand.Parameters(8).Value = CType(NIVEL,Decimal)
+            If (RESPUESTA_SEGURIDAD Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("RESPUESTA_SEGURIDAD")
+            Else
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(RESPUESTA_SEGURIDAD,String)
+            End If
+            Me.Adapter.InsertCommand.Parameters(10).Value = CType(CODIGO_PARTIDO,Decimal)
+            If (ADICIONADO_POR Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("ADICIONADO_POR")
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(ADICIONADO_POR,String)
+            End If
+            Me.Adapter.InsertCommand.Parameters(12).Value = CType(FECHA_ADICION,Date)
+            If (MODIFICADO_POR Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(MODIFICADO_POR,String)
             End If
             If (FECHA_MODIFICACION.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(FECHA_MODIFICACION.Value,Date)
+                Me.Adapter.InsertCommand.Parameters(14).Value = CType(FECHA_MODIFICACION.Value,Date)
             Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
-            End If
-            If (TIPO_ELECCIONES.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(TIPO_ELECCIONES.Value,Decimal)
-            Else
-                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
-            End If
-            If (ANNO_ELECCIONES.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(ANNO_ELECCIONES.Value,Date)
-            Else
-                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -1318,125 +1406,149 @@ Namespace DSParametrosTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
         Public Overloads Overridable Function Update( _
-                    ByVal p1 As Global.System.Nullable(Of Decimal),  _
-                    ByVal FORMULAS_DEPART_MIN As Global.System.Nullable(Of Decimal),  _
-                    ByVal p4 As Global.System.Nullable(Of Decimal),  _
-                    ByVal p7 As Global.System.Nullable(Of Decimal),  _
-                    ByVal ADICIONADO_POR As Decimal,  _
+                    ByVal CODIGO_USUARIO As String,  _
+                    ByVal CODIGO_ROL As Decimal,  _
+                    ByVal NOMBRE As String,  _
+                    ByVal IDENTIDAD As String,  _
+                    ByVal CONTRASENA As String,  _
+                    ByVal ESTADO As String,  _
+                    ByVal CODIGO_MOVIMIENTO As Decimal,  _
+                    ByVal PREGUNTA_SEGURIDAD As String,  _
+                    ByVal NIVEL As Decimal,  _
+                    ByVal RESPUESTA_SEGURIDAD As String,  _
+                    ByVal CODIGO_PARTIDO As Decimal,  _
+                    ByVal ADICIONADO_POR As String,  _
                     ByVal FECHA_ADICION As Date,  _
-                    ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal),  _
+                    ByVal MODIFICADO_POR As String,  _
                     ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date),  _
-                    ByVal TIPO_ELECCIONES As Global.System.Nullable(Of Decimal),  _
-                    ByVal ANNO_ELECCIONES As Global.System.Nullable(Of Date),  _
-                    ByVal p2 As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_FORMULAS_DEPART_MIN As Global.System.Nullable(Of Decimal),  _
-                    ByVal p5 As Global.System.Nullable(Of Decimal),  _
-                    ByVal p8 As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_ADICIONADO_POR As Decimal,  _
+                    ByVal Original_CODIGO_USUARIO As String,  _
+                    ByVal Original_CODIGO_ROL As Decimal,  _
+                    ByVal Original_NOMBRE As String,  _
+                    ByVal Original_IDENTIDAD As String,  _
+                    ByVal Original_CONTRASENA As String,  _
+                    ByVal Original_ESTADO As String,  _
+                    ByVal Original_CODIGO_MOVIMIENTO As Decimal,  _
+                    ByVal Original_PREGUNTA_SEGURIDAD As String,  _
+                    ByVal Original_NIVEL As Decimal,  _
+                    ByVal Original_RESPUESTA_SEGURIDAD As String,  _
+                    ByVal Original_CODIGO_PARTIDO As Decimal,  _
+                    ByVal Original_ADICIONADO_POR As String,  _
                     ByVal Original_FECHA_ADICION As Date,  _
-                    ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date),  _
-                    ByVal Original_TIPO_ELECCIONES As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_ANNO_ELECCIONES As Global.System.Nullable(Of Date)) As Integer
-            If (p1.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(p1.Value,Decimal)
+                    ByVal Original_MODIFICADO_POR As String,  _
+                    ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+            If (CODIGO_USUARIO Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("CODIGO_USUARIO")
             Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CODIGO_USUARIO,String)
             End If
-            If (FORMULAS_DEPART_MIN.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(FORMULAS_DEPART_MIN.Value,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(CODIGO_ROL,Decimal)
+            If (NOMBRE Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("NOMBRE")
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(NOMBRE,String)
             End If
-            If (p4.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(p4.Value,Decimal)
+            If (IDENTIDAD Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("IDENTIDAD")
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(IDENTIDAD,String)
             End If
-            If (p7.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(p7.Value,Decimal)
+            If (CONTRASENA Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("CONTRASENA")
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(CONTRASENA,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(ADICIONADO_POR,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(FECHA_ADICION,Date)
-            If (MODIFICADO_POR.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(MODIFICADO_POR.Value,Decimal)
+            If (ESTADO Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("ESTADO")
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(ESTADO,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(CODIGO_MOVIMIENTO,Decimal)
+            If (PREGUNTA_SEGURIDAD Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("PREGUNTA_SEGURIDAD")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(PREGUNTA_SEGURIDAD,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(NIVEL,Decimal)
+            If (RESPUESTA_SEGURIDAD Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("RESPUESTA_SEGURIDAD")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(RESPUESTA_SEGURIDAD,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(CODIGO_PARTIDO,Decimal)
+            If (ADICIONADO_POR Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("ADICIONADO_POR")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(ADICIONADO_POR,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(FECHA_ADICION,Date)
+            If (MODIFICADO_POR Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(MODIFICADO_POR,String)
             End If
             If (FECHA_MODIFICACION.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(FECHA_MODIFICACION.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(FECHA_MODIFICACION.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
-            If (TIPO_ELECCIONES.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(TIPO_ELECCIONES.Value,Decimal)
+            If (Original_CODIGO_USUARIO Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_CODIGO_USUARIO")
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_CODIGO_USUARIO,String)
             End If
-            If (ANNO_ELECCIONES.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(ANNO_ELECCIONES.Value,Date)
+            Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_CODIGO_ROL,Decimal)
+            If (Original_NOMBRE Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_NOMBRE")
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_NOMBRE,String)
             End If
-            If (p2.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(p2.Value,Decimal)
+            If (Original_IDENTIDAD Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_IDENTIDAD")
             Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_IDENTIDAD,String)
             End If
-            If (Original_FORMULAS_DEPART_MIN.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_FORMULAS_DEPART_MIN.Value,Decimal)
+            If (Original_CONTRASENA Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_CONTRASENA")
             Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_CONTRASENA,String)
             End If
-            If (p5.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(p5.Value,Decimal)
+            If (Original_ESTADO Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_ESTADO")
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_ESTADO,String)
             End If
-            If (p8.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(p8.Value,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_CODIGO_MOVIMIENTO,Decimal)
+            If (Original_PREGUNTA_SEGURIDAD Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_PREGUNTA_SEGURIDAD")
             Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_PREGUNTA_SEGURIDAD,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_ADICIONADO_POR,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_FECHA_ADICION,Date)
-            If (Original_MODIFICADO_POR.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_MODIFICADO_POR.Value,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_NIVEL,Decimal)
+            If (Original_RESPUESTA_SEGURIDAD Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_RESPUESTA_SEGURIDAD")
             Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_RESPUESTA_SEGURIDAD,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_CODIGO_PARTIDO,Decimal)
+            If (Original_ADICIONADO_POR Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_ADICIONADO_POR")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_ADICIONADO_POR,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_FECHA_ADICION,Date)
+            If (Original_MODIFICADO_POR Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_MODIFICADO_POR,String)
             End If
             If (Original_FECHA_MODIFICACION.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_FECHA_MODIFICACION.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_FECHA_MODIFICACION.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
-            End If
-            If (Original_TIPO_ELECCIONES.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_TIPO_ELECCIONES.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
-            End If
-            If (Original_ANNO_ELECCIONES.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_ANNO_ELECCIONES.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -1457,26 +1569,36 @@ Namespace DSParametrosTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
         Public Overloads Overridable Function Update( _
-                    ByVal p1 As Global.System.Nullable(Of Decimal),  _
-                    ByVal FORMULAS_DEPART_MIN As Global.System.Nullable(Of Decimal),  _
-                    ByVal p4 As Global.System.Nullable(Of Decimal),  _
-                    ByVal p7 As Global.System.Nullable(Of Decimal),  _
-                    ByVal ADICIONADO_POR As Decimal,  _
-                    ByVal MODIFICADO_POR As Global.System.Nullable(Of Decimal),  _
+                    ByVal CODIGO_ROL As Decimal,  _
+                    ByVal NOMBRE As String,  _
+                    ByVal IDENTIDAD As String,  _
+                    ByVal CONTRASENA As String,  _
+                    ByVal ESTADO As String,  _
+                    ByVal CODIGO_MOVIMIENTO As Decimal,  _
+                    ByVal PREGUNTA_SEGURIDAD As String,  _
+                    ByVal NIVEL As Decimal,  _
+                    ByVal RESPUESTA_SEGURIDAD As String,  _
+                    ByVal CODIGO_PARTIDO As Decimal,  _
+                    ByVal ADICIONADO_POR As String,  _
+                    ByVal FECHA_ADICION As Date,  _
+                    ByVal MODIFICADO_POR As String,  _
                     ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date),  _
-                    ByVal TIPO_ELECCIONES As Global.System.Nullable(Of Decimal),  _
-                    ByVal ANNO_ELECCIONES As Global.System.Nullable(Of Date),  _
-                    ByVal p2 As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_FORMULAS_DEPART_MIN As Global.System.Nullable(Of Decimal),  _
-                    ByVal p5 As Global.System.Nullable(Of Decimal),  _
-                    ByVal p8 As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_ADICIONADO_POR As Decimal,  _
+                    ByVal Original_CODIGO_USUARIO As String,  _
+                    ByVal Original_CODIGO_ROL As Decimal,  _
+                    ByVal Original_NOMBRE As String,  _
+                    ByVal Original_IDENTIDAD As String,  _
+                    ByVal Original_CONTRASENA As String,  _
+                    ByVal Original_ESTADO As String,  _
+                    ByVal Original_CODIGO_MOVIMIENTO As Decimal,  _
+                    ByVal Original_PREGUNTA_SEGURIDAD As String,  _
+                    ByVal Original_NIVEL As Decimal,  _
+                    ByVal Original_RESPUESTA_SEGURIDAD As String,  _
+                    ByVal Original_CODIGO_PARTIDO As Decimal,  _
+                    ByVal Original_ADICIONADO_POR As String,  _
                     ByVal Original_FECHA_ADICION As Date,  _
-                    ByVal Original_MODIFICADO_POR As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date),  _
-                    ByVal Original_TIPO_ELECCIONES As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_ANNO_ELECCIONES As Global.System.Nullable(Of Date)) As Integer
-            Return Me.Update(p1, FORMULAS_DEPART_MIN, p4, p7, ADICIONADO_POR, Original_FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, TIPO_ELECCIONES, ANNO_ELECCIONES, p2, Original_FORMULAS_DEPART_MIN, p5, p8, Original_ADICIONADO_POR, Original_FECHA_ADICION, Original_MODIFICADO_POR, Original_FECHA_MODIFICACION, Original_TIPO_ELECCIONES, Original_ANNO_ELECCIONES)
+                    ByVal Original_MODIFICADO_POR As String,  _
+                    ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+            Return Me.Update(Original_CODIGO_USUARIO, CODIGO_ROL, NOMBRE, IDENTIDAD, CONTRASENA, ESTADO, CODIGO_MOVIMIENTO, PREGUNTA_SEGURIDAD, NIVEL, RESPUESTA_SEGURIDAD, CODIGO_PARTIDO, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, Original_CODIGO_USUARIO, Original_CODIGO_ROL, Original_NOMBRE, Original_IDENTIDAD, Original_CONTRASENA, Original_ESTADO, Original_CODIGO_MOVIMIENTO, Original_PREGUNTA_SEGURIDAD, Original_NIVEL, Original_RESPUESTA_SEGURIDAD, Original_CODIGO_PARTIDO, Original_ADICIONADO_POR, Original_FECHA_ADICION, Original_MODIFICADO_POR, Original_FECHA_MODIFICACION)
         End Function
     End Class
     
@@ -1494,7 +1616,7 @@ Namespace DSParametrosTableAdapters
         
         Private _updateOrder As UpdateOrderOption
         
-        Private _iM_PARAMETROS_GENERALESTableAdapter As IM_PARAMETROS_GENERALESTableAdapter
+        Private _iM_USUARIOSTableAdapter As IM_USUARIOSTableAdapter
         
         Private _backupDataSetBeforeUpdate As Boolean
         
@@ -1514,12 +1636,12 @@ Namespace DSParametrosTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"& _ 
             "", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property IM_PARAMETROS_GENERALESTableAdapter() As IM_PARAMETROS_GENERALESTableAdapter
+        Public Property IM_USUARIOSTableAdapter() As IM_USUARIOSTableAdapter
             Get
-                Return Me._iM_PARAMETROS_GENERALESTableAdapter
+                Return Me._iM_USUARIOSTableAdapter
             End Get
             Set
-                Me._iM_PARAMETROS_GENERALESTableAdapter = value
+                Me._iM_USUARIOSTableAdapter = value
             End Set
         End Property
         
@@ -1540,9 +1662,9 @@ Namespace DSParametrosTableAdapters
                 If (Not (Me._connection) Is Nothing) Then
                     Return Me._connection
                 End If
-                If ((Not (Me._iM_PARAMETROS_GENERALESTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._iM_PARAMETROS_GENERALESTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._iM_PARAMETROS_GENERALESTableAdapter.Connection
+                If ((Not (Me._iM_USUARIOSTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._iM_USUARIOSTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._iM_USUARIOSTableAdapter.Connection
                 End If
                 Return Nothing
             End Get
@@ -1556,7 +1678,7 @@ Namespace DSParametrosTableAdapters
         Public ReadOnly Property TableAdapterInstanceCount() As Integer
             Get
                 Dim count As Integer = 0
-                If (Not (Me._iM_PARAMETROS_GENERALESTableAdapter) Is Nothing) Then
+                If (Not (Me._iM_USUARIOSTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 Return count
@@ -1567,14 +1689,15 @@ Namespace DSParametrosTableAdapters
         '''Update rows in top-down order.
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private Function UpdateUpdatedRows(ByVal dataSet As DSParametros, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateUpdatedRows(ByVal dataSet As DTUsuario, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._iM_PARAMETROS_GENERALESTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.IM_PARAMETROS_GENERALES.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._iM_USUARIOSTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.IM_USUARIOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._iM_PARAMETROS_GENERALESTableAdapter.Update(updatedRows))
+                    Me.SortSelfReferenceRows(updatedRows, dataSet.Relations("IM_FK4_USUARIOS"), false)
+                    result = (result + Me._iM_USUARIOSTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -1585,13 +1708,14 @@ Namespace DSParametrosTableAdapters
         '''Insert rows in top-down order.
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private Function UpdateInsertedRows(ByVal dataSet As DSParametros, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateInsertedRows(ByVal dataSet As DTUsuario, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._iM_PARAMETROS_GENERALESTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.IM_PARAMETROS_GENERALES.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._iM_USUARIOSTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.IM_USUARIOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._iM_PARAMETROS_GENERALESTableAdapter.Update(addedRows))
+                    Me.SortSelfReferenceRows(addedRows, dataSet.Relations("IM_FK4_USUARIOS"), false)
+                    result = (result + Me._iM_USUARIOSTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -1602,13 +1726,14 @@ Namespace DSParametrosTableAdapters
         '''Delete rows in bottom-up order.
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private Function UpdateDeletedRows(ByVal dataSet As DSParametros, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateDeletedRows(ByVal dataSet As DTUsuario, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._iM_PARAMETROS_GENERALESTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.IM_PARAMETROS_GENERALES.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._iM_USUARIOSTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.IM_USUARIOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._iM_PARAMETROS_GENERALESTableAdapter.Update(deletedRows))
+                    Me.SortSelfReferenceRows(deletedRows, dataSet.Relations("IM_FK4_USUARIOS"), true)
+                    result = (result + Me._iM_USUARIOSTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -1644,15 +1769,15 @@ Namespace DSParametrosTableAdapters
         '''Update all changes to the dataset.
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overridable Function UpdateAll(ByVal dataSet As DSParametros) As Integer
+        Public Overridable Function UpdateAll(ByVal dataSet As DTUsuario) As Integer
             If (dataSet Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("dataSet")
             End If
             If (dataSet.HasChanges = false) Then
                 Return 0
             End If
-            If ((Not (Me._iM_PARAMETROS_GENERALESTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._iM_PARAMETROS_GENERALESTableAdapter.Connection) = false)) Then
+            If ((Not (Me._iM_USUARIOSTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._iM_USUARIOSTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
@@ -1688,13 +1813,13 @@ Namespace DSParametrosTableAdapters
             Try 
                 '---- Prepare for update -----------
                 '
-                If (Not (Me._iM_PARAMETROS_GENERALESTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._iM_PARAMETROS_GENERALESTableAdapter, Me._iM_PARAMETROS_GENERALESTableAdapter.Connection)
-                    Me._iM_PARAMETROS_GENERALESTableAdapter.Connection = CType(workConnection,Global.System.Data.OracleClient.OracleConnection)
-                    Me._iM_PARAMETROS_GENERALESTableAdapter.Transaction = CType(workTransaction,Global.System.Data.OracleClient.OracleTransaction)
-                    If Me._iM_PARAMETROS_GENERALESTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._iM_PARAMETROS_GENERALESTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._iM_PARAMETROS_GENERALESTableAdapter.Adapter)
+                If (Not (Me._iM_USUARIOSTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._iM_USUARIOSTableAdapter, Me._iM_USUARIOSTableAdapter.Connection)
+                    Me._iM_USUARIOSTableAdapter.Connection = CType(workConnection,Global.System.Data.OracleClient.OracleConnection)
+                    Me._iM_USUARIOSTableAdapter.Transaction = CType(workTransaction,Global.System.Data.OracleClient.OracleTransaction)
+                    If Me._iM_USUARIOSTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._iM_USUARIOSTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._iM_USUARIOSTableAdapter.Adapter)
                     End If
                 End If
                 '
@@ -1757,9 +1882,9 @@ Namespace DSParametrosTableAdapters
                 If workConnOpened Then
                     workConnection.Close
                 End If
-                If (Not (Me._iM_PARAMETROS_GENERALESTableAdapter) Is Nothing) Then
-                    Me._iM_PARAMETROS_GENERALESTableAdapter.Connection = CType(revertConnections(Me._iM_PARAMETROS_GENERALESTableAdapter),Global.System.Data.OracleClient.OracleConnection)
-                    Me._iM_PARAMETROS_GENERALESTableAdapter.Transaction = Nothing
+                If (Not (Me._iM_USUARIOSTableAdapter) Is Nothing) Then
+                    Me._iM_USUARIOSTableAdapter.Connection = CType(revertConnections(Me._iM_USUARIOSTableAdapter),Global.System.Data.OracleClient.OracleConnection)
+                    Me._iM_USUARIOSTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter

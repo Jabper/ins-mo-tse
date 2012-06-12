@@ -21,6 +21,9 @@ Partial Class XfrmRoles
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
+        Me.CheckedListBoxControl1 = New DevExpress.XtraEditors.CheckedListBoxControl
+        Me.IMOPCIONESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DTUsers = New Inscripcion_de_Moviemientos.DTUsers
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton
         Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
@@ -28,7 +31,6 @@ Partial Class XfrmRoles
         Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
         Me.GCDepartamento = New DevExpress.XtraGrid.GridControl
         Me.TAROLESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DTUsers = New Inscripcion_de_Moviemientos.DTUsers
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.colCODIGO_ROL = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colDESCRIPCION = New DevExpress.XtraGrid.Columns.GridColumn
@@ -54,15 +56,19 @@ Partial Class XfrmRoles
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem
         Me.IM_ROLESTableAdapter = New Inscripcion_de_Moviemientos.DTUsersTableAdapters.IM_ROLESTableAdapter
         Me.TA_ROLESTableAdapter = New Inscripcion_de_Moviemientos.DTUsersTableAdapters.TA_ROLESTableAdapter
+        Me.IM_OPCIONESTableAdapter = New Inscripcion_de_Moviemientos.DTUsersTableAdapters.IM_OPCIONESTableAdapter
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.CheckedListBoxControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMOPCIONESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DTUsers, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         CType(Me.GCDepartamento, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TAROLESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DTUsers, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -89,10 +95,12 @@ Partial Class XfrmRoles
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.CheckedListBoxControl1)
         Me.LayoutControl1.Controls.Add(Me.PanelControl1)
         Me.LayoutControl1.Controls.Add(Me.GCDepartamento)
         Me.LayoutControl1.Controls.Add(Me.DataLayoutControl1)
@@ -105,6 +113,27 @@ Partial Class XfrmRoles
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'CheckedListBoxControl1
+        '
+        Me.CheckedListBoxControl1.DataSource = Me.IMOPCIONESBindingSource
+        Me.CheckedListBoxControl1.DisplayMember = "DESCRIPCION"
+        Me.CheckedListBoxControl1.Location = New System.Drawing.Point(12, 148)
+        Me.CheckedListBoxControl1.Name = "CheckedListBoxControl1"
+        Me.CheckedListBoxControl1.Size = New System.Drawing.Size(451, 92)
+        Me.CheckedListBoxControl1.StyleController = Me.LayoutControl1
+        Me.CheckedListBoxControl1.TabIndex = 9
+        Me.CheckedListBoxControl1.ValueMember = "CODIGO_OPCION"
+        '
+        'IMOPCIONESBindingSource
+        '
+        Me.IMOPCIONESBindingSource.DataMember = "IM_OPCIONES"
+        Me.IMOPCIONESBindingSource.DataSource = Me.DTUsers
+        '
+        'DTUsers
+        '
+        Me.DTUsers.DataSetName = "DTUsers"
+        Me.DTUsers.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'PanelControl1
         '
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
@@ -114,7 +143,7 @@ Partial Class XfrmRoles
         Me.PanelControl1.Controls.Add(Me.BtnGuardar)
         Me.PanelControl1.Location = New System.Drawing.Point(12, 12)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(256, 61)
+        Me.PanelControl1.Size = New System.Drawing.Size(256, 52)
         Me.PanelControl1.TabIndex = 6
         '
         'SimpleButton1
@@ -168,10 +197,10 @@ Partial Class XfrmRoles
         'GCDepartamento
         '
         Me.GCDepartamento.DataSource = Me.TAROLESBindingSource
-        Me.GCDepartamento.Location = New System.Drawing.Point(12, 169)
+        Me.GCDepartamento.Location = New System.Drawing.Point(12, 244)
         Me.GCDepartamento.MainView = Me.GridView1
         Me.GCDepartamento.Name = "GCDepartamento"
-        Me.GCDepartamento.Size = New System.Drawing.Size(451, 155)
+        Me.GCDepartamento.Size = New System.Drawing.Size(451, 80)
         Me.GCDepartamento.TabIndex = 8
         Me.GCDepartamento.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -179,11 +208,6 @@ Partial Class XfrmRoles
         '
         Me.TAROLESBindingSource.DataMember = "TA_ROLES"
         Me.TAROLESBindingSource.DataSource = Me.DTUsers
-        '
-        'DTUsers
-        '
-        Me.DTUsers.DataSetName = "DTUsers"
-        Me.DTUsers.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GridView1
         '
@@ -199,6 +223,7 @@ Partial Class XfrmRoles
         '
         'colCODIGO_ROL
         '
+        Me.colCODIGO_ROL.Caption = "Código Rol"
         Me.colCODIGO_ROL.FieldName = "CODIGO_ROL"
         Me.colCODIGO_ROL.Name = "colCODIGO_ROL"
         Me.colCODIGO_ROL.Visible = True
@@ -206,6 +231,7 @@ Partial Class XfrmRoles
         '
         'colDESCRIPCION
         '
+        Me.colDESCRIPCION.Caption = "Descripción"
         Me.colDESCRIPCION.FieldName = "DESCRIPCION"
         Me.colDESCRIPCION.Name = "colDESCRIPCION"
         Me.colDESCRIPCION.Visible = True
@@ -226,10 +252,10 @@ Partial Class XfrmRoles
         Me.DataLayoutControl1.Controls.Add(Me.FECHA_MODIFICACIONDateEdit)
         Me.DataLayoutControl1.DataSource = Me.IMROLESBindingSource
         Me.DataLayoutControl1.HiddenItems.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForADICIONADO_POR, Me.ItemForFECHA_ADICION, Me.ItemForMODIFICADO_POR, Me.ItemForFECHA_MODIFICACION})
-        Me.DataLayoutControl1.Location = New System.Drawing.Point(12, 77)
+        Me.DataLayoutControl1.Location = New System.Drawing.Point(12, 68)
         Me.DataLayoutControl1.Name = "DataLayoutControl1"
         Me.DataLayoutControl1.Root = Me.Root
-        Me.DataLayoutControl1.Size = New System.Drawing.Size(451, 88)
+        Me.DataLayoutControl1.Size = New System.Drawing.Size(451, 76)
         Me.DataLayoutControl1.TabIndex = 4
         Me.DataLayoutControl1.Text = "DataLayoutControl1"
         '
@@ -356,7 +382,7 @@ Partial Class XfrmRoles
         Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup2})
         Me.Root.Location = New System.Drawing.Point(0, 0)
         Me.Root.Name = "Root"
-        Me.Root.Size = New System.Drawing.Size(451, 88)
+        Me.Root.Size = New System.Drawing.Size(451, 76)
         Me.Root.Text = "Root"
         Me.Root.TextVisible = False
         '
@@ -368,7 +394,7 @@ Partial Class XfrmRoles
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForCODIGO_ROL, Me.ItemForDESCRIPCION})
         Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "autoGeneratedGroup0"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(431, 68)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(431, 56)
         Me.LayoutControlGroup2.Text = "autoGeneratedGroup0"
         '
         'ItemForCODIGO_ROL
@@ -387,7 +413,7 @@ Partial Class XfrmRoles
         Me.ItemForDESCRIPCION.CustomizationFormText = "DESCRIPCION"
         Me.ItemForDESCRIPCION.Location = New System.Drawing.Point(0, 24)
         Me.ItemForDESCRIPCION.Name = "ItemForDESCRIPCION"
-        Me.ItemForDESCRIPCION.Size = New System.Drawing.Size(431, 44)
+        Me.ItemForDESCRIPCION.Size = New System.Drawing.Size(431, 32)
         Me.ItemForDESCRIPCION.Text = "Descripción"
         Me.ItemForDESCRIPCION.TextSize = New System.Drawing.Size(54, 13)
         '
@@ -396,7 +422,7 @@ Partial Class XfrmRoles
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.EmptySpaceItem2, Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.EmptySpaceItem2, Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(475, 336)
@@ -408,8 +434,11 @@ Partial Class XfrmRoles
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
         Me.EmptySpaceItem2.Location = New System.Drawing.Point(260, 0)
+        Me.EmptySpaceItem2.MaxSize = New System.Drawing.Size(195, 56)
+        Me.EmptySpaceItem2.MinSize = New System.Drawing.Size(195, 56)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(195, 65)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(195, 56)
+        Me.EmptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -417,11 +446,11 @@ Partial Class XfrmRoles
         '
         Me.LayoutControlItem1.Control = Me.DataLayoutControl1
         Me.LayoutControlItem1.CustomizationFormText = "LayoutControlItem1"
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 65)
-        Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(455, 92)
-        Me.LayoutControlItem1.MinSize = New System.Drawing.Size(455, 92)
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 56)
+        Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(455, 80)
+        Me.LayoutControlItem1.MinSize = New System.Drawing.Size(455, 80)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(455, 92)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(455, 80)
         Me.LayoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem1.Text = "LayoutControlItem1"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
@@ -432,11 +461,11 @@ Partial Class XfrmRoles
         '
         Me.LayoutControlItem2.Control = Me.GCDepartamento
         Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 157)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 232)
         Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(455, 0)
         Me.LayoutControlItem2.MinSize = New System.Drawing.Size(455, 24)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(455, 159)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(455, 84)
         Me.LayoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem2.Text = "LayoutControlItem2"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
@@ -449,11 +478,26 @@ Partial Class XfrmRoles
         Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
         Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(260, 65)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(260, 56)
         Me.LayoutControlItem3.Text = "LayoutControlItem3"
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextToControlDistance = 0
         Me.LayoutControlItem3.TextVisible = False
+        '
+        'LayoutControlItem4
+        '
+        Me.LayoutControlItem4.Control = Me.CheckedListBoxControl1
+        Me.LayoutControlItem4.CustomizationFormText = "LayoutControlItem4"
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 136)
+        Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(455, 96)
+        Me.LayoutControlItem4.MinSize = New System.Drawing.Size(455, 96)
+        Me.LayoutControlItem4.Name = "LayoutControlItem4"
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(455, 96)
+        Me.LayoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem4.Text = "LayoutControlItem4"
+        Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem4.TextToControlDistance = 0
+        Me.LayoutControlItem4.TextVisible = False
         '
         'IM_ROLESTableAdapter
         '
@@ -462,6 +506,10 @@ Partial Class XfrmRoles
         'TA_ROLESTableAdapter
         '
         Me.TA_ROLESTableAdapter.ClearBeforeFill = True
+        '
+        'IM_OPCIONESTableAdapter
+        '
+        Me.IM_OPCIONESTableAdapter.ClearBeforeFill = True
         '
         'XfrmRoles
         '
@@ -473,11 +521,13 @@ Partial Class XfrmRoles
         Me.Text = "Roles"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.CheckedListBoxControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMOPCIONESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DTUsers, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         CType(Me.GCDepartamento, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TAROLESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DTUsers, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -504,6 +554,7 @@ Partial Class XfrmRoles
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -543,4 +594,8 @@ Partial Class XfrmRoles
     Friend WithEvents BtnGuardar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents CheckedListBoxControl1 As DevExpress.XtraEditors.CheckedListBoxControl
+    Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents IMOPCIONESBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents IM_OPCIONESTableAdapter As Inscripcion_de_Moviemientos.DTUsersTableAdapters.IM_OPCIONESTableAdapter
 End Class

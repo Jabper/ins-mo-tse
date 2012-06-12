@@ -184,6 +184,7 @@ Partial Class XfrmMovimientos
         '
         'colCODIGO_MOVIMIENTO
         '
+        Me.colCODIGO_MOVIMIENTO.Caption = "Código Moviento"
         Me.colCODIGO_MOVIMIENTO.FieldName = "CODIGO_MOVIMIENTO"
         Me.colCODIGO_MOVIMIENTO.Name = "colCODIGO_MOVIMIENTO"
         Me.colCODIGO_MOVIMIENTO.Visible = True
@@ -191,6 +192,7 @@ Partial Class XfrmMovimientos
         '
         'colNOMBRE_MOVIMIENTO
         '
+        Me.colNOMBRE_MOVIMIENTO.Caption = "Movimiento"
         Me.colNOMBRE_MOVIMIENTO.FieldName = "NOMBRE_MOVIMIENTO"
         Me.colNOMBRE_MOVIMIENTO.Name = "colNOMBRE_MOVIMIENTO"
         Me.colNOMBRE_MOVIMIENTO.Visible = True
@@ -198,6 +200,7 @@ Partial Class XfrmMovimientos
         '
         'colCODIGO_PARTIDO
         '
+        Me.colCODIGO_PARTIDO.Caption = "Código Partido"
         Me.colCODIGO_PARTIDO.FieldName = "CODIGO_PARTIDO"
         Me.colCODIGO_PARTIDO.Name = "colCODIGO_PARTIDO"
         Me.colCODIGO_PARTIDO.Visible = True
@@ -402,7 +405,7 @@ Partial Class XfrmMovimientos
         Me.CODIGO_PARTIDOSpinEdit.Location = New System.Drawing.Point(127, 60)
         Me.CODIGO_PARTIDOSpinEdit.Name = "CODIGO_PARTIDOSpinEdit"
         Me.CODIGO_PARTIDOSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.CODIGO_PARTIDOSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_PARTIDO", "CODIGO_PARTIDO", 115, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE", "NOMBRE", 52, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CANTIDAD_FIRMAS", "CANTIDAD_FIRMAS", 106, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far)})
+        Me.CODIGO_PARTIDOSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_PARTIDO", "Código Partido", 115, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE", "Partido Político", 52, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.CODIGO_PARTIDOSpinEdit.Properties.DataSource = Me.IMPARTIDOSPOLITICOSBindingSource
         Me.CODIGO_PARTIDOSpinEdit.Properties.DisplayMember = "NOMBRE"
         Me.CODIGO_PARTIDOSpinEdit.Properties.NullText = ""
