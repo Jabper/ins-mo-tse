@@ -3,7 +3,8 @@ Imports System.Drawing.Imaging
 Imports DevExpress.XtraEditors
 Imports DevExpress.XtraGrid.Views.Grid
 Public Class XfrmPartidosPoliticos
-
+    Dim id As Integer
+    Dim actualizar As Boolean = False
     Public UrlImagen As String
     Private Sub XfrmPartidosPoliticos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
        
@@ -54,6 +55,16 @@ Public Class XfrmPartidosPoliticos
 
             'ACTUALIZANDO EL GRID DE BUSQUEDA Y EDICION
             ActualizarGrid()
+
+            'Edicion
+            BtnEliminar.Enabled = False
+            If actualizar = True Then
+                Mensajes.MensajeActualizar()
+                actualizar = False
+            Else
+                Mensajes.MensajeGuardar()
+            End If
+            Me.IMPARTIDOSPOLITICOSBindingSource.AddNew()
         Catch ex As Exception
             'CONTROL DE ERRORES
             Mensajes.MensajeError(ex.Message)
@@ -71,6 +82,7 @@ Public Class XfrmPartidosPoliticos
             Me.IMPARTIDOSPOLITICOSBindingSource.AddNew()
             '   LIMPIAR EL LA IMAGEN
             IMAGENPictureEdit.EditValue = Nothing
+            Me.BtnEliminar.Enabled = False
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
         End Try
@@ -101,7 +113,9 @@ Public Class XfrmPartidosPoliticos
                 'SI NO SE ENCUENTRA LIMPIAMOS EL PICTURE EDIT
                 IMAGENPictureEdit.EditValue = Nothing
             End If
-
+            actualizar = True
+            id = cellValue
+            BtnEliminar.Enabled = True
         Catch ex As System.Exception
             Mensajes.MensajeError("Seleccione una Fila con Datos para Realizar la Edición")
         End Try
@@ -112,23 +126,29 @@ Public Class XfrmPartidosPoliticos
     End Sub
 
     Sub Eliminar()
+        If XtraMessageBox.Show("¿Desea Eliminar el Registro Seleccionado?", "Mensaje de Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+            Try
+                Dim cellValue As String = Data.CapturarDatoGrid(Me.GCPartidos_Politicos, 0)
 
-        Try
-            Dim cellValue As String = Data.CapturarDatoGrid(Me.GCPartidos_Politicos, 0)
 
+                Dim deptosrow As DSPolitico.IM_PARTIDOS_POLITICOSRow
 
-            Dim deptosrow As DSPolitico.IM_PARTIDOS_POLITICOSRow
+                deptosrow = Me.DSPolitico.IM_PARTIDOS_POLITICOS.FindByCODIGO_PARTIDO(cellValue)
 
-            deptosrow = Me.DSPolitico.IM_PARTIDOS_POLITICOS.FindByCODIGO_PARTIDO(cellValue)
+                deptosrow.Delete()
 
-            deptosrow.Delete()
+                Me.IM_PARTIDOS_POLITICOSTableAdapter.Update(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
 
-            Me.IM_PARTIDOS_POLITICOSTableAdapter.Update(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
+                ActualizarGrid()
+                Mensajes.MensajeEliminar()
+                Me.IMPARTIDOSPOLITICOSBindingSource.AddNew()
+                Me.BtnEliminar.Enabled = False
+            Catch ex As Exception
+                Mensajes.MensajeError(ex.Message)
+            End Try
+        End If
 
-            ActualizarGrid()
-        Catch ex As Exception
-            Mensajes.MensajeError(ex.Message)
-        End Try
+        
 
     End Sub
 
@@ -152,7 +172,27 @@ Public Class XfrmPartidosPoliticos
     End Sub
 
     Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
-
+        Eliminar()
       
+    End Sub
+
+    Private Sub CODIGO_PARTIDOSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_PARTIDOSpinEdit.EditValueChanged
+
+    End Sub
+
+    Private Sub CODIGO_PARTIDOSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CODIGO_PARTIDOSpinEdit.KeyPress
+        VControles.solonumeros(e)
+    End Sub
+
+    Private Sub CANTIDAD_FIRMASSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CANTIDAD_FIRMASSpinEdit.EditValueChanged
+
+    End Sub
+
+    Private Sub CANTIDAD_FIRMASSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CANTIDAD_FIRMASSpinEdit.KeyPress
+        VControles.solonumeros(e)
+    End Sub
+
+    Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
+        Me.Close()
     End Sub
 End Class
