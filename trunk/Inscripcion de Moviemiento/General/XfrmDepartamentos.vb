@@ -3,7 +3,8 @@ Imports DevExpress.XtraEditors
 Imports DevExpress.XtraGrid.Views.Grid
 Public Class XfrmDepartamentos
     
-
+    Dim actualizar As Boolean = False
+    Dim id As Integer
     Private Sub XfrmDepartamentos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'DSDeptoMuni.IM_DEPARTAMENTOS' table. You can move, or remove it, as needed.
         Me.IM_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.IM_DEPARTAMENTOS)
@@ -46,6 +47,16 @@ Public Class XfrmDepartamentos
 
             'ACTUALIZANDO EL GRID DE BUSQUEDA Y EDICION
             ActualizarGrid()
+
+            'Edicion
+            BtnEliminar.Enabled = False
+            If actualizar = True Then
+                Mensajes.MensajeActualizar()
+                actualizar = False
+            Else
+                Mensajes.MensajeGuardar()
+            End If
+            Me.IMDEPARTAMENTOSBindingSource.AddNew()
         Catch ex As Exception
             'CONTROL DE ERRORES
             Mensajes.MensajeError(ex.Message)
@@ -60,29 +71,38 @@ Public Class XfrmDepartamentos
 
             'LIMPIA LOS CONTROLES PARA AGREGAR UN NUEVO REGISTRO
             Me.IMDEPARTAMENTOSBindingSource.AddNew()
+            Me.BtnEliminar.Enabled = False
         Catch ex As Exception
-
+            Mensajes.mimensaje(ex.Message)
         End Try
 
     End Sub
     Sub Eliminar()
 
+        If XtraMessageBox.Show("¿Desea Eliminar el Registro Seleccionado?", "Mensaje de Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+            Try
 
-        Try
-            Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
 
-            Dim Deptosrow As DSDeptoMuni.IM_DEPARTAMENTOSRow
+                Dim Deptosrow As DSDeptoMuni.IM_DEPARTAMENTOSRow
 
-            Deptosrow = Me.DSDeptoMuni.IM_DEPARTAMENTOS.FindByCODIGO_DEPARTAMENTO(cellValue)
+                Deptosrow = Me.DSDeptoMuni.IM_DEPARTAMENTOS.FindByCODIGO_DEPARTAMENTO(id)
 
-            Deptosrow.Delete()
+                Deptosrow.Delete()
 
-            Me.IM_DEPARTAMENTOSTableAdapter.Update(Me.DSDeptoMuni.IM_DEPARTAMENTOS)
-            ActualizarGrid()
-        Catch ex As Exception
-            Mensajes.MensajeError(ex.Message)
-        End Try
+                Me.IM_DEPARTAMENTOSTableAdapter.Update(Me.DSDeptoMuni.IM_DEPARTAMENTOS)
+                ActualizarGrid()
+                Mensajes.MensajeEliminar()
+                Me.IMDEPARTAMENTOSBindingSource.AddNew()
+                Me.BtnEliminar.Enabled = False
+            Catch ex As Exception
+                Mensajes.MensajeError(ex.Message)
+            End Try
 
+        End If
+        
+
+
+        
 
     End Sub
 
@@ -112,9 +132,9 @@ Public Class XfrmDepartamentos
             Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
             'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
             Me.IM_DEPARTAMENTOSTableAdapter.FillBy(Me.DSDeptoMuni.IM_DEPARTAMENTOS, cellValue)
-            'writedata = False
-
-
+            actualizar = True
+            id = cellValue
+            BtnEliminar.Enabled = True
         Catch ex As System.Exception
             Mensajes.MensajeError("Seleccione una Fila con Datos para Realizar la Edición")
         End Try
@@ -136,5 +156,25 @@ Public Class XfrmDepartamentos
 
     Private Sub GCDepartamento_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GCDepartamento.Click
 
+    End Sub
+
+    Private Sub CODIGO_DEPARTAMENTOSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_DEPARTAMENTOSpinEdit.EditValueChanged
+
+    End Sub
+
+    Private Sub CODIGO_DEPARTAMENTOSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CODIGO_DEPARTAMENTOSpinEdit.KeyPress
+        VControles.solonumeros(e)
+    End Sub
+
+    Private Sub CANTIDAD_DIPUTADOSSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CANTIDAD_DIPUTADOSSpinEdit.EditValueChanged
+
+    End Sub
+
+    Private Sub CANTIDAD_DIPUTADOSSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CANTIDAD_DIPUTADOSSpinEdit.KeyPress
+        VControles.solonumeros(e)
+    End Sub
+
+    Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
+        Me.Close()
     End Sub
 End Class
