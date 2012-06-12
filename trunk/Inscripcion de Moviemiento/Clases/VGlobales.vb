@@ -1,3 +1,4 @@
-﻿Module VGlobales
-    Public usuario As Integer = 1
+﻿'MODULO DE VARIABLES GLOBLALES DEL SISTEMA
+Module VGlobales
+    Public usuario As String = "TSE"
 End Module

@@ -65,6 +65,7 @@
     <Reference Include="DevExpress.XtraLayout.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Deployment" />
@@ -101,6 +102,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSCandidato.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Candidatos\DSCandidato.vb">
+      <DependentUpon>DSCandidato.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Candidatos\XfrmCandidato.Designer.vb">
       <DependentUpon>XfrmCandidato.vb</DependentUpon>
     </Compile>
@@ -113,10 +117,12 @@
     <Compile Include="Candidatos\XfrmRequisitos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Clases\Configuracion.vb" />
     <Compile Include="Clases\Data.vb" />
     <Compile Include="Clases\DxControls.vb" />
     <Compile Include="Clases\Mensajes.vb" />
     <Compile Include="Clases\OCN.vb" />
+    <Compile Include="Clases\ORCL.vb" />
     <Compile Include="Clases\VControles.vb" />
     <Compile Include="Clases\VGlobales.vb" />
     <Compile Include="DataSet1.Designer.vb">
@@ -225,6 +231,11 @@
     </Compile>
     <Compile Include="Usuarios\DTUsers.vb">
       <DependentUpon>DTUsers.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\DTUsuario.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DTUsuario.xsd</DependentUpon>
     </Compile>
     <Compile Include="Usuarios\fmOpciones.Designer.vb">
       <DependentUpon>fmOpciones.vb</DependentUpon>
@@ -487,6 +498,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\candidato.png" />
+    <None Include="Usuarios\DTUsuario.xsc">
+      <DependentUpon>DTUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="Usuarios\DTUsuario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DTUsuario.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Usuarios\DTUsuario.xss">
+      <DependentUpon>DTUsuario.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

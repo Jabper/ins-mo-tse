@@ -153,6 +153,7 @@ Partial Class XfrmPartidosPoliticos
         '
         'colCODIGO_PARTIDO
         '
+        Me.colCODIGO_PARTIDO.Caption = "Código del Partido"
         Me.colCODIGO_PARTIDO.FieldName = "CODIGO_PARTIDO"
         Me.colCODIGO_PARTIDO.Name = "colCODIGO_PARTIDO"
         Me.colCODIGO_PARTIDO.Visible = True
@@ -160,6 +161,7 @@ Partial Class XfrmPartidosPoliticos
         '
         'colNOMBRE
         '
+        Me.colNOMBRE.Caption = "Nombre"
         Me.colNOMBRE.FieldName = "NOMBRE"
         Me.colNOMBRE.Name = "colNOMBRE"
         Me.colNOMBRE.Visible = True
@@ -167,6 +169,7 @@ Partial Class XfrmPartidosPoliticos
         '
         'colCANTIDAD_FIRMAS
         '
+        Me.colCANTIDAD_FIRMAS.Caption = "Cantidad de Firmas"
         Me.colCANTIDAD_FIRMAS.FieldName = "CANTIDAD_FIRMAS"
         Me.colCANTIDAD_FIRMAS.Name = "colCANTIDAD_FIRMAS"
         Me.colCANTIDAD_FIRMAS.Visible = True

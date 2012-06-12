@@ -22,12 +22,17 @@ Partial Class XfrmCargoElectivo
         Me.components = New System.ComponentModel.Container
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
         Me.GCDepartamento = New DevExpress.XtraGrid.GridControl
+        Me.TACARGOSELECTIVOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DSPolitico = New Inscripcion_de_Moviemientos.DSPolitico
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
+        Me.colCODIGO_CARGO_ELECTIVO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCODIGO_CARGO_SUPERIOR = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colDESCRIPCION = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCODIGO_NIVEL_ELECTIVO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.DataLayoutControl1 = New DevExpress.XtraDataLayout.DataLayoutControl
         Me.CODIGO_CARGO_ELECTIVOSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.IMCARGOSELECTIVOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DSPolitico = New Inscripcion_de_Moviemientos.DSPolitico
         Me.CODIGO_CARGO_SUPERIORSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.DESCRIPCIONTextEdit = New DevExpress.XtraEditors.TextEdit
         Me.ADICIONADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
@@ -56,22 +61,18 @@ Partial Class XfrmCargoElectivo
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
         Me.IM_CARGOS_ELECTIVOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.IM_CARGOS_ELECTIVOSTableAdapter
         Me.IM_NIVEL_ELECTIVOTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.IM_NIVEL_ELECTIVOTableAdapter
-        Me.TACARGOSELECTIVOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TA_CARGOS_ELECTIVOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_CARGOS_ELECTIVOSTableAdapter
-        Me.colCODIGO_CARGO_ELECTIVO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colCODIGO_CARGO_SUPERIOR = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colDESCRIPCION = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colCODIGO_NIVEL_ELECTIVO = New DevExpress.XtraGrid.Columns.GridColumn
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.GCDepartamento, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TACARGOSELECTIVOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DataLayoutControl1.SuspendLayout()
         CType(Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMCARGOSELECTIVOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CODIGO_CARGO_SUPERIORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DESCRIPCIONTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -98,7 +99,6 @@ Partial Class XfrmCargoElectivo
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TACARGOSELECTIVOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -125,6 +125,16 @@ Partial Class XfrmCargoElectivo
         Me.GCDepartamento.TabIndex = 9
         Me.GCDepartamento.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
+        'TACARGOSELECTIVOSBindingSource
+        '
+        Me.TACARGOSELECTIVOSBindingSource.DataMember = "TA_CARGOS_ELECTIVOS"
+        Me.TACARGOSELECTIVOSBindingSource.DataSource = Me.DSPolitico
+        '
+        'DSPolitico
+        '
+        Me.DSPolitico.DataSetName = "DSPolitico"
+        Me.DSPolitico.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'GridView1
         '
         Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_CARGO_ELECTIVO, Me.colCODIGO_CARGO_SUPERIOR, Me.colDESCRIPCION, Me.colCODIGO_NIVEL_ELECTIVO})
@@ -136,6 +146,34 @@ Partial Class XfrmCargoElectivo
         Me.GridView1.OptionsBehavior.Editable = False
         Me.GridView1.OptionsView.ShowDetailButtons = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
+        '
+        'colCODIGO_CARGO_ELECTIVO
+        '
+        Me.colCODIGO_CARGO_ELECTIVO.FieldName = "CODIGO_CARGO_ELECTIVO"
+        Me.colCODIGO_CARGO_ELECTIVO.Name = "colCODIGO_CARGO_ELECTIVO"
+        Me.colCODIGO_CARGO_ELECTIVO.Visible = True
+        Me.colCODIGO_CARGO_ELECTIVO.VisibleIndex = 0
+        '
+        'colCODIGO_CARGO_SUPERIOR
+        '
+        Me.colCODIGO_CARGO_SUPERIOR.FieldName = "CODIGO_CARGO_SUPERIOR"
+        Me.colCODIGO_CARGO_SUPERIOR.Name = "colCODIGO_CARGO_SUPERIOR"
+        Me.colCODIGO_CARGO_SUPERIOR.Visible = True
+        Me.colCODIGO_CARGO_SUPERIOR.VisibleIndex = 1
+        '
+        'colDESCRIPCION
+        '
+        Me.colDESCRIPCION.FieldName = "DESCRIPCION"
+        Me.colDESCRIPCION.Name = "colDESCRIPCION"
+        Me.colDESCRIPCION.Visible = True
+        Me.colDESCRIPCION.VisibleIndex = 2
+        '
+        'colCODIGO_NIVEL_ELECTIVO
+        '
+        Me.colCODIGO_NIVEL_ELECTIVO.FieldName = "CODIGO_NIVEL_ELECTIVO"
+        Me.colCODIGO_NIVEL_ELECTIVO.Name = "colCODIGO_NIVEL_ELECTIVO"
+        Me.colCODIGO_NIVEL_ELECTIVO.Visible = True
+        Me.colCODIGO_NIVEL_ELECTIVO.VisibleIndex = 3
         '
         'GridView2
         '
@@ -165,10 +203,10 @@ Partial Class XfrmCargoElectivo
         '
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMCARGOSELECTIVOSBindingSource, "CODIGO_CARGO_ELECTIVO", True))
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CODIGO_CARGO_ELECTIVOSpinEdit.Location = New System.Drawing.Point(156, 12)
+        Me.CODIGO_CARGO_ELECTIVOSpinEdit.Location = New System.Drawing.Point(124, 12)
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Name = "CODIGO_CARGO_ELECTIVOSpinEdit"
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
-        Me.CODIGO_CARGO_ELECTIVOSpinEdit.Size = New System.Drawing.Size(285, 20)
+        Me.CODIGO_CARGO_ELECTIVOSpinEdit.Size = New System.Drawing.Size(317, 20)
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.TabIndex = 4
         '
@@ -177,28 +215,23 @@ Partial Class XfrmCargoElectivo
         Me.IMCARGOSELECTIVOSBindingSource.DataMember = "IM_CARGOS_ELECTIVOS"
         Me.IMCARGOSELECTIVOSBindingSource.DataSource = Me.DSPolitico
         '
-        'DSPolitico
-        '
-        Me.DSPolitico.DataSetName = "DSPolitico"
-        Me.DSPolitico.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'CODIGO_CARGO_SUPERIORSpinEdit
         '
         Me.CODIGO_CARGO_SUPERIORSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMCARGOSELECTIVOSBindingSource, "CODIGO_CARGO_SUPERIOR", True))
         Me.CODIGO_CARGO_SUPERIORSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CODIGO_CARGO_SUPERIORSpinEdit.Location = New System.Drawing.Point(156, 36)
+        Me.CODIGO_CARGO_SUPERIORSpinEdit.Location = New System.Drawing.Point(124, 36)
         Me.CODIGO_CARGO_SUPERIORSpinEdit.Name = "CODIGO_CARGO_SUPERIORSpinEdit"
         Me.CODIGO_CARGO_SUPERIORSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
-        Me.CODIGO_CARGO_SUPERIORSpinEdit.Size = New System.Drawing.Size(285, 20)
+        Me.CODIGO_CARGO_SUPERIORSpinEdit.Size = New System.Drawing.Size(317, 20)
         Me.CODIGO_CARGO_SUPERIORSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_CARGO_SUPERIORSpinEdit.TabIndex = 5
         '
         'DESCRIPCIONTextEdit
         '
         Me.DESCRIPCIONTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMCARGOSELECTIVOSBindingSource, "DESCRIPCION", True))
-        Me.DESCRIPCIONTextEdit.Location = New System.Drawing.Point(156, 60)
+        Me.DESCRIPCIONTextEdit.Location = New System.Drawing.Point(124, 60)
         Me.DESCRIPCIONTextEdit.Name = "DESCRIPCIONTextEdit"
-        Me.DESCRIPCIONTextEdit.Size = New System.Drawing.Size(285, 20)
+        Me.DESCRIPCIONTextEdit.Size = New System.Drawing.Size(317, 20)
         Me.DESCRIPCIONTextEdit.StyleController = Me.DataLayoutControl1
         Me.DESCRIPCIONTextEdit.TabIndex = 6
         '
@@ -252,16 +285,16 @@ Partial Class XfrmCargoElectivo
         '
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMCARGOSELECTIVOSBindingSource, "CODIGO_NIVEL_ELECTIVO", True))
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Location = New System.Drawing.Point(156, 84)
+        Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Location = New System.Drawing.Point(124, 84)
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Name = "CODIGO_NIVEL_ELECTIVOSpinEdit"
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
+        Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Nivel Electivo", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Properties.DataSource = Me.IMNIVELELECTIVOBindingSource
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Properties.DisplayMember = "DESCRIPCION"
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Properties.NullText = ""
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Properties.ValueMember = "CODIGO_NIVEL_ELECTIVO"
-        Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Size = New System.Drawing.Size(285, 20)
+        Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Size = New System.Drawing.Size(317, 20)
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.TabIndex = 7
         '
@@ -344,8 +377,8 @@ Partial Class XfrmCargoElectivo
         Me.ItemForCODIGO_CARGO_ELECTIVO.Location = New System.Drawing.Point(0, 0)
         Me.ItemForCODIGO_CARGO_ELECTIVO.Name = "ItemForCODIGO_CARGO_ELECTIVO"
         Me.ItemForCODIGO_CARGO_ELECTIVO.Size = New System.Drawing.Size(433, 24)
-        Me.ItemForCODIGO_CARGO_ELECTIVO.Text = "CODIGO_CARGO_ELECTIVO"
-        Me.ItemForCODIGO_CARGO_ELECTIVO.TextSize = New System.Drawing.Size(140, 13)
+        Me.ItemForCODIGO_CARGO_ELECTIVO.Text = "Código Cargo Electivo"
+        Me.ItemForCODIGO_CARGO_ELECTIVO.TextSize = New System.Drawing.Size(108, 13)
         '
         'ItemForCODIGO_CARGO_SUPERIOR
         '
@@ -354,8 +387,8 @@ Partial Class XfrmCargoElectivo
         Me.ItemForCODIGO_CARGO_SUPERIOR.Location = New System.Drawing.Point(0, 24)
         Me.ItemForCODIGO_CARGO_SUPERIOR.Name = "ItemForCODIGO_CARGO_SUPERIOR"
         Me.ItemForCODIGO_CARGO_SUPERIOR.Size = New System.Drawing.Size(433, 24)
-        Me.ItemForCODIGO_CARGO_SUPERIOR.Text = "CODIGO_CARGO_SUPERIOR"
-        Me.ItemForCODIGO_CARGO_SUPERIOR.TextSize = New System.Drawing.Size(140, 13)
+        Me.ItemForCODIGO_CARGO_SUPERIOR.Text = "Código Cargo Superior"
+        Me.ItemForCODIGO_CARGO_SUPERIOR.TextSize = New System.Drawing.Size(108, 13)
         '
         'ItemForDESCRIPCION
         '
@@ -364,8 +397,8 @@ Partial Class XfrmCargoElectivo
         Me.ItemForDESCRIPCION.Location = New System.Drawing.Point(0, 48)
         Me.ItemForDESCRIPCION.Name = "ItemForDESCRIPCION"
         Me.ItemForDESCRIPCION.Size = New System.Drawing.Size(433, 24)
-        Me.ItemForDESCRIPCION.Text = "DESCRIPCION"
-        Me.ItemForDESCRIPCION.TextSize = New System.Drawing.Size(140, 13)
+        Me.ItemForDESCRIPCION.Text = "Descripción"
+        Me.ItemForDESCRIPCION.TextSize = New System.Drawing.Size(108, 13)
         '
         'ItemForCODIGO_NIVEL_ELECTIVO
         '
@@ -374,8 +407,8 @@ Partial Class XfrmCargoElectivo
         Me.ItemForCODIGO_NIVEL_ELECTIVO.Location = New System.Drawing.Point(0, 72)
         Me.ItemForCODIGO_NIVEL_ELECTIVO.Name = "ItemForCODIGO_NIVEL_ELECTIVO"
         Me.ItemForCODIGO_NIVEL_ELECTIVO.Size = New System.Drawing.Size(433, 44)
-        Me.ItemForCODIGO_NIVEL_ELECTIVO.Text = "CODIGO_NIVEL_ELECTIVO"
-        Me.ItemForCODIGO_NIVEL_ELECTIVO.TextSize = New System.Drawing.Size(140, 13)
+        Me.ItemForCODIGO_NIVEL_ELECTIVO.Text = "Nivel Electivo"
+        Me.ItemForCODIGO_NIVEL_ELECTIVO.TextSize = New System.Drawing.Size(108, 13)
         '
         'PanelControl1
         '
@@ -489,42 +522,9 @@ Partial Class XfrmCargoElectivo
         '
         Me.IM_NIVEL_ELECTIVOTableAdapter.ClearBeforeFill = True
         '
-        'TACARGOSELECTIVOSBindingSource
-        '
-        Me.TACARGOSELECTIVOSBindingSource.DataMember = "TA_CARGOS_ELECTIVOS"
-        Me.TACARGOSELECTIVOSBindingSource.DataSource = Me.DSPolitico
-        '
         'TA_CARGOS_ELECTIVOSTableAdapter
         '
         Me.TA_CARGOS_ELECTIVOSTableAdapter.ClearBeforeFill = True
-        '
-        'colCODIGO_CARGO_ELECTIVO
-        '
-        Me.colCODIGO_CARGO_ELECTIVO.FieldName = "CODIGO_CARGO_ELECTIVO"
-        Me.colCODIGO_CARGO_ELECTIVO.Name = "colCODIGO_CARGO_ELECTIVO"
-        Me.colCODIGO_CARGO_ELECTIVO.Visible = True
-        Me.colCODIGO_CARGO_ELECTIVO.VisibleIndex = 0
-        '
-        'colCODIGO_CARGO_SUPERIOR
-        '
-        Me.colCODIGO_CARGO_SUPERIOR.FieldName = "CODIGO_CARGO_SUPERIOR"
-        Me.colCODIGO_CARGO_SUPERIOR.Name = "colCODIGO_CARGO_SUPERIOR"
-        Me.colCODIGO_CARGO_SUPERIOR.Visible = True
-        Me.colCODIGO_CARGO_SUPERIOR.VisibleIndex = 1
-        '
-        'colDESCRIPCION
-        '
-        Me.colDESCRIPCION.FieldName = "DESCRIPCION"
-        Me.colDESCRIPCION.Name = "colDESCRIPCION"
-        Me.colDESCRIPCION.Visible = True
-        Me.colDESCRIPCION.VisibleIndex = 2
-        '
-        'colCODIGO_NIVEL_ELECTIVO
-        '
-        Me.colCODIGO_NIVEL_ELECTIVO.FieldName = "CODIGO_NIVEL_ELECTIVO"
-        Me.colCODIGO_NIVEL_ELECTIVO.Name = "colCODIGO_NIVEL_ELECTIVO"
-        Me.colCODIGO_NIVEL_ELECTIVO.Visible = True
-        Me.colCODIGO_NIVEL_ELECTIVO.VisibleIndex = 3
         '
         'XfrmCargoElectivo
         '
@@ -537,13 +537,14 @@ Partial Class XfrmCargoElectivo
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
         CType(Me.GCDepartamento, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TACARGOSELECTIVOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DataLayoutControl1.ResumeLayout(False)
         CType(Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMCARGOSELECTIVOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CODIGO_CARGO_SUPERIORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DESCRIPCIONTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -570,7 +571,6 @@ Partial Class XfrmCargoElectivo
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TACARGOSELECTIVOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

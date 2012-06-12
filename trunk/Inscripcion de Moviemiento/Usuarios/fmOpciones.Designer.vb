@@ -143,6 +143,7 @@ Partial Class fmOpcion
         '
         'colCODIGO_OPCION
         '
+        Me.colCODIGO_OPCION.Caption = "Código Opción"
         Me.colCODIGO_OPCION.FieldName = "CODIGO_OPCION"
         Me.colCODIGO_OPCION.Name = "colCODIGO_OPCION"
         Me.colCODIGO_OPCION.Visible = True
@@ -150,6 +151,7 @@ Partial Class fmOpcion
         '
         'colDESCRIPCION
         '
+        Me.colDESCRIPCION.Caption = "Descripción"
         Me.colDESCRIPCION.FieldName = "DESCRIPCION"
         Me.colDESCRIPCION.Name = "colDESCRIPCION"
         Me.colDESCRIPCION.Visible = True
@@ -157,6 +159,7 @@ Partial Class fmOpcion
         '
         'colNOMBRE_CONTROL
         '
+        Me.colNOMBRE_CONTROL.Caption = "Nombre del Control"
         Me.colNOMBRE_CONTROL.FieldName = "NOMBRE_CONTROL"
         Me.colNOMBRE_CONTROL.Name = "colNOMBRE_CONTROL"
         Me.colNOMBRE_CONTROL.Visible = True
@@ -236,10 +239,10 @@ Partial Class fmOpcion
         '
         Me.CODIGO_OPCIONSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMOPCIONESBindingSource, "CODIGO_OPCION", True))
         Me.CODIGO_OPCIONSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CODIGO_OPCIONSpinEdit.Location = New System.Drawing.Point(112, 12)
+        Me.CODIGO_OPCIONSpinEdit.Location = New System.Drawing.Point(108, 12)
         Me.CODIGO_OPCIONSpinEdit.Name = "CODIGO_OPCIONSpinEdit"
         Me.CODIGO_OPCIONSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
-        Me.CODIGO_OPCIONSpinEdit.Size = New System.Drawing.Size(356, 20)
+        Me.CODIGO_OPCIONSpinEdit.Size = New System.Drawing.Size(360, 20)
         Me.CODIGO_OPCIONSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_OPCIONSpinEdit.TabIndex = 4
         '
@@ -251,18 +254,18 @@ Partial Class fmOpcion
         'DESCRIPCIONTextEdit
         '
         Me.DESCRIPCIONTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMOPCIONESBindingSource, "DESCRIPCION", True))
-        Me.DESCRIPCIONTextEdit.Location = New System.Drawing.Point(112, 36)
+        Me.DESCRIPCIONTextEdit.Location = New System.Drawing.Point(108, 36)
         Me.DESCRIPCIONTextEdit.Name = "DESCRIPCIONTextEdit"
-        Me.DESCRIPCIONTextEdit.Size = New System.Drawing.Size(356, 20)
+        Me.DESCRIPCIONTextEdit.Size = New System.Drawing.Size(360, 20)
         Me.DESCRIPCIONTextEdit.StyleController = Me.DataLayoutControl1
         Me.DESCRIPCIONTextEdit.TabIndex = 5
         '
         'NOMBRE_CONTROLTextEdit
         '
         Me.NOMBRE_CONTROLTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMOPCIONESBindingSource, "NOMBRE_CONTROL", True))
-        Me.NOMBRE_CONTROLTextEdit.Location = New System.Drawing.Point(112, 60)
+        Me.NOMBRE_CONTROLTextEdit.Location = New System.Drawing.Point(108, 60)
         Me.NOMBRE_CONTROLTextEdit.Name = "NOMBRE_CONTROLTextEdit"
-        Me.NOMBRE_CONTROLTextEdit.Size = New System.Drawing.Size(356, 20)
+        Me.NOMBRE_CONTROLTextEdit.Size = New System.Drawing.Size(360, 20)
         Me.NOMBRE_CONTROLTextEdit.StyleController = Me.DataLayoutControl1
         Me.NOMBRE_CONTROLTextEdit.TabIndex = 6
         '
@@ -386,8 +389,8 @@ Partial Class fmOpcion
         Me.ItemForCODIGO_OPCION.Location = New System.Drawing.Point(0, 0)
         Me.ItemForCODIGO_OPCION.Name = "ItemForCODIGO_OPCION"
         Me.ItemForCODIGO_OPCION.Size = New System.Drawing.Size(460, 24)
-        Me.ItemForCODIGO_OPCION.Text = "CODIGO_OPCION"
-        Me.ItemForCODIGO_OPCION.TextSize = New System.Drawing.Size(96, 13)
+        Me.ItemForCODIGO_OPCION.Text = "Código Opción"
+        Me.ItemForCODIGO_OPCION.TextSize = New System.Drawing.Size(92, 13)
         '
         'ItemForDESCRIPCION
         '
@@ -396,8 +399,8 @@ Partial Class fmOpcion
         Me.ItemForDESCRIPCION.Location = New System.Drawing.Point(0, 24)
         Me.ItemForDESCRIPCION.Name = "ItemForDESCRIPCION"
         Me.ItemForDESCRIPCION.Size = New System.Drawing.Size(460, 24)
-        Me.ItemForDESCRIPCION.Text = "DESCRIPCION"
-        Me.ItemForDESCRIPCION.TextSize = New System.Drawing.Size(96, 13)
+        Me.ItemForDESCRIPCION.Text = "Descripción"
+        Me.ItemForDESCRIPCION.TextSize = New System.Drawing.Size(92, 13)
         '
         'ItemForNOMBRE_CONTROL
         '
@@ -406,8 +409,8 @@ Partial Class fmOpcion
         Me.ItemForNOMBRE_CONTROL.Location = New System.Drawing.Point(0, 48)
         Me.ItemForNOMBRE_CONTROL.Name = "ItemForNOMBRE_CONTROL"
         Me.ItemForNOMBRE_CONTROL.Size = New System.Drawing.Size(460, 39)
-        Me.ItemForNOMBRE_CONTROL.Text = "NOMBRE_CONTROL"
-        Me.ItemForNOMBRE_CONTROL.TextSize = New System.Drawing.Size(96, 13)
+        Me.ItemForNOMBRE_CONTROL.Text = "Nombre del Control"
+        Me.ItemForNOMBRE_CONTROL.TextSize = New System.Drawing.Size(92, 13)
         '
         'LayoutControlGroup1
         '
