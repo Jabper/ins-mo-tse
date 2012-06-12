@@ -96,4 +96,12 @@
     Private Sub FORMULAS_DEPART_MINSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles FORMULAS_DEPART_MINSpinEdit.KeyPress
         VControles.solonumeros(e)
     End Sub
+
+    Private Sub PARTICIPACION_MUJER_PORCENSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PARTICIPACION_MUJER_PORCENSpinEdit.EditValueChanged
+
+    End Sub
+
+    Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
+        Me.Close()
+    End Sub
 End Class

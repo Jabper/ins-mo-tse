@@ -23,8 +23,6 @@ Partial Class XfrmParametros
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
         Me.DataLayoutControl1 = New DevExpress.XtraDataLayout.DataLayoutControl
         Me.ADICIONADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
-        Me.IMPARAMETROSGENERALESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DSParametros = New Inscripcion_de_Moviemientos.DSParametros
         Me.FECHA_ADICIONDateEdit = New DevExpress.XtraEditors.DateEdit
         Me.MODIFICADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.FECHA_MODIFICACIONDateEdit = New DevExpress.XtraEditors.DateEdit
@@ -48,19 +46,20 @@ Partial Class XfrmParametros
         Me.ItemForANNO_ELECCIONES = New DevExpress.XtraLayout.LayoutControlItem
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
         Me.txtfecha = New System.Windows.Forms.TextBox
-        Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
-        Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.IMPARAMETROSGENERALESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DSParametros = New Inscripcion_de_Moviemientos.DSParametros
         Me.IM_PARAMETROS_GENERALESTableAdapter = New Inscripcion_de_Moviemientos.DSParametrosTableAdapters.IM_PARAMETROS_GENERALESTableAdapter
+        Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DataLayoutControl1.SuspendLayout()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IMPARAMETROSGENERALESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DSParametros, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MODIFICADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -90,6 +89,8 @@ Partial Class XfrmParametros
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMPARAMETROSGENERALESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DSParametros, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -136,16 +137,6 @@ Partial Class XfrmParametros
         Me.ADICIONADO_PORSpinEdit.Size = New System.Drawing.Size(0, 20)
         Me.ADICIONADO_PORSpinEdit.StyleController = Me.DataLayoutControl1
         Me.ADICIONADO_PORSpinEdit.TabIndex = 8
-        '
-        'IMPARAMETROSGENERALESBindingSource
-        '
-        Me.IMPARAMETROSGENERALESBindingSource.DataMember = "IM_PARAMETROS_GENERALES"
-        Me.IMPARAMETROSGENERALESBindingSource.DataSource = Me.DSParametros
-        '
-        'DSParametros
-        '
-        Me.DSParametros.DataSetName = "DSParametros"
-        Me.DSParametros.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'FECHA_ADICIONDateEdit
         '
@@ -389,6 +380,7 @@ Partial Class XfrmParametros
         'PanelControl1
         '
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl1.Controls.Add(Me.BtnSalir)
         Me.PanelControl1.Controls.Add(Me.txtfecha)
         Me.PanelControl1.Controls.Add(Me.BtnNuevo)
         Me.PanelControl1.Controls.Add(Me.BtnGuardar)
@@ -399,36 +391,12 @@ Partial Class XfrmParametros
         '
         'txtfecha
         '
-        Me.txtfecha.Location = New System.Drawing.Point(202, 21)
+        Me.txtfecha.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.IMPARAMETROSGENERALESBindingSource, "FECHA_ADICION", True))
+        Me.txtfecha.Location = New System.Drawing.Point(416, 3)
         Me.txtfecha.Name = "txtfecha"
-        Me.txtfecha.Size = New System.Drawing.Size(100, 21)
+        Me.txtfecha.Size = New System.Drawing.Size(10, 21)
         Me.txtfecha.TabIndex = 3
         Me.txtfecha.Visible = False
-        '
-        'BtnNuevo
-        '
-        Me.BtnNuevo.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnNuevo.Appearance.Options.UseFont = True
-        Me.BtnNuevo.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
-        Me.BtnNuevo.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnNuevo.Location = New System.Drawing.Point(63, 1)
-        Me.BtnNuevo.Name = "BtnNuevo"
-        Me.BtnNuevo.Size = New System.Drawing.Size(55, 55)
-        Me.BtnNuevo.TabIndex = 2
-        Me.BtnNuevo.Text = "Nuevo"
-        Me.BtnNuevo.Visible = False
-        '
-        'BtnGuardar
-        '
-        Me.BtnGuardar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnGuardar.Appearance.Options.UseFont = True
-        Me.BtnGuardar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.guardar1
-        Me.BtnGuardar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnGuardar.Location = New System.Drawing.Point(3, 1)
-        Me.BtnGuardar.Name = "BtnGuardar"
-        Me.BtnGuardar.Size = New System.Drawing.Size(55, 55)
-        Me.BtnGuardar.TabIndex = 1
-        Me.BtnGuardar.Text = "Guardar"
         '
         'LayoutControlGroup1
         '
@@ -472,9 +440,57 @@ Partial Class XfrmParametros
         Me.LayoutControlItem2.TextToControlDistance = 0
         Me.LayoutControlItem2.TextVisible = False
         '
+        'IMPARAMETROSGENERALESBindingSource
+        '
+        Me.IMPARAMETROSGENERALESBindingSource.DataMember = "IM_PARAMETROS_GENERALES"
+        Me.IMPARAMETROSGENERALESBindingSource.DataSource = Me.DSParametros
+        '
+        'DSParametros
+        '
+        Me.DSParametros.DataSetName = "DSParametros"
+        Me.DSParametros.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'IM_PARAMETROS_GENERALESTableAdapter
         '
         Me.IM_PARAMETROS_GENERALESTableAdapter.ClearBeforeFill = True
+        '
+        'BtnSalir
+        '
+        Me.BtnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnSalir.Appearance.Options.UseFont = True
+        Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
+        Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnSalir.Location = New System.Drawing.Point(64, 1)
+        Me.BtnSalir.Name = "BtnSalir"
+        Me.BtnSalir.Size = New System.Drawing.Size(55, 55)
+        Me.BtnSalir.TabIndex = 4
+        Me.BtnSalir.Text = "Salir"
+        Me.BtnSalir.Visible = False
+        '
+        'BtnNuevo
+        '
+        Me.BtnNuevo.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnNuevo.Appearance.Options.UseFont = True
+        Me.BtnNuevo.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
+        Me.BtnNuevo.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnNuevo.Location = New System.Drawing.Point(131, 3)
+        Me.BtnNuevo.Name = "BtnNuevo"
+        Me.BtnNuevo.Size = New System.Drawing.Size(55, 55)
+        Me.BtnNuevo.TabIndex = 2
+        Me.BtnNuevo.Text = "Nuevo"
+        Me.BtnNuevo.Visible = False
+        '
+        'BtnGuardar
+        '
+        Me.BtnGuardar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnGuardar.Appearance.Options.UseFont = True
+        Me.BtnGuardar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.guardar1
+        Me.BtnGuardar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnGuardar.Location = New System.Drawing.Point(3, 1)
+        Me.BtnGuardar.Name = "BtnGuardar"
+        Me.BtnGuardar.Size = New System.Drawing.Size(55, 55)
+        Me.BtnGuardar.TabIndex = 1
+        Me.BtnGuardar.Text = "Guardar"
         '
         'XfrmParametros
         '
@@ -489,8 +505,6 @@ Partial Class XfrmParametros
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DataLayoutControl1.ResumeLayout(False)
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IMPARAMETROSGENERALESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DSParametros, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MODIFICADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -521,6 +535,8 @@ Partial Class XfrmParametros
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMPARAMETROSGENERALESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DSParametros, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -558,4 +574,5 @@ Partial Class XfrmParametros
     Friend WithEvents FORMULAS_DEPART_MINSpinEdit As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FORMULAS_MUNICIPIO_MINSpinEdit As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FIRMAS_REPETIDAS_PORCENSpinEdit As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents BtnSalir As DevExpress.XtraEditors.SimpleButton
 End Class

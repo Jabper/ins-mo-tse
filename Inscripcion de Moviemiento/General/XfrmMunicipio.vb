@@ -1,6 +1,14 @@
-﻿Public Class Municipios
+﻿Imports DevExpress.XtraEditors
+Imports DevExpress.XtraGrid.Views.Grid
+Public Class Municipios
 
+    Dim actualizar As Boolean = False
+    Dim id As Integer
+    Dim iddepto As Integer
 
+    Private Sub Municipios_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.GotFocus
+        Me.IM_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.IM_DEPARTAMENTOS)
+    End Sub
     Private Sub XfrmMunicipio_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'DSDeptoMuni.IM_DEPARTAMENTOS' table. You can move, or remove it, as needed.
         Me.IM_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.IM_DEPARTAMENTOS)
@@ -9,7 +17,7 @@
         'TODO: This line of code loads data into the 'DSDeptoMuni.TA_MUNICIPIOS' table. You can move, or remove it, as needed.
         Me.TA_MUNICIPIOSTableAdapter.Fill(Me.DSDeptoMuni.TA_MUNICIPIOS)
 
-        
+
         ActualizarGrid()
         Me.IMMUNICIPIOSBindingSource.AddNew()
     End Sub
@@ -18,8 +26,14 @@
         Me.TA_MUNICIPIOSTableAdapter.Fill(Me.DSDeptoMuni.TA_MUNICIPIOS)
     End Sub
     Sub nuevo()
-        Me.IMMUNICIPIOSBindingSource.CancelEdit()
-        Me.IMMUNICIPIOSBindingSource.AddNew()
+        Try
+            Me.IMMUNICIPIOSBindingSource.CancelEdit()
+            Me.IMMUNICIPIOSBindingSource.AddNew()
+            Me.BtnEliminar.Enabled = False
+        Catch ex As Exception
+            Mensajes.mimensaje(ex.Message)
+        End Try
+
     End Sub
     Sub guardar()
 
@@ -27,6 +41,7 @@
 
         Try
             Me.IMMUNICIPIOSBindingSource.EndEdit()
+            Dim _data As DSDeptoMuni.IM_MUNICIPIOSDataTable = DSDeptoMuni.IM_MUNICIPIOS
 
             'AGREGAR INFORMACION DE AUDITORIA (MODIFICA EL REGISTRO ANTES DE AGREGARLO A LA BASE )
             For Each _datar As DSDeptoMuni.IM_MUNICIPIOSRow In DSDeptoMuni.IM_MUNICIPIOS
@@ -47,6 +62,16 @@
 
             'ACTUALIZANDO EL GRID DE BUSQUEDA Y EDICION
             ActualizarGrid()
+
+            'Edicion
+            BtnEliminar.Enabled = False
+            If actualizar = True Then
+                Mensajes.MensajeActualizar()
+                actualizar = False
+            Else
+                Mensajes.MensajeGuardar()
+            End If
+            Me.IMMUNICIPIOSBindingSource.AddNew()
         Catch ex As Exception
             'CONTROL DE ERRORES
             Mensajes.MensajeError(ex.Message)
@@ -70,7 +95,10 @@
             Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
             'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
             Me.IM_MUNICIPIOSTableAdapter.FillBy(Me.DSDeptoMuni.IM_MUNICIPIOS, cellValue)
-            'writedata = False
+            actualizar = True
+            id = cellValue
+            iddepto = Data.CapturarDatoGrid(GridView1, 1)
+            BtnEliminar.Enabled = True
 
 
         Catch ex As System.Exception
@@ -80,5 +108,56 @@
 
     Private Sub GridView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.Click
         MostrarDatos()
+    End Sub
+
+    Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
+        Eliminar()
+    End Sub
+    Sub Eliminar()
+        If XtraMessageBox.Show("¿Desea Eliminar el Registro Seleccionado?", "Mensaje de Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+            Try
+
+
+                Dim Drow As DSDeptoMuni.IM_MUNICIPIOSRow
+
+                Drow = Me.DSDeptoMuni.IM_MUNICIPIOS.FindByCODIGO_MUNICIPIOCODIGO_DEPARTAMENTO(id, iddepto)
+
+                Drow.Delete()
+
+                Me.IM_MUNICIPIOSTableAdapter.Update(Me.DSDeptoMuni.IM_MUNICIPIOS)
+                ActualizarGrid()
+                Mensajes.MensajeEliminar()
+                Me.IMMUNICIPIOSBindingSource.AddNew()
+                Me.BtnEliminar.Enabled = False
+            Catch ex As Exception
+                Mensajes.MensajeError(ex.Message)
+            End Try
+        End If
+
+      
+    End Sub
+
+    Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
+        Me.Close()
+    End Sub
+
+    Private Sub CODIGO_MUNICIPIOSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_MUNICIPIOSpinEdit.EditValueChanged
+
+    End Sub
+
+    Private Sub CODIGO_MUNICIPIOSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CODIGO_MUNICIPIOSpinEdit.KeyPress
+        VControles.solonumeros(e)
+    End Sub
+
+    Private Sub CANTIDAD_REGIDORESSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CANTIDAD_REGIDORESSpinEdit.EditValueChanged
+
+    End Sub
+
+    Private Sub CANTIDAD_REGIDORESSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CANTIDAD_REGIDORESSpinEdit.KeyPress
+        VControles.solonumeros(e)
+    End Sub
+
+    Private Sub ButtonEdit1_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonEdit1.EditValueChanged
+        Me.TA_MUNICIPIOSTableAdapter.FillBy(Me.DSDeptoMuni.TA_MUNICIPIOS, ButtonEdit1.Text)
     End Sub
 End Class

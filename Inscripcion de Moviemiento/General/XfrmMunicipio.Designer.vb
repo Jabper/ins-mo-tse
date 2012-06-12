@@ -32,6 +32,7 @@ Partial Class Municipios
         Me.colCANTIDAD_REGIDORES = New DevExpress.XtraGrid.Columns.GridColumn
         Me.ButtonEdit1 = New DevExpress.XtraEditors.ButtonEdit
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
+        Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
         Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
         Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
@@ -56,6 +57,10 @@ Partial Class Municipios
         Me.LayoutControlItem7 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem8 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem
+        Me.EmptySpaceItem3 = New DevExpress.XtraLayout.EmptySpaceItem
+        Me.EmptySpaceItem4 = New DevExpress.XtraLayout.EmptySpaceItem
+        Me.EmptySpaceItem5 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem
@@ -98,6 +103,10 @@ Partial Class Municipios
         CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -204,6 +213,7 @@ Partial Class Municipios
         'PanelControl1
         '
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl1.Controls.Add(Me.BtnSalir)
         Me.PanelControl1.Controls.Add(Me.BtnEliminar)
         Me.PanelControl1.Controls.Add(Me.BtnNuevo)
         Me.PanelControl1.Controls.Add(Me.BtnGuardar)
@@ -211,6 +221,18 @@ Partial Class Municipios
         Me.PanelControl1.Name = "PanelControl1"
         Me.PanelControl1.Size = New System.Drawing.Size(316, 61)
         Me.PanelControl1.TabIndex = 6
+        '
+        'BtnSalir
+        '
+        Me.BtnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnSalir.Appearance.Options.UseFont = True
+        Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
+        Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnSalir.Location = New System.Drawing.Point(182, 1)
+        Me.BtnSalir.Name = "BtnSalir"
+        Me.BtnSalir.Size = New System.Drawing.Size(55, 55)
+        Me.BtnSalir.TabIndex = 6
+        Me.BtnSalir.Text = "Salir"
         '
         'BtnEliminar
         '
@@ -262,6 +284,7 @@ Partial Class Municipios
         Me.DataLayoutControl1.HiddenItems.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForADICIONADO_POR, Me.ItemForFECHA_ADICION, Me.ItemForMODIFICADO_POR, Me.ItemForFECHA_MODIFICACION})
         Me.DataLayoutControl1.Location = New System.Drawing.Point(12, 77)
         Me.DataLayoutControl1.Name = "DataLayoutControl1"
+        Me.DataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(681, 193, 250, 350)
         Me.DataLayoutControl1.Root = Me.Root
         Me.DataLayoutControl1.Size = New System.Drawing.Size(582, 136)
         Me.DataLayoutControl1.TabIndex = 4
@@ -272,7 +295,7 @@ Partial Class Municipios
         Me.TextEdit1.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMUNICIPIOSBindingSource, "DESCRIPCION", True))
         Me.TextEdit1.Location = New System.Drawing.Point(125, 36)
         Me.TextEdit1.Name = "TextEdit1"
-        Me.TextEdit1.Size = New System.Drawing.Size(445, 20)
+        Me.TextEdit1.Size = New System.Drawing.Size(233, 20)
         Me.TextEdit1.StyleController = Me.DataLayoutControl1
         Me.TextEdit1.TabIndex = 11
         '
@@ -330,13 +353,13 @@ Partial Class Municipios
         Me.CODIGO_DEPARTAMENTOSpinEdit.Location = New System.Drawing.Point(125, 60)
         Me.CODIGO_DEPARTAMENTOSpinEdit.Name = "CODIGO_DEPARTAMENTOSpinEdit"
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_DEPARTAMENTO", "Código Departamento", 151, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Departamento", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
+        Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_DEPARTAMENTO", "Código", 30, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Departamento", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.DataSource = Me.IMDEPARTAMENTOSBindingSource
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.DisplayMember = "DESCRIPCION"
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.NullText = ""
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.ValueMember = "CODIGO_DEPARTAMENTO"
-        Me.CODIGO_DEPARTAMENTOSpinEdit.Size = New System.Drawing.Size(445, 20)
+        Me.CODIGO_DEPARTAMENTOSpinEdit.Size = New System.Drawing.Size(233, 20)
         Me.CODIGO_DEPARTAMENTOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_DEPARTAMENTOSpinEdit.TabIndex = 9
         '
@@ -353,7 +376,7 @@ Partial Class Municipios
         Me.CODIGO_MUNICIPIOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CODIGO_MUNICIPIOSpinEdit.Properties.Mask.EditMask = "00"
         Me.CODIGO_MUNICIPIOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.CODIGO_MUNICIPIOSpinEdit.Size = New System.Drawing.Size(445, 20)
+        Me.CODIGO_MUNICIPIOSpinEdit.Size = New System.Drawing.Size(57, 20)
         Me.CODIGO_MUNICIPIOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_MUNICIPIOSpinEdit.TabIndex = 8
         '
@@ -367,7 +390,7 @@ Partial Class Municipios
         Me.CANTIDAD_REGIDORESSpinEdit.Properties.Mask.BeepOnError = True
         Me.CANTIDAD_REGIDORESSpinEdit.Properties.Mask.EditMask = "00"
         Me.CANTIDAD_REGIDORESSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.CANTIDAD_REGIDORESSpinEdit.Size = New System.Drawing.Size(445, 20)
+        Me.CANTIDAD_REGIDORESSpinEdit.Size = New System.Drawing.Size(54, 20)
         Me.CANTIDAD_REGIDORESSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CANTIDAD_REGIDORESSpinEdit.TabIndex = 10
         '
@@ -432,7 +455,7 @@ Partial Class Municipios
         Me.LayoutControlGroup3.AllowDrawBackground = False
         Me.LayoutControlGroup3.CustomizationFormText = "autoGeneratedGroup0"
         Me.LayoutControlGroup3.GroupBordersVisible = False
-        Me.LayoutControlGroup3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem6, Me.LayoutControlItem7, Me.LayoutControlItem8, Me.LayoutControlItem5})
+        Me.LayoutControlGroup3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem6, Me.LayoutControlItem7, Me.LayoutControlItem8, Me.LayoutControlItem5, Me.EmptySpaceItem2, Me.EmptySpaceItem3, Me.EmptySpaceItem4, Me.EmptySpaceItem5})
         Me.LayoutControlGroup3.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup3.Name = "autoGeneratedGroup0"
         Me.LayoutControlGroup3.Size = New System.Drawing.Size(562, 116)
@@ -444,7 +467,7 @@ Partial Class Municipios
         Me.LayoutControlItem6.CustomizationFormText = "CODIGO_DEPARTAMENTO"
         Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 48)
         Me.LayoutControlItem6.Name = "ItemForCODIGO_DEPARTAMENTO"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(562, 24)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(350, 24)
         Me.LayoutControlItem6.Text = "Departamento"
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(109, 13)
         '
@@ -454,7 +477,7 @@ Partial Class Municipios
         Me.LayoutControlItem7.CustomizationFormText = "CANTIDAD_REGIDORES"
         Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 72)
         Me.LayoutControlItem7.Name = "ItemForCANTIDAD_REGIDORES"
-        Me.LayoutControlItem7.Size = New System.Drawing.Size(562, 44)
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(171, 44)
         Me.LayoutControlItem7.Text = "Cantidad de Regidores"
         Me.LayoutControlItem7.TextSize = New System.Drawing.Size(109, 13)
         '
@@ -464,7 +487,7 @@ Partial Class Municipios
         Me.LayoutControlItem8.CustomizationFormText = "DESCRIPCION"
         Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 24)
         Me.LayoutControlItem8.Name = "ItemForDESCRIPCION"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(562, 24)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(350, 24)
         Me.LayoutControlItem8.Text = "Descripción"
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(109, 13)
         '
@@ -474,9 +497,49 @@ Partial Class Municipios
         Me.LayoutControlItem5.CustomizationFormText = "CODIGO_MUNICIPIO"
         Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem5.Name = "ItemForCODIGO_MUNICIPIO"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(562, 24)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(174, 24)
         Me.LayoutControlItem5.Text = "Código Municipio"
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(109, 13)
+        '
+        'EmptySpaceItem2
+        '
+        Me.EmptySpaceItem2.AllowHotTrack = False
+        Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(174, 0)
+        Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(388, 24)
+        Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
+        Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'EmptySpaceItem3
+        '
+        Me.EmptySpaceItem3.AllowHotTrack = False
+        Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(350, 24)
+        Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(212, 24)
+        Me.EmptySpaceItem3.Text = "EmptySpaceItem3"
+        Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'EmptySpaceItem4
+        '
+        Me.EmptySpaceItem4.AllowHotTrack = False
+        Me.EmptySpaceItem4.CustomizationFormText = "EmptySpaceItem4"
+        Me.EmptySpaceItem4.Location = New System.Drawing.Point(350, 48)
+        Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
+        Me.EmptySpaceItem4.Size = New System.Drawing.Size(212, 24)
+        Me.EmptySpaceItem4.Text = "EmptySpaceItem4"
+        Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'EmptySpaceItem5
+        '
+        Me.EmptySpaceItem5.AllowHotTrack = False
+        Me.EmptySpaceItem5.CustomizationFormText = "EmptySpaceItem5"
+        Me.EmptySpaceItem5.Location = New System.Drawing.Point(171, 72)
+        Me.EmptySpaceItem5.Name = "EmptySpaceItem5"
+        Me.EmptySpaceItem5.Size = New System.Drawing.Size(391, 44)
+        Me.EmptySpaceItem5.Text = "EmptySpaceItem5"
+        Me.EmptySpaceItem5.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlGroup1
         '
@@ -611,6 +674,10 @@ Partial Class Municipios
         CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -665,4 +732,9 @@ Partial Class Municipios
     Friend WithEvents colCANTIDAD_REGIDORES As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colDESCRIPCION As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colDEPARTAMENTO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents BtnSalir As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents EmptySpaceItem2 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents EmptySpaceItem3 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents EmptySpaceItem4 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents EmptySpaceItem5 As DevExpress.XtraLayout.EmptySpaceItem
 End Class
