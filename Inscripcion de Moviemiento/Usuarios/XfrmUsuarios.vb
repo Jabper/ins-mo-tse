@@ -1,10 +1,17 @@
-﻿Public Class XfrmUsuarios 
+﻿Public Class XfrmUsuarios
+
+    Private Sub XfrmUsuarios_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.GotFocus
+        Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
+        Me.TA_ROLESTableAdapter.Fill(Me.DTUsers.TA_ROLES)
+    End Sub
 
     Private Sub XfrmUsuarios_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DTUsers.DT_USUARIOS' table. You can move, or remove it, as needed.
+        Me.DT_USUARIOSTableAdapter.Fill(Me.DTUsers.DT_USUARIOS)
         'TODO: This line of code loads data into the 'DSPolitico.IM_PARTIDOS_POLITICOS' table. You can move, or remove it, as needed.
         Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
         'TODO: This line of code loads data into the 'DSPolitico.IM_MOVIMIENTOS' table. You can move, or remove it, as needed.
-       Me.TA_ROLESTableAdapter.Fill(Me.DTUsers.TA_ROLES)
+        Me.TA_ROLESTableAdapter.Fill(Me.DTUsers.TA_ROLES)
 
         Me.IMUSUARIOSBindingSource.AddNew()
         PreguntasDeSeguridad()
@@ -36,8 +43,13 @@
 
 
     Sub Nuevo()
-        Me.IMUSUARIOSBindingSource.CancelEdit()
-        Me.IMUSUARIOSBindingSource.AddNew()
+        Try
+            Me.IMUSUARIOSBindingSource.CancelEdit()
+            Me.IMUSUARIOSBindingSource.AddNew()
+        Catch ex As Exception
+            Mensajes.mimensaje(ex.Message)
+        End Try
+
     End Sub
 
     Sub guardar()
@@ -69,7 +81,18 @@
         End Try
     End Sub
     Sub MostrarDatos()
+        Try
 
+            'SE LE ASIGNA A UNA VARIABLE EL VALOR DE LA CELDA QUE SE DESEA
+            Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
+            'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
+            Me.IM_USUARIOSTableAdapter.FillBy(Me.DTUsers.IM_USUARIOS, cellValue)
+
+            'OBTENEMOS LA INFORMACION PARA LA BUSQUEDA DE LA IMAGEN
+            
+        Catch ex As System.Exception
+            Mensajes.MensajeError("Seleccione una Fila con Datos para Realizar la Edición")
+        End Try
     End Sub
 
     Sub ActualizarGrid()
@@ -84,10 +107,18 @@
 
         End Try
     End Sub
-   
+
 
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
         guardar()
+    End Sub
+
+    Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
+        Nuevo()
+    End Sub
+
+    Private Sub GridView1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.DoubleClick
+        MostrarDatos()
     End Sub
 End Class
