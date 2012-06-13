@@ -86,6 +86,7 @@ Public Class XfrmPartidosPoliticos
             '   LIMPIAR EL LA IMAGEN
             IMAGENPictureEdit.EditValue = Nothing
             Me.BtnEliminar.Enabled = False
+            actualizar = False
             limpiarValidador()
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
@@ -130,7 +131,7 @@ Public Class XfrmPartidosPoliticos
     Sub Eliminar()
         If XtraMessageBox.Show("¿Desea Eliminar el Registro Seleccionado?", "Mensaje de Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
             Try
-                Dim cellValue As String = Data.CapturarDatoGrid(Me.GCPartidos_Politicos, 0)
+                Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
 
 
                 Dim deptosrow As DSPolitico.IM_PARTIDOS_POLITICOSRow

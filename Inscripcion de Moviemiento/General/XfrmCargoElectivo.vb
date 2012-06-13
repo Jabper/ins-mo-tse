@@ -1,7 +1,12 @@
 ﻿Imports System.IO
+Imports DevExpress.XtraEditors
 
 
 Public Class XfrmCargoElectivo
+    Dim actualizar As Boolean = False
+    Private Sub XfrmCargoElectivo_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.GotFocus
+        Me.IM_NIVEL_ELECTIVOTableAdapter.Fill(Me.DSPolitico.IM_NIVEL_ELECTIVO)
+    End Sub
 
     Private Sub XfrmCargoElectivo_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'DSPolitico.IM_NIVEL_ELECTIVO' table. You can move, or remove it, as needed.
@@ -14,8 +19,14 @@ Public Class XfrmCargoElectivo
     End Sub
 
     Sub nuevo()
-        Me.IMCARGOSELECTIVOSBindingSource.CancelEdit()
-        Me.IMCARGOSELECTIVOSBindingSource.AddNew()
+        Try
+            Me.IMCARGOSELECTIVOSBindingSource.CancelEdit()
+            Me.IMCARGOSELECTIVOSBindingSource.AddNew()
+            Me.BtnEliminar.Enabled = False
+        Catch ex As Exception
+            Mensajes.mimensaje(ex.Message)
+        End Try
+        
     End Sub
     Sub guardar()
 
@@ -41,6 +52,18 @@ Public Class XfrmCargoElectivo
 
             'ACTUALIZANDO EL GRID DE BUSQUEDA Y EDICION
             ActualizarGrid()
+
+
+            'Edicion
+            BtnEliminar.Enabled = False
+            If actualizar = True Then
+                Mensajes.MensajeActualizar()
+                actualizar = False
+            Else
+                Mensajes.MensajeGuardar()
+            End If
+            Me.IMCARGOSELECTIVOSBindingSource.AddNew()
+
         Catch ex As Exception
             'CONTROL DE ERRORES
             Mensajes.MensajeError(ex.Message)
@@ -61,20 +84,13 @@ Public Class XfrmCargoElectivo
             Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
             'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
             Me.IM_CARGOS_ELECTIVOSTableAdapter.FillBy(Me.DSPolitico.IM_CARGOS_ELECTIVOS, cellValue)
-
+            actualizar = True
+            BtnEliminar.Enabled = True
         Catch ex As System.Exception
             Mensajes.MensajeError("Seleccione una Fila con Datos para Realizar la Edición")
         End Try
     End Sub
-    Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
-        nuevo()
-    End Sub
 
-    Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
-        'Dim currentImage As Bitmap = TryCast(PictureEdit1.EditValue, Bitmap)
-
-        'MsgBox(ConvertImageToByteArray(currentImage))
-    End Sub
     Public Shared Function ConvertImageToByteArray(ByVal imageIn As System.Drawing.Image) As Byte()
         Dim ms As New IO.MemoryStream()
         imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Png)
@@ -87,11 +103,76 @@ Public Class XfrmCargoElectivo
         Return returnImage
     End Function
 
-    Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
-        guardar()
-    End Sub
+
 
     Private Sub GridView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.Click
         MostrarDatos()
     End Sub
+
+    Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
+        Me.Close()
+    End Sub
+
+
+    Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
+        eliminar()
+    End Sub
+
+    Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
+        guardar()
+    End Sub
+
+    Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
+        nuevo()
+    End Sub
+
+    Private Sub CODIGO_CARGO_ELECTIVOSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_CARGO_ELECTIVOSpinEdit.EditValueChanged
+
+    End Sub
+
+    Private Sub CODIGO_CARGO_ELECTIVOSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CODIGO_CARGO_ELECTIVOSpinEdit.KeyPress
+        VControles.solonumeros(e)
+    End Sub
+
+    Private Sub DESCRIPCIONTextEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DESCRIPCIONTextEdit.EditValueChanged
+
+    End Sub
+
+    Private Sub DESCRIPCIONTextEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles DESCRIPCIONTextEdit.KeyPress
+        If Char.IsLower(e.KeyChar) Then
+
+            'Convert to uppercase, and put at the caret position in the TextBox.
+            DESCRIPCIONTextEdit.SelectedText = Char.ToUpper(e.KeyChar)
+
+            e.Handled = True
+        End If
+    End Sub
+
+
+    Sub eliminar()
+
+
+        If XtraMessageBox.Show("¿Desea Eliminar el Registro Seleccionado?", "Mensaje de Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+            Try
+
+                Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
+                Dim Drow As DSPolitico.IM_CARGOS_ELECTIVOSRow
+
+                Drow = Me.DSPolitico.IM_CARGOS_ELECTIVOS.FindByCODIGO_CARGO_ELECTIVO(CType(cellValue, Integer))
+
+                Drow.Delete()
+
+                Me.IM_CARGOS_ELECTIVOSTableAdapter.Update(Me.DSPolitico.IM_CARGOS_ELECTIVOS)
+                ActualizarGrid()
+                Mensajes.MensajeEliminar()
+                Me.IMCARGOSELECTIVOSBindingSource.AddNew()
+                Me.BtnEliminar.Enabled = False
+            Catch ex As Exception
+                Mensajes.MensajeError(ex.Message)
+            End Try
+
+        End If
+
+    End Sub
+
 End Class

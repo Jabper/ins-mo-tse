@@ -48,14 +48,17 @@ Partial Class XfrmNivelElectivo
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
-        Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
         Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
         Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.EmptySpaceItem3 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.IM_NIVEL_ELECTIVOTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.IM_NIVEL_ELECTIVOTableAdapter
         Me.TA_NIVEL_ELECTIVOTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_NIVEL_ELECTIVOTableAdapter
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -89,11 +92,13 @@ Partial Class XfrmNivelElectivo
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
+        Me.FlowLayoutPanel1.SuspendLayout()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -105,7 +110,7 @@ Partial Class XfrmNivelElectivo
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl1.Name = "LayoutControl1"
-        Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(552, 207, 250, 350)
+        Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(898, 298, 250, 350)
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
         Me.LayoutControl1.Size = New System.Drawing.Size(585, 361)
         Me.LayoutControl1.TabIndex = 0
@@ -169,7 +174,7 @@ Partial Class XfrmNivelElectivo
         Me.ButtonEdit1.Location = New System.Drawing.Point(63, 152)
         Me.ButtonEdit1.Name = "ButtonEdit1"
         Me.ButtonEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
-        Me.ButtonEdit1.Size = New System.Drawing.Size(510, 20)
+        Me.ButtonEdit1.Size = New System.Drawing.Size(500, 20)
         Me.ButtonEdit1.StyleController = Me.LayoutControl1
         Me.ButtonEdit1.TabIndex = 8
         '
@@ -185,7 +190,7 @@ Partial Class XfrmNivelElectivo
         Me.DataLayoutControl1.HiddenItems.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForADICIONADO_POR, Me.ItemForFECHA_ADICION, Me.ItemForMODIFICADO_POR, Me.ItemForFECHA_MODIFICACION})
         Me.DataLayoutControl1.Location = New System.Drawing.Point(12, 78)
         Me.DataLayoutControl1.Name = "DataLayoutControl1"
-        Me.DataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(854, 78, 250, 350)
+        Me.DataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(719, 78, 250, 350)
         Me.DataLayoutControl1.Root = Me.Root
         Me.DataLayoutControl1.Size = New System.Drawing.Size(561, 70)
         Me.DataLayoutControl1.TabIndex = 7
@@ -369,25 +374,23 @@ Partial Class XfrmNivelElectivo
         'PanelControl1
         '
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PanelControl1.Controls.Add(Me.BtnEliminar)
-        Me.PanelControl1.Controls.Add(Me.BtnNuevo)
-        Me.PanelControl1.Controls.Add(Me.BtnGuardar)
+        Me.PanelControl1.Controls.Add(Me.FlowLayoutPanel1)
         Me.PanelControl1.Location = New System.Drawing.Point(12, 12)
         Me.PanelControl1.Name = "PanelControl1"
         Me.PanelControl1.Size = New System.Drawing.Size(561, 62)
         Me.PanelControl1.TabIndex = 6
         '
-        'BtnEliminar
+        'FlowLayoutPanel1
         '
-        Me.BtnEliminar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnEliminar.Appearance.Options.UseFont = True
-        Me.BtnEliminar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.eliminar
-        Me.BtnEliminar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnEliminar.Location = New System.Drawing.Point(125, 2)
-        Me.BtnEliminar.Name = "BtnEliminar"
-        Me.BtnEliminar.Size = New System.Drawing.Size(55, 55)
-        Me.BtnEliminar.TabIndex = 2
-        Me.BtnEliminar.Text = "Eliminar"
+        Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.Transparent
+        Me.FlowLayoutPanel1.Controls.Add(Me.BtnNuevo)
+        Me.FlowLayoutPanel1.Controls.Add(Me.BtnGuardar)
+        Me.FlowLayoutPanel1.Controls.Add(Me.BtnEliminar)
+        Me.FlowLayoutPanel1.Controls.Add(Me.BtnSalir)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 0)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(248, 64)
+        Me.FlowLayoutPanel1.TabIndex = 10
         '
         'BtnNuevo
         '
@@ -395,7 +398,7 @@ Partial Class XfrmNivelElectivo
         Me.BtnNuevo.Appearance.Options.UseFont = True
         Me.BtnNuevo.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
         Me.BtnNuevo.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnNuevo.Location = New System.Drawing.Point(5, 2)
+        Me.BtnNuevo.Location = New System.Drawing.Point(3, 3)
         Me.BtnNuevo.Name = "BtnNuevo"
         Me.BtnNuevo.Size = New System.Drawing.Size(55, 55)
         Me.BtnNuevo.TabIndex = 0
@@ -407,18 +410,43 @@ Partial Class XfrmNivelElectivo
         Me.BtnGuardar.Appearance.Options.UseFont = True
         Me.BtnGuardar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.guardar1
         Me.BtnGuardar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnGuardar.Location = New System.Drawing.Point(64, 2)
+        Me.BtnGuardar.Location = New System.Drawing.Point(64, 3)
         Me.BtnGuardar.Name = "BtnGuardar"
         Me.BtnGuardar.Size = New System.Drawing.Size(55, 55)
         Me.BtnGuardar.TabIndex = 1
         Me.BtnGuardar.Text = "Guardar"
+        '
+        'BtnEliminar
+        '
+        Me.BtnEliminar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnEliminar.Appearance.Options.UseFont = True
+        Me.BtnEliminar.Enabled = False
+        Me.BtnEliminar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.eliminar
+        Me.BtnEliminar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnEliminar.Location = New System.Drawing.Point(125, 3)
+        Me.BtnEliminar.Name = "BtnEliminar"
+        Me.BtnEliminar.Size = New System.Drawing.Size(55, 55)
+        Me.BtnEliminar.TabIndex = 2
+        Me.BtnEliminar.Text = "Eliminar"
+        '
+        'BtnSalir
+        '
+        Me.BtnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnSalir.Appearance.Options.UseFont = True
+        Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
+        Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnSalir.Location = New System.Drawing.Point(186, 3)
+        Me.BtnSalir.Name = "BtnSalir"
+        Me.BtnSalir.Size = New System.Drawing.Size(55, 55)
+        Me.BtnSalir.TabIndex = 10
+        Me.BtnSalir.Text = "Salir"
         '
         'LayoutControlGroup1
         '
         Me.LayoutControlGroup1.CustomizationFormText = "LayoutControlGroup1"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.EmptySpaceItem3})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(585, 361)
@@ -460,10 +488,10 @@ Partial Class XfrmNivelElectivo
         Me.LayoutControlItem3.Control = Me.ButtonEdit1
         Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
         Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 140)
-        Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(565, 24)
-        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(565, 24)
+        Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(555, 24)
+        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(555, 24)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(565, 24)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(555, 24)
         Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem3.Text = "Búsqueda"
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(47, 13)
@@ -482,6 +510,16 @@ Partial Class XfrmNivelElectivo
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem4.TextToControlDistance = 0
         Me.LayoutControlItem4.TextVisible = False
+        '
+        'EmptySpaceItem3
+        '
+        Me.EmptySpaceItem3.AllowHotTrack = False
+        Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(555, 140)
+        Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(10, 24)
+        Me.EmptySpaceItem3.Text = "EmptySpaceItem3"
+        Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
         '
         'IM_NIVEL_ELECTIVOTableAdapter
         '
@@ -530,11 +568,13 @@ Partial Class XfrmNivelElectivo
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
+        Me.FlowLayoutPanel1.ResumeLayout(False)
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -556,9 +596,6 @@ Partial Class XfrmNivelElectivo
     Friend WithEvents ItemForCODIGO_NIVEL_ELECTIVO As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents ItemForDESCRIPCION As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
-    Friend WithEvents BtnEliminar As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents BtnNuevo As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents BtnGuardar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents ButtonEdit1 As DevExpress.XtraEditors.ButtonEdit
@@ -576,4 +613,10 @@ Partial Class XfrmNivelElectivo
     Friend WithEvents TA_NIVEL_ELECTIVOTableAdapter As Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_NIVEL_ELECTIVOTableAdapter
     Friend WithEvents EmptySpaceItem1 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents EmptySpaceItem2 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents EmptySpaceItem3 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents BtnNuevo As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnGuardar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnEliminar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnSalir As DevExpress.XtraEditors.SimpleButton
 End Class
