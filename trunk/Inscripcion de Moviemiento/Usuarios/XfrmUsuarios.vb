@@ -15,6 +15,9 @@
 
         Me.IMUSUARIOSBindingSource.AddNew()
         PreguntasDeSeguridad()
+
+        DxControls.ObtenerCredencial("BtnUsuarios", "INSERTAR", Me.BtnNuevo)
+        DxControls.ObtenerCredencial("BtnUsuarios", "MODIFICAR", Me.BtnGuardar)        
     End Sub
     Sub PreguntasDeSeguridad() 'SE CREA UN DATA TABLE PARA ENLAZARLO AL CONTROL Y MOSTRAR LAS PREGUNTAS DE SEGURIDAD
         Dim tbl As New DataTable()

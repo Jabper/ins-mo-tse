@@ -8,6 +8,11 @@ Public Class XfrmRoles
         'TODO: This line of code loads data into the 'DTUsers.IM_ROLES' table. You can move, or remove it, as needed.
         Me.IM_ROLESTableAdapter.Fill(Me.DTUsers.IM_ROLES)
         Me.IMROLESBindingSource.AddNew()
+
+        DxControls.ObtenerCredencial("BtnRoles", "INSERTAR", Me.BtnNuevo)
+        DxControls.ObtenerCredencial("BtnRoles", "MODIFICAR", Me.BtnGuardar)
+        DxControls.ObtenerCredencial("BtnRoles", "ELIMINAR", Me.BtnEliminar)
+
     End Sub
 
 

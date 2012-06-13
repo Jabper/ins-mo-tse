@@ -7,6 +7,10 @@
         Me.IM_REQUISITOSTableAdapter.Fill(Me.DSCandidato.IM_REQUISITOS)
         Me.IMREQUISITOSBindingSource.AddNew()
         ActualizarGrid()
+
+        DxControls.ObtenerCredencial("BtnRequisitos", "INSERTAR", Me.BtnNuevo)
+        DxControls.ObtenerCredencial("BtnRequisitos", "MODIFICAR", Me.BtnGuardar)
+        DxControls.ObtenerCredencial("BtnRequisitos", "ELIMINAR", Me.BtnEliminar)
     End Sub
 
     Sub Nuevo()

@@ -91,9 +91,7 @@ Public Class XFrmMenuPrincipal
         Padre(XfrmNivelElectivo)
     End Sub
 
-    Private Sub BtnIncompatibilidades_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnIncompatibilidades.ItemClick
 
-    End Sub
 
     Private Sub BtnPartidos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnPartidos.ItemClick
         Padre(XfrmPartidosPoliticos)
@@ -120,7 +118,7 @@ Public Class XFrmMenuPrincipal
     End Sub
 
     Private Sub BtnCandidatos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCandidatos.ItemClick
-        'Padre(XfrmIngresoCandidatos)
+        Padre(XfrmCandidato)
     End Sub
 
     Private Sub BtnOperaciones_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnOperaciones.ItemClick
