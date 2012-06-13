@@ -156,6 +156,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSPolitico.xsd</DependentUpon>
     </Compile>
+    <Compile Include="General\DSPolitico.vb">
+      <DependentUpon>DSPolitico.xsd</DependentUpon>
+    </Compile>
     <Compile Include="General\XfrmCargoElectivo.Designer.vb">
       <DependentUpon>XfrmCargoElectivo.vb</DependentUpon>
     </Compile>

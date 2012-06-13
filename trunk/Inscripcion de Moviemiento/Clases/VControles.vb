@@ -24,7 +24,10 @@ Public Class VControles
     End Function
 
     Public Shared Sub Mayuscula(ByVal texto As Object)
-        UCase(texto.Text)
+        Dim tl As Integer
+        texto.text = UCase(texto.Text)
+        tl = Len(texto.Text)
+        texto.SelStart = tl
 
     End Sub
 End Class
