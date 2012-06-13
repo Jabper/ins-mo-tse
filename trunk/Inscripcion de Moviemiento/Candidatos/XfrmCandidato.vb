@@ -26,7 +26,7 @@
     Private Sub CODIGO_PARTIDOSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_PARTIDOSpinEdit.EditValueChanged
         'TODO: This line of code loads data into the 'DSPolitico.IM_PARTIDOS_POLITICOS' table. You can move, or remove it, as needed.
         Try
-            Me.IM_MOVIMIENTOSTableAdapter.FillBy1(Me.DSPolitico.IM_MOVIMIENTOS, CType(Me.CODIGO_PARTIDOSpinEdit.EditValue, Integer))
+            Me.IM_MOVIMIENTOSTableAdapter.FillBy2(Me.DSPolitico.IM_MOVIMIENTOS, CType(Me.CODIGO_PARTIDOSpinEdit.EditValue, Integer))
 
         Catch ex As Exception
 

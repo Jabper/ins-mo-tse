@@ -1,10 +1,12 @@
 ﻿Imports System.IO
+Imports DevExpress.XtraEditors
+
 Public Class XfrmMovimientos
     Public UrlInsignia As String
     Public UrlEmblema As String
     Dim idmov As Integer
     Dim idpartido As Integer
-
+    Dim actualizar As Boolean = False
 
     Private Sub XfrmMovimientos_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.GotFocus
         Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
@@ -16,9 +18,15 @@ Public Class XfrmMovimientos
         Me.IM_MOVIMIENTOSTableAdapter.Fill(Me.DSPolitico.IM_MOVIMIENTOS)
         Me.IMMOVIMIENTOSBindingSource.AddNew()
         ActualizarGrid()
+        DxControls.ObtenerCredencial("BtnPartidos", "INSERTAR", Me.BtnNuevo)
+        DxControls.ObtenerCredencial("BtnPartidos", "MODIFICAR", Me.BtnGuardar)
+        DxControls.ObtenerCredencial("BtnPartidos", "ELIMINAR", Me.BtnEliminar)
 
     End Sub
-
+    Sub limpiarValidador()
+        DxValidationProvider1.RemoveControlError(Me.INSIGNIAPictureEdit)
+        DxValidationProvider1.RemoveControlError(Me.EMBLEMAPictureEdit)
+    End Sub
     Sub guardar()
 
         Try
@@ -55,6 +63,18 @@ Public Class XfrmMovimientos
             End If
 
             ActualizarGrid()
+
+            'Edicion
+            BtnEliminar.Enabled = False
+            If actualizar = True Then
+                Mensajes.MensajeActualizar()
+                actualizar = False
+            Else
+                Mensajes.MensajeGuardar()
+            End If
+            Me.IMMOVIMIENTOSBindingSource.AddNew()
+            Me.INSIGNIAPictureEdit.EditValue = Nothing
+            Me.EMBLEMAPictureEdit.EditValue = Nothing
         Catch ex As Exception
             'CONTROL DE ERRORES
             Mensajes.MensajeError(ex.Message)
@@ -69,6 +89,7 @@ Public Class XfrmMovimientos
         Me.INSIGNIAPictureEdit.EditValue = Nothing
         Me.EMBLEMAPictureEdit.EditValue = Nothing
         BtnEliminar.Enabled = False
+        limpiarValidador()
     End Sub
 
 
@@ -79,11 +100,12 @@ Public Class XfrmMovimientos
     Sub MostrarDatos()
 
         Try
-
+            limpiarValidador()
             'SE LE ASIGNA A UNA VARIABLE EL VALOR DE LA CELDA QUE SE DESEA
-            Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
+            Dim idmov As String = Data.CapturarDatoGrid(Me.GridView1, 0)
+            Dim idpart As String = Data.CapturarDatoGrid(Me.GridView1, 2)
             'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
-            Me.IM_MOVIMIENTOSTableAdapter.FillBy(Me.DSPolitico.IM_MOVIMIENTOS, CType(cellValue, Integer))
+            Me.IM_MOVIMIENTOSTableAdapter.FillBy1(Me.DSPolitico.IM_MOVIMIENTOS, CType(idmov, Integer), CType(idpart, Integer))
 
             'OBTENEMOS LA INFORMACION PARA LA BUSQUEDA DE LA IMAGEN
             UrlInsignia = Application.StartupPath.ToString & "\Img\In" & CODIGO_MOVIMIENTOSpinEdit.EditValue.ToString & NOMBRE_MOVIMIENTOTextEdit.EditValue.ToString & ".jpg"
@@ -105,20 +127,16 @@ Public Class XfrmMovimientos
                 Me.EMBLEMAPictureEdit.EditValue = Nothing
             End If
 
+            actualizar = True
+
+            BtnEliminar.Enabled = True
         Catch ex As System.Exception
             Mensajes.MensajeError("Seleccione una Fila con Datos para Realizar la Edición")
         End Try
 
     End Sub
 
-    Private Sub SimpleButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton3.Click
-        guardar()
 
-    End Sub
-
-    Private Sub SimpleButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton2.Click
-        nuevo()
-    End Sub
 
     Private Sub BtnInsignia_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnInsignia.Click
         'ABRE EL EXPLORADOR PARA CAPTURAR LA DIRECCION DE LA IMAGEN
@@ -143,13 +161,9 @@ Public Class XfrmMovimientos
         MostrarDatos()
     End Sub
 
-    Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
-        Me.Close()
-    End Sub
 
-    Private Sub CODIGO_MOVIMIENTOSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_MOVIMIENTOSpinEdit.EditValueChanged
 
-    End Sub
+
 
     Private Sub CODIGO_MOVIMIENTOSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CODIGO_MOVIMIENTOSpinEdit.KeyPress
         VControles.solonumeros(e)
@@ -157,5 +171,61 @@ Public Class XfrmMovimientos
 
     Private Sub NOMBRE_MOVIMIENTOTextEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NOMBRE_MOVIMIENTOTextEdit.EditValueChanged
         VControles.Mayuscula(NOMBRE_MOVIMIENTOTextEdit)
+    End Sub
+
+
+    Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
+        Me.Close()
+    End Sub
+
+    Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
+        eliminar()
+    End Sub
+
+    Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
+        If DxValidationProvider1.Validate = True Then
+            guardar()
+        End If
+
+    End Sub
+
+    Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
+        nuevo()
+    End Sub
+
+    Sub eliminar()
+        If XtraMessageBox.Show("¿Desea Eliminar el Registro Seleccionado?", "Mensaje de Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+            Try
+                Dim idmov As String = Data.CapturarDatoGrid(Me.GridView1, 0)
+                Dim idpartido As String = Data.CapturarDatoGrid(Me.GridView1, 2)
+
+                Dim drow As DSPolitico.IM_MOVIMIENTOSRow
+
+                drow = Me.DSPolitico.IM_MOVIMIENTOS.FindByCODIGO_MOVIMIENTOCODIGO_PARTIDO(CType(idmov, Integer), CType(idpartido, Integer))
+
+                drow.Delete()
+
+                Me.IM_MOVIMIENTOSTableAdapter.Update(Me.DSPolitico.IM_MOVIMIENTOS)
+
+                ActualizarGrid()
+                Mensajes.MensajeEliminar()
+                Me.IMPARTIDOSPOLITICOSBindingSource.AddNew()
+                Me.BtnEliminar.Enabled = False
+                Me.INSIGNIAPictureEdit.EditValue = Nothing
+                Me.EMBLEMAPictureEdit.EditValue = Nothing
+
+                limpiarValidador()
+            Catch ex As Exception
+                Mensajes.MensajeError(ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Private Sub ButtonEdit1_ButtonClick(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.ButtonPressedEventArgs) Handles ButtonEdit1.ButtonClick
+        Me.TA_MOVIMIENTOTableAdapter.FillBy(DSPolitico.TA_MOVIMIENTO, Me.ButtonEdit1.Text)
+    End Sub
+
+    Private Sub ButtonEdit1_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonEdit1.EditValueChanged
+        Me.TA_MOVIMIENTOTableAdapter.FillBy(DSPolitico.TA_MOVIMIENTO, Me.ButtonEdit1.Text)
     End Sub
 End Class
