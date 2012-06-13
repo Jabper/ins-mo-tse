@@ -20,6 +20,9 @@ Public Class Municipios
 
         ActualizarGrid()
         Me.IMMUNICIPIOSBindingSource.AddNew()
+        DxControls.ObtenerCredencial("BtnMunicipio", "INSERTAR", Me.BtnNuevo)
+        DxControls.ObtenerCredencial("BtnMunicipio", "MODIFICAR", Me.BtnGuardar)
+        DxControls.ObtenerCredencial("BtnMunicipio", "ELIMINAR", Me.BtnEliminar)
     End Sub
 
     Sub ActualizarGrid()
@@ -79,13 +82,7 @@ Public Class Municipios
 
     End Sub
 
-    Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
-        nuevo()
-    End Sub
-
-    Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
-        guardar()
-    End Sub
+    
 
     Sub MostrarDatos()
 
@@ -110,9 +107,7 @@ Public Class Municipios
         MostrarDatos()
     End Sub
 
-    Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
-        Eliminar()
-    End Sub
+    
     Sub Eliminar()
         If XtraMessageBox.Show("¿Desea Eliminar el Registro Seleccionado?", "Mensaje de Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
             Try
@@ -137,21 +132,12 @@ Public Class Municipios
       
     End Sub
 
-    Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
-        Me.Close()
-    End Sub
-
-    Private Sub CODIGO_MUNICIPIOSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_MUNICIPIOSpinEdit.EditValueChanged
-
-    End Sub
 
     Private Sub CODIGO_MUNICIPIOSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CODIGO_MUNICIPIOSpinEdit.KeyPress
         VControles.solonumeros(e)
     End Sub
 
-    Private Sub CANTIDAD_REGIDORESSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CANTIDAD_REGIDORESSpinEdit.EditValueChanged
-
-    End Sub
+    
 
     Private Sub CANTIDAD_REGIDORESSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CANTIDAD_REGIDORESSpinEdit.KeyPress
         VControles.solonumeros(e)
@@ -159,5 +145,23 @@ Public Class Municipios
 
     Private Sub ButtonEdit1_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonEdit1.EditValueChanged
         Me.TA_MUNICIPIOSTableAdapter.FillBy(Me.DSDeptoMuni.TA_MUNICIPIOS, ButtonEdit1.Text)
+    End Sub
+
+   
+    Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
+        nuevo()
+    End Sub
+
+    Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
+        guardar()
+    End Sub
+
+    
+    Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
+        Eliminar()
+    End Sub
+
+    Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
+        Me.Close()
     End Sub
 End Class

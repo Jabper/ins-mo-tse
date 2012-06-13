@@ -32,10 +32,11 @@ Partial Class Municipios
         Me.colCANTIDAD_REGIDORES = New DevExpress.XtraGrid.Columns.GridColumn
         Me.ButtonEdit1 = New DevExpress.XtraEditors.ButtonEdit
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
-        Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
-        Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
         Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
         Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.DataLayoutControl1 = New DevExpress.XtraDataLayout.DataLayoutControl
         Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit
         Me.IMMUNICIPIOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -79,6 +80,7 @@ Partial Class Municipios
         CType(Me.ButtonEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
+        Me.FlowLayoutPanel1.SuspendLayout()
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DataLayoutControl1.SuspendLayout()
         CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -158,6 +160,7 @@ Partial Class Municipios
         Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridView1.OptionsBehavior.Editable = False
+        Me.GridView1.OptionsView.ColumnAutoWidth = False
         Me.GridView1.OptionsView.ShowDetailButtons = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
         '
@@ -168,6 +171,7 @@ Partial Class Municipios
         Me.colCODIGO_MUNICIPIO.Name = "colCODIGO_MUNICIPIO"
         Me.colCODIGO_MUNICIPIO.Visible = True
         Me.colCODIGO_MUNICIPIO.VisibleIndex = 0
+        Me.colCODIGO_MUNICIPIO.Width = 92
         '
         'colCODIGO_DEPARTAMENTO
         '
@@ -176,6 +180,7 @@ Partial Class Municipios
         Me.colCODIGO_DEPARTAMENTO.Name = "colCODIGO_DEPARTAMENTO"
         Me.colCODIGO_DEPARTAMENTO.Visible = True
         Me.colCODIGO_DEPARTAMENTO.VisibleIndex = 1
+        Me.colCODIGO_DEPARTAMENTO.Width = 128
         '
         'colDESCRIPCION
         '
@@ -184,6 +189,7 @@ Partial Class Municipios
         Me.colDESCRIPCION.Name = "colDESCRIPCION"
         Me.colDESCRIPCION.Visible = True
         Me.colDESCRIPCION.VisibleIndex = 3
+        Me.colDESCRIPCION.Width = 188
         '
         'colDEPARTAMENTO
         '
@@ -192,6 +198,7 @@ Partial Class Municipios
         Me.colDEPARTAMENTO.Name = "colDEPARTAMENTO"
         Me.colDEPARTAMENTO.Visible = True
         Me.colDEPARTAMENTO.VisibleIndex = 4
+        Me.colDEPARTAMENTO.Width = 235
         '
         'colCANTIDAD_REGIDORES
         '
@@ -200,6 +207,7 @@ Partial Class Municipios
         Me.colCANTIDAD_REGIDORES.Name = "colCANTIDAD_REGIDORES"
         Me.colCANTIDAD_REGIDORES.Visible = True
         Me.colCANTIDAD_REGIDORES.VisibleIndex = 2
+        Me.colCANTIDAD_REGIDORES.Width = 124
         '
         'ButtonEdit1
         '
@@ -213,38 +221,23 @@ Partial Class Municipios
         'PanelControl1
         '
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PanelControl1.Controls.Add(Me.BtnSalir)
-        Me.PanelControl1.Controls.Add(Me.BtnEliminar)
-        Me.PanelControl1.Controls.Add(Me.BtnNuevo)
-        Me.PanelControl1.Controls.Add(Me.BtnGuardar)
+        Me.PanelControl1.Controls.Add(Me.FlowLayoutPanel1)
         Me.PanelControl1.Location = New System.Drawing.Point(12, 12)
         Me.PanelControl1.Name = "PanelControl1"
         Me.PanelControl1.Size = New System.Drawing.Size(316, 61)
         Me.PanelControl1.TabIndex = 6
         '
-        'BtnSalir
+        'FlowLayoutPanel1
         '
-        Me.BtnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnSalir.Appearance.Options.UseFont = True
-        Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
-        Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnSalir.Location = New System.Drawing.Point(182, 1)
-        Me.BtnSalir.Name = "BtnSalir"
-        Me.BtnSalir.Size = New System.Drawing.Size(55, 55)
-        Me.BtnSalir.TabIndex = 6
-        Me.BtnSalir.Text = "Salir"
-        '
-        'BtnEliminar
-        '
-        Me.BtnEliminar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnEliminar.Appearance.Options.UseFont = True
-        Me.BtnEliminar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.eliminar
-        Me.BtnEliminar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnEliminar.Location = New System.Drawing.Point(123, 2)
-        Me.BtnEliminar.Name = "BtnEliminar"
-        Me.BtnEliminar.Size = New System.Drawing.Size(55, 55)
-        Me.BtnEliminar.TabIndex = 2
-        Me.BtnEliminar.Text = "Eliminar"
+        Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.Transparent
+        Me.FlowLayoutPanel1.Controls.Add(Me.BtnNuevo)
+        Me.FlowLayoutPanel1.Controls.Add(Me.BtnGuardar)
+        Me.FlowLayoutPanel1.Controls.Add(Me.BtnEliminar)
+        Me.FlowLayoutPanel1.Controls.Add(Me.BtnSalir)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, -1)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(248, 64)
+        Me.FlowLayoutPanel1.TabIndex = 10
         '
         'BtnNuevo
         '
@@ -252,7 +245,7 @@ Partial Class Municipios
         Me.BtnNuevo.Appearance.Options.UseFont = True
         Me.BtnNuevo.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
         Me.BtnNuevo.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnNuevo.Location = New System.Drawing.Point(5, 2)
+        Me.BtnNuevo.Location = New System.Drawing.Point(3, 3)
         Me.BtnNuevo.Name = "BtnNuevo"
         Me.BtnNuevo.Size = New System.Drawing.Size(55, 55)
         Me.BtnNuevo.TabIndex = 0
@@ -264,11 +257,36 @@ Partial Class Municipios
         Me.BtnGuardar.Appearance.Options.UseFont = True
         Me.BtnGuardar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.guardar1
         Me.BtnGuardar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnGuardar.Location = New System.Drawing.Point(64, 2)
+        Me.BtnGuardar.Location = New System.Drawing.Point(64, 3)
         Me.BtnGuardar.Name = "BtnGuardar"
         Me.BtnGuardar.Size = New System.Drawing.Size(55, 55)
         Me.BtnGuardar.TabIndex = 1
         Me.BtnGuardar.Text = "Guardar"
+        '
+        'BtnEliminar
+        '
+        Me.BtnEliminar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnEliminar.Appearance.Options.UseFont = True
+        Me.BtnEliminar.Enabled = False
+        Me.BtnEliminar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.eliminar
+        Me.BtnEliminar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnEliminar.Location = New System.Drawing.Point(125, 3)
+        Me.BtnEliminar.Name = "BtnEliminar"
+        Me.BtnEliminar.Size = New System.Drawing.Size(55, 55)
+        Me.BtnEliminar.TabIndex = 2
+        Me.BtnEliminar.Text = "Eliminar"
+        '
+        'BtnSalir
+        '
+        Me.BtnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnSalir.Appearance.Options.UseFont = True
+        Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
+        Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnSalir.Location = New System.Drawing.Point(186, 3)
+        Me.BtnSalir.Name = "BtnSalir"
+        Me.BtnSalir.Size = New System.Drawing.Size(55, 55)
+        Me.BtnSalir.TabIndex = 10
+        Me.BtnSalir.Text = "Salir"
         '
         'DataLayoutControl1
         '
@@ -650,6 +668,7 @@ Partial Class Municipios
         CType(Me.ButtonEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
+        Me.FlowLayoutPanel1.ResumeLayout(False)
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DataLayoutControl1.ResumeLayout(False)
         CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -694,9 +713,6 @@ Partial Class Municipios
     Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents EmptySpaceItem1 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
-    Friend WithEvents BtnEliminar As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents BtnNuevo As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents BtnGuardar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents ButtonEdit1 As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
@@ -732,9 +748,13 @@ Partial Class Municipios
     Friend WithEvents colCANTIDAD_REGIDORES As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colDESCRIPCION As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colDEPARTAMENTO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents BtnSalir As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents EmptySpaceItem2 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents EmptySpaceItem3 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents EmptySpaceItem4 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents EmptySpaceItem5 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents BtnNuevo As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnGuardar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnEliminar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnSalir As DevExpress.XtraEditors.SimpleButton
 End Class

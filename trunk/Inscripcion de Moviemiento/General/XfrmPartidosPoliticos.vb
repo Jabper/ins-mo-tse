@@ -12,12 +12,12 @@ Public Class XfrmPartidosPoliticos
         Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
         ActualizarGrid()
         Me.IMPARTIDOSPOLITICOSBindingSource.AddNew()
+        DxControls.ObtenerCredencial("BtnPartidos", "INSERTAR", Me.BtnNuevo)
+        DxControls.ObtenerCredencial("BtnPartidos", "MODIFICAR", Me.BtnGuardar)
+        DxControls.ObtenerCredencial("BtnPartidos", "ELIMINAR", Me.BtnEliminar)
 
     End Sub
 
-    Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
-        guardar()
-    End Sub
 
 
     Sub guardar()
@@ -49,7 +49,7 @@ Public Class XfrmPartidosPoliticos
 
             Dim ThumImg As String = Application.StartupPath.ToString & "\Img\" & CODIGO_PARTIDOSpinEdit.EditValue.ToString & NOMBRETextEdit.EditValue.ToString & ".jpg"
 
-            If File.Exists(ThumImg) Then
+            If File.Exists(UrlImagen) Then
                 Data.CopiarArchivo(UrlImagen, ThumImg)
             End If
 
@@ -71,6 +71,9 @@ Public Class XfrmPartidosPoliticos
         End Try
 
     End Sub
+    Sub limpiarValidador()
+        DxValidationProvider1.RemoveControlError(Me.IMAGENPictureEdit)
+    End Sub
 
     Sub Nuevo()
 
@@ -83,6 +86,7 @@ Public Class XfrmPartidosPoliticos
             '   LIMPIAR EL LA IMAGEN
             IMAGENPictureEdit.EditValue = Nothing
             Me.BtnEliminar.Enabled = False
+            limpiarValidador()
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
         End Try
@@ -90,14 +94,12 @@ Public Class XfrmPartidosPoliticos
     End Sub
 
 
-    Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
-        Nuevo()
-    End Sub
+    
 
     Sub MostrarDatos()
 
         Try
-
+            limpiarValidador()
             'SE LE ASIGNA A UNA VARIABLE EL VALOR DE LA CELDA QUE SE DESEA
             Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
             'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
@@ -171,25 +173,34 @@ Public Class XfrmPartidosPoliticos
         MostrarDatos()
     End Sub
 
-    Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
-        Eliminar()
-      
-    End Sub
-
-    Private Sub CODIGO_PARTIDOSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_PARTIDOSpinEdit.EditValueChanged
-
-    End Sub
+  
 
     Private Sub CODIGO_PARTIDOSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CODIGO_PARTIDOSpinEdit.KeyPress
         VControles.solonumeros(e)
     End Sub
 
-    Private Sub CANTIDAD_FIRMASSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CANTIDAD_FIRMASSpinEdit.EditValueChanged
-
-    End Sub
+    
 
     Private Sub CANTIDAD_FIRMASSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CANTIDAD_FIRMASSpinEdit.KeyPress
         VControles.solonumeros(e)
+    End Sub
+
+    
+
+    
+    Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
+        Nuevo()
+    End Sub
+
+    Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
+        If DxValidationProvider1.Validate = True Then
+            guardar()
+        End If
+
+    End Sub
+
+    Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
+        Eliminar()
     End Sub
 
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click

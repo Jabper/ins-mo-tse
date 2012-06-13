@@ -7,15 +7,12 @@ Public Class XfrmParametros
         'Me.IMPARAMETROSGENERALESBindingSource.AddNew()
         AgregarElecciiones()
 
-        Dim modificar As String = COracle.credenciales("BtnParametros", "MODIFICAR")
-
-        If modificar = "N" Then
-            BtnGuardar.Visible = False
-        ElseIf modificar = "S" Then
-            BtnGuardar.Visible = True
-        End If        
+        DxControls.ObtenerCredencial("BtnParametros", "MODIFICAR", Me.BtnGuardar)
+      
     End Sub
+    
 
+   
     Sub guardar()
         Try
             'TEXTO ENLAZADO
@@ -49,11 +46,8 @@ Public Class XfrmParametros
     End Sub
 
 
-    Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
-        guardar()
-    End Sub
-
-    Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
+    
+    Sub nuevo()
         Me.IMPARAMETROSGENERALESBindingSource.CancelEdit()
         Me.IMPARAMETROSGENERALESBindingSource.AddNew()
     End Sub
@@ -106,11 +100,14 @@ Public Class XfrmParametros
         VControles.solonumeros(e)
     End Sub
 
-    Private Sub PARTICIPACION_MUJER_PORCENSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PARTICIPACION_MUJER_PORCENSpinEdit.EditValueChanged
+    
 
+    
+    Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
+        Me.Close()
     End Sub
 
-    Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
-        Me.Close()
+    Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
+        guardar()
     End Sub
 End Class

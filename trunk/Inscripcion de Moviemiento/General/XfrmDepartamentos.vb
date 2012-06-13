@@ -14,6 +14,9 @@ Public Class XfrmDepartamentos
         ActualizarGrid()
        
         Me.IMDEPARTAMENTOSBindingSource.AddNew()
+        DxControls.ObtenerCredencial("BtnDepartamento", "INSERTAR", Me.BtnNuevo)
+        DxControls.ObtenerCredencial("BtnDepartamento", "MODIFICAR", Me.BtnGuardar)
+        DxControls.ObtenerCredencial("BtnDepartamento", "ELIMINAR", Me.BtnEliminar)
     End Sub
 
     Sub ActualizarGrid()
