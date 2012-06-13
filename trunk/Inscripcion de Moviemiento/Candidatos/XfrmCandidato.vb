@@ -1,5 +1,5 @@
 ﻿Public Class XfrmCandidato 
-
+    Dim actualizar As Boolean = False
     Private Sub XfrmCandidato_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.IM_CARGOS_ELECTIVOSTableAdapter.Fill(Me.DSPolitico.IM_CARGOS_ELECTIVOS)
         Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
@@ -10,8 +10,10 @@
         Me.IMCANDIDATOSBindingSource.AddNew()
         ActualizarGrid()
 
+        If COracle.credenciales("BtnCandidatos", "MODIFICAR") = "N" And COracle.credenciales("BtnCandidatos", "INSERTAR") = "N" Then
+            DxControls.ObtenerCredencial("BtnCandidatos", "MODIFICAR", Me.BtnGuardar)
+        End If
         DxControls.ObtenerCredencial("BtnCandidatos", "INSERTAR", Me.BtnNuevo)
-        DxControls.ObtenerCredencial("BtnCandidatos", "MODIFICAR", Me.BtnGuardar)
         DxControls.ObtenerCredencial("BtnCandidatos", "ELIMINAR", Me.BtnEliminar)
     End Sub
 
@@ -99,6 +101,14 @@
     End Sub
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
-        guardar()
+        If actualizar = True And COracle.credenciales("BtnCandidatos", "MODIFICAR") = "S" Then
+            guardar()
+        ElseIf actualizar = True And COracle.credenciales("BtnCandidatos", "MODIFICAR") <> "S" Then
+            Mensajes.MensajeError("El ususario no tiene permisos de Modificacion en esta pantalla")
+        ElseIf actualizar = False And COracle.credenciales("BtnCandidatos", "INSERTAR") = "S" Then
+            guardar()
+        ElseIf actualizar = False And COracle.credenciales("BtnCandidatos", "INSERTAR") <> "S" Then
+            Mensajes.MensajeError("El ususario no tiene permisos de Inserción en esta pantalla")
+        End If
     End Sub
 End Class

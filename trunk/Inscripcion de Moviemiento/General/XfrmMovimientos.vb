@@ -18,10 +18,12 @@ Public Class XfrmMovimientos
         Me.IM_MOVIMIENTOSTableAdapter.Fill(Me.DSPolitico.IM_MOVIMIENTOS)
         Me.IMMOVIMIENTOSBindingSource.AddNew()
         ActualizarGrid()
-        DxControls.ObtenerCredencial("BtnPartidos", "INSERTAR", Me.BtnNuevo)
-        DxControls.ObtenerCredencial("BtnPartidos", "MODIFICAR", Me.BtnGuardar)
-        DxControls.ObtenerCredencial("BtnPartidos", "ELIMINAR", Me.BtnEliminar)
 
+        If COracle.credenciales("BtnMovimeintos", "MODIFICAR") = "N" And COracle.credenciales("BtnMovimientos", "INSERTAR") = "N" Then
+            DxControls.ObtenerCredencial("BtnMovimeintos", "MODIFICAR", Me.BtnGuardar)
+        End If
+        DxControls.ObtenerCredencial("BtnMovimientos", "INSERTAR", Me.BtnNuevo)
+        DxControls.ObtenerCredencial("BtnMovimientos", "ELIMINAR", Me.BtnEliminar)
     End Sub
     Sub limpiarValidador()
         DxValidationProvider1.RemoveControlError(Me.INSIGNIAPictureEdit)
@@ -183,10 +185,19 @@ Public Class XfrmMovimientos
     End Sub
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
-        If DxValidationProvider1.Validate = True Then
-            guardar()
+        If actualizar = True And COracle.credenciales("BtnMovimeintos", "MODIFICAR") = "S" Then
+            If DxValidationProvider1.Validate = True Then
+                guardar()
+            End If
+        ElseIf actualizar = True And COracle.credenciales("BtnMovimeintos", "MODIFICAR") <> "S" Then
+            Mensajes.MensajeError("El ususario no tiene permisos de Modificacion en esta pantalla")
+        ElseIf actualizar = False And COracle.credenciales("BtnMovimeintos", "INSERTAR") = "S" Then
+            If DxValidationProvider1.Validate = True Then
+                guardar()
+            End If
+        ElseIf actualizar = False And COracle.credenciales("BtnMovimeintos", "INSERTAR") <> "S" Then
+            Mensajes.MensajeError("El ususario no tiene permisos de Inserción en esta pantalla")
         End If
-
     End Sub
 
     Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click

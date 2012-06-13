@@ -17,12 +17,15 @@ Public Class Municipios
         'TODO: This line of code loads data into the 'DSDeptoMuni.TA_MUNICIPIOS' table. You can move, or remove it, as needed.
         Me.TA_MUNICIPIOSTableAdapter.Fill(Me.DSDeptoMuni.TA_MUNICIPIOS)
 
-
         ActualizarGrid()
         Me.IMMUNICIPIOSBindingSource.AddNew()
+
+        If COracle.credenciales("BtnMunicipio", "MODIFICAR") = "N" And COracle.credenciales("BtnMunicipio", "INSERTAR") = "N" Then
+            DxControls.ObtenerCredencial("BtnMunicipio", "MODIFICAR", Me.BtnGuardar)
+        End If
         DxControls.ObtenerCredencial("BtnMunicipio", "INSERTAR", Me.BtnNuevo)
-        DxControls.ObtenerCredencial("BtnMunicipio", "MODIFICAR", Me.BtnGuardar)
         DxControls.ObtenerCredencial("BtnMunicipio", "ELIMINAR", Me.BtnEliminar)
+  
     End Sub
 
     Sub ActualizarGrid()
@@ -153,7 +156,15 @@ Public Class Municipios
     End Sub
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
-        guardar()
+        If actualizar = True And COracle.credenciales("BtnMunicipio", "MODIFICAR") = "S" Then
+            guardar()
+        ElseIf actualizar = True And COracle.credenciales("BtnMunicipio", "MODIFICAR") <> "S" Then
+            Mensajes.MensajeError("El ususario no tiene permisos de Modificacion en esta pantalla")
+        ElseIf actualizar = False And COracle.credenciales("BtnMunicipio", "INSERTAR") = "S" Then
+            guardar()
+        ElseIf actualizar = False And COracle.credenciales("BtnMunicipio", "INSERTAR") <> "S" Then
+            Mensajes.MensajeError("El ususario no tiene permisos de Inserción en esta pantalla")
+        End If
     End Sub
 
     

@@ -20,6 +20,11 @@ Public Class XfrmCargoElectivo
         ActualizarGrid()
         Me.IMCARGOSELECTIVOSBindingSource.AddNew()
 
+        If COracle.credenciales("BtnCargos", "MODIFICAR") = "N" And COracle.credenciales("BtnCargos", "INSERTAR") = "N" Then
+            DxControls.ObtenerCredencial("BtnCargos", "MODIFICAR", Me.BtnGuardar)
+        End If
+        DxControls.ObtenerCredencial("BtnCargos", "INSERTAR", Me.BtnNuevo)
+        DxControls.ObtenerCredencial("BtnCargos", "ELIMINAR", Me.BtnEliminar)
     End Sub
 
     Sub nuevo()
@@ -124,7 +129,15 @@ Public Class XfrmCargoElectivo
     End Sub
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
-        guardar()
+        If actualizar = True And COracle.credenciales("BtnCargos", "MODIFICAR") = "S" Then
+            guardar()
+        ElseIf actualizar = True And COracle.credenciales("BtnCargos", "MODIFICAR") <> "S" Then
+            Mensajes.MensajeError("El ususario no tiene permisos de Modificacion en esta pantalla")
+        ElseIf actualizar = False And COracle.credenciales("BtnCargos", "INSERTAR") = "S" Then
+            guardar()
+        ElseIf actualizar = False And COracle.credenciales("BtnCargos", "INSERTAR") <> "S" Then
+            Mensajes.MensajeError("El ususario no tiene permisos de Inserción en esta pantalla")
+        End If
     End Sub
 
     Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click

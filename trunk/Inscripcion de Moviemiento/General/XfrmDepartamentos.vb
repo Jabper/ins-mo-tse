@@ -14,8 +14,11 @@ Public Class XfrmDepartamentos
         ActualizarGrid()
        
         Me.IMDEPARTAMENTOSBindingSource.AddNew()
+
+        If COracle.credenciales("BtnDepartamento", "MODIFICAR") = "N" And COracle.credenciales("BtnDepartamento", "INSERTAR") = "N" Then
+            DxControls.ObtenerCredencial("BtnDepartamento", "MODIFICAR", Me.BtnGuardar)
+        End If
         DxControls.ObtenerCredencial("BtnDepartamento", "INSERTAR", Me.BtnNuevo)
-        DxControls.ObtenerCredencial("BtnDepartamento", "MODIFICAR", Me.BtnGuardar)
         DxControls.ObtenerCredencial("BtnDepartamento", "ELIMINAR", Me.BtnEliminar)
     End Sub
 
@@ -169,7 +172,15 @@ Public Class XfrmDepartamentos
     End Sub
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
-        guardar()
+        If actualizar = True And COracle.credenciales("BtnDepartamento", "MODIFICAR") = "S" Then
+            guardar()
+        ElseIf actualizar = True And COracle.credenciales("BtnDepartamento", "MODIFICAR") <> "S" Then
+            Mensajes.MensajeError("El ususario no tiene permisos de Modificacion en esta pantalla")
+        ElseIf actualizar = False And COracle.credenciales("BtnDepartamento", "INSERTAR") = "S" Then
+            guardar()
+        ElseIf actualizar = False And COracle.credenciales("BtnDepartamento", "INSERTAR") <> "S" Then
+            Mensajes.MensajeError("El ususario no tiene permisos de Inserción en esta pantalla")
+        End If
     End Sub
 
     Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
