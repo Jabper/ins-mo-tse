@@ -12,8 +12,11 @@ Public Class XfrmPartidosPoliticos
         Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
         ActualizarGrid()
         Me.IMPARTIDOSPOLITICOSBindingSource.AddNew()
-        DxControls.ObtenerCredencial("BtnPartidos", "INSERTAR", Me.BtnNuevo)
-        DxControls.ObtenerCredencial("BtnPartidos", "MODIFICAR", Me.BtnGuardar)
+
+        If COracle.credenciales("BtnPartidos", "MODIFICAR") = "N" And COracle.credenciales("BtnPartidos", "INSERTAR") = "N" Then
+            DxControls.ObtenerCredencial("BtnPartidos", "MODIFICAR", Me.BtnGuardar)
+        End If
+        DxControls.ObtenerCredencial("BtnPartidos", "INSERTAR", Me.BtnNuevo)        
         DxControls.ObtenerCredencial("BtnPartidos", "ELIMINAR", Me.BtnEliminar)
 
     End Sub
@@ -194,10 +197,21 @@ Public Class XfrmPartidosPoliticos
     End Sub
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
-        If DxValidationProvider1.Validate = True Then
-            guardar()
+        If actualizar = True And COracle.credenciales("BtnPartidos", "MODIFICAR") = "S" Then
+            If DxValidationProvider1.Validate = True Then
+                guardar()
+            End If
+        ElseIf actualizar = True And COracle.credenciales("BtnPartidos", "MODIFICAR") <> "S" Then
+            Mensajes.MensajeError("El ususario no tiene permisos de Modificacion en esta pantalla")
+        ElseIf actualizar = False And COracle.credenciales("BtnPartidos", "INSERTAR") = "S" Then
+            If DxValidationProvider1.Validate = True Then
+                guardar()
+            End If
+        ElseIf actualizar = False And COracle.credenciales("BtnPartidos", "INSERTAR") <> "S" Then
+            Mensajes.MensajeError("El ususario no tiene permisos de Inserción en esta pantalla")
         End If
 
+        
     End Sub
 
     Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
