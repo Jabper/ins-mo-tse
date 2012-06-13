@@ -26,4 +26,13 @@ Public Class DxControls
     '        End If
     '    Loop
     'End Sub
+
+    Public Shared Sub ObtenerCredencial(ByVal NombreBoton As String, ByVal Opcion As String, ByVal btn As Object)
+        Dim credencial As String = COracle.credenciales(NombreBoton, Opcion)
+        If credencial = "N" Then
+            btn.Visible = False
+        ElseIf credencial = "S" Then
+            btn.Visible = True
+        End If
+    End Sub
 End Class

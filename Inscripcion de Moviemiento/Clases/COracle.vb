@@ -52,6 +52,48 @@ Public Class COracle
             Mensajes.MensajeError(ex.Message)
         End Try
     End Function
+
+    Public Shared Function Login(ByVal txtusuario As Object, ByVal txtpass As Object) As Boolean
+        Dim pass As String
+
+        'Metodo para evitar sql Injection
+        Try
+            Dim cnx As New OracleConnection(Configuracion.verconfig)
+
+            cnx.Open()
+
+
+            'Compruebo si existe el Usuario
+            Dim Ssql As String = "SELECT * FROM IM_USUARIOS WHERE CODIGO_USUARIO='" & txtusuario.Text & "' AND ESTADO='A'"
+            Dim sqdel As New OracleCommand(Ssql, cnx)
+            Dim dataread As OracleDataReader = sqdel.ExecuteReader()
+
+            'Si existe Extraigo el password
+            If dataread.Read = True Then
+                With dataread
+                    pass = (.Item("CONTRASENA"))
+                    NombreUsuario = (.Item("NOMBRE"))
+                    usuario = (.Item("CODIGO_USUARIO"))
+                End With
+
+                'compruebo la contraseña
+                If pass = txtpass.Text Then
+                    Return True
+                Else
+                    Return False
+                End If
+            Else
+                Return False
+            End If
+            dataread.Close()
+            cnx.Close()
+
+
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Function
     'Try
 
     '    'CREANDO CADENA DE CONEXION
