@@ -21,4 +21,7 @@
 
     End Sub
 
+    Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton1.Click
+        Me.BtnEliminar.Visible = False
+    End Sub
 End Class

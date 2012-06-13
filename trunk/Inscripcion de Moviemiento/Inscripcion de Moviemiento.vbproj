@@ -244,6 +244,12 @@
     <Compile Include="Usuarios\fmOpciones.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Usuarios\XfrmLogin.Designer.vb">
+      <DependentUpon>XfrmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\XfrmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Usuarios\XfrmOperacionesPorRol.Designer.vb">
       <DependentUpon>XfrmOperacionesPorRol.vb</DependentUpon>
     </Compile>
@@ -333,6 +339,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\fmOpciones.resx">
       <DependentUpon>fmOpciones.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\XfrmLogin.resx">
+      <DependentUpon>XfrmLogin.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\XfrmOperacionesPorRol.resx">
@@ -532,6 +542,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\opearaciones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backlogin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\textback1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logme.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -108,17 +108,6 @@ Public Class XfrmDepartamentos
 
 
 
-    Private Sub SimpleButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
-        Nuevo()
-
-    End Sub
-
-    Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
-        guardar()
-    End Sub
-
-
-
     Private Sub BteBusqueda_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BteBusqueda.EditValueChanged
         'FILTRO DE BUSQUEDA DE LOS DATOS
         Me.TA_DEPARTAMENTOSTableAdapter.FillBy(Me.DSDeptoMuni.TA_DEPARTAMENTOS, Me.BteBusqueda.Text)
@@ -150,17 +139,9 @@ Public Class XfrmDepartamentos
         MostrarDatos()
     End Sub
 
-    Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
-        Eliminar()
-    End Sub
+   
 
-    Private Sub GCDepartamento_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GCDepartamento.Click
-
-    End Sub
-
-    Private Sub CODIGO_DEPARTAMENTOSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_DEPARTAMENTOSpinEdit.EditValueChanged
-
-    End Sub
+    
 
     Private Sub CODIGO_DEPARTAMENTOSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CODIGO_DEPARTAMENTOSpinEdit.KeyPress
         VControles.solonumeros(e)
@@ -174,7 +155,25 @@ Public Class XfrmDepartamentos
         VControles.solonumeros(e)
     End Sub
 
-    Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
+    Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Me.Close()
+    End Sub
+
+    
+    
+    Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
+        Nuevo()
+    End Sub
+
+    Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
+        guardar()
+    End Sub
+
+    Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
+        Eliminar()
+    End Sub
+
+    Private Sub BtnSalir_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
         Me.Close()
     End Sub
 End Class
