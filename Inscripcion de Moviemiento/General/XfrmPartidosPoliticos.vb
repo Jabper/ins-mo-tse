@@ -206,4 +206,12 @@ Public Class XfrmPartidosPoliticos
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
         Me.Close()
     End Sub
+
+    Private Sub ButtonEdit1_ButtonClick(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.ButtonPressedEventArgs) Handles ButtonEdit1.ButtonClick
+        Me.TA_PARTIDOS_POLITICOSTableAdapter.FillBy(DSPolitico.TA_PARTIDOS_POLITICOS, Me.ButtonEdit1.Text)
+    End Sub
+
+    Private Sub ButtonEdit1_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonEdit1.EditValueChanged
+        Me.TA_PARTIDOS_POLITICOSTableAdapter.FillBy(DSPolitico.TA_PARTIDOS_POLITICOS, Me.ButtonEdit1.Text)
+    End Sub
 End Class

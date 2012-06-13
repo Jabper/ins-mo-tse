@@ -67,6 +67,8 @@ Partial Class XfrmPartidosPoliticos
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
         Me.TA_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_PARTIDOS_POLITICOSTableAdapter
         Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
+        Me.ButtonEdit1 = New DevExpress.XtraEditors.ButtonEdit
+        Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.GCPartidos_Politicos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -108,11 +110,14 @@ Partial Class XfrmPartidosPoliticos
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ButtonEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
         Me.LayoutControl1.AllowCustomizationMenu = False
+        Me.LayoutControl1.Controls.Add(Me.ButtonEdit1)
         Me.LayoutControl1.Controls.Add(Me.GCPartidos_Politicos)
         Me.LayoutControl1.Controls.Add(Me.PanelControl1)
         Me.LayoutControl1.Controls.Add(Me.DataLayoutControl1)
@@ -128,10 +133,10 @@ Partial Class XfrmPartidosPoliticos
         'GCPartidos_Politicos
         '
         Me.GCPartidos_Politicos.DataSource = Me.TAPARTIDOSPOLITICOSBindingSource
-        Me.GCPartidos_Politicos.Location = New System.Drawing.Point(12, 273)
+        Me.GCPartidos_Politicos.Location = New System.Drawing.Point(12, 297)
         Me.GCPartidos_Politicos.MainView = Me.GridView1
         Me.GCPartidos_Politicos.Name = "GCPartidos_Politicos"
-        Me.GCPartidos_Politicos.Size = New System.Drawing.Size(509, 186)
+        Me.GCPartidos_Politicos.Size = New System.Drawing.Size(509, 162)
         Me.GCPartidos_Politicos.TabIndex = 8
         Me.GCPartidos_Politicos.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -516,7 +521,7 @@ Partial Class XfrmPartidosPoliticos
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem5})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(533, 471)
@@ -557,11 +562,11 @@ Partial Class XfrmPartidosPoliticos
         '
         Me.LayoutControlItem3.Control = Me.GCPartidos_Politicos
         Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 261)
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 285)
         Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(513, 0)
         Me.LayoutControlItem3.MinSize = New System.Drawing.Size(513, 24)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(513, 190)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(513, 166)
         Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem3.Text = "LayoutControlItem3"
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
@@ -580,6 +585,28 @@ Partial Class XfrmPartidosPoliticos
         'TA_PARTIDOS_POLITICOSTableAdapter
         '
         Me.TA_PARTIDOS_POLITICOSTableAdapter.ClearBeforeFill = True
+        '
+        'ButtonEdit1
+        '
+        Me.ButtonEdit1.Location = New System.Drawing.Point(63, 273)
+        Me.ButtonEdit1.Name = "ButtonEdit1"
+        Me.ButtonEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
+        Me.ButtonEdit1.Size = New System.Drawing.Size(458, 20)
+        Me.ButtonEdit1.StyleController = Me.LayoutControl1
+        Me.ButtonEdit1.TabIndex = 9
+        '
+        'LayoutControlItem5
+        '
+        Me.LayoutControlItem5.Control = Me.ButtonEdit1
+        Me.LayoutControlItem5.CustomizationFormText = "Búsqueda"
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 261)
+        Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(513, 24)
+        Me.LayoutControlItem5.MinSize = New System.Drawing.Size(513, 24)
+        Me.LayoutControlItem5.Name = "LayoutControlItem5"
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(513, 24)
+        Me.LayoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem5.Text = "Búsqueda"
+        Me.LayoutControlItem5.TextSize = New System.Drawing.Size(47, 13)
         '
         'XfrmPartidosPoliticos
         '
@@ -630,6 +657,8 @@ Partial Class XfrmPartidosPoliticos
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ButtonEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -679,4 +708,6 @@ Partial Class XfrmPartidosPoliticos
     Friend WithEvents BtnEliminar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnSalir As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents DxValidationProvider1 As DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider
+    Friend WithEvents ButtonEdit1 As DevExpress.XtraEditors.ButtonEdit
+    Friend WithEvents LayoutControlItem5 As DevExpress.XtraLayout.LayoutControlItem
 End Class
