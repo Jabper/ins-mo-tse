@@ -9455,13 +9455,21 @@ Namespace DSPoliticoTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        A.CODIGO_CARGO_ELECTIVO, B.DESCRIPCION AS SUPERIOR, A.DESCRIPCION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+            Me._commandCollection(0).CommandText = "SELECT        B.CODIGO_CARGO_ELECTIVO, B.DESCRIPCION AS SUPERIOR, A.DESCRIPCION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
                 "FROM            IM_CARGOS_ELECTIVOS A, IM_CARGOS_ELECTIVOS B"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        A.COD"& _ 
                 "IGO_CARGO_ELECTIVO = B.CODIGO_CARGO_SUPERIOR"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT B.CODIGO_CARGO_ELECTIVO, A.DESCRIPCION, B.CODIGO_CARGO_ELECTIVO, B.DESCRIP"& _ 
+                "CION AS SUPERIOR FROM IM_CARGOS_ELECTIVOS A, IM_CARGOS_ELECTIVOS B WHERE A.CODIG"& _ 
+                "O_CARGO_ELECTIVO = B.CODIGO_CARGO_SUPERIOR AND (B.DESCRIPCION LIKE '%' || :de ||"& _ 
+                " '%')"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("de", Global.System.Data.OracleClient.OracleType.VarChar, 100, Global.System.Data.ParameterDirection.Input, "SUPERIOR", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9481,6 +9489,38 @@ Namespace DSPoliticoTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As DSPolitico.TA_CARGOSDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As DSPolitico.TA_CARGOSDataTable = New DSPolitico.TA_CARGOSDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DSPolitico.TA_CARGOSDataTable, ByVal de As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (de Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("de")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(de,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy(ByVal de As String) As DSPolitico.TA_CARGOSDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (de Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("de")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(de,String)
+            End If
             Dim dataTable As DSPolitico.TA_CARGOSDataTable = New DSPolitico.TA_CARGOSDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
