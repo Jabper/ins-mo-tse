@@ -81,6 +81,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property backlogin() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("backlogin", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property candidato() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("candidato", resourceCulture)
@@ -133,6 +140,13 @@ Namespace My.Resources
         Friend ReadOnly Property incompatibilidades() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("incompatibilidades", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property logme() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("logme", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -196,6 +210,13 @@ Namespace My.Resources
         Friend ReadOnly Property Roles() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Roles", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property textback1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("textback1", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

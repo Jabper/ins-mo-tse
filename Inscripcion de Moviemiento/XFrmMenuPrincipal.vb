@@ -16,11 +16,23 @@ Public Class XFrmMenuPrincipal
         'For i = 0 To Me.RibbonControl.Pages.Count - 1
         '    'Previo un for buscando nombre del contro
         '    If Me.RibbonControl.Pages(i).Text = "Seguridad" Then
+
         '        Me.RibbonControl.Pages(i).Visible = False
         '        MsgBox(Me.RibbonControl.Pages(0).Groups.Count)
         '    End If
         'Next
 
+
+        'For Each item As BarItem In Me.RibbonControl.Items
+        '    If TypeOf item Is BarBaseButtonItem Then
+
+        '        MsgBox(item.Name)
+        '    End If
+        'Next
+
+
+        'XfrmLogin.ShowDialog(Me)
+        'Me.Hide()
     End Sub
 
     Private Sub verificar_permisos()
@@ -53,7 +65,7 @@ Public Class XFrmMenuPrincipal
             formulario.Show()
         End If
 
-        
+
 
     End Sub
 
@@ -61,12 +73,12 @@ Public Class XFrmMenuPrincipal
         Padre(XfrmDepartamentos)
     End Sub
 
-    
+
 
     Private Sub BtnMunicipio_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnMunicipio.ItemClick
         Padre(Municipios)
     End Sub
-   
+
     Private Sub BtnParametros_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnParametros.ItemClick
         Padre(XfrmParametros)
     End Sub
