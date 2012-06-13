@@ -22,6 +22,7 @@ Partial Class XfrmPartidosPoliticos
         Me.components = New System.ComponentModel.Container
         Dim ConditionValidationRule1 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
+        Me.ButtonEdit1 = New DevExpress.XtraEditors.ButtonEdit
         Me.GCPartidos_Politicos = New DevExpress.XtraGrid.GridControl
         Me.TAPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DSPolitico = New Inscripcion_de_Moviemientos.DSPolitico
@@ -63,14 +64,14 @@ Partial Class XfrmPartidosPoliticos
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem
         Me.IM_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.IM_PARTIDOS_POLITICOSTableAdapter
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
         Me.TA_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_PARTIDOS_POLITICOSTableAdapter
         Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
-        Me.ButtonEdit1 = New DevExpress.XtraEditors.ButtonEdit
-        Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.ButtonEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GCPartidos_Politicos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TAPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -109,9 +110,8 @@ Partial Class XfrmPartidosPoliticos
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ButtonEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -129,6 +129,15 @@ Partial Class XfrmPartidosPoliticos
         Me.LayoutControl1.Size = New System.Drawing.Size(533, 471)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
+        '
+        'ButtonEdit1
+        '
+        Me.ButtonEdit1.Location = New System.Drawing.Point(63, 273)
+        Me.ButtonEdit1.Name = "ButtonEdit1"
+        Me.ButtonEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
+        Me.ButtonEdit1.Size = New System.Drawing.Size(458, 20)
+        Me.ButtonEdit1.StyleController = Me.LayoutControl1
+        Me.ButtonEdit1.TabIndex = 9
         '
         'GCPartidos_Politicos
         '
@@ -573,28 +582,6 @@ Partial Class XfrmPartidosPoliticos
         Me.LayoutControlItem3.TextToControlDistance = 0
         Me.LayoutControlItem3.TextVisible = False
         '
-        'IM_PARTIDOS_POLITICOSTableAdapter
-        '
-        Me.IM_PARTIDOS_POLITICOSTableAdapter.ClearBeforeFill = True
-        '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        Me.OpenFileDialog1.Filter = "Archivos de Imagen (*.jpg)|*.jpg"
-        '
-        'TA_PARTIDOS_POLITICOSTableAdapter
-        '
-        Me.TA_PARTIDOS_POLITICOSTableAdapter.ClearBeforeFill = True
-        '
-        'ButtonEdit1
-        '
-        Me.ButtonEdit1.Location = New System.Drawing.Point(63, 273)
-        Me.ButtonEdit1.Name = "ButtonEdit1"
-        Me.ButtonEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
-        Me.ButtonEdit1.Size = New System.Drawing.Size(458, 20)
-        Me.ButtonEdit1.StyleController = Me.LayoutControl1
-        Me.ButtonEdit1.TabIndex = 9
-        '
         'LayoutControlItem5
         '
         Me.LayoutControlItem5.Control = Me.ButtonEdit1
@@ -608,6 +595,19 @@ Partial Class XfrmPartidosPoliticos
         Me.LayoutControlItem5.Text = "Búsqueda"
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(47, 13)
         '
+        'IM_PARTIDOS_POLITICOSTableAdapter
+        '
+        Me.IM_PARTIDOS_POLITICOSTableAdapter.ClearBeforeFill = True
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        Me.OpenFileDialog1.Filter = "Archivos de Imagen (*.jpg)|*.jpg"
+        '
+        'TA_PARTIDOS_POLITICOSTableAdapter
+        '
+        Me.TA_PARTIDOS_POLITICOSTableAdapter.ClearBeforeFill = True
+        '
         'XfrmPartidosPoliticos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -618,6 +618,7 @@ Partial Class XfrmPartidosPoliticos
         Me.Text = "Partidos Políticos"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.ButtonEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GCPartidos_Politicos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TAPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).EndInit()
@@ -656,9 +657,8 @@ Partial Class XfrmPartidosPoliticos
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ButtonEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
