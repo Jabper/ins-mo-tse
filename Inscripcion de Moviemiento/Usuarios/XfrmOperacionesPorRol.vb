@@ -15,6 +15,10 @@
         'TODO: This line of code loads data into the 'DTUsers.IM_OPERACIONES_POR_ROL' table. You can move, or remove it, as needed.
         Me.IM_OPERACIONES_POR_ROLTableAdapter.Fill(Me.DTUsers.IM_OPERACIONES_POR_ROL)
         Me.IMOPERACIONESPORROLBindingSource.AddNew()
+
+        DxControls.ObtenerCredencial("BtnOperaciones", "INSERTAR", Me.BtnNuevo)
+        DxControls.ObtenerCredencial("BtnOperaciones", "MODIFICAR", Me.BtnGuardar)
+        DxControls.ObtenerCredencial("BtnOperaciones", "ELIMINAR", Me.BtnEliminar)
     End Sub
 
     Sub Nuevo()

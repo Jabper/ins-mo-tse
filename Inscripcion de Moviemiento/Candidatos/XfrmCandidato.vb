@@ -9,6 +9,10 @@
         'TODO: This line of code loads data into the 'DSCandidato.IM_CANDIDATOS' table. You can move, or remove it, as needed.
         Me.IMCANDIDATOSBindingSource.AddNew()
         ActualizarGrid()
+
+        DxControls.ObtenerCredencial("BtnCandidatos", "INSERTAR", Me.BtnNuevo)
+        DxControls.ObtenerCredencial("BtnCandidatos", "MODIFICAR", Me.BtnGuardar)
+        DxControls.ObtenerCredencial("BtnCandidatos", "ELIMINAR", Me.BtnEliminar)
     End Sub
 
     Private Sub CODIGO_DEPARTAMENTOTextEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_DEPARTAMENTOTextEdit.EditValueChanged

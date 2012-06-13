@@ -5,6 +5,10 @@
         'TODO: This line of code loads data into the 'DTUsers.IM_OPCIONES' table. You can move, or remove it, as needed.
         Me.IM_OPCIONESTableAdapter.Fill(Me.DTUsers.IM_OPCIONES)
         Me.IMOPCIONESBindingSource.AddNew()
+
+        DxControls.ObtenerCredencial("BtnOpciones", "INSERTAR", Me.BtnNuevo)
+        DxControls.ObtenerCredencial("BtnOpciones", "MODIFICAR", Me.BtnGuardar)
+        DxControls.ObtenerCredencial("BtnOpciones", "ELIMINAR", Me.BtnEliminar)
     End Sub
 
     Sub nuevo()
