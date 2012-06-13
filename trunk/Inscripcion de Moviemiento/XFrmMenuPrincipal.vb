@@ -1,5 +1,6 @@
 ﻿Imports Oracle.DataAccess.Client
-
+Imports DevExpress.XtraBars
+Imports DevExpress.XtraBars.InternalItems
 
 Public Class XFrmMenuPrincipal
     Public Sub conexion()
@@ -9,6 +10,7 @@ Public Class XFrmMenuPrincipal
         conn.Open()
     End Sub
     Private Sub XFrmMenuPrincipal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        verificar_permisos()
         'Call conexion()
 
         'For i = 0 To Me.RibbonControl.Pages.Count - 1
@@ -19,6 +21,28 @@ Public Class XFrmMenuPrincipal
         '    End If
         'Next
 
+    End Sub
+
+    Private Sub verificar_permisos()
+        For i = 0 To Me.RibbonControl.Pages.Count - 1
+            'deshabilita las pestañas
+            Dim insertar As String = COracle.credenciales(Me.Ribbon.Pages(i).Name.ToString, "INSERTAR")
+            If insertar = "E" Then
+                Me.Ribbon.Pages(i).Visible = False
+            Else
+                Me.Ribbon.Pages(i).Visible = True
+            End If           
+        Next
+        For Each item As BarItem In Me.RibbonControl.Items
+            If TypeOf item Is BarButtonItem Then
+                Dim insertar As String = COracle.credenciales(item.Name.ToString, "INSERTAR")
+                If insertar = "E" Then
+                    item.Visibility = BarItemVisibility.Never
+                Else
+                    item.Visibility = BarItemVisibility.Always
+                End If                
+            End If
+        Next
     End Sub
 
     Sub Padre(ByVal formulario As DevExpress.XtraEditors.XtraForm) 'HACE HIJOS A LOS FORMULARIOS PARA MOSTRARLOS DENTRO DEL MDI

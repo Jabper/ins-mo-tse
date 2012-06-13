@@ -1,10 +1,19 @@
-﻿Public Class XfrmParametros 
+﻿
+Public Class XfrmParametros
 
     Private Sub XfrmParametros_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'DSParametros.IM_PARAMETROS_GENERALES' table. You can move, or remove it, as needed.
         Me.IM_PARAMETROS_GENERALESTableAdapter.Fill(Me.DSParametros.IM_PARAMETROS_GENERALES)
         'Me.IMPARAMETROSGENERALESBindingSource.AddNew()
         AgregarElecciiones()
+
+        Dim modificar As String = COracle.credenciales("BtnParametros", "MODIFICAR")
+
+        If modificar = "N" Then
+            BtnGuardar.Visible = False
+        ElseIf modificar = "S" Then
+            BtnGuardar.Visible = True
+        End If        
     End Sub
 
     Sub guardar()
@@ -74,19 +83,19 @@
     End Sub
 
 
- 
+
 
     Private Sub PARTICIPACION_MUJER_PORCENSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles PARTICIPACION_MUJER_PORCENSpinEdit.KeyPress
         VControles.solonumeros(e)
     End Sub
 
-    
+
 
     Private Sub FIRMAS_REPETIDAS_PORCENSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles FIRMAS_REPETIDAS_PORCENSpinEdit.KeyPress
         VControles.solonumeros(e)
     End Sub
 
-   
+
 
     Private Sub FORMULAS_MUNICIPIO_MINSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles FORMULAS_MUNICIPIO_MINSpinEdit.KeyPress
         VControles.solonumeros(e)
