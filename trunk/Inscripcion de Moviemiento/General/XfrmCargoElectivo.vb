@@ -6,13 +6,17 @@ Public Class XfrmCargoElectivo
     Dim actualizar As Boolean = False
     Private Sub XfrmCargoElectivo_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.GotFocus
         Me.IM_NIVEL_ELECTIVOTableAdapter.Fill(Me.DSPolitico.IM_NIVEL_ELECTIVO)
+        Me.TA_CARGOS_ELECTIVOSTableAdapter.Fill(Me.DSPolitico.TA_CARGOS_ELECTIVOS)
     End Sub
 
     Private Sub XfrmCargoElectivo_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DSPolitico.TA_CARGOS' table. You can move, or remove it, as needed.
+        Me.TA_CARGOSTableAdapter.Fill(Me.DSPolitico.TA_CARGOS)
         'TODO: This line of code loads data into the 'DSPolitico.IM_NIVEL_ELECTIVO' table. You can move, or remove it, as needed.
         Me.IM_NIVEL_ELECTIVOTableAdapter.Fill(Me.DSPolitico.IM_NIVEL_ELECTIVO)
         'TODO: This line of code loads data into the 'DSPolitico.IM_CARGOS_ELECTIVOS' table. You can move, or remove it, as needed.
         Me.IM_CARGOS_ELECTIVOSTableAdapter.Fill(Me.DSPolitico.IM_CARGOS_ELECTIVOS)
+        Me.TA_CARGOS_ELECTIVOSTableAdapter.Fill(Me.DSPolitico.TA_CARGOS_ELECTIVOS)
         ActualizarGrid()
         Me.IMCARGOSELECTIVOSBindingSource.AddNew()
 
@@ -23,6 +27,7 @@ Public Class XfrmCargoElectivo
             Me.IMCARGOSELECTIVOSBindingSource.CancelEdit()
             Me.IMCARGOSELECTIVOSBindingSource.AddNew()
             Me.BtnEliminar.Enabled = False
+            actualizar = False
         Catch ex As Exception
             Mensajes.mimensaje(ex.Message)
         End Try
@@ -72,7 +77,7 @@ Public Class XfrmCargoElectivo
     End Sub
 
     Sub ActualizarGrid()
-        Me.TA_CARGOS_ELECTIVOSTableAdapter.Fill(Me.DSPolitico.TA_CARGOS_ELECTIVOS)
+        Me.TA_CARGOSTableAdapter.Fill(Me.DSPolitico.TA_CARGOS)
 
     End Sub
 
@@ -175,4 +180,17 @@ Public Class XfrmCargoElectivo
 
     End Sub
 
+    Private Sub ButtonEdit1_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonEdit1.EditValueChanged
+        Me.TA_CARGOSTableAdapter.FillBy(Me.DSPolitico.TA_CARGOS, Me.ButtonEdit1.Text)
+    End Sub
+
+    Private Sub ButtonEdit1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles ButtonEdit1.KeyPress
+        If Char.IsLower(e.KeyChar) Then
+
+            'Convert to uppercase, and put at the caret position in the TextBox.
+            ButtonEdit1.SelectedText = Char.ToUpper(e.KeyChar)
+
+            e.Handled = True
+        End If
+    End Sub
 End Class

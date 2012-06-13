@@ -69,6 +69,7 @@ Public Class XfrmNivelElectivo
             Me.IMNIVELELECTIVOBindingSource.CancelEdit()
             Me.IMNIVELELECTIVOBindingSource.AddNew()
             Me.BtnEliminar.Enabled = False
+            actualizar = False
         Catch ex As Exception
             Mensajes.mimensaje(ex.Message)
         End Try
@@ -181,7 +182,7 @@ Public Class XfrmNivelElectivo
         If Char.IsLower(e.KeyChar) Then
 
             'Convert to uppercase, and put at the caret position in the TextBox.
-            DESCRIPCIONTextEdit.SelectedText = Char.ToUpper(e.KeyChar)
+            ButtonEdit1.SelectedText = Char.ToUpper(e.KeyChar)
 
             e.Handled = True
         End If
