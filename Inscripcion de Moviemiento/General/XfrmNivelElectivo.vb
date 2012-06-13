@@ -10,6 +10,12 @@ Public Class XfrmNivelElectivo
 
         ActualizarGrid()
         Me.IMNIVELELECTIVOBindingSource.AddNew()
+
+        If COracle.credenciales("BtnNivelesElectivos", "MODIFICAR") = "N" And COracle.credenciales("BtnNivelesElectivos", "INSERTAR") = "N" Then
+            DxControls.ObtenerCredencial("BtnNivelesElectivos", "MODIFICAR", Me.BtnGuardar)
+        End If
+        DxControls.ObtenerCredencial("BtnNivelesElectivos", "INSERTAR", Me.BtnNuevo)
+        DxControls.ObtenerCredencial("BtnNivelesElectivos", "ELIMINAR", Me.BtnEliminar)
     End Sub
 
 
@@ -107,7 +113,15 @@ Public Class XfrmNivelElectivo
     End Sub
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
-        guardar()
+        If actualizar = True And COracle.credenciales("BtnNivelesElectivos", "MODIFICAR") = "S" Then
+            guardar()
+        ElseIf actualizar = True And COracle.credenciales("BtnNivelesElectivos", "MODIFICAR") <> "S" Then
+            Mensajes.MensajeError("El ususario no tiene permisos de Modificacion en esta pantalla")
+        ElseIf actualizar = False And COracle.credenciales("BtnNivelesElectivos", "INSERTAR") = "S" Then
+            guardar()
+        ElseIf actualizar = False And COracle.credenciales("BtnNivelesElectivos", "INSERTAR") <> "S" Then
+            Mensajes.MensajeError("El ususario no tiene permisos de Inserción en esta pantalla")
+        End If
     End Sub
 
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
