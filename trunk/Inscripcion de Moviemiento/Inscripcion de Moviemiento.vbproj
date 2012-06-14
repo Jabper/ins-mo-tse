@@ -131,6 +131,17 @@
     <Compile Include="Candidatos\XfrmRequisitos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ciudadanos\DSCiudadanos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSCiudadanos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ciudadanos\XfrmCiudadanos.Designer.vb">
+      <DependentUpon>XfrmCiudadanos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ciudadanos\XfrmCiudadanos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Clases\Configuracion.vb" />
     <Compile Include="Clases\COracle.vb" />
     <Compile Include="Clases\Data.vb" />
@@ -318,6 +329,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Candidatos\XfrmRequisitos.resx">
       <DependentUpon>XfrmRequisitos.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ciudadanos\XfrmCiudadanos.resx">
+      <DependentUpon>XfrmCiudadanos.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
@@ -598,6 +613,17 @@
     <None Include="Resources\logme.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Ciudadanos\DSCiudadanos.xsc">
+      <DependentUpon>DSCiudadanos.xsd</DependentUpon>
+    </None>
+    <None Include="Ciudadanos\DSCiudadanos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSCiudadanos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Ciudadanos\DSCiudadanos.xss">
+      <DependentUpon>DSCiudadanos.xsd</DependentUpon>
+    </None>
     <None Include="Resources\useraccess.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
