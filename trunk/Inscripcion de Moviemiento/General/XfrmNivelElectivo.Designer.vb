@@ -259,7 +259,7 @@ Partial Class XfrmNivelElectivo
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Location = New System.Drawing.Point(115, 12)
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Name = "CODIGO_NIVEL_ELECTIVOSpinEdit"
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
-        Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Properties.MaxLength = 2
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.Size = New System.Drawing.Size(50, 20)
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_NIVEL_ELECTIVOSpinEdit.TabIndex = 4
