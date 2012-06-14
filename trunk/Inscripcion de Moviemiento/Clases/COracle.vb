@@ -94,6 +94,30 @@ Public Class COracle
             MessageBox.Show(ex.Message)
         End Try
     End Function
+
+    Public Shared Function FUN_EJECUTAR_SEQ(ByVal nombre_sequencia As String)
+        Try
+            Dim cnx As New OracleConnection(Configuracion.verconfig)
+
+            cnx.Open()
+
+
+            'Compruebo si existe el Usuario
+            Dim Ssql As String = "SELECT " & nombre_sequencia & ".nextval NUMERO FROM dual"
+            Dim sqdel As New OracleCommand(Ssql, cnx)
+            Dim dataread As OracleDataReader = sqdel.ExecuteReader()
+
+            'Si existe Extraigo el password
+            If dataread.Read = True Then
+                With dataread
+                    Return (.Item("NUMERO"))
+                    
+                End With
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Function
     'Try
 
     '    'CREANDO CADENA DE CONEXION
