@@ -18,6 +18,7 @@
     Sub Nuevo()
         Me.IMREQUISITOSBindingSource.CancelEdit()
         Me.IMREQUISITOSBindingSource.AddNew()
+        actualizar = False
     End Sub
 
     Sub guardar()
@@ -44,6 +45,17 @@
 
             'ACTUALIZANDO EL GRID DE BUSQUEDA Y EDICION
             ActualizarGrid()
+
+
+            'Edicion
+            BtnEliminar.Enabled = False
+            If actualizar = True Then
+                Mensajes.MensajeActualizar()
+                actualizar = False
+            Else
+                Mensajes.MensajeGuardar()
+            End If
+            Me.IMREQUISITOSBindingSource.AddNew()
         Catch ex As Exception
             'CONTROL DE ERRORES
             Mensajes.MensajeError(ex.Message)
@@ -56,7 +68,7 @@
             Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
             'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
             Me.IM_REQUISITOSTableAdapter.FillBy(Me.DSCandidato.IM_REQUISITOS, cellValue)
-            'writedata = False
+            actualizar = True
 
 
         Catch ex As System.Exception
@@ -111,5 +123,7 @@
             Mensajes.MensajeError("El ususario no tiene permisos de Inserción en esta pantalla")
         End If
     End Sub
+    Sub eliminar()
 
+    End Sub
 End Class
