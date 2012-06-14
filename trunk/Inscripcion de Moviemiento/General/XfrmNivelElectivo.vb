@@ -172,6 +172,10 @@ Public Class XfrmNivelElectivo
 
     End Sub
 
+    Private Sub CODIGO_NIVEL_ELECTIVOSpinEdit_InvalidValue(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs) Handles CODIGO_NIVEL_ELECTIVOSpinEdit.InvalidValue
+        e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction
+    End Sub
+
     Private Sub CODIGO_NIVEL_ELECTIVOSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CODIGO_NIVEL_ELECTIVOSpinEdit.KeyPress
         VControles.solonumeros(e)
     End Sub

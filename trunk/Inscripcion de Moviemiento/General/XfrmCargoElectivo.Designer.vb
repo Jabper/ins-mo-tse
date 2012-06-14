@@ -316,7 +316,6 @@ Partial Class XfrmCargoElectivo
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Location = New System.Drawing.Point(124, 12)
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Name = "CODIGO_CARGO_ELECTIVOSpinEdit"
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
-        Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties.Mask.EditMask = "000"
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties.MaxLength = 3
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Size = New System.Drawing.Size(50, 20)
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.StyleController = Me.DataLayoutControl1

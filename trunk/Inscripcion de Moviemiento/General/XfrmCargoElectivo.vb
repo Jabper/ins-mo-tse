@@ -148,6 +148,10 @@ Public Class XfrmCargoElectivo
 
     End Sub
 
+    Private Sub CODIGO_CARGO_ELECTIVOSpinEdit_InvalidValue(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs) Handles CODIGO_CARGO_ELECTIVOSpinEdit.InvalidValue
+        e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction
+    End Sub
+
     Private Sub CODIGO_CARGO_ELECTIVOSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CODIGO_CARGO_ELECTIVOSpinEdit.KeyPress
         VControles.solonumeros(e)
     End Sub
