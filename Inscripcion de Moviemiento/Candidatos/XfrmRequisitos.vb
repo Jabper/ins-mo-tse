@@ -71,6 +71,31 @@
     End Sub
 
 
+    Private Sub GridView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.Click
+        MostrarDatos()
+    End Sub
+
+   
+
+    Private Sub CODIGO_REQUISITOSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CODIGO_REQUISITOSpinEdit.KeyPress
+        VControles.solonumeros(e)
+    End Sub
+
+   
+
+    Private Sub CANTIDADSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CANTIDADSpinEdit.KeyPress
+        VControles.solonumeros(e)
+    End Sub
+
+    Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
+        Me.Close()
+    End Sub
+
+    Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
+        eliminar()
+    End Sub
+
+
     Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
         Nuevo()
     End Sub
@@ -87,15 +112,4 @@
         End If
     End Sub
 
-    Private Sub GridView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.Click
-        MostrarDatos()
-    End Sub
-
-    Private Sub CODIGO_REQUISITOSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_REQUISITOSpinEdit.EditValueChanged
-
-    End Sub
-
-    Private Sub CODIGO_REQUISITOSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CODIGO_REQUISITOSpinEdit.KeyPress
-        VControles.solonumeros(e)
-    End Sub
 End Class

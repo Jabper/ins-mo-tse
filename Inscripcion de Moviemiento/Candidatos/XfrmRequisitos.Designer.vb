@@ -29,8 +29,8 @@ Partial Class XfrmRequisitos
         Me.colDESCRIPCION = New DevExpress.XtraGrid.Columns.GridColumn
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.DataLayoutControl1 = New DevExpress.XtraDataLayout.DataLayoutControl
-        Me.IMREQUISITOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DESCRIPCIONTextEdit = New DevExpress.XtraEditors.TextEdit
+        Me.IMREQUISITOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ADICIONADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.FECHA_ADICIONDateEdit = New DevExpress.XtraEditors.DateEdit
         Me.MODIFICADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
@@ -40,6 +40,8 @@ Partial Class XfrmRequisitos
         Me.CODIGO_CARGO_ELECTIVOSpinEdit = New DevExpress.XtraEditors.LookUpEdit
         Me.IMCARGOSELECTIVOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DSPolitico = New Inscripcion_de_Moviemientos.DSPolitico
+        Me.CODIGO_REQUISITOSpinEdit = New DevExpress.XtraEditors.TextEdit
+        Me.CANTIDADSpinEdit = New DevExpress.XtraEditors.TextEdit
         Me.ItemForADICIONADO_POR = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForFECHA_ADICION = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForMODIFICADO_POR = New DevExpress.XtraLayout.LayoutControlItem
@@ -48,14 +50,20 @@ Partial Class XfrmRequisitos
         Me.LayoutControlGroup2 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.ItemForCODIGO_REQUISITO = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForDESCRIPCION = New DevExpress.XtraLayout.LayoutControlItem
-        Me.ItemForCANTIDAD = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForSUBSABABLE = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForCODIGO_CARGO_ELECTIVO = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForREQUERIDO = New DevExpress.XtraLayout.LayoutControlItem
+        Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem
+        Me.EmptySpaceItem3 = New DevExpress.XtraLayout.EmptySpaceItem
+        Me.EmptySpaceItem5 = New DevExpress.XtraLayout.EmptySpaceItem
+        Me.ItemForCANTIDAD = New DevExpress.XtraLayout.LayoutControlItem
+        Me.EmptySpaceItem4 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
-        Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
         Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
         Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
@@ -64,12 +72,6 @@ Partial Class XfrmRequisitos
         Me.IM_CARGOS_ELECTIVOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.IM_CARGOS_ELECTIVOSTableAdapter
         Me.IM_REQUISITOSTableAdapter = New Inscripcion_de_Moviemientos.DSCandidatoTableAdapters.IM_REQUISITOSTableAdapter
         Me.TA_REQUISITOSTableAdapter = New Inscripcion_de_Moviemientos.DSCandidatoTableAdapters.TA_REQUISITOSTableAdapter
-        Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem
-        Me.EmptySpaceItem3 = New DevExpress.XtraLayout.EmptySpaceItem
-        Me.EmptySpaceItem4 = New DevExpress.XtraLayout.EmptySpaceItem
-        Me.EmptySpaceItem5 = New DevExpress.XtraLayout.EmptySpaceItem
-        Me.CODIGO_REQUISITOSpinEdit = New DevExpress.XtraEditors.TextEdit
-        Me.CANTIDADSpinEdit = New DevExpress.XtraEditors.TextEdit
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.GCDepartamento, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -79,8 +81,8 @@ Partial Class XfrmRequisitos
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DataLayoutControl1.SuspendLayout()
-        CType(Me.IMREQUISITOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DESCRIPCIONTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMREQUISITOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -92,6 +94,8 @@ Partial Class XfrmRequisitos
         CType(Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMCARGOSELECTIVOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CODIGO_REQUISITOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CANTIDADSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForADICIONADO_POR, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForFECHA_ADICION, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForMODIFICADO_POR, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -100,23 +104,22 @@ Partial Class XfrmRequisitos
         CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForCODIGO_REQUISITO, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForDESCRIPCION, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ItemForCANTIDAD, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForSUBSABABLE, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForCODIGO_CARGO_ELECTIVO, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForREQUERIDO, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ItemForCANTIDAD, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
+        Me.FlowLayoutPanel1.SuspendLayout()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmptySpaceItem5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CODIGO_REQUISITOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CANTIDADSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -206,11 +209,6 @@ Partial Class XfrmRequisitos
         Me.DataLayoutControl1.TabIndex = 7
         Me.DataLayoutControl1.Text = "DataLayoutControl1"
         '
-        'IMREQUISITOSBindingSource
-        '
-        Me.IMREQUISITOSBindingSource.DataMember = "IM_REQUISITOS"
-        Me.IMREQUISITOSBindingSource.DataSource = Me.DSCandidato
-        '
         'DESCRIPCIONTextEdit
         '
         Me.DESCRIPCIONTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMREQUISITOSBindingSource, "DESCRIPCION", True))
@@ -219,6 +217,11 @@ Partial Class XfrmRequisitos
         Me.DESCRIPCIONTextEdit.Size = New System.Drawing.Size(208, 20)
         Me.DESCRIPCIONTextEdit.StyleController = Me.DataLayoutControl1
         Me.DESCRIPCIONTextEdit.TabIndex = 5
+        '
+        'IMREQUISITOSBindingSource
+        '
+        Me.IMREQUISITOSBindingSource.DataMember = "IM_REQUISITOS"
+        Me.IMREQUISITOSBindingSource.DataSource = Me.DSCandidato
         '
         'ADICIONADO_PORSpinEdit
         '
@@ -298,7 +301,7 @@ Partial Class XfrmRequisitos
         '
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMREQUISITOSBindingSource, "CODIGO_CARGO_ELECTIVO", True))
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CODIGO_CARGO_ELECTIVOSpinEdit.Location = New System.Drawing.Point(96, 84)
+        Me.CODIGO_CARGO_ELECTIVOSpinEdit.Location = New System.Drawing.Point(96, 60)
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Name = "CODIGO_CARGO_ELECTIVOSpinEdit"
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_CARGO_ELECTIVO", "CODIGO_CARGO_ELECTIVO", 160, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
@@ -320,6 +323,30 @@ Partial Class XfrmRequisitos
         '
         Me.DSPolitico.DataSetName = "DSPolitico"
         Me.DSPolitico.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'CODIGO_REQUISITOSpinEdit
+        '
+        Me.CODIGO_REQUISITOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMREQUISITOSBindingSource, "CODIGO_REQUISITO", True))
+        Me.CODIGO_REQUISITOSpinEdit.EditValue = ""
+        Me.CODIGO_REQUISITOSpinEdit.Location = New System.Drawing.Point(96, 12)
+        Me.CODIGO_REQUISITOSpinEdit.Name = "CODIGO_REQUISITOSpinEdit"
+        Me.CODIGO_REQUISITOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
+        Me.CODIGO_REQUISITOSpinEdit.Properties.MaxLength = 2
+        Me.CODIGO_REQUISITOSpinEdit.Size = New System.Drawing.Size(50, 20)
+        Me.CODIGO_REQUISITOSpinEdit.StyleController = Me.DataLayoutControl1
+        Me.CODIGO_REQUISITOSpinEdit.TabIndex = 4
+        '
+        'CANTIDADSpinEdit
+        '
+        Me.CANTIDADSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMREQUISITOSBindingSource, "CANTIDAD", True))
+        Me.CANTIDADSpinEdit.EditValue = ""
+        Me.CANTIDADSpinEdit.Location = New System.Drawing.Point(96, 84)
+        Me.CANTIDADSpinEdit.Name = "CANTIDADSpinEdit"
+        Me.CANTIDADSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
+        Me.CANTIDADSpinEdit.Properties.MaxLength = 2
+        Me.CANTIDADSpinEdit.Size = New System.Drawing.Size(50, 20)
+        Me.CANTIDADSpinEdit.StyleController = Me.DataLayoutControl1
+        Me.CANTIDADSpinEdit.TabIndex = 6
         '
         'ItemForADICIONADO_POR
         '
@@ -382,7 +409,7 @@ Partial Class XfrmRequisitos
         Me.LayoutControlGroup2.AllowDrawBackground = False
         Me.LayoutControlGroup2.CustomizationFormText = "autoGeneratedGroup0"
         Me.LayoutControlGroup2.GroupBordersVisible = False
-        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForCODIGO_REQUISITO, Me.ItemForDESCRIPCION, Me.ItemForCANTIDAD, Me.ItemForSUBSABABLE, Me.ItemForCODIGO_CARGO_ELECTIVO, Me.ItemForREQUERIDO, Me.EmptySpaceItem1, Me.EmptySpaceItem3, Me.EmptySpaceItem4, Me.EmptySpaceItem5})
+        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForCODIGO_REQUISITO, Me.ItemForDESCRIPCION, Me.ItemForSUBSABABLE, Me.ItemForCODIGO_CARGO_ELECTIVO, Me.ItemForREQUERIDO, Me.EmptySpaceItem1, Me.EmptySpaceItem3, Me.EmptySpaceItem5, Me.ItemForCANTIDAD, Me.EmptySpaceItem4})
         Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "autoGeneratedGroup0"
         Me.LayoutControlGroup2.Size = New System.Drawing.Size(432, 120)
@@ -408,16 +435,6 @@ Partial Class XfrmRequisitos
         Me.ItemForDESCRIPCION.Text = "Descripción"
         Me.ItemForDESCRIPCION.TextSize = New System.Drawing.Size(80, 13)
         '
-        'ItemForCANTIDAD
-        '
-        Me.ItemForCANTIDAD.Control = Me.CANTIDADSpinEdit
-        Me.ItemForCANTIDAD.CustomizationFormText = "CANTIDAD"
-        Me.ItemForCANTIDAD.Location = New System.Drawing.Point(0, 48)
-        Me.ItemForCANTIDAD.Name = "ItemForCANTIDAD"
-        Me.ItemForCANTIDAD.Size = New System.Drawing.Size(296, 24)
-        Me.ItemForCANTIDAD.Text = "Cantidad"
-        Me.ItemForCANTIDAD.TextSize = New System.Drawing.Size(80, 13)
-        '
         'ItemForSUBSABABLE
         '
         Me.ItemForSUBSABABLE.Control = Me.SUBSABABLETextEdit
@@ -434,7 +451,7 @@ Partial Class XfrmRequisitos
         '
         Me.ItemForCODIGO_CARGO_ELECTIVO.Control = Me.CODIGO_CARGO_ELECTIVOSpinEdit
         Me.ItemForCODIGO_CARGO_ELECTIVO.CustomizationFormText = "CODIGO_CARGO_ELECTIVO"
-        Me.ItemForCODIGO_CARGO_ELECTIVO.Location = New System.Drawing.Point(0, 72)
+        Me.ItemForCODIGO_CARGO_ELECTIVO.Location = New System.Drawing.Point(0, 48)
         Me.ItemForCODIGO_CARGO_ELECTIVO.Name = "ItemForCODIGO_CARGO_ELECTIVO"
         Me.ItemForCODIGO_CARGO_ELECTIVO.Size = New System.Drawing.Size(297, 24)
         Me.ItemForCODIGO_CARGO_ELECTIVO.Text = "Cargo Electivo"
@@ -452,28 +469,76 @@ Partial Class XfrmRequisitos
         Me.ItemForREQUERIDO.TextToControlDistance = 0
         Me.ItemForREQUERIDO.TextVisible = False
         '
+        'EmptySpaceItem1
+        '
+        Me.EmptySpaceItem1.AllowHotTrack = False
+        Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(138, 0)
+        Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(294, 24)
+        Me.EmptySpaceItem1.Text = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'EmptySpaceItem3
+        '
+        Me.EmptySpaceItem3.AllowHotTrack = False
+        Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(296, 24)
+        Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(136, 24)
+        Me.EmptySpaceItem3.Text = "EmptySpaceItem3"
+        Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'EmptySpaceItem5
+        '
+        Me.EmptySpaceItem5.AllowHotTrack = False
+        Me.EmptySpaceItem5.CustomizationFormText = "EmptySpaceItem5"
+        Me.EmptySpaceItem5.Location = New System.Drawing.Point(297, 48)
+        Me.EmptySpaceItem5.Name = "EmptySpaceItem5"
+        Me.EmptySpaceItem5.Size = New System.Drawing.Size(135, 24)
+        Me.EmptySpaceItem5.Text = "EmptySpaceItem5"
+        Me.EmptySpaceItem5.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'ItemForCANTIDAD
+        '
+        Me.ItemForCANTIDAD.Control = Me.CANTIDADSpinEdit
+        Me.ItemForCANTIDAD.CustomizationFormText = "CANTIDAD"
+        Me.ItemForCANTIDAD.Location = New System.Drawing.Point(0, 72)
+        Me.ItemForCANTIDAD.Name = "ItemForCANTIDAD"
+        Me.ItemForCANTIDAD.Size = New System.Drawing.Size(138, 24)
+        Me.ItemForCANTIDAD.Text = "Cantidad"
+        Me.ItemForCANTIDAD.TextSize = New System.Drawing.Size(80, 13)
+        '
+        'EmptySpaceItem4
+        '
+        Me.EmptySpaceItem4.AllowHotTrack = False
+        Me.EmptySpaceItem4.CustomizationFormText = "EmptySpaceItem4"
+        Me.EmptySpaceItem4.Location = New System.Drawing.Point(138, 72)
+        Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
+        Me.EmptySpaceItem4.Size = New System.Drawing.Size(294, 24)
+        Me.EmptySpaceItem4.Text = "EmptySpaceItem4"
+        Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
+        '
         'PanelControl1
         '
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PanelControl1.Controls.Add(Me.BtnEliminar)
-        Me.PanelControl1.Controls.Add(Me.BtnNuevo)
-        Me.PanelControl1.Controls.Add(Me.BtnGuardar)
+        Me.PanelControl1.Controls.Add(Me.FlowLayoutPanel1)
         Me.PanelControl1.Location = New System.Drawing.Point(12, 12)
         Me.PanelControl1.Name = "PanelControl1"
         Me.PanelControl1.Size = New System.Drawing.Size(339, 61)
         Me.PanelControl1.TabIndex = 6
         '
-        'BtnEliminar
+        'FlowLayoutPanel1
         '
-        Me.BtnEliminar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnEliminar.Appearance.Options.UseFont = True
-        Me.BtnEliminar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.eliminar
-        Me.BtnEliminar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnEliminar.Location = New System.Drawing.Point(123, 2)
-        Me.BtnEliminar.Name = "BtnEliminar"
-        Me.BtnEliminar.Size = New System.Drawing.Size(55, 55)
-        Me.BtnEliminar.TabIndex = 2
-        Me.BtnEliminar.Text = "Eliminar"
+        Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.Transparent
+        Me.FlowLayoutPanel1.Controls.Add(Me.BtnNuevo)
+        Me.FlowLayoutPanel1.Controls.Add(Me.BtnGuardar)
+        Me.FlowLayoutPanel1.Controls.Add(Me.BtnEliminar)
+        Me.FlowLayoutPanel1.Controls.Add(Me.BtnSalir)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(6, -2)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(248, 64)
+        Me.FlowLayoutPanel1.TabIndex = 10
         '
         'BtnNuevo
         '
@@ -481,7 +546,7 @@ Partial Class XfrmRequisitos
         Me.BtnNuevo.Appearance.Options.UseFont = True
         Me.BtnNuevo.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
         Me.BtnNuevo.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnNuevo.Location = New System.Drawing.Point(5, 2)
+        Me.BtnNuevo.Location = New System.Drawing.Point(3, 3)
         Me.BtnNuevo.Name = "BtnNuevo"
         Me.BtnNuevo.Size = New System.Drawing.Size(55, 55)
         Me.BtnNuevo.TabIndex = 0
@@ -493,11 +558,36 @@ Partial Class XfrmRequisitos
         Me.BtnGuardar.Appearance.Options.UseFont = True
         Me.BtnGuardar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.guardar1
         Me.BtnGuardar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnGuardar.Location = New System.Drawing.Point(64, 2)
+        Me.BtnGuardar.Location = New System.Drawing.Point(64, 3)
         Me.BtnGuardar.Name = "BtnGuardar"
         Me.BtnGuardar.Size = New System.Drawing.Size(55, 55)
         Me.BtnGuardar.TabIndex = 1
         Me.BtnGuardar.Text = "Guardar"
+        '
+        'BtnEliminar
+        '
+        Me.BtnEliminar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnEliminar.Appearance.Options.UseFont = True
+        Me.BtnEliminar.Enabled = False
+        Me.BtnEliminar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.eliminar
+        Me.BtnEliminar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnEliminar.Location = New System.Drawing.Point(125, 3)
+        Me.BtnEliminar.Name = "BtnEliminar"
+        Me.BtnEliminar.Size = New System.Drawing.Size(55, 55)
+        Me.BtnEliminar.TabIndex = 2
+        Me.BtnEliminar.Text = "Eliminar"
+        '
+        'BtnSalir
+        '
+        Me.BtnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnSalir.Appearance.Options.UseFont = True
+        Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
+        Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnSalir.Location = New System.Drawing.Point(186, 3)
+        Me.BtnSalir.Name = "BtnSalir"
+        Me.BtnSalir.Size = New System.Drawing.Size(55, 55)
+        Me.BtnSalir.TabIndex = 10
+        Me.BtnSalir.Text = "Salir"
         '
         'LayoutControlGroup1
         '
@@ -578,71 +668,6 @@ Partial Class XfrmRequisitos
         '
         Me.TA_REQUISITOSTableAdapter.ClearBeforeFill = True
         '
-        'EmptySpaceItem1
-        '
-        Me.EmptySpaceItem1.AllowHotTrack = False
-        Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(138, 0)
-        Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(294, 24)
-        Me.EmptySpaceItem1.Text = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
-        '
-        'EmptySpaceItem3
-        '
-        Me.EmptySpaceItem3.AllowHotTrack = False
-        Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Location = New System.Drawing.Point(296, 24)
-        Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Size = New System.Drawing.Size(136, 24)
-        Me.EmptySpaceItem3.Text = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
-        '
-        'EmptySpaceItem4
-        '
-        Me.EmptySpaceItem4.AllowHotTrack = False
-        Me.EmptySpaceItem4.CustomizationFormText = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Location = New System.Drawing.Point(296, 48)
-        Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Size = New System.Drawing.Size(136, 24)
-        Me.EmptySpaceItem4.Text = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
-        '
-        'EmptySpaceItem5
-        '
-        Me.EmptySpaceItem5.AllowHotTrack = False
-        Me.EmptySpaceItem5.CustomizationFormText = "EmptySpaceItem5"
-        Me.EmptySpaceItem5.Location = New System.Drawing.Point(297, 72)
-        Me.EmptySpaceItem5.Name = "EmptySpaceItem5"
-        Me.EmptySpaceItem5.Size = New System.Drawing.Size(135, 24)
-        Me.EmptySpaceItem5.Text = "EmptySpaceItem5"
-        Me.EmptySpaceItem5.TextSize = New System.Drawing.Size(0, 0)
-        '
-        'CODIGO_REQUISITOSpinEdit
-        '
-        Me.CODIGO_REQUISITOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMREQUISITOSBindingSource, "CODIGO_REQUISITO", True))
-        Me.CODIGO_REQUISITOSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CODIGO_REQUISITOSpinEdit.Location = New System.Drawing.Point(96, 12)
-        Me.CODIGO_REQUISITOSpinEdit.Name = "CODIGO_REQUISITOSpinEdit"
-        Me.CODIGO_REQUISITOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
-        Me.CODIGO_REQUISITOSpinEdit.Properties.Mask.EditMask = "00"
-        Me.CODIGO_REQUISITOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.CODIGO_REQUISITOSpinEdit.Size = New System.Drawing.Size(50, 20)
-        Me.CODIGO_REQUISITOSpinEdit.StyleController = Me.DataLayoutControl1
-        Me.CODIGO_REQUISITOSpinEdit.TabIndex = 4
-        '
-        'CANTIDADSpinEdit
-        '
-        Me.CANTIDADSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMREQUISITOSBindingSource, "CANTIDAD", True))
-        Me.CANTIDADSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.CANTIDADSpinEdit.Location = New System.Drawing.Point(96, 60)
-        Me.CANTIDADSpinEdit.Name = "CANTIDADSpinEdit"
-        Me.CANTIDADSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
-        Me.CANTIDADSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.CANTIDADSpinEdit.Size = New System.Drawing.Size(208, 20)
-        Me.CANTIDADSpinEdit.StyleController = Me.DataLayoutControl1
-        Me.CANTIDADSpinEdit.TabIndex = 6
-        '
         'XfrmRequisitos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -660,8 +685,8 @@ Partial Class XfrmRequisitos
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DataLayoutControl1.ResumeLayout(False)
-        CType(Me.IMREQUISITOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DESCRIPCIONTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMREQUISITOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -673,6 +698,8 @@ Partial Class XfrmRequisitos
         CType(Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMCARGOSELECTIVOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CODIGO_REQUISITOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CANTIDADSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForADICIONADO_POR, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForFECHA_ADICION, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForMODIFICADO_POR, System.ComponentModel.ISupportInitialize).EndInit()
@@ -681,23 +708,22 @@ Partial Class XfrmRequisitos
         CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForCODIGO_REQUISITO, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForDESCRIPCION, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ItemForCANTIDAD, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForSUBSABABLE, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForCODIGO_CARGO_ELECTIVO, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForREQUERIDO, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ItemForCANTIDAD, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
+        Me.FlowLayoutPanel1.ResumeLayout(False)
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmptySpaceItem5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CODIGO_REQUISITOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CANTIDADSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -707,9 +733,6 @@ Partial Class XfrmRequisitos
     Friend WithEvents DataLayoutControl1 As DevExpress.XtraDataLayout.DataLayoutControl
     Friend WithEvents Root As DevExpress.XtraLayout.LayoutControlGroup
     Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
-    Friend WithEvents BtnEliminar As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents BtnNuevo As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents BtnGuardar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents DSCandidato As Inscripcion_de_Moviemientos.DSCandidato
@@ -747,8 +770,13 @@ Partial Class XfrmRequisitos
     Friend WithEvents colDESCRIPCION As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents EmptySpaceItem1 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents EmptySpaceItem3 As DevExpress.XtraLayout.EmptySpaceItem
-    Friend WithEvents EmptySpaceItem4 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents EmptySpaceItem5 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents CODIGO_REQUISITOSpinEdit As DevExpress.XtraEditors.TextEdit
     Friend WithEvents CANTIDADSpinEdit As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents EmptySpaceItem4 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents BtnNuevo As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnGuardar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnEliminar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnSalir As DevExpress.XtraEditors.SimpleButton
 End Class
