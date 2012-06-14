@@ -20,7 +20,7 @@ Partial Class XfrmPartidosPoliticos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim ConditionValidationRule1 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
+        Dim ConditionValidationRule2 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
         Me.ButtonEdit1 = New DevExpress.XtraEditors.ButtonEdit
         Me.GCPartidos_Politicos = New DevExpress.XtraGrid.GridControl
@@ -373,9 +373,9 @@ Partial Class XfrmPartidosPoliticos
         Me.IMAGENPictureEdit.Size = New System.Drawing.Size(200, 133)
         Me.IMAGENPictureEdit.StyleController = Me.DataLayoutControl1
         Me.IMAGENPictureEdit.TabIndex = 5
-        ConditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule1.ErrorText = "Ingrese una Imágen"
-        Me.DxValidationProvider1.SetValidationRule(Me.IMAGENPictureEdit, ConditionValidationRule1)
+        ConditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule2.ErrorText = "Ingrese una Imágen"
+        Me.DxValidationProvider1.SetValidationRule(Me.IMAGENPictureEdit, ConditionValidationRule2)
         '
         'CODIGO_PARTIDOSpinEdit
         '
@@ -385,7 +385,7 @@ Partial Class XfrmPartidosPoliticos
         Me.CODIGO_PARTIDOSpinEdit.Name = "CODIGO_PARTIDOSpinEdit"
         Me.CODIGO_PARTIDOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CODIGO_PARTIDOSpinEdit.Properties.Mask.EditMask = "00"
-        Me.CODIGO_PARTIDOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.CODIGO_PARTIDOSpinEdit.Properties.MaxLength = 2
         Me.CODIGO_PARTIDOSpinEdit.Size = New System.Drawing.Size(185, 20)
         Me.CODIGO_PARTIDOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_PARTIDOSpinEdit.TabIndex = 4
@@ -397,7 +397,7 @@ Partial Class XfrmPartidosPoliticos
         Me.CANTIDAD_FIRMASSpinEdit.Location = New System.Drawing.Point(312, 60)
         Me.CANTIDAD_FIRMASSpinEdit.Name = "CANTIDAD_FIRMASSpinEdit"
         Me.CANTIDAD_FIRMASSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
-        Me.CANTIDAD_FIRMASSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.CANTIDAD_FIRMASSpinEdit.Properties.MaxLength = 6
         Me.CANTIDAD_FIRMASSpinEdit.Size = New System.Drawing.Size(185, 20)
         Me.CANTIDAD_FIRMASSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CANTIDAD_FIRMASSpinEdit.TabIndex = 7
