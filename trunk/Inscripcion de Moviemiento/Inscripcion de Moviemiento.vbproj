@@ -241,6 +241,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DTUsuario.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Usuarios\DTUsuario.vb">
+      <DependentUpon>DTUsuario.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Usuarios\fmOpciones.Designer.vb">
       <DependentUpon>fmOpciones.vb</DependentUpon>
     </Compile>
@@ -554,6 +557,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logme.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\useraccess.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

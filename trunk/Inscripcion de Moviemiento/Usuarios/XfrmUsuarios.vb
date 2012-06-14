@@ -1,23 +1,34 @@
-﻿Public Class XfrmUsuarios
+﻿Imports DevExpress.Utils
+Imports System.Threading
 
+Public Class XfrmUsuarios
+    Dim actualizar As Boolean = False
     Private Sub XfrmUsuarios_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.GotFocus
         Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
         Me.TA_ROLESTableAdapter.Fill(Me.DTUsers.TA_ROLES)
     End Sub
 
     Private Sub XfrmUsuarios_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DTUsers.DT_USUARIOS' table. You can move, or remove it, as needed.
+        Dim waitDialog As New WaitDialogForm("Cargando Información", "Por favor Espere..")
+        Thread.Sleep(2000) ' long process
+        waitDialog.Caption = "Obteniendo Datos"
+        '******************************************
         Me.DT_USUARIOSTableAdapter.Fill(Me.DTUsers.DT_USUARIOS)
-        'TODO: This line of code loads data into the 'DSPolitico.IM_PARTIDOS_POLITICOS' table. You can move, or remove it, as needed.
         Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
         'TODO: This line of code loads data into the 'DSPolitico.IM_MOVIMIENTOS' table. You can move, or remove it, as needed.
         Me.TA_ROLESTableAdapter.Fill(Me.DTUsers.TA_ROLES)
-
-        Me.IMUSUARIOSBindingSource.AddNew()
         PreguntasDeSeguridad()
+        Me.IMUSUARIOSBindingSource.AddNew()
+        '*******************************************
+       
+        waitDialog.Close()
 
+        If COracle.credenciales("BtnUsuarios", "MODIFICAR") = "N" And COracle.credenciales("BtnUsuarios", "INSERTAR") = "N" Then
+            DxControls.ObtenerCredencial("BtnUsuarios", "MODIFICAR", Me.BtnGuardar)
+        End If
         DxControls.ObtenerCredencial("BtnUsuarios", "INSERTAR", Me.BtnNuevo)
-        DxControls.ObtenerCredencial("BtnUsuarios", "MODIFICAR", Me.BtnGuardar)        
+
+
     End Sub
     Sub PreguntasDeSeguridad() 'SE CREA UN DATA TABLE PARA ENLAZARLO AL CONTROL Y MOSTRAR LAS PREGUNTAS DE SEGURIDAD
         Dim tbl As New DataTable()
@@ -49,6 +60,7 @@
         Try
             Me.IMUSUARIOSBindingSource.CancelEdit()
             Me.IMUSUARIOSBindingSource.AddNew()
+            actualizar = False
         Catch ex As Exception
             Mensajes.mimensaje(ex.Message)
         End Try
@@ -78,6 +90,15 @@
 
             'ACTUALIZANDO EL GRID DE BUSQUEDA Y EDICION
             ActualizarGrid()
+
+
+            If actualizar = True Then
+                Mensajes.MensajeActualizar()
+                actualizar = False
+            Else
+                Mensajes.MensajeGuardar()
+            End If
+            Me.IMUSUARIOSBindingSource.AddNew()
         Catch ex As Exception
             'CONTROL DE ERRORES
             Mensajes.MensajeError(ex.Message)
@@ -85,14 +106,14 @@
     End Sub
     Sub MostrarDatos()
         Try
-
+            actualizar = True
             'SE LE ASIGNA A UNA VARIABLE EL VALOR DE LA CELDA QUE SE DESEA
             Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
             'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
             Me.IM_USUARIOSTableAdapter.FillBy(Me.DTUsers.IM_USUARIOS, cellValue)
 
             'OBTENEMOS LA INFORMACION PARA LA BUSQUEDA DE LA IMAGEN
-            
+
         Catch ex As System.Exception
             Mensajes.MensajeError("Seleccione una Fila con Datos para Realizar la Edición")
         End Try
@@ -114,7 +135,15 @@
 
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
-        guardar()
+        If actualizar = True And COracle.credenciales("BtnUsuarios", "MODIFICAR") = "S" Then
+            guardar()
+        ElseIf actualizar = True And COracle.credenciales("BtnUsuarios", "MODIFICAR") <> "S" Then
+            Mensajes.MensajeError("El ususario no tiene permisos de Modificacion en esta pantalla")
+        ElseIf actualizar = False And COracle.credenciales("BtnUsuarios", "INSERTAR") = "S" Then
+            guardar()
+        ElseIf actualizar = False And COracle.credenciales("BtnUsuarios", "INSERTAR") <> "S" Then
+            Mensajes.MensajeError("El ususario no tiene permisos de Inserción en esta pantalla")
+        End If
     End Sub
 
     Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click

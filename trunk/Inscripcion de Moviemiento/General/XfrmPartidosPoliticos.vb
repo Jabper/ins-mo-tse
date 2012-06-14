@@ -149,6 +149,7 @@ Public Class XfrmPartidosPoliticos
                 Mensajes.MensajeEliminar()
                 Me.IMPARTIDOSPOLITICOSBindingSource.AddNew()
                 Me.BtnEliminar.Enabled = False
+                actualizar = False
             Catch ex As Exception
                 Mensajes.MensajeError(ex.Message)
             End Try

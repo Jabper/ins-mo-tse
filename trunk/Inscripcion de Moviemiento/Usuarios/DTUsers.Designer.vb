@@ -1186,6 +1186,11 @@ Partial Public Class DTUsers
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function FindByCODIGO_ROL(ByVal CODIGO_ROL As Decimal) As IM_ROLESRow
+            Return CType(Me.Rows.Find(New Object() {CODIGO_ROL}),IM_ROLESRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
             Dim cln As IM_ROLESDataTable = CType(MyBase.Clone,IM_ROLESDataTable)
             cln.InitVars
@@ -1221,8 +1226,10 @@ Partial Public Class DTUsers
             MyBase.Columns.Add(Me.columnMODIFICADO_POR)
             Me.columnFECHA_MODIFICACION = New Global.System.Data.DataColumn("FECHA_MODIFICACION", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFECHA_MODIFICACION)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_ROL}, false))
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_ROL}, true))
+            Me.columnCODIGO_ROL.AllowDBNull = false
             Me.columnCODIGO_ROL.Unique = true
+            Me.columnDESCRIPCION.AllowDBNull = false
             Me.columnDESCRIPCION.MaxLength = 100
             Me.columnADICIONADO_POR.MaxLength = 10
             Me.columnMODIFICADO_POR.MaxLength = 10
@@ -3177,11 +3184,7 @@ Partial Public Class DTUsers
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property CODIGO_ROL() As Decimal
             Get
-                Try 
-                    Return CType(Me(Me.tableIM_ROLES.CODIGO_ROLColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CODIGO_ROL' in table 'IM_ROLES' is DBNull.", e)
-                End Try
+                Return CType(Me(Me.tableIM_ROLES.CODIGO_ROLColumn),Decimal)
             End Get
             Set
                 Me(Me.tableIM_ROLES.CODIGO_ROLColumn) = value
@@ -3191,11 +3194,7 @@ Partial Public Class DTUsers
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property DESCRIPCION() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableIM_ROLES.DESCRIPCIONColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'DESCRIPCION' in table 'IM_ROLES' is DBNull.", e)
-                End Try
+                Return CType(Me(Me.tableIM_ROLES.DESCRIPCIONColumn),String)
             End Get
             Set
                 Me(Me.tableIM_ROLES.DESCRIPCIONColumn) = value
@@ -3267,26 +3266,6 @@ Partial Public Class DTUsers
                 Me.SetParentRow(value, Me.Table.ParentRelations("IM_FK1_ROLES"))
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsCODIGO_ROLNull() As Boolean
-            Return Me.IsNull(Me.tableIM_ROLES.CODIGO_ROLColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetCODIGO_ROLNull()
-            Me(Me.tableIM_ROLES.CODIGO_ROLColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsDESCRIPCIONNull() As Boolean
-            Return Me.IsNull(Me.tableIM_ROLES.DESCRIPCIONColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetDESCRIPCIONNull()
-            Me(Me.tableIM_ROLES.DESCRIPCIONColumn) = Global.System.Convert.DBNull
-        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsADICIONADO_PORNull() As Boolean
@@ -5223,23 +5202,16 @@ Namespace DTUsersTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OracleClient.OracleCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM ""TSE"".""IM_ROLES"" WHERE (((:IsNull_CODIGO_ROL = 1 AND ""CODIGO_ROL"" IS "& _ 
-                "NULL) OR (""CODIGO_ROL"" = :Original_CODIGO_ROL)) AND ((:IsNull_DESCRIPCION = 1 AN"& _ 
-                "D ""DESCRIPCION"" IS NULL) OR (""DESCRIPCION"" = :Original_DESCRIPCION)) AND ((:IsNu"& _ 
-                "ll_ADICIONADO_POR = 1 AND ""ADICIONADO_POR"" IS NULL) OR (""ADICIONADO_POR"" = :Orig"& _ 
-                "inal_ADICIONADO_POR)) AND ((:IsNull_FECHA_ADICION = 1 AND ""FECHA_ADICION"" IS NUL"& _ 
-                "L) OR (""FECHA_ADICION"" = :Original_FECHA_ADICION)) AND ((:IsNull_MODIFICADO_POR "& _ 
-                "= 1 AND ""MODIFICADO_POR"" IS NULL) OR (""MODIFICADO_POR"" = :Original_MODIFICADO_PO"& _ 
-                "R)) AND ((:IsNull_FECHA_MODIFICACION = 1 AND ""FECHA_MODIFICACION"" IS NULL) OR ("""& _ 
-                "FECHA_MODIFICACION"" = :Original_FECHA_MODIFICACION)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM ""TSE"".""IM_ROLES"" WHERE ((""CODIGO_ROL"" = :Original_CODIGO_ROL) AND (""D"& _ 
+                "ESCRIPCION"" = :Original_DESCRIPCION) AND (""ADICIONADO_POR"" = :Original_ADICIONAD"& _ 
+                "O_POR) AND (""FECHA_ADICION"" = :Original_FECHA_ADICION) AND ((:IsNull_MODIFICADO_"& _ 
+                "POR = 1 AND ""MODIFICADO_POR"" IS NULL) OR (""MODIFICADO_POR"" = :Original_MODIFICAD"& _ 
+                "O_POR)) AND ((:IsNull_FECHA_MODIFICACION = 1 AND ""FECHA_MODIFICACION"" IS NULL) O"& _ 
+                "R (""FECHA_MODIFICACION"" = :Original_FECHA_MODIFICACION)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_CODIGO_ROL", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_ROL", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_ROL", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_ROL", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_DESCRIPCION", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_DESCRIPCION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_FECHA_ADICION", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_FECHA_ADICION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -5262,15 +5234,12 @@ Namespace DTUsersTableAdapters
             Me._adapter.UpdateCommand.CommandText = "UPDATE ""TSE"".""IM_ROLES"" SET ""CODIGO_ROL"" = :CODIGO_ROL, ""DESCRIPCION"" = :DESCRIPC"& _ 
                 "ION, ""ADICIONADO_POR"" = :ADICIONADO_POR, ""FECHA_ADICION"" = :FECHA_ADICION, ""MODI"& _ 
                 "FICADO_POR"" = :MODIFICADO_POR, ""FECHA_MODIFICACION"" = :FECHA_MODIFICACION WHERE "& _ 
-                "(((:IsNull_CODIGO_ROL = 1 AND ""CODIGO_ROL"" IS NULL) OR (""CODIGO_ROL"" = :Original"& _ 
-                "_CODIGO_ROL)) AND ((:IsNull_DESCRIPCION = 1 AND ""DESCRIPCION"" IS NULL) OR (""DESC"& _ 
-                "RIPCION"" = :Original_DESCRIPCION)) AND ((:IsNull_ADICIONADO_POR = 1 AND ""ADICION"& _ 
-                "ADO_POR"" IS NULL) OR (""ADICIONADO_POR"" = :Original_ADICIONADO_POR)) AND ((:IsNul"& _ 
-                "l_FECHA_ADICION = 1 AND ""FECHA_ADICION"" IS NULL) OR (""FECHA_ADICION"" = :Original"& _ 
-                "_FECHA_ADICION)) AND ((:IsNull_MODIFICADO_POR = 1 AND ""MODIFICADO_POR"" IS NULL) "& _ 
-                "OR (""MODIFICADO_POR"" = :Original_MODIFICADO_POR)) AND ((:IsNull_FECHA_MODIFICACI"& _ 
-                "ON = 1 AND ""FECHA_MODIFICACION"" IS NULL) OR (""FECHA_MODIFICACION"" = :Original_FE"& _ 
-                "CHA_MODIFICACION)))"
+                "((""CODIGO_ROL"" = :Original_CODIGO_ROL) AND (""DESCRIPCION"" = :Original_DESCRIPCIO"& _ 
+                "N) AND (""ADICIONADO_POR"" = :Original_ADICIONADO_POR) AND (""FECHA_ADICION"" = :Ori"& _ 
+                "ginal_FECHA_ADICION) AND ((:IsNull_MODIFICADO_POR = 1 AND ""MODIFICADO_POR"" IS NU"& _ 
+                "LL) OR (""MODIFICADO_POR"" = :Original_MODIFICADO_POR)) AND ((:IsNull_FECHA_MODIFI"& _ 
+                "CACION = 1 AND ""FECHA_MODIFICACION"" IS NULL) OR (""FECHA_MODIFICACION"" = :Origina"& _ 
+                "l_FECHA_MODIFICACION)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_ROL", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_ROL", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("DESCRIPCION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -5278,13 +5247,9 @@ Namespace DTUsersTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FECHA_ADICION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FECHA_MODIFICACION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_MODIFICACION", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_CODIGO_ROL", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_ROL", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_ROL", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_ROL", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_DESCRIPCION", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_DESCRIPCION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_FECHA_ADICION", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_FECHA_ADICION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -5308,8 +5273,8 @@ Namespace DTUsersTableAdapters
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT CODIGO_ROL, DESCRIPCION, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FE"& _ 
-                "CHA_MODIFICACION FROM TSE.IM_ROLES where CODIGO_ROL=:id"
+            Me._commandCollection(1).CommandText = "SELECT ADICIONADO_POR, CODIGO_ROL, DESCRIPCION, FECHA_ADICION, FECHA_MODIFICACION"& _ 
+                ", MODIFICADO_POR FROM IM_ROLES WHERE (CODIGO_ROL = :id)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_ROL", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
@@ -5339,13 +5304,9 @@ Namespace DTUsersTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillBy(ByVal dataTable As DTUsers.IM_ROLESDataTable, ByVal id As Global.System.Nullable(Of Decimal)) As Integer
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DTUsers.IM_ROLESDataTable, ByVal id As Decimal) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (id.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(id.Value,Decimal)
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id,Decimal)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -5356,13 +5317,9 @@ Namespace DTUsersTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataBy(ByVal id As Global.System.Nullable(Of Decimal)) As DTUsers.IM_ROLESDataTable
+        Public Overloads Overridable Function GetDataBy(ByVal id As Decimal) As DTUsers.IM_ROLESDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (id.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(id.Value,Decimal)
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id,Decimal)
             Dim dataTable As DTUsers.IM_ROLESDataTable = New DTUsers.IM_ROLESDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -5395,48 +5352,36 @@ Namespace DTUsersTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_CODIGO_ROL As Global.System.Nullable(Of Decimal), ByVal Original_DESCRIPCION As String, ByVal Original_ADICIONADO_POR As String, ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date), ByVal Original_MODIFICADO_POR As String, ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
-            If (Original_CODIGO_ROL.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_CODIGO_ROL.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(1).Value = Global.System.DBNull.Value
-            End If
+        Public Overloads Overridable Function Delete(ByVal Original_CODIGO_ROL As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_ADICIONADO_POR As String, ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date), ByVal Original_MODIFICADO_POR As String, ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CODIGO_ROL,Decimal)
             If (Original_DESCRIPCION Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(3).Value = Global.System.DBNull.Value
+                Throw New Global.System.ArgumentNullException("Original_DESCRIPCION")
             Else
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_DESCRIPCION,String)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_DESCRIPCION,String)
             End If
             If (Original_ADICIONADO_POR Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_ADICIONADO_POR,String)
+            End If
+            If (Original_FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (Original_MODIFICADO_POR Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(4).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(4).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_ADICIONADO_POR,String)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_MODIFICADO_POR,String)
             End If
-            If (Original_FECHA_ADICION.HasValue = true) Then
+            If (Original_FECHA_MODIFICACION.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_FECHA_ADICION.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_FECHA_MODIFICACION.Value,Date)
             Else
                 Me.Adapter.DeleteCommand.Parameters(6).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(7).Value = Global.System.DBNull.Value
-            End If
-            If (Original_MODIFICADO_POR Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(9).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_MODIFICADO_POR,String)
-            End If
-            If (Original_FECHA_MODIFICACION.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(Original_FECHA_MODIFICACION.Value,Date)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(11).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -5456,14 +5401,10 @@ Namespace DTUsersTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal CODIGO_ROL As Global.System.Nullable(Of Decimal), ByVal DESCRIPCION As String, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Global.System.Nullable(Of Date), ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
-            If (CODIGO_ROL.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(CODIGO_ROL.Value,Decimal)
-            Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
+        Public Overloads Overridable Function Insert(ByVal CODIGO_ROL As Decimal, ByVal DESCRIPCION As String, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Global.System.Nullable(Of Date), ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+            Me.Adapter.InsertCommand.Parameters(0).Value = CType(CODIGO_ROL,Decimal)
             If (DESCRIPCION Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+                Throw New Global.System.ArgumentNullException("DESCRIPCION")
             Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = CType(DESCRIPCION,String)
             End If
@@ -5505,14 +5446,10 @@ Namespace DTUsersTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal CODIGO_ROL As Global.System.Nullable(Of Decimal), ByVal DESCRIPCION As String, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Global.System.Nullable(Of Date), ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_ROL As Global.System.Nullable(Of Decimal), ByVal Original_DESCRIPCION As String, ByVal Original_ADICIONADO_POR As String, ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date), ByVal Original_MODIFICADO_POR As String, ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
-            If (CODIGO_ROL.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CODIGO_ROL.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
+        Public Overloads Overridable Function Update(ByVal CODIGO_ROL As Decimal, ByVal DESCRIPCION As String, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Global.System.Nullable(Of Date), ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_ROL As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_ADICIONADO_POR As String, ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date), ByVal Original_MODIFICADO_POR As String, ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CODIGO_ROL,Decimal)
             If (DESCRIPCION Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+                Throw New Global.System.ArgumentNullException("DESCRIPCION")
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = CType(DESCRIPCION,String)
             End If
@@ -5536,47 +5473,35 @@ Namespace DTUsersTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
-            If (Original_CODIGO_ROL.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_CODIGO_ROL.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
-            End If
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_CODIGO_ROL,Decimal)
             If (Original_DESCRIPCION Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+                Throw New Global.System.ArgumentNullException("Original_DESCRIPCION")
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_DESCRIPCION,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_DESCRIPCION,String)
             End If
             If (Original_ADICIONADO_POR Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_ADICIONADO_POR,String)
+            End If
+            If (Original_FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            If (Original_MODIFICADO_POR Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_ADICIONADO_POR,String)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_MODIFICADO_POR,String)
             End If
-            If (Original_FECHA_ADICION.HasValue = true) Then
+            If (Original_FECHA_MODIFICACION.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_FECHA_ADICION.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_FECHA_MODIFICACION.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
-            End If
-            If (Original_MODIFICADO_POR Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_MODIFICADO_POR,String)
-            End If
-            If (Original_FECHA_MODIFICACION.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_FECHA_MODIFICACION.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -5591,6 +5516,13 @@ Namespace DTUsersTableAdapters
                     Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal DESCRIPCION As String, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Global.System.Nullable(Of Date), ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_ROL As Decimal, ByVal Original_DESCRIPCION As String, ByVal Original_ADICIONADO_POR As String, ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date), ByVal Original_MODIFICADO_POR As String, ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+            Return Me.Update(Original_CODIGO_ROL, DESCRIPCION, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, Original_CODIGO_ROL, Original_DESCRIPCION, Original_ADICIONADO_POR, Original_FECHA_ADICION, Original_MODIFICADO_POR, Original_FECHA_MODIFICACION)
         End Function
     End Class
     

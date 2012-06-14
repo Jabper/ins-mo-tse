@@ -157,6 +157,7 @@ Public Class XfrmNivelElectivo
                 Mensajes.MensajeEliminar()
                 Me.IMNIVELELECTIVOBindingSource.AddNew()
                 Me.BtnEliminar.Enabled = False
+                actualizar = False
             Catch ex As Exception
                 Mensajes.MensajeError(ex.Message)
             End Try

@@ -36,6 +36,7 @@ Public Class Municipios
             Me.IMMUNICIPIOSBindingSource.CancelEdit()
             Me.IMMUNICIPIOSBindingSource.AddNew()
             Me.BtnEliminar.Enabled = False
+            actualizar = False
         Catch ex As Exception
             Mensajes.mimensaje(ex.Message)
         End Try
@@ -127,6 +128,7 @@ Public Class Municipios
                 Mensajes.MensajeEliminar()
                 Me.IMMUNICIPIOSBindingSource.AddNew()
                 Me.BtnEliminar.Enabled = False
+                actualizar = False
             Catch ex As Exception
                 Mensajes.MensajeError(ex.Message)
             End Try

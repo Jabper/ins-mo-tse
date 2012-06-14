@@ -91,6 +91,7 @@ Public Class XfrmMovimientos
         Me.INSIGNIAPictureEdit.EditValue = Nothing
         Me.EMBLEMAPictureEdit.EditValue = Nothing
         BtnEliminar.Enabled = False
+        actualizar = False
         limpiarValidador()
     End Sub
 
@@ -224,7 +225,7 @@ Public Class XfrmMovimientos
                 Me.BtnEliminar.Enabled = False
                 Me.INSIGNIAPictureEdit.EditValue = Nothing
                 Me.EMBLEMAPictureEdit.EditValue = Nothing
-
+                actualizar = False
                 limpiarValidador()
             Catch ex As Exception
                 Mensajes.MensajeError(ex.Message)

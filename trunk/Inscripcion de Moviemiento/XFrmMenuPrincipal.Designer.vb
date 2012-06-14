@@ -36,6 +36,7 @@ Partial Class XFrmMenuPrincipal
         Me.BtnRequisitos = New DevExpress.XtraBars.BarButtonItem
         Me.BtnCandidatos = New DevExpress.XtraBars.BarButtonItem
         Me.BtnOperaciones = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnOperacionesUsuarios = New DevExpress.XtraBars.BarButtonItem
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage
@@ -56,9 +57,9 @@ Partial Class XFrmMenuPrincipal
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ExpandCollapseItem.Name = ""
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnIncompatibilidades, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnIncompatibilidades, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 18
+        Me.RibbonControl.MaxItemId = 19
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5, Me.RibbonPage6})
         Me.RibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010
@@ -171,6 +172,13 @@ Partial Class XFrmMenuPrincipal
         Me.BtnOperaciones.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.opearaciones
         Me.BtnOperaciones.Name = "BtnOperaciones"
         '
+        'BtnOperacionesUsuarios
+        '
+        Me.BtnOperacionesUsuarios.Caption = "Operaciones por Usuarios"
+        Me.BtnOperacionesUsuarios.Id = 18
+        Me.BtnOperacionesUsuarios.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.useraccess
+        Me.BtnOperacionesUsuarios.Name = "BtnOperacionesUsuarios"
+        '
         'RibbonPage1
         '
         Me.RibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1})
@@ -230,12 +238,13 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonPageGroup2.ItemLinks.Add(Me.BtnRoles)
         Me.RibbonPageGroup2.ItemLinks.Add(Me.BtnOpciones)
         Me.RibbonPageGroup2.ItemLinks.Add(Me.BtnOperaciones)
+        Me.RibbonPageGroup2.ItemLinks.Add(Me.BtnOperacionesUsuarios)
         Me.RibbonPageGroup2.Name = "RibbonPageGroup2"
         Me.RibbonPageGroup2.Text = "Seguridad del Sistema"
         '
         'RibbonStatusBar
         '
-        Me.RibbonStatusBar.Location = New System.Drawing.Point(0, 417)
+        Me.RibbonStatusBar.Location = New System.Drawing.Point(0, 492)
         Me.RibbonStatusBar.Name = "RibbonStatusBar"
         Me.RibbonStatusBar.Ribbon = Me.RibbonControl
         Me.RibbonStatusBar.Size = New System.Drawing.Size(815, 32)
@@ -252,12 +261,13 @@ Partial Class XFrmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(815, 449)
+        Me.ClientSize = New System.Drawing.Size(815, 524)
         Me.Controls.Add(Me.RibbonStatusBar)
         Me.Controls.Add(Me.RibbonControl)
         Me.IsMdiContainer = True
         Me.Name = "XFrmMenuPrincipal"
         Me.Ribbon = Me.RibbonControl
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.StatusBar = Me.RibbonStatusBar
         Me.Text = "Inscripción de Movimientos"
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).EndInit()
@@ -294,6 +304,7 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents RibbonPageGroup3 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents BtnCandidatos As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BtnOperaciones As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnOperacionesUsuarios As DevExpress.XtraBars.BarButtonItem
 
 
 End Class
