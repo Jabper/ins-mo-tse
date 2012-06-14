@@ -105,10 +105,24 @@
     <Compile Include="Candidatos\DSCandidato.vb">
       <DependentUpon>DSCandidato.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Candidatos\DSInscripcionCandidatos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSInscripcionCandidatos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Candidatos\DSInscripcionCandidatos.vb">
+      <DependentUpon>DSInscripcionCandidatos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Candidatos\XfrmCandidato.Designer.vb">
       <DependentUpon>XfrmCandidato.vb</DependentUpon>
     </Compile>
     <Compile Include="Candidatos\XfrmCandidato.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Candidatos\xfrmInscripcionCandidato.Designer.vb">
+      <DependentUpon>xfrmInscripcionCandidato.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Candidatos\xfrmInscripcionCandidato.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Candidatos\XfrmRequisitos.Designer.vb">
@@ -296,6 +310,10 @@
   <ItemGroup>
     <EmbeddedResource Include="Candidatos\XfrmCandidato.resx">
       <DependentUpon>XfrmCandidato.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Candidatos\xfrmInscripcionCandidato.resx">
+      <DependentUpon>xfrmInscripcionCandidato.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Candidatos\XfrmRequisitos.resx">
@@ -534,6 +552,17 @@
     <None Include="Resources\requisitos.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Candidatos\DSInscripcionCandidatos.xsc">
+      <DependentUpon>DSInscripcionCandidatos.xsd</DependentUpon>
+    </None>
+    <None Include="Candidatos\DSInscripcionCandidatos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSInscripcionCandidatos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Candidatos\DSInscripcionCandidatos.xss">
+      <DependentUpon>DSInscripcionCandidatos.xsd</DependentUpon>
+    </None>
     <None Include="Resources\candidato.png" />
     <None Include="Usuarios\DTUsuario.xsc">
       <DependentUpon>DTUsuario.xsd</DependentUpon>
