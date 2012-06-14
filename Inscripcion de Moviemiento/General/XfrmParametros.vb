@@ -77,19 +77,13 @@ Public Class XfrmParametros
     End Sub
 
 
-
-
     Private Sub PARTICIPACION_MUJER_PORCENSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles PARTICIPACION_MUJER_PORCENSpinEdit.KeyPress
-        VControles.solonumeros(e)
+        'VControles.solonumeros(e)
     End Sub
-
-
 
     Private Sub FIRMAS_REPETIDAS_PORCENSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles FIRMAS_REPETIDAS_PORCENSpinEdit.KeyPress
-        VControles.solonumeros(e)
+        'VControles.solonumeros(e)
     End Sub
-
-
 
     Private Sub FORMULAS_MUNICIPIO_MINSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles FORMULAS_MUNICIPIO_MINSpinEdit.KeyPress
         VControles.solonumeros(e)
@@ -100,14 +94,27 @@ Public Class XfrmParametros
         VControles.solonumeros(e)
     End Sub
 
-    
-
-    
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
         Me.Close()
     End Sub
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
         guardar()
+    End Sub
+
+    Private Sub PARTICIPACION_MUJER_PORCENSpinEdit_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PARTICIPACION_MUJER_PORCENSpinEdit.Leave
+        Try
+            Convert.ToDecimal(PARTICIPACION_MUJER_PORCENSpinEdit.Text)
+        Catch
+            Mensajes.MensajeError("El campo actual solo acepta Enteros y decimales")
+        End Try
+    End Sub
+
+    Private Sub FIRMAS_REPETIDAS_PORCENSpinEdit_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles FIRMAS_REPETIDAS_PORCENSpinEdit.Leave
+        Try
+            Convert.ToDecimal(FIRMAS_REPETIDAS_PORCENSpinEdit.Text)
+        Catch
+            Mensajes.MensajeError("El campo actual solo acepta Enteros y decimales")
+        End Try
     End Sub
 End Class
