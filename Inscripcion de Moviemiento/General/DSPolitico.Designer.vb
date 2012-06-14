@@ -1286,8 +1286,6 @@ Partial Public Class DSPolitico
         
         Private columnCODIGO_PARTIDO As Global.System.Data.DataColumn
         
-        Private columnIMAGEN As Global.System.Data.DataColumn
-        
         Private columnNOMBRE As Global.System.Data.DataColumn
         
         Private columnCANTIDAD_FIRMAS As Global.System.Data.DataColumn
@@ -1328,13 +1326,6 @@ Partial Public Class DSPolitico
         Public ReadOnly Property CODIGO_PARTIDOColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnCODIGO_PARTIDO
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property IMAGENColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnIMAGEN
             End Get
         End Property
         
@@ -1381,9 +1372,9 @@ Partial Public Class DSPolitico
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddTA_PARTIDOS_POLITICOSRow(ByVal CODIGO_PARTIDO As Decimal, ByVal IMAGEN() As Byte, ByVal NOMBRE As String, ByVal CANTIDAD_FIRMAS As Decimal) As TA_PARTIDOS_POLITICOSRow
+        Public Overloads Function AddTA_PARTIDOS_POLITICOSRow(ByVal CODIGO_PARTIDO As Decimal, ByVal NOMBRE As String, ByVal CANTIDAD_FIRMAS As Decimal) As TA_PARTIDOS_POLITICOSRow
             Dim rowTA_PARTIDOS_POLITICOSRow As TA_PARTIDOS_POLITICOSRow = CType(Me.NewRow,TA_PARTIDOS_POLITICOSRow)
-            Dim columnValuesArray() As Object = New Object() {CODIGO_PARTIDO, IMAGEN, NOMBRE, CANTIDAD_FIRMAS}
+            Dim columnValuesArray() As Object = New Object() {CODIGO_PARTIDO, NOMBRE, CANTIDAD_FIRMAS}
             rowTA_PARTIDOS_POLITICOSRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowTA_PARTIDOS_POLITICOSRow)
             Return rowTA_PARTIDOS_POLITICOSRow
@@ -1409,7 +1400,6 @@ Partial Public Class DSPolitico
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Sub InitVars()
             Me.columnCODIGO_PARTIDO = MyBase.Columns("CODIGO_PARTIDO")
-            Me.columnIMAGEN = MyBase.Columns("IMAGEN")
             Me.columnNOMBRE = MyBase.Columns("NOMBRE")
             Me.columnCANTIDAD_FIRMAS = MyBase.Columns("CANTIDAD_FIRMAS")
         End Sub
@@ -1418,8 +1408,6 @@ Partial Public Class DSPolitico
         Private Sub InitClass()
             Me.columnCODIGO_PARTIDO = New Global.System.Data.DataColumn("CODIGO_PARTIDO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCODIGO_PARTIDO)
-            Me.columnIMAGEN = New Global.System.Data.DataColumn("IMAGEN", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnIMAGEN)
             Me.columnNOMBRE = New Global.System.Data.DataColumn("NOMBRE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNOMBRE)
             Me.columnCANTIDAD_FIRMAS = New Global.System.Data.DataColumn("CANTIDAD_FIRMAS", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
@@ -1427,7 +1415,6 @@ Partial Public Class DSPolitico
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_PARTIDO}, true))
             Me.columnCODIGO_PARTIDO.AllowDBNull = false
             Me.columnCODIGO_PARTIDO.Unique = true
-            Me.columnIMAGEN.AllowDBNull = false
             Me.columnNOMBRE.AllowDBNull = false
             Me.columnNOMBRE.MaxLength = 100
             Me.columnCANTIDAD_FIRMAS.AllowDBNull = false
@@ -1566,10 +1553,6 @@ Partial Public Class DSPolitico
         
         Private columnCODIGO_PARTIDO As Global.System.Data.DataColumn
         
-        Private columnINSIGNIA As Global.System.Data.DataColumn
-        
-        Private columnEMBLEMA As Global.System.Data.DataColumn
-        
         Private columnNOMBRE As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1626,20 +1609,6 @@ Partial Public Class DSPolitico
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property INSIGNIAColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnINSIGNIA
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property EMBLEMAColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEMBLEMA
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public ReadOnly Property NOMBREColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnNOMBRE
@@ -1675,9 +1644,9 @@ Partial Public Class DSPolitico
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddTA_MOVIMIENTORow(ByVal CODIGO_MOVIMIENTO As Decimal, ByVal NOMBRE_MOVIMIENTO As String, ByVal parentTA_PARTIDOS_POLITICOSRowByMOVIMIENTO_PARTIDOS_FK3 As TA_PARTIDOS_POLITICOSRow, ByVal INSIGNIA() As Byte, ByVal EMBLEMA() As Byte, ByVal NOMBRE As String) As TA_MOVIMIENTORow
+        Public Overloads Function AddTA_MOVIMIENTORow(ByVal CODIGO_MOVIMIENTO As Decimal, ByVal NOMBRE_MOVIMIENTO As String, ByVal parentTA_PARTIDOS_POLITICOSRowByMOVIMIENTO_PARTIDOS_FK3 As TA_PARTIDOS_POLITICOSRow, ByVal NOMBRE As String) As TA_MOVIMIENTORow
             Dim rowTA_MOVIMIENTORow As TA_MOVIMIENTORow = CType(Me.NewRow,TA_MOVIMIENTORow)
-            Dim columnValuesArray() As Object = New Object() {CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO, Nothing, INSIGNIA, EMBLEMA, NOMBRE}
+            Dim columnValuesArray() As Object = New Object() {CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO, Nothing, NOMBRE}
             If (Not (parentTA_PARTIDOS_POLITICOSRowByMOVIMIENTO_PARTIDOS_FK3) Is Nothing) Then
                 columnValuesArray(2) = parentTA_PARTIDOS_POLITICOSRowByMOVIMIENTO_PARTIDOS_FK3(0)
             End If
@@ -1708,8 +1677,6 @@ Partial Public Class DSPolitico
             Me.columnCODIGO_MOVIMIENTO = MyBase.Columns("CODIGO_MOVIMIENTO")
             Me.columnNOMBRE_MOVIMIENTO = MyBase.Columns("NOMBRE_MOVIMIENTO")
             Me.columnCODIGO_PARTIDO = MyBase.Columns("CODIGO_PARTIDO")
-            Me.columnINSIGNIA = MyBase.Columns("INSIGNIA")
-            Me.columnEMBLEMA = MyBase.Columns("EMBLEMA")
             Me.columnNOMBRE = MyBase.Columns("NOMBRE")
         End Sub
         
@@ -1721,10 +1688,6 @@ Partial Public Class DSPolitico
             MyBase.Columns.Add(Me.columnNOMBRE_MOVIMIENTO)
             Me.columnCODIGO_PARTIDO = New Global.System.Data.DataColumn("CODIGO_PARTIDO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCODIGO_PARTIDO)
-            Me.columnINSIGNIA = New Global.System.Data.DataColumn("INSIGNIA", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnINSIGNIA)
-            Me.columnEMBLEMA = New Global.System.Data.DataColumn("EMBLEMA", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEMBLEMA)
             Me.columnNOMBRE = New Global.System.Data.DataColumn("NOMBRE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNOMBRE)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_MOVIMIENTO}, true))
@@ -1733,8 +1696,6 @@ Partial Public Class DSPolitico
             Me.columnNOMBRE_MOVIMIENTO.AllowDBNull = false
             Me.columnNOMBRE_MOVIMIENTO.MaxLength = 200
             Me.columnCODIGO_PARTIDO.AllowDBNull = false
-            Me.columnINSIGNIA.AllowDBNull = false
-            Me.columnEMBLEMA.AllowDBNull = false
             Me.columnNOMBRE.AllowDBNull = false
             Me.columnNOMBRE.MaxLength = 100
         End Sub
@@ -4042,16 +4003,6 @@ Partial Public Class DSPolitico
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property IMAGEN() As Byte()
-            Get
-                Return CType(Me(Me.tableTA_PARTIDOS_POLITICOS.IMAGENColumn),Byte())
-            End Get
-            Set
-                Me(Me.tableTA_PARTIDOS_POLITICOS.IMAGENColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property NOMBRE() As String
             Get
                 Return CType(Me(Me.tableTA_PARTIDOS_POLITICOS.NOMBREColumn),String)
@@ -4141,26 +4092,6 @@ Partial Public Class DSPolitico
             End Get
             Set
                 Me(Me.tableTA_MOVIMIENTO.CODIGO_PARTIDOColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property INSIGNIA() As Byte()
-            Get
-                Return CType(Me(Me.tableTA_MOVIMIENTO.INSIGNIAColumn),Byte())
-            End Get
-            Set
-                Me(Me.tableTA_MOVIMIENTO.INSIGNIAColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property EMBLEMA() As Byte()
-            Get
-                Return CType(Me(Me.tableTA_MOVIMIENTO.EMBLEMAColumn),Byte())
-            End Get
-            Set
-                Me(Me.tableTA_MOVIMIENTO.EMBLEMAColumn) = value
             End Set
         End Property
         
@@ -6504,28 +6435,26 @@ Namespace DSPoliticoTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "TA_PARTIDOS_POLITICOS"
             tableMapping.ColumnMappings.Add("CODIGO_PARTIDO", "CODIGO_PARTIDO")
-            tableMapping.ColumnMappings.Add("IMAGEN", "IMAGEN")
             tableMapping.ColumnMappings.Add("NOMBRE", "NOMBRE")
             tableMapping.ColumnMappings.Add("CANTIDAD_FIRMAS", "CANTIDAD_FIRMAS")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OracleClient.OracleCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM ""TSE"".""IM_PARTIDOS_POLITICOS"" WHERE ((""CODIGO_PARTIDO"" = :Original_CO"& _ 
-                "DIGO_PARTIDO) AND (""NOMBRE"" = :Original_NOMBRE) AND (""CANTIDAD_FIRMAS"" = :Origin"& _ 
-                "al_CANTIDAD_FIRMAS))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM ""IM_PARTIDOS_POLITICOS"" WHERE ((""CODIGO_PARTIDO"" = :Original_CODIGO_P"& _ 
+                "ARTIDO) AND (""NOMBRE"" = :Original_NOMBRE) AND (""CANTIDAD_FIRMAS"" = :Original_CAN"& _ 
+                "TIDAD_FIRMAS))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_PARTIDO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_NOMBRE", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CANTIDAD_FIRMAS", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CANTIDAD_FIRMAS", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OracleClient.OracleCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE ""TSE"".""IM_PARTIDOS_POLITICOS"" SET ""CODIGO_PARTIDO"" = :CODIGO_PARTIDO, ""IMA"& _ 
-                "GEN"" = :IMAGEN, ""NOMBRE"" = :NOMBRE, ""CANTIDAD_FIRMAS"" = :CANTIDAD_FIRMAS WHERE ("& _ 
-                "(""CODIGO_PARTIDO"" = :Original_CODIGO_PARTIDO) AND (""NOMBRE"" = :Original_NOMBRE) "& _ 
-                "AND (""CANTIDAD_FIRMAS"" = :Original_CANTIDAD_FIRMAS))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE ""IM_PARTIDOS_POLITICOS"" SET ""CODIGO_PARTIDO"" = :CODIGO_PARTIDO, ""NOMBRE"" ="& _ 
+                " :NOMBRE, ""CANTIDAD_FIRMAS"" = :CANTIDAD_FIRMAS WHERE ((""CODIGO_PARTIDO"" = :Origi"& _ 
+                "nal_CODIGO_PARTIDO) AND (""NOMBRE"" = :Original_NOMBRE) AND (""CANTIDAD_FIRMAS"" = :"& _ 
+                "Original_CANTIDAD_FIRMAS))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_PARTIDO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IMAGEN", Global.System.Data.OracleClient.OracleType.Blob, 0, Global.System.Data.ParameterDirection.Input, "IMAGEN", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NOMBRE", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CANTIDAD_FIRMAS", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CANTIDAD_FIRMAS", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_PARTIDO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -6544,13 +6473,12 @@ Namespace DSPoliticoTableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT CODIGO_PARTIDO, IMAGEN, NOMBRE, CANTIDAD_FIRMAS FROM TSE.IM_PARTIDOS_POLIT"& _ 
-                "ICOS"
+            Me._commandCollection(0).CommandText = "SELECT CODIGO_PARTIDO, NOMBRE, CANTIDAD_FIRMAS FROM IM_PARTIDOS_POLITICOS"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT CODIGO_PARTIDO, IMAGEN, NOMBRE, CANTIDAD_FIRMAS FROM TSE.IM_PARTIDOS_POLIT"& _ 
-                "ICOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE (NOMBRE LIKE '%' || :de || '%')"
+            Me._commandCollection(1).CommandText = "SELECT CODIGO_PARTIDO, NOMBRE, CANTIDAD_FIRMAS FROM IM_PARTIDOS_POLITICOS WHERE ("& _ 
+                "NOMBRE LIKE '%' || :de || '%')"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("de", Global.System.Data.OracleClient.OracleType.VarChar, 100, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
@@ -6662,26 +6590,21 @@ Namespace DSPoliticoTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal CODIGO_PARTIDO As Decimal, ByVal IMAGEN() As Byte, ByVal NOMBRE As String, ByVal CANTIDAD_FIRMAS As Decimal, ByVal Original_CODIGO_PARTIDO As Decimal, ByVal Original_NOMBRE As String, ByVal Original_CANTIDAD_FIRMAS As Decimal) As Integer
+        Public Overloads Overridable Function Update(ByVal CODIGO_PARTIDO As Decimal, ByVal NOMBRE As String, ByVal CANTIDAD_FIRMAS As Decimal, ByVal Original_CODIGO_PARTIDO As Decimal, ByVal Original_NOMBRE As String, ByVal Original_CANTIDAD_FIRMAS As Decimal) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CODIGO_PARTIDO,Decimal)
-            If (IMAGEN Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("IMAGEN")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(IMAGEN,Byte())
-            End If
             If (NOMBRE Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("NOMBRE")
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(NOMBRE,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(NOMBRE,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(CANTIDAD_FIRMAS,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_CODIGO_PARTIDO,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(CANTIDAD_FIRMAS,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_CODIGO_PARTIDO,Decimal)
             If (Original_NOMBRE Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_NOMBRE")
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_NOMBRE,String)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_NOMBRE,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_CANTIDAD_FIRMAS,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_CANTIDAD_FIRMAS,Decimal)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -6700,8 +6623,8 @@ Namespace DSPoliticoTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal IMAGEN() As Byte, ByVal NOMBRE As String, ByVal CANTIDAD_FIRMAS As Decimal, ByVal Original_CODIGO_PARTIDO As Decimal, ByVal Original_NOMBRE As String, ByVal Original_CANTIDAD_FIRMAS As Decimal) As Integer
-            Return Me.Update(Original_CODIGO_PARTIDO, IMAGEN, NOMBRE, CANTIDAD_FIRMAS, Original_CODIGO_PARTIDO, Original_NOMBRE, Original_CANTIDAD_FIRMAS)
+        Public Overloads Overridable Function Update(ByVal NOMBRE As String, ByVal CANTIDAD_FIRMAS As Decimal, ByVal Original_CODIGO_PARTIDO As Decimal, ByVal Original_NOMBRE As String, ByVal Original_CANTIDAD_FIRMAS As Decimal) As Integer
+            Return Me.Update(Original_CODIGO_PARTIDO, NOMBRE, CANTIDAD_FIRMAS, Original_CODIGO_PARTIDO, Original_NOMBRE, Original_CANTIDAD_FIRMAS)
         End Function
     End Class
     
@@ -6829,8 +6752,6 @@ Namespace DSPoliticoTableAdapters
             tableMapping.ColumnMappings.Add("CODIGO_MOVIMIENTO", "CODIGO_MOVIMIENTO")
             tableMapping.ColumnMappings.Add("NOMBRE_MOVIMIENTO", "NOMBRE_MOVIMIENTO")
             tableMapping.ColumnMappings.Add("CODIGO_PARTIDO", "CODIGO_PARTIDO")
-            tableMapping.ColumnMappings.Add("INSIGNIA", "INSIGNIA")
-            tableMapping.ColumnMappings.Add("EMBLEMA", "EMBLEMA")
             tableMapping.ColumnMappings.Add("NOMBRE", "NOMBRE")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub

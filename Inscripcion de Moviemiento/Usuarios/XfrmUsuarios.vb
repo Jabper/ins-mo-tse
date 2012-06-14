@@ -4,24 +4,27 @@ Imports System.Threading
 Public Class XfrmUsuarios
     Dim actualizar As Boolean = False
     Private Sub XfrmUsuarios_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.GotFocus
-        Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
+        'Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
         Me.TA_ROLESTableAdapter.Fill(Me.DTUsers.TA_ROLES)
+        Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
     End Sub
 
     Private Sub XfrmUsuarios_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Dim waitDialog As New WaitDialogForm("Cargando Información", "Por favor Espere..")
-        Thread.Sleep(2000) ' long process
-        waitDialog.Caption = "Obteniendo Datos"
+       
+        'Dim waitDialog As New WaitDialogForm("Cargando Información", "Por favor Espere..")
+        'Thread.Sleep(2000) ' long process
+        'waitDialog.Caption = "Obteniendo Datos"
         '******************************************
+        Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
         Me.DT_USUARIOSTableAdapter.Fill(Me.DTUsers.DT_USUARIOS)
-        Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
+        'Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
         'TODO: This line of code loads data into the 'DSPolitico.IM_MOVIMIENTOS' table. You can move, or remove it, as needed.
         Me.TA_ROLESTableAdapter.Fill(Me.DTUsers.TA_ROLES)
         PreguntasDeSeguridad()
         Me.IMUSUARIOSBindingSource.AddNew()
         '*******************************************
        
-        waitDialog.Close()
+        'waitDialog.Close()
 
         If COracle.credenciales("BtnUsuarios", "MODIFICAR") = "N" And COracle.credenciales("BtnUsuarios", "INSERTAR") = "N" Then
             DxControls.ObtenerCredencial("BtnUsuarios", "MODIFICAR", Me.BtnGuardar)
@@ -153,4 +156,6 @@ Public Class XfrmUsuarios
     Private Sub GridView1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.DoubleClick
         MostrarDatos()
     End Sub
+
+    
 End Class

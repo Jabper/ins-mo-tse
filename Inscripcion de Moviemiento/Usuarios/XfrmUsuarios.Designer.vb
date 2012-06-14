@@ -39,8 +39,7 @@ Partial Class XfrmUsuarios
         Me.CODIGO_ROLSpinEdit = New DevExpress.XtraEditors.LookUpEdit
         Me.TAROLESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CODIGO_PARTIDOSpinEdit = New DevExpress.XtraEditors.LookUpEdit
-        Me.IMPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DSPoliticoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TAPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DSPolitico = New Inscripcion_de_Moviemientos.DSPolitico
         Me.PREGUNTA_SEGURIDADTextEdit = New DevExpress.XtraEditors.LookUpEdit
         Me.CODIGO_USUARIOSpinEdit = New DevExpress.XtraEditors.TextEdit
@@ -91,8 +90,8 @@ Partial Class XfrmUsuarios
         Me.IM_USUARIOSTableAdapter = New Inscripcion_de_Moviemientos.DTUsersTableAdapters.IM_USUARIOSTableAdapter
         Me.TA_ROLESTableAdapter = New Inscripcion_de_Moviemientos.DTUsersTableAdapters.TA_ROLESTableAdapter
         Me.IM_MOVIMIENTOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.IM_MOVIMIENTOSTableAdapter
-        Me.IM_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.IM_PARTIDOS_POLITICOSTableAdapter
         Me.DT_USUARIOSTableAdapter = New Inscripcion_de_Moviemientos.DTUsersTableAdapters.DT_USUARIOSTableAdapter
+        Me.TA_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_PARTIDOS_POLITICOSTableAdapter
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -115,8 +114,7 @@ Partial Class XfrmUsuarios
         CType(Me.CODIGO_ROLSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TAROLESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CODIGO_PARTIDOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IMPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DSPoliticoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TAPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PREGUNTA_SEGURIDADTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CODIGO_USUARIOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -263,7 +261,7 @@ Partial Class XfrmUsuarios
         Me.IDENTIDADTextEdit.Properties.Mask.BeepOnError = True
         Me.IDENTIDADTextEdit.Properties.Mask.EditMask = "0000-0000-0000"
         Me.IDENTIDADTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple
-        Me.IDENTIDADTextEdit.Size = New System.Drawing.Size(168, 20)
+        Me.IDENTIDADTextEdit.Size = New System.Drawing.Size(167, 20)
         Me.IDENTIDADTextEdit.StyleController = Me.DataLayoutControl1
         Me.IDENTIDADTextEdit.TabIndex = 7
         '
@@ -373,7 +371,7 @@ Partial Class XfrmUsuarios
         Me.CODIGO_PARTIDOSpinEdit.Name = "CODIGO_PARTIDOSpinEdit"
         Me.CODIGO_PARTIDOSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CODIGO_PARTIDOSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_PARTIDO", "Código", 30, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE", "Partido Político", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
-        Me.CODIGO_PARTIDOSpinEdit.Properties.DataSource = Me.IMPARTIDOSPOLITICOSBindingSource
+        Me.CODIGO_PARTIDOSpinEdit.Properties.DataSource = Me.TAPARTIDOSPOLITICOSBindingSource
         Me.CODIGO_PARTIDOSpinEdit.Properties.DisplayMember = "NOMBRE"
         Me.CODIGO_PARTIDOSpinEdit.Properties.NullText = "Seleccione"
         Me.CODIGO_PARTIDOSpinEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
@@ -382,15 +380,10 @@ Partial Class XfrmUsuarios
         Me.CODIGO_PARTIDOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_PARTIDOSpinEdit.TabIndex = 14
         '
-        'IMPARTIDOSPOLITICOSBindingSource
+        'TAPARTIDOSPOLITICOSBindingSource
         '
-        Me.IMPARTIDOSPOLITICOSBindingSource.DataMember = "IM_PARTIDOS_POLITICOS"
-        Me.IMPARTIDOSPOLITICOSBindingSource.DataSource = Me.DSPoliticoBindingSource
-        '
-        'DSPoliticoBindingSource
-        '
-        Me.DSPoliticoBindingSource.DataSource = Me.DSPolitico
-        Me.DSPoliticoBindingSource.Position = 0
+        Me.TAPARTIDOSPOLITICOSBindingSource.DataMember = "TA_PARTIDOS_POLITICOS"
+        Me.TAPARTIDOSPOLITICOSBindingSource.DataSource = Me.DSPolitico
         '
         'DSPolitico
         '
@@ -435,11 +428,6 @@ Partial Class XfrmUsuarios
         Me.CODIGO_MOVIMIENTOSpinEdit.Size = New System.Drawing.Size(168, 20)
         Me.CODIGO_MOVIMIENTOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_MOVIMIENTOSpinEdit.TabIndex = 10
-        '
-        'IMMOVIMIENTOSBindingSource
-        '
-        Me.IMMOVIMIENTOSBindingSource.DataMember = "IM_MOVIMIENTOS"
-        Me.IMMOVIMIENTOSBindingSource.DataSource = Me.DSPoliticoBindingSource
         '
         'ESTADOTextEdit
         '
@@ -578,7 +566,7 @@ Partial Class XfrmUsuarios
         Me.ItemForIDENTIDAD.CustomizationFormText = "IDENTIDAD"
         Me.ItemForIDENTIDAD.Location = New System.Drawing.Point(0, 48)
         Me.ItemForIDENTIDAD.Name = "ItemForIDENTIDAD"
-        Me.ItemForIDENTIDAD.Size = New System.Drawing.Size(293, 24)
+        Me.ItemForIDENTIDAD.Size = New System.Drawing.Size(292, 24)
         Me.ItemForIDENTIDAD.Text = "Identidad"
         Me.ItemForIDENTIDAD.TextSize = New System.Drawing.Size(117, 13)
         '
@@ -636,9 +624,9 @@ Partial Class XfrmUsuarios
         '
         Me.EmptySpaceItem4.AllowHotTrack = False
         Me.EmptySpaceItem4.CustomizationFormText = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Location = New System.Drawing.Point(293, 48)
+        Me.EmptySpaceItem4.Location = New System.Drawing.Point(292, 48)
         Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Size = New System.Drawing.Size(171, 24)
+        Me.EmptySpaceItem4.Size = New System.Drawing.Size(172, 24)
         Me.EmptySpaceItem4.Text = "EmptySpaceItem4"
         Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -886,13 +874,13 @@ Partial Class XfrmUsuarios
         '
         Me.IM_MOVIMIENTOSTableAdapter.ClearBeforeFill = True
         '
-        'IM_PARTIDOS_POLITICOSTableAdapter
-        '
-        Me.IM_PARTIDOS_POLITICOSTableAdapter.ClearBeforeFill = True
-        '
         'DT_USUARIOSTableAdapter
         '
         Me.DT_USUARIOSTableAdapter.ClearBeforeFill = True
+        '
+        'TA_PARTIDOS_POLITICOSTableAdapter
+        '
+        Me.TA_PARTIDOS_POLITICOSTableAdapter.ClearBeforeFill = True
         '
         'XfrmUsuarios
         '
@@ -924,8 +912,7 @@ Partial Class XfrmUsuarios
         CType(Me.CODIGO_ROLSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TAROLESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CODIGO_PARTIDOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IMPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DSPoliticoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TAPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PREGUNTA_SEGURIDADTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CODIGO_USUARIOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1008,13 +995,10 @@ Partial Class XfrmUsuarios
     Friend WithEvents TAROLESBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents TA_ROLESTableAdapter As Inscripcion_de_Moviemientos.DTUsersTableAdapters.TA_ROLESTableAdapter
     Friend WithEvents CODIGO_MOVIMIENTOSpinEdit As DevExpress.XtraEditors.LookUpEdit
-    Friend WithEvents DSPoliticoBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents DSPolitico As Inscripcion_de_Moviemientos.DSPolitico
     Friend WithEvents IMMOVIMIENTOSBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents IM_MOVIMIENTOSTableAdapter As Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.IM_MOVIMIENTOSTableAdapter
     Friend WithEvents CODIGO_PARTIDOSpinEdit As DevExpress.XtraEditors.LookUpEdit
-    Friend WithEvents IMPARTIDOSPOLITICOSBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents IM_PARTIDOS_POLITICOSTableAdapter As Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.IM_PARTIDOS_POLITICOSTableAdapter
     Friend WithEvents PREGUNTA_SEGURIDADTextEdit As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents BtnNuevo As DevExpress.XtraEditors.SimpleButton
@@ -1043,4 +1027,6 @@ Partial Class XfrmUsuarios
     Friend WithEvents colNOMBRE_MOVIMIENTO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colPARTIDO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents TAPARTIDOSPOLITICOSBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents TA_PARTIDOS_POLITICOSTableAdapter As Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_PARTIDOS_POLITICOSTableAdapter
 End Class
