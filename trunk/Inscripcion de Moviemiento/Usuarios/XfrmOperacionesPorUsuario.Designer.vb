@@ -29,8 +29,11 @@ Partial Class XfrmOperacionesPorUsuario
         Me.colCODIGO_USUARIO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colDESCRIPCION = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colINSERTAR = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
         Me.colMODIFICAR = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.RepositoryItemCheckEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
         Me.colELIMINAR = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.RepositoryItemCheckEdit3 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.DataLayoutControl1 = New DevExpress.XtraDataLayout.DataLayoutControl
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl
@@ -80,15 +83,15 @@ Partial Class XfrmOperacionesPorUsuario
         Me.IM_USUARIOSTableAdapter = New Inscripcion_de_Moviemientos.DTUsersTableAdapters.IM_USUARIOSTableAdapter
         Me.IM_OPCIONESTableAdapter = New Inscripcion_de_Moviemientos.DTUsersTableAdapters.IM_OPCIONESTableAdapter
         Me.DT_OPERACIONESTableAdapter = New Inscripcion_de_Moviemientos.DTUsuarioTableAdapters.DT_OPERACIONESTableAdapter
-        Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
-        Me.RepositoryItemCheckEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
-        Me.RepositoryItemCheckEdit3 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DTOPERACIONESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DTUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCheckEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCheckEdit3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DataLayoutControl1.SuspendLayout()
@@ -134,9 +137,6 @@ Partial Class XfrmOperacionesPorUsuario
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemCheckEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemCheckEdit3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -149,7 +149,7 @@ Partial Class XfrmOperacionesPorUsuario
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(659, 186, 250, 350)
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(423, 344)
+        Me.LayoutControl1.Size = New System.Drawing.Size(540, 344)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
@@ -160,7 +160,7 @@ Partial Class XfrmOperacionesPorUsuario
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
         Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1, Me.RepositoryItemCheckEdit2, Me.RepositoryItemCheckEdit3})
-        Me.GCBusqueda.Size = New System.Drawing.Size(399, 136)
+        Me.GCBusqueda.Size = New System.Drawing.Size(516, 136)
         Me.GCBusqueda.TabIndex = 8
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -208,6 +208,7 @@ Partial Class XfrmOperacionesPorUsuario
         Me.colDESCRIPCION.Name = "colDESCRIPCION"
         Me.colDESCRIPCION.Visible = True
         Me.colDESCRIPCION.VisibleIndex = 1
+        Me.colDESCRIPCION.Width = 187
         '
         'colINSERTAR
         '
@@ -218,6 +219,13 @@ Partial Class XfrmOperacionesPorUsuario
         Me.colINSERTAR.Visible = True
         Me.colINSERTAR.VisibleIndex = 2
         '
+        'RepositoryItemCheckEdit1
+        '
+        Me.RepositoryItemCheckEdit1.AutoHeight = False
+        Me.RepositoryItemCheckEdit1.Name = "RepositoryItemCheckEdit1"
+        Me.RepositoryItemCheckEdit1.ValueChecked = "S"
+        Me.RepositoryItemCheckEdit1.ValueUnchecked = "N"
+        '
         'colMODIFICAR
         '
         Me.colMODIFICAR.Caption = "Modificar"
@@ -227,6 +235,13 @@ Partial Class XfrmOperacionesPorUsuario
         Me.colMODIFICAR.Visible = True
         Me.colMODIFICAR.VisibleIndex = 3
         '
+        'RepositoryItemCheckEdit2
+        '
+        Me.RepositoryItemCheckEdit2.AutoHeight = False
+        Me.RepositoryItemCheckEdit2.Name = "RepositoryItemCheckEdit2"
+        Me.RepositoryItemCheckEdit2.ValueChecked = "S"
+        Me.RepositoryItemCheckEdit2.ValueUnchecked = "N"
+        '
         'colELIMINAR
         '
         Me.colELIMINAR.Caption = "Eliminar"
@@ -235,6 +250,13 @@ Partial Class XfrmOperacionesPorUsuario
         Me.colELIMINAR.Name = "colELIMINAR"
         Me.colELIMINAR.Visible = True
         Me.colELIMINAR.VisibleIndex = 4
+        '
+        'RepositoryItemCheckEdit3
+        '
+        Me.RepositoryItemCheckEdit3.AutoHeight = False
+        Me.RepositoryItemCheckEdit3.Name = "RepositoryItemCheckEdit3"
+        Me.RepositoryItemCheckEdit3.ValueChecked = "S"
+        Me.RepositoryItemCheckEdit3.ValueUnchecked = "N"
         '
         'GridView2
         '
@@ -597,7 +619,7 @@ Partial Class XfrmOperacionesPorUsuario
         Me.PanelControl1.Controls.Add(Me.FlowLayoutPanel1)
         Me.PanelControl1.Location = New System.Drawing.Point(12, 12)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(293, 64)
+        Me.PanelControl1.Size = New System.Drawing.Size(410, 64)
         Me.PanelControl1.TabIndex = 4
         '
         'FlowLayoutPanel1
@@ -669,7 +691,7 @@ Partial Class XfrmOperacionesPorUsuario
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.EmptySpaceItem2, Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem4})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(423, 344)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(540, 344)
         Me.LayoutControlGroup1.Text = "Root"
         Me.LayoutControlGroup1.TextVisible = False
         '
@@ -677,7 +699,7 @@ Partial Class XfrmOperacionesPorUsuario
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(297, 0)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(414, 0)
         Me.EmptySpaceItem2.MaxSize = New System.Drawing.Size(106, 68)
         Me.EmptySpaceItem2.MinSize = New System.Drawing.Size(106, 68)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
@@ -692,7 +714,7 @@ Partial Class XfrmOperacionesPorUsuario
         Me.LayoutControlItem1.CustomizationFormText = "LayoutControlItem1"
         Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(297, 68)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(414, 68)
         Me.LayoutControlItem1.Text = "LayoutControlItem1"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem1.TextToControlDistance = 0
@@ -706,7 +728,7 @@ Partial Class XfrmOperacionesPorUsuario
         Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(403, 116)
         Me.LayoutControlItem2.MinSize = New System.Drawing.Size(403, 116)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(403, 116)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(520, 116)
         Me.LayoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem2.Text = "LayoutControlItem2"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
@@ -718,10 +740,10 @@ Partial Class XfrmOperacionesPorUsuario
         Me.LayoutControlItem4.Control = Me.GCBusqueda
         Me.LayoutControlItem4.CustomizationFormText = "LayoutControlItem4"
         Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 184)
-        Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(403, 0)
-        Me.LayoutControlItem4.MinSize = New System.Drawing.Size(403, 24)
+        Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(520, 0)
+        Me.LayoutControlItem4.MinSize = New System.Drawing.Size(520, 24)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(403, 140)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(520, 140)
         Me.LayoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem4.Text = "LayoutControlItem4"
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
@@ -744,32 +766,11 @@ Partial Class XfrmOperacionesPorUsuario
         '
         Me.DT_OPERACIONESTableAdapter.ClearBeforeFill = True
         '
-        'RepositoryItemCheckEdit1
-        '
-        Me.RepositoryItemCheckEdit1.AutoHeight = False
-        Me.RepositoryItemCheckEdit1.Name = "RepositoryItemCheckEdit1"
-        Me.RepositoryItemCheckEdit1.ValueChecked = "S"
-        Me.RepositoryItemCheckEdit1.ValueUnchecked = "N"
-        '
-        'RepositoryItemCheckEdit2
-        '
-        Me.RepositoryItemCheckEdit2.AutoHeight = False
-        Me.RepositoryItemCheckEdit2.Name = "RepositoryItemCheckEdit2"
-        Me.RepositoryItemCheckEdit2.ValueChecked = "S"
-        Me.RepositoryItemCheckEdit2.ValueUnchecked = "N"
-        '
-        'RepositoryItemCheckEdit3
-        '
-        Me.RepositoryItemCheckEdit3.AutoHeight = False
-        Me.RepositoryItemCheckEdit3.Name = "RepositoryItemCheckEdit3"
-        Me.RepositoryItemCheckEdit3.ValueChecked = "S"
-        Me.RepositoryItemCheckEdit3.ValueUnchecked = "N"
-        '
         'XfrmOperacionesPorUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(423, 344)
+        Me.ClientSize = New System.Drawing.Size(540, 344)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Name = "XfrmOperacionesPorUsuario"
         Me.Text = "Operaciones Por Usuario"
@@ -779,6 +780,9 @@ Partial Class XfrmOperacionesPorUsuario
         CType(Me.DTOPERACIONESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DTUsuario, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCheckEdit2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCheckEdit3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DataLayoutControl1.ResumeLayout(False)
@@ -825,9 +829,6 @@ Partial Class XfrmOperacionesPorUsuario
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemCheckEdit2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemCheckEdit3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

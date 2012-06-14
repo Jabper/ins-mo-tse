@@ -112,7 +112,6 @@ Public Class XfrmRoles
             sql &= "WHERE CODIGO_ROL =" & CodigoRol
             sql &= " and CODIGO_OPCION=" & CodigoOpcion
 
-
             Dim cmd As New OracleCommand(sql, conn)
             Dim chek As OracleDataReader = cmd.ExecuteReader
             If chek.Read Then
@@ -131,13 +130,9 @@ Public Class XfrmRoles
         MostrarDatos()
     End Sub
 
-
-
     Private Sub CODIGO_ROLSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CODIGO_ROLSpinEdit.KeyPress
         VControles.solonumeros(e)
     End Sub
-
-
 
     Private Sub DESCRIPCIONTextEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles DESCRIPCIONTextEdit.KeyPress
         If Char.IsLower(e.KeyChar) Then
@@ -198,9 +193,5 @@ Public Class XfrmRoles
             End Try
 
         End If
-    End Sub
-
-    Private Sub DESCRIPCIONTextEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DESCRIPCIONTextEdit.EditValueChanged
-
     End Sub
 End Class

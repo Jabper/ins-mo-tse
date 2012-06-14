@@ -223,6 +223,7 @@ Partial Class XfrmRoles
         Me.colCODIGO_ROL.Name = "colCODIGO_ROL"
         Me.colCODIGO_ROL.Visible = True
         Me.colCODIGO_ROL.VisibleIndex = 0
+        Me.colCODIGO_ROL.Width = 64
         '
         'colDESCRIPCION
         '
@@ -231,6 +232,7 @@ Partial Class XfrmRoles
         Me.colDESCRIPCION.Name = "colDESCRIPCION"
         Me.colDESCRIPCION.Visible = True
         Me.colDESCRIPCION.VisibleIndex = 1
+        Me.colDESCRIPCION.Width = 369
         '
         'GridView2
         '
@@ -260,6 +262,7 @@ Partial Class XfrmRoles
         Me.DESCRIPCIONTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMROLESBindingSource, "DESCRIPCION", True))
         Me.DESCRIPCIONTextEdit.Location = New System.Drawing.Point(70, 36)
         Me.DESCRIPCIONTextEdit.Name = "DESCRIPCIONTextEdit"
+        Me.DESCRIPCIONTextEdit.Properties.MaxLength = 100
         Me.DESCRIPCIONTextEdit.Size = New System.Drawing.Size(220, 20)
         Me.DESCRIPCIONTextEdit.StyleController = Me.DataLayoutControl1
         Me.DESCRIPCIONTextEdit.TabIndex = 5
@@ -323,7 +326,7 @@ Partial Class XfrmRoles
         Me.CODIGO_ROLSpinEdit.Name = "CODIGO_ROLSpinEdit"
         Me.CODIGO_ROLSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CODIGO_ROLSpinEdit.Properties.Mask.EditMask = "00"
-        Me.CODIGO_ROLSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.CODIGO_ROLSpinEdit.Properties.MaxLength = 2
         Me.CODIGO_ROLSpinEdit.Size = New System.Drawing.Size(50, 20)
         Me.CODIGO_ROLSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_ROLSpinEdit.TabIndex = 4

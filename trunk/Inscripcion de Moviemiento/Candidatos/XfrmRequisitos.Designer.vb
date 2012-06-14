@@ -170,10 +170,12 @@ Partial Class XfrmRequisitos
         '
         'colCODIGO_REQUISITO
         '
+        Me.colCODIGO_REQUISITO.Caption = "Código"
         Me.colCODIGO_REQUISITO.FieldName = "CODIGO_REQUISITO"
         Me.colCODIGO_REQUISITO.Name = "colCODIGO_REQUISITO"
         Me.colCODIGO_REQUISITO.Visible = True
         Me.colCODIGO_REQUISITO.VisibleIndex = 0
+        Me.colCODIGO_REQUISITO.Width = 48
         '
         'colDESCRIPCION
         '
@@ -181,6 +183,7 @@ Partial Class XfrmRequisitos
         Me.colDESCRIPCION.Name = "colDESCRIPCION"
         Me.colDESCRIPCION.Visible = True
         Me.colDESCRIPCION.VisibleIndex = 1
+        Me.colDESCRIPCION.Width = 386
         '
         'GridView2
         '

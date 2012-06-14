@@ -157,6 +157,7 @@ Partial Class fmOpcion
         Me.colCODIGO_OPCION.Name = "colCODIGO_OPCION"
         Me.colCODIGO_OPCION.Visible = True
         Me.colCODIGO_OPCION.VisibleIndex = 0
+        Me.colCODIGO_OPCION.Width = 78
         '
         'colDESCRIPCION
         '
@@ -165,6 +166,7 @@ Partial Class fmOpcion
         Me.colDESCRIPCION.Name = "colDESCRIPCION"
         Me.colDESCRIPCION.Visible = True
         Me.colDESCRIPCION.VisibleIndex = 1
+        Me.colDESCRIPCION.Width = 218
         '
         'colNOMBRE_CONTROL
         '
@@ -173,6 +175,7 @@ Partial Class fmOpcion
         Me.colNOMBRE_CONTROL.Name = "colNOMBRE_CONTROL"
         Me.colNOMBRE_CONTROL.Visible = True
         Me.colNOMBRE_CONTROL.VisibleIndex = 2
+        Me.colNOMBRE_CONTROL.Width = 166
         '
         'GridView2
         '
@@ -273,6 +276,7 @@ Partial Class fmOpcion
         Me.DESCRIPCIONTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMOPCIONESBindingSource, "DESCRIPCION", True))
         Me.DESCRIPCIONTextEdit.Location = New System.Drawing.Point(108, 36)
         Me.DESCRIPCIONTextEdit.Name = "DESCRIPCIONTextEdit"
+        Me.DESCRIPCIONTextEdit.Properties.MaxLength = 300
         Me.DESCRIPCIONTextEdit.Size = New System.Drawing.Size(229, 20)
         Me.DESCRIPCIONTextEdit.StyleController = Me.DataLayoutControl1
         Me.DESCRIPCIONTextEdit.TabIndex = 5
@@ -287,6 +291,7 @@ Partial Class fmOpcion
         Me.NOMBRE_CONTROLTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMOPCIONESBindingSource, "NOMBRE_CONTROL", True))
         Me.NOMBRE_CONTROLTextEdit.Location = New System.Drawing.Point(108, 60)
         Me.NOMBRE_CONTROLTextEdit.Name = "NOMBRE_CONTROLTextEdit"
+        Me.NOMBRE_CONTROLTextEdit.Properties.MaxLength = 100
         Me.NOMBRE_CONTROLTextEdit.Size = New System.Drawing.Size(229, 20)
         Me.NOMBRE_CONTROLTextEdit.StyleController = Me.DataLayoutControl1
         Me.NOMBRE_CONTROLTextEdit.TabIndex = 6
@@ -344,8 +349,7 @@ Partial Class fmOpcion
         Me.CODIGO_OPCIONSpinEdit.Location = New System.Drawing.Point(108, 12)
         Me.CODIGO_OPCIONSpinEdit.Name = "CODIGO_OPCIONSpinEdit"
         Me.CODIGO_OPCIONSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
-        Me.CODIGO_OPCIONSpinEdit.Properties.Mask.EditMask = "00"
-        Me.CODIGO_OPCIONSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.CODIGO_OPCIONSpinEdit.Properties.MaxLength = 3
         Me.CODIGO_OPCIONSpinEdit.Size = New System.Drawing.Size(50, 20)
         Me.CODIGO_OPCIONSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_OPCIONSpinEdit.TabIndex = 4
