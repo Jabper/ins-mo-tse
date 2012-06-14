@@ -26,8 +26,9 @@ Partial Class XfrmCargoElectivo
         Me.DSPolitico = New Inscripcion_de_Moviemientos.DSPolitico
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.colCODIGO_CARGO_ELECTIVO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCARGO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colNIVEL = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colSUPERIOR = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colDESCRIPCION = New DevExpress.XtraGrid.Columns.GridColumn
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.DataLayoutControl1 = New DevExpress.XtraDataLayout.DataLayoutControl
         Me.DESCRIPCIONTextEdit = New DevExpress.XtraEditors.TextEdit
@@ -129,7 +130,7 @@ Partial Class XfrmCargoElectivo
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(719, 180, 250, 350)
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(477, 364)
+        Me.LayoutControl1.Size = New System.Drawing.Size(561, 364)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
@@ -139,7 +140,7 @@ Partial Class XfrmCargoElectivo
         Me.GBusqueda.Location = New System.Drawing.Point(12, 244)
         Me.GBusqueda.MainView = Me.GridView1
         Me.GBusqueda.Name = "GBusqueda"
-        Me.GBusqueda.Size = New System.Drawing.Size(453, 108)
+        Me.GBusqueda.Size = New System.Drawing.Size(537, 108)
         Me.GBusqueda.TabIndex = 9
         Me.GBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -155,7 +156,7 @@ Partial Class XfrmCargoElectivo
         '
         'GridView1
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_CARGO_ELECTIVO, Me.colSUPERIOR, Me.colDESCRIPCION})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_CARGO_ELECTIVO, Me.colCARGO, Me.colNIVEL, Me.colSUPERIOR})
         Me.GridView1.GridControl = Me.GBusqueda
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[False]
@@ -167,30 +168,39 @@ Partial Class XfrmCargoElectivo
         '
         'colCODIGO_CARGO_ELECTIVO
         '
-        Me.colCODIGO_CARGO_ELECTIVO.Caption = "Código"
+        Me.colCODIGO_CARGO_ELECTIVO.Caption = "Codigo"
         Me.colCODIGO_CARGO_ELECTIVO.FieldName = "CODIGO_CARGO_ELECTIVO"
         Me.colCODIGO_CARGO_ELECTIVO.Name = "colCODIGO_CARGO_ELECTIVO"
         Me.colCODIGO_CARGO_ELECTIVO.Visible = True
         Me.colCODIGO_CARGO_ELECTIVO.VisibleIndex = 0
-        Me.colCODIGO_CARGO_ELECTIVO.Width = 111
+        Me.colCODIGO_CARGO_ELECTIVO.Width = 47
+        '
+        'colCARGO
+        '
+        Me.colCARGO.Caption = "Cargo"
+        Me.colCARGO.FieldName = "CARGO"
+        Me.colCARGO.Name = "colCARGO"
+        Me.colCARGO.Visible = True
+        Me.colCARGO.VisibleIndex = 1
+        Me.colCARGO.Width = 147
+        '
+        'colNIVEL
+        '
+        Me.colNIVEL.Caption = "Nivel"
+        Me.colNIVEL.FieldName = "NIVEL"
+        Me.colNIVEL.Name = "colNIVEL"
+        Me.colNIVEL.Visible = True
+        Me.colNIVEL.VisibleIndex = 3
+        Me.colNIVEL.Width = 165
         '
         'colSUPERIOR
         '
-        Me.colSUPERIOR.Caption = "Cargo"
+        Me.colSUPERIOR.Caption = "Cargo Superior"
         Me.colSUPERIOR.FieldName = "SUPERIOR"
         Me.colSUPERIOR.Name = "colSUPERIOR"
         Me.colSUPERIOR.Visible = True
-        Me.colSUPERIOR.VisibleIndex = 1
-        Me.colSUPERIOR.Width = 271
-        '
-        'colDESCRIPCION
-        '
-        Me.colDESCRIPCION.Caption = "Cargo Superior"
-        Me.colDESCRIPCION.FieldName = "DESCRIPCION"
-        Me.colDESCRIPCION.Name = "colDESCRIPCION"
-        Me.colDESCRIPCION.Visible = True
-        Me.colDESCRIPCION.VisibleIndex = 2
-        Me.colDESCRIPCION.Width = 385
+        Me.colSUPERIOR.VisibleIndex = 2
+        Me.colSUPERIOR.Width = 160
         '
         'GridView2
         '
@@ -307,7 +317,7 @@ Partial Class XfrmCargoElectivo
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Name = "CODIGO_CARGO_ELECTIVOSpinEdit"
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties.Mask.EditMask = "000"
-        Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties.MaxLength = 3
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Size = New System.Drawing.Size(50, 20)
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.TabIndex = 4
@@ -568,7 +578,7 @@ Partial Class XfrmCargoElectivo
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(477, 364)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(561, 364)
         Me.LayoutControlGroup1.Text = "Root"
         Me.LayoutControlGroup1.TextVisible = False
         '
@@ -580,7 +590,7 @@ Partial Class XfrmCargoElectivo
         Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(442, 68)
         Me.LayoutControlItem1.MinSize = New System.Drawing.Size(442, 68)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(457, 68)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(541, 68)
         Me.LayoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem1.Text = "LayoutControlItem1"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
@@ -595,7 +605,7 @@ Partial Class XfrmCargoElectivo
         Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(457, 140)
         Me.LayoutControlItem2.MinSize = New System.Drawing.Size(457, 140)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(457, 140)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(541, 140)
         Me.LayoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem2.Text = "LayoutControlItem2"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
@@ -607,10 +617,10 @@ Partial Class XfrmCargoElectivo
         Me.LayoutControlItem3.Control = Me.GBusqueda
         Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
         Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 232)
-        Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(457, 0)
-        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(457, 24)
+        Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(541, 0)
+        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(541, 24)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(457, 112)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(541, 112)
         Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem3.Text = "LayoutControlItem3"
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
@@ -625,7 +635,7 @@ Partial Class XfrmCargoElectivo
         Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(457, 24)
         Me.LayoutControlItem4.MinSize = New System.Drawing.Size(457, 24)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(457, 24)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(541, 24)
         Me.LayoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem4.Text = "Búsqueda"
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(47, 13)
@@ -650,7 +660,7 @@ Partial Class XfrmCargoElectivo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(477, 364)
+        Me.ClientSize = New System.Drawing.Size(561, 364)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Name = "XfrmCargoElectivo"
         Me.Text = "Cargo Electivo"
@@ -746,11 +756,12 @@ Partial Class XfrmCargoElectivo
     Friend WithEvents EmptySpaceItem4 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents TACARGOSBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents TA_CARGOSTableAdapter As Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_CARGOSTableAdapter
-    Friend WithEvents colCODIGO_CARGO_ELECTIVO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colSUPERIOR As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colDESCRIPCION As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents CODIGO_CARGO_SUPERIORSpinEdit As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents ButtonEdit1 As DevExpress.XtraEditors.ButtonEdit
     Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents EmptySpaceItem3 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents colCODIGO_CARGO_ELECTIVO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colCARGO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colNIVEL As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colSUPERIOR As DevExpress.XtraGrid.Columns.GridColumn
 End Class
