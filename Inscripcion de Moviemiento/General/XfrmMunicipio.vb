@@ -185,4 +185,9 @@ Public Class Municipios
             e.Handled = True
         End If
     End Sub
+
+
+    Private Sub CODIGO_MUNICIPIOSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_MUNICIPIOSpinEdit.EditValueChanged
+
+    End Sub
 End Class
