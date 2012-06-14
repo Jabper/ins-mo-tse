@@ -1,4 +1,6 @@
-﻿Public Class XfrmRequisitos 
+﻿Imports DevExpress.XtraEditors
+
+Public Class XfrmRequisitos
     Dim actualizar As Boolean = False
     Private Sub XfrmRequisitos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'DSPolitico.IM_CARGOS_ELECTIVOS' table. You can move, or remove it, as needed.
@@ -87,13 +89,13 @@
         MostrarDatos()
     End Sub
 
-   
+
 
     Private Sub CODIGO_REQUISITOSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CODIGO_REQUISITOSpinEdit.KeyPress
         VControles.solonumeros(e)
     End Sub
 
-   
+
 
     Private Sub CANTIDADSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CANTIDADSpinEdit.KeyPress
         VControles.solonumeros(e)
@@ -124,6 +126,40 @@
         End If
     End Sub
     Sub eliminar()
+        If XtraMessageBox.Show("¿Desea Eliminar el Registro Seleccionado?", "Mensaje de Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+            Try
 
+                Dim cellvalue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
+                Dim Drow As DSCandidato.IM_REQUISITOSRow
+
+                Drow = Me.DSCandidato.IM_REQUISITOS.FindByCODIGO_REQUISITO(CType(cellvalue, Integer))
+
+                Drow.Delete()
+
+                Me.IM_REQUISITOSTableAdapter.Update(Me.DSCandidato.IM_REQUISITOS)
+                ActualizarGrid()
+                Mensajes.MensajeEliminar()
+                Me.IMREQUISITOSBindingSource.AddNew()
+                Me.BtnEliminar.Enabled = False
+                actualizar = False
+            Catch ex As Exception
+                Mensajes.MensajeError(ex.Message)
+            End Try
+        End If
+
+    End Sub
+
+    Private Sub DESCRIPCIONTextEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DESCRIPCIONTextEdit.EditValueChanged
+
+    End Sub
+
+    Private Sub DESCRIPCIONTextEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles DESCRIPCIONTextEdit.KeyPress
+        If Char.IsLower(e.KeyChar) Then
+
+            'Convert to uppercase, and put at the caret position in the TextBox.
+            DESCRIPCIONTextEdit.SelectedText = Char.ToUpper(e.KeyChar)
+
+            e.Handled = True
+        End If
     End Sub
 End Class

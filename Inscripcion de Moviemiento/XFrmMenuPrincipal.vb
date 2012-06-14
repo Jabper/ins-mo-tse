@@ -3,11 +3,33 @@ Imports DevExpress.XtraBars
 Imports DevExpress.XtraBars.InternalItems
 
 Public Class XFrmMenuPrincipal
+    Public Sub New()
+
+        ' Llamada necesaria para el Diseñador de Windows Forms.
+
+        InitializeComponent()
+
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+
+        Me.KeyPreview = True
+
+    End Sub
+
     Public Sub conexion()
         Dim oradb As String = "Data Source=OraDb;User Id=scott;Password=tiger;"
         Dim conn As New OracleConnection()
         conn.ConnectionString = oradb
         conn.Open()
+    End Sub
+
+    Private Sub XFrmMenuPrincipal_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Me.KeyPress
+        Dim S As String
+
+        S = UCase(e.KeyChar)
+
+        S = ChrW(Asc(S))
+
+        e.KeyChar = S
     End Sub
     Private Sub XFrmMenuPrincipal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         verificar_permisos()
@@ -43,7 +65,7 @@ Public Class XFrmMenuPrincipal
                 Me.Ribbon.Pages(i).Visible = False
             Else
                 Me.Ribbon.Pages(i).Visible = True
-            End If           
+            End If
         Next
         For Each item As BarItem In Me.RibbonControl.Items
             If TypeOf item Is BarButtonItem Then
@@ -52,7 +74,7 @@ Public Class XFrmMenuPrincipal
                     item.Visibility = BarItemVisibility.Never
                 Else
                     item.Visibility = BarItemVisibility.Always
-                End If                
+                End If
             End If
         Next
     End Sub
@@ -125,7 +147,7 @@ Public Class XFrmMenuPrincipal
         Padre(XfrmOperacionesPorRol)
     End Sub
 
-    
+
     Private Sub BtnOperacionesUsuarios_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnOperacionesUsuarios.ItemClick
         Padre(XfrmOperacionesPorUsuario)
     End Sub

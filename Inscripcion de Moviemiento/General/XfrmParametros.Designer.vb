@@ -23,6 +23,8 @@ Partial Class XfrmParametros
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
         Me.DataLayoutControl1 = New DevExpress.XtraDataLayout.DataLayoutControl
         Me.ADICIONADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
+        Me.IMPARAMETROSGENERALESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DSParametros = New Inscripcion_de_Moviemientos.DSParametros
         Me.FECHA_ADICIONDateEdit = New DevExpress.XtraEditors.DateEdit
         Me.MODIFICADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.FECHA_MODIFICACIONDateEdit = New DevExpress.XtraEditors.DateEdit
@@ -56,14 +58,14 @@ Partial Class XfrmParametros
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.IMPARAMETROSGENERALESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DSParametros = New Inscripcion_de_Moviemientos.DSParametros
         Me.IM_PARAMETROS_GENERALESTableAdapter = New Inscripcion_de_Moviemientos.DSParametrosTableAdapters.IM_PARAMETROS_GENERALESTableAdapter
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DataLayoutControl1.SuspendLayout()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMPARAMETROSGENERALESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DSParametros, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MODIFICADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -98,8 +100,6 @@ Partial Class XfrmParametros
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IMPARAMETROSGENERALESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DSParametros, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -147,6 +147,16 @@ Partial Class XfrmParametros
         Me.ADICIONADO_PORSpinEdit.Size = New System.Drawing.Size(0, 20)
         Me.ADICIONADO_PORSpinEdit.StyleController = Me.DataLayoutControl1
         Me.ADICIONADO_PORSpinEdit.TabIndex = 8
+        '
+        'IMPARAMETROSGENERALESBindingSource
+        '
+        Me.IMPARAMETROSGENERALESBindingSource.DataMember = "IM_PARAMETROS_GENERALES"
+        Me.IMPARAMETROSGENERALESBindingSource.DataSource = Me.DSParametros
+        '
+        'DSParametros
+        '
+        Me.DSParametros.DataSetName = "DSParametros"
+        Me.DSParametros.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'FECHA_ADICIONDateEdit
         '
@@ -227,7 +237,6 @@ Partial Class XfrmParametros
         Me.FORMULAS_DEPART_MINSpinEdit.Location = New System.Drawing.Point(309, 36)
         Me.FORMULAS_DEPART_MINSpinEdit.Name = "FORMULAS_DEPART_MINSpinEdit"
         Me.FORMULAS_DEPART_MINSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
-        Me.FORMULAS_DEPART_MINSpinEdit.Properties.Mask.EditMask = "00"
         Me.FORMULAS_DEPART_MINSpinEdit.Properties.MaxLength = 2
         Me.FORMULAS_DEPART_MINSpinEdit.Size = New System.Drawing.Size(50, 20)
         Me.FORMULAS_DEPART_MINSpinEdit.StyleController = Me.DataLayoutControl1
@@ -240,7 +249,6 @@ Partial Class XfrmParametros
         Me.FORMULAS_MUNICIPIO_MINSpinEdit.Location = New System.Drawing.Point(309, 60)
         Me.FORMULAS_MUNICIPIO_MINSpinEdit.Name = "FORMULAS_MUNICIPIO_MINSpinEdit"
         Me.FORMULAS_MUNICIPIO_MINSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
-        Me.FORMULAS_MUNICIPIO_MINSpinEdit.Properties.Mask.EditMask = "00"
         Me.FORMULAS_MUNICIPIO_MINSpinEdit.Properties.MaxLength = 3
         Me.FORMULAS_MUNICIPIO_MINSpinEdit.Size = New System.Drawing.Size(50, 20)
         Me.FORMULAS_MUNICIPIO_MINSpinEdit.StyleController = Me.DataLayoutControl1
@@ -253,7 +261,6 @@ Partial Class XfrmParametros
         Me.FIRMAS_REPETIDAS_PORCENSpinEdit.Location = New System.Drawing.Point(309, 84)
         Me.FIRMAS_REPETIDAS_PORCENSpinEdit.Name = "FIRMAS_REPETIDAS_PORCENSpinEdit"
         Me.FIRMAS_REPETIDAS_PORCENSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
-        Me.FIRMAS_REPETIDAS_PORCENSpinEdit.Properties.Mask.EditMask = "00"
         Me.FIRMAS_REPETIDAS_PORCENSpinEdit.Properties.MaxLength = 5
         Me.FIRMAS_REPETIDAS_PORCENSpinEdit.Size = New System.Drawing.Size(50, 20)
         Me.FIRMAS_REPETIDAS_PORCENSpinEdit.StyleController = Me.DataLayoutControl1
@@ -521,16 +528,6 @@ Partial Class XfrmParametros
         Me.LayoutControlItem2.TextToControlDistance = 0
         Me.LayoutControlItem2.TextVisible = False
         '
-        'IMPARAMETROSGENERALESBindingSource
-        '
-        Me.IMPARAMETROSGENERALESBindingSource.DataMember = "IM_PARAMETROS_GENERALES"
-        Me.IMPARAMETROSGENERALESBindingSource.DataSource = Me.DSParametros
-        '
-        'DSParametros
-        '
-        Me.DSParametros.DataSetName = "DSParametros"
-        Me.DSParametros.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'IM_PARAMETROS_GENERALESTableAdapter
         '
         Me.IM_PARAMETROS_GENERALESTableAdapter.ClearBeforeFill = True
@@ -548,6 +545,8 @@ Partial Class XfrmParametros
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DataLayoutControl1.ResumeLayout(False)
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMPARAMETROSGENERALESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DSParametros, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MODIFICADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -583,8 +582,6 @@ Partial Class XfrmParametros
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IMPARAMETROSGENERALESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DSParametros, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
