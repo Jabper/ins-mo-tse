@@ -90,4 +90,12 @@
     Private Sub GridView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.Click
         MostrarDatos()
     End Sub
+
+    Private Sub CODIGO_REQUISITOSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_REQUISITOSpinEdit.EditValueChanged
+
+    End Sub
+
+    Private Sub CODIGO_REQUISITOSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CODIGO_REQUISITOSpinEdit.KeyPress
+        VControles.solonumeros(e)
+    End Sub
 End Class

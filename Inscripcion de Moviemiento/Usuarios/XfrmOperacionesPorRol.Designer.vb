@@ -27,7 +27,6 @@ Partial Class XfrmOperacionesPorRol
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.colCODIGO_OPCION = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCODIGO_ROL = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colROLES = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colOPCION = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colINSERTAR = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RepositoryItemCheckEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
@@ -63,9 +62,11 @@ Partial Class XfrmOperacionesPorRol
         Me.EmptySpaceItem6 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
-        Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
         Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
         Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
@@ -116,6 +117,7 @@ Partial Class XfrmOperacionesPorRol
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
+        Me.FlowLayoutPanel1.SuspendLayout()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -160,7 +162,7 @@ Partial Class XfrmOperacionesPorRol
         '
         'GridView1
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_OPCION, Me.colCODIGO_ROL, Me.colROLES, Me.colOPCION, Me.colINSERTAR, Me.colMODIFICAR, Me.colELIMINAR})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_OPCION, Me.colCODIGO_ROL, Me.colOPCION, Me.colINSERTAR, Me.colMODIFICAR, Me.colELIMINAR})
         Me.GridView1.GridControl = Me.GCBusqueda
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[False]
@@ -187,21 +189,13 @@ Partial Class XfrmOperacionesPorRol
         Me.colCODIGO_ROL.Visible = True
         Me.colCODIGO_ROL.VisibleIndex = 1
         '
-        'colROLES
-        '
-        Me.colROLES.Caption = "Rol"
-        Me.colROLES.FieldName = "ROLES"
-        Me.colROLES.Name = "colROLES"
-        Me.colROLES.Visible = True
-        Me.colROLES.VisibleIndex = 2
-        '
         'colOPCION
         '
         Me.colOPCION.Caption = "Opción"
         Me.colOPCION.FieldName = "OPCION"
         Me.colOPCION.Name = "colOPCION"
         Me.colOPCION.Visible = True
-        Me.colOPCION.VisibleIndex = 3
+        Me.colOPCION.VisibleIndex = 2
         '
         'colINSERTAR
         '
@@ -210,7 +204,7 @@ Partial Class XfrmOperacionesPorRol
         Me.colINSERTAR.FieldName = "INSERTAR"
         Me.colINSERTAR.Name = "colINSERTAR"
         Me.colINSERTAR.Visible = True
-        Me.colINSERTAR.VisibleIndex = 4
+        Me.colINSERTAR.VisibleIndex = 3
         '
         'RepositoryItemCheckEdit2
         '
@@ -226,7 +220,7 @@ Partial Class XfrmOperacionesPorRol
         Me.colMODIFICAR.FieldName = "MODIFICAR"
         Me.colMODIFICAR.Name = "colMODIFICAR"
         Me.colMODIFICAR.Visible = True
-        Me.colMODIFICAR.VisibleIndex = 5
+        Me.colMODIFICAR.VisibleIndex = 4
         '
         'RepositoryItemCheckEdit3
         '
@@ -242,7 +236,7 @@ Partial Class XfrmOperacionesPorRol
         Me.colELIMINAR.FieldName = "ELIMINAR"
         Me.colELIMINAR.Name = "colELIMINAR"
         Me.colELIMINAR.Visible = True
-        Me.colELIMINAR.VisibleIndex = 6
+        Me.colELIMINAR.VisibleIndex = 5
         '
         'RepositoryItemCheckEdit1
         '
@@ -545,25 +539,23 @@ Partial Class XfrmOperacionesPorRol
         'PanelControl1
         '
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PanelControl1.Controls.Add(Me.BtnEliminar)
-        Me.PanelControl1.Controls.Add(Me.BtnNuevo)
-        Me.PanelControl1.Controls.Add(Me.BtnGuardar)
+        Me.PanelControl1.Controls.Add(Me.FlowLayoutPanel1)
         Me.PanelControl1.Location = New System.Drawing.Point(12, 12)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(268, 60)
+        Me.PanelControl1.Size = New System.Drawing.Size(360, 60)
         Me.PanelControl1.TabIndex = 7
         '
-        'BtnEliminar
+        'FlowLayoutPanel1
         '
-        Me.BtnEliminar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnEliminar.Appearance.Options.UseFont = True
-        Me.BtnEliminar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.eliminar
-        Me.BtnEliminar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnEliminar.Location = New System.Drawing.Point(123, 2)
-        Me.BtnEliminar.Name = "BtnEliminar"
-        Me.BtnEliminar.Size = New System.Drawing.Size(55, 55)
-        Me.BtnEliminar.TabIndex = 2
-        Me.BtnEliminar.Text = "Eliminar"
+        Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.Transparent
+        Me.FlowLayoutPanel1.Controls.Add(Me.BtnNuevo)
+        Me.FlowLayoutPanel1.Controls.Add(Me.BtnGuardar)
+        Me.FlowLayoutPanel1.Controls.Add(Me.BtnEliminar)
+        Me.FlowLayoutPanel1.Controls.Add(Me.BtnSalir)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 0)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(248, 64)
+        Me.FlowLayoutPanel1.TabIndex = 10
         '
         'BtnNuevo
         '
@@ -571,7 +563,7 @@ Partial Class XfrmOperacionesPorRol
         Me.BtnNuevo.Appearance.Options.UseFont = True
         Me.BtnNuevo.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
         Me.BtnNuevo.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnNuevo.Location = New System.Drawing.Point(5, 2)
+        Me.BtnNuevo.Location = New System.Drawing.Point(3, 3)
         Me.BtnNuevo.Name = "BtnNuevo"
         Me.BtnNuevo.Size = New System.Drawing.Size(55, 55)
         Me.BtnNuevo.TabIndex = 0
@@ -583,11 +575,36 @@ Partial Class XfrmOperacionesPorRol
         Me.BtnGuardar.Appearance.Options.UseFont = True
         Me.BtnGuardar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.guardar1
         Me.BtnGuardar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnGuardar.Location = New System.Drawing.Point(64, 2)
+        Me.BtnGuardar.Location = New System.Drawing.Point(64, 3)
         Me.BtnGuardar.Name = "BtnGuardar"
         Me.BtnGuardar.Size = New System.Drawing.Size(55, 55)
         Me.BtnGuardar.TabIndex = 1
         Me.BtnGuardar.Text = "Guardar"
+        '
+        'BtnEliminar
+        '
+        Me.BtnEliminar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnEliminar.Appearance.Options.UseFont = True
+        Me.BtnEliminar.Enabled = False
+        Me.BtnEliminar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.eliminar
+        Me.BtnEliminar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnEliminar.Location = New System.Drawing.Point(125, 3)
+        Me.BtnEliminar.Name = "BtnEliminar"
+        Me.BtnEliminar.Size = New System.Drawing.Size(55, 55)
+        Me.BtnEliminar.TabIndex = 2
+        Me.BtnEliminar.Text = "Eliminar"
+        '
+        'BtnSalir
+        '
+        Me.BtnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnSalir.Appearance.Options.UseFont = True
+        Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
+        Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnSalir.Location = New System.Drawing.Point(186, 3)
+        Me.BtnSalir.Name = "BtnSalir"
+        Me.BtnSalir.Size = New System.Drawing.Size(55, 55)
+        Me.BtnSalir.TabIndex = 10
+        Me.BtnSalir.Text = "Salir"
         '
         'LayoutControlGroup1
         '
@@ -605,11 +622,11 @@ Partial Class XfrmOperacionesPorRol
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(272, 0)
-        Me.EmptySpaceItem2.MaxSize = New System.Drawing.Size(209, 64)
-        Me.EmptySpaceItem2.MinSize = New System.Drawing.Size(209, 64)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(364, 0)
+        Me.EmptySpaceItem2.MaxSize = New System.Drawing.Size(117, 64)
+        Me.EmptySpaceItem2.MinSize = New System.Drawing.Size(117, 64)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(209, 64)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(117, 64)
         Me.EmptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
@@ -620,7 +637,7 @@ Partial Class XfrmOperacionesPorRol
         Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
         Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(272, 64)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(364, 64)
         Me.LayoutControlItem2.Text = "LayoutControlItem2"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextToControlDistance = 0
@@ -722,6 +739,7 @@ Partial Class XfrmOperacionesPorRol
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
+        Me.FlowLayoutPanel1.ResumeLayout(False)
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -741,9 +759,6 @@ Partial Class XfrmOperacionesPorRol
     Friend WithEvents IMROLESBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents IM_ROLESTableAdapter As Inscripcion_de_Moviemientos.DTUsersTableAdapters.IM_ROLESTableAdapter
     Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
-    Friend WithEvents BtnEliminar As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents BtnNuevo As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents BtnGuardar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents DataLayoutControl1 As DevExpress.XtraDataLayout.DataLayoutControl
     Friend WithEvents PanelControl2 As DevExpress.XtraEditors.PanelControl
@@ -777,7 +792,6 @@ Partial Class XfrmOperacionesPorRol
     Friend WithEvents DT_OPCIONES_X_ROLTableAdapter As Inscripcion_de_Moviemientos.DTUsersTableAdapters.DT_OPCIONES_X_ROLTableAdapter
     Friend WithEvents colCODIGO_OPCION As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colCODIGO_ROL As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colROLES As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colOPCION As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colINSERTAR As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCheckEdit2 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
@@ -785,4 +799,9 @@ Partial Class XfrmOperacionesPorRol
     Friend WithEvents RepositoryItemCheckEdit3 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents colELIMINAR As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+    Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents BtnNuevo As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnGuardar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnEliminar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnSalir As DevExpress.XtraEditors.SimpleButton
 End Class

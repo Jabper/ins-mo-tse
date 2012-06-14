@@ -1,6 +1,8 @@
 ﻿Imports System.Data.OracleClient
-Public Class XfrmRoles
+Imports DevExpress.XtraEditors
 
+Public Class XfrmRoles
+    Dim actualizar As Boolean = False
     Private Sub XfrmRoles_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'DTUsers.IM_OPCIONES' table. You can move, or remove it, as needed.
         Me.IM_OPCIONESTableAdapter.Fill(Me.DTUsers.IM_OPCIONES)
@@ -9,17 +11,27 @@ Public Class XfrmRoles
         Me.IM_ROLESTableAdapter.Fill(Me.DTUsers.IM_ROLES)
         Me.IMROLESBindingSource.AddNew()
 
+        If COracle.credenciales("BtnRoles", "MODIFICAR") = "N" And COracle.credenciales("BtnRoles", "INSERTAR") = "N" Then
+            DxControls.ObtenerCredencial("BtnRoles", "MODIFICAR", Me.BtnGuardar)
+        End If
         DxControls.ObtenerCredencial("BtnRoles", "INSERTAR", Me.BtnNuevo)
-        DxControls.ObtenerCredencial("BtnRoles", "MODIFICAR", Me.BtnGuardar)
         DxControls.ObtenerCredencial("BtnRoles", "ELIMINAR", Me.BtnEliminar)
+       
 
     End Sub
 
 
 
     Sub nuevo()
-        Me.IMROLESBindingSource.CancelEdit()
-        Me.IMROLESBindingSource.AddNew()
+        Try
+            Me.IMROLESBindingSource.CancelEdit()
+            Me.IMROLESBindingSource.AddNew()
+            actualizar = False
+            Me.BtnEliminar.Enabled = False
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
     Sub guardar()
@@ -43,9 +55,19 @@ Public Class XfrmRoles
 
             'AGREGANDO LA INFORMACION A LA BASE DE DATOS
             Me.IM_ROLESTableAdapter.Update(Me.DTUsers.IM_ROLES)
-            'GuardarOpciones(CType(Me.CODIGO_ROLSpinEdit.EditValue, Integer))
+
             'ACTUALIZANDO EL GRID DE BUSQUEDA Y EDICION
             ActualizarGrid()
+
+            'Edicion
+            BtnEliminar.Enabled = False
+            If actualizar = True Then
+                Mensajes.MensajeActualizar()
+                actualizar = False
+            Else
+                Mensajes.MensajeGuardar()
+            End If
+            Me.IMROLESBindingSource.AddNew()
         Catch ex As Exception
             'CONTROL DE ERRORES
             Mensajes.MensajeError(ex.Message)
@@ -68,45 +90,13 @@ Public Class XfrmRoles
             Me.IM_ROLESTableAdapter.FillBy(DTUsers.IM_ROLES, CType(cellValue, Integer))
             'MostarOpciones(CType(cellValue, Integer))
 
-
+            actualizar = True
+            BtnEliminar.Enabled = True
         Catch ex As System.Exception
             Mensajes.MensajeError("Seleccione una Fila con Datos para Realizar la Edición")
         End Try
     End Sub
 
-    'Sub MostarOpciones(ByVal codigoRol As Integer)
-    '    Dim i As Integer = 0
-    '    'COMPROBAR TODOS LOS ITEMS
-    '    Do While Not Me.CheckedListBoxControl1.GetItem(i) Is Nothing
-    '        'CONEXION A LA BASE DE DATOS
-    '        Dim oradb As String = Configuracion.verconfig
-    '        Dim conn As New OracleConnection()
-    '        conn.ConnectionString = oradb
-    '        conn.Open()
-
-    '        Dim sql As String = "SELECT CODIGO_OPCION, CODIGO_ROL "
-    '        sql &= "FROM IM_OPERACIONES_POR_ROL "
-    '        sql &= "WHERE CODIGO_ROL =" & codigoRol
-    '        sql &= " AND CODIGO_OPCION=" & CType(Me.CheckedListBoxControl1.GetItemValue(i), Integer)
-
-    '        Dim cmd As New OracleCommand(sql, conn)
-    '        Dim chek As OracleDataReader = cmd.ExecuteReader
-    '        'RECORRIENDO TODOS LOS DATOS PARA MOTRAR LOS DATOS
-    '        While chek.Read
-    '            'If chek.Read Then
-    '            'SI EXISTE LO CHEKEA
-    '            CheckedListBoxControl1.SetItemCheckState(i, (CheckState.Checked))
-    '            'Else
-    '            'SI NO EXISTE LO DESMARCA
-    '            'CheckedListBoxControl1.SetItemCheckState(i, (CheckState.Unchecked))
-
-    '            'End If
-    '        End While
-
-    '        i += 1
-    '        conn.Close()
-    '    Loop
-    'End Sub
 
     Public Function comprobarbase(ByVal CodigoRol As Integer, ByVal CodigoOpcion As Integer) As Boolean
         Try
@@ -135,129 +125,82 @@ Public Class XfrmRoles
         End Try
 
     End Function
-    'Sub GuardarOpciones(ByVal codigoRol As Integer)
-    '    Dim i As Integer = 0
-    '    'COMPROBAR TODOS LOS ITEMS
-    '    Do While Not Me.CheckedListBoxControl1.GetItem(i) Is Nothing
-    '        'SI UN ITEM ESTA CHECADO
-    '        If Me.CheckedListBoxControl1.GetItemCheckState(i) = CheckState.Checked Then
-    '            'COMPROBAMOS SI EXISTE EN LA BASE
-    '            If comprobarbase(codigoRol, CType(Me.CheckedListBoxControl1.GetItemValue(i).ToString, Integer)) = False Then
-    '                'agregue
-    '                Dim fecha As String = DateTime.Now.Day.ToString & "/" & DateTime.Now.Month.ToString & "/" & DateTime.Now.Year.ToString
-    '                Dim sql As String = "INSERT INTO IM_OPERACIONES_POR_ROL (CODIGO_OPCION,CODIGO_ROL,ADICIONADO_POR,FECHA_ADICION) "
-    '                sql &= "VALUES("
-    '                sql &= CType(Me.CheckedListBoxControl1.GetItemValue(i), Integer) & ","
-    '                sql &= codigoRol & ",'" & usuario & "'," & "TO_DATE('" & fecha & "', 'DD/MM/YYYY'))"
-    '                COracle.ejecutarconsulta(sql)
-    '            End If
 
-    '        ElseIf Me.CheckedListBoxControl1.GetItemCheckState(i) = CheckState.Unchecked Then
-    '            If comprobarbase(codigoRol, CType(Me.CheckedListBoxControl1.GetItemValue(i).ToString, Integer)) = True Then
-    '                Dim sql As String = "DELETE  FROM IM_OPERACIONES_POR_ROL"
-    '                sql &= " WHERE CODIGO_OPCION=" & CType(Me.CheckedListBoxControl1.GetItemValue(i), Integer)
-    '                sql &= " AND CODIGO_ROL=" & codigoRol & ";"
 
-    '                COracle.ejecutarconsulta(sql)
-    '            End If
-
-    '        End If
+    Private Sub GridView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.Click
+        MostrarDatos()
+    End Sub
 
 
 
-    '        i += 1
-    '    Loop
+    Private Sub CODIGO_ROLSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CODIGO_ROLSpinEdit.KeyPress
+        VControles.solonumeros(e)
+    End Sub
 
 
 
-    'Me.CheckedListBoxControl1.GetItemValue(i)
+    Private Sub DESCRIPCIONTextEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles DESCRIPCIONTextEdit.KeyPress
+        If Char.IsLower(e.KeyChar) Then
 
-    'If Me.CheckedListBoxControl1.GetItemCheckState(i) = CheckState.Unchecked Then
-    '    MsgBox(Me.CheckedListBoxControl1.GetItemValue(i).ToString)
-    'End If
+            'Convert to uppercase, and put at the caret position in the TextBox.
+            DESCRIPCIONTextEdit.SelectedText = Char.ToUpper(e.KeyChar)
 
+            e.Handled = True
+        End If
+    End Sub
 
-    'Try
-    'For i = 1 To Me.CheckedListBoxControl1.Items.Count
-    '    If Me.CheckedListBoxControl1.Items(i).CheckState = CheckState.Checked Then
-    '        MsgBox(Me.CheckedListBoxControl1.Items(i).Value.ToString)
-    '        'Dim foundRows() As DTUsers.IM_OPERACIONES_POR_ROLRow
-    '        'foundRows = DTUsers.Tables("IM_OPERACIONES_POR_ROL").Select("CODIGO_OPCION=" & Me.CheckedListBoxControl1.Items(i).Value 
-
-
-    '    End If
-    'Next
-
-    'OBTIENE EL VALOR DE TODOS LOS ELEMENTOS SELECCIONADOS
-    'For Each _view As DataRowView In CheckedListBoxControl1.CheckedItems
-
-    '    MsgBox(_view(CheckedListBoxControl1.ValueMember).ToString())
-
-    'Next
-
-    'OBTIENE EL VALOR DE TODOS LOS ELEMENTOS DESELECCIONADOS
-
-    'Dim i As Integer = 0
-    'Do While Not Me.CheckedListBoxControl1.GetItem(i) Is Nothing
-
-    '    If Me.CheckedListBoxControl1.GetItemCheckState(i) = CheckState.Unchecked Then
-    '        MsgBox(Me.CheckedListBoxControl1.GetItemValue(i).ToString)
-    '    End If
-
-    'If True.Equals(CheckedListBoxControl1.GetItemValue(i)) Then
-    '    CheckedListBoxControl1.SetItemCheckState(i, (CheckState.Unchecked))
-    'Else
-    '    CheckedListBoxControl1.SetItemCheckState(i, (CheckState.Checked))
-    'End If
-    '    i += 1
-    '    Loop
-    'Catch ex As Exception
-    '    MsgBox(ex.Message)
-    'End Try
+    Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
+        Me.Close()
+    End Sub
 
 
-
-
-
-    'Dim opcion As Integer
-    'Dim rol As Integer
-    'For Each _datar As DTUsers.IM_OPERACIONES_POR_ROLRow In DTUsers.IM_OPERACIONES_POR_ROL
-
-    '    If _datar.CODIGO_OPCION = opcion And _datar.CODIGO_ROL = rol Then
-
-
-    '    End If
-    'Next
-
-
-
-    'End Sub
-
+    Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
+        eliminar()
+    End Sub
 
     Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
         nuevo()
     End Sub
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
-        guardar()
+        If actualizar = True And COracle.credenciales("BtnRoles", "MODIFICAR") = "S" Then
+            guardar()
+        ElseIf actualizar = True And COracle.credenciales("BtnRoles", "MODIFICAR") <> "S" Then
+            Mensajes.MensajeError("El ususario no tiene permisos de Modificacion en esta pantalla")
+        ElseIf actualizar = False And COracle.credenciales("BtnRoles", "INSERTAR") = "S" Then
+            guardar()
+        ElseIf actualizar = False And COracle.credenciales("BtnRoles", "INSERTAR") <> "S" Then
+            Mensajes.MensajeError("El ususario no tiene permisos de Inserción en esta pantalla")
+        End If
     End Sub
 
-   
+
+    Sub eliminar()
 
 
-    Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
+        If XtraMessageBox.Show("¿Desea Eliminar el Registro Seleccionado?", "Mensaje de Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+            Try
 
+                Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
+                Dim Drow As DTUsers.IM_ROLESRow
+                Drow = Me.DTUsers.IM_ROLES.FindByCODIGO_ROL(CType(cellValue, Integer))
+
+                Drow.Delete()
+
+                Me.IM_ROLESTableAdapter.Update(Me.DTUsers.IM_ROLES)
+                ActualizarGrid()
+                Mensajes.MensajeEliminar()
+                Me.IMROLESBindingSource.AddNew()
+                Me.BtnEliminar.Enabled = False
+                actualizar = False
+            Catch ex As Exception
+                Mensajes.MensajeError(ex.Message)
+            End Try
+
+        End If
     End Sub
 
-    Private Sub GridView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.Click
-        MostrarDatos()
-    End Sub
+    Private Sub DESCRIPCIONTextEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DESCRIPCIONTextEdit.EditValueChanged
 
-    Private Sub CODIGO_ROLSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_ROLSpinEdit.EditValueChanged
-
-    End Sub
-
-    Private Sub CODIGO_ROLSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CODIGO_ROLSpinEdit.KeyPress
-        VControles.solonumeros(e)
     End Sub
 End Class

@@ -185,6 +185,7 @@ Public Class XfrmCargoElectivo
                 Mensajes.MensajeEliminar()
                 Me.IMCARGOSELECTIVOSBindingSource.AddNew()
                 Me.BtnEliminar.Enabled = False
+                actualizar = False
             Catch ex As Exception
                 Mensajes.MensajeError(ex.Message)
             End Try

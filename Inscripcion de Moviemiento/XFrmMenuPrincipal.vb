@@ -124,4 +124,9 @@ Public Class XFrmMenuPrincipal
     Private Sub BtnOperaciones_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnOperaciones.ItemClick
         Padre(XfrmOperacionesPorRol)
     End Sub
+
+    
+    Private Sub BtnOperacionesUsuarios_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnOperacionesUsuarios.ItemClick
+        Padre(XfrmOperacionesPorUsuario)
+    End Sub
 End Class

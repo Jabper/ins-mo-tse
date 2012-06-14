@@ -516,9 +516,7 @@ Partial Public Class DTUsuario
             Me.columnMODIFICAR.MaxLength = 1
             Me.columnELIMINAR.AllowDBNull = false
             Me.columnELIMINAR.MaxLength = 1
-            Me.columnADICIONADO_POR.AllowDBNull = false
             Me.columnADICIONADO_POR.MaxLength = 10
-            Me.columnFECHA_ADICION.AllowDBNull = false
             Me.columnMODIFICADO_POR.MaxLength = 10
         End Sub
         
@@ -1027,7 +1025,12 @@ Partial Public Class DTUsuario
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property ADICIONADO_POR() As String
             Get
-                Return CType(Me(Me.tableIM_OPERACIONES_X_USUARIO.ADICIONADO_PORColumn),String)
+                Try 
+                    Return CType(Me(Me.tableIM_OPERACIONES_X_USUARIO.ADICIONADO_PORColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ADICIONADO_POR' in table 'IM_OPERACIONES_X_USUARIO' is DBNu"& _ 
+                            "ll.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableIM_OPERACIONES_X_USUARIO.ADICIONADO_PORColumn) = value
@@ -1037,7 +1040,12 @@ Partial Public Class DTUsuario
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property FECHA_ADICION() As Date
             Get
-                Return CType(Me(Me.tableIM_OPERACIONES_X_USUARIO.FECHA_ADICIONColumn),Date)
+                Try 
+                    Return CType(Me(Me.tableIM_OPERACIONES_X_USUARIO.FECHA_ADICIONColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FECHA_ADICION' in table 'IM_OPERACIONES_X_USUARIO' is DBNul"& _ 
+                            "l.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableIM_OPERACIONES_X_USUARIO.FECHA_ADICIONColumn) = value
@@ -1083,6 +1091,26 @@ Partial Public Class DTUsuario
                 Me.SetParentRow(value, Me.Table.ParentRelations("IM_FK2_OPERACIONES_X_USUARIO"))
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsADICIONADO_PORNull() As Boolean
+            Return Me.IsNull(Me.tableIM_OPERACIONES_X_USUARIO.ADICIONADO_PORColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetADICIONADO_PORNull()
+            Me(Me.tableIM_OPERACIONES_X_USUARIO.ADICIONADO_PORColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsFECHA_ADICIONNull() As Boolean
+            Return Me.IsNull(Me.tableIM_OPERACIONES_X_USUARIO.FECHA_ADICIONColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetFECHA_ADICIONNull()
+            Me(Me.tableIM_OPERACIONES_X_USUARIO.FECHA_ADICIONColumn) = Global.System.Convert.DBNull
+        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsMODIFICADO_PORNull() As Boolean
@@ -1493,10 +1521,9 @@ Namespace DTUsuarioTableAdapters
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        CODIGO_OPCION, CODIGO_USUARIO, INSERTAR, MODIFICAR, ELIMINAR, ADICI"& _ 
-                "ONADO_POR, FECHA_ADICION, MODIFICADO_POR, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FECHA_MODIF"& _ 
-                "ICACION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_OPERACIONES_X_USUARIO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE  CODIGO_OPCION=:id AND "& _ 
-                "CODIGO_USUARIO=:us"
+            Me._commandCollection(1).CommandText = "SELECT ADICIONADO_POR, CODIGO_OPCION, CODIGO_USUARIO, ELIMINAR, FECHA_ADICION, FE"& _ 
+                "CHA_MODIFICACION, INSERTAR, MODIFICADO_POR, MODIFICAR FROM IM_OPERACIONES_X_USUA"& _ 
+                "RIO WHERE (CODIGO_OPCION = :id) AND (CODIGO_USUARIO = :us)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_OPCION", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("us", Global.System.Data.OracleClient.OracleType.VarChar, 10, Global.System.Data.ParameterDirection.Input, "CODIGO_USUARIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -1585,7 +1612,7 @@ Namespace DTUsuarioTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_CODIGO_OPCION As Decimal, ByVal Original_CODIGO_USUARIO As String, ByVal Original_INSERTAR As String, ByVal Original_MODIFICAR As String, ByVal Original_ELIMINAR As String, ByVal Original_ADICIONADO_POR As String, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As String, ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_CODIGO_OPCION As Decimal, ByVal Original_CODIGO_USUARIO As String, ByVal Original_INSERTAR As String, ByVal Original_MODIFICAR As String, ByVal Original_ELIMINAR As String, ByVal Original_ADICIONADO_POR As String, ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date), ByVal Original_MODIFICADO_POR As String, ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CODIGO_OPCION,Decimal)
             If (Original_CODIGO_USUARIO Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_CODIGO_USUARIO")
@@ -1608,11 +1635,15 @@ Namespace DTUsuarioTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_ELIMINAR,String)
             End If
             If (Original_ADICIONADO_POR Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_ADICIONADO_POR")
+                Me.Adapter.DeleteCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_ADICIONADO_POR,String)
             End If
-            Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_FECHA_ADICION,Date)
+            If (Original_FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+            End If
             If (Original_MODIFICADO_POR Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
@@ -1645,7 +1676,7 @@ Namespace DTUsuarioTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal CODIGO_OPCION As Decimal, ByVal CODIGO_USUARIO As String, ByVal INSERTAR As String, ByVal MODIFICAR As String, ByVal ELIMINAR As String, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Insert(ByVal CODIGO_OPCION As Decimal, ByVal CODIGO_USUARIO As String, ByVal INSERTAR As String, ByVal MODIFICAR As String, ByVal ELIMINAR As String, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Global.System.Nullable(Of Date), ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(CODIGO_OPCION,Decimal)
             If (CODIGO_USUARIO Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("CODIGO_USUARIO")
@@ -1668,11 +1699,15 @@ Namespace DTUsuarioTableAdapters
                 Me.Adapter.InsertCommand.Parameters(4).Value = CType(ELIMINAR,String)
             End If
             If (ADICIONADO_POR Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("ADICIONADO_POR")
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.InsertCommand.Parameters(5).Value = CType(ADICIONADO_POR,String)
             End If
-            Me.Adapter.InsertCommand.Parameters(6).Value = CType(FECHA_ADICION,Date)
+            If (FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            End If
             If (MODIFICADO_POR Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
@@ -1708,7 +1743,7 @@ Namespace DTUsuarioTableAdapters
                     ByVal MODIFICAR As String,  _
                     ByVal ELIMINAR As String,  _
                     ByVal ADICIONADO_POR As String,  _
-                    ByVal FECHA_ADICION As Date,  _
+                    ByVal FECHA_ADICION As Global.System.Nullable(Of Date),  _
                     ByVal MODIFICADO_POR As String,  _
                     ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date),  _
                     ByVal Original_CODIGO_OPCION As Decimal,  _
@@ -1717,7 +1752,7 @@ Namespace DTUsuarioTableAdapters
                     ByVal Original_MODIFICAR As String,  _
                     ByVal Original_ELIMINAR As String,  _
                     ByVal Original_ADICIONADO_POR As String,  _
-                    ByVal Original_FECHA_ADICION As Date,  _
+                    ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date),  _
                     ByVal Original_MODIFICADO_POR As String,  _
                     ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CODIGO_OPCION,Decimal)
@@ -1742,11 +1777,15 @@ Namespace DTUsuarioTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(4).Value = CType(ELIMINAR,String)
             End If
             If (ADICIONADO_POR Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("ADICIONADO_POR")
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(5).Value = CType(ADICIONADO_POR,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(FECHA_ADICION,Date)
+            If (FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            End If
             If (MODIFICADO_POR Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
@@ -1779,11 +1818,15 @@ Namespace DTUsuarioTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_ELIMINAR,String)
             End If
             If (Original_ADICIONADO_POR Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_ADICIONADO_POR")
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_ADICIONADO_POR,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_FECHA_ADICION,Date)
+            If (Original_FECHA_ADICION.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_FECHA_ADICION.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+            End If
             If (Original_MODIFICADO_POR Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
@@ -1821,7 +1864,7 @@ Namespace DTUsuarioTableAdapters
                     ByVal MODIFICAR As String,  _
                     ByVal ELIMINAR As String,  _
                     ByVal ADICIONADO_POR As String,  _
-                    ByVal FECHA_ADICION As Date,  _
+                    ByVal FECHA_ADICION As Global.System.Nullable(Of Date),  _
                     ByVal MODIFICADO_POR As String,  _
                     ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date),  _
                     ByVal Original_CODIGO_OPCION As Decimal,  _
@@ -1830,7 +1873,7 @@ Namespace DTUsuarioTableAdapters
                     ByVal Original_MODIFICAR As String,  _
                     ByVal Original_ELIMINAR As String,  _
                     ByVal Original_ADICIONADO_POR As String,  _
-                    ByVal Original_FECHA_ADICION As Date,  _
+                    ByVal Original_FECHA_ADICION As Global.System.Nullable(Of Date),  _
                     ByVal Original_MODIFICADO_POR As String,  _
                     ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Return Me.Update(Original_CODIGO_OPCION, Original_CODIGO_USUARIO, INSERTAR, MODIFICAR, ELIMINAR, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, Original_CODIGO_OPCION, Original_CODIGO_USUARIO, Original_INSERTAR, Original_MODIFICAR, Original_ELIMINAR, Original_ADICIONADO_POR, Original_FECHA_ADICION, Original_MODIFICADO_POR, Original_FECHA_MODIFICACION)
@@ -1976,7 +2019,7 @@ Namespace DTUsuarioTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        IM_OPERACIONES_X_USUARIO.CODIGO_OPCION, IM_OPERACIONES_X_USUARIO.CO"& _ 
@@ -1990,6 +2033,20 @@ Namespace DTUsuarioTableAdapters
                 "SUARIO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_OPCIONES.ADICIONADO_POR = IM_USUARIOS.C"& _ 
                 "ODIGO_USUARIO"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        IM_OPERACIONES_X_USUARIO.CODIGO_OPCION, IM_OPERACIONES_X_USUARIO.CO"& _ 
+                "DIGO_USUARIO, IM_OPCIONES.DESCRIPCION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_OPERACIONES"& _ 
+                "_X_USUARIO.INSERTAR, IM_OPERACIONES_X_USUARIO.MODIFICAR, IM_OPERACIONES_X_USUARI"& _ 
+                "O.ELIMINAR, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_USUARIOS.NOMBRE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_OP"& _ 
+                "ERACIONES_X_USUARIO, IM_OPCIONES, IM_USUARIOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        IM_OPERACIONES_X_USU"& _ 
+                "ARIO.CODIGO_OPCION = IM_OPCIONES.CODIGO_OPCION AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM"& _ 
+                "_OPERACIONES_X_USUARIO.ADICIONADO_POR = IM_USUARIOS.CODIGO_USUARIO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "                  IM_OPERACIONES_X_USUARIO.CODIGO_USUARIO = IM_USUARIOS.CODIGO_U"& _ 
+                "SUARIO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_OPCIONES.ADICIONADO_POR = IM_USUARIOS.C"& _ 
+                "ODIGO_USUARIO AND"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"IM_OPERACIONES_X_USUARIO.CODIGO_USUARIO=:us"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("us", Global.System.Data.OracleClient.OracleType.VarChar, 10, Global.System.Data.ParameterDirection.Input, "CODIGO_USUARIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2009,6 +2066,38 @@ Namespace DTUsuarioTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As DTUsuario.DT_OPERACIONESDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As DTUsuario.DT_OPERACIONESDataTable = New DTUsuario.DT_OPERACIONESDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DTUsuario.DT_OPERACIONESDataTable, ByVal us As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (us Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("us")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(us,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy(ByVal us As String) As DTUsuario.DT_OPERACIONESDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (us Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("us")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(us,String)
+            End If
             Dim dataTable As DTUsuario.DT_OPERACIONESDataTable = New DTUsuario.DT_OPERACIONESDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable

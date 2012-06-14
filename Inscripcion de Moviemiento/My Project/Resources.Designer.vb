@@ -221,6 +221,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property useraccess() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("useraccess", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property Usuarios() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Usuarios", resourceCulture)
