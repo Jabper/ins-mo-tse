@@ -152,16 +152,10 @@ Public Class XfrmCargoElectivo
         VControles.solonumeros(e)
     End Sub
 
-    Private Sub DESCRIPCIONTextEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DESCRIPCIONTextEdit.EditValueChanged
-
-    End Sub
-
     Private Sub DESCRIPCIONTextEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles DESCRIPCIONTextEdit.KeyPress
         If Char.IsLower(e.KeyChar) Then
-
             'Convert to uppercase, and put at the caret position in the TextBox.
             DESCRIPCIONTextEdit.SelectedText = Char.ToUpper(e.KeyChar)
-
             e.Handled = True
         End If
     End Sub
