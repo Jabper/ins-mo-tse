@@ -18,6 +18,9 @@ Public Class XfrmOperacionesPorRol
         Me.IMOPERACIONESPORROLBindingSource.AddNew()
         Me.DT_OPCIONES_X_ROLTableAdapter.FillBy(Me.DTUsers.DT_OPCIONES_X_ROL, 0)
 
+        Me.ChkInsertar.Checked = False
+        Me.ChkModificar.Checked = False
+        Me.ChkEliminar.Checked = False
         If COracle.credenciales("BtnOperaciones", "MODIFICAR") = "N" And COracle.credenciales("BtnOperaciones", "INSERTAR") = "N" Then
             DxControls.ObtenerCredencial("BtnOperaciones", "MODIFICAR", Me.BtnGuardar)
         End If
@@ -113,12 +116,10 @@ Public Class XfrmOperacionesPorRol
 
 
     Sub eliminar()
-
-
         If XtraMessageBox.Show("¿Desea Eliminar el Registro Seleccionado?", "Mensaje de Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
             Try
 
-                
+
                 'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
                 Me.IM_OPERACIONES_POR_ROLTableAdapter.FillBy(DTUsers.IM_OPERACIONES_POR_ROL, idop, idrol)
                 Dim Drow As DTUsers.IM_OPERACIONES_POR_ROLRow
@@ -166,6 +167,10 @@ Public Class XfrmOperacionesPorRol
     End Sub
 
     Private Sub GridView1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.DoubleClick
+        'MostrarDatos()
+    End Sub
+
+    Private Sub GCBusqueda_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GCBusqueda.Click
         MostrarDatos()
     End Sub
 End Class

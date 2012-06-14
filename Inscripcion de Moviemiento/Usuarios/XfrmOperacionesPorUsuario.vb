@@ -2,6 +2,8 @@
 
 Public Class XfrmOperacionesPorUsuario
     Dim actualizar As Boolean = False
+    Dim idcodigo As String
+    Dim iduser As String
     Private Sub XfrmOperacionesPorUsuario_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'DTUsuario.DT_OPERACIONES' table. You can move, or remove it, as needed.
 
@@ -14,7 +16,9 @@ Public Class XfrmOperacionesPorUsuario
         Me.DT_OPERACIONESTableAdapter.FillBy(Me.DTUsuario.DT_OPERACIONES, "Null")
         Me.IMOPERACIONESXUSUARIOBindingSource.AddNew()
 
-
+        Me.ChkInsertar.Checked = False
+        Me.ChkModificar.Checked = False
+        Me.ChkEliminar.Checked = False
         If COracle.credenciales("BtnOperacionesUsuarios", "MODIFICAR") = "N" And COracle.credenciales("BtnOperacionesUsuarios", "INSERTAR") = "N" Then
             DxControls.ObtenerCredencial("BtnOperacionesUsuarios", "MODIFICAR", Me.BtnGuardar)
         End If
@@ -78,8 +82,8 @@ Public Class XfrmOperacionesPorUsuario
         Try
 
             'SE LE ASIGNA A UNA VARIABLE EL VALOR DE LA CELDA QUE SE DESEA
-            Dim idcodigo As String = Data.CapturarDatoGrid(Me.GridView1, 0)
-            Dim iduser As String = Data.CapturarDatoGrid(Me.GridView1, 1)
+            idcodigo = Data.CapturarDatoGrid(Me.GridView1, 0)
+            iduser = Data.CapturarDatoGrid(Me.GridView1, 1)
             'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
 
             Me.IM_OPERACIONES_X_USUARIOTableAdapter.FillBy(DTUsuario.IM_OPERACIONES_X_USUARIO, CType(idcodigo, Integer), iduser)
@@ -102,7 +106,7 @@ Public Class XfrmOperacionesPorUsuario
     End Sub
 
     Private Sub GridView1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.DoubleClick
-        MostrarDatos()
+        '        MostrarDatos()
     End Sub
 
     Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
@@ -130,6 +134,32 @@ Public Class XfrmOperacionesPorUsuario
         eliminar()
     End Sub
     Sub eliminar()
+        If XtraMessageBox.Show("¿Desea Eliminar el Registro Seleccionado?", "Mensaje de Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+            Try
 
+
+                'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
+                Me.IM_OPERACIONES_X_USUARIOTableAdapter.FillBy(DTUsuario.IM_OPERACIONES_X_USUARIO, CType(idcodigo, Integer), iduser)
+                Dim Drow As DTUsuario.IM_OPERACIONES_X_USUARIORow
+
+                Drow = DTUsuario.IM_OPERACIONES_X_USUARIO.FindByCODIGO_OPCIONCODIGO_USUARIO(CType(idcodigo, Integer), iduser)
+
+                Drow.Delete()
+
+                Me.IM_OPERACIONES_X_USUARIOTableAdapter.Update(Me.DTUsuario.IM_OPERACIONES_X_USUARIO)
+                ActualizarGrid()
+                Mensajes.MensajeEliminar()
+                Me.IMOPERACIONESXUSUARIOBindingSource.AddNew()
+                Me.BtnEliminar.Enabled = False
+                actualizar = False
+            Catch ex As Exception
+                Mensajes.MensajeError(ex.Message)
+            End Try
+
+        End If
+    End Sub
+
+    Private Sub GCBusqueda_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GCBusqueda.Click
+        MostrarDatos()
     End Sub
 End Class

@@ -10,10 +10,6 @@ Public Class XfrmUsuarios
     End Sub
 
     Private Sub XfrmUsuarios_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-       
-        'Dim waitDialog As New WaitDialogForm("Cargando Información", "Por favor Espere..")
-        'Thread.Sleep(2000) ' long process
-        'waitDialog.Caption = "Obteniendo Datos"
         '******************************************
         Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
         Me.DT_USUARIOSTableAdapter.Fill(Me.DTUsers.DT_USUARIOS)
@@ -24,8 +20,7 @@ Public Class XfrmUsuarios
         Me.IMUSUARIOSBindingSource.AddNew()
         '*******************************************
        
-        'waitDialog.Close()
-
+        ESTADOTextEdit.Checked = False
         If COracle.credenciales("BtnUsuarios", "MODIFICAR") = "N" And COracle.credenciales("BtnUsuarios", "INSERTAR") = "N" Then
             DxControls.ObtenerCredencial("BtnUsuarios", "MODIFICAR", Me.BtnGuardar)
         End If
@@ -157,5 +152,8 @@ Public Class XfrmUsuarios
         MostrarDatos()
     End Sub
 
-    
+  
+    Private Sub CODIGO_USUARIOSpinEdit_InvalidValue(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs) Handles CODIGO_USUARIOSpinEdit.InvalidValue
+        e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction
+    End Sub
 End Class

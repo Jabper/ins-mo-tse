@@ -135,7 +135,7 @@ Partial Class XfrmOperacionesPorRol
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(583, 137, 250, 350)
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(501, 386)
+        Me.LayoutControl1.Size = New System.Drawing.Size(546, 386)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
@@ -146,7 +146,7 @@ Partial Class XfrmOperacionesPorRol
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
         Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1, Me.RepositoryItemCheckEdit2, Me.RepositoryItemCheckEdit3})
-        Me.GCBusqueda.Size = New System.Drawing.Size(475, 187)
+        Me.GCBusqueda.Size = New System.Drawing.Size(522, 187)
         Me.GCBusqueda.TabIndex = 8
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -180,6 +180,7 @@ Partial Class XfrmOperacionesPorRol
         Me.colCODIGO_OPCION.Name = "colCODIGO_OPCION"
         Me.colCODIGO_OPCION.Visible = True
         Me.colCODIGO_OPCION.VisibleIndex = 0
+        Me.colCODIGO_OPCION.Width = 77
         '
         'colCODIGO_ROL
         '
@@ -188,6 +189,7 @@ Partial Class XfrmOperacionesPorRol
         Me.colCODIGO_ROL.Name = "colCODIGO_ROL"
         Me.colCODIGO_ROL.Visible = True
         Me.colCODIGO_ROL.VisibleIndex = 1
+        Me.colCODIGO_ROL.Width = 58
         '
         'colOPCION
         '
@@ -196,6 +198,7 @@ Partial Class XfrmOperacionesPorRol
         Me.colOPCION.Name = "colOPCION"
         Me.colOPCION.Visible = True
         Me.colOPCION.VisibleIndex = 2
+        Me.colOPCION.Width = 141
         '
         'colINSERTAR
         '
@@ -542,7 +545,7 @@ Partial Class XfrmOperacionesPorRol
         Me.PanelControl1.Controls.Add(Me.FlowLayoutPanel1)
         Me.PanelControl1.Location = New System.Drawing.Point(12, 12)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(360, 60)
+        Me.PanelControl1.Size = New System.Drawing.Size(405, 60)
         Me.PanelControl1.TabIndex = 7
         '
         'FlowLayoutPanel1
@@ -614,7 +617,7 @@ Partial Class XfrmOperacionesPorRol
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.EmptySpaceItem2, Me.LayoutControlItem2, Me.LayoutControlItem1, Me.LayoutControlItem3})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(501, 386)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(546, 386)
         Me.LayoutControlGroup1.Text = "Root"
         Me.LayoutControlGroup1.TextVisible = False
         '
@@ -622,7 +625,7 @@ Partial Class XfrmOperacionesPorRol
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(364, 0)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(409, 0)
         Me.EmptySpaceItem2.MaxSize = New System.Drawing.Size(117, 64)
         Me.EmptySpaceItem2.MinSize = New System.Drawing.Size(117, 64)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
@@ -637,7 +640,7 @@ Partial Class XfrmOperacionesPorRol
         Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
         Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(364, 64)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(409, 64)
         Me.LayoutControlItem2.Text = "LayoutControlItem2"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextToControlDistance = 0
@@ -651,7 +654,7 @@ Partial Class XfrmOperacionesPorRol
         Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(479, 111)
         Me.LayoutControlItem1.MinSize = New System.Drawing.Size(479, 111)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(481, 111)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(526, 111)
         Me.LayoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem1.Text = "LayoutControlItem1"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
@@ -663,10 +666,10 @@ Partial Class XfrmOperacionesPorRol
         Me.LayoutControlItem3.Control = Me.GCBusqueda
         Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
         Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 175)
-        Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(479, 0)
-        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(479, 24)
+        Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(526, 0)
+        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(526, 24)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(481, 191)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(526, 191)
         Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem3.Text = "LayoutControlItem3"
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
@@ -693,7 +696,7 @@ Partial Class XfrmOperacionesPorRol
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(501, 386)
+        Me.ClientSize = New System.Drawing.Size(546, 386)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Name = "XfrmOperacionesPorRol"
         Me.Text = "Operaciones Por Rol"

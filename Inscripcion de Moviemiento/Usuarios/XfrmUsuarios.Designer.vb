@@ -31,7 +31,6 @@ Partial Class XfrmUsuarios
         Me.IDENTIDADTextEdit = New DevExpress.XtraEditors.TextEdit
         Me.CONTRASENATextEdit = New DevExpress.XtraEditors.TextEdit
         Me.RESPUESTA_SEGURIDADTextEdit = New DevExpress.XtraEditors.TextEdit
-        Me.NIVELSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.ADICIONADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.FECHA_ADICIONDateEdit = New DevExpress.XtraEditors.DateEdit
         Me.MODIFICADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
@@ -60,7 +59,6 @@ Partial Class XfrmUsuarios
         Me.ItemForIDENTIDAD = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForCONTRASENA = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForCODIGO_PARTIDO = New DevExpress.XtraLayout.LayoutControlItem
-        Me.ItemForNIVEL = New DevExpress.XtraLayout.LayoutControlItem
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.EmptySpaceItem3 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.EmptySpaceItem4 = New DevExpress.XtraLayout.EmptySpaceItem
@@ -78,9 +76,11 @@ Partial Class XfrmUsuarios
         Me.colCODIGO_USUARIO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colNOMBRE = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colESTADO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colDESCRIPCION = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colNOMBRE_MOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colPARTIDO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colROL = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colIDENTIDAD = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colNIVEL = New DevExpress.XtraGrid.Columns.GridColumn
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem
@@ -92,6 +92,9 @@ Partial Class XfrmUsuarios
         Me.IM_MOVIMIENTOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.IM_MOVIMIENTOSTableAdapter
         Me.DT_USUARIOSTableAdapter = New Inscripcion_de_Moviemientos.DTUsersTableAdapters.DT_USUARIOSTableAdapter
         Me.TA_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_PARTIDOS_POLITICOSTableAdapter
+        Me.EmptySpaceItem11 = New DevExpress.XtraLayout.EmptySpaceItem
+        Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.NIVELSpinEdit = New DevExpress.XtraEditors.SpinEdit
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -104,7 +107,6 @@ Partial Class XfrmUsuarios
         CType(Me.IDENTIDADTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CONTRASENATextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RESPUESTA_SEGURIDADTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NIVELSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -135,7 +137,6 @@ Partial Class XfrmUsuarios
         CType(Me.ItemForIDENTIDAD, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForCONTRASENA, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForCODIGO_PARTIDO, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ItemForNIVEL, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -156,6 +157,9 @@ Partial Class XfrmUsuarios
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem11, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NIVELSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -169,7 +173,7 @@ Partial Class XfrmUsuarios
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(572, 215, 250, 350)
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(508, 471)
+        Me.LayoutControl1.Size = New System.Drawing.Size(891, 471)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
@@ -213,7 +217,6 @@ Partial Class XfrmUsuarios
         Me.DataLayoutControl1.Controls.Add(Me.IDENTIDADTextEdit)
         Me.DataLayoutControl1.Controls.Add(Me.CONTRASENATextEdit)
         Me.DataLayoutControl1.Controls.Add(Me.RESPUESTA_SEGURIDADTextEdit)
-        Me.DataLayoutControl1.Controls.Add(Me.NIVELSpinEdit)
         Me.DataLayoutControl1.Controls.Add(Me.ADICIONADO_PORSpinEdit)
         Me.DataLayoutControl1.Controls.Add(Me.FECHA_ADICIONDateEdit)
         Me.DataLayoutControl1.Controls.Add(Me.MODIFICADO_PORSpinEdit)
@@ -224,6 +227,7 @@ Partial Class XfrmUsuarios
         Me.DataLayoutControl1.Controls.Add(Me.CODIGO_USUARIOSpinEdit)
         Me.DataLayoutControl1.Controls.Add(Me.CODIGO_MOVIMIENTOSpinEdit)
         Me.DataLayoutControl1.Controls.Add(Me.ESTADOTextEdit)
+        Me.DataLayoutControl1.Controls.Add(Me.NIVELSpinEdit)
         Me.DataLayoutControl1.DataSource = Me.IMUSUARIOSBindingSource
         Me.DataLayoutControl1.HiddenItems.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForADICIONADO_POR, Me.ItemForFECHA_ADICION, Me.ItemForMODIFICADO_POR, Me.ItemForFECHA_MODIFICACION})
         Me.DataLayoutControl1.Location = New System.Drawing.Point(12, 77)
@@ -239,6 +243,7 @@ Partial Class XfrmUsuarios
         Me.NOMBRETextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMUSUARIOSBindingSource, "NOMBRE", True))
         Me.NOMBRETextEdit.Location = New System.Drawing.Point(133, 36)
         Me.NOMBRETextEdit.Name = "NOMBRETextEdit"
+        Me.NOMBRETextEdit.Properties.MaxLength = 100
         Me.NOMBRETextEdit.Size = New System.Drawing.Size(166, 20)
         Me.NOMBRETextEdit.StyleController = Me.DataLayoutControl1
         Me.NOMBRETextEdit.TabIndex = 6
@@ -259,7 +264,7 @@ Partial Class XfrmUsuarios
         Me.IDENTIDADTextEdit.Location = New System.Drawing.Point(133, 60)
         Me.IDENTIDADTextEdit.Name = "IDENTIDADTextEdit"
         Me.IDENTIDADTextEdit.Properties.Mask.BeepOnError = True
-        Me.IDENTIDADTextEdit.Properties.Mask.EditMask = "0000-0000-0000"
+        Me.IDENTIDADTextEdit.Properties.Mask.EditMask = "0000-0000-00000"
         Me.IDENTIDADTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple
         Me.IDENTIDADTextEdit.Size = New System.Drawing.Size(167, 20)
         Me.IDENTIDADTextEdit.StyleController = Me.DataLayoutControl1
@@ -270,6 +275,7 @@ Partial Class XfrmUsuarios
         Me.CONTRASENATextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMUSUARIOSBindingSource, "CONTRASENA", True))
         Me.CONTRASENATextEdit.Location = New System.Drawing.Point(133, 84)
         Me.CONTRASENATextEdit.Name = "CONTRASENATextEdit"
+        Me.CONTRASENATextEdit.Properties.MaxLength = 15
         Me.CONTRASENATextEdit.Properties.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.CONTRASENATextEdit.Size = New System.Drawing.Size(167, 20)
         Me.CONTRASENATextEdit.StyleController = Me.DataLayoutControl1
@@ -280,20 +286,10 @@ Partial Class XfrmUsuarios
         Me.RESPUESTA_SEGURIDADTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMUSUARIOSBindingSource, "RESPUESTA_SEGURIDAD", True))
         Me.RESPUESTA_SEGURIDADTextEdit.Location = New System.Drawing.Point(133, 204)
         Me.RESPUESTA_SEGURIDADTextEdit.Name = "RESPUESTA_SEGURIDADTextEdit"
+        Me.RESPUESTA_SEGURIDADTextEdit.Properties.MaxLength = 100
         Me.RESPUESTA_SEGURIDADTextEdit.Size = New System.Drawing.Size(167, 20)
         Me.RESPUESTA_SEGURIDADTextEdit.StyleController = Me.DataLayoutControl1
         Me.RESPUESTA_SEGURIDADTextEdit.TabIndex = 12
-        '
-        'NIVELSpinEdit
-        '
-        Me.NIVELSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMUSUARIOSBindingSource, "NIVEL", True))
-        Me.NIVELSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.NIVELSpinEdit.Location = New System.Drawing.Point(133, 228)
-        Me.NIVELSpinEdit.Name = "NIVELSpinEdit"
-        Me.NIVELSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
-        Me.NIVELSpinEdit.Size = New System.Drawing.Size(107, 20)
-        Me.NIVELSpinEdit.StyleController = Me.DataLayoutControl1
-        Me.NIVELSpinEdit.TabIndex = 13
         '
         'ADICIONADO_PORSpinEdit
         '
@@ -408,6 +404,7 @@ Partial Class XfrmUsuarios
         Me.CODIGO_USUARIOSpinEdit.Location = New System.Drawing.Point(133, 12)
         Me.CODIGO_USUARIOSpinEdit.Name = "CODIGO_USUARIOSpinEdit"
         Me.CODIGO_USUARIOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
+        Me.CODIGO_USUARIOSpinEdit.Properties.MaxLength = 15
         Me.CODIGO_USUARIOSpinEdit.Size = New System.Drawing.Size(107, 20)
         Me.CODIGO_USUARIOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_USUARIOSpinEdit.TabIndex = 4
@@ -432,14 +429,14 @@ Partial Class XfrmUsuarios
         'ESTADOTextEdit
         '
         Me.ESTADOTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMUSUARIOSBindingSource, "ESTADO", True))
-        Me.ESTADOTextEdit.EditValue = Nothing
-        Me.ESTADOTextEdit.Location = New System.Drawing.Point(244, 228)
+        Me.ESTADOTextEdit.EditValue = "I"
+        Me.ESTADOTextEdit.Location = New System.Drawing.Point(257, 228)
         Me.ESTADOTextEdit.Name = "ESTADOTextEdit"
         Me.ESTADOTextEdit.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
         Me.ESTADOTextEdit.Properties.Caption = "Activar Usuario"
         Me.ESTADOTextEdit.Properties.ValueChecked = "A"
         Me.ESTADOTextEdit.Properties.ValueUnchecked = "I"
-        Me.ESTADOTextEdit.Size = New System.Drawing.Size(228, 19)
+        Me.ESTADOTextEdit.Size = New System.Drawing.Size(215, 19)
         Me.ESTADOTextEdit.StyleController = Me.DataLayoutControl1
         Me.ESTADOTextEdit.TabIndex = 9
         '
@@ -504,7 +501,7 @@ Partial Class XfrmUsuarios
         Me.LayoutControlGroup2.AllowDrawBackground = False
         Me.LayoutControlGroup2.CustomizationFormText = "autoGeneratedGroup0"
         Me.LayoutControlGroup2.GroupBordersVisible = False
-        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForCODIGO_USUARIO, Me.ItemForCODIGO_ROL, Me.ItemForPREGUNTA_SEGURIDAD, Me.ItemForRESPUESTA_SEGURIDAD, Me.ItemForNOMBRE, Me.ItemForIDENTIDAD, Me.ItemForCONTRASENA, Me.ItemForCODIGO_PARTIDO, Me.ItemForNIVEL, Me.EmptySpaceItem1, Me.EmptySpaceItem3, Me.EmptySpaceItem4, Me.EmptySpaceItem5, Me.EmptySpaceItem6, Me.ItemForCODIGO_MOVIMIENTO, Me.EmptySpaceItem7, Me.EmptySpaceItem8, Me.EmptySpaceItem9, Me.EmptySpaceItem10, Me.ItemForESTADO})
+        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForCODIGO_USUARIO, Me.ItemForCODIGO_ROL, Me.ItemForPREGUNTA_SEGURIDAD, Me.ItemForRESPUESTA_SEGURIDAD, Me.ItemForNOMBRE, Me.ItemForIDENTIDAD, Me.ItemForCONTRASENA, Me.ItemForCODIGO_PARTIDO, Me.EmptySpaceItem1, Me.EmptySpaceItem3, Me.EmptySpaceItem4, Me.EmptySpaceItem5, Me.EmptySpaceItem6, Me.ItemForCODIGO_MOVIMIENTO, Me.EmptySpaceItem7, Me.EmptySpaceItem8, Me.EmptySpaceItem9, Me.EmptySpaceItem10, Me.ItemForESTADO, Me.EmptySpaceItem11, Me.LayoutControlItem4})
         Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "autoGeneratedGroup0"
         Me.LayoutControlGroup2.Size = New System.Drawing.Size(464, 266)
@@ -557,7 +554,7 @@ Partial Class XfrmUsuarios
         Me.ItemForNOMBRE.Location = New System.Drawing.Point(0, 24)
         Me.ItemForNOMBRE.Name = "ItemForNOMBRE"
         Me.ItemForNOMBRE.Size = New System.Drawing.Size(291, 24)
-        Me.ItemForNOMBRE.Text = "Nombre"
+        Me.ItemForNOMBRE.Text = "Nombre Completo"
         Me.ItemForNOMBRE.TextSize = New System.Drawing.Size(117, 13)
         '
         'ItemForIDENTIDAD
@@ -589,16 +586,6 @@ Partial Class XfrmUsuarios
         Me.ItemForCODIGO_PARTIDO.Size = New System.Drawing.Size(293, 24)
         Me.ItemForCODIGO_PARTIDO.Text = "Partido Político"
         Me.ItemForCODIGO_PARTIDO.TextSize = New System.Drawing.Size(117, 13)
-        '
-        'ItemForNIVEL
-        '
-        Me.ItemForNIVEL.Control = Me.NIVELSpinEdit
-        Me.ItemForNIVEL.CustomizationFormText = "NIVEL"
-        Me.ItemForNIVEL.Location = New System.Drawing.Point(0, 216)
-        Me.ItemForNIVEL.Name = "ItemForNIVEL"
-        Me.ItemForNIVEL.Size = New System.Drawing.Size(232, 50)
-        Me.ItemForNIVEL.Text = "Nivel"
-        Me.ItemForNIVEL.TextSize = New System.Drawing.Size(117, 13)
         '
         'EmptySpaceItem1
         '
@@ -704,9 +691,9 @@ Partial Class XfrmUsuarios
         '
         Me.ItemForESTADO.Control = Me.ESTADOTextEdit
         Me.ItemForESTADO.CustomizationFormText = "ESTADO"
-        Me.ItemForESTADO.Location = New System.Drawing.Point(232, 216)
+        Me.ItemForESTADO.Location = New System.Drawing.Point(245, 216)
         Me.ItemForESTADO.Name = "ItemForESTADO"
-        Me.ItemForESTADO.Size = New System.Drawing.Size(232, 50)
+        Me.ItemForESTADO.Size = New System.Drawing.Size(219, 50)
         Me.ItemForESTADO.Text = "Estado"
         Me.ItemForESTADO.TextSize = New System.Drawing.Size(0, 0)
         Me.ItemForESTADO.TextToControlDistance = 0
@@ -718,7 +705,7 @@ Partial Class XfrmUsuarios
         Me.GCBusqueda.Location = New System.Drawing.Point(12, 367)
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
-        Me.GCBusqueda.Size = New System.Drawing.Size(484, 92)
+        Me.GCBusqueda.Size = New System.Drawing.Size(867, 92)
         Me.GCBusqueda.TabIndex = 8
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -729,7 +716,7 @@ Partial Class XfrmUsuarios
         '
         'GridView1
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_USUARIO, Me.colNOMBRE, Me.colESTADO, Me.colDESCRIPCION, Me.colNOMBRE_MOVIMIENTO, Me.colPARTIDO})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_USUARIO, Me.colNOMBRE, Me.colESTADO, Me.colNOMBRE_MOVIMIENTO, Me.colPARTIDO, Me.colROL, Me.colIDENTIDAD, Me.colNIVEL})
         Me.GridView1.GridControl = Me.GCBusqueda
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[False]
@@ -742,50 +729,75 @@ Partial Class XfrmUsuarios
         '
         'colCODIGO_USUARIO
         '
+        Me.colCODIGO_USUARIO.Caption = "Código Usuario"
         Me.colCODIGO_USUARIO.FieldName = "CODIGO_USUARIO"
         Me.colCODIGO_USUARIO.Name = "colCODIGO_USUARIO"
         Me.colCODIGO_USUARIO.Visible = True
         Me.colCODIGO_USUARIO.VisibleIndex = 0
-        Me.colCODIGO_USUARIO.Width = 101
+        Me.colCODIGO_USUARIO.Width = 95
         '
         'colNOMBRE
         '
+        Me.colNOMBRE.Caption = "Nombre"
         Me.colNOMBRE.FieldName = "NOMBRE"
         Me.colNOMBRE.Name = "colNOMBRE"
         Me.colNOMBRE.Visible = True
-        Me.colNOMBRE.VisibleIndex = 1
-        Me.colNOMBRE.Width = 90
+        Me.colNOMBRE.VisibleIndex = 2
+        Me.colNOMBRE.Width = 223
         '
         'colESTADO
         '
+        Me.colESTADO.Caption = "Estado"
         Me.colESTADO.FieldName = "ESTADO"
         Me.colESTADO.Name = "colESTADO"
         Me.colESTADO.Visible = True
-        Me.colESTADO.VisibleIndex = 2
-        '
-        'colDESCRIPCION
-        '
-        Me.colDESCRIPCION.FieldName = "DESCRIPCION"
-        Me.colDESCRIPCION.Name = "colDESCRIPCION"
-        Me.colDESCRIPCION.Visible = True
-        Me.colDESCRIPCION.VisibleIndex = 3
-        Me.colDESCRIPCION.Width = 91
+        Me.colESTADO.VisibleIndex = 7
+        Me.colESTADO.Width = 48
         '
         'colNOMBRE_MOVIMIENTO
         '
+        Me.colNOMBRE_MOVIMIENTO.Caption = "Movimiento"
         Me.colNOMBRE_MOVIMIENTO.FieldName = "NOMBRE_MOVIMIENTO"
         Me.colNOMBRE_MOVIMIENTO.Name = "colNOMBRE_MOVIMIENTO"
         Me.colNOMBRE_MOVIMIENTO.Visible = True
-        Me.colNOMBRE_MOVIMIENTO.VisibleIndex = 4
-        Me.colNOMBRE_MOVIMIENTO.Width = 129
+        Me.colNOMBRE_MOVIMIENTO.VisibleIndex = 5
+        Me.colNOMBRE_MOVIMIENTO.Width = 103
         '
         'colPARTIDO
         '
+        Me.colPARTIDO.Caption = "Partido"
         Me.colPARTIDO.FieldName = "PARTIDO"
         Me.colPARTIDO.Name = "colPARTIDO"
         Me.colPARTIDO.Visible = True
-        Me.colPARTIDO.VisibleIndex = 5
-        Me.colPARTIDO.Width = 63
+        Me.colPARTIDO.VisibleIndex = 4
+        Me.colPARTIDO.Width = 128
+        '
+        'colROL
+        '
+        Me.colROL.Caption = "Rol"
+        Me.colROL.FieldName = "ROL"
+        Me.colROL.Name = "colROL"
+        Me.colROL.Visible = True
+        Me.colROL.VisibleIndex = 3
+        Me.colROL.Width = 116
+        '
+        'colIDENTIDAD
+        '
+        Me.colIDENTIDAD.Caption = "Identidad"
+        Me.colIDENTIDAD.FieldName = "IDENTIDAD"
+        Me.colIDENTIDAD.Name = "colIDENTIDAD"
+        Me.colIDENTIDAD.Visible = True
+        Me.colIDENTIDAD.VisibleIndex = 1
+        Me.colIDENTIDAD.Width = 101
+        '
+        'colNIVEL
+        '
+        Me.colNIVEL.Caption = "Nivel"
+        Me.colNIVEL.FieldName = "NIVEL"
+        Me.colNIVEL.Name = "colNIVEL"
+        Me.colNIVEL.Visible = True
+        Me.colNIVEL.VisibleIndex = 6
+        Me.colNIVEL.Width = 33
         '
         'GridView2
         '
@@ -800,7 +812,7 @@ Partial Class XfrmUsuarios
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.EmptySpaceItem2, Me.LayoutControlItem1, Me.LayoutControlItem3, Me.LayoutControlItem2})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(508, 471)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(891, 471)
         Me.LayoutControlGroup1.Text = "Root"
         Me.LayoutControlGroup1.TextVisible = False
         '
@@ -812,7 +824,7 @@ Partial Class XfrmUsuarios
         Me.EmptySpaceItem2.MaxSize = New System.Drawing.Size(163, 65)
         Me.EmptySpaceItem2.MinSize = New System.Drawing.Size(163, 65)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(163, 65)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(546, 65)
         Me.EmptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
@@ -825,7 +837,7 @@ Partial Class XfrmUsuarios
         Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(488, 290)
         Me.LayoutControlItem1.MinSize = New System.Drawing.Size(488, 290)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(488, 290)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(871, 290)
         Me.LayoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem1.Text = "LayoutControlItem1"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
@@ -852,10 +864,10 @@ Partial Class XfrmUsuarios
         Me.LayoutControlItem2.Control = Me.GCBusqueda
         Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
         Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 355)
-        Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(488, 0)
-        Me.LayoutControlItem2.MinSize = New System.Drawing.Size(488, 24)
+        Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(871, 0)
+        Me.LayoutControlItem2.MinSize = New System.Drawing.Size(871, 24)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(488, 96)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(871, 96)
         Me.LayoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem2.Text = "LayoutControlItem2"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
@@ -882,11 +894,42 @@ Partial Class XfrmUsuarios
         '
         Me.TA_PARTIDOS_POLITICOSTableAdapter.ClearBeforeFill = True
         '
+        'EmptySpaceItem11
+        '
+        Me.EmptySpaceItem11.AllowHotTrack = False
+        Me.EmptySpaceItem11.CustomizationFormText = "EmptySpaceItem11"
+        Me.EmptySpaceItem11.Location = New System.Drawing.Point(235, 216)
+        Me.EmptySpaceItem11.Name = "EmptySpaceItem11"
+        Me.EmptySpaceItem11.Size = New System.Drawing.Size(10, 50)
+        Me.EmptySpaceItem11.Text = "Nivel"
+        Me.EmptySpaceItem11.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'LayoutControlItem4
+        '
+        Me.LayoutControlItem4.Control = Me.NIVELSpinEdit
+        Me.LayoutControlItem4.CustomizationFormText = "Nivel"
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 216)
+        Me.LayoutControlItem4.Name = "LayoutControlItem4"
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(235, 50)
+        Me.LayoutControlItem4.Text = "Nivel"
+        Me.LayoutControlItem4.TextSize = New System.Drawing.Size(117, 13)
+        '
+        'NIVELSpinEdit
+        '
+        Me.NIVELSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMUSUARIOSBindingSource, "NIVEL", True))
+        Me.NIVELSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.NIVELSpinEdit.Location = New System.Drawing.Point(133, 228)
+        Me.NIVELSpinEdit.Name = "NIVELSpinEdit"
+        Me.NIVELSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
+        Me.NIVELSpinEdit.Size = New System.Drawing.Size(110, 20)
+        Me.NIVELSpinEdit.StyleController = Me.DataLayoutControl1
+        Me.NIVELSpinEdit.TabIndex = 13
+        '
         'XfrmUsuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(508, 471)
+        Me.ClientSize = New System.Drawing.Size(891, 471)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Name = "XfrmUsuarios"
         Me.Text = "Usuarios"
@@ -902,7 +945,6 @@ Partial Class XfrmUsuarios
         CType(Me.IDENTIDADTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CONTRASENATextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RESPUESTA_SEGURIDADTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NIVELSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -933,7 +975,6 @@ Partial Class XfrmUsuarios
         CType(Me.ItemForIDENTIDAD, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForCONTRASENA, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForCODIGO_PARTIDO, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ItemForNIVEL, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).EndInit()
@@ -954,6 +995,9 @@ Partial Class XfrmUsuarios
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem11, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NIVELSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -970,7 +1014,6 @@ Partial Class XfrmUsuarios
     Friend WithEvents IDENTIDADTextEdit As DevExpress.XtraEditors.TextEdit
     Friend WithEvents CONTRASENATextEdit As DevExpress.XtraEditors.TextEdit
     Friend WithEvents RESPUESTA_SEGURIDADTextEdit As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents NIVELSpinEdit As DevExpress.XtraEditors.SpinEdit
     Friend WithEvents ADICIONADO_PORSpinEdit As DevExpress.XtraEditors.SpinEdit
     Friend WithEvents FECHA_ADICIONDateEdit As DevExpress.XtraEditors.DateEdit
     Friend WithEvents MODIFICADO_PORSpinEdit As DevExpress.XtraEditors.SpinEdit
@@ -989,7 +1032,6 @@ Partial Class XfrmUsuarios
     Friend WithEvents ItemForCODIGO_MOVIMIENTO As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents ItemForPREGUNTA_SEGURIDAD As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents ItemForRESPUESTA_SEGURIDAD As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents ItemForNIVEL As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents ItemForCODIGO_PARTIDO As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents CODIGO_ROLSpinEdit As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents TAROLESBindingSource As System.Windows.Forms.BindingSource
@@ -1020,13 +1062,18 @@ Partial Class XfrmUsuarios
     Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents DTUSUARIOSBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents DT_USUARIOSTableAdapter As Inscripcion_de_Moviemientos.DTUsersTableAdapters.DT_USUARIOSTableAdapter
-    Friend WithEvents colCODIGO_USUARIO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colNOMBRE As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colESTADO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colDESCRIPCION As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colNOMBRE_MOVIMIENTO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colPARTIDO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents TAPARTIDOSPOLITICOSBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents TA_PARTIDOS_POLITICOSTableAdapter As Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_PARTIDOS_POLITICOSTableAdapter
+    Friend WithEvents colCODIGO_USUARIO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colNOMBRE As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colESTADO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colNOMBRE_MOVIMIENTO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colPARTIDO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colROL As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colIDENTIDAD As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colNIVEL As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents NIVELSpinEdit As DevExpress.XtraEditors.SpinEdit
+    Friend WithEvents EmptySpaceItem11 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
 End Class
