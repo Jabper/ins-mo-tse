@@ -375,6 +375,7 @@ Partial Class XfrmMovimientos
         Me.NOMBRE_MOVIMIENTOTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMOVIMIENTOSBindingSource, "NOMBRE_MOVIMIENTO", True))
         Me.NOMBRE_MOVIMIENTOTextEdit.Location = New System.Drawing.Point(127, 36)
         Me.NOMBRE_MOVIMIENTOTextEdit.Name = "NOMBRE_MOVIMIENTOTextEdit"
+        Me.NOMBRE_MOVIMIENTOTextEdit.Properties.MaxLength = 200
         Me.NOMBRE_MOVIMIENTOTextEdit.Size = New System.Drawing.Size(263, 20)
         Me.NOMBRE_MOVIMIENTOTextEdit.StyleController = Me.DataLayoutControl1
         Me.NOMBRE_MOVIMIENTOTextEdit.TabIndex = 5
@@ -465,7 +466,7 @@ Partial Class XfrmMovimientos
         Me.CODIGO_PARTIDOSpinEdit.Properties.NullText = ""
         Me.CODIGO_PARTIDOSpinEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
         Me.CODIGO_PARTIDOSpinEdit.Properties.ValueMember = "CODIGO_PARTIDO"
-        Me.CODIGO_PARTIDOSpinEdit.Size = New System.Drawing.Size(263, 20)
+        Me.CODIGO_PARTIDOSpinEdit.Size = New System.Drawing.Size(157, 20)
         Me.CODIGO_PARTIDOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_PARTIDOSpinEdit.TabIndex = 6
         '
@@ -482,7 +483,7 @@ Partial Class XfrmMovimientos
         Me.CODIGO_MOVIMIENTOSpinEdit.Name = "CODIGO_MOVIMIENTOSpinEdit"
         Me.CODIGO_MOVIMIENTOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CODIGO_MOVIMIENTOSpinEdit.Properties.MaxLength = 3
-        Me.CODIGO_MOVIMIENTOSpinEdit.Size = New System.Drawing.Size(77, 20)
+        Me.CODIGO_MOVIMIENTOSpinEdit.Size = New System.Drawing.Size(50, 20)
         Me.CODIGO_MOVIMIENTOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_MOVIMIENTOSpinEdit.TabIndex = 4
         '
@@ -559,7 +560,7 @@ Partial Class XfrmMovimientos
         Me.ItemForCODIGO_MOVIMIENTO.CustomizationFormText = "CODIGO_MOVIMIENTO"
         Me.ItemForCODIGO_MOVIMIENTO.Location = New System.Drawing.Point(0, 0)
         Me.ItemForCODIGO_MOVIMIENTO.Name = "ItemForCODIGO_MOVIMIENTO"
-        Me.ItemForCODIGO_MOVIMIENTO.Size = New System.Drawing.Size(196, 24)
+        Me.ItemForCODIGO_MOVIMIENTO.Size = New System.Drawing.Size(169, 24)
         Me.ItemForCODIGO_MOVIMIENTO.Text = "Código Movimiento"
         Me.ItemForCODIGO_MOVIMIENTO.TextSize = New System.Drawing.Size(111, 13)
         '
@@ -579,7 +580,7 @@ Partial Class XfrmMovimientos
         Me.ItemForCODIGO_PARTIDO.CustomizationFormText = "CODIGO_PARTIDO"
         Me.ItemForCODIGO_PARTIDO.Location = New System.Drawing.Point(0, 48)
         Me.ItemForCODIGO_PARTIDO.Name = "ItemForCODIGO_PARTIDO"
-        Me.ItemForCODIGO_PARTIDO.Size = New System.Drawing.Size(382, 24)
+        Me.ItemForCODIGO_PARTIDO.Size = New System.Drawing.Size(276, 24)
         Me.ItemForCODIGO_PARTIDO.Text = "Partido Pólitico"
         Me.ItemForCODIGO_PARTIDO.TextSize = New System.Drawing.Size(111, 13)
         '
@@ -633,9 +634,9 @@ Partial Class XfrmMovimientos
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(196, 0)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(169, 0)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(278, 24)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(305, 24)
         Me.EmptySpaceItem1.Text = "EmptySpaceItem1"
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -653,9 +654,9 @@ Partial Class XfrmMovimientos
         '
         Me.EmptySpaceItem3.AllowHotTrack = False
         Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Location = New System.Drawing.Point(382, 48)
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(276, 48)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Size = New System.Drawing.Size(92, 24)
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(198, 24)
         Me.EmptySpaceItem3.Text = "EmptySpaceItem3"
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
         '
