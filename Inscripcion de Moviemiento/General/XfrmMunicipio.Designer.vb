@@ -128,7 +128,7 @@ Partial Class Municipios
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(531, 188, 250, 350)
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(606, 430)
+        Me.LayoutControl1.Size = New System.Drawing.Size(750, 430)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
@@ -138,7 +138,7 @@ Partial Class Municipios
         Me.GridControl1.Location = New System.Drawing.Point(12, 241)
         Me.GridControl1.MainView = Me.GridView1
         Me.GridControl1.Name = "GridControl1"
-        Me.GridControl1.Size = New System.Drawing.Size(582, 177)
+        Me.GridControl1.Size = New System.Drawing.Size(726, 177)
         Me.GridControl1.TabIndex = 8
         Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -170,8 +170,8 @@ Partial Class Municipios
         Me.colCODIGO_MUNICIPIO.FieldName = "CODIGO_MUNICIPIO"
         Me.colCODIGO_MUNICIPIO.Name = "colCODIGO_MUNICIPIO"
         Me.colCODIGO_MUNICIPIO.Visible = True
-        Me.colCODIGO_MUNICIPIO.VisibleIndex = 0
-        Me.colCODIGO_MUNICIPIO.Width = 92
+        Me.colCODIGO_MUNICIPIO.VisibleIndex = 2
+        Me.colCODIGO_MUNICIPIO.Width = 86
         '
         'colCODIGO_DEPARTAMENTO
         '
@@ -179,8 +179,8 @@ Partial Class Municipios
         Me.colCODIGO_DEPARTAMENTO.FieldName = "CODIGO_DEPARTAMENTO"
         Me.colCODIGO_DEPARTAMENTO.Name = "colCODIGO_DEPARTAMENTO"
         Me.colCODIGO_DEPARTAMENTO.Visible = True
-        Me.colCODIGO_DEPARTAMENTO.VisibleIndex = 1
-        Me.colCODIGO_DEPARTAMENTO.Width = 128
+        Me.colCODIGO_DEPARTAMENTO.VisibleIndex = 0
+        Me.colCODIGO_DEPARTAMENTO.Width = 114
         '
         'colDESCRIPCION
         '
@@ -189,7 +189,7 @@ Partial Class Municipios
         Me.colDESCRIPCION.Name = "colDESCRIPCION"
         Me.colDESCRIPCION.Visible = True
         Me.colDESCRIPCION.VisibleIndex = 3
-        Me.colDESCRIPCION.Width = 188
+        Me.colDESCRIPCION.Width = 201
         '
         'colDEPARTAMENTO
         '
@@ -197,8 +197,8 @@ Partial Class Municipios
         Me.colDEPARTAMENTO.FieldName = "DEPARTAMENTO"
         Me.colDEPARTAMENTO.Name = "colDEPARTAMENTO"
         Me.colDEPARTAMENTO.Visible = True
-        Me.colDEPARTAMENTO.VisibleIndex = 4
-        Me.colDEPARTAMENTO.Width = 235
+        Me.colDEPARTAMENTO.VisibleIndex = 1
+        Me.colDEPARTAMENTO.Width = 188
         '
         'colCANTIDAD_REGIDORES
         '
@@ -206,8 +206,8 @@ Partial Class Municipios
         Me.colCANTIDAD_REGIDORES.FieldName = "CANTIDAD_REGIDORES"
         Me.colCANTIDAD_REGIDORES.Name = "colCANTIDAD_REGIDORES"
         Me.colCANTIDAD_REGIDORES.Visible = True
-        Me.colCANTIDAD_REGIDORES.VisibleIndex = 2
-        Me.colCANTIDAD_REGIDORES.Width = 124
+        Me.colCANTIDAD_REGIDORES.VisibleIndex = 4
+        Me.colCANTIDAD_REGIDORES.Width = 117
         '
         'ButtonEdit1
         '
@@ -224,7 +224,7 @@ Partial Class Municipios
         Me.PanelControl1.Controls.Add(Me.FlowLayoutPanel1)
         Me.PanelControl1.Location = New System.Drawing.Point(12, 12)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(316, 61)
+        Me.PanelControl1.Size = New System.Drawing.Size(460, 61)
         Me.PanelControl1.TabIndex = 6
         '
         'FlowLayoutPanel1
@@ -393,7 +393,7 @@ Partial Class Municipios
         Me.CODIGO_MUNICIPIOSpinEdit.Name = "CODIGO_MUNICIPIOSpinEdit"
         Me.CODIGO_MUNICIPIOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CODIGO_MUNICIPIOSpinEdit.Properties.Mask.EditMask = "00"
-        Me.CODIGO_MUNICIPIOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.CODIGO_MUNICIPIOSpinEdit.Properties.MaxLength = 2
         Me.CODIGO_MUNICIPIOSpinEdit.Size = New System.Drawing.Size(57, 20)
         Me.CODIGO_MUNICIPIOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_MUNICIPIOSpinEdit.TabIndex = 8
@@ -406,8 +406,7 @@ Partial Class Municipios
         Me.CANTIDAD_REGIDORESSpinEdit.Name = "CANTIDAD_REGIDORESSpinEdit"
         Me.CANTIDAD_REGIDORESSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CANTIDAD_REGIDORESSpinEdit.Properties.Mask.BeepOnError = True
-        Me.CANTIDAD_REGIDORESSpinEdit.Properties.Mask.EditMask = "00"
-        Me.CANTIDAD_REGIDORESSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.CANTIDAD_REGIDORESSpinEdit.Properties.MaxLength = 2
         Me.CANTIDAD_REGIDORESSpinEdit.Size = New System.Drawing.Size(54, 20)
         Me.CANTIDAD_REGIDORESSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CANTIDAD_REGIDORESSpinEdit.TabIndex = 10
@@ -567,7 +566,7 @@ Partial Class Municipios
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.EmptySpaceItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(606, 430)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(750, 430)
         Me.LayoutControlGroup1.Text = "Root"
         Me.LayoutControlGroup1.TextVisible = False
         '
@@ -579,7 +578,7 @@ Partial Class Municipios
         Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(586, 140)
         Me.LayoutControlItem1.MinSize = New System.Drawing.Size(586, 140)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(586, 140)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(730, 140)
         Me.LayoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem1.Text = "LayoutControlItem1"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
@@ -590,7 +589,7 @@ Partial Class Municipios
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(320, 0)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(464, 0)
         Me.EmptySpaceItem1.MaxSize = New System.Drawing.Size(266, 65)
         Me.EmptySpaceItem1.MinSize = New System.Drawing.Size(266, 65)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
@@ -605,7 +604,7 @@ Partial Class Municipios
         Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
         Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(320, 65)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(464, 65)
         Me.LayoutControlItem2.Text = "LayoutControlItem2"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextToControlDistance = 0
@@ -619,7 +618,7 @@ Partial Class Municipios
         Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(586, 24)
         Me.LayoutControlItem3.MinSize = New System.Drawing.Size(586, 24)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(586, 24)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(730, 24)
         Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem3.Text = "Búsqueda"
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(47, 13)
@@ -629,10 +628,10 @@ Partial Class Municipios
         Me.LayoutControlItem4.Control = Me.GridControl1
         Me.LayoutControlItem4.CustomizationFormText = "LayoutControlItem4"
         Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 229)
-        Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(586, 181)
-        Me.LayoutControlItem4.MinSize = New System.Drawing.Size(586, 181)
+        Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(730, 0)
+        Me.LayoutControlItem4.MinSize = New System.Drawing.Size(730, 24)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(586, 181)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(730, 181)
         Me.LayoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem4.Text = "LayoutControlItem4"
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
@@ -655,7 +654,7 @@ Partial Class Municipios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(606, 430)
+        Me.ClientSize = New System.Drawing.Size(750, 430)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Name = "Municipios"
         Me.Text = "Municipio"
