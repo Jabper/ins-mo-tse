@@ -41,6 +41,8 @@ Public Class XfrmParametros
         Catch ex As Exception
             'CONTROL DE ERRORES
             Mensajes.MensajeError(ex.Message)
+        Finally
+            Me.txtfecha.Visible = False
         End Try
 
     End Sub
@@ -116,5 +118,9 @@ Public Class XfrmParametros
         Catch
             Mensajes.MensajeError("El campo actual solo acepta Enteros y decimales")
         End Try
+    End Sub
+
+    Private Sub PARTICIPACION_MUJER_PORCENSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PARTICIPACION_MUJER_PORCENSpinEdit.EditValueChanged
+
     End Sub
 End Class
