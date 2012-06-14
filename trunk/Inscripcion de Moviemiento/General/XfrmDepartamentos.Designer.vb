@@ -152,6 +152,7 @@ Partial Class XfrmDepartamentos
         Me.DESCRIPCIONTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMDEPARTAMENTOSBindingSource, "DESCRIPCION", True))
         Me.DESCRIPCIONTextEdit.Location = New System.Drawing.Point(125, 36)
         Me.DESCRIPCIONTextEdit.Name = "DESCRIPCIONTextEdit"
+        Me.DESCRIPCIONTextEdit.Properties.MaxLength = 100
         Me.DESCRIPCIONTextEdit.Size = New System.Drawing.Size(274, 20)
         Me.DESCRIPCIONTextEdit.StyleController = Me.DataLayoutControl2
         Me.DESCRIPCIONTextEdit.TabIndex = 5

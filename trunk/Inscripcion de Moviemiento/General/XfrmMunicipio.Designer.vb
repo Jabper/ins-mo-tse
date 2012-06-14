@@ -313,6 +313,7 @@ Partial Class Municipios
         Me.TextEdit1.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMUNICIPIOSBindingSource, "DESCRIPCION", True))
         Me.TextEdit1.Location = New System.Drawing.Point(125, 36)
         Me.TextEdit1.Name = "TextEdit1"
+        Me.TextEdit1.Properties.MaxLength = 100
         Me.TextEdit1.Size = New System.Drawing.Size(233, 20)
         Me.TextEdit1.StyleController = Me.DataLayoutControl1
         Me.TextEdit1.TabIndex = 11
@@ -394,7 +395,7 @@ Partial Class Municipios
         Me.CODIGO_MUNICIPIOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CODIGO_MUNICIPIOSpinEdit.Properties.Mask.EditMask = "00"
         Me.CODIGO_MUNICIPIOSpinEdit.Properties.MaxLength = 2
-        Me.CODIGO_MUNICIPIOSpinEdit.Size = New System.Drawing.Size(57, 20)
+        Me.CODIGO_MUNICIPIOSpinEdit.Size = New System.Drawing.Size(50, 20)
         Me.CODIGO_MUNICIPIOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_MUNICIPIOSpinEdit.TabIndex = 8
         '
@@ -407,7 +408,7 @@ Partial Class Municipios
         Me.CANTIDAD_REGIDORESSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CANTIDAD_REGIDORESSpinEdit.Properties.Mask.BeepOnError = True
         Me.CANTIDAD_REGIDORESSpinEdit.Properties.MaxLength = 2
-        Me.CANTIDAD_REGIDORESSpinEdit.Size = New System.Drawing.Size(54, 20)
+        Me.CANTIDAD_REGIDORESSpinEdit.Size = New System.Drawing.Size(50, 20)
         Me.CANTIDAD_REGIDORESSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CANTIDAD_REGIDORESSpinEdit.TabIndex = 10
         '
@@ -494,7 +495,7 @@ Partial Class Municipios
         Me.LayoutControlItem7.CustomizationFormText = "CANTIDAD_REGIDORES"
         Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 72)
         Me.LayoutControlItem7.Name = "ItemForCANTIDAD_REGIDORES"
-        Me.LayoutControlItem7.Size = New System.Drawing.Size(171, 44)
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(167, 44)
         Me.LayoutControlItem7.Text = "Cantidad de Regidores"
         Me.LayoutControlItem7.TextSize = New System.Drawing.Size(109, 13)
         '
@@ -514,7 +515,7 @@ Partial Class Municipios
         Me.LayoutControlItem5.CustomizationFormText = "CODIGO_MUNICIPIO"
         Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem5.Name = "ItemForCODIGO_MUNICIPIO"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(174, 24)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(167, 24)
         Me.LayoutControlItem5.Text = "Código Municipio"
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(109, 13)
         '
@@ -522,9 +523,9 @@ Partial Class Municipios
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(174, 0)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(167, 0)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(388, 24)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(395, 24)
         Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -552,9 +553,9 @@ Partial Class Municipios
         '
         Me.EmptySpaceItem5.AllowHotTrack = False
         Me.EmptySpaceItem5.CustomizationFormText = "EmptySpaceItem5"
-        Me.EmptySpaceItem5.Location = New System.Drawing.Point(171, 72)
+        Me.EmptySpaceItem5.Location = New System.Drawing.Point(167, 72)
         Me.EmptySpaceItem5.Name = "EmptySpaceItem5"
-        Me.EmptySpaceItem5.Size = New System.Drawing.Size(391, 44)
+        Me.EmptySpaceItem5.Size = New System.Drawing.Size(395, 44)
         Me.EmptySpaceItem5.Text = "EmptySpaceItem5"
         Me.EmptySpaceItem5.TextSize = New System.Drawing.Size(0, 0)
         '
