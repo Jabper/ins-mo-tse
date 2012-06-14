@@ -150,8 +150,6 @@ Public Class XfrmMovimientos
         DxControls.CargarImagen(Me.INSIGNIAPictureEdit, UrlInsignia)
     End Sub
 
-
-
     Private Sub BtnEmblema_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEmblema.Click
         'ABRE EL EXPLORADOR PARA CAPTURAR LA DIRECCION DE LA IMAGEN
         OFDEmblema.ShowDialog()
@@ -164,10 +162,6 @@ Public Class XfrmMovimientos
         MostrarDatos()
     End Sub
 
-
-
-
-
     Private Sub CODIGO_MOVIMIENTOSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CODIGO_MOVIMIENTOSpinEdit.KeyPress
         VControles.solonumeros(e)
     End Sub
@@ -175,7 +169,6 @@ Public Class XfrmMovimientos
     Private Sub NOMBRE_MOVIMIENTOTextEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NOMBRE_MOVIMIENTOTextEdit.EditValueChanged
         VControles.Mayuscula(NOMBRE_MOVIMIENTOTextEdit)
     End Sub
-
 
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
         Me.Close()
@@ -239,5 +232,13 @@ Public Class XfrmMovimientos
 
     Private Sub ButtonEdit1_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonEdit1.EditValueChanged
         Me.TA_MOVIMIENTOTableAdapter.FillBy(DSPolitico.TA_MOVIMIENTO, Me.ButtonEdit1.Text)
+    End Sub
+
+    Private Sub NOMBRE_MOVIMIENTOTextEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles NOMBRE_MOVIMIENTOTextEdit.KeyPress
+        If Char.IsLower(e.KeyChar) Then
+            'Convert to uppercase, and put at the caret position in the TextBox.
+            NOMBRE_MOVIMIENTOTextEdit.SelectedText = Char.ToUpper(e.KeyChar)
+            e.Handled = True
+        End If
     End Sub
 End Class

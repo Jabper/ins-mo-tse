@@ -481,8 +481,7 @@ Partial Class XfrmMovimientos
         Me.CODIGO_MOVIMIENTOSpinEdit.Location = New System.Drawing.Point(127, 12)
         Me.CODIGO_MOVIMIENTOSpinEdit.Name = "CODIGO_MOVIMIENTOSpinEdit"
         Me.CODIGO_MOVIMIENTOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
-        Me.CODIGO_MOVIMIENTOSpinEdit.Properties.Mask.EditMask = "000"
-        Me.CODIGO_MOVIMIENTOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.CODIGO_MOVIMIENTOSpinEdit.Properties.MaxLength = 3
         Me.CODIGO_MOVIMIENTOSpinEdit.Size = New System.Drawing.Size(77, 20)
         Me.CODIGO_MOVIMIENTOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_MOVIMIENTOSpinEdit.TabIndex = 4

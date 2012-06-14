@@ -220,8 +220,8 @@ Partial Class XfrmDepartamentos
         Me.CANTIDAD_DIPUTADOSSpinEdit.Name = "CANTIDAD_DIPUTADOSSpinEdit"
         Me.CANTIDAD_DIPUTADOSSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CANTIDAD_DIPUTADOSSpinEdit.Properties.Mask.EditMask = "00"
-        Me.CANTIDAD_DIPUTADOSSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.CANTIDAD_DIPUTADOSSpinEdit.Size = New System.Drawing.Size(81, 20)
+        Me.CANTIDAD_DIPUTADOSSpinEdit.Properties.MaxLength = 2
+        Me.CANTIDAD_DIPUTADOSSpinEdit.Size = New System.Drawing.Size(50, 20)
         Me.CANTIDAD_DIPUTADOSSpinEdit.StyleController = Me.DataLayoutControl2
         Me.CANTIDAD_DIPUTADOSSpinEdit.TabIndex = 6
         '
@@ -233,8 +233,8 @@ Partial Class XfrmDepartamentos
         Me.CODIGO_DEPARTAMENTOSpinEdit.Name = "CODIGO_DEPARTAMENTOSpinEdit"
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.Mask.EditMask = "00"
-        Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.CODIGO_DEPARTAMENTOSpinEdit.Size = New System.Drawing.Size(79, 20)
+        Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.MaxLength = 2
+        Me.CODIGO_DEPARTAMENTOSpinEdit.Size = New System.Drawing.Size(50, 20)
         Me.CODIGO_DEPARTAMENTOSpinEdit.StyleController = Me.DataLayoutControl2
         Me.CODIGO_DEPARTAMENTOSpinEdit.TabIndex = 4
         '
@@ -311,7 +311,7 @@ Partial Class XfrmDepartamentos
         Me.ItemForCODIGO_DEPARTAMENTO.CustomizationFormText = "CODIGO_DEPARTAMENTO"
         Me.ItemForCODIGO_DEPARTAMENTO.Location = New System.Drawing.Point(0, 0)
         Me.ItemForCODIGO_DEPARTAMENTO.Name = "ItemForCODIGO_DEPARTAMENTO"
-        Me.ItemForCODIGO_DEPARTAMENTO.Size = New System.Drawing.Size(196, 24)
+        Me.ItemForCODIGO_DEPARTAMENTO.Size = New System.Drawing.Size(167, 24)
         Me.ItemForCODIGO_DEPARTAMENTO.Text = "Código Departamento"
         Me.ItemForCODIGO_DEPARTAMENTO.TextSize = New System.Drawing.Size(109, 13)
         '
@@ -331,7 +331,7 @@ Partial Class XfrmDepartamentos
         Me.ItemForCANTIDAD_DIPUTADOS.CustomizationFormText = "CANTIDAD_DIPUTADOS"
         Me.ItemForCANTIDAD_DIPUTADOS.Location = New System.Drawing.Point(0, 48)
         Me.ItemForCANTIDAD_DIPUTADOS.Name = "ItemForCANTIDAD_DIPUTADOS"
-        Me.ItemForCANTIDAD_DIPUTADOS.Size = New System.Drawing.Size(198, 31)
+        Me.ItemForCANTIDAD_DIPUTADOS.Size = New System.Drawing.Size(167, 31)
         Me.ItemForCANTIDAD_DIPUTADOS.Text = "Cantidad de Diputados"
         Me.ItemForCANTIDAD_DIPUTADOS.TextSize = New System.Drawing.Size(109, 13)
         '
@@ -339,9 +339,9 @@ Partial Class XfrmDepartamentos
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(196, 0)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(167, 0)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(330, 24)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(359, 24)
         Me.EmptySpaceItem1.Text = "EmptySpaceItem1"
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -349,9 +349,9 @@ Partial Class XfrmDepartamentos
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(198, 48)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(167, 48)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(328, 31)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(359, 31)
         Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
