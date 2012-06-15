@@ -346,6 +346,7 @@ Partial Class fmOpcion
         '
         Me.CODIGO_OPCIONSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMOPCIONESBindingSource, "CODIGO_OPCION", True))
         Me.CODIGO_OPCIONSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.CODIGO_OPCIONSpinEdit.Enabled = False
         Me.CODIGO_OPCIONSpinEdit.Location = New System.Drawing.Point(108, 12)
         Me.CODIGO_OPCIONSpinEdit.Name = "CODIGO_OPCIONSpinEdit"
         Me.CODIGO_OPCIONSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered

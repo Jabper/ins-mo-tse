@@ -8,6 +8,7 @@ Public Class XfrmRequisitos
         'TODO: This line of code loads data into the 'DSCandidato.IM_REQUISITOS' table. You can move, or remove it, as needed.
         Me.IM_REQUISITOSTableAdapter.Fill(Me.DSCandidato.IM_REQUISITOS)
         Me.IMREQUISITOSBindingSource.AddNew()
+
         ActualizarGrid()
 
         If COracle.credenciales("BtnRequisitos", "MODIFICAR") = "N" And COracle.credenciales("BtnRequisitos", "INSERTAR") = "N" Then
@@ -21,11 +22,14 @@ Public Class XfrmRequisitos
         Me.IMREQUISITOSBindingSource.CancelEdit()
         Me.IMREQUISITOSBindingSource.AddNew()
         actualizar = False
+
     End Sub
 
     Sub guardar()
         Try
-
+            If actualizar = False Then
+                correlativo()
+            End If
             'INDICACION QUE HA TERMINADO LA EDICION
             Me.IMREQUISITOSBindingSource.EndEdit()
 
@@ -33,6 +37,7 @@ Public Class XfrmRequisitos
             For Each _datar As DSCandidato.IM_REQUISITOSRow In DSCandidato.IM_REQUISITOS
                 'SI ES UN NUEVO REGITRO
                 If _datar.RowState = DataRowState.Added Then
+
                     _datar.ADICIONADO_POR = usuario
                     _datar.FECHA_ADICION = DateTime.Now
                     'SI EL REGISTRO SE MODIFICA
@@ -58,6 +63,7 @@ Public Class XfrmRequisitos
                 Mensajes.MensajeGuardar()
             End If
             Me.IMREQUISITOSBindingSource.AddNew()
+
         Catch ex As Exception
             'CONTROL DE ERRORES
             Mensajes.MensajeError(ex.Message)
@@ -108,7 +114,9 @@ Public Class XfrmRequisitos
     Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
         eliminar()
     End Sub
-
+    Sub correlativo()
+        CODIGO_REQUISITOSpinEdit.EditValue = COracle.FUN_EJECUTAR_SEQ("IM_SQ1_REQUISITOS")
+    End Sub
 
     Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
         Nuevo()
@@ -140,6 +148,7 @@ Public Class XfrmRequisitos
                 ActualizarGrid()
                 Mensajes.MensajeEliminar()
                 Me.IMREQUISITOSBindingSource.AddNew()
+
                 Me.BtnEliminar.Enabled = False
                 actualizar = False
             Catch ex As Exception
