@@ -194,4 +194,8 @@ Public Class XfrmRoles
 
         End If
     End Sub
+
+    Private Sub CODIGO_ROLSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_ROLSpinEdit.EditValueChanged
+
+    End Sub
 End Class

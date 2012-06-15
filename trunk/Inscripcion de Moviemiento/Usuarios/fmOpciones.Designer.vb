@@ -344,6 +344,7 @@ Partial Class fmOpcion
         '
         'CODIGO_OPCIONSpinEdit
         '
+        Me.CODIGO_OPCIONSpinEdit.CausesValidation = False
         Me.CODIGO_OPCIONSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMOPCIONESBindingSource, "CODIGO_OPCION", True))
         Me.CODIGO_OPCIONSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
         Me.CODIGO_OPCIONSpinEdit.Enabled = False

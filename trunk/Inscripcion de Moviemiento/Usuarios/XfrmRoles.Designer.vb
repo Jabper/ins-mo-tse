@@ -320,12 +320,11 @@ Partial Class XfrmRoles
         '
         'CODIGO_ROLSpinEdit
         '
+        Me.CODIGO_ROLSpinEdit.CausesValidation = False
         Me.CODIGO_ROLSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMROLESBindingSource, "CODIGO_ROL", True))
-        Me.CODIGO_ROLSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
         Me.CODIGO_ROLSpinEdit.Location = New System.Drawing.Point(70, 12)
         Me.CODIGO_ROLSpinEdit.Name = "CODIGO_ROLSpinEdit"
         Me.CODIGO_ROLSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
-        Me.CODIGO_ROLSpinEdit.Properties.Mask.EditMask = "00"
         Me.CODIGO_ROLSpinEdit.Properties.MaxLength = 2
         Me.CODIGO_ROLSpinEdit.Size = New System.Drawing.Size(50, 20)
         Me.CODIGO_ROLSpinEdit.StyleController = Me.DataLayoutControl1

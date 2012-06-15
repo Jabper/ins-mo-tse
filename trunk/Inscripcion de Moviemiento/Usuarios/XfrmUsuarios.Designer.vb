@@ -45,6 +45,7 @@ Partial Class XfrmUsuarios
         Me.CODIGO_MOVIMIENTOSpinEdit = New DevExpress.XtraEditors.LookUpEdit
         Me.IMMOVIMIENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ESTADOTextEdit = New DevExpress.XtraEditors.CheckEdit
+        Me.NIVELSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.ItemForADICIONADO_POR = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForFECHA_ADICION = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForMODIFICADO_POR = New DevExpress.XtraLayout.LayoutControlItem
@@ -70,6 +71,8 @@ Partial Class XfrmUsuarios
         Me.EmptySpaceItem9 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.EmptySpaceItem10 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.ItemForESTADO = New DevExpress.XtraLayout.LayoutControlItem
+        Me.EmptySpaceItem11 = New DevExpress.XtraLayout.EmptySpaceItem
+        Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem
         Me.GCBusqueda = New DevExpress.XtraGrid.GridControl
         Me.DTUSUARIOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
@@ -92,9 +95,6 @@ Partial Class XfrmUsuarios
         Me.IM_MOVIMIENTOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.IM_MOVIMIENTOSTableAdapter
         Me.DT_USUARIOSTableAdapter = New Inscripcion_de_Moviemientos.DTUsersTableAdapters.DT_USUARIOSTableAdapter
         Me.TA_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_PARTIDOS_POLITICOSTableAdapter
-        Me.EmptySpaceItem11 = New DevExpress.XtraLayout.EmptySpaceItem
-        Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.NIVELSpinEdit = New DevExpress.XtraEditors.SpinEdit
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -123,6 +123,7 @@ Partial Class XfrmUsuarios
         CType(Me.CODIGO_MOVIMIENTOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMMOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ESTADOTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NIVELSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForADICIONADO_POR, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForFECHA_ADICION, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForMODIFICADO_POR, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -148,6 +149,8 @@ Partial Class XfrmUsuarios
         CType(Me.EmptySpaceItem9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem10, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForESTADO, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem11, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DTUSUARIOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -157,9 +160,6 @@ Partial Class XfrmUsuarios
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmptySpaceItem11, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NIVELSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -440,6 +440,17 @@ Partial Class XfrmUsuarios
         Me.ESTADOTextEdit.StyleController = Me.DataLayoutControl1
         Me.ESTADOTextEdit.TabIndex = 9
         '
+        'NIVELSpinEdit
+        '
+        Me.NIVELSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMUSUARIOSBindingSource, "NIVEL", True))
+        Me.NIVELSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.NIVELSpinEdit.Location = New System.Drawing.Point(133, 228)
+        Me.NIVELSpinEdit.Name = "NIVELSpinEdit"
+        Me.NIVELSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
+        Me.NIVELSpinEdit.Size = New System.Drawing.Size(110, 20)
+        Me.NIVELSpinEdit.StyleController = Me.DataLayoutControl1
+        Me.NIVELSpinEdit.TabIndex = 13
+        '
         'ItemForADICIONADO_POR
         '
         Me.ItemForADICIONADO_POR.Control = Me.ADICIONADO_PORSpinEdit
@@ -699,6 +710,26 @@ Partial Class XfrmUsuarios
         Me.ItemForESTADO.TextToControlDistance = 0
         Me.ItemForESTADO.TextVisible = False
         '
+        'EmptySpaceItem11
+        '
+        Me.EmptySpaceItem11.AllowHotTrack = False
+        Me.EmptySpaceItem11.CustomizationFormText = "EmptySpaceItem11"
+        Me.EmptySpaceItem11.Location = New System.Drawing.Point(235, 216)
+        Me.EmptySpaceItem11.Name = "EmptySpaceItem11"
+        Me.EmptySpaceItem11.Size = New System.Drawing.Size(10, 50)
+        Me.EmptySpaceItem11.Text = "Nivel"
+        Me.EmptySpaceItem11.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'LayoutControlItem4
+        '
+        Me.LayoutControlItem4.Control = Me.NIVELSpinEdit
+        Me.LayoutControlItem4.CustomizationFormText = "Nivel"
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 216)
+        Me.LayoutControlItem4.Name = "LayoutControlItem4"
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(235, 50)
+        Me.LayoutControlItem4.Text = "Nivel"
+        Me.LayoutControlItem4.TextSize = New System.Drawing.Size(117, 13)
+        '
         'GCBusqueda
         '
         Me.GCBusqueda.DataSource = Me.DTUSUARIOSBindingSource
@@ -894,37 +925,6 @@ Partial Class XfrmUsuarios
         '
         Me.TA_PARTIDOS_POLITICOSTableAdapter.ClearBeforeFill = True
         '
-        'EmptySpaceItem11
-        '
-        Me.EmptySpaceItem11.AllowHotTrack = False
-        Me.EmptySpaceItem11.CustomizationFormText = "EmptySpaceItem11"
-        Me.EmptySpaceItem11.Location = New System.Drawing.Point(235, 216)
-        Me.EmptySpaceItem11.Name = "EmptySpaceItem11"
-        Me.EmptySpaceItem11.Size = New System.Drawing.Size(10, 50)
-        Me.EmptySpaceItem11.Text = "Nivel"
-        Me.EmptySpaceItem11.TextSize = New System.Drawing.Size(0, 0)
-        '
-        'LayoutControlItem4
-        '
-        Me.LayoutControlItem4.Control = Me.NIVELSpinEdit
-        Me.LayoutControlItem4.CustomizationFormText = "Nivel"
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 216)
-        Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(235, 50)
-        Me.LayoutControlItem4.Text = "Nivel"
-        Me.LayoutControlItem4.TextSize = New System.Drawing.Size(117, 13)
-        '
-        'NIVELSpinEdit
-        '
-        Me.NIVELSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMUSUARIOSBindingSource, "NIVEL", True))
-        Me.NIVELSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.NIVELSpinEdit.Location = New System.Drawing.Point(133, 228)
-        Me.NIVELSpinEdit.Name = "NIVELSpinEdit"
-        Me.NIVELSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
-        Me.NIVELSpinEdit.Size = New System.Drawing.Size(110, 20)
-        Me.NIVELSpinEdit.StyleController = Me.DataLayoutControl1
-        Me.NIVELSpinEdit.TabIndex = 13
-        '
         'XfrmUsuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -961,6 +961,7 @@ Partial Class XfrmUsuarios
         CType(Me.CODIGO_MOVIMIENTOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMMOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ESTADOTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NIVELSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForADICIONADO_POR, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForFECHA_ADICION, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForMODIFICADO_POR, System.ComponentModel.ISupportInitialize).EndInit()
@@ -986,6 +987,8 @@ Partial Class XfrmUsuarios
         CType(Me.EmptySpaceItem9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem10, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForESTADO, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem11, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DTUSUARIOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -995,9 +998,6 @@ Partial Class XfrmUsuarios
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmptySpaceItem11, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NIVELSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
