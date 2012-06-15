@@ -307,7 +307,7 @@ Partial Class XfrmRequisitos
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Location = New System.Drawing.Point(96, 60)
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Name = "CODIGO_CARGO_ELECTIVOSpinEdit"
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_CARGO_ELECTIVO", "CODIGO_CARGO_ELECTIVO", 160, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
+        Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Cargo Electivo", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties.DataSource = Me.IMCARGOSELECTIVOSBindingSource
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties.DisplayMember = "DESCRIPCION"
         Me.CODIGO_CARGO_ELECTIVOSpinEdit.Properties.NullText = ""
@@ -331,6 +331,7 @@ Partial Class XfrmRequisitos
         '
         Me.CODIGO_REQUISITOSpinEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMREQUISITOSBindingSource, "CODIGO_REQUISITO", True))
         Me.CODIGO_REQUISITOSpinEdit.EditValue = ""
+        Me.CODIGO_REQUISITOSpinEdit.Enabled = False
         Me.CODIGO_REQUISITOSpinEdit.Location = New System.Drawing.Point(96, 12)
         Me.CODIGO_REQUISITOSpinEdit.Name = "CODIGO_REQUISITOSpinEdit"
         Me.CODIGO_REQUISITOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered

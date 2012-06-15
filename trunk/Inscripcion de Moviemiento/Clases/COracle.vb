@@ -95,7 +95,7 @@ Public Class COracle
         End Try
     End Function
 
-    Public Shared Function FUN_EJECUTAR_SEQ(ByVal nombre_sequencia As String)
+    Public Shared Function FUN_EJECUTAR_SEQ(ByVal nombre_sequencia As String) As Integer
         Try
             Dim cnx As New OracleConnection(Configuracion.verconfig)
 
@@ -111,7 +111,7 @@ Public Class COracle
             If dataread.Read = True Then
                 With dataread
                     Return (.Item("NUMERO"))
-                    
+
                 End With
             End If
             dataread.Close()
@@ -129,12 +129,11 @@ Public Class COracle
             cnx.Open()
 
 
-            'Compruebo si existe el Usuario
 
             Dim sqdel As New OracleCommand(consulta, cnx)
             Dim dataread As OracleDataReader = sqdel.ExecuteReader()
 
-            'Si existe Extraigo el password
+
             If dataread.Read = True Then
                 With dataread
                     Return (.Item(campo))

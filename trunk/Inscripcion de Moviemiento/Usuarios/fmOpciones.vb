@@ -28,7 +28,9 @@ Public Class fmOpcion
 
     Sub guardar()
         Try
-
+            If actualizar = False Then
+                correlativo()
+            End If
             'INDICACION QUE HA TERMINADO LA EDICION
             Me.IMOPCIONESBindingSource.EndEdit()
 
