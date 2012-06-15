@@ -13,7 +13,9 @@ Public Class fmOpcion
         DxControls.ObtenerCredencial("BtnOpciones", "INSERTAR", Me.BtnNuevo)
         DxControls.ObtenerCredencial("BtnOpciones", "ELIMINAR", Me.BtnEliminar)
     End Sub
-
+    Sub correlativo()
+        CODIGO_OPCIONSpinEdit.EditValue = COracle.FUN_EJECUTAR_SEQ("IM_SQ1_REQUISITOS")
+    End Sub
     Sub nuevo()
         Try
             Me.IMOPCIONESBindingSource.CancelEdit()
