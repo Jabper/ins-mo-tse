@@ -20,6 +20,7 @@ Partial Class XFrmMenuPrincipal
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(XFrmMenuPrincipal))
         Me.RibbonControl = New DevExpress.XtraBars.Ribbon.RibbonControl
         Me.BtnMovimeintos = New DevExpress.XtraBars.BarButtonItem
         Me.BtnPartidos = New DevExpress.XtraBars.BarButtonItem
@@ -37,11 +38,14 @@ Partial Class XFrmMenuPrincipal
         Me.BtnCandidatos = New DevExpress.XtraBars.BarButtonItem
         Me.BtnOperaciones = New DevExpress.XtraBars.BarButtonItem
         Me.BtnOperacionesUsuarios = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnExportar = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnImportar = New DevExpress.XtraBars.BarButtonItem
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup3 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage3 = New DevExpress.XtraBars.Ribbon.RibbonPage
+        Me.RibbonPageGroup5 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage4 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPage5 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPage6 = New DevExpress.XtraBars.Ribbon.RibbonPage
@@ -49,6 +53,7 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonStatusBar = New DevExpress.XtraBars.Ribbon.RibbonStatusBar
         Me.DefaultLookAndFeel1 = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
         Me.XtraTabbedMdiManager1 = New DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(Me.components)
+        Me.RibbonPageGroup4 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -57,9 +62,9 @@ Partial Class XFrmMenuPrincipal
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ExpandCollapseItem.Name = ""
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnIncompatibilidades, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnIncompatibilidades, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 19
+        Me.RibbonControl.MaxItemId = 21
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5, Me.RibbonPage6})
         Me.RibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010
@@ -179,6 +184,20 @@ Partial Class XFrmMenuPrincipal
         Me.BtnOperacionesUsuarios.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.useraccess
         Me.BtnOperacionesUsuarios.Name = "BtnOperacionesUsuarios"
         '
+        'BtnExportar
+        '
+        Me.BtnExportar.Caption = "Exportar Datos"
+        Me.BtnExportar.Id = 19
+        Me.BtnExportar.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.exportar
+        Me.BtnExportar.Name = "BtnExportar"
+        '
+        'BtnImportar
+        '
+        Me.BtnImportar.Caption = "Importar Datos"
+        Me.BtnImportar.Id = 20
+        Me.BtnImportar.LargeGlyph = CType(resources.GetObject("BtnImportar.LargeGlyph"), System.Drawing.Image)
+        Me.BtnImportar.Name = "BtnImportar"
+        '
         'RibbonPage1
         '
         Me.RibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1})
@@ -213,8 +232,16 @@ Partial Class XFrmMenuPrincipal
         '
         'RibbonPage3
         '
+        Me.RibbonPage3.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup5})
         Me.RibbonPage3.Name = "RibbonPage3"
         Me.RibbonPage3.Text = "Procesos"
+        '
+        'RibbonPageGroup5
+        '
+        Me.RibbonPageGroup5.ItemLinks.Add(Me.BtnExportar)
+        Me.RibbonPageGroup5.ItemLinks.Add(Me.BtnImportar)
+        Me.RibbonPageGroup5.Name = "RibbonPageGroup5"
+        Me.RibbonPageGroup5.Text = "Procesos"
         '
         'RibbonPage4
         '
@@ -256,6 +283,13 @@ Partial Class XFrmMenuPrincipal
         'XtraTabbedMdiManager1
         '
         Me.XtraTabbedMdiManager1.MdiParent = Me
+        '
+        'RibbonPageGroup4
+        '
+        Me.RibbonPageGroup4.ItemLinks.Add(Me.BtnRequisitos)
+        Me.RibbonPageGroup4.ItemLinks.Add(Me.BtnCandidatos)
+        Me.RibbonPageGroup4.Name = "RibbonPageGroup4"
+        Me.RibbonPageGroup4.Text = "RibbonPageGroup3"
         '
         'XFrmMenuPrincipal
         '
@@ -305,6 +339,10 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents BtnCandidatos As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BtnOperaciones As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BtnOperacionesUsuarios As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnExportar As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonPageGroup5 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents RibbonPageGroup4 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents BtnImportar As DevExpress.XtraBars.BarButtonItem
 
 
 End Class
