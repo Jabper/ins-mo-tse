@@ -117,4 +117,13 @@ Public Class xfrmInscripcionCandidato
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
         guardar()
     End Sub
+
+    Private Sub POSICIONSpinEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles POSICIONSpinEdit.KeyPress
+        VControles.solonumeros(e)
+    End Sub
+
+
+    Private Sub IDENTIDADTextEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles IDENTIDADTextEdit.KeyPress
+        VControles.solonumeros(e)
+    End Sub
 End Class
