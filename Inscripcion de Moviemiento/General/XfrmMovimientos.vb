@@ -9,13 +9,15 @@ Public Class XfrmMovimientos
     Dim actualizar As Boolean = False
 
     Private Sub XfrmMovimientos_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.GotFocus
-        Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
+        Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
     End Sub
 
     Private Sub XfrmMovimientos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
-        'TODO: This line of code loads data into the 'DSPolitico.IM_MOVIMIENTOS' table. You can move, or remove it, as needed.
-        Me.IM_MOVIMIENTOSTableAdapter.Fill(Me.DSPolitico.IM_MOVIMIENTOS)
+        'TODO: This line of code loads data into the 'DSPolitico.TA_PARTIDOS_POLITICOS' table. You can move, or remove it, as needed.
+
+        'Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
+        ''TODO: This line of code loads data into the 'DSPolitico.IM_MOVIMIENTOS' table. You can move, or remove it, as needed.
+        'Me.IM_MOVIMIENTOSTableAdapter.Fill(Me.DSPolitico.IM_MOVIMIENTOS)
         Me.IMMOVIMIENTOSBindingSource.AddNew()
         ActualizarGrid()
 
@@ -41,6 +43,7 @@ Public Class XfrmMovimientos
                     _datar.FECHA_ADICION = DateTime.Now
                     _datar.INSIGNIA = Data.ConvertImageToByteArray(Me.INSIGNIAPictureEdit.Image)
                     _datar.EMBLEMA = Data.ConvertImageToByteArray(Me.EMBLEMAPictureEdit.Image)
+
                     'SI EL REGISTRO SE MODIFICA
                 ElseIf _datar.RowState = DataRowState.Modified Then
                     _datar.MODIFICADO_POR = usuario
@@ -166,7 +169,7 @@ Public Class XfrmMovimientos
         VControles.solonumeros(e)
     End Sub
 
-    Private Sub NOMBRE_MOVIMIENTOTextEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NOMBRE_MOVIMIENTOTextEdit.EditValueChanged
+    Private Sub NOMBRE_MOVIMIENTOTextEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         VControles.Mayuscula(NOMBRE_MOVIMIENTOTextEdit)
     End Sub
 
@@ -214,7 +217,7 @@ Public Class XfrmMovimientos
 
                 ActualizarGrid()
                 Mensajes.MensajeEliminar()
-                Me.IMPARTIDOSPOLITICOSBindingSource.AddNew()
+                Me.IMMOVIMIENTOSBindingSource.AddNew()
                 Me.BtnEliminar.Enabled = False
                 Me.INSIGNIAPictureEdit.EditValue = Nothing
                 Me.EMBLEMAPictureEdit.EditValue = Nothing
@@ -234,7 +237,7 @@ Public Class XfrmMovimientos
         Me.TA_MOVIMIENTOTableAdapter.FillBy(DSPolitico.TA_MOVIMIENTO, Me.ButtonEdit1.Text)
     End Sub
 
-    Private Sub NOMBRE_MOVIMIENTOTextEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles NOMBRE_MOVIMIENTOTextEdit.KeyPress
+    Private Sub NOMBRE_MOVIMIENTOTextEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
         If Char.IsLower(e.KeyChar) Then
             'Convert to uppercase, and put at the caret position in the TextBox.
             NOMBRE_MOVIMIENTOTextEdit.SelectedText = Char.ToUpper(e.KeyChar)

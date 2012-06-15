@@ -114,10 +114,43 @@ Public Class COracle
                     
                 End With
             End If
+            dataread.Close()
+            cnx.Close()
+
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
     End Function
+
+    Public Shared Function ObtenerDatos(ByVal consulta As String, ByVal campo As String) As String
+        Try
+            Dim cnx As New OracleConnection(Configuracion.verconfig)
+
+            cnx.Open()
+
+
+            'Compruebo si existe el Usuario
+
+            Dim sqdel As New OracleCommand(consulta, cnx)
+            Dim dataread As OracleDataReader = sqdel.ExecuteReader()
+
+            'Si existe Extraigo el password
+            If dataread.Read = True Then
+                With dataread
+                    Return (.Item(campo))
+
+                End With
+            Else
+                Return "N"
+            End If
+        Catch ex As Exception
+
+            MessageBox.Show(ex.Message)
+            Return "N"
+        End Try
+    End Function
+
+
     'Try
 
     '    'CREANDO CADENA DE CONEXION

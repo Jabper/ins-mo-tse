@@ -2,9 +2,7 @@
 
 Public Class XfrmCiudadanos
     Dim ActivarMayusculas As Boolean
-
-
-
+    Dim vi As Integer = 1
     Public Sub New()
 
         ' Llamada necesaria para el Diseñador de Windows Forms.
@@ -16,6 +14,7 @@ Public Class XfrmCiudadanos
         Me.KeyPreview = True
 
     End Sub
+
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
 
         For i = 1 To CType(Me.TextEdit1.Text, Integer)
@@ -55,30 +54,84 @@ Public Class XfrmCiudadanos
 
     End Sub
 
-    Private Sub XfrmCiudadanos_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Me.KeyPress
-        Dim S As String
+    
 
-        S = UCase(e.KeyChar)
+    Private Sub GridView1_CustomColumnDisplayText(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs) Handles GridView1.CustomColumnDisplayText
 
-        S = ChrW(Asc(S))
+        If (e.Column.FieldName = "Fila") Then
+            If e.RowHandle < 0 Then
+                e.DisplayText = vi + 1
 
-        e.KeyChar = S
+            Else
+                e.DisplayText = e.RowHandle + 1
+                vi = e.RowHandle + 1
+            End If
+
+        End If
+
+
 
     End Sub
 
-    Private Sub XfrmCiudadanos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DSCiudadanos.IM_CIUDADANOS_RESPALDAN' table. You can move, or remove it, as needed.
-        'Me.IM_CIUDADANOS_RESPALDANTableAdapter.Fill(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN)
+    Private Sub GridView1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles GridView1.KeyPress
 
     End Sub
+
+    
+   
 
 
 
     Private Sub GridView1_ValidatingEditor(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs) Handles GridView1.ValidatingEditor
+        '
         Dim view As GridView = TryCast(sender, GridView)
-        If view.FocusedColumn.FieldName <> "Nombre" Then
-            Return
+        If view.FocusedColumn.FieldName = "IDENTIDAD" Then
+            Dim a As String = e.Value
+            Dim consulta As String = "select NUMERO_IDENTIDAD, PRIMER_NOMBRE || ' ' || SEGUNDO_NOMBRE || ' ' || PRIMER_APELLIDO || ' ' || SEGUNDO_APELLIDO AS NOMBRE "
+            consulta &= "from Im_padron_electoral where NUMERO_IDENTIDAD='" & a & "'"
+            If COracle.ObtenerDatos(consulta, "NOMBRE") <> "N" Then
+
+
+                view.SetRowCellValue(view.FocusedRowHandle, "NOMBRE", COracle.ObtenerDatos(consulta, "NOMBRE"))
+                'view.SetRowCellValue(view.FocusedRowHandle, "NOMBRE_IGUAL", "S")
+            Else
+                view.SetRowCellValue(view.FocusedRowHandle, "NOMBRE", "")
+                'view.SetRowCellValue(view.FocusedRowHandle, "NOMBRE_IGUAL", "N")
+
+                'view.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+                'gv.OptionsBehavior.Editable = False
+                'gv.OptionsSelection.EnableAppearanceFocusedCell = False
+                'e.Valid = e.Value IsNot Nothing AndAlso Not e.Value.Equals(String.Empty)
+            End If
+
+        ElseIf view.FocusedColumn.FieldName = "NOMBRE_IGUAL" Then
+            If e.Value = "N" Then
+
+                colNOMBRE_PAPELETA.OptionsColumn.AllowEdit = True
+            Else
+                colNOMBRE_PAPELETA.OptionsColumn.AllowEdit = False
+            End If
         End If
-        e.Valid = e.Value IsNot Nothing AndAlso Not e.Value.Equals(String.Empty)
+        '
+    End Sub
+
+
+    Private Sub GCBusqueda_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GCBusqueda.Click
+
+    End Sub
+
+    Private Sub GCBusqueda_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles GCBusqueda.KeyPress
+
+    End Sub
+
+    Private Sub XfrmCiudadanos_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Me.KeyPress
+        Dim view As GridView = Me.GridView1
+        If view.FocusedColumn.FieldName = "IDENTIDAD" Then
+            VControles.solonumeros(e)
+        End If
+    End Sub
+
+    Private Sub XfrmCiudadanos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
     End Sub
 End Class

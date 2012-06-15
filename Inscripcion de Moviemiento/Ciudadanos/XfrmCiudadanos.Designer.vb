@@ -25,7 +25,7 @@ Partial Class XfrmCiudadanos
         Me.IMCIUDADANOSRESPALDANBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DSCiudadanos = New Inscripcion_de_Moviemientos.DSCiudadanos
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
-        Me.colCODIGO_CUIDADANOS_RESPALDAN = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.Fila = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colNOMBRE = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colNOMBRE_IGUAL = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RIChkCoincide = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
@@ -81,7 +81,7 @@ Partial Class XfrmCiudadanos
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(522, 281, 250, 350)
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(560, 439)
+        Me.LayoutControl1.Size = New System.Drawing.Size(628, 439)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
@@ -92,7 +92,7 @@ Partial Class XfrmCiudadanos
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
         Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RIChkCoincide, Me.RIChkFima, Me.RPIImgfirma})
-        Me.GCBusqueda.Size = New System.Drawing.Size(536, 272)
+        Me.GCBusqueda.Size = New System.Drawing.Size(604, 272)
         Me.GCBusqueda.TabIndex = 8
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -108,7 +108,7 @@ Partial Class XfrmCiudadanos
         '
         'GridView1
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_CUIDADANOS_RESPALDAN, Me.colNOMBRE, Me.colNOMBRE_IGUAL, Me.colNOMBRE_PAPELETA, Me.colFIRMA, Me.colHUELLA, Me.colDIRECCION, Me.colIDENTIDAD, Me.colIMAGEN_FIRMA})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.Fila, Me.colNOMBRE, Me.colNOMBRE_IGUAL, Me.colNOMBRE_PAPELETA, Me.colFIRMA, Me.colHUELLA, Me.colDIRECCION, Me.colIDENTIDAD, Me.colIMAGEN_FIRMA})
         Me.GridView1.GridControl = Me.GCBusqueda
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[True]
@@ -117,89 +117,104 @@ Partial Class XfrmCiudadanos
         Me.GridView1.OptionsView.ColumnAutoWidth = False
         Me.GridView1.OptionsView.ShowDetailButtons = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
-        Me.GridView1.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.colCODIGO_CUIDADANOS_RESPALDAN, DevExpress.Data.ColumnSortOrder.Descending)})
         '
-        'colCODIGO_CUIDADANOS_RESPALDAN
+        'Fila
         '
-        Me.colCODIGO_CUIDADANOS_RESPALDAN.Caption = "Código"
-        Me.colCODIGO_CUIDADANOS_RESPALDAN.FieldName = "CODIGO_CUIDADANOS_RESPALDAN"
-        Me.colCODIGO_CUIDADANOS_RESPALDAN.Name = "colCODIGO_CUIDADANOS_RESPALDAN"
-        Me.colCODIGO_CUIDADANOS_RESPALDAN.Visible = True
-        Me.colCODIGO_CUIDADANOS_RESPALDAN.VisibleIndex = 0
-        Me.colCODIGO_CUIDADANOS_RESPALDAN.Width = 62
+        Me.Fila.Caption = "Fila"
+        Me.Fila.FieldName = "Fila"
+        Me.Fila.Name = "Fila"
+        Me.Fila.OptionsColumn.AllowEdit = False
+        Me.Fila.UnboundType = DevExpress.Data.UnboundColumnType.[String]
+        Me.Fila.Visible = True
+        Me.Fila.VisibleIndex = 0
         '
         'colNOMBRE
         '
         Me.colNOMBRE.Caption = "Nombre"
         Me.colNOMBRE.FieldName = "NOMBRE"
         Me.colNOMBRE.Name = "colNOMBRE"
+        Me.colNOMBRE.OptionsColumn.AllowEdit = False
         Me.colNOMBRE.Visible = True
-        Me.colNOMBRE.VisibleIndex = 1
+        Me.colNOMBRE.VisibleIndex = 2
+        Me.colNOMBRE.Width = 127
         '
         'colNOMBRE_IGUAL
         '
+        Me.colNOMBRE_IGUAL.Caption = "Coincide"
         Me.colNOMBRE_IGUAL.ColumnEdit = Me.RIChkCoincide
         Me.colNOMBRE_IGUAL.FieldName = "NOMBRE_IGUAL"
         Me.colNOMBRE_IGUAL.Name = "colNOMBRE_IGUAL"
         Me.colNOMBRE_IGUAL.Visible = True
         Me.colNOMBRE_IGUAL.VisibleIndex = 3
-        Me.colNOMBRE_IGUAL.Width = 96
+        Me.colNOMBRE_IGUAL.Width = 55
         '
         'RIChkCoincide
         '
         Me.RIChkCoincide.AutoHeight = False
         Me.RIChkCoincide.Name = "RIChkCoincide"
+        Me.RIChkCoincide.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
         Me.RIChkCoincide.ValueChecked = "S"
         Me.RIChkCoincide.ValueUnchecked = "N"
         '
         'colNOMBRE_PAPELETA
         '
+        Me.colNOMBRE_PAPELETA.Caption = "Nombre en la papeleta"
         Me.colNOMBRE_PAPELETA.FieldName = "Nombre Papeleta"
         Me.colNOMBRE_PAPELETA.Name = "colNOMBRE_PAPELETA"
         Me.colNOMBRE_PAPELETA.OptionsColumn.AllowEdit = False
         Me.colNOMBRE_PAPELETA.Visible = True
         Me.colNOMBRE_PAPELETA.VisibleIndex = 4
-        Me.colNOMBRE_PAPELETA.Width = 107
+        Me.colNOMBRE_PAPELETA.Width = 125
         '
         'colFIRMA
         '
+        Me.colFIRMA.Caption = "Firma"
         Me.colFIRMA.ColumnEdit = Me.RIChkFima
         Me.colFIRMA.FieldName = "FIRMA"
         Me.colFIRMA.Name = "colFIRMA"
         Me.colFIRMA.Visible = True
         Me.colFIRMA.VisibleIndex = 5
+        Me.colFIRMA.Width = 34
         '
         'RIChkFima
         '
         Me.RIChkFima.AutoHeight = False
         Me.RIChkFima.Name = "RIChkFima"
+        Me.RIChkFima.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
         Me.RIChkFima.ValueChecked = "S"
         Me.RIChkFima.ValueUnchecked = "N"
         '
         'colHUELLA
         '
+        Me.colHUELLA.Caption = "Huella"
         Me.colHUELLA.ColumnEdit = Me.RIChkFima
         Me.colHUELLA.FieldName = "HUELLA"
         Me.colHUELLA.Name = "colHUELLA"
         Me.colHUELLA.Visible = True
         Me.colHUELLA.VisibleIndex = 6
+        Me.colHUELLA.Width = 38
         '
         'colDIRECCION
         '
+        Me.colDIRECCION.Caption = "Direccion"
         Me.colDIRECCION.FieldName = "DIRECCION"
         Me.colDIRECCION.Name = "colDIRECCION"
         Me.colDIRECCION.Visible = True
         Me.colDIRECCION.VisibleIndex = 7
+        Me.colDIRECCION.Width = 135
         '
         'colIDENTIDAD
         '
+        Me.colIDENTIDAD.Caption = "Identidad"
         Me.colIDENTIDAD.FieldName = "IDENTIDAD"
         Me.colIDENTIDAD.Name = "colIDENTIDAD"
         Me.colIDENTIDAD.Visible = True
-        Me.colIDENTIDAD.VisibleIndex = 2
+        Me.colIDENTIDAD.VisibleIndex = 1
+        Me.colIDENTIDAD.Width = 83
         '
         'colIMAGEN_FIRMA
         '
+        Me.colIMAGEN_FIRMA.Caption = "Imagen Firma"
         Me.colIMAGEN_FIRMA.ColumnEdit = Me.RPIImgfirma
         Me.colIMAGEN_FIRMA.FieldName = "IMAGEN_FIRMA"
         Me.colIMAGEN_FIRMA.Name = "colIMAGEN_FIRMA"
@@ -222,7 +237,7 @@ Partial Class XfrmCiudadanos
         Me.PanelControl1.Controls.Add(Me.FlowLayoutPanel1)
         Me.PanelControl1.Location = New System.Drawing.Point(12, 12)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(313, 69)
+        Me.PanelControl1.Size = New System.Drawing.Size(353, 69)
         Me.PanelControl1.TabIndex = 4
         '
         'TextEdit1
@@ -301,7 +316,7 @@ Partial Class XfrmCiudadanos
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.EmptySpaceItem2, Me.EmptySpaceItem3, Me.LayoutControlItem1, Me.LayoutControlItem2})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(560, 439)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(628, 439)
         Me.LayoutControlGroup1.Text = "Root"
         Me.LayoutControlGroup1.TextVisible = False
         '
@@ -309,9 +324,9 @@ Partial Class XfrmCiudadanos
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(317, 0)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(357, 0)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(223, 73)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(251, 73)
         Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -321,7 +336,7 @@ Partial Class XfrmCiudadanos
         Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
         Me.EmptySpaceItem3.Location = New System.Drawing.Point(0, 349)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Size = New System.Drawing.Size(540, 70)
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(608, 70)
         Me.EmptySpaceItem3.Text = "EmptySpaceItem3"
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -331,7 +346,7 @@ Partial Class XfrmCiudadanos
         Me.LayoutControlItem1.CustomizationFormText = "LayoutControlItem1"
         Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(317, 73)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(357, 73)
         Me.LayoutControlItem1.Text = "LayoutControlItem1"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem1.TextToControlDistance = 0
@@ -343,7 +358,7 @@ Partial Class XfrmCiudadanos
         Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
         Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 73)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(540, 276)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(608, 276)
         Me.LayoutControlItem2.Text = "LayoutControlItem2"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextToControlDistance = 0
@@ -357,7 +372,7 @@ Partial Class XfrmCiudadanos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(560, 439)
+        Me.ClientSize = New System.Drawing.Size(628, 439)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Name = "XfrmCiudadanos"
         Me.Text = "XfrmCiudadanos"
@@ -405,7 +420,6 @@ Partial Class XfrmCiudadanos
     Friend WithEvents DSCiudadanos As Inscripcion_de_Moviemientos.DSCiudadanos
     Friend WithEvents IMCIUDADANOSRESPALDANBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents IM_CIUDADANOS_RESPALDANTableAdapter As Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.IM_CIUDADANOS_RESPALDANTableAdapter
-    Friend WithEvents colCODIGO_CUIDADANOS_RESPALDAN As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colNOMBRE As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colFIRMA As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colHUELLA As DevExpress.XtraGrid.Columns.GridColumn
@@ -414,4 +428,5 @@ Partial Class XfrmCiudadanos
     Friend WithEvents colNOMBRE_IGUAL As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colIMAGEN_FIRMA As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colNOMBRE_PAPELETA As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents Fila As DevExpress.XtraGrid.Columns.GridColumn
 End Class
