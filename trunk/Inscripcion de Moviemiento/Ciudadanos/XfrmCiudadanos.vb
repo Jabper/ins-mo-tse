@@ -1,4 +1,5 @@
 ﻿Imports DevExpress.XtraGrid.Views.Grid
+Imports DevExpress.XtraEditors.Controls
 
 Public Class XfrmCiudadanos
     Dim ActivarMayusculas As Boolean
@@ -54,7 +55,7 @@ Public Class XfrmCiudadanos
 
     End Sub
 
-    
+
 
     Private Sub GridView1_CustomColumnDisplayText(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs) Handles GridView1.CustomColumnDisplayText
 
@@ -73,12 +74,19 @@ Public Class XfrmCiudadanos
 
     End Sub
 
+    Private Sub GridView1_InvalidValueException(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs) Handles GridView1.InvalidValueException
+        e.ExceptionMode = ExceptionMode.DisplayError
+        e.WindowCaption = "Input Error"
+        e.ErrorText = "Error"
+        GridView1.HideEditor()
+    End Sub
+
     Private Sub GridView1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles GridView1.KeyPress
 
     End Sub
 
-    
-   
+
+
 
 
 
@@ -111,6 +119,7 @@ Public Class XfrmCiudadanos
             Else
                 colNOMBRE_PAPELETA.OptionsColumn.AllowEdit = False
             End If
+            e.Valid = e.Value IsNot Nothing AndAlso Not e.Value.Equals(String.Empty)
         End If
         '
     End Sub
@@ -132,6 +141,14 @@ Public Class XfrmCiudadanos
     End Sub
 
     Private Sub XfrmCiudadanos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        'TODO: This line of code loads data into the 'DSDeptoMuni.TA_MUNICIPIOS' table. You can move, or remove it, as needed.
+        Me.TA_MUNICIPIOSTableAdapter.Fill(Me.DSDeptoMuni.TA_MUNICIPIOS)
+        'TODO: This line of code loads data into the 'DSDeptoMuni.TA_DEPARTAMENTOS' table. You can move, or remove it, as needed.
+        Me.TA_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.TA_DEPARTAMENTOS)
+        'TODO: This line of code loads data into the 'DSPolitico.TA_MOVIMIENTO' table. You can move, or remove it, as needed.
+        Me.TA_MOVIMIENTOTableAdapter.Fill(Me.DSPolitico.TA_MOVIMIENTO)
+        'TODO: This line of code loads data into the 'DSPolitico.TA_PARTIDOS_POLITICOS' table. You can move, or remove it, as needed.
+        Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
 
     End Sub
 End Class
