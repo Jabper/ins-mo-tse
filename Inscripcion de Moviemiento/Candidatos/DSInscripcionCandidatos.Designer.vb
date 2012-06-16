@@ -3831,6 +3831,16 @@ Partial Public Class DSInscripcionCandidatos
         
         Private columnFECHA_MODIFICACION As Global.System.Data.DataColumn
         
+        Private columnNOMBRE_MOVIMIENTO As Global.System.Data.DataColumn
+        
+        Private columnPARTIDO As Global.System.Data.DataColumn
+        
+        Private columnCARGO As Global.System.Data.DataColumn
+        
+        Private columnDEPARTAMENTO As Global.System.Data.DataColumn
+        
+        Private columnMUNICIPIO As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -3961,6 +3971,41 @@ Partial Public Class DSInscripcionCandidatos
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property NOMBRE_MOVIMIENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNOMBRE_MOVIMIENTO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property PARTIDOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPARTIDO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CARGOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCARGO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property DEPARTAMENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDEPARTAMENTO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property MUNICIPIOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMUNICIPIO
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3990,9 +4035,28 @@ Partial Public Class DSInscripcionCandidatos
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddTA_CANDIDATOSRow(ByVal CODIGO_MOVIMIENTO As Decimal, ByVal parentIM_PARTIDOS_POLITICOSRowByIM_FK4_CANDIDATOS1 As IM_PARTIDOS_POLITICOSRow, ByVal CODIGO_CANDIDATOS As Decimal, ByVal NOMBRE As String, ByVal POSICION As Decimal, ByVal parentIM_CARGOS_ELECTIVOSRowByIM_FK3_CANDIDATOS1 As IM_CARGOS_ELECTIVOSRow, ByVal APELLIDO As String, ByVal CODIGO_DEPARTAMENTO As Decimal, ByVal CODIGO_MUNICIPIO As Decimal, ByVal IDENTIDAD As String, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Date) As TA_CANDIDATOSRow
+        Public Overloads Function AddTA_CANDIDATOSRow( _
+                    ByVal CODIGO_MOVIMIENTO As Decimal,  _
+                    ByVal parentIM_PARTIDOS_POLITICOSRowByIM_FK4_CANDIDATOS1 As IM_PARTIDOS_POLITICOSRow,  _
+                    ByVal CODIGO_CANDIDATOS As Decimal,  _
+                    ByVal NOMBRE As String,  _
+                    ByVal POSICION As Decimal,  _
+                    ByVal parentIM_CARGOS_ELECTIVOSRowByIM_FK3_CANDIDATOS1 As IM_CARGOS_ELECTIVOSRow,  _
+                    ByVal APELLIDO As String,  _
+                    ByVal CODIGO_DEPARTAMENTO As Decimal,  _
+                    ByVal CODIGO_MUNICIPIO As Decimal,  _
+                    ByVal IDENTIDAD As String,  _
+                    ByVal ADICIONADO_POR As String,  _
+                    ByVal FECHA_ADICION As Date,  _
+                    ByVal MODIFICADO_POR As String,  _
+                    ByVal FECHA_MODIFICACION As Date,  _
+                    ByVal NOMBRE_MOVIMIENTO As String,  _
+                    ByVal PARTIDO As String,  _
+                    ByVal CARGO As String,  _
+                    ByVal DEPARTAMENTO As String,  _
+                    ByVal MUNICIPIO As String) As TA_CANDIDATOSRow
             Dim rowTA_CANDIDATOSRow As TA_CANDIDATOSRow = CType(Me.NewRow,TA_CANDIDATOSRow)
-            Dim columnValuesArray() As Object = New Object() {CODIGO_MOVIMIENTO, Nothing, CODIGO_CANDIDATOS, NOMBRE, POSICION, Nothing, APELLIDO, CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, IDENTIDAD, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION}
+            Dim columnValuesArray() As Object = New Object() {CODIGO_MOVIMIENTO, Nothing, CODIGO_CANDIDATOS, NOMBRE, POSICION, Nothing, APELLIDO, CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, IDENTIDAD, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, NOMBRE_MOVIMIENTO, PARTIDO, CARGO, DEPARTAMENTO, MUNICIPIO}
             If (Not (parentIM_PARTIDOS_POLITICOSRowByIM_FK4_CANDIDATOS1) Is Nothing) Then
                 columnValuesArray(1) = parentIM_PARTIDOS_POLITICOSRowByIM_FK4_CANDIDATOS1(0)
             End If
@@ -4032,6 +4096,11 @@ Partial Public Class DSInscripcionCandidatos
             Me.columnFECHA_ADICION = MyBase.Columns("FECHA_ADICION")
             Me.columnMODIFICADO_POR = MyBase.Columns("MODIFICADO_POR")
             Me.columnFECHA_MODIFICACION = MyBase.Columns("FECHA_MODIFICACION")
+            Me.columnNOMBRE_MOVIMIENTO = MyBase.Columns("NOMBRE_MOVIMIENTO")
+            Me.columnPARTIDO = MyBase.Columns("PARTIDO")
+            Me.columnCARGO = MyBase.Columns("CARGO")
+            Me.columnDEPARTAMENTO = MyBase.Columns("DEPARTAMENTO")
+            Me.columnMUNICIPIO = MyBase.Columns("MUNICIPIO")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -4064,6 +4133,16 @@ Partial Public Class DSInscripcionCandidatos
             MyBase.Columns.Add(Me.columnMODIFICADO_POR)
             Me.columnFECHA_MODIFICACION = New Global.System.Data.DataColumn("FECHA_MODIFICACION", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFECHA_MODIFICACION)
+            Me.columnNOMBRE_MOVIMIENTO = New Global.System.Data.DataColumn("NOMBRE_MOVIMIENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNOMBRE_MOVIMIENTO)
+            Me.columnPARTIDO = New Global.System.Data.DataColumn("PARTIDO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPARTIDO)
+            Me.columnCARGO = New Global.System.Data.DataColumn("CARGO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCARGO)
+            Me.columnDEPARTAMENTO = New Global.System.Data.DataColumn("DEPARTAMENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDEPARTAMENTO)
+            Me.columnMUNICIPIO = New Global.System.Data.DataColumn("MUNICIPIO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMUNICIPIO)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_CANDIDATOS}, false))
             Me.columnCODIGO_CANDIDATOS.Unique = true
             Me.columnNOMBRE.MaxLength = 100
@@ -4071,6 +4150,11 @@ Partial Public Class DSInscripcionCandidatos
             Me.columnIDENTIDAD.MaxLength = 15
             Me.columnADICIONADO_POR.MaxLength = 10
             Me.columnMODIFICADO_POR.MaxLength = 10
+            Me.columnNOMBRE_MOVIMIENTO.MaxLength = 200
+            Me.columnPARTIDO.MaxLength = 100
+            Me.columnCARGO.MaxLength = 100
+            Me.columnDEPARTAMENTO.MaxLength = 100
+            Me.columnMUNICIPIO.MaxLength = 100
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -5752,6 +5836,76 @@ Partial Public Class DSInscripcionCandidatos
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property NOMBRE_MOVIMIENTO() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableTA_CANDIDATOS.NOMBRE_MOVIMIENTOColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'NOMBRE_MOVIMIENTO' in table 'TA_CANDIDATOS' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTA_CANDIDATOS.NOMBRE_MOVIMIENTOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property PARTIDO() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableTA_CANDIDATOS.PARTIDOColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PARTIDO' in table 'TA_CANDIDATOS' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTA_CANDIDATOS.PARTIDOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CARGO() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableTA_CANDIDATOS.CARGOColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CARGO' in table 'TA_CANDIDATOS' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTA_CANDIDATOS.CARGOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property DEPARTAMENTO() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableTA_CANDIDATOS.DEPARTAMENTOColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DEPARTAMENTO' in table 'TA_CANDIDATOS' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTA_CANDIDATOS.DEPARTAMENTOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property MUNICIPIO() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableTA_CANDIDATOS.MUNICIPIOColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'MUNICIPIO' in table 'TA_CANDIDATOS' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTA_CANDIDATOS.MUNICIPIOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property IM_MUNICIPIOSRowParent() As IM_MUNICIPIOSRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("IM_FK2_CANDIDATOS1")),IM_MUNICIPIOSRow)
@@ -5919,6 +6073,56 @@ Partial Public Class DSInscripcionCandidatos
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetFECHA_MODIFICACIONNull()
             Me(Me.tableTA_CANDIDATOS.FECHA_MODIFICACIONColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsNOMBRE_MOVIMIENTONull() As Boolean
+            Return Me.IsNull(Me.tableTA_CANDIDATOS.NOMBRE_MOVIMIENTOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetNOMBRE_MOVIMIENTONull()
+            Me(Me.tableTA_CANDIDATOS.NOMBRE_MOVIMIENTOColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsPARTIDONull() As Boolean
+            Return Me.IsNull(Me.tableTA_CANDIDATOS.PARTIDOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetPARTIDONull()
+            Me(Me.tableTA_CANDIDATOS.PARTIDOColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsCARGONull() As Boolean
+            Return Me.IsNull(Me.tableTA_CANDIDATOS.CARGOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetCARGONull()
+            Me(Me.tableTA_CANDIDATOS.CARGOColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsDEPARTAMENTONull() As Boolean
+            Return Me.IsNull(Me.tableTA_CANDIDATOS.DEPARTAMENTOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetDEPARTAMENTONull()
+            Me(Me.tableTA_CANDIDATOS.DEPARTAMENTOColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsMUNICIPIONull() As Boolean
+            Return Me.IsNull(Me.tableTA_CANDIDATOS.MUNICIPIOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetMUNICIPIONull()
+            Me(Me.tableTA_CANDIDATOS.MUNICIPIOColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -10733,155 +10937,12 @@ Namespace DSInscripcionCandidatosTableAdapters
             tableMapping.ColumnMappings.Add("FECHA_ADICION", "FECHA_ADICION")
             tableMapping.ColumnMappings.Add("MODIFICADO_POR", "MODIFICADO_POR")
             tableMapping.ColumnMappings.Add("FECHA_MODIFICACION", "FECHA_MODIFICACION")
+            tableMapping.ColumnMappings.Add("NOMBRE_MOVIMIENTO", "NOMBRE_MOVIMIENTO")
+            tableMapping.ColumnMappings.Add("PARTIDO", "PARTIDO")
+            tableMapping.ColumnMappings.Add("CARGO", "CARGO")
+            tableMapping.ColumnMappings.Add("DEPARTAMENTO", "DEPARTAMENTO")
+            tableMapping.ColumnMappings.Add("MUNICIPIO", "MUNICIPIO")
             Me._adapter.TableMappings.Add(tableMapping)
-            Me._adapter.DeleteCommand = New Global.System.Data.OracleClient.OracleCommand
-            Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM ""IM_CANDIDATOS"" WHERE (((:IsNull_CODIGO_MOVIMIENTO = 1 AND ""CODIGO_MO"& _ 
-                "VIMIENTO"" IS NULL) OR (""CODIGO_MOVIMIENTO"" = :Original_CODIGO_MOVIMIENTO)) AND ("& _ 
-                "(:IsNull_CODIGO_PARTIDO = 1 AND ""CODIGO_PARTIDO"" IS NULL) OR (""CODIGO_PARTIDO"" ="& _ 
-                " :Original_CODIGO_PARTIDO)) AND ((:IsNull_CODIGO_CANDIDATOS = 1 AND ""CODIGO_CAND"& _ 
-                "IDATOS"" IS NULL) OR (""CODIGO_CANDIDATOS"" = :Original_CODIGO_CANDIDATOS)) AND ((:"& _ 
-                "IsNull_NOMBRE = 1 AND ""NOMBRE"" IS NULL) OR (""NOMBRE"" = :Original_NOMBRE)) AND (("& _ 
-                ":IsNull_POSICION = 1 AND ""POSICION"" IS NULL) OR (""POSICION"" = :Original_POSICION"& _ 
-                ")) AND ((:IsNull_CODIGO_CARGO_ELECTIVO = 1 AND ""CODIGO_CARGO_ELECTIVO"" IS NULL) "& _ 
-                "OR (""CODIGO_CARGO_ELECTIVO"" = :Original_CODIGO_CARGO_ELECTIVO)) AND ((:IsNull_AP"& _ 
-                "ELLIDO = 1 AND ""APELLIDO"" IS NULL) OR (""APELLIDO"" = :Original_APELLIDO)) AND ((:"& _ 
-                "IsNull_CODIGO_DEPARTAMENTO = 1 AND ""CODIGO_DEPARTAMENTO"" IS NULL) OR (""CODIGO_DE"& _ 
-                "PARTAMENTO"" = :Original_CODIGO_DEPARTAMENTO)) AND ((:IsNull_CODIGO_MUNICIPIO = 1"& _ 
-                " AND ""CODIGO_MUNICIPIO"" IS NULL) OR (""CODIGO_MUNICIPIO"" = :Original_CODIGO_MUNIC"& _ 
-                "IPIO)) AND ((:IsNull_IDENTIDAD = 1 AND ""IDENTIDAD"" IS NULL) OR (""IDENTIDAD"" = :O"& _ 
-                "riginal_IDENTIDAD)) AND ((:IsNull_ADICIONADO_POR = 1 AND ""ADICIONADO_POR"" IS NUL"& _ 
-                "L) OR (""ADICIONADO_POR"" = :Original_ADICIONADO_POR)) AND ((:IsNull_FECHA_ADICION"& _ 
-                " = 1 AND ""FECHA_ADICION"" IS NULL) OR (""FECHA_ADICION"" = :Original_FECHA_ADICION)"& _ 
-                ") AND ((:IsNull_MODIFICADO_POR = 1 AND ""MODIFICADO_POR"" IS NULL) OR (""MODIFICADO"& _ 
-                "_POR"" = :Original_MODIFICADO_POR)) AND ((:IsNull_FECHA_MODIFICACION = 1 AND ""FEC"& _ 
-                "HA_MODIFICACION"" IS NULL) OR (""FECHA_MODIFICACION"" = :Original_FECHA_MODIFICACIO"& _ 
-                "N)))"
-            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_CODIGO_MOVIMIENTO", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_MOVIMIENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_CODIGO_PARTIDO", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_PARTIDO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_CODIGO_CANDIDATOS", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_CANDIDATOS", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_CANDIDATOS", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_CANDIDATOS", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_NOMBRE", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_NOMBRE", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_POSICION", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "POSICION", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_POSICION", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "POSICION", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_CODIGO_CARGO_ELECTIVO", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_CARGO_ELECTIVO", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_CARGO_ELECTIVO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_CARGO_ELECTIVO", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_APELLIDO", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "APELLIDO", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_APELLIDO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "APELLIDO", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_CODIGO_MUNICIPIO", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_MUNICIPIO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_IDENTIDAD", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "IDENTIDAD", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_IDENTIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "IDENTIDAD", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_FECHA_ADICION", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_FECHA_ADICION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_FECHA_MODIFICACION", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "FECHA_MODIFICACION", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_FECHA_MODIFICACION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_MODIFICACION", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.InsertCommand = New Global.System.Data.OracleClient.OracleCommand
-            Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO ""IM_CANDIDATOS"" (""CODIGO_MOVIMIENTO"", ""CODIGO_PARTIDO"", ""CODIGO_CANDI"& _ 
-                "DATOS"", ""NOMBRE"", ""POSICION"", ""CODIGO_CARGO_ELECTIVO"", ""APELLIDO"", ""CODIGO_DEPAR"& _ 
-                "TAMENTO"", ""CODIGO_MUNICIPIO"", ""IDENTIDAD"", ""ADICIONADO_POR"", ""FECHA_ADICION"", ""M"& _ 
-                "ODIFICADO_POR"", ""FECHA_MODIFICACION"") VALUES (:CODIGO_MOVIMIENTO, :CODIGO_PARTID"& _ 
-                "O, :CODIGO_CANDIDATOS, :NOMBRE, :POSICION, :CODIGO_CARGO_ELECTIVO, :APELLIDO, :C"& _ 
-                "ODIGO_DEPARTAMENTO, :CODIGO_MUNICIPIO, :IDENTIDAD, :ADICIONADO_POR, :FECHA_ADICI"& _ 
-                "ON, :MODIFICADO_POR, :FECHA_MODIFICACION)"
-            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_MOVIMIENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_PARTIDO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_CANDIDATOS", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_CANDIDATOS", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NOMBRE", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("POSICION", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "POSICION", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_CARGO_ELECTIVO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_CARGO_ELECTIVO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("APELLIDO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "APELLIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_MUNICIPIO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IDENTIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "IDENTIDAD", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FECHA_ADICION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FECHA_MODIFICACION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_MODIFICACION", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand = New Global.System.Data.OracleClient.OracleCommand
-            Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE ""IM_CANDIDATOS"" SET ""CODIGO_MOVIMIENTO"" = :CODIGO_MOVIMIENTO, ""CODIGO_PART"& _ 
-                "IDO"" = :CODIGO_PARTIDO, ""CODIGO_CANDIDATOS"" = :CODIGO_CANDIDATOS, ""NOMBRE"" = :NO"& _ 
-                "MBRE, ""POSICION"" = :POSICION, ""CODIGO_CARGO_ELECTIVO"" = :CODIGO_CARGO_ELECTIVO, "& _ 
-                """APELLIDO"" = :APELLIDO, ""CODIGO_DEPARTAMENTO"" = :CODIGO_DEPARTAMENTO, ""CODIGO_MU"& _ 
-                "NICIPIO"" = :CODIGO_MUNICIPIO, ""IDENTIDAD"" = :IDENTIDAD, ""ADICIONADO_POR"" = :ADIC"& _ 
-                "IONADO_POR, ""FECHA_ADICION"" = :FECHA_ADICION, ""MODIFICADO_POR"" = :MODIFICADO_POR"& _ 
-                ", ""FECHA_MODIFICACION"" = :FECHA_MODIFICACION WHERE (((:IsNull_CODIGO_MOVIMIENTO "& _ 
-                "= 1 AND ""CODIGO_MOVIMIENTO"" IS NULL) OR (""CODIGO_MOVIMIENTO"" = :Original_CODIGO_"& _ 
-                "MOVIMIENTO)) AND ((:IsNull_CODIGO_PARTIDO = 1 AND ""CODIGO_PARTIDO"" IS NULL) OR ("& _ 
-                """CODIGO_PARTIDO"" = :Original_CODIGO_PARTIDO)) AND ((:IsNull_CODIGO_CANDIDATOS = "& _ 
-                "1 AND ""CODIGO_CANDIDATOS"" IS NULL) OR (""CODIGO_CANDIDATOS"" = :Original_CODIGO_CA"& _ 
-                "NDIDATOS)) AND ((:IsNull_NOMBRE = 1 AND ""NOMBRE"" IS NULL) OR (""NOMBRE"" = :Origin"& _ 
-                "al_NOMBRE)) AND ((:IsNull_POSICION = 1 AND ""POSICION"" IS NULL) OR (""POSICION"" = "& _ 
-                ":Original_POSICION)) AND ((:IsNull_CODIGO_CARGO_ELECTIVO = 1 AND ""CODIGO_CARGO_E"& _ 
-                "LECTIVO"" IS NULL) OR (""CODIGO_CARGO_ELECTIVO"" = :Original_CODIGO_CARGO_ELECTIVO)"& _ 
-                ") AND ((:IsNull_APELLIDO = 1 AND ""APELLIDO"" IS NULL) OR (""APELLIDO"" = :Original_"& _ 
-                "APELLIDO)) AND ((:IsNull_CODIGO_DEPARTAMENTO = 1 AND ""CODIGO_DEPARTAMENTO"" IS NU"& _ 
-                "LL) OR (""CODIGO_DEPARTAMENTO"" = :Original_CODIGO_DEPARTAMENTO)) AND ((:IsNull_CO"& _ 
-                "DIGO_MUNICIPIO = 1 AND ""CODIGO_MUNICIPIO"" IS NULL) OR (""CODIGO_MUNICIPIO"" = :Ori"& _ 
-                "ginal_CODIGO_MUNICIPIO)) AND ((:IsNull_IDENTIDAD = 1 AND ""IDENTIDAD"" IS NULL) OR"& _ 
-                " (""IDENTIDAD"" = :Original_IDENTIDAD)) AND ((:IsNull_ADICIONADO_POR = 1 AND ""ADIC"& _ 
-                "IONADO_POR"" IS NULL) OR (""ADICIONADO_POR"" = :Original_ADICIONADO_POR)) AND ((:Is"& _ 
-                "Null_FECHA_ADICION = 1 AND ""FECHA_ADICION"" IS NULL) OR (""FECHA_ADICION"" = :Origi"& _ 
-                "nal_FECHA_ADICION)) AND ((:IsNull_MODIFICADO_POR = 1 AND ""MODIFICADO_POR"" IS NUL"& _ 
-                "L) OR (""MODIFICADO_POR"" = :Original_MODIFICADO_POR)) AND ((:IsNull_FECHA_MODIFIC"& _ 
-                "ACION = 1 AND ""FECHA_MODIFICACION"" IS NULL) OR (""FECHA_MODIFICACION"" = :Original"& _ 
-                "_FECHA_MODIFICACION)))"
-            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_MOVIMIENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_PARTIDO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_CANDIDATOS", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_CANDIDATOS", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NOMBRE", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("POSICION", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "POSICION", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_CARGO_ELECTIVO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_CARGO_ELECTIVO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("APELLIDO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "APELLIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_MUNICIPIO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IDENTIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "IDENTIDAD", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FECHA_ADICION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FECHA_MODIFICACION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_MODIFICACION", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_CODIGO_MOVIMIENTO", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_MOVIMIENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_CODIGO_PARTIDO", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_PARTIDO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_CODIGO_CANDIDATOS", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_CANDIDATOS", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_CANDIDATOS", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_CANDIDATOS", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_NOMBRE", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_NOMBRE", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_POSICION", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "POSICION", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_POSICION", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "POSICION", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_CODIGO_CARGO_ELECTIVO", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_CARGO_ELECTIVO", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_CARGO_ELECTIVO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_CARGO_ELECTIVO", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_APELLIDO", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "APELLIDO", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_APELLIDO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "APELLIDO", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_CODIGO_MUNICIPIO", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_MUNICIPIO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_IDENTIDAD", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "IDENTIDAD", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_IDENTIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "IDENTIDAD", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_FECHA_ADICION", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_FECHA_ADICION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_FECHA_MODIFICACION", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "FECHA_MODIFICACION", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_FECHA_MODIFICACION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_MODIFICACION", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -10892,41 +10953,221 @@ Namespace DSInscripcionCandidatosTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(5) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        CODIGO_MOVIMIENTO, CODIGO_PARTIDO, CODIGO_CANDIDATOS, NOMBRE, POSIC"& _ 
-                "ION, CODIGO_CARGO_ELECTIVO, APELLIDO, CODIGO_DEPARTAMENTO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
-                "      CODIGO_MUNICIPIO, IDENTIDAD, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR"& _ 
-                ", FECHA_MODIFICACION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_CANDIDATOS A"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CODIGO_DEPA"& _ 
-                "RTAMENTO = NVL(:DEPTO, CODIGO_DEPARTAMENTO)) AND (CODIGO_MUNICIPIO = NVL(:MUNI, "& _ 
-                "CODIGO_MUNICIPIO)) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (CODIGO_PARTIDO = NVL(:PARTIDO"& _ 
-                ", CODIGO_PARTIDO)) AND (CODIGO_MOVIMIENTO = NVL(:MOVI, CODIGO_MOVIMIENTO))"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNIO"& _ 
-                "N"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        C.CODIGO_MOVIMIENTO, C.CODIGO_PARTIDO, B.CODIGO_CANDIDATOS, B.N"& _ 
-                "OMBRE, B.POSICION, B.CODIGO_CARGO_ELECTIVO, B.APELLIDO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
-                "   B.CODIGO_DEPARTAMENTO, B.CODIGO_MUNICIPIO, B.IDENTIDAD, B.ADICIONADO_POR, B.F"& _ 
-                "ECHA_ADICION, B.MODIFICADO_POR, B.FECHA_MODIFICACION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_CANDIDA"& _ 
-                "TOS B, IM_CANDIDATOS_REPETIDOS C"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        B.IDENTIDAD = C.IDENTIDAD AND (B."& _ 
-                "CODIGO_DEPARTAMENTO = NVL(:DEPTO, B.CODIGO_DEPARTAMENTO)) AND (B.CODIGO_MUNICIPI"& _ 
-                "O = NVL(:MUNI, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         B.CODIGO_MUNICIPIO)) AND (C.CODIGO_PAR"& _ 
-                "TIDO = NVL(:PARTIDO, C.CODIGO_PARTIDO)) AND (C.CODIGO_MOVIMIENTO = NVL(:MOVI, C."& _ 
-                "CODIGO_MOVIMIENTO))"
+            Me._commandCollection(0).CommandText = "SELECT        A.CODIGO_MOVIMIENTO, B.NOMBRE_MOVIMIENTO, A.CODIGO_PARTIDO, C.NOMBR"& _ 
+                "E AS PARTIDO, A.CODIGO_CANDIDATOS, A.NOMBRE, A.POSICION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
+                "    A.CODIGO_CARGO_ELECTIVO, F.DESCRIPCION AS CARGO, A.APELLIDO, A.CODIGO_DEPART"& _ 
+                "AMENTO, D.DESCRIPCION AS DEPARTAMENTO, A.CODIGO_MUNICIPIO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
+                "      E.DESCRIPCION AS MUNICIPIO, A.IDENTIDAD, A.ADICIONADO_POR, A.FECHA_ADICION"& _ 
+                ", A.MODIFICADO_POR, A.FECHA_MODIFICACION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_CANDIDATOS A, IM_CA"& _ 
+                "RGOS_ELECTIVOS F, IM_MUNICIPIOS E, IM_DEPARTAMENTOS D, IM_PARTIDOS_POLITICOS C, "& _ 
+                "IM_MOVIMIENTOS B"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        A.CODIGO_CARGO_ELECTIVO = F.CODIGO_CARGO_ELECTIVO"& _ 
+                " AND A.CODIGO_DEPARTAMENTO = E.CODIGO_DEPARTAMENTO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
+                "  A.CODIGO_MUNICIPIO = E.CODIGO_MUNICIPIO AND A.CODIGO_DEPARTAMENTO = D.CODIGO_D"& _ 
+                "EPARTAMENTO AND A.CODIGO_PARTIDO = C.CODIGO_PARTIDO AND"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
+                "   A.CODIGO_PARTIDO = B.CODIGO_PARTIDO AND A.CODIGO_MOVIMIENTO = B.CODIGO_MOVIMI"& _ 
+                "ENTO AND (C.CODIGO_PARTIDO = :id_partido)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        C.CODIGO_MOVIMIE"& _ 
+                "NTO, W.NOMBRE_MOVIMIENTO, C.CODIGO_PARTIDO, X.NOMBRE AS PARTIDO, B.CODIGO_CANDID"& _ 
+                "ATOS, B.NOMBRE, B.POSICION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         B.CODIGO_CARGO_ELECTIVO, "& _ 
+                "ZA.DESCRIPCION AS CARGO, B.APELLIDO, B.CODIGO_DEPARTAMENTO, Y.DESCRIPCION, B.COD"& _ 
+                "IGO_MUNICIPIO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Z.DESCRIPCION AS MUNICIPIO, B.IDENTIDA"& _ 
+                "D, B.ADICIONADO_POR, B.FECHA_ADICION, B.MODIFICADO_POR, B.FECHA_MODIFICACION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FR"& _ 
+                "OM            IM_CANDIDATOS_REPETIDOS C, IM_PARTIDOS_POLITICOS X, IM_MOVIMIENTOS"& _ 
+                " W, IM_CANDIDATOS B, IM_CARGOS_ELECTIVOS ZA, IM_MUNICIPIOS Z, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
+                "         IM_DEPARTAMENTOS Y"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        C.CODIGO_PARTIDO = X.CODIGO_PARTIDO AN"& _ 
+                "D C.CODIGO_PARTIDO = W.CODIGO_PARTIDO AND C.CODIGO_MOVIMIENTO = W.CODIGO_MOVIMIE"& _ 
+                "NTO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         C.IDENTIDAD = B.IDENTIDAD AND B.CODIGO_CARGO_"& _ 
+                "ELECTIVO = ZA.CODIGO_CARGO_ELECTIVO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         B.CODIGO_DEPA"& _ 
+                "RTAMENTO = Z.CODIGO_DEPARTAMENTO AND B.CODIGO_MUNICIPIO = Z.CODIGO_MUNICIPIO AND"& _ 
+                " "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         B.CODIGO_DEPARTAMENTO = Y.CODIGO_DEPARTAMENTO AND (X"& _ 
+                ".CODIGO_PARTIDO = :id_partido)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("DEPTO", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("MUNI", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("PARTIDO", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("MOVI", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_partido", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        A.CODIGO_MOVIMIENTO, B.NOMBRE_MOVIMIENTO, A.CODIGO_PARTIDO, C.NOMBR"& _ 
+                "E AS PARTIDO, A.CODIGO_CANDIDATOS, A.NOMBRE, A.POSICION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
+                "    A.CODIGO_CARGO_ELECTIVO, F.DESCRIPCION AS CARGO, A.APELLIDO, A.CODIGO_DEPART"& _ 
+                "AMENTO, D.DESCRIPCION AS DEPARTAMENTO, A.CODIGO_MUNICIPIO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
+                "      E.DESCRIPCION AS MUNICIPIO, A.IDENTIDAD, A.ADICIONADO_POR, A.FECHA_ADICION"& _ 
+                ", A.MODIFICADO_POR, A.FECHA_MODIFICACION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_CANDIDATOS A, IM_CA"& _ 
+                "RGOS_ELECTIVOS F, IM_MUNICIPIOS E, IM_DEPARTAMENTOS D, IM_PARTIDOS_POLITICOS C, "& _ 
+                "IM_MOVIMIENTOS B"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        A.CODIGO_CARGO_ELECTIVO = F.CODIGO_CARGO_ELECTIVO"& _ 
+                " AND A.CODIGO_DEPARTAMENTO = E.CODIGO_DEPARTAMENTO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
+                "  A.CODIGO_MUNICIPIO = E.CODIGO_MUNICIPIO AND A.CODIGO_DEPARTAMENTO = D.CODIGO_D"& _ 
+                "EPARTAMENTO AND A.CODIGO_PARTIDO = C.CODIGO_PARTIDO AND"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
+                "   A.CODIGO_PARTIDO = B.CODIGO_PARTIDO AND A.CODIGO_MOVIMIENTO = B.CODIGO_MOVIMI"& _ 
+                "ENTO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        C.CODIGO_MOVIMIENTO, W.NOMBRE_MOVIMIENTO, C.CODIGO_P"& _ 
+                "ARTIDO, X.NOMBRE AS PARTIDO, B.CODIGO_CANDIDATOS, B.NOMBRE, B.POSICION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
+                "                   B.CODIGO_CARGO_ELECTIVO, ZA.DESCRIPCION AS CARGO, B.APELLIDO,"& _ 
+                " B.CODIGO_DEPARTAMENTO, Y.DESCRIPCION, B.CODIGO_MUNICIPIO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
+                "      Z.DESCRIPCION AS MUNICIPIO, B.IDENTIDAD, B.ADICIONADO_POR, B.FECHA_ADICION"& _ 
+                ", B.MODIFICADO_POR, B.FECHA_MODIFICACION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_CANDIDATOS_REPETIDO"& _ 
+                "S C, IM_PARTIDOS_POLITICOS X, IM_MOVIMIENTOS W, IM_CANDIDATOS B, IM_CARGOS_ELECT"& _ 
+                "IVOS ZA, IM_MUNICIPIOS Z, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_DEPARTAMENTOS Y"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE  "& _ 
+                "      C.CODIGO_PARTIDO = X.CODIGO_PARTIDO AND C.CODIGO_PARTIDO = W.CODIGO_PARTID"& _ 
+                "O AND C.CODIGO_MOVIMIENTO = W.CODIGO_MOVIMIENTO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         C"& _ 
+                ".IDENTIDAD = B.IDENTIDAD AND B.CODIGO_CARGO_ELECTIVO = ZA.CODIGO_CARGO_ELECTIVO "& _ 
+                "AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         B.CODIGO_DEPARTAMENTO = Z.CODIGO_DEPARTAMENTO AND"& _ 
+                " B.CODIGO_MUNICIPIO = Z.CODIGO_MUNICIPIO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         B.CODIGO"& _ 
+                "_DEPARTAMENTO = Y.CODIGO_DEPARTAMENTO "
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT        A.CODIGO_MOVIMIENTO, B.NOMBRE_MOVIMIENTO, A.CODIGO_PARTIDO, C.NOMBR"& _ 
+                "E AS PARTIDO, A.CODIGO_CANDIDATOS, A.NOMBRE, A.POSICION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
+                "    A.CODIGO_CARGO_ELECTIVO, F.DESCRIPCION AS CARGO, A.APELLIDO, A.CODIGO_DEPART"& _ 
+                "AMENTO, D.DESCRIPCION AS DEPARTAMENTO, A.CODIGO_MUNICIPIO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
+                "      E.DESCRIPCION AS MUNICIPIO, A.IDENTIDAD, A.ADICIONADO_POR, A.FECHA_ADICION"& _ 
+                ", A.MODIFICADO_POR, A.FECHA_MODIFICACION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_CANDIDATOS A, IM_CA"& _ 
+                "RGOS_ELECTIVOS F, IM_MUNICIPIOS E, IM_DEPARTAMENTOS D, IM_PARTIDOS_POLITICOS C, "& _ 
+                "IM_MOVIMIENTOS B"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        A.CODIGO_CARGO_ELECTIVO = F.CODIGO_CARGO_ELECTIVO"& _ 
+                " AND A.CODIGO_DEPARTAMENTO = E.CODIGO_DEPARTAMENTO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
+                "  A.CODIGO_MUNICIPIO = E.CODIGO_MUNICIPIO AND A.CODIGO_DEPARTAMENTO = D.CODIGO_D"& _ 
+                "EPARTAMENTO AND A.CODIGO_PARTIDO = C.CODIGO_PARTIDO AND"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
+                "   A.CODIGO_PARTIDO = B.CODIGO_PARTIDO AND A.CODIGO_MOVIMIENTO = B.CODIGO_MOVIMI"& _ 
+                "ENTO AND (C.CODIGO_PARTIDO = :id_partido) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (B.CODI"& _ 
+                "GO_MOVIMIENTO = :id_movimiento) AND (F.CODIGO_CARGO_ELECTIVO = :id_cargo)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        C.CODIGO_MOVIMIENTO, W.NOMBRE_MOVIMIENTO, C.CODIGO_PARTIDO, X.NO"& _ 
+                "MBRE AS PARTIDO, B.CODIGO_CANDIDATOS, B.NOMBRE, B.POSICION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
+                "       B.CODIGO_CARGO_ELECTIVO, ZA.DESCRIPCION AS CARGO, B.APELLIDO, B.CODIGO_DE"& _ 
+                "PARTAMENTO, Y.DESCRIPCION, B.CODIGO_MUNICIPIO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Z.DESC"& _ 
+                "RIPCION AS MUNICIPIO, B.IDENTIDAD, B.ADICIONADO_POR, B.FECHA_ADICION, B.MODIFICA"& _ 
+                "DO_POR, B.FECHA_MODIFICACION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_CANDIDATOS_REPETIDOS C, IM_PART"& _ 
+                "IDOS_POLITICOS X, IM_MOVIMIENTOS W, IM_CANDIDATOS B, IM_CARGOS_ELECTIVOS ZA, IM_"& _ 
+                "MUNICIPIOS Z, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_DEPARTAMENTOS Y"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        C.CODI"& _ 
+                "GO_PARTIDO = X.CODIGO_PARTIDO AND C.CODIGO_PARTIDO = W.CODIGO_PARTIDO AND C.CODI"& _ 
+                "GO_MOVIMIENTO = W.CODIGO_MOVIMIENTO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         C.IDENTIDAD ="& _ 
+                " B.IDENTIDAD AND B.CODIGO_CARGO_ELECTIVO = ZA.CODIGO_CARGO_ELECTIVO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
+                "                   B.CODIGO_DEPARTAMENTO = Z.CODIGO_DEPARTAMENTO AND B.CODIGO_MU"& _ 
+                "NICIPIO = Z.CODIGO_MUNICIPIO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         B.CODIGO_DEPARTAMENT"& _ 
+                "O = Y.CODIGO_DEPARTAMENTO AND (X.CODIGO_PARTIDO = :id_partido) AND (W.CODIGO_MOV"& _ 
+                "IMIENTO = :id_movimiento) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (ZA.CODIGO_CARGO_ELECTI"& _ 
+                "VO = :id_cargo)"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_partido", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_movimiento", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_cargo", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_CARGO_ELECTIVO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(3) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(3).Connection = Me.Connection
+            Me._commandCollection(3).CommandText = "SELECT        A.CODIGO_MOVIMIENTO, B.NOMBRE_MOVIMIENTO, A.CODIGO_PARTIDO, C.NOMBR"& _ 
+                "E AS PARTIDO, A.CODIGO_CANDIDATOS, A.NOMBRE, A.POSICION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
+                "    A.CODIGO_CARGO_ELECTIVO, F.DESCRIPCION AS CARGO, A.APELLIDO, A.CODIGO_DEPART"& _ 
+                "AMENTO, D.DESCRIPCION AS DEPARTAMENTO, A.CODIGO_MUNICIPIO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
+                "      E.DESCRIPCION AS MUNICIPIO, A.IDENTIDAD, A.ADICIONADO_POR, A.FECHA_ADICION"& _ 
+                ", A.MODIFICADO_POR, A.FECHA_MODIFICACION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_CANDIDATOS A, IM_CA"& _ 
+                "RGOS_ELECTIVOS F, IM_MUNICIPIOS E, IM_DEPARTAMENTOS D, IM_PARTIDOS_POLITICOS C, "& _ 
+                "IM_MOVIMIENTOS B"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        A.CODIGO_CARGO_ELECTIVO = F.CODIGO_CARGO_ELECTIVO"& _ 
+                " AND A.CODIGO_DEPARTAMENTO = E.CODIGO_DEPARTAMENTO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
+                "  A.CODIGO_MUNICIPIO = E.CODIGO_MUNICIPIO AND A.CODIGO_DEPARTAMENTO = D.CODIGO_D"& _ 
+                "EPARTAMENTO AND A.CODIGO_PARTIDO = C.CODIGO_PARTIDO AND"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
+                "   A.CODIGO_PARTIDO = B.CODIGO_PARTIDO AND A.CODIGO_MOVIMIENTO = B.CODIGO_MOVIMI"& _ 
+                "ENTO AND (C.CODIGO_PARTIDO = :id_partido) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (B.CODI"& _ 
+                "GO_MOVIMIENTO = :id_movimiento) AND (F.CODIGO_CARGO_ELECTIVO = :id_cargo) AND (D"& _ 
+                ".CANTIDAD_DIPUTADOS = :id_depto)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        C.CODIGO_MOVIMIENTO, W.NO"& _ 
+                "MBRE_MOVIMIENTO, C.CODIGO_PARTIDO, X.NOMBRE AS PARTIDO, B.CODIGO_CANDIDATOS, B.N"& _ 
+                "OMBRE, B.POSICION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         B.CODIGO_CARGO_ELECTIVO, ZA.DESCRI"& _ 
+                "PCION AS CARGO, B.APELLIDO, B.CODIGO_DEPARTAMENTO, Y.DESCRIPCION, B.CODIGO_MUNIC"& _ 
+                "IPIO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Z.DESCRIPCION AS MUNICIPIO, B.IDENTIDAD, B.ADIC"& _ 
+                "IONADO_POR, B.FECHA_ADICION, B.MODIFICADO_POR, B.FECHA_MODIFICACION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM       "& _ 
+                "     IM_CANDIDATOS_REPETIDOS C, IM_PARTIDOS_POLITICOS X, IM_MOVIMIENTOS W, IM_CA"& _ 
+                "NDIDATOS B, IM_CARGOS_ELECTIVOS ZA, IM_MUNICIPIOS Z, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         "& _ 
+                "IM_DEPARTAMENTOS Y"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        C.CODIGO_PARTIDO = X.CODIGO_PARTIDO AND C.CODIG"& _ 
+                "O_PARTIDO = W.CODIGO_PARTIDO AND C.CODIGO_MOVIMIENTO = W.CODIGO_MOVIMIENTO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         C.IDENTIDAD = B.IDENTIDAD AND B.CODIGO_CARGO_ELECTIVO "& _ 
+                "= ZA.CODIGO_CARGO_ELECTIVO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         B.CODIGO_DEPARTAMENTO "& _ 
+                "= Z.CODIGO_DEPARTAMENTO AND B.CODIGO_MUNICIPIO = Z.CODIGO_MUNICIPIO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
+                "                   B.CODIGO_DEPARTAMENTO = Y.CODIGO_DEPARTAMENTO AND (X.CODIGO_P"& _ 
+                "ARTIDO = :id_partido) AND (W.CODIGO_MOVIMIENTO = :id_movimiento) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         "& _ 
+                "                (ZA.CODIGO_CARGO_ELECTIVO = :id_cargo) AND (Y.CANTIDAD_DIPUTADOS"& _ 
+                " = :id_depto)"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_partido", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_movimiento", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_cargo", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_CARGO_ELECTIVO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_depto", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(4) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(4).Connection = Me.Connection
+            Me._commandCollection(4).CommandText = "SELECT        A.CODIGO_MOVIMIENTO, B.NOMBRE_MOVIMIENTO, A.CODIGO_PARTIDO, C.NOMBR"& _ 
+                "E AS PARTIDO, A.CODIGO_CANDIDATOS, A.NOMBRE, A.POSICION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
+                "    A.CODIGO_CARGO_ELECTIVO, F.DESCRIPCION AS CARGO, A.APELLIDO, A.CODIGO_DEPART"& _ 
+                "AMENTO, D.DESCRIPCION AS DEPARTAMENTO, A.CODIGO_MUNICIPIO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
+                "      E.DESCRIPCION AS MUNICIPIO, A.IDENTIDAD, A.ADICIONADO_POR, A.FECHA_ADICION"& _ 
+                ", A.MODIFICADO_POR, A.FECHA_MODIFICACION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_CANDIDATOS A, IM_CA"& _ 
+                "RGOS_ELECTIVOS F, IM_MUNICIPIOS E, IM_DEPARTAMENTOS D, IM_PARTIDOS_POLITICOS C, "& _ 
+                "IM_MOVIMIENTOS B"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        A.CODIGO_CARGO_ELECTIVO = F.CODIGO_CARGO_ELECTIVO"& _ 
+                " AND A.CODIGO_DEPARTAMENTO = E.CODIGO_DEPARTAMENTO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
+                "  A.CODIGO_MUNICIPIO = E.CODIGO_MUNICIPIO AND A.CODIGO_DEPARTAMENTO = D.CODIGO_D"& _ 
+                "EPARTAMENTO AND A.CODIGO_PARTIDO = C.CODIGO_PARTIDO AND"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
+                "   A.CODIGO_PARTIDO = B.CODIGO_PARTIDO AND A.CODIGO_MOVIMIENTO = B.CODIGO_MOVIMI"& _ 
+                "ENTO AND (C.CODIGO_PARTIDO = :id_partido) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (B.CODI"& _ 
+                "GO_MOVIMIENTO = :id_movimiento)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        C.CODIGO_MOVIMIENTO, W.NOM"& _ 
+                "BRE_MOVIMIENTO, C.CODIGO_PARTIDO, X.NOMBRE AS PARTIDO, B.CODIGO_CANDIDATOS, B.NO"& _ 
+                "MBRE, B.POSICION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         B.CODIGO_CARGO_ELECTIVO, ZA.DESCRIP"& _ 
+                "CION AS CARGO, B.APELLIDO, B.CODIGO_DEPARTAMENTO, Y.DESCRIPCION, B.CODIGO_MUNICI"& _ 
+                "PIO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Z.DESCRIPCION AS MUNICIPIO, B.IDENTIDAD, B.ADICI"& _ 
+                "ONADO_POR, B.FECHA_ADICION, B.MODIFICADO_POR, B.FECHA_MODIFICACION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM        "& _ 
+                "    IM_CANDIDATOS_REPETIDOS C, IM_PARTIDOS_POLITICOS X, IM_MOVIMIENTOS W, IM_CAN"& _ 
+                "DIDATOS B, IM_CARGOS_ELECTIVOS ZA, IM_MUNICIPIOS Z, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         I"& _ 
+                "M_DEPARTAMENTOS Y"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        C.CODIGO_PARTIDO = X.CODIGO_PARTIDO AND C.CODIGO"& _ 
+                "_PARTIDO = W.CODIGO_PARTIDO AND C.CODIGO_MOVIMIENTO = W.CODIGO_MOVIMIENTO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "                         C.IDENTIDAD = B.IDENTIDAD AND B.CODIGO_CARGO_ELECTIVO ="& _ 
+                " ZA.CODIGO_CARGO_ELECTIVO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         B.CODIGO_DEPARTAMENTO ="& _ 
+                " Z.CODIGO_DEPARTAMENTO AND B.CODIGO_MUNICIPIO = Z.CODIGO_MUNICIPIO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "                  B.CODIGO_DEPARTAMENTO = Y.CODIGO_DEPARTAMENTO AND (X.CODIGO_PA"& _ 
+                "RTIDO = :id_partido) AND (W.CODIGO_MOVIMIENTO = :id_movimiento)"
+            Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_partido", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_movimiento", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(5).Connection = Me.Connection
+            Me._commandCollection(5).CommandText = "SELECT        A.CODIGO_MOVIMIENTO, B.NOMBRE_MOVIMIENTO, A.CODIGO_PARTIDO, C.NOMBR"& _ 
+                "E AS PARTIDO, A.CODIGO_CANDIDATOS, A.NOMBRE, A.POSICION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
+                "    A.CODIGO_CARGO_ELECTIVO, F.DESCRIPCION AS CARGO, A.APELLIDO, A.CODIGO_DEPART"& _ 
+                "AMENTO, D.DESCRIPCION AS DEPARTAMENTO, A.CODIGO_MUNICIPIO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
+                "      E.DESCRIPCION AS MUNICIPIO, A.IDENTIDAD, A.ADICIONADO_POR, A.FECHA_ADICION"& _ 
+                ", A.MODIFICADO_POR, A.FECHA_MODIFICACION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_CANDIDATOS A, IM_CA"& _ 
+                "RGOS_ELECTIVOS F, IM_MUNICIPIOS E, IM_DEPARTAMENTOS D, IM_PARTIDOS_POLITICOS C, "& _ 
+                "IM_MOVIMIENTOS B"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        A.CODIGO_CARGO_ELECTIVO = F.CODIGO_CARGO_ELECTIVO"& _ 
+                " AND A.CODIGO_DEPARTAMENTO = E.CODIGO_DEPARTAMENTO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
+                "  A.CODIGO_MUNICIPIO = E.CODIGO_MUNICIPIO AND A.CODIGO_DEPARTAMENTO = D.CODIGO_D"& _ 
+                "EPARTAMENTO AND A.CODIGO_PARTIDO = C.CODIGO_PARTIDO AND"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
+                "   A.CODIGO_PARTIDO = B.CODIGO_PARTIDO AND A.CODIGO_MOVIMIENTO = B.CODIGO_MOVIMI"& _ 
+                "ENTO AND (C.CODIGO_PARTIDO = :id_partido) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (B.CODI"& _ 
+                "GO_MOVIMIENTO = :id_movimiento) AND (F.CODIGO_CARGO_ELECTIVO = :id_cargo) AND (D"& _ 
+                ".CANTIDAD_DIPUTADOS = :id_depto) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (E.CODIGO_MUNICI"& _ 
+                "PIO = :id_muni)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        C.CODIGO_MOVIMIENTO, W.NOMBRE_MOVIMIENTO, "& _ 
+                "C.CODIGO_PARTIDO, X.NOMBRE AS PARTIDO, B.CODIGO_CANDIDATOS, B.NOMBRE, B.POSICION"& _ 
+                ", "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         B.CODIGO_CARGO_ELECTIVO, ZA.DESCRIPCION AS CARGO, B"& _ 
+                ".APELLIDO, B.CODIGO_DEPARTAMENTO, Y.DESCRIPCION, B.CODIGO_MUNICIPIO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         "& _ 
+                "                Z.DESCRIPCION AS MUNICIPIO, B.IDENTIDAD, B.ADICIONADO_POR, B.FEC"& _ 
+                "HA_ADICION, B.MODIFICADO_POR, B.FECHA_MODIFICACION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_CANDIDATO"& _ 
+                "S_REPETIDOS C, IM_PARTIDOS_POLITICOS X, IM_MOVIMIENTOS W, IM_CANDIDATOS B, IM_CA"& _ 
+                "RGOS_ELECTIVOS ZA, IM_MUNICIPIOS Z, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_DEPARTAMENTOS "& _ 
+                "Y"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        C.CODIGO_PARTIDO = X.CODIGO_PARTIDO AND C.CODIGO_PARTIDO = W.COD"& _ 
+                "IGO_PARTIDO AND C.CODIGO_MOVIMIENTO = W.CODIGO_MOVIMIENTO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
+                "         C.IDENTIDAD = B.IDENTIDAD AND B.CODIGO_CARGO_ELECTIVO = ZA.CODIGO_CARGO"& _ 
+                "_ELECTIVO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         B.CODIGO_DEPARTAMENTO = Z.CODIGO_DEPART"& _ 
+                "AMENTO AND B.CODIGO_MUNICIPIO = Z.CODIGO_MUNICIPIO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
+                "  B.CODIGO_DEPARTAMENTO = Y.CODIGO_DEPARTAMENTO AND (X.CODIGO_PARTIDO = :id_part"& _ 
+                "ido) AND (W.CODIGO_MOVIMIENTO = :id_movimiento) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ("& _ 
+                "ZA.CODIGO_CARGO_ELECTIVO = :id_cargo) AND (Y.CANTIDAD_DIPUTADOS = :id_depto) AND"& _ 
+                " (Z.CODIGO_MUNICIPIO = :id_muni)"
+            Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_partido", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_movimiento", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_cargo", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_CARGO_ELECTIVO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_depto", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_muni", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fillby(ByVal dataTable As DSInscripcionCandidatos.TA_CANDIDATOSDataTable, ByVal DEPTO As Decimal, ByVal MUNI As Decimal, ByVal PARTIDO As Decimal, ByVal MOVI As Decimal) As Integer
+        Public Overloads Overridable Function Fillbypartido(ByVal dataTable As DSInscripcionCandidatos.TA_CANDIDATOSDataTable, ByVal id_partido As Decimal) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DEPTO,Decimal)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(MUNI,Decimal)
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(PARTIDO,Decimal)
-            Me.Adapter.SelectCommand.Parameters(3).Value = CType(MOVI,Decimal)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_partido,Decimal)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -10937,39 +11178,150 @@ Namespace DSInscripcionCandidatosTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal DEPTO As Decimal, ByVal MUNI As Decimal, ByVal PARTIDO As Decimal, ByVal MOVI As Decimal) As DSInscripcionCandidatos.TA_CANDIDATOSDataTable
+        Public Overloads Overridable Function GetData(ByVal id_partido As Decimal) As DSInscripcionCandidatos.TA_CANDIDATOSDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(DEPTO,Decimal)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(MUNI,Decimal)
-            Me.Adapter.SelectCommand.Parameters(2).Value = CType(PARTIDO,Decimal)
-            Me.Adapter.SelectCommand.Parameters(3).Value = CType(MOVI,Decimal)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_partido,Decimal)
             Dim dataTable As DSInscripcionCandidatos.TA_CANDIDATOSDataTable = New DSInscripcionCandidatos.TA_CANDIDATOSDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As DSInscripcionCandidatos.TA_CANDIDATOSDataTable) As Integer
-            Return Me.Adapter.Update(dataTable)
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DSInscripcionCandidatos.TA_CANDIDATOSDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As DSInscripcionCandidatos) As Integer
-            Return Me.Adapter.Update(dataSet, "TA_CANDIDATOS")
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy() As DSInscripcionCandidatos.TA_CANDIDATOSDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Dim dataTable As DSInscripcionCandidatos.TA_CANDIDATOSDataTable = New DSInscripcionCandidatos.TA_CANDIDATOSDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBycargo(ByVal dataTable As DSInscripcionCandidatos.TA_CANDIDATOSDataTable, ByVal id_partido As Decimal, ByVal id_movimiento As Decimal, ByVal id_cargo As Decimal) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_partido,Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_movimiento,Decimal)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(id_cargo,Decimal)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(dataRows)
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy4(ByVal id_partido As Decimal, ByVal id_movimiento As Decimal, ByVal id_cargo As Decimal) As DSInscripcionCandidatos.TA_CANDIDATOSDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_partido,Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_movimiento,Decimal)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(id_cargo,Decimal)
+            Dim dataTable As DSInscripcionCandidatos.TA_CANDIDATOSDataTable = New DSInscripcionCandidatos.TA_CANDIDATOSDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBydepto(ByVal dataTable As DSInscripcionCandidatos.TA_CANDIDATOSDataTable, ByVal id_partido As Decimal, ByVal id_movimiento As Decimal, ByVal id_cargo As Decimal, ByVal id_depto As Decimal) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_partido,Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_movimiento,Decimal)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(id_cargo,Decimal)
+            Me.Adapter.SelectCommand.Parameters(3).Value = CType(id_depto,Decimal)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy2(ByVal id_partido As Decimal, ByVal id_movimiento As Decimal, ByVal id_cargo As Decimal, ByVal id_depto As Decimal) As DSInscripcionCandidatos.TA_CANDIDATOSDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_partido,Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_movimiento,Decimal)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(id_cargo,Decimal)
+            Me.Adapter.SelectCommand.Parameters(3).Value = CType(id_depto,Decimal)
+            Dim dataTable As DSInscripcionCandidatos.TA_CANDIDATOSDataTable = New DSInscripcionCandidatos.TA_CANDIDATOSDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBymovimiento(ByVal dataTable As DSInscripcionCandidatos.TA_CANDIDATOSDataTable, ByVal id_partido As Decimal, ByVal id_movimiento As Decimal) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(4)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_partido,Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_movimiento,Decimal)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy1(ByVal id_partido As Decimal, ByVal id_movimiento As Decimal) As DSInscripcionCandidatos.TA_CANDIDATOSDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(4)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_partido,Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_movimiento,Decimal)
+            Dim dataTable As DSInscripcionCandidatos.TA_CANDIDATOSDataTable = New DSInscripcionCandidatos.TA_CANDIDATOSDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBymuni(ByVal dataTable As DSInscripcionCandidatos.TA_CANDIDATOSDataTable, ByVal id_partido As Decimal, ByVal id_movimiento As Decimal, ByVal id_cargo As Decimal, ByVal id_depto As Decimal, ByVal id_muni As Decimal) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(5)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_partido,Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_movimiento,Decimal)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(id_cargo,Decimal)
+            Me.Adapter.SelectCommand.Parameters(3).Value = CType(id_depto,Decimal)
+            Me.Adapter.SelectCommand.Parameters(4).Value = CType(id_muni,Decimal)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy3(ByVal id_partido As Decimal, ByVal id_movimiento As Decimal, ByVal id_cargo As Decimal, ByVal id_depto As Decimal, ByVal id_muni As Decimal) As DSInscripcionCandidatos.TA_CANDIDATOSDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(5)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_partido,Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_movimiento,Decimal)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(id_cargo,Decimal)
+            Me.Adapter.SelectCommand.Parameters(3).Value = CType(id_depto,Decimal)
+            Me.Adapter.SelectCommand.Parameters(4).Value = CType(id_muni,Decimal)
+            Dim dataTable As DSInscripcionCandidatos.TA_CANDIDATOSDataTable = New DSInscripcionCandidatos.TA_CANDIDATOSDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
         End Function
     End Class
     
@@ -11006,8 +11358,6 @@ Namespace DSInscripcionCandidatosTableAdapters
         Private _iM_PARTIDOS_POLITICOSTableAdapter As IM_PARTIDOS_POLITICOSTableAdapter
         
         Private _iM_NIVEL_ELECTIVOTableAdapter As IM_NIVEL_ELECTIVOTableAdapter
-        
-        Private _tA_CANDIDATOSTableAdapter As TA_CANDIDATOSTableAdapter
         
         Private _backupDataSetBeforeUpdate As Boolean
         
@@ -11153,19 +11503,6 @@ Namespace DSInscripcionCandidatosTableAdapters
             End Set
         End Property
         
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"& _ 
-            "", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property TA_CANDIDATOSTableAdapter() As TA_CANDIDATOSTableAdapter
-            Get
-                Return Me._tA_CANDIDATOSTableAdapter
-            End Get
-            Set
-                Me._tA_CANDIDATOSTableAdapter = value
-            End Set
-        End Property
-        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property BackupDataSetBeforeUpdate() As Boolean
             Get
@@ -11223,10 +11560,6 @@ Namespace DSInscripcionCandidatosTableAdapters
                             AndAlso (Not (Me._iM_NIVEL_ELECTIVOTableAdapter.Connection) Is Nothing)) Then
                     Return Me._iM_NIVEL_ELECTIVOTableAdapter.Connection
                 End If
-                If ((Not (Me._tA_CANDIDATOSTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._tA_CANDIDATOSTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._tA_CANDIDATOSTableAdapter.Connection
-                End If
                 Return Nothing
             End Get
             Set
@@ -11267,9 +11600,6 @@ Namespace DSInscripcionCandidatosTableAdapters
                     count = (count + 1)
                 End If
                 If (Not (Me._iM_NIVEL_ELECTIVOTableAdapter) Is Nothing) Then
-                    count = (count + 1)
-                End If
-                If (Not (Me._tA_CANDIDATOSTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 Return count
@@ -11324,15 +11654,6 @@ Namespace DSInscripcionCandidatosTableAdapters
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._iM_MUNICIPIOSTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
-            If (Not (Me._tA_CANDIDATOSTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.TA_CANDIDATOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._tA_CANDIDATOSTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -11430,14 +11751,6 @@ Namespace DSInscripcionCandidatosTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._tA_CANDIDATOSTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.TA_CANDIDATOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._tA_CANDIDATOSTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._iM_MOVIMIENTOSTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.IM_MOVIMIENTOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
@@ -11524,14 +11837,6 @@ Namespace DSInscripcionCandidatosTableAdapters
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._iM_MOVIMIENTOSTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._tA_CANDIDATOSTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.TA_CANDIDATOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._tA_CANDIDATOSTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -11664,11 +11969,6 @@ Namespace DSInscripcionCandidatosTableAdapters
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
-            If ((Not (Me._tA_CANDIDATOSTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._tA_CANDIDATOSTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
-                        "tring.")
-            End If
             Dim workConnection As Global.System.Data.IDbConnection = Me.Connection
             If (workConnection Is Nothing) Then
                 Throw New Global.System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana"& _ 
@@ -11791,15 +12091,6 @@ Namespace DSInscripcionCandidatosTableAdapters
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._iM_NIVEL_ELECTIVOTableAdapter.Adapter)
                     End If
                 End If
-                If (Not (Me._tA_CANDIDATOSTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._tA_CANDIDATOSTableAdapter, Me._tA_CANDIDATOSTableAdapter.Connection)
-                    Me._tA_CANDIDATOSTableAdapter.Connection = CType(workConnection,Global.System.Data.OracleClient.OracleConnection)
-                    Me._tA_CANDIDATOSTableAdapter.Transaction = CType(workTransaction,Global.System.Data.OracleClient.OracleTransaction)
-                    If Me._tA_CANDIDATOSTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._tA_CANDIDATOSTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._tA_CANDIDATOSTableAdapter.Adapter)
-                    End If
-                End If
                 '
                 '---- Perform updates -----------
                 '
@@ -11899,10 +12190,6 @@ Namespace DSInscripcionCandidatosTableAdapters
                 If (Not (Me._iM_NIVEL_ELECTIVOTableAdapter) Is Nothing) Then
                     Me._iM_NIVEL_ELECTIVOTableAdapter.Connection = CType(revertConnections(Me._iM_NIVEL_ELECTIVOTableAdapter),Global.System.Data.OracleClient.OracleConnection)
                     Me._iM_NIVEL_ELECTIVOTableAdapter.Transaction = Nothing
-                End If
-                If (Not (Me._tA_CANDIDATOSTableAdapter) Is Nothing) Then
-                    Me._tA_CANDIDATOSTableAdapter.Connection = CType(revertConnections(Me._tA_CANDIDATOSTableAdapter),Global.System.Data.OracleClient.OracleConnection)
-                    Me._tA_CANDIDATOSTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter
