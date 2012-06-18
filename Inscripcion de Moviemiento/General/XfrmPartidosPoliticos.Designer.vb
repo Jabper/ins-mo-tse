@@ -398,6 +398,7 @@ Partial Class XfrmPartidosPoliticos
         '
         Me.IMAGENPictureEdit.Location = New System.Drawing.Point(12, 12)
         Me.IMAGENPictureEdit.Name = "IMAGENPictureEdit"
+        Me.IMAGENPictureEdit.Properties.PictureStoreMode = DevExpress.XtraEditors.Controls.PictureStoreMode.ByteArray
         Me.IMAGENPictureEdit.Properties.ShowMenu = False
         Me.IMAGENPictureEdit.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
         Me.IMAGENPictureEdit.Size = New System.Drawing.Size(177, 133)
