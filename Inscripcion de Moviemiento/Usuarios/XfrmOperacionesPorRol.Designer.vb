@@ -383,7 +383,7 @@ Partial Class XfrmOperacionesPorRol
         Me.CODIGO_OPCIONSpinEdit.Location = New System.Drawing.Point(49, 36)
         Me.CODIGO_OPCIONSpinEdit.Name = "CODIGO_OPCIONSpinEdit"
         Me.CODIGO_OPCIONSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.CODIGO_OPCIONSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Opción", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
+        Me.CODIGO_OPCIONSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Opción", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.Ascending)})
         Me.CODIGO_OPCIONSpinEdit.Properties.DataSource = Me.IMOPCIONESBindingSource
         Me.CODIGO_OPCIONSpinEdit.Properties.DisplayMember = "DESCRIPCION"
         Me.CODIGO_OPCIONSpinEdit.Properties.NullText = "Seleccione"
@@ -405,7 +405,7 @@ Partial Class XfrmOperacionesPorRol
         Me.CODIGO_ROLSpinEdit.Location = New System.Drawing.Point(49, 12)
         Me.CODIGO_ROLSpinEdit.Name = "CODIGO_ROLSpinEdit"
         Me.CODIGO_ROLSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.CODIGO_ROLSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Rol", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
+        Me.CODIGO_ROLSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Rol", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.Ascending)})
         Me.CODIGO_ROLSpinEdit.Properties.DataSource = Me.IMROLESBindingSource
         Me.CODIGO_ROLSpinEdit.Properties.DisplayMember = "DESCRIPCION"
         Me.CODIGO_ROLSpinEdit.Properties.NullText = "Seleccione"
