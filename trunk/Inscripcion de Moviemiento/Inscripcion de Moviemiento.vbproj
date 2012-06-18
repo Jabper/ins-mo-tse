@@ -288,6 +288,12 @@
     <Compile Include="Procesos\XfrmImportar.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Procesos\XfrmSubirRespaldo.Designer.vb">
+      <DependentUpon>XfrmSubirRespaldo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\XfrmSubirRespaldo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="StandarControles.Designer.vb">
       <DependentUpon>StandarControles.vb</DependentUpon>
     </Compile>

@@ -172,4 +172,8 @@ Public Class XFrmMenuPrincipal
     Private Sub BtnImportar_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnImportar.ItemClick    
         Padre(XfrmImportar)
     End Sub
+
+    Private Sub BtnSubirRespaldo_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnSubirRespaldo.ItemClick
+        Padre(XfrmSubirRespaldo)
+    End Sub
 End Class
