@@ -56,6 +56,8 @@ Partial Class XFrmMenuPrincipal
         Me.DefaultLookAndFeel1 = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
         Me.XtraTabbedMdiManager1 = New DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(Me.components)
         Me.RibbonPageGroup4 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
+        Me.RibbonPageGroup6 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
+        Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -243,8 +245,12 @@ Partial Class XFrmMenuPrincipal
         '
         Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnRequisitos)
         Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnCandidatos)
+        Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnExportar)
+        Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnImportar)
+        Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnHacerRespaldo)
+        Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnSubirRespaldo)
         Me.RibbonPageGroup3.Name = "RibbonPageGroup3"
-        Me.RibbonPageGroup3.Text = "RibbonPageGroup3"
+        Me.RibbonPageGroup3.Text = "Operaciones"
         '
         'RibbonPage3
         '
@@ -254,10 +260,6 @@ Partial Class XFrmMenuPrincipal
         '
         'RibbonPageGroup5
         '
-        Me.RibbonPageGroup5.ItemLinks.Add(Me.BtnExportar)
-        Me.RibbonPageGroup5.ItemLinks.Add(Me.BtnImportar)
-        Me.RibbonPageGroup5.ItemLinks.Add(Me.BtnHacerRespaldo)
-        Me.RibbonPageGroup5.ItemLinks.Add(Me.BtnSubirRespaldo)
         Me.RibbonPageGroup5.Name = "RibbonPageGroup5"
         Me.RibbonPageGroup5.Text = "Procesos"
         '
@@ -308,6 +310,22 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonPageGroup4.ItemLinks.Add(Me.BtnCandidatos)
         Me.RibbonPageGroup4.Name = "RibbonPageGroup4"
         Me.RibbonPageGroup4.Text = "RibbonPageGroup3"
+        '
+        'RibbonPageGroup6
+        '
+        Me.RibbonPageGroup6.ItemLinks.Add(Me.BtnExportar)
+        Me.RibbonPageGroup6.ItemLinks.Add(Me.BtnImportar)
+        Me.RibbonPageGroup6.ItemLinks.Add(Me.BtnHacerRespaldo)
+        Me.RibbonPageGroup6.ItemLinks.Add(Me.BtnSubirRespaldo)
+        Me.RibbonPageGroup6.Name = "RibbonPageGroup6"
+        Me.RibbonPageGroup6.Text = "Procesos"
+        '
+        'BarButtonItem1
+        '
+        Me.BarButtonItem1.Caption = "Exportar Datos"
+        Me.BarButtonItem1.Id = 19
+        Me.BarButtonItem1.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.exportar
+        Me.BarButtonItem1.Name = "BarButtonItem1"
         '
         'XFrmMenuPrincipal
         '
@@ -363,6 +381,8 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents BtnImportar As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BtnHacerRespaldo As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BtnSubirRespaldo As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonPageGroup6 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
 
 
 End Class
