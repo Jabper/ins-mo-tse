@@ -168,4 +168,8 @@ Public Class XFrmMenuPrincipal
         Dim filas As Object = New XfrmFilas
         filas.ShowDialog(Me)
     End Sub
+
+    Private Sub BtnImportar_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnImportar.ItemClick    
+        Padre(XfrmImportar)
+    End Sub
 End Class
