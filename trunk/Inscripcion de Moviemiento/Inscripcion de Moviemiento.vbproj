@@ -259,6 +259,12 @@
     <Compile Include="Padron\XfrmPadron.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Procesos\XfrmExportar.Designer.vb">
+      <DependentUpon>XfrmExportar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\XfrmExportar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="StandarControles.Designer.vb">
       <DependentUpon>StandarControles.vb</DependentUpon>
     </Compile>
@@ -390,6 +396,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Padron\XfrmPadron.resx">
       <DependentUpon>XfrmPadron.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\XfrmExportar.resx">
+      <DependentUpon>XfrmExportar.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="StandarControles.resx">
@@ -647,6 +657,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Ok.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SubirRespaldo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CrearRespaldo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Respaldo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SubirRespaldo1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
