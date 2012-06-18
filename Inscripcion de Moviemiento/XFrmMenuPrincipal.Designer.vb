@@ -28,7 +28,7 @@ Partial Class XFrmMenuPrincipal
         Me.BtnDepartamento = New DevExpress.XtraBars.BarButtonItem
         Me.BtnCargos = New DevExpress.XtraBars.BarButtonItem
         Me.BtnNivelesElectivos = New DevExpress.XtraBars.BarButtonItem
-        Me.BtnIncompatibilidades = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnInhabilitado = New DevExpress.XtraBars.BarButtonItem
         Me.BtnCenso = New DevExpress.XtraBars.BarButtonItem
         Me.BtnParametros = New DevExpress.XtraBars.BarButtonItem
         Me.BtnUsuarios = New DevExpress.XtraBars.BarButtonItem
@@ -64,7 +64,7 @@ Partial Class XFrmMenuPrincipal
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ExpandCollapseItem.Name = ""
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnIncompatibilidades, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
         Me.RibbonControl.MaxItemId = 23
         Me.RibbonControl.Name = "RibbonControl"
@@ -117,12 +117,12 @@ Partial Class XFrmMenuPrincipal
         Me.BtnNivelesElectivos.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.nivelesElectivos
         Me.BtnNivelesElectivos.Name = "BtnNivelesElectivos"
         '
-        'BtnIncompatibilidades
+        'BtnInhabilitado
         '
-        Me.BtnIncompatibilidades.Caption = "Incompatibilidades"
-        Me.BtnIncompatibilidades.Id = 7
-        Me.BtnIncompatibilidades.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.incompatibilidades
-        Me.BtnIncompatibilidades.Name = "BtnIncompatibilidades"
+        Me.BtnInhabilitado.Caption = "Ciudadanos Inhabilitados"
+        Me.BtnInhabilitado.Id = 7
+        Me.BtnInhabilitado.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.incompatibilidades
+        Me.BtnInhabilitado.Name = "BtnInhabilitado"
         '
         'BtnCenso
         '
@@ -223,7 +223,7 @@ Partial Class XFrmMenuPrincipal
         'RibbonPageGroup1
         '
         Me.RibbonPageGroup1.ItemLinks.Add(Me.BtnParametros)
-        Me.RibbonPageGroup1.ItemLinks.Add(Me.BtnIncompatibilidades)
+        Me.RibbonPageGroup1.ItemLinks.Add(Me.BtnInhabilitado)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.BtnNivelesElectivos)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.BtnCargos)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.BtnPartidos)
@@ -345,7 +345,7 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents XtraTabbedMdiManager1 As DevExpress.XtraTabbedMdi.XtraTabbedMdiManager
     Friend WithEvents BtnCargos As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BtnNivelesElectivos As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BtnIncompatibilidades As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnInhabilitado As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BtnCenso As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BtnParametros As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BtnUsuarios As DevExpress.XtraBars.BarButtonItem
