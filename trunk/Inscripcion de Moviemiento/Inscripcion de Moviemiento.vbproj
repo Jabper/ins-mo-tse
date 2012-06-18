@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -190,6 +190,11 @@
     <Compile Include="General\DSPolitico.vb">
       <DependentUpon>DSPolitico.xsd</DependentUpon>
     </Compile>
+    <Compile Include="General\DS_CIUDADANOS_INH.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_CIUDADANOS_INH.xsd</DependentUpon>
+    </Compile>
     <Compile Include="General\XfrmCargoElectivo.Designer.vb">
       <DependentUpon>XfrmCargoElectivo.vb</DependentUpon>
     </Compile>
@@ -200,6 +205,12 @@
       <DependentUpon>xfrmCenso.vb</DependentUpon>
     </Compile>
     <Compile Include="General\xfrmCenso.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="General\xfrmCiudadanosInha.Designer.vb">
+      <DependentUpon>xfrmCiudadanosInha.vb</DependentUpon>
+    </Compile>
+    <Compile Include="General\xfrmCiudadanosInha.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="General\XfrmMovimientos.Designer.vb">
@@ -362,6 +373,9 @@
     <EmbeddedResource Include="General\xfrmCenso.resx">
       <DependentUpon>xfrmCenso.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="General\xfrmCiudadanosInha.resx">
+      <DependentUpon>xfrmCiudadanosInha.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="General\XfrmMovimientos.resx">
       <DependentUpon>XfrmMovimientos.vb</DependentUpon>
@@ -668,6 +682,17 @@
     <None Include="Resources\Respaldo.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="General\DS_CIUDADANOS_INH.xsc">
+      <DependentUpon>DS_CIUDADANOS_INH.xsd</DependentUpon>
+    </None>
+    <None Include="General\DS_CIUDADANOS_INH.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_CIUDADANOS_INH.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="General\DS_CIUDADANOS_INH.xss">
+      <DependentUpon>DS_CIUDADANOS_INH.xsd</DependentUpon>
+    </None>
     <None Include="Resources\SubirRespaldo1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

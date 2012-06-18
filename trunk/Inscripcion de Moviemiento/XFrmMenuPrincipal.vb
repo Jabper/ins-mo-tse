@@ -155,4 +155,8 @@ Public Class XFrmMenuPrincipal
     Private Sub BtnExportar_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnExportar.ItemClick
         Padre(XfrmExportar)
     End Sub
+
+    Private Sub BtnIncompatibilidades_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnInhabilitado.ItemClick
+        Padre(xfrmCiudadanosInha)
+    End Sub
 End Class
