@@ -107,7 +107,7 @@ Public Class XfrmCiudadanos
 
     End Sub
 
-    
+
 
     Sub salir()
         Me.Close()
@@ -168,7 +168,7 @@ Public Class XfrmCiudadanos
         End Try
     End Sub
 
-   
+
 
     Sub AgregarFilasGrid(ByVal NumeroCeldas As Integer)
         For i = 1 To CType(NumeroCeldas, Integer)
@@ -177,7 +177,7 @@ Public Class XfrmCiudadanos
         Next
         Me.GCBusqueda.Focus()
     End Sub
-    
+
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
         'Me.GridView1.ExportToXls("E:\test.xls")
@@ -221,7 +221,7 @@ Public Class XfrmCiudadanos
                     Else
                         view.SetRowCellValue(i, "Estado", True)
                     End If
-                    
+
 
                 End If
 
@@ -237,7 +237,7 @@ Public Class XfrmCiudadanos
 
     End Sub
 
-  
+
 
     Private Sub CmbDepartamento_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CmbDepartamento.EditValueChanged
         Try
@@ -253,106 +253,119 @@ Public Class XfrmCiudadanos
         Dim NombreP As String = ""
         Dim inconsistente As String = "N"
         Dim Observacion As String = ""
+        Try
 
-        If errores = 0 Then
-            Dim view As GridView = GridView1
-            'RECORRER EL GRID
-            For i = 0 To view.DataRowCount - 1
-                'COMPROBAR  SI LA IDENTIDAD EXISTE
-                Dim a As String = view.GetRowCellValue(i, "IDENTIDAD")
-                Dim consulta As String = "select NUMERO_IDENTIDAD, PRIMER_NOMBRE, SEGUNDO_NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO "
-                consulta &= "from Im_padron_electoral where NUMERO_IDENTIDAD='" & a & "'"
-                'VERIFICAR IDENTIDAD
-                If COracle.ObtenerDatos(consulta, "NUMERO_IDENTIDAD") <> "N" Then
-                    'SI LA IDENTIDAD EXISTE SE PREOCEDE A COMPROBAR LOS NOMBRES
-                    'NombreP = COracle.ObtenerDatos(consulta, "NOMBRE")
+        
+            If errores = 0 Then
+                Dim view As GridView = GridView1
+                'RECORRER EL GRID
+                For i = 0 To view.DataRowCount - 1
+                    'COMPROBAR  SI LA IDENTIDAD EXISTE
+                    Dim a As String = view.GetRowCellValue(i, "IDENTIDAD").ToString.Trim
+                    Dim consulta As String = "select NUMERO_IDENTIDAD, PRIMER_NOMBRE, SEGUNDO_NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO "
+                    consulta &= "from Im_padron_electoral where NUMERO_IDENTIDAD='" & a & "'"
+                    'VERIFICAR IDENTIDAD
+                    If COracle.ObtenerDatos(consulta, "NUMERO_IDENTIDAD") <> "N" Then
+                        'SI LA IDENTIDAD EXISTE SE PREOCEDE A COMPROBAR LOS NOMBRES
+                        'NombreP = COracle.ObtenerDatos(consulta, "NOMBRE")
 
-                    'COMPROBANDO EL PRIMER NOMBRE
-                    If Trim(GridView1.GetRowCellValue(i, "PRIMER_NOMBRE").ToString) <> Trim(COracle.ObtenerDatos(consulta, "PRIMER_NOMBRE").ToString) Then
-                        inconsistente = "S"
-                        NombreIgual = "N"
-                        Observacion &= "El primer nombre no coincide con el del padrón electoral "
-                        'COMPROBANDO EL SEGUNDO NOMBRE
+                        'COMPROBANDO EL PRIMER NOMBRE
+                        Dim pnombre As String = view.GetRowCellValue(i, "PrimerNombre").ToString.Trim
+                        Dim papellido As String = view.GetRowCellValue(i, "PrimerApellido").ToString.Trim
 
-                    ElseIf Trim(GridView1.GetRowCellValue(i, "PRIMER_APELLIDO").ToString) <> Trim(COracle.ObtenerDatos(consulta, "PRIMER_APELLIDO").ToString) Then
-                        inconsistente = "S"
-                        NombreIgual = "N"
-                        Observacion &= "El primer apellido no coincide con el del padrón electoral "
-                        'COMPROBANDO EL SEGUNDO NOMBRE
-                   
-                    End If
+                        If pnombre <> COracle.ObtenerDatos(consulta, "PRIMER_NOMBRE") Then
+                            inconsistente = "S"
+                            NombreIgual = "N"
+                            Observacion &= "El primer nombre no coincide con el del padrón electoral "
+                            'COMPROBANDO EL SEGUNDO NOMBRE
 
-                    'COMPROBANDO INGRESO NULO DE SEGUNDO NOMBRE Y APELLIDO
-                    Dim SNOMBRE As String = GridView1.GetRowCellValue(i, "SEGUNDO_NOMBRE").ToString
-                    Dim SAPELLIDO As String = GridView1.GetRowCellValue(i, "SEGUNDO_APELLIDO").ToString
+                        ElseIf papellido <> COracle.ObtenerDatos(consulta, "PRIMER_APELLIDO") Then
+                            inconsistente = "S"
+                            NombreIgual = "N"
+                            Observacion &= "El primer apellido no coincide con el del padrón electoral "
+                            'COMPROBANDO EL SEGUNDO NOMBRE
 
-                    If COracle.ObtenerDatos(consulta, "SEGUNDO_NOMBRE") = SNOMBRE Then
+                        End If
+
+                        'COMPROBANDO INGRESO NULO DE SEGUNDO NOMBRE Y APELLIDO
+                        Dim SNOMBRE As String = view.GetRowCellValue(i, "SegundoNombre").ToString.Trim
+                        Dim SAPELLIDO As String = view.GetRowCellValue(i, "SegundoApellido").ToString.Trim
+
+                        If COracle.ObtenerDatos(consulta, "SEGUNDO_NOMBRE") = SNOMBRE Then
+                        Else
+                            inconsistente = "S"
+                            NombreIgual = "N"
+                            Observacion &= "El segundo nombre no coincide con el del padrón electoral "
+                        End If
+
+                        If COracle.ObtenerDatos(consulta, "SEGUNDO_APELLIDO") = SAPELLIDO Then
+                        Else
+                            inconsistente = "S"
+                            NombreIgual = "N"
+                            Observacion &= "El segundo apellido no coincide con el del padrón electoral "
+                        End If
                     Else
                         inconsistente = "S"
-                        NombreIgual = "N"
-                        Observacion &= "El segundo nombre no coincide con el del padrón electoral "
-                    End If
+                        Observacion = "Identidad no encontrada en el padrón electoral"
+                        NombreIgual = ""
 
-                    If COracle.ObtenerDatos(consulta, "SEGUNDO_APELLIDO") = SAPELLIDO Then
-                    Else
-                        inconsistente = "S"
-                        NombreIgual = "N"
-                        Observacion &= "El segundo apellido no coincide con el del padrón electoral "
                     End If
-                Else
-                    inconsistente = "S"
-                    Observacion = "Identidad no encontrada en el padrón electoral"
-                    NombreIgual = ""
-
-                End If
-                GuardarEnBase(i, NombreIgual, inconsistente, Observacion)
-            Next i
-        Else
-            Mensajes.mimensaje(errores & "Errores encontrados, Verifique que el número de identidad,primer nombre y primer apellido no estén en blanco")
-        End If
-     
+                    GuardarEnBase(i, NombreIgual, inconsistente, Observacion)
+                Next i
+            Else
+                Mensajes.mimensaje(errores & " Errores encontrados, Verifique que el número de identidad, primer nombre y primer apellido no estén en blanco")
+            End If
+        Catch ex As Exception
+            Mensajes.mimensaje(ex.Message)
+        End Try
     End Sub
 
     Sub GuardarEnBase(ByVal i As Integer, ByVal NombreIgual As String, ByVal inconsistente As String, ByVal Observacion As String)
         'Guardar Informacion
-        Dim ciudadanos As DSCiudadanos.IM_CIUDADANOS_RESPALDAN1Row
-        ciudadanos = Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1.NewIM_CIUDADANOS_RESPALDAN1Row
-        With ciudadanos
-            .CODIGO_CUIDADANOS_RESPALDAN = COracle.FUN_EJECUTAR_SEQ("IM_SQ1_CIUDADANOS_RESPALDAN")
-            .CODIGO_PARTIDO = idpartido
-            .CODIGO_MOVIMIENTO = idmovimiento
-            .CODIGO_DEPARTAMENTO = iddepto
-            .CODIGO_MUNICIPIO = idmuni
-            .FIRMA = GridView1.GetRowCellValue(i, "FIRMA").ToString
-            .HUELLA = GridView1.GetRowCellValue(i, "HUELLA").ToString
-            .DIRECCION = GridView1.GetRowCellValue(i, "DIRECCION").ToString
-            .IDENTIDAD = GridView1.GetRowCellValue(i, "IDENTIDAD").ToString
-            .PRIMER_NOMBRE_PAPELETA = GridView1.GetRowCellValue(i, "PRIMER_NOMBRE").ToString
-            .SEGUNDO_NOMBRE_PAPELETA = GridView1.GetRowCellValue(i, "SEGUNDO_NOMBRE").ToString
-            .PRIMER_APELLIDO_PAPELETA = GridView1.GetRowCellValue(i, "PRIMER_APELLIDO").ToString
-            .SEGUNDO_NOMBRE_PAPELETA = GridView1.GetRowCellValue(i, "SEGUNDO_APELLIDO").ToString
-            .NOMBRE_IGUAL = NombreIgual
+        Try
 
-            If folio = "" Then
+        
+            Dim ciudadanos As DSCiudadanos.IM_CIUDADANOS_RESPALDAN1Row
+            ciudadanos = Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1.NewIM_CIUDADANOS_RESPALDAN1Row
+            With ciudadanos
+                .CODIGO_CUIDADANOS_RESPALDAN = COracle.FUN_EJECUTAR_SEQ("IM_SQ1_CIUDADANOS_RESPALDAN")
+                .CODIGO_PARTIDO = idpartido
+                .CODIGO_MOVIMIENTO = idmovimiento
+                .CODIGO_DEPARTAMENTO = iddepto
+                .CODIGO_MUNICIPIO = idmuni
+                .FIRMA = GridView1.GetRowCellValue(i, "FIRMA").ToString
+                .HUELLA = GridView1.GetRowCellValue(i, "HUELLA").ToString
+                .DIRECCION = GridView1.GetRowCellValue(i, "DIRECCION").ToString
+                .IDENTIDAD = GridView1.GetRowCellValue(i, "IDENTIDAD").ToString.Trim
+                .PRIMER_NOMBRE_PAPELETA = GridView1.GetRowCellValue(i, "PrimerNombre").ToString.Trim
+                .SEGUNDO_NOMBRE_PAPELETA = GridView1.GetRowCellValue(i, "SegundoNombre").ToString.Trim
+                .PRIMER_APELLIDO_PAPELETA = GridView1.GetRowCellValue(i, "PrimerApellido").ToString.Trim
+                .SEGUNDO_APELLIDO_PAPELETA = GridView1.GetRowCellValue(i, "SegundoApellido").ToString.Trim
+                .NOMBRE_IGUAL = NombreIgual
 
-            Else
-                .FOLIO = CType(folio, Integer)
-            End If
-            If IsDBNull(GridView1.GetRowCellValue(i, "IMAGEN_FIRMA")) Then
-            Else
-                .IMAGEN_FIRMA = GridView1.GetRowCellValue(i, "IMAGEN_FIRMA")
-            End If
+                If folio = "" Then
 
-            .ADICIONADO_POR = usuario
-            .FECHA_ADICION = DateTime.Now
-            .CONSISTENTE = inconsistente
-            .OBSERVACION = Observacion
-            .MAQUINA = SystemInformation.ComputerName
-            .PAGINA = COracle.FUN_EJECUTAR_SEQ("IM_SQ2_CIUDADANOS_RESPALDAN")
-        End With
-        Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1.Rows.Add(ciudadanos)
-        Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Update(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
+                Else
+                    .FOLIO = CType(folio, Integer)
+                End If
+                If IsDBNull(GridView1.GetRowCellValue(i, "IMAGEN_FIRMA")) Then
+                Else
+                    .IMAGEN_FIRMA = GridView1.GetRowCellValue(i, "IMAGEN_FIRMA")
+                End If
 
+                .ADICIONADO_POR = usuario
+                .FECHA_ADICION = DateTime.Now
+                .CONSISTENTE = inconsistente
+                .OBSERVACION = Observacion
+                .MAQUINA = SystemInformation.ComputerName
+                .PAGINA = COracle.FUN_EJECUTAR_SEQ("IM_SQ2_CIUDADANOS_RESPALDAN")
+            End With
+            Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1.Rows.Add(ciudadanos)
+            Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Update(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
+        Catch ex As Exception
+            Mensajes.mimensaje(ex.Message)
+            GridView1.SetRowCellValue(i, "Estado", False)
+        End Try
     End Sub
 
     Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)

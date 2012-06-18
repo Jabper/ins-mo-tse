@@ -136,7 +136,7 @@ Public Class COracle
 
             If dataread.Read = True Then
                 With dataread
-                    Return (.Item(campo))
+                    Return (.Item(campo)).ToString.Trim
 
                 End With
             Else
