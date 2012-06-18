@@ -42,12 +42,13 @@ Partial Class XFrmMenuPrincipal
         Me.BtnImportar = New DevExpress.XtraBars.BarButtonItem
         Me.BtnHacerRespaldo = New DevExpress.XtraBars.BarButtonItem
         Me.BtnSubirRespaldo = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnFirmas = New DevExpress.XtraBars.BarButtonItem
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup3 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
-        Me.RibbonPage3 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup5 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
+        Me.RibbonPage3 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPage4 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPage5 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPage6 = New DevExpress.XtraBars.Ribbon.RibbonPage
@@ -66,9 +67,9 @@ Partial Class XFrmMenuPrincipal
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ExpandCollapseItem.Name = ""
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 23
+        Me.RibbonControl.MaxItemId = 24
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5, Me.RibbonPage6})
         Me.RibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010
@@ -216,6 +217,14 @@ Partial Class XFrmMenuPrincipal
         Me.BtnSubirRespaldo.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.SubirRespaldo1
         Me.BtnSubirRespaldo.Name = "BtnSubirRespaldo"
         '
+        'BtnFirmas
+        '
+        Me.BtnFirmas.Caption = "Inscripción de Firmas"
+        Me.BtnFirmas.Glyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.officespreadsheet
+        Me.BtnFirmas.Id = 23
+        Me.BtnFirmas.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.officespreadsheet
+        Me.BtnFirmas.Name = "BtnFirmas"
+        '
         'RibbonPage1
         '
         Me.RibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1})
@@ -245,13 +254,9 @@ Partial Class XFrmMenuPrincipal
         '
         Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnRequisitos)
         Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnCandidatos)
+        Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnFirmas)
         Me.RibbonPageGroup3.Name = "RibbonPageGroup3"
         Me.RibbonPageGroup3.Text = "Operaciones"
-        '
-        'RibbonPage3
-        '
-        Me.RibbonPage3.Name = "RibbonPage3"
-        Me.RibbonPage3.Text = "Procesos"
         '
         'RibbonPageGroup5
         '
@@ -261,6 +266,11 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonPageGroup5.ItemLinks.Add(Me.BtnSubirRespaldo)
         Me.RibbonPageGroup5.Name = "RibbonPageGroup5"
         Me.RibbonPageGroup5.Text = "Respaldos"
+        '
+        'RibbonPage3
+        '
+        Me.RibbonPage3.Name = "RibbonPage3"
+        Me.RibbonPage3.Text = "Procesos"
         '
         'RibbonPage4
         '
@@ -382,6 +392,7 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents BtnSubirRespaldo As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RibbonPageGroup6 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnFirmas As DevExpress.XtraBars.BarButtonItem
 
 
 End Class

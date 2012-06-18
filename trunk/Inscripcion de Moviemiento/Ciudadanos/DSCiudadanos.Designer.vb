@@ -336,6 +336,14 @@ Partial Public Class DSCiudadanos
         
         Private columnEstado As Global.System.Data.DataColumn
         
+        Private columnPrimerNombre As Global.System.Data.DataColumn
+        
+        Private columnPrimerApellido As Global.System.Data.DataColumn
+        
+        Private columnSegundoNombre As Global.System.Data.DataColumn
+        
+        Private columnSegundoApellido As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -501,6 +509,34 @@ Partial Public Class DSCiudadanos
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property PrimerNombreColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPrimerNombre
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property PrimerApellidoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPrimerApellido
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property SegundoNombreColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSegundoNombre
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property SegundoApellidoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSegundoApellido
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -549,9 +585,13 @@ Partial Public Class DSCiudadanos
                     ByVal MODIFICADO_POR As String,  _
                     ByVal FECHA_MODIFICACION As Date,  _
                     ByVal CODIGO_DEPARTAMENTO As Decimal,  _
-                    ByVal Estado As Boolean) As IM_CIUDADANOS_RESPALDANRow
+                    ByVal Estado As Boolean,  _
+                    ByVal PrimerNombre As String,  _
+                    ByVal PrimerApellido As String,  _
+                    ByVal SegundoNombre As String,  _
+                    ByVal SegundoApellido As String) As IM_CIUDADANOS_RESPALDANRow
             Dim rowIM_CIUDADANOS_RESPALDANRow As IM_CIUDADANOS_RESPALDANRow = CType(Me.NewRow,IM_CIUDADANOS_RESPALDANRow)
-            Dim columnValuesArray() As Object = New Object() {CODIGO_CUIDADANOS_RESPALDAN, CODIGO_PARTIDO, CODIGO_MOVIMIENTO, CODIGO_MUNICIPIO, FIRMA, HUELLA, DIRECCION, IDENTIDAD, NOMBRE, NOMBRE_IGUAL, IMAGEN_FIRMA, FOLIO, NOMBRE_PAPELETA, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, CODIGO_DEPARTAMENTO, Estado}
+            Dim columnValuesArray() As Object = New Object() {CODIGO_CUIDADANOS_RESPALDAN, CODIGO_PARTIDO, CODIGO_MOVIMIENTO, CODIGO_MUNICIPIO, FIRMA, HUELLA, DIRECCION, IDENTIDAD, NOMBRE, NOMBRE_IGUAL, IMAGEN_FIRMA, FOLIO, NOMBRE_PAPELETA, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, CODIGO_DEPARTAMENTO, Estado, PrimerNombre, PrimerApellido, SegundoNombre, SegundoApellido}
             rowIM_CIUDADANOS_RESPALDANRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowIM_CIUDADANOS_RESPALDANRow)
             Return rowIM_CIUDADANOS_RESPALDANRow
@@ -590,6 +630,10 @@ Partial Public Class DSCiudadanos
             Me.columnFECHA_MODIFICACION = MyBase.Columns("FECHA_MODIFICACION")
             Me.columnCODIGO_DEPARTAMENTO = MyBase.Columns("CODIGO_DEPARTAMENTO")
             Me.columnEstado = MyBase.Columns("Estado")
+            Me.columnPrimerNombre = MyBase.Columns("PrimerNombre")
+            Me.columnPrimerApellido = MyBase.Columns("PrimerApellido")
+            Me.columnSegundoNombre = MyBase.Columns("SegundoNombre")
+            Me.columnSegundoApellido = MyBase.Columns("SegundoApellido")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -632,6 +676,14 @@ Partial Public Class DSCiudadanos
             MyBase.Columns.Add(Me.columnCODIGO_DEPARTAMENTO)
             Me.columnEstado = New Global.System.Data.DataColumn("Estado", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnEstado)
+            Me.columnPrimerNombre = New Global.System.Data.DataColumn("PrimerNombre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPrimerNombre)
+            Me.columnPrimerApellido = New Global.System.Data.DataColumn("PrimerApellido", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPrimerApellido)
+            Me.columnSegundoNombre = New Global.System.Data.DataColumn("SegundoNombre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSegundoNombre)
+            Me.columnSegundoApellido = New Global.System.Data.DataColumn("SegundoApellido", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSegundoApellido)
             Me.columnFIRMA.MaxLength = 1
             Me.columnHUELLA.MaxLength = 1
             Me.columnDIRECCION.MaxLength = 300
@@ -784,17 +836,15 @@ Partial Public Class DSCiudadanos
         
         Private columnHUELLA As Global.System.Data.DataColumn
         
-        Private columnIDENTIDAD As Global.System.Data.DataColumn
-        
         Private columnDIRECCION As Global.System.Data.DataColumn
         
-        Private columnNOMBRE As Global.System.Data.DataColumn
+        Private columnIDENTIDAD As Global.System.Data.DataColumn
         
         Private columnNOMBRE_IGUAL As Global.System.Data.DataColumn
         
-        Private columnNOMBRE_PAPELETA As Global.System.Data.DataColumn
-        
         Private columnFOLIO As Global.System.Data.DataColumn
+        
+        Private columnPRIMER_NOMBRE_PAPELETA As Global.System.Data.DataColumn
         
         Private columnIMAGEN_FIRMA As Global.System.Data.DataColumn
         
@@ -813,6 +863,12 @@ Partial Public Class DSCiudadanos
         Private columnMAQUINA As Global.System.Data.DataColumn
         
         Private columnPAGINA As Global.System.Data.DataColumn
+        
+        Private columnSEGUNDO_NOMBRE_PAPELETA As Global.System.Data.DataColumn
+        
+        Private columnPRIMER_APELLIDO_PAPELETA As Global.System.Data.DataColumn
+        
+        Private columnSEGUNDO_APELLIDO_PAPELETA As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
@@ -896,13 +952,6 @@ Partial Public Class DSCiudadanos
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property IDENTIDADColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnIDENTIDAD
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public ReadOnly Property DIRECCIONColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnDIRECCION
@@ -910,9 +959,9 @@ Partial Public Class DSCiudadanos
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property NOMBREColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property IDENTIDADColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnNOMBRE
+                Return Me.columnIDENTIDAD
             End Get
         End Property
         
@@ -924,16 +973,16 @@ Partial Public Class DSCiudadanos
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property NOMBRE_PAPELETAColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property FOLIOColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnNOMBRE_PAPELETA
+                Return Me.columnFOLIO
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property FOLIOColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property PRIMER_NOMBRE_PAPELETAColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnFOLIO
+                Return Me.columnPRIMER_NOMBRE_PAPELETA
             End Get
         End Property
         
@@ -1000,6 +1049,27 @@ Partial Public Class DSCiudadanos
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property SEGUNDO_NOMBRE_PAPELETAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSEGUNDO_NOMBRE_PAPELETA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property PRIMER_APELLIDO_PAPELETAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPRIMER_APELLIDO_PAPELETA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property SEGUNDO_APELLIDO_PAPELETAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSEGUNDO_APELLIDO_PAPELETA
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1037,12 +1107,11 @@ Partial Public Class DSCiudadanos
                     ByVal CODIGO_MUNICIPIO As Decimal,  _
                     ByVal FIRMA As String,  _
                     ByVal HUELLA As String,  _
-                    ByVal IDENTIDAD As String,  _
                     ByVal DIRECCION As String,  _
-                    ByVal NOMBRE As String,  _
+                    ByVal IDENTIDAD As String,  _
                     ByVal NOMBRE_IGUAL As String,  _
-                    ByVal NOMBRE_PAPELETA As String,  _
                     ByVal FOLIO As Decimal,  _
+                    ByVal PRIMER_NOMBRE_PAPELETA As String,  _
                     ByVal IMAGEN_FIRMA() As Byte,  _
                     ByVal ADICIONADO_POR As String,  _
                     ByVal FECHA_ADICION As Date,  _
@@ -1051,9 +1120,12 @@ Partial Public Class DSCiudadanos
                     ByVal CONSISTENTE As String,  _
                     ByVal OBSERVACION As String,  _
                     ByVal MAQUINA As String,  _
-                    ByVal PAGINA As Decimal) As IM_CIUDADANOS_RESPALDAN1Row
+                    ByVal PAGINA As Decimal,  _
+                    ByVal SEGUNDO_NOMBRE_PAPELETA As String,  _
+                    ByVal PRIMER_APELLIDO_PAPELETA As String,  _
+                    ByVal SEGUNDO_APELLIDO_PAPELETA As String) As IM_CIUDADANOS_RESPALDAN1Row
             Dim rowIM_CIUDADANOS_RESPALDAN1Row As IM_CIUDADANOS_RESPALDAN1Row = CType(Me.NewRow,IM_CIUDADANOS_RESPALDAN1Row)
-            Dim columnValuesArray() As Object = New Object() {CODIGO_CUIDADANOS_RESPALDAN, CODIGO_PARTIDO, CODIGO_MOVIMIENTO, CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, FIRMA, HUELLA, IDENTIDAD, DIRECCION, NOMBRE, NOMBRE_IGUAL, NOMBRE_PAPELETA, FOLIO, IMAGEN_FIRMA, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, CONSISTENTE, OBSERVACION, MAQUINA, PAGINA}
+            Dim columnValuesArray() As Object = New Object() {CODIGO_CUIDADANOS_RESPALDAN, CODIGO_PARTIDO, CODIGO_MOVIMIENTO, CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, FIRMA, HUELLA, DIRECCION, IDENTIDAD, NOMBRE_IGUAL, FOLIO, PRIMER_NOMBRE_PAPELETA, IMAGEN_FIRMA, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, CONSISTENTE, OBSERVACION, MAQUINA, PAGINA, SEGUNDO_NOMBRE_PAPELETA, PRIMER_APELLIDO_PAPELETA, SEGUNDO_APELLIDO_PAPELETA}
             rowIM_CIUDADANOS_RESPALDAN1Row.ItemArray = columnValuesArray
             Me.Rows.Add(rowIM_CIUDADANOS_RESPALDAN1Row)
             Return rowIM_CIUDADANOS_RESPALDAN1Row
@@ -1085,12 +1157,11 @@ Partial Public Class DSCiudadanos
             Me.columnCODIGO_MUNICIPIO = MyBase.Columns("CODIGO_MUNICIPIO")
             Me.columnFIRMA = MyBase.Columns("FIRMA")
             Me.columnHUELLA = MyBase.Columns("HUELLA")
-            Me.columnIDENTIDAD = MyBase.Columns("IDENTIDAD")
             Me.columnDIRECCION = MyBase.Columns("DIRECCION")
-            Me.columnNOMBRE = MyBase.Columns("NOMBRE")
+            Me.columnIDENTIDAD = MyBase.Columns("IDENTIDAD")
             Me.columnNOMBRE_IGUAL = MyBase.Columns("NOMBRE_IGUAL")
-            Me.columnNOMBRE_PAPELETA = MyBase.Columns("NOMBRE_PAPELETA")
             Me.columnFOLIO = MyBase.Columns("FOLIO")
+            Me.columnPRIMER_NOMBRE_PAPELETA = MyBase.Columns("PRIMER_NOMBRE_PAPELETA")
             Me.columnIMAGEN_FIRMA = MyBase.Columns("IMAGEN_FIRMA")
             Me.columnADICIONADO_POR = MyBase.Columns("ADICIONADO_POR")
             Me.columnFECHA_ADICION = MyBase.Columns("FECHA_ADICION")
@@ -1100,6 +1171,9 @@ Partial Public Class DSCiudadanos
             Me.columnOBSERVACION = MyBase.Columns("OBSERVACION")
             Me.columnMAQUINA = MyBase.Columns("MAQUINA")
             Me.columnPAGINA = MyBase.Columns("PAGINA")
+            Me.columnSEGUNDO_NOMBRE_PAPELETA = MyBase.Columns("SEGUNDO_NOMBRE_PAPELETA")
+            Me.columnPRIMER_APELLIDO_PAPELETA = MyBase.Columns("PRIMER_APELLIDO_PAPELETA")
+            Me.columnSEGUNDO_APELLIDO_PAPELETA = MyBase.Columns("SEGUNDO_APELLIDO_PAPELETA")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1118,18 +1192,16 @@ Partial Public Class DSCiudadanos
             MyBase.Columns.Add(Me.columnFIRMA)
             Me.columnHUELLA = New Global.System.Data.DataColumn("HUELLA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnHUELLA)
-            Me.columnIDENTIDAD = New Global.System.Data.DataColumn("IDENTIDAD", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnIDENTIDAD)
             Me.columnDIRECCION = New Global.System.Data.DataColumn("DIRECCION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDIRECCION)
-            Me.columnNOMBRE = New Global.System.Data.DataColumn("NOMBRE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNOMBRE)
+            Me.columnIDENTIDAD = New Global.System.Data.DataColumn("IDENTIDAD", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIDENTIDAD)
             Me.columnNOMBRE_IGUAL = New Global.System.Data.DataColumn("NOMBRE_IGUAL", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNOMBRE_IGUAL)
-            Me.columnNOMBRE_PAPELETA = New Global.System.Data.DataColumn("NOMBRE_PAPELETA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNOMBRE_PAPELETA)
             Me.columnFOLIO = New Global.System.Data.DataColumn("FOLIO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFOLIO)
+            Me.columnPRIMER_NOMBRE_PAPELETA = New Global.System.Data.DataColumn("PRIMER_NOMBRE_PAPELETA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPRIMER_NOMBRE_PAPELETA)
             Me.columnIMAGEN_FIRMA = New Global.System.Data.DataColumn("IMAGEN_FIRMA", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIMAGEN_FIRMA)
             Me.columnADICIONADO_POR = New Global.System.Data.DataColumn("ADICIONADO_POR", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -1148,6 +1220,12 @@ Partial Public Class DSCiudadanos
             MyBase.Columns.Add(Me.columnMAQUINA)
             Me.columnPAGINA = New Global.System.Data.DataColumn("PAGINA", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPAGINA)
+            Me.columnSEGUNDO_NOMBRE_PAPELETA = New Global.System.Data.DataColumn("SEGUNDO_NOMBRE_PAPELETA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSEGUNDO_NOMBRE_PAPELETA)
+            Me.columnPRIMER_APELLIDO_PAPELETA = New Global.System.Data.DataColumn("PRIMER_APELLIDO_PAPELETA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPRIMER_APELLIDO_PAPELETA)
+            Me.columnSEGUNDO_APELLIDO_PAPELETA = New Global.System.Data.DataColumn("SEGUNDO_APELLIDO_PAPELETA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSEGUNDO_APELLIDO_PAPELETA)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_CUIDADANOS_RESPALDAN, Me.columnCODIGO_PARTIDO, Me.columnCODIGO_MOVIMIENTO}, true))
             Me.columnCODIGO_CUIDADANOS_RESPALDAN.AllowDBNull = false
             Me.columnCODIGO_PARTIDO.AllowDBNull = false
@@ -1156,12 +1234,12 @@ Partial Public Class DSCiudadanos
             Me.columnCODIGO_MUNICIPIO.AllowDBNull = false
             Me.columnFIRMA.MaxLength = 1
             Me.columnHUELLA.MaxLength = 1
+            Me.columnDIRECCION.MaxLength = 300
             Me.columnIDENTIDAD.AllowDBNull = false
             Me.columnIDENTIDAD.MaxLength = 15
-            Me.columnDIRECCION.MaxLength = 300
-            Me.columnNOMBRE.MaxLength = 100
             Me.columnNOMBRE_IGUAL.MaxLength = 2
-            Me.columnNOMBRE_PAPELETA.MaxLength = 100
+            Me.columnPRIMER_NOMBRE_PAPELETA.AllowDBNull = false
+            Me.columnPRIMER_NOMBRE_PAPELETA.MaxLength = 50
             Me.columnADICIONADO_POR.AllowDBNull = false
             Me.columnADICIONADO_POR.MaxLength = 10
             Me.columnFECHA_ADICION.AllowDBNull = false
@@ -1169,6 +1247,10 @@ Partial Public Class DSCiudadanos
             Me.columnCONSISTENTE.MaxLength = 1
             Me.columnOBSERVACION.MaxLength = 200
             Me.columnMAQUINA.MaxLength = 50
+            Me.columnSEGUNDO_NOMBRE_PAPELETA.MaxLength = 50
+            Me.columnPRIMER_APELLIDO_PAPELETA.AllowDBNull = false
+            Me.columnPRIMER_APELLIDO_PAPELETA.MaxLength = 50
+            Me.columnSEGUNDO_APELLIDO_PAPELETA.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1583,6 +1665,66 @@ Partial Public Class DSCiudadanos
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property PrimerNombre() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN.PrimerNombreColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PrimerNombre' in table 'IM_CIUDADANOS_RESPALDAN' is DBNull."& _ 
+                            "", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN.PrimerNombreColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property PrimerApellido() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN.PrimerApellidoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PrimerApellido' in table 'IM_CIUDADANOS_RESPALDAN' is DBNul"& _ 
+                            "l.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN.PrimerApellidoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property SegundoNombre() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN.SegundoNombreColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SegundoNombre' in table 'IM_CIUDADANOS_RESPALDAN' is DBNull"& _ 
+                            ".", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN.SegundoNombreColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property SegundoApellido() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN.SegundoApellidoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SegundoApellido' in table 'IM_CIUDADANOS_RESPALDAN' is DBNu"& _ 
+                            "ll.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN.SegundoApellidoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsCODIGO_CUIDADANOS_RESPALDANNull() As Boolean
             Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN.CODIGO_CUIDADANOS_RESPALDANColumn)
         End Function
@@ -1771,6 +1913,46 @@ Partial Public Class DSCiudadanos
         Public Sub SetEstadoNull()
             Me(Me.tableIM_CIUDADANOS_RESPALDAN.EstadoColumn) = Global.System.Convert.DBNull
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsPrimerNombreNull() As Boolean
+            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN.PrimerNombreColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetPrimerNombreNull()
+            Me(Me.tableIM_CIUDADANOS_RESPALDAN.PrimerNombreColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsPrimerApellidoNull() As Boolean
+            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN.PrimerApellidoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetPrimerApellidoNull()
+            Me(Me.tableIM_CIUDADANOS_RESPALDAN.PrimerApellidoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsSegundoNombreNull() As Boolean
+            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN.SegundoNombreColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetSegundoNombreNull()
+            Me(Me.tableIM_CIUDADANOS_RESPALDAN.SegundoNombreColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsSegundoApellidoNull() As Boolean
+            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN.SegundoApellidoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetSegundoApellidoNull()
+            Me(Me.tableIM_CIUDADANOS_RESPALDAN.SegundoApellidoColumn) = Global.System.Convert.DBNull
+        End Sub
     End Class
     
     '''<summary>
@@ -1867,16 +2049,6 @@ Partial Public Class DSCiudadanos
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property IDENTIDAD() As String
-            Get
-                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.IDENTIDADColumn),String)
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.IDENTIDADColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property DIRECCION() As String
             Get
                 Try 
@@ -1891,16 +2063,12 @@ Partial Public Class DSCiudadanos
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property NOMBRE() As String
+        Public Property IDENTIDAD() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.NOMBREColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'NOMBRE' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNull.", e)
-                End Try
+                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.IDENTIDADColumn),String)
             End Get
             Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.NOMBREColumn) = value
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.IDENTIDADColumn) = value
             End Set
         End Property
         
@@ -1920,21 +2088,6 @@ Partial Public Class DSCiudadanos
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property NOMBRE_PAPELETA() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.NOMBRE_PAPELETAColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'NOMBRE_PAPELETA' in table 'IM_CIUDADANOS_RESPALDAN1' is DBN"& _ 
-                            "ull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.NOMBRE_PAPELETAColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property FOLIO() As Decimal
             Get
                 Try 
@@ -1945,6 +2098,16 @@ Partial Public Class DSCiudadanos
             End Get
             Set
                 Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FOLIOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property PRIMER_NOMBRE_PAPELETA() As String
+            Get
+                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.PRIMER_NOMBRE_PAPELETAColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.PRIMER_NOMBRE_PAPELETAColumn) = value
             End Set
         End Property
         
@@ -2072,6 +2235,46 @@ Partial Public Class DSCiudadanos
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property SEGUNDO_NOMBRE_PAPELETA() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_NOMBRE_PAPELETAColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SEGUNDO_NOMBRE_PAPELETA' in table 'IM_CIUDADANOS_RESPALDAN1"& _ 
+                            "' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_NOMBRE_PAPELETAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property PRIMER_APELLIDO_PAPELETA() As String
+            Get
+                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.PRIMER_APELLIDO_PAPELETAColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.PRIMER_APELLIDO_PAPELETAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property SEGUNDO_APELLIDO_PAPELETA() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_APELLIDO_PAPELETAColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SEGUNDO_APELLIDO_PAPELETA' in table 'IM_CIUDADANOS_RESPALDA"& _ 
+                            "N1' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_APELLIDO_PAPELETAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsFIRMANull() As Boolean
             Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.FIRMAColumn)
         End Function
@@ -2102,16 +2305,6 @@ Partial Public Class DSCiudadanos
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsNOMBRENull() As Boolean
-            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.NOMBREColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetNOMBRENull()
-            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.NOMBREColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsNOMBRE_IGUALNull() As Boolean
             Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.NOMBRE_IGUALColumn)
         End Function
@@ -2119,16 +2312,6 @@ Partial Public Class DSCiudadanos
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetNOMBRE_IGUALNull()
             Me(Me.tableIM_CIUDADANOS_RESPALDAN1.NOMBRE_IGUALColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsNOMBRE_PAPELETANull() As Boolean
-            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.NOMBRE_PAPELETAColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetNOMBRE_PAPELETANull()
-            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.NOMBRE_PAPELETAColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -2209,6 +2392,26 @@ Partial Public Class DSCiudadanos
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetPAGINANull()
             Me(Me.tableIM_CIUDADANOS_RESPALDAN1.PAGINAColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsSEGUNDO_NOMBRE_PAPELETANull() As Boolean
+            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_NOMBRE_PAPELETAColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetSEGUNDO_NOMBRE_PAPELETANull()
+            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_NOMBRE_PAPELETAColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsSEGUNDO_APELLIDO_PAPELETANull() As Boolean
+            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_APELLIDO_PAPELETAColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetSEGUNDO_APELLIDO_PAPELETANull()
+            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_APELLIDO_PAPELETAColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -3276,12 +3479,11 @@ Namespace DSCiudadanosTableAdapters
             tableMapping.ColumnMappings.Add("CODIGO_MUNICIPIO", "CODIGO_MUNICIPIO")
             tableMapping.ColumnMappings.Add("FIRMA", "FIRMA")
             tableMapping.ColumnMappings.Add("HUELLA", "HUELLA")
-            tableMapping.ColumnMappings.Add("IDENTIDAD", "IDENTIDAD")
             tableMapping.ColumnMappings.Add("DIRECCION", "DIRECCION")
-            tableMapping.ColumnMappings.Add("NOMBRE", "NOMBRE")
+            tableMapping.ColumnMappings.Add("IDENTIDAD", "IDENTIDAD")
             tableMapping.ColumnMappings.Add("NOMBRE_IGUAL", "NOMBRE_IGUAL")
-            tableMapping.ColumnMappings.Add("NOMBRE_PAPELETA", "NOMBRE_PAPELETA")
             tableMapping.ColumnMappings.Add("FOLIO", "FOLIO")
+            tableMapping.ColumnMappings.Add("PRIMER_NOMBRE_PAPELETA", "PRIMER_NOMBRE_PAPELETA")
             tableMapping.ColumnMappings.Add("IMAGEN_FIRMA", "IMAGEN_FIRMA")
             tableMapping.ColumnMappings.Add("ADICIONADO_POR", "ADICIONADO_POR")
             tableMapping.ColumnMappings.Add("FECHA_ADICION", "FECHA_ADICION")
@@ -3291,6 +3493,9 @@ Namespace DSCiudadanosTableAdapters
             tableMapping.ColumnMappings.Add("OBSERVACION", "OBSERVACION")
             tableMapping.ColumnMappings.Add("MAQUINA", "MAQUINA")
             tableMapping.ColumnMappings.Add("PAGINA", "PAGINA")
+            tableMapping.ColumnMappings.Add("SEGUNDO_NOMBRE_PAPELETA", "SEGUNDO_NOMBRE_PAPELETA")
+            tableMapping.ColumnMappings.Add("PRIMER_APELLIDO_PAPELETA", "PRIMER_APELLIDO_PAPELETA")
+            tableMapping.ColumnMappings.Add("SEGUNDO_APELLIDO_PAPELETA", "SEGUNDO_APELLIDO_PAPELETA")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OracleClient.OracleCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -3299,23 +3504,23 @@ Namespace DSCiudadanosTableAdapters
                 "Original_CODIGO_MOVIMIENTO) AND (""CODIGO_DEPARTAMENTO"" = :Original_CODIGO_DEPART"& _ 
                 "AMENTO) AND (""CODIGO_MUNICIPIO"" = :Original_CODIGO_MUNICIPIO) AND ((:IsNull_FIRM"& _ 
                 "A = 1 AND ""FIRMA"" IS NULL) OR (""FIRMA"" = :Original_FIRMA)) AND ((:IsNull_HUELLA "& _ 
-                "= 1 AND ""HUELLA"" IS NULL) OR (""HUELLA"" = :Original_HUELLA)) AND (""IDENTIDAD"" = :"& _ 
-                "Original_IDENTIDAD) AND ((:IsNull_DIRECCION = 1 AND ""DIRECCION"" IS NULL) OR (""DI"& _ 
-                "RECCION"" = :Original_DIRECCION)) AND ((:IsNull_NOMBRE = 1 AND ""NOMBRE"" IS NULL) "& _ 
-                "OR (""NOMBRE"" = :Original_NOMBRE)) AND ((:IsNull_NOMBRE_IGUAL = 1 AND ""NOMBRE_IGU"& _ 
-                "AL"" IS NULL) OR (""NOMBRE_IGUAL"" = :Original_NOMBRE_IGUAL)) AND ((:IsNull_NOMBRE_"& _ 
-                "PAPELETA = 1 AND ""NOMBRE_PAPELETA"" IS NULL) OR (""NOMBRE_PAPELETA"" = :Original_NO"& _ 
-                "MBRE_PAPELETA)) AND ((:IsNull_FOLIO = 1 AND ""FOLIO"" IS NULL) OR (""FOLIO"" = :Orig"& _ 
-                "inal_FOLIO)) AND (""ADICIONADO_POR"" = :Original_ADICIONADO_POR) AND (""FECHA_ADICI"& _ 
-                "ON"" = :Original_FECHA_ADICION) AND ((:IsNull_MODIFICADO_POR = 1 AND ""MODIFICADO_"& _ 
-                "POR"" IS NULL) OR (""MODIFICADO_POR"" = :Original_MODIFICADO_POR)) AND ((:IsNull_FE"& _ 
-                "CHA_MODIFICACION = 1 AND ""FECHA_MODIFICACION"" IS NULL) OR (""FECHA_MODIFICACION"" "& _ 
-                "= :Original_FECHA_MODIFICACION)) AND ((:IsNull_CONSISTENTE = 1 AND ""CONSISTENTE"""& _ 
-                " IS NULL) OR (""CONSISTENTE"" = :Original_CONSISTENTE)) AND ((:IsNull_OBSERVACION "& _ 
-                "= 1 AND ""OBSERVACION"" IS NULL) OR (""OBSERVACION"" = :Original_OBSERVACION)) AND ("& _ 
-                "(:IsNull_MAQUINA = 1 AND ""MAQUINA"" IS NULL) OR (""MAQUINA"" = :Original_MAQUINA)) "& _ 
-                "AND ((:IsNull_PAGINA = 1 AND ""PAGINA"" IS NULL) OR (""PAGINA"" = :Original_PAGINA))"& _ 
-                ")"
+                "= 1 AND ""HUELLA"" IS NULL) OR (""HUELLA"" = :Original_HUELLA)) AND ((:IsNull_DIRECC"& _ 
+                "ION = 1 AND ""DIRECCION"" IS NULL) OR (""DIRECCION"" = :Original_DIRECCION)) AND (""I"& _ 
+                "DENTIDAD"" = :Original_IDENTIDAD) AND ((:IsNull_NOMBRE_IGUAL = 1 AND ""NOMBRE_IGUA"& _ 
+                "L"" IS NULL) OR (""NOMBRE_IGUAL"" = :Original_NOMBRE_IGUAL)) AND ((:IsNull_FOLIO = "& _ 
+                "1 AND ""FOLIO"" IS NULL) OR (""FOLIO"" = :Original_FOLIO)) AND (""PRIMER_NOMBRE_PAPEL"& _ 
+                "ETA"" = :p4) AND (""ADICIONADO_POR"" = :Original_ADICIONADO_POR) AND (""FECHA_ADICIO"& _ 
+                "N"" = :Original_FECHA_ADICION) AND ((:IsNull_MODIFICADO_POR = 1 AND ""MODIFICADO_P"& _ 
+                "OR"" IS NULL) OR (""MODIFICADO_POR"" = :Original_MODIFICADO_POR)) AND ((:IsNull_FEC"& _ 
+                "HA_MODIFICACION = 1 AND ""FECHA_MODIFICACION"" IS NULL) OR (""FECHA_MODIFICACION"" ="& _ 
+                " :Original_FECHA_MODIFICACION)) AND ((:IsNull_CONSISTENTE = 1 AND ""CONSISTENTE"" "& _ 
+                "IS NULL) OR (""CONSISTENTE"" = :Original_CONSISTENTE)) AND ((:IsNull_OBSERVACION ="& _ 
+                " 1 AND ""OBSERVACION"" IS NULL) OR (""OBSERVACION"" = :Original_OBSERVACION)) AND (("& _ 
+                ":IsNull_MAQUINA = 1 AND ""MAQUINA"" IS NULL) OR (""MAQUINA"" = :Original_MAQUINA)) A"& _ 
+                "ND ((:IsNull_PAGINA = 1 AND ""PAGINA"" IS NULL) OR (""PAGINA"" = :Original_PAGINA)) "& _ 
+                "AND ((:p7 = 1 AND ""SEGUNDO_NOMBRE_PAPELETA"" IS NULL) OR (""SEGUNDO_NOMBRE_PAPELET"& _ 
+                "A"" = :p6)) AND (""PRIMER_APELLIDO_PAPELETA"" = :p9) AND ((:p12 = 1 AND ""SEGUNDO_AP"& _ 
+                "ELLIDO_PAPELETA"" IS NULL) OR (""SEGUNDO_APELLIDO_PAPELETA"" = :p11)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p2", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_CUIDADANOS_RESPALDAN", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_PARTIDO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -3326,17 +3531,14 @@ Namespace DSCiudadanosTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_FIRMA", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "FIRMA", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_HUELLA", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "HUELLA", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_HUELLA", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "HUELLA", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_IDENTIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "IDENTIDAD", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_DIRECCION", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "DIRECCION", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_DIRECCION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DIRECCION", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_NOMBRE", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_NOMBRE", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_IDENTIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "IDENTIDAD", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_NOMBRE_IGUAL", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE_IGUAL", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_NOMBRE_IGUAL", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE_IGUAL", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_NOMBRE_PAPELETA", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE_PAPELETA", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_NOMBRE_PAPELETA", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE_PAPELETA", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_FOLIO", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "FOLIO", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_FOLIO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "FOLIO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p4", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "PRIMER_NOMBRE_PAPELETA", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_FECHA_ADICION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -3351,17 +3553,23 @@ Namespace DSCiudadanosTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_MAQUINA", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "MAQUINA", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_PAGINA", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "PAGINA", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_PAGINA", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "PAGINA", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p7", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "SEGUNDO_NOMBRE_PAPELETA", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p6", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "SEGUNDO_NOMBRE_PAPELETA", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p9", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "PRIMER_APELLIDO_PAPELETA", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p12", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "SEGUNDO_APELLIDO_PAPELETA", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p11", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "SEGUNDO_APELLIDO_PAPELETA", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OracleClient.OracleCommand
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO ""IM_CIUDADANOS_RESPALDAN"" (""CODIGO_CUIDADANOS_RESPALDAN"", ""CODIGO_PAR"& _ 
                 "TIDO"", ""CODIGO_MOVIMIENTO"", ""CODIGO_DEPARTAMENTO"", ""CODIGO_MUNICIPIO"", ""FIRMA"", "& _ 
-                """HUELLA"", ""IDENTIDAD"", ""DIRECCION"", ""NOMBRE"", ""NOMBRE_IGUAL"", ""NOMBRE_PAPELETA"","& _ 
-                " ""FOLIO"", ""IMAGEN_FIRMA"", ""ADICIONADO_POR"", ""FECHA_ADICION"", ""MODIFICADO_POR"", """& _ 
-                "FECHA_MODIFICACION"", ""CONSISTENTE"", ""OBSERVACION"", ""MAQUINA"", ""PAGINA"") VALUES ("& _ 
-                ":p1, :CODIGO_PARTIDO, :CODIGO_MOVIMIENTO, :CODIGO_DEPARTAMENTO, :CODIGO_MUNICIPI"& _ 
-                "O, :FIRMA, :HUELLA, :IDENTIDAD, :DIRECCION, :NOMBRE, :NOMBRE_IGUAL, :NOMBRE_PAPE"& _ 
-                "LETA, :FOLIO, :IMAGEN_FIRMA, :ADICIONADO_POR, :FECHA_ADICION, :MODIFICADO_POR, :"& _ 
-                "FECHA_MODIFICACION, :CONSISTENTE, :OBSERVACION, :MAQUINA, :PAGINA)"
+                """HUELLA"", ""DIRECCION"", ""IDENTIDAD"", ""NOMBRE_IGUAL"", ""FOLIO"", ""PRIMER_NOMBRE_PAPE"& _ 
+                "LETA"", ""IMAGEN_FIRMA"", ""ADICIONADO_POR"", ""FECHA_ADICION"", ""MODIFICADO_POR"", ""FEC"& _ 
+                "HA_MODIFICACION"", ""CONSISTENTE"", ""OBSERVACION"", ""MAQUINA"", ""PAGINA"", ""SEGUNDO_NO"& _ 
+                "MBRE_PAPELETA"", ""PRIMER_APELLIDO_PAPELETA"", ""SEGUNDO_APELLIDO_PAPELETA"") VALUES "& _ 
+                "(:p1, :CODIGO_PARTIDO, :CODIGO_MOVIMIENTO, :CODIGO_DEPARTAMENTO, :CODIGO_MUNICIP"& _ 
+                "IO, :FIRMA, :HUELLA, :DIRECCION, :IDENTIDAD, :NOMBRE_IGUAL, :FOLIO, :p3, :IMAGEN"& _ 
+                "_FIRMA, :ADICIONADO_POR, :FECHA_ADICION, :MODIFICADO_POR, :FECHA_MODIFICACION, :"& _ 
+                "CONSISTENTE, :OBSERVACION, :MAQUINA, :PAGINA, :p5, :p8, :p10)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p1", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_CUIDADANOS_RESPALDAN", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_PARTIDO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -3370,12 +3578,11 @@ Namespace DSCiudadanosTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_MUNICIPIO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FIRMA", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "FIRMA", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("HUELLA", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "HUELLA", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IDENTIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "IDENTIDAD", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("DIRECCION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DIRECCION", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NOMBRE", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IDENTIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "IDENTIDAD", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NOMBRE_IGUAL", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE_IGUAL", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NOMBRE_PAPELETA", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE_PAPELETA", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FOLIO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "FOLIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p3", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "PRIMER_NOMBRE_PAPELETA", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IMAGEN_FIRMA", Global.System.Data.OracleClient.OracleType.Blob, 0, Global.System.Data.ParameterDirection.Input, "IMAGEN_FIRMA", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FECHA_ADICION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -3385,38 +3592,43 @@ Namespace DSCiudadanosTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("OBSERVACION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "OBSERVACION", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("MAQUINA", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "MAQUINA", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("PAGINA", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "PAGINA", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p5", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "SEGUNDO_NOMBRE_PAPELETA", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p8", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "PRIMER_APELLIDO_PAPELETA", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p10", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "SEGUNDO_APELLIDO_PAPELETA", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OracleClient.OracleCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE ""IM_CIUDADANOS_RESPALDAN"" SET ""CODIGO_CUIDADANOS_RESPALDAN"" = :p1, ""CODIGO"& _ 
                 "_PARTIDO"" = :CODIGO_PARTIDO, ""CODIGO_MOVIMIENTO"" = :CODIGO_MOVIMIENTO, ""CODIGO_D"& _ 
                 "EPARTAMENTO"" = :CODIGO_DEPARTAMENTO, ""CODIGO_MUNICIPIO"" = :CODIGO_MUNICIPIO, ""FI"& _ 
-                "RMA"" = :FIRMA, ""HUELLA"" = :HUELLA, ""IDENTIDAD"" = :IDENTIDAD, ""DIRECCION"" = :DIRE"& _ 
-                "CCION, ""NOMBRE"" = :NOMBRE, ""NOMBRE_IGUAL"" = :NOMBRE_IGUAL, ""NOMBRE_PAPELETA"" = :"& _ 
-                "NOMBRE_PAPELETA, ""FOLIO"" = :FOLIO, ""IMAGEN_FIRMA"" = :IMAGEN_FIRMA, ""ADICIONADO_P"& _ 
-                "OR"" = :ADICIONADO_POR, ""FECHA_ADICION"" = :FECHA_ADICION, ""MODIFICADO_POR"" = :MOD"& _ 
-                "IFICADO_POR, ""FECHA_MODIFICACION"" = :FECHA_MODIFICACION, ""CONSISTENTE"" = :CONSIS"& _ 
-                "TENTE, ""OBSERVACION"" = :OBSERVACION, ""MAQUINA"" = :MAQUINA, ""PAGINA"" = :PAGINA WH"& _ 
-                "ERE ((""CODIGO_CUIDADANOS_RESPALDAN"" = :p2) AND (""CODIGO_PARTIDO"" = :Original_COD"& _ 
-                "IGO_PARTIDO) AND (""CODIGO_MOVIMIENTO"" = :Original_CODIGO_MOVIMIENTO) AND (""CODIG"& _ 
-                "O_DEPARTAMENTO"" = :Original_CODIGO_DEPARTAMENTO) AND (""CODIGO_MUNICIPIO"" = :Orig"& _ 
-                "inal_CODIGO_MUNICIPIO) AND ((:IsNull_FIRMA = 1 AND ""FIRMA"" IS NULL) OR (""FIRMA"" "& _ 
-                "= :Original_FIRMA)) AND ((:IsNull_HUELLA = 1 AND ""HUELLA"" IS NULL) OR (""HUELLA"" "& _ 
-                "= :Original_HUELLA)) AND (""IDENTIDAD"" = :Original_IDENTIDAD) AND ((:IsNull_DIREC"& _ 
-                "CION = 1 AND ""DIRECCION"" IS NULL) OR (""DIRECCION"" = :Original_DIRECCION)) AND (("& _ 
-                ":IsNull_NOMBRE = 1 AND ""NOMBRE"" IS NULL) OR (""NOMBRE"" = :Original_NOMBRE)) AND ("& _ 
-                "(:IsNull_NOMBRE_IGUAL = 1 AND ""NOMBRE_IGUAL"" IS NULL) OR (""NOMBRE_IGUAL"" = :Orig"& _ 
-                "inal_NOMBRE_IGUAL)) AND ((:IsNull_NOMBRE_PAPELETA = 1 AND ""NOMBRE_PAPELETA"" IS N"& _ 
-                "ULL) OR (""NOMBRE_PAPELETA"" = :Original_NOMBRE_PAPELETA)) AND ((:IsNull_FOLIO = 1"& _ 
-                " AND ""FOLIO"" IS NULL) OR (""FOLIO"" = :Original_FOLIO)) AND (""ADICIONADO_POR"" = :O"& _ 
-                "riginal_ADICIONADO_POR) AND (""FECHA_ADICION"" = :Original_FECHA_ADICION) AND ((:I"& _ 
-                "sNull_MODIFICADO_POR = 1 AND ""MODIFICADO_POR"" IS NULL) OR (""MODIFICADO_POR"" = :O"& _ 
-                "riginal_MODIFICADO_POR)) AND ((:IsNull_FECHA_MODIFICACION = 1 AND ""FECHA_MODIFIC"& _ 
-                "ACION"" IS NULL) OR (""FECHA_MODIFICACION"" = :Original_FECHA_MODIFICACION)) AND (("& _ 
-                ":IsNull_CONSISTENTE = 1 AND ""CONSISTENTE"" IS NULL) OR (""CONSISTENTE"" = :Original"& _ 
-                "_CONSISTENTE)) AND ((:IsNull_OBSERVACION = 1 AND ""OBSERVACION"" IS NULL) OR (""OBS"& _ 
-                "ERVACION"" = :Original_OBSERVACION)) AND ((:IsNull_MAQUINA = 1 AND ""MAQUINA"" IS N"& _ 
-                "ULL) OR (""MAQUINA"" = :Original_MAQUINA)) AND ((:IsNull_PAGINA = 1 AND ""PAGINA"" I"& _ 
-                "S NULL) OR (""PAGINA"" = :Original_PAGINA)))"
+                "RMA"" = :FIRMA, ""HUELLA"" = :HUELLA, ""DIRECCION"" = :DIRECCION, ""IDENTIDAD"" = :IDEN"& _ 
+                "TIDAD, ""NOMBRE_IGUAL"" = :NOMBRE_IGUAL, ""FOLIO"" = :FOLIO, ""PRIMER_NOMBRE_PAPELETA"& _ 
+                """ = :p3, ""IMAGEN_FIRMA"" = :IMAGEN_FIRMA, ""ADICIONADO_POR"" = :ADICIONADO_POR, ""FE"& _ 
+                "CHA_ADICION"" = :FECHA_ADICION, ""MODIFICADO_POR"" = :MODIFICADO_POR, ""FECHA_MODIFI"& _ 
+                "CACION"" = :FECHA_MODIFICACION, ""CONSISTENTE"" = :CONSISTENTE, ""OBSERVACION"" = :OB"& _ 
+                "SERVACION, ""MAQUINA"" = :MAQUINA, ""PAGINA"" = :PAGINA, ""SEGUNDO_NOMBRE_PAPELETA"" ="& _ 
+                " :p5, ""PRIMER_APELLIDO_PAPELETA"" = :p8, ""SEGUNDO_APELLIDO_PAPELETA"" = :p10 WHERE"& _ 
+                " ((""CODIGO_CUIDADANOS_RESPALDAN"" = :p2) AND (""CODIGO_PARTIDO"" = :Original_CODIGO"& _ 
+                "_PARTIDO) AND (""CODIGO_MOVIMIENTO"" = :Original_CODIGO_MOVIMIENTO) AND (""CODIGO_D"& _ 
+                "EPARTAMENTO"" = :Original_CODIGO_DEPARTAMENTO) AND (""CODIGO_MUNICIPIO"" = :Origina"& _ 
+                "l_CODIGO_MUNICIPIO) AND ((:IsNull_FIRMA = 1 AND ""FIRMA"" IS NULL) OR (""FIRMA"" = :"& _ 
+                "Original_FIRMA)) AND ((:IsNull_HUELLA = 1 AND ""HUELLA"" IS NULL) OR (""HUELLA"" = :"& _ 
+                "Original_HUELLA)) AND ((:IsNull_DIRECCION = 1 AND ""DIRECCION"" IS NULL) OR (""DIRE"& _ 
+                "CCION"" = :Original_DIRECCION)) AND (""IDENTIDAD"" = :Original_IDENTIDAD) AND ((:Is"& _ 
+                "Null_NOMBRE_IGUAL = 1 AND ""NOMBRE_IGUAL"" IS NULL) OR (""NOMBRE_IGUAL"" = :Original"& _ 
+                "_NOMBRE_IGUAL)) AND ((:IsNull_FOLIO = 1 AND ""FOLIO"" IS NULL) OR (""FOLIO"" = :Orig"& _ 
+                "inal_FOLIO)) AND (""PRIMER_NOMBRE_PAPELETA"" = :p4) AND (""ADICIONADO_POR"" = :Origi"& _ 
+                "nal_ADICIONADO_POR) AND (""FECHA_ADICION"" = :Original_FECHA_ADICION) AND ((:IsNul"& _ 
+                "l_MODIFICADO_POR = 1 AND ""MODIFICADO_POR"" IS NULL) OR (""MODIFICADO_POR"" = :Origi"& _ 
+                "nal_MODIFICADO_POR)) AND ((:IsNull_FECHA_MODIFICACION = 1 AND ""FECHA_MODIFICACIO"& _ 
+                "N"" IS NULL) OR (""FECHA_MODIFICACION"" = :Original_FECHA_MODIFICACION)) AND ((:IsN"& _ 
+                "ull_CONSISTENTE = 1 AND ""CONSISTENTE"" IS NULL) OR (""CONSISTENTE"" = :Original_CON"& _ 
+                "SISTENTE)) AND ((:IsNull_OBSERVACION = 1 AND ""OBSERVACION"" IS NULL) OR (""OBSERVA"& _ 
+                "CION"" = :Original_OBSERVACION)) AND ((:IsNull_MAQUINA = 1 AND ""MAQUINA"" IS NULL)"& _ 
+                " OR (""MAQUINA"" = :Original_MAQUINA)) AND ((:IsNull_PAGINA = 1 AND ""PAGINA"" IS NU"& _ 
+                "LL) OR (""PAGINA"" = :Original_PAGINA)) AND ((:p7 = 1 AND ""SEGUNDO_NOMBRE_PAPELETA"& _ 
+                """ IS NULL) OR (""SEGUNDO_NOMBRE_PAPELETA"" = :p6)) AND (""PRIMER_APELLIDO_PAPELETA"""& _ 
+                " = :p9) AND ((:p12 = 1 AND ""SEGUNDO_APELLIDO_PAPELETA"" IS NULL) OR (""SEGUNDO_APE"& _ 
+                "LLIDO_PAPELETA"" = :p11)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p1", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_CUIDADANOS_RESPALDAN", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_PARTIDO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -3425,12 +3637,11 @@ Namespace DSCiudadanosTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_MUNICIPIO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FIRMA", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "FIRMA", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("HUELLA", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "HUELLA", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IDENTIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "IDENTIDAD", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("DIRECCION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DIRECCION", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NOMBRE", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IDENTIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "IDENTIDAD", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NOMBRE_IGUAL", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE_IGUAL", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NOMBRE_PAPELETA", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE_PAPELETA", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FOLIO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "FOLIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p3", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "PRIMER_NOMBRE_PAPELETA", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IMAGEN_FIRMA", Global.System.Data.OracleClient.OracleType.Blob, 0, Global.System.Data.ParameterDirection.Input, "IMAGEN_FIRMA", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FECHA_ADICION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -3440,6 +3651,9 @@ Namespace DSCiudadanosTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("OBSERVACION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "OBSERVACION", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("MAQUINA", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "MAQUINA", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("PAGINA", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "PAGINA", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p5", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "SEGUNDO_NOMBRE_PAPELETA", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p8", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "PRIMER_APELLIDO_PAPELETA", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p10", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "SEGUNDO_APELLIDO_PAPELETA", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p2", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_CUIDADANOS_RESPALDAN", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_PARTIDO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_MOVIMIENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -3449,17 +3663,14 @@ Namespace DSCiudadanosTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_FIRMA", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "FIRMA", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_HUELLA", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "HUELLA", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_HUELLA", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "HUELLA", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_IDENTIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "IDENTIDAD", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_DIRECCION", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "DIRECCION", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_DIRECCION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DIRECCION", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_NOMBRE", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_NOMBRE", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_IDENTIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "IDENTIDAD", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_NOMBRE_IGUAL", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE_IGUAL", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_NOMBRE_IGUAL", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE_IGUAL", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_NOMBRE_PAPELETA", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE_PAPELETA", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_NOMBRE_PAPELETA", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE_PAPELETA", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_FOLIO", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "FOLIO", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_FOLIO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "FOLIO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p4", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "PRIMER_NOMBRE_PAPELETA", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_FECHA_ADICION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -3474,6 +3685,11 @@ Namespace DSCiudadanosTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_MAQUINA", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "MAQUINA", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IsNull_PAGINA", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "PAGINA", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_PAGINA", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "PAGINA", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p7", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "SEGUNDO_NOMBRE_PAPELETA", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p6", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "SEGUNDO_NOMBRE_PAPELETA", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p9", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "PRIMER_APELLIDO_PAPELETA", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p12", Global.System.Data.OracleClient.OracleType.Int32, 0, Global.System.Data.ParameterDirection.Input, "SEGUNDO_APELLIDO_PAPELETA", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p11", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "SEGUNDO_APELLIDO_PAPELETA", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -3488,11 +3704,11 @@ Namespace DSCiudadanosTableAdapters
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        CODIGO_CUIDADANOS_RESPALDAN, CODIGO_PARTIDO, CODIGO_MOVIMIENTO, COD"& _ 
-                "IGO_DEPARTAMENTO, CODIGO_MUNICIPIO, FIRMA, HUELLA, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ID"& _ 
-                "ENTIDAD, DIRECCION, NOMBRE, NOMBRE_IGUAL, NOMBRE_PAPELETA, FOLIO, IMAGEN_FIRMA, "& _ 
-                "ADICIONADO_POR, FECHA_ADICION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         MODIFICADO_POR, FECHA_"& _ 
-                "MODIFICACION, CONSISTENTE, OBSERVACION, MAQUINA, PAGINA"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_CIUD"& _ 
-                "ADANOS_RESPALDAN"
+                "IGO_DEPARTAMENTO, CODIGO_MUNICIPIO, FIRMA, HUELLA, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         DI"& _ 
+                "RECCION, IDENTIDAD, NOMBRE_IGUAL, FOLIO, PRIMER_NOMBRE_PAPELETA, IMAGEN_FIRMA, A"& _ 
+                "DICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FECHA_M"& _ 
+                "ODIFICACION, CONSISTENTE, OBSERVACION, MAQUINA, PAGINA, SEGUNDO_NOMBRE_PAPELETA,"& _ 
+                " PRIMER_APELLIDO_PAPELETA, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         SEGUNDO_APELLIDO_PAPELETA"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_CIUDADANOS_RESPALDAN"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -3553,12 +3769,11 @@ Namespace DSCiudadanosTableAdapters
                     ByVal Original_CODIGO_MUNICIPIO As Decimal,  _
                     ByVal Original_FIRMA As String,  _
                     ByVal Original_HUELLA As String,  _
-                    ByVal Original_IDENTIDAD As String,  _
                     ByVal Original_DIRECCION As String,  _
-                    ByVal Original_NOMBRE As String,  _
+                    ByVal Original_IDENTIDAD As String,  _
                     ByVal Original_NOMBRE_IGUAL As String,  _
-                    ByVal Original_NOMBRE_PAPELETA As String,  _
                     ByVal Original_FOLIO As Global.System.Nullable(Of Decimal),  _
+                    ByVal p4 As String,  _
                     ByVal Original_ADICIONADO_POR As String,  _
                     ByVal Original_FECHA_ADICION As Date,  _
                     ByVal Original_MODIFICADO_POR As String,  _
@@ -3566,7 +3781,10 @@ Namespace DSCiudadanosTableAdapters
                     ByVal Original_CONSISTENTE As String,  _
                     ByVal Original_OBSERVACION As String,  _
                     ByVal Original_MAQUINA As String,  _
-                    ByVal Original_PAGINA As Global.System.Nullable(Of Decimal)) As Integer
+                    ByVal Original_PAGINA As Global.System.Nullable(Of Decimal),  _
+                    ByVal p6 As String,  _
+                    ByVal p9 As String,  _
+                    ByVal p11 As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(p2,Decimal)
             Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_CODIGO_PARTIDO,Decimal)
             Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_CODIGO_MOVIMIENTO,Decimal)
@@ -3586,93 +3804,103 @@ Namespace DSCiudadanosTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_HUELLA,String)
             End If
+            If (Original_DIRECCION Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_DIRECCION,String)
+            End If
             If (Original_IDENTIDAD Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_IDENTIDAD")
             Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_IDENTIDAD,String)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(Original_IDENTIDAD,String)
             End If
-            If (Original_DIRECCION Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(11).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(Original_DIRECCION,String)
-            End If
-            If (Original_NOMBRE Is Nothing) Then
+            If (Original_NOMBRE_IGUAL Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(12).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(13).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(Original_NOMBRE,String)
-            End If
-            If (Original_NOMBRE_IGUAL Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(15).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(Original_NOMBRE_IGUAL,String)
-            End If
-            If (Original_NOMBRE_PAPELETA Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(17).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(Original_NOMBRE_PAPELETA,String)
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(Original_NOMBRE_IGUAL,String)
             End If
             If (Original_FOLIO.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(Original_FOLIO.Value,Decimal)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(Original_FOLIO.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(19).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(15).Value = Global.System.DBNull.Value
+            End If
+            If (p4 Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("p4")
+            Else
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(p4,String)
             End If
             If (Original_ADICIONADO_POR Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_ADICIONADO_POR")
             Else
-                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_ADICIONADO_POR,String)
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(Original_ADICIONADO_POR,String)
             End If
-            Me.Adapter.DeleteCommand.Parameters(21).Value = CType(Original_FECHA_ADICION,Date)
+            Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_FECHA_ADICION,Date)
             If (Original_MODIFICADO_POR Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(23).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(Original_MODIFICADO_POR,String)
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_MODIFICADO_POR,String)
             End If
             If (Original_FECHA_MODIFICACION.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(Original_FECHA_MODIFICACION.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_FECHA_MODIFICACION.Value,Date)
             Else
-                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(25).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
             End If
             If (Original_CONSISTENTE Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(27).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(Original_CONSISTENTE,String)
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_CONSISTENTE,String)
             End If
             If (Original_OBSERVACION Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(29).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(Original_OBSERVACION,String)
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(Original_OBSERVACION,String)
             End If
             If (Original_MAQUINA Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(31).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(28).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(Original_MAQUINA,String)
+                Me.Adapter.DeleteCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(28).Value = CType(Original_MAQUINA,String)
             End If
             If (Original_PAGINA.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(32).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(Original_PAGINA.Value,Decimal)
+                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(30).Value = CType(Original_PAGINA.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(32).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(33).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(30).Value = Global.System.DBNull.Value
+            End If
+            If (p6 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(32).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(31).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(32).Value = CType(p6,String)
+            End If
+            If (p9 Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("p9")
+            Else
+                Me.Adapter.DeleteCommand.Parameters(33).Value = CType(p9,String)
+            End If
+            If (p11 Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(34).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(35).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(34).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(35).Value = CType(p11,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -3700,12 +3928,11 @@ Namespace DSCiudadanosTableAdapters
                     ByVal CODIGO_MUNICIPIO As Decimal,  _
                     ByVal FIRMA As String,  _
                     ByVal HUELLA As String,  _
-                    ByVal IDENTIDAD As String,  _
                     ByVal DIRECCION As String,  _
-                    ByVal NOMBRE As String,  _
+                    ByVal IDENTIDAD As String,  _
                     ByVal NOMBRE_IGUAL As String,  _
-                    ByVal NOMBRE_PAPELETA As String,  _
                     ByVal FOLIO As Global.System.Nullable(Of Decimal),  _
+                    ByVal p3 As String,  _
                     ByVal IMAGEN_FIRMA() As Byte,  _
                     ByVal ADICIONADO_POR As String,  _
                     ByVal FECHA_ADICION As Date,  _
@@ -3714,7 +3941,10 @@ Namespace DSCiudadanosTableAdapters
                     ByVal CONSISTENTE As String,  _
                     ByVal OBSERVACION As String,  _
                     ByVal MAQUINA As String,  _
-                    ByVal PAGINA As Global.System.Nullable(Of Decimal)) As Integer
+                    ByVal PAGINA As Global.System.Nullable(Of Decimal),  _
+                    ByVal p5 As String,  _
+                    ByVal p8 As String,  _
+                    ByVal p10 As String) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(p1,Decimal)
             Me.Adapter.InsertCommand.Parameters(1).Value = CType(CODIGO_PARTIDO,Decimal)
             Me.Adapter.InsertCommand.Parameters(2).Value = CType(CODIGO_MOVIMIENTO,Decimal)
@@ -3730,76 +3960,86 @@ Namespace DSCiudadanosTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(6).Value = CType(HUELLA,String)
             End If
+            If (DIRECCION Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(DIRECCION,String)
+            End If
             If (IDENTIDAD Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("IDENTIDAD")
             Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(IDENTIDAD,String)
-            End If
-            If (DIRECCION Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(DIRECCION,String)
-            End If
-            If (NOMBRE Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(NOMBRE,String)
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(IDENTIDAD,String)
             End If
             If (NOMBRE_IGUAL Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(10).Value = CType(NOMBRE_IGUAL,String)
-            End If
-            If (NOMBRE_PAPELETA Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(11).Value = CType(NOMBRE_PAPELETA,String)
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(NOMBRE_IGUAL,String)
             End If
             If (FOLIO.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(12).Value = CType(FOLIO.Value,Decimal)
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(FOLIO.Value,Decimal)
             Else
-                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (p3 Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("p3")
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(p3,String)
             End If
             If (IMAGEN_FIRMA Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(13).Value = CType(IMAGEN_FIRMA,Byte())
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(IMAGEN_FIRMA,Byte())
             End If
             If (ADICIONADO_POR Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("ADICIONADO_POR")
             Else
-                Me.Adapter.InsertCommand.Parameters(14).Value = CType(ADICIONADO_POR,String)
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(ADICIONADO_POR,String)
             End If
-            Me.Adapter.InsertCommand.Parameters(15).Value = CType(FECHA_ADICION,Date)
+            Me.Adapter.InsertCommand.Parameters(14).Value = CType(FECHA_ADICION,Date)
             If (MODIFICADO_POR Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(15).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(16).Value = CType(MODIFICADO_POR,String)
+                Me.Adapter.InsertCommand.Parameters(15).Value = CType(MODIFICADO_POR,String)
             End If
             If (FECHA_MODIFICACION.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(17).Value = CType(FECHA_MODIFICACION.Value,Date)
+                Me.Adapter.InsertCommand.Parameters(16).Value = CType(FECHA_MODIFICACION.Value,Date)
             Else
-                Me.Adapter.InsertCommand.Parameters(17).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(16).Value = Global.System.DBNull.Value
             End If
             If (CONSISTENTE Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(18).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(17).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(18).Value = CType(CONSISTENTE,String)
+                Me.Adapter.InsertCommand.Parameters(17).Value = CType(CONSISTENTE,String)
             End If
             If (OBSERVACION Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(19).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(19).Value = CType(OBSERVACION,String)
+                Me.Adapter.InsertCommand.Parameters(18).Value = CType(OBSERVACION,String)
             End If
             If (MAQUINA Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(20).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(19).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(20).Value = CType(MAQUINA,String)
+                Me.Adapter.InsertCommand.Parameters(19).Value = CType(MAQUINA,String)
             End If
             If (PAGINA.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(21).Value = CType(PAGINA.Value,Decimal)
+                Me.Adapter.InsertCommand.Parameters(20).Value = CType(PAGINA.Value,Decimal)
             Else
+                Me.Adapter.InsertCommand.Parameters(20).Value = Global.System.DBNull.Value
+            End If
+            If (p5 Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(21).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(21).Value = CType(p5,String)
+            End If
+            If (p8 Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("p8")
+            Else
+                Me.Adapter.InsertCommand.Parameters(22).Value = CType(p8,String)
+            End If
+            If (p10 Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(23).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(23).Value = CType(p10,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -3827,12 +4067,11 @@ Namespace DSCiudadanosTableAdapters
                     ByVal CODIGO_MUNICIPIO As Decimal,  _
                     ByVal FIRMA As String,  _
                     ByVal HUELLA As String,  _
-                    ByVal IDENTIDAD As String,  _
                     ByVal DIRECCION As String,  _
-                    ByVal NOMBRE As String,  _
+                    ByVal IDENTIDAD As String,  _
                     ByVal NOMBRE_IGUAL As String,  _
-                    ByVal NOMBRE_PAPELETA As String,  _
                     ByVal FOLIO As Global.System.Nullable(Of Decimal),  _
+                    ByVal p3 As String,  _
                     ByVal IMAGEN_FIRMA() As Byte,  _
                     ByVal ADICIONADO_POR As String,  _
                     ByVal FECHA_ADICION As Date,  _
@@ -3842,6 +4081,9 @@ Namespace DSCiudadanosTableAdapters
                     ByVal OBSERVACION As String,  _
                     ByVal MAQUINA As String,  _
                     ByVal PAGINA As Global.System.Nullable(Of Decimal),  _
+                    ByVal p5 As String,  _
+                    ByVal p8 As String,  _
+                    ByVal p10 As String,  _
                     ByVal p2 As Decimal,  _
                     ByVal Original_CODIGO_PARTIDO As Decimal,  _
                     ByVal Original_CODIGO_MOVIMIENTO As Decimal,  _
@@ -3849,12 +4091,11 @@ Namespace DSCiudadanosTableAdapters
                     ByVal Original_CODIGO_MUNICIPIO As Decimal,  _
                     ByVal Original_FIRMA As String,  _
                     ByVal Original_HUELLA As String,  _
-                    ByVal Original_IDENTIDAD As String,  _
                     ByVal Original_DIRECCION As String,  _
-                    ByVal Original_NOMBRE As String,  _
+                    ByVal Original_IDENTIDAD As String,  _
                     ByVal Original_NOMBRE_IGUAL As String,  _
-                    ByVal Original_NOMBRE_PAPELETA As String,  _
                     ByVal Original_FOLIO As Global.System.Nullable(Of Decimal),  _
+                    ByVal p4 As String,  _
                     ByVal Original_ADICIONADO_POR As String,  _
                     ByVal Original_FECHA_ADICION As Date,  _
                     ByVal Original_MODIFICADO_POR As String,  _
@@ -3862,7 +4103,10 @@ Namespace DSCiudadanosTableAdapters
                     ByVal Original_CONSISTENTE As String,  _
                     ByVal Original_OBSERVACION As String,  _
                     ByVal Original_MAQUINA As String,  _
-                    ByVal Original_PAGINA As Global.System.Nullable(Of Decimal)) As Integer
+                    ByVal Original_PAGINA As Global.System.Nullable(Of Decimal),  _
+                    ByVal p6 As String,  _
+                    ByVal p9 As String,  _
+                    ByVal p11 As String) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(p1,Decimal)
             Me.Adapter.UpdateCommand.Parameters(1).Value = CType(CODIGO_PARTIDO,Decimal)
             Me.Adapter.UpdateCommand.Parameters(2).Value = CType(CODIGO_MOVIMIENTO,Decimal)
@@ -3878,114 +4122,117 @@ Namespace DSCiudadanosTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(6).Value = CType(HUELLA,String)
             End If
+            If (DIRECCION Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(DIRECCION,String)
+            End If
             If (IDENTIDAD Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("IDENTIDAD")
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(IDENTIDAD,String)
-            End If
-            If (DIRECCION Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(DIRECCION,String)
-            End If
-            If (NOMBRE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(NOMBRE,String)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(IDENTIDAD,String)
             End If
             If (NOMBRE_IGUAL Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(NOMBRE_IGUAL,String)
-            End If
-            If (NOMBRE_PAPELETA Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(NOMBRE_PAPELETA,String)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(NOMBRE_IGUAL,String)
             End If
             If (FOLIO.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(FOLIO.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(FOLIO.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (p3 Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("p3")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(p3,String)
             End If
             If (IMAGEN_FIRMA Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(IMAGEN_FIRMA,Byte())
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(IMAGEN_FIRMA,Byte())
             End If
             If (ADICIONADO_POR Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("ADICIONADO_POR")
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(ADICIONADO_POR,String)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(ADICIONADO_POR,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(15).Value = CType(FECHA_ADICION,Date)
+            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(FECHA_ADICION,Date)
             If (MODIFICADO_POR Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(MODIFICADO_POR,String)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(MODIFICADO_POR,String)
             End If
             If (FECHA_MODIFICACION.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(FECHA_MODIFICACION.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(FECHA_MODIFICACION.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
             End If
             If (CONSISTENTE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(CONSISTENTE,String)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(CONSISTENTE,String)
             End If
             If (OBSERVACION Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(OBSERVACION,String)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(OBSERVACION,String)
             End If
             If (MAQUINA Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(MAQUINA,String)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(MAQUINA,String)
             End If
             If (PAGINA.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(PAGINA.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(PAGINA.Value,Decimal)
             Else
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+            End If
+            If (p5 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.UpdateCommand.Parameters(22).Value = CType(p2,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_CODIGO_PARTIDO,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_CODIGO_MOVIMIENTO,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_CODIGO_DEPARTAMENTO,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_CODIGO_MUNICIPIO,Decimal)
-            If (Original_FIRMA Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_FIRMA,String)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(p5,String)
             End If
-            If (Original_HUELLA Is Nothing) Then
+            If (p8 Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("p8")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(p8,String)
+            End If
+            If (p10 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(p10,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(24).Value = CType(p2,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_CODIGO_PARTIDO,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_CODIGO_MOVIMIENTO,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_CODIGO_DEPARTAMENTO,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_CODIGO_MUNICIPIO,Decimal)
+            If (Original_FIRMA Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_HUELLA,String)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_FIRMA,String)
+            End If
+            If (Original_HUELLA Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_HUELLA,String)
+            End If
+            If (Original_DIRECCION Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Original_DIRECCION,String)
             End If
             If (Original_IDENTIDAD Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_IDENTIDAD")
             Else
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_IDENTIDAD,String)
-            End If
-            If (Original_DIRECCION Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_DIRECCION,String)
-            End If
-            If (Original_NOMBRE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_NOMBRE,String)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_IDENTIDAD,String)
             End If
             If (Original_NOMBRE_IGUAL Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1,Object)
@@ -3994,67 +4241,84 @@ Namespace DSCiudadanosTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_NOMBRE_IGUAL,String)
             End If
-            If (Original_NOMBRE_PAPELETA Is Nothing) Then
+            If (Original_FOLIO.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_FOLIO.Value,Decimal)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(38).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_NOMBRE_PAPELETA,String)
             End If
-            If (Original_FOLIO.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_FOLIO.Value,Decimal)
+            If (p4 Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("p4")
             Else
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(p4,String)
             End If
             If (Original_ADICIONADO_POR Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_ADICIONADO_POR")
             Else
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(Original_ADICIONADO_POR,String)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_ADICIONADO_POR,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_FECHA_ADICION,Date)
+            Me.Adapter.UpdateCommand.Parameters(42).Value = CType(Original_FECHA_ADICION,Date)
             If (Original_MODIFICADO_POR Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(44).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_MODIFICADO_POR,String)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(Original_MODIFICADO_POR,String)
             End If
             If (Original_FECHA_MODIFICACION.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(Original_FECHA_MODIFICACION.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(Original_FECHA_MODIFICACION.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(46).Value = Global.System.DBNull.Value
             End If
             If (Original_CONSISTENTE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(48).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(Original_CONSISTENTE,String)
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(Original_CONSISTENTE,String)
             End If
             If (Original_OBSERVACION Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(50).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(Original_OBSERVACION,String)
+                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(Original_OBSERVACION,String)
             End If
             If (Original_MAQUINA Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(52).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(Original_MAQUINA,String)
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(Original_MAQUINA,String)
             End If
             If (Original_PAGINA.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(Original_PAGINA.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(Original_PAGINA.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(55).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(54).Value = Global.System.DBNull.Value
+            End If
+            If (p6 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(p6,String)
+            End If
+            If (p9 Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("p9")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(p9,String)
+            End If
+            If (p11 Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(p11,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -4079,12 +4343,11 @@ Namespace DSCiudadanosTableAdapters
                     ByVal CODIGO_MUNICIPIO As Decimal,  _
                     ByVal FIRMA As String,  _
                     ByVal HUELLA As String,  _
-                    ByVal IDENTIDAD As String,  _
                     ByVal DIRECCION As String,  _
-                    ByVal NOMBRE As String,  _
+                    ByVal IDENTIDAD As String,  _
                     ByVal NOMBRE_IGUAL As String,  _
-                    ByVal NOMBRE_PAPELETA As String,  _
                     ByVal FOLIO As Global.System.Nullable(Of Decimal),  _
+                    ByVal p3 As String,  _
                     ByVal IMAGEN_FIRMA() As Byte,  _
                     ByVal ADICIONADO_POR As String,  _
                     ByVal FECHA_ADICION As Date,  _
@@ -4094,6 +4357,9 @@ Namespace DSCiudadanosTableAdapters
                     ByVal OBSERVACION As String,  _
                     ByVal MAQUINA As String,  _
                     ByVal PAGINA As Global.System.Nullable(Of Decimal),  _
+                    ByVal p5 As String,  _
+                    ByVal p8 As String,  _
+                    ByVal p10 As String,  _
                     ByVal p2 As Decimal,  _
                     ByVal Original_CODIGO_PARTIDO As Decimal,  _
                     ByVal Original_CODIGO_MOVIMIENTO As Decimal,  _
@@ -4101,12 +4367,11 @@ Namespace DSCiudadanosTableAdapters
                     ByVal Original_CODIGO_MUNICIPIO As Decimal,  _
                     ByVal Original_FIRMA As String,  _
                     ByVal Original_HUELLA As String,  _
-                    ByVal Original_IDENTIDAD As String,  _
                     ByVal Original_DIRECCION As String,  _
-                    ByVal Original_NOMBRE As String,  _
+                    ByVal Original_IDENTIDAD As String,  _
                     ByVal Original_NOMBRE_IGUAL As String,  _
-                    ByVal Original_NOMBRE_PAPELETA As String,  _
                     ByVal Original_FOLIO As Global.System.Nullable(Of Decimal),  _
+                    ByVal p4 As String,  _
                     ByVal Original_ADICIONADO_POR As String,  _
                     ByVal Original_FECHA_ADICION As Date,  _
                     ByVal Original_MODIFICADO_POR As String,  _
@@ -4114,8 +4379,11 @@ Namespace DSCiudadanosTableAdapters
                     ByVal Original_CONSISTENTE As String,  _
                     ByVal Original_OBSERVACION As String,  _
                     ByVal Original_MAQUINA As String,  _
-                    ByVal Original_PAGINA As Global.System.Nullable(Of Decimal)) As Integer
-            Return Me.Update(p2, Original_CODIGO_PARTIDO, Original_CODIGO_MOVIMIENTO, CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, FIRMA, HUELLA, IDENTIDAD, DIRECCION, NOMBRE, NOMBRE_IGUAL, NOMBRE_PAPELETA, FOLIO, IMAGEN_FIRMA, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, CONSISTENTE, OBSERVACION, MAQUINA, PAGINA, p2, Original_CODIGO_PARTIDO, Original_CODIGO_MOVIMIENTO, Original_CODIGO_DEPARTAMENTO, Original_CODIGO_MUNICIPIO, Original_FIRMA, Original_HUELLA, Original_IDENTIDAD, Original_DIRECCION, Original_NOMBRE, Original_NOMBRE_IGUAL, Original_NOMBRE_PAPELETA, Original_FOLIO, Original_ADICIONADO_POR, Original_FECHA_ADICION, Original_MODIFICADO_POR, Original_FECHA_MODIFICACION, Original_CONSISTENTE, Original_OBSERVACION, Original_MAQUINA, Original_PAGINA)
+                    ByVal Original_PAGINA As Global.System.Nullable(Of Decimal),  _
+                    ByVal p6 As String,  _
+                    ByVal p9 As String,  _
+                    ByVal p11 As String) As Integer
+            Return Me.Update(p2, Original_CODIGO_PARTIDO, Original_CODIGO_MOVIMIENTO, CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, FIRMA, HUELLA, DIRECCION, IDENTIDAD, NOMBRE_IGUAL, FOLIO, p3, IMAGEN_FIRMA, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, CONSISTENTE, OBSERVACION, MAQUINA, PAGINA, p5, p8, p10, p2, Original_CODIGO_PARTIDO, Original_CODIGO_MOVIMIENTO, Original_CODIGO_DEPARTAMENTO, Original_CODIGO_MUNICIPIO, Original_FIRMA, Original_HUELLA, Original_DIRECCION, Original_IDENTIDAD, Original_NOMBRE_IGUAL, Original_FOLIO, p4, Original_ADICIONADO_POR, Original_FECHA_ADICION, Original_MODIFICADO_POR, Original_FECHA_MODIFICACION, Original_CONSISTENTE, Original_OBSERVACION, Original_MAQUINA, Original_PAGINA, p6, p9, p11)
         End Function
     End Class
     

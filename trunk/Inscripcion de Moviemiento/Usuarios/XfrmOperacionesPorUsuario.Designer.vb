@@ -418,7 +418,7 @@ Partial Class XfrmOperacionesPorUsuario
         Me.CODIGO_USUARIOTextEdit.Location = New System.Drawing.Point(52, 12)
         Me.CODIGO_USUARIOTextEdit.Name = "CODIGO_USUARIOTextEdit"
         Me.CODIGO_USUARIOTextEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.CODIGO_USUARIOTextEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_USUARIO", "Usuario", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE", "Nombre Usuario", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
+        Me.CODIGO_USUARIOTextEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_USUARIO", "Usuario", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.Descending), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE", "Nombre Usuario", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.CODIGO_USUARIOTextEdit.Properties.DataSource = Me.IMUSUARIOSBindingSource
         Me.CODIGO_USUARIOTextEdit.Properties.DisplayMember = "NOMBRE"
         Me.CODIGO_USUARIOTextEdit.Properties.NullText = ""
@@ -444,7 +444,7 @@ Partial Class XfrmOperacionesPorUsuario
         Me.CODIGO_OPCIONSpinEdit.Location = New System.Drawing.Point(52, 36)
         Me.CODIGO_OPCIONSpinEdit.Name = "CODIGO_OPCIONSpinEdit"
         Me.CODIGO_OPCIONSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.CODIGO_OPCIONSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Opción", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
+        Me.CODIGO_OPCIONSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Opción", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.Ascending)})
         Me.CODIGO_OPCIONSpinEdit.Properties.DataSource = Me.IMOPCIONESBindingSource
         Me.CODIGO_OPCIONSpinEdit.Properties.DisplayMember = "DESCRIPCION"
         Me.CODIGO_OPCIONSpinEdit.Properties.NullText = ""

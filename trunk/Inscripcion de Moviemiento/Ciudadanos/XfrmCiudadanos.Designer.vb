@@ -46,13 +46,16 @@ Partial Class XfrmCiudadanos
         Me.colIDENTIDAD = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colIMAGEN_FIRMA = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RPIImgfirma = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
+        Me.colPrimerNombre = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colSegundoNombre = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colSegundoApellido = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colPrimerApellido = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RIChkCoincide = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
         Me.RepositoryItemComboBox1 = New DevExpress.XtraEditors.Repository.RepositoryItemComboBox
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
         Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
-        Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
         Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem
@@ -243,7 +246,7 @@ Partial Class XfrmCiudadanos
         '
         'GridView1
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.Estado, Me.Fila, Me.colNOMBRE, Me.colFIRMA, Me.colHUELLA, Me.colDIRECCION, Me.colIDENTIDAD, Me.colIMAGEN_FIRMA})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.Estado, Me.Fila, Me.colNOMBRE, Me.colFIRMA, Me.colHUELLA, Me.colDIRECCION, Me.colIDENTIDAD, Me.colIMAGEN_FIRMA, Me.colPrimerNombre, Me.colSegundoNombre, Me.colSegundoApellido, Me.colPrimerApellido})
         Me.GridView1.GridControl = Me.GCBusqueda
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[True]
@@ -271,8 +274,6 @@ Partial Class XfrmCiudadanos
         Me.ChkEstado.Name = "ChkEstado"
         Me.ChkEstado.PictureChecked = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Ok
         Me.ChkEstado.PictureUnchecked = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.errorIcon
-        Me.ChkEstado.ValueChecked = "S"
-        Me.ChkEstado.ValueUnchecked = "N"
         '
         'Fila
         '
@@ -283,14 +284,13 @@ Partial Class XfrmCiudadanos
         Me.Fila.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.Fila.Visible = True
         Me.Fila.VisibleIndex = 1
+        Me.Fila.Width = 49
         '
         'colNOMBRE
         '
         Me.colNOMBRE.Caption = "Nombre"
         Me.colNOMBRE.FieldName = "NOMBRE"
         Me.colNOMBRE.Name = "colNOMBRE"
-        Me.colNOMBRE.Visible = True
-        Me.colNOMBRE.VisibleIndex = 3
         Me.colNOMBRE.Width = 198
         '
         'colFIRMA
@@ -300,7 +300,7 @@ Partial Class XfrmCiudadanos
         Me.colFIRMA.FieldName = "FIRMA"
         Me.colFIRMA.Name = "colFIRMA"
         Me.colFIRMA.Visible = True
-        Me.colFIRMA.VisibleIndex = 4
+        Me.colFIRMA.VisibleIndex = 7
         Me.colFIRMA.Width = 34
         '
         'RIChkFima
@@ -309,6 +309,7 @@ Partial Class XfrmCiudadanos
         Me.RIChkFima.Name = "RIChkFima"
         Me.RIChkFima.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
         Me.RIChkFima.ValueChecked = "S"
+        Me.RIChkFima.ValueGrayed = "N"
         Me.RIChkFima.ValueUnchecked = "N"
         '
         'colHUELLA
@@ -318,7 +319,7 @@ Partial Class XfrmCiudadanos
         Me.colHUELLA.FieldName = "HUELLA"
         Me.colHUELLA.Name = "colHUELLA"
         Me.colHUELLA.Visible = True
-        Me.colHUELLA.VisibleIndex = 5
+        Me.colHUELLA.VisibleIndex = 8
         Me.colHUELLA.Width = 38
         '
         'colDIRECCION
@@ -327,7 +328,7 @@ Partial Class XfrmCiudadanos
         Me.colDIRECCION.FieldName = "DIRECCION"
         Me.colDIRECCION.Name = "colDIRECCION"
         Me.colDIRECCION.Visible = True
-        Me.colDIRECCION.VisibleIndex = 6
+        Me.colDIRECCION.VisibleIndex = 9
         Me.colDIRECCION.Width = 135
         '
         'colIDENTIDAD
@@ -346,13 +347,49 @@ Partial Class XfrmCiudadanos
         Me.colIMAGEN_FIRMA.FieldName = "IMAGEN_FIRMA"
         Me.colIMAGEN_FIRMA.Name = "colIMAGEN_FIRMA"
         Me.colIMAGEN_FIRMA.Visible = True
-        Me.colIMAGEN_FIRMA.VisibleIndex = 7
+        Me.colIMAGEN_FIRMA.VisibleIndex = 10
         Me.colIMAGEN_FIRMA.Width = 104
         '
         'RPIImgfirma
         '
         Me.RPIImgfirma.Name = "RPIImgfirma"
         Me.RPIImgfirma.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
+        '
+        'colPrimerNombre
+        '
+        Me.colPrimerNombre.Caption = "Primer Nombre"
+        Me.colPrimerNombre.FieldName = "PrimerNombre"
+        Me.colPrimerNombre.Name = "colPrimerNombre"
+        Me.colPrimerNombre.Visible = True
+        Me.colPrimerNombre.VisibleIndex = 3
+        Me.colPrimerNombre.Width = 113
+        '
+        'colSegundoNombre
+        '
+        Me.colSegundoNombre.Caption = "Segundo Nombre"
+        Me.colSegundoNombre.FieldName = "SegundoNombre"
+        Me.colSegundoNombre.Name = "colSegundoNombre"
+        Me.colSegundoNombre.Visible = True
+        Me.colSegundoNombre.VisibleIndex = 4
+        Me.colSegundoNombre.Width = 118
+        '
+        'colSegundoApellido
+        '
+        Me.colSegundoApellido.Caption = "Segundo Apellido"
+        Me.colSegundoApellido.FieldName = "SegundoApellido"
+        Me.colSegundoApellido.Name = "colSegundoApellido"
+        Me.colSegundoApellido.Visible = True
+        Me.colSegundoApellido.VisibleIndex = 6
+        Me.colSegundoApellido.Width = 116
+        '
+        'colPrimerApellido
+        '
+        Me.colPrimerApellido.Caption = "Primer Apellido"
+        Me.colPrimerApellido.FieldName = "PrimerApellido"
+        Me.colPrimerApellido.Name = "colPrimerApellido"
+        Me.colPrimerApellido.Visible = True
+        Me.colPrimerApellido.VisibleIndex = 5
+        Me.colPrimerApellido.Width = 102
         '
         'RIChkCoincide
         '
@@ -390,7 +427,6 @@ Partial Class XfrmCiudadanos
         '
         Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.Transparent
         Me.FlowLayoutPanel1.Controls.Add(Me.BtnGuardar)
-        Me.FlowLayoutPanel1.Controls.Add(Me.BtnEliminar)
         Me.FlowLayoutPanel1.Controls.Add(Me.BtnSalir)
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(5, 2)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
@@ -409,25 +445,13 @@ Partial Class XfrmCiudadanos
         Me.BtnGuardar.TabIndex = 1
         Me.BtnGuardar.Text = "Guardar"
         '
-        'BtnEliminar
-        '
-        Me.BtnEliminar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnEliminar.Appearance.Options.UseFont = True
-        Me.BtnEliminar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnEliminar.Location = New System.Drawing.Point(64, 3)
-        Me.BtnEliminar.Name = "BtnEliminar"
-        Me.BtnEliminar.Size = New System.Drawing.Size(55, 55)
-        Me.BtnEliminar.TabIndex = 2
-        Me.BtnEliminar.Text = "Verificar"
-        Me.BtnEliminar.ToolTipTitle = "Verificar Información Antes de Guardar"
-        '
         'BtnSalir
         '
         Me.BtnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
         Me.BtnSalir.Appearance.Options.UseFont = True
         Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
         Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnSalir.Location = New System.Drawing.Point(125, 3)
+        Me.BtnSalir.Location = New System.Drawing.Point(64, 3)
         Me.BtnSalir.Name = "BtnSalir"
         Me.BtnSalir.Size = New System.Drawing.Size(55, 55)
         Me.BtnSalir.TabIndex = 10
@@ -637,7 +661,6 @@ Partial Class XfrmCiudadanos
     Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents BtnGuardar As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents BtnEliminar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents GCBusqueda As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
@@ -681,4 +704,8 @@ Partial Class XfrmCiudadanos
     Friend WithEvents ChkEstado As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents IM_CIUDADANOS_RESPALDAN1BindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents IM_CIUDADANOS_RESPALDAN1TableAdapter As Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.IM_CIUDADANOS_RESPALDAN1TableAdapter
+    Friend WithEvents colPrimerNombre As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colSegundoNombre As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colSegundoApellido As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colPrimerApellido As DevExpress.XtraGrid.Columns.GridColumn
 End Class
