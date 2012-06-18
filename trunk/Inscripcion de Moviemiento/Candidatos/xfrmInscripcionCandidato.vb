@@ -2,6 +2,7 @@
 Public Class xfrmInscripcionCandidato
     Dim actualizar As Boolean = False
     Dim id As Integer
+
     Sub guardar()
 
         Try
@@ -44,11 +45,7 @@ Public Class xfrmInscripcionCandidato
                 Me.IDENTIDADTextEdit.EditValue = Nothing
                 Me.POSICIONSpinEdit.Enabled = True
                 Me.LookUpEdit1.Reset()
-
-                'actualizar el grid segun el municipio
-                Me.TA_CANDIDATOSTableAdapter.FillBymuni(Me.DSInscripcionCandidatos.TA_CANDIDATOS, Me.CODIGO_PARTIDOLookUpEdit.EditValue, _
-                                                              Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue, Me.CODIGO_CARGO_ELECTIVOLookUpEdit.EditValue, _
-                                                           Me.CODIGO_DEPARTAMENTOLookUpEdit.EditValue, Me.CODIGO_MUNICIPIOLookUpEdit.EditValue)
+                ACTUALIZARGRID()
 
             Else
                 Mensajes.MensajeError(myCMD.Parameters("PVO_MENSAJE").Value)
@@ -89,7 +86,36 @@ Public Class xfrmInscripcionCandidato
         ActualizarLOV()
     End Sub
     Sub ACTUALIZARGRID()
-        Me.TA_CANDIDATOSTableAdapter.Fill(Me.DSInscripcionCandidatos.TA_CANDIDATOS)
+        Me.TA_CANDIDATOSTableAdapter.FillBycargo(Me.DSInscripcionCandidatos.TA_CANDIDATOS, 9999, _
+                                                         9999, 9999)
+
+        If Me.LookUpEdit1.EditValue = 1 Then
+            If Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue Is Nothing Or Me.CODIGO_PARTIDOLookUpEdit.EditValue Is Nothing Then
+            Else
+                Me.TA_CANDIDATOSTableAdapter.FillBycargo(Me.DSInscripcionCandidatos.TA_CANDIDATOS, Me.CODIGO_PARTIDOLookUpEdit.EditValue, _
+                                                         Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue, 1) 'SE PONE 1 POR EL CODIGO DEL PRESIDENTE
+
+            End If
+        ElseIf Me.LookUpEdit1.EditValue = 2 Then
+            If Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue Is Nothing Or Me.CODIGO_PARTIDOLookUpEdit.EditValue Is Nothing Then
+            Else
+                Me.TA_CANDIDATOSTableAdapter.FillBydepto(Me.DSInscripcionCandidatos.TA_CANDIDATOS, Me.CODIGO_PARTIDOLookUpEdit.EditValue, _
+                                                         Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue, Me.CODIGO_CARGO_ELECTIVOLookUpEdit.EditValue, _
+                                                      Me.CODIGO_DEPARTAMENTOLookUpEdit.EditValue)
+
+            End If
+        ElseIf Me.LookUpEdit1.EditValue = 3 Then
+            'actualizar el grid segun el municipio
+            If Me.CODIGO_MUNICIPIOLookUpEdit.EditValue Is Nothing Or Me.CODIGO_DEPARTAMENTOLookUpEdit.EditValue Is Nothing Or _
+            Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue Is Nothing Or Me.CODIGO_PARTIDOLookUpEdit.EditValue Is Nothing Then
+            Else
+                Me.TA_CANDIDATOSTableAdapter.FillBymuni(Me.DSInscripcionCandidatos.TA_CANDIDATOS, Me.CODIGO_PARTIDOLookUpEdit.EditValue, _
+                                                  Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue, Me.CODIGO_CARGO_ELECTIVOLookUpEdit.EditValue, _
+                                               Me.CODIGO_DEPARTAMENTOLookUpEdit.EditValue, Me.CODIGO_MUNICIPIOLookUpEdit.EditValue)
+
+            End If
+
+        End If
     End Sub
     Private Sub xfrmInscripcionCandidato_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Nuevo()
@@ -120,7 +146,7 @@ Public Class xfrmInscripcionCandidato
 
 
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
-        ACTUALIZARGRID()
+        Me.Close()
     End Sub
 
     Private Sub CODIGO_PARTIDOLookUpEdit_EditValueChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_PARTIDOLookUpEdit.EditValueChanged
@@ -144,6 +170,7 @@ Public Class xfrmInscripcionCandidato
 
             Me.POSICIONSpinEdit.EditValue = 1
             Me.POSICIONSpinEdit.Enabled = False
+            ACTUALIZARGRID()
 
         ElseIf Me.LookUpEdit1.EditValue = 2 Then
             Dim V As Integer = Me.CODIGO_MUNICIPIOLookUpEdit.Properties.GetDataSourceRowIndex(Me.CODIGO_MUNICIPIOLookUpEdit.Properties.Columns("CODIGO_MUNICIPIO"), "0")
@@ -151,11 +178,13 @@ Public Class xfrmInscripcionCandidato
 
             Me.CODIGO_DEPARTAMENTOLookUpEdit.Enabled = True
             Me.CODIGO_MUNICIPIOLookUpEdit.Enabled = False
+            ACTUALIZARGRID()
 
         ElseIf Me.LookUpEdit1.EditValue = 3 Then
 
             Me.CODIGO_DEPARTAMENTOLookUpEdit.Enabled = True
             Me.CODIGO_MUNICIPIOLookUpEdit.Enabled = True
+            ACTUALIZARGRID()
         Else
 
             Me.CODIGO_DEPARTAMENTOLookUpEdit.Enabled = True
@@ -173,17 +202,15 @@ Public Class xfrmInscripcionCandidato
 
             If Me.CODIGO_MUNICIPIOLookUpEdit.EditValue Is Nothing Or _
             Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue Is Nothing Or Me.CODIGO_PARTIDOLookUpEdit.EditValue Is Nothing Then
+            Else
                 Me.TA_CANDIDATOSTableAdapter.FillBydepto(Me.DSInscripcionCandidatos.TA_CANDIDATOS, Me.CODIGO_PARTIDOLookUpEdit.EditValue, _
-                                                         Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue, Me.CODIGO_CARGO_ELECTIVOLookUpEdit.EditValue, _
-                                                      Me.CODIGO_DEPARTAMENTOLookUpEdit.EditValue)
+                                                        Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue, Me.CODIGO_CARGO_ELECTIVOLookUpEdit.EditValue, _
+                                                     Me.CODIGO_DEPARTAMENTOLookUpEdit.EditValue)
 
             End If
 
         End If
         
-
-
-
     End Sub
 
     Private Sub CODIGO_MOVIMIENTOLookUpEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_MOVIMIENTOLookUpEdit.EditValueChanged
@@ -203,9 +230,10 @@ Public Class xfrmInscripcionCandidato
         End If
 
         If Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue Is Nothing Or Me.CODIGO_PARTIDOLookUpEdit.EditValue Is Nothing Then
-            Me.TA_CANDIDATOSTableAdapter.FillBycargo(Me.DSInscripcionCandidatos.TA_CANDIDATOS, Me.CODIGO_PARTIDOLookUpEdit.EditValue, _
-                                                     Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue, Me.CODIGO_CARGO_ELECTIVOLookUpEdit.EditValue)
 
+        Else
+            Me.TA_CANDIDATOSTableAdapter.FillBycargo(Me.DSInscripcionCandidatos.TA_CANDIDATOS, Me.CODIGO_PARTIDOLookUpEdit.EditValue, _
+                                                    Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue, Me.CODIGO_CARGO_ELECTIVOLookUpEdit.EditValue)
         End If
 
 
@@ -219,9 +247,11 @@ Public Class xfrmInscripcionCandidato
             'actualizar el grid segun el municipio
             If Me.CODIGO_MUNICIPIOLookUpEdit.EditValue Is Nothing Or Me.CODIGO_DEPARTAMENTOLookUpEdit.EditValue Is Nothing Or _
             Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue Is Nothing Or Me.CODIGO_PARTIDOLookUpEdit.EditValue Is Nothing Then
+            Else
                 Me.TA_CANDIDATOSTableAdapter.FillBymuni(Me.DSInscripcionCandidatos.TA_CANDIDATOS, Me.CODIGO_PARTIDOLookUpEdit.EditValue, _
                                                   Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue, Me.CODIGO_CARGO_ELECTIVOLookUpEdit.EditValue, _
                                                Me.CODIGO_DEPARTAMENTOLookUpEdit.EditValue, Me.CODIGO_MUNICIPIOLookUpEdit.EditValue)
+
 
             End If
         End If

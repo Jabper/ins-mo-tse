@@ -237,7 +237,7 @@ Partial Class XFrmMenuPrincipal
         '
         'RibbonPage2
         '
-        Me.RibbonPage2.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup3})
+        Me.RibbonPage2.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup3, Me.RibbonPageGroup5})
         Me.RibbonPage2.Name = "RibbonPage2"
         Me.RibbonPage2.Text = "Operaciones"
         '
@@ -245,23 +245,22 @@ Partial Class XFrmMenuPrincipal
         '
         Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnRequisitos)
         Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnCandidatos)
-        Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnExportar)
-        Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnImportar)
-        Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnHacerRespaldo)
-        Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnSubirRespaldo)
         Me.RibbonPageGroup3.Name = "RibbonPageGroup3"
         Me.RibbonPageGroup3.Text = "Operaciones"
         '
         'RibbonPage3
         '
-        Me.RibbonPage3.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup5})
         Me.RibbonPage3.Name = "RibbonPage3"
         Me.RibbonPage3.Text = "Procesos"
         '
         'RibbonPageGroup5
         '
+        Me.RibbonPageGroup5.ItemLinks.Add(Me.BtnExportar)
+        Me.RibbonPageGroup5.ItemLinks.Add(Me.BtnImportar)
+        Me.RibbonPageGroup5.ItemLinks.Add(Me.BtnHacerRespaldo)
+        Me.RibbonPageGroup5.ItemLinks.Add(Me.BtnSubirRespaldo)
         Me.RibbonPageGroup5.Name = "RibbonPageGroup5"
-        Me.RibbonPageGroup5.Text = "Procesos"
+        Me.RibbonPageGroup5.Text = "Respaldos"
         '
         'RibbonPage4
         '
