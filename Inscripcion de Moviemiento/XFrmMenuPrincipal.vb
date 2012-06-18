@@ -163,4 +163,9 @@ Public Class XFrmMenuPrincipal
     Private Sub BtnHacerRespaldo_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnHacerRespaldo.ItemClick    
         Padre(XfrmCrearRespaldo)    
     End Sub
+
+    Private Sub BtnFirmas_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnFirmas.ItemClick
+        Dim filas As Object = New XfrmFilas
+        filas.ShowDialog(Me)
+    End Sub
 End Class
