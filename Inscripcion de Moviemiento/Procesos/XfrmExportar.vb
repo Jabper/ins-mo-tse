@@ -1,5 +1,4 @@
 ﻿Imports System.Data.OracleClient
-
 Public Class XfrmExportar
     Private Sub BtnExplorar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnExplorar.Click
         FbUbicacion.ShowDialog()
