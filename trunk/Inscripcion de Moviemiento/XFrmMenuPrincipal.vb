@@ -159,4 +159,8 @@ Public Class XFrmMenuPrincipal
     Private Sub BtnIncompatibilidades_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnInhabilitado.ItemClick
         Padre(xfrmCiudadanosInha)
     End Sub
+
+    Private Sub BtnHacerRespaldo_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnHacerRespaldo.ItemClick    
+        Padre(XfrmCrearRespaldo)    
+    End Sub
 End Class

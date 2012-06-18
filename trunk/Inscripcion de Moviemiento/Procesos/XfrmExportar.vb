@@ -27,7 +27,6 @@ Public Class XfrmExportar
                     myCMD.CommandType = CommandType.StoredProcedure
                     myCMD.Parameters.Add(New OracleParameter("pvo_mensaje", OracleType.Char, 100)).Direction = ParameterDirection.Output
                     myCMD.ExecuteOracleScalar()
-
                     mensaje = myCMD.Parameters("pvo_mensaje").Value
                 Catch ex As Exception
                     conn.Close()
@@ -42,7 +41,12 @@ Public Class XfrmExportar
                         startInfo = New ProcessStartInfo("cmd.exe", "/C exp TSE/oracle@XE Buffer=5000000 File=" & TxtRuta.Text & "\Firmas.dmp direct=Y Consistent=Y Rows=Y compress=N TABLES=tmp_im_ciudadanos_respaldan")
                         pStart.StartInfo = startInfo
                         pStart.Start()
-                        pStart.WaitForExit()
+                        pStart.WaitForExit()                        
+                        If pStart.ExitCode = 0 Then
+                            MsgBox("La Exportación de Firmas ha Terminado Satisfactoriamente", MsgBoxStyle.Information)
+                        Else
+                            MsgBox("La Exportación de Firmas No se ha realizado Correctamente", MsgBoxStyle.Exclamation)
+                        End If
                     Catch ex As Exception
                         conn.Close()
                         Mensajes.MensajeError(ex.Message)
@@ -54,7 +58,6 @@ Public Class XfrmExportar
                     Exit Sub
                 End If
                 conn.Close()
-                MsgBox("La Exportación de Firmas ha Terminado Satisfactoriamente", MsgBoxStyle.Information)
             End If
             If ChkPlanillas.Checked = True Then
                 Dim oradb As String = Configuracion.verconfig                
@@ -84,7 +87,12 @@ Public Class XfrmExportar
                         startInfo = New ProcessStartInfo("cmd.exe", "/C exp TSE/oracle@XE Buffer=5000000 File=" & TxtRuta.Text & "\Planilla.dmp direct=Y Consistent=Y Rows=Y compress=N TABLES=tmp_im_candidatos,tmp_im_candidatos_repetidos,tmp_im_imagenes_candidato")
                         pStart.StartInfo = startInfo
                         pStart.Start()
-                        pStart.WaitForExit()
+                        pStart.WaitForExit()                                            
+                        If pStart.ExitCode = 0 Then
+                            MsgBox("La Exportación de Planillas ha Terminado Satisfactoriamente", MsgBoxStyle.Information)
+                        Else
+                            MsgBox("La Exportación de Planillas No se ha realizado Correctamente", MsgBoxStyle.Exclamation)
+                        End If
                     Catch ex As Exception
                         conn.Close()
                         Mensajes.MensajeError(ex.Message)
@@ -96,7 +104,6 @@ Public Class XfrmExportar
                     Exit Sub
                 End If
                 conn.Close()
-                MsgBox("La Exportación de Planillas ha Terminado Satisfactoriamente", MsgBoxStyle.Information)
             End If
         End If
     End Sub
