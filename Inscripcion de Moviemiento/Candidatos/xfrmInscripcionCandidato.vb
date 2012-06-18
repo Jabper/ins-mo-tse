@@ -5,9 +5,6 @@ Public Class xfrmInscripcionCandidato
     Sub guardar()
 
         Try
-
-
-
             Dim oradb As String = Configuracion.verconfig
             Dim opcion As Integer
             Dim conn As New OracleConnection()
@@ -149,11 +146,14 @@ Public Class xfrmInscripcionCandidato
             Me.POSICIONSpinEdit.Enabled = False
 
         ElseIf Me.LookUpEdit1.EditValue = 2 Then
+            Dim V As Integer = Me.CODIGO_MUNICIPIOLookUpEdit.Properties.GetDataSourceRowIndex(Me.CODIGO_MUNICIPIOLookUpEdit.Properties.Columns("CODIGO_MUNICIPIO"), "0")
+            Me.CODIGO_MUNICIPIOLookUpEdit.EditValue = Me.CODIGO_MUNICIPIOLookUpEdit.Properties.GetDataSourceValue(Me.CODIGO_MUNICIPIOLookUpEdit.Properties.ValueMember, V)
 
             Me.CODIGO_DEPARTAMENTOLookUpEdit.Enabled = True
             Me.CODIGO_MUNICIPIOLookUpEdit.Enabled = False
 
         ElseIf Me.LookUpEdit1.EditValue = 3 Then
+
             Me.CODIGO_DEPARTAMENTOLookUpEdit.Enabled = True
             Me.CODIGO_MUNICIPIOLookUpEdit.Enabled = True
         Else
@@ -195,8 +195,9 @@ Public Class xfrmInscripcionCandidato
     End Sub
 
     Private Sub CODIGO_CARGO_ELECTIVOLookUpEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_CARGO_ELECTIVOLookUpEdit.EditValueChanged
-        'actualizar el grid segun el cargo
-        If Me.CODIGO_CARGO_ELECTIVOLookUpEdit.EditValue = 1 Then
+
+
+        If Me.CODIGO_CARGO_ELECTIVOLookUpEdit.EditValue = 6 And (Me.LookUpEdit1.EditValue = 3 Or Me.LookUpEdit1.EditValue = 7) Then
             Me.POSICIONSpinEdit.EditValue = 1
             Me.POSICIONSpinEdit.Enabled = False
         End If
@@ -211,6 +212,9 @@ Public Class xfrmInscripcionCandidato
     End Sub
 
     Private Sub CODIGO_MUNICIPIOLookUpEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_MUNICIPIOLookUpEdit.EditValueChanged
+        'actualizar el grid segun el cargo
+
+
         If Me.CODIGO_MOVIMIENTOLookUpEdit.Enabled = False Then
             'actualizar el grid segun el municipio
             If Me.CODIGO_MUNICIPIOLookUpEdit.EditValue Is Nothing Or Me.CODIGO_DEPARTAMENTOLookUpEdit.EditValue Is Nothing Or _
@@ -222,6 +226,24 @@ Public Class xfrmInscripcionCandidato
             End If
         End If
 
+    End Sub
+
+    Private Sub IDENTIDADTextEdit_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles IDENTIDADTextEdit.KeyDown
+        If (e.KeyCode = Keys.Enter) Then
+            Dim consulta As String = "select NUMERO_IDENTIDAD, PRIMER_NOMBRE || ' ' || SEGUNDO_NOMBRE nombre, PRIMER_APELLIDO || ' ' || SEGUNDO_APELLIDO apellido "
+            consulta &= "from Im_padron_electoral where NUMERO_IDENTIDAD='" & Me.IDENTIDADTextEdit.EditValue & "'"
+            Dim N As String = COracle.ObtenerDatos(consulta, "NOMBRE")
+            Dim A As String = COracle.ObtenerDatos(consulta, "APELLIDO")
+            If N = "N" Then
+                Me.NOMBRETextEdit.EditValue = ""
+                Me.APELLIDOTextEdit.EditValue = ""
+                'Mensajes.mimensaje("NUMERO DE IDENTIDAD NO EXISTE EN CNE")
+            Else
+                Me.NOMBRETextEdit.EditValue = N
+                Me.APELLIDOTextEdit.EditValue = A
+                Return
+            End If
+        End If
     End Sub
 
     Private Sub IDENTIDADTextEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles IDENTIDADTextEdit.KeyPress
@@ -249,7 +271,9 @@ Public Class xfrmInscripcionCandidato
 
 
     Private Sub POSICIONSpinEdit_KeyPress1(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles POSICIONSpinEdit.KeyPress
+
         VControles.solonumeros(e)
+
     End Sub
 
 End Class
