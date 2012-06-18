@@ -21,15 +21,24 @@ Partial Class XfrmCiudadanos
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
+        Me.CmbMunicipio = New DevExpress.XtraEditors.LookUpEdit
+        Me.TAMUNICIPIOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DSDeptoMuni = New Inscripcion_de_Moviemientos.DSDeptoMuni
+        Me.CmbDepartamento = New DevExpress.XtraEditors.LookUpEdit
+        Me.TADEPARTAMENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CmbMovimiento = New DevExpress.XtraEditors.LookUpEdit
+        Me.TAMOVIMIENTOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DSPolitico = New Inscripcion_de_Moviemientos.DSPolitico
+        Me.CmbPartido = New DevExpress.XtraEditors.LookUpEdit
+        Me.TAPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GCBusqueda = New DevExpress.XtraGrid.GridControl
         Me.IMCIUDADANOSRESPALDANBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DSCiudadanos = New Inscripcion_de_Moviemientos.DSCiudadanos
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
+        Me.Estado = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.ChkEstado = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
         Me.Fila = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colNOMBRE = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colNOMBRE_IGUAL = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.RIChkCoincide = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
-        Me.colNOMBRE_PAPELETA = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colFIRMA = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RIChkFima = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
         Me.colHUELLA = New DevExpress.XtraGrid.Columns.GridColumn
@@ -37,11 +46,11 @@ Partial Class XfrmCiudadanos
         Me.colIDENTIDAD = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colIMAGEN_FIRMA = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RPIImgfirma = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
+        Me.RIChkCoincide = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+        Me.RepositoryItemComboBox1 = New DevExpress.XtraEditors.Repository.RepositoryItemComboBox
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
-        Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
-        Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
         Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
         Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
         Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
@@ -50,40 +59,43 @@ Partial Class XfrmCiudadanos
         Me.EmptySpaceItem3 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.IM_CIUDADANOS_RESPALDANTableAdapter = New Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.IM_CIUDADANOS_RESPALDANTableAdapter
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem
-        Me.LookUpEdit1 = New DevExpress.XtraEditors.LookUpEdit
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.LookUpEdit2 = New DevExpress.XtraEditors.LookUpEdit
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.LookUpEdit3 = New DevExpress.XtraEditors.LookUpEdit
         Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.LookUpEdit4 = New DevExpress.XtraEditors.LookUpEdit
         Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.DSPolitico = New Inscripcion_de_Moviemientos.DSPolitico
-        Me.TAPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TA_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_PARTIDOS_POLITICOSTableAdapter
-        Me.TAMOVIMIENTOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TA_MOVIMIENTOTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_MOVIMIENTOTableAdapter
-        Me.DSDeptoMuni = New Inscripcion_de_Moviemientos.DSDeptoMuni
-        Me.TADEPARTAMENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TA_DEPARTAMENTOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_DEPARTAMENTOSTableAdapter
-        Me.TAMUNICIPIOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TA_MUNICIPIOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_MUNICIPIOSTableAdapter
         Me.EmptySpaceItem4 = New DevExpress.XtraLayout.EmptySpaceItem
+        Me.IM_CIUDADANOS_RESPALDANTableAdapter = New Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.IM_CIUDADANOS_RESPALDANTableAdapter
+        Me.TA_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_PARTIDOS_POLITICOSTableAdapter
+        Me.TA_MOVIMIENTOTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_MOVIMIENTOTableAdapter
+        Me.TA_DEPARTAMENTOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_DEPARTAMENTOSTableAdapter
+        Me.TA_MUNICIPIOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_MUNICIPIOSTableAdapter
+        Me.IM_CIUDADANOS_RESPALDAN1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IM_CIUDADANOS_RESPALDAN1TableAdapter = New Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.IM_CIUDADANOS_RESPALDAN1TableAdapter
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.CmbMunicipio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TAMUNICIPIOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CmbDepartamento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TADEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CmbMovimiento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TAMOVIMIENTOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CmbPartido.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TAPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMCIUDADANOSRESPALDANBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSCiudadanos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RIChkCoincide, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ChkEstado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RIChkFima, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RPIImgfirma, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RIChkCoincide, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemComboBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
-        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel1.SuspendLayout()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -91,29 +103,20 @@ Partial Class XfrmCiudadanos
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LookUpEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LookUpEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LookUpEdit3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LookUpEdit4.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TAPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TAMOVIMIENTOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TADEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TAMUNICIPIOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IM_CIUDADANOS_RESPALDAN1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
-        Me.LayoutControl1.Controls.Add(Me.LookUpEdit4)
-        Me.LayoutControl1.Controls.Add(Me.LookUpEdit3)
-        Me.LayoutControl1.Controls.Add(Me.LookUpEdit2)
-        Me.LayoutControl1.Controls.Add(Me.LookUpEdit1)
+        Me.LayoutControl1.Controls.Add(Me.CmbMunicipio)
+        Me.LayoutControl1.Controls.Add(Me.CmbDepartamento)
+        Me.LayoutControl1.Controls.Add(Me.CmbMovimiento)
+        Me.LayoutControl1.Controls.Add(Me.CmbPartido)
         Me.LayoutControl1.Controls.Add(Me.GCBusqueda)
         Me.LayoutControl1.Controls.Add(Me.PanelControl1)
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -125,14 +128,106 @@ Partial Class XfrmCiudadanos
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'CmbMunicipio
+        '
+        Me.CmbMunicipio.Enabled = False
+        Me.CmbMunicipio.Location = New System.Drawing.Point(296, 108)
+        Me.CmbMunicipio.Name = "CmbMunicipio"
+        Me.CmbMunicipio.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CmbMunicipio.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MUNICIPIO", "Código", 30, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.Ascending), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Departamento", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
+        Me.CmbMunicipio.Properties.DataSource = Me.TAMUNICIPIOSBindingSource
+        Me.CmbMunicipio.Properties.DisplayMember = "DESCRIPCION"
+        Me.CmbMunicipio.Properties.NullText = "Seleccione"
+        Me.CmbMunicipio.Properties.ValueMember = "CODIGO_MUNICIPIO"
+        Me.CmbMunicipio.Size = New System.Drawing.Size(142, 20)
+        Me.CmbMunicipio.StyleController = Me.LayoutControl1
+        Me.CmbMunicipio.TabIndex = 12
+        '
+        'TAMUNICIPIOSBindingSource
+        '
+        Me.TAMUNICIPIOSBindingSource.DataMember = "TA_MUNICIPIOS"
+        Me.TAMUNICIPIOSBindingSource.DataSource = Me.DSDeptoMuni
+        '
+        'DSDeptoMuni
+        '
+        Me.DSDeptoMuni.DataSetName = "DSDeptoMuni"
+        Me.DSDeptoMuni.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'CmbDepartamento
+        '
+        Me.CmbDepartamento.Enabled = False
+        Me.CmbDepartamento.Location = New System.Drawing.Point(85, 108)
+        Me.CmbDepartamento.Name = "CmbDepartamento"
+        Me.CmbDepartamento.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CmbDepartamento.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_DEPARTAMENTO", "Código", 30, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.Ascending), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Departamento", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
+        Me.CmbDepartamento.Properties.DataSource = Me.TADEPARTAMENTOSBindingSource
+        Me.CmbDepartamento.Properties.DisplayMember = "DESCRIPCION"
+        Me.CmbDepartamento.Properties.NullText = "Seleccione"
+        Me.CmbDepartamento.Properties.ValueMember = "CODIGO_DEPARTAMENTO"
+        Me.CmbDepartamento.Size = New System.Drawing.Size(134, 20)
+        Me.CmbDepartamento.StyleController = Me.LayoutControl1
+        Me.CmbDepartamento.TabIndex = 11
+        '
+        'TADEPARTAMENTOSBindingSource
+        '
+        Me.TADEPARTAMENTOSBindingSource.DataMember = "TA_DEPARTAMENTOS"
+        Me.TADEPARTAMENTOSBindingSource.DataSource = Me.DSDeptoMuni
+        '
+        'CmbMovimiento
+        '
+        Me.CmbMovimiento.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TAMOVIMIENTOBindingSource, "CODIGO_MOVIMIENTO", True))
+        Me.CmbMovimiento.Enabled = False
+        Me.CmbMovimiento.Location = New System.Drawing.Point(296, 84)
+        Me.CmbMovimiento.Name = "CmbMovimiento"
+        Me.CmbMovimiento.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CmbMovimiento.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MOVIMIENTO", "CODIGO_MOVIMIENTO", 135, DevExpress.Utils.FormatType.Numeric, "", False, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE_MOVIMIENTO", "Movimiento", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.Ascending)})
+        Me.CmbMovimiento.Properties.DataSource = Me.TAMOVIMIENTOBindingSource
+        Me.CmbMovimiento.Properties.DisplayMember = "NOMBRE_MOVIMIENTO"
+        Me.CmbMovimiento.Properties.NullText = "Seleccione"
+        Me.CmbMovimiento.Properties.ValueMember = "CODIGO_MOVIMIENTO"
+        Me.CmbMovimiento.Size = New System.Drawing.Size(142, 20)
+        Me.CmbMovimiento.StyleController = Me.LayoutControl1
+        Me.CmbMovimiento.TabIndex = 10
+        '
+        'TAMOVIMIENTOBindingSource
+        '
+        Me.TAMOVIMIENTOBindingSource.DataMember = "TA_MOVIMIENTO"
+        Me.TAMOVIMIENTOBindingSource.DataSource = Me.DSPolitico
+        '
+        'DSPolitico
+        '
+        Me.DSPolitico.DataSetName = "DSPolitico"
+        Me.DSPolitico.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'CmbPartido
+        '
+        Me.CmbPartido.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TAPARTIDOSPOLITICOSBindingSource, "CODIGO_PARTIDO", True))
+        Me.CmbPartido.Enabled = False
+        Me.CmbPartido.Location = New System.Drawing.Point(85, 84)
+        Me.CmbPartido.Name = "CmbPartido"
+        Me.CmbPartido.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CmbPartido.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_PARTIDO", "Código", 30, DevExpress.Utils.FormatType.Numeric, "", False, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE", "Partido", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.Ascending)})
+        Me.CmbPartido.Properties.DataSource = Me.TAPARTIDOSPOLITICOSBindingSource
+        Me.CmbPartido.Properties.DisplayMember = "NOMBRE"
+        Me.CmbPartido.Properties.NullText = "Seleccione"
+        Me.CmbPartido.Properties.ValueMember = "CODIGO_PARTIDO"
+        Me.CmbPartido.Size = New System.Drawing.Size(134, 20)
+        Me.CmbPartido.StyleController = Me.LayoutControl1
+        Me.CmbPartido.TabIndex = 9
+        '
+        'TAPARTIDOSPOLITICOSBindingSource
+        '
+        Me.TAPARTIDOSPOLITICOSBindingSource.DataMember = "TA_PARTIDOS_POLITICOS"
+        Me.TAPARTIDOSPOLITICOSBindingSource.DataSource = Me.DSPolitico
+        '
         'GCBusqueda
         '
         Me.GCBusqueda.DataSource = Me.IMCIUDADANOSRESPALDANBindingSource
-        Me.GCBusqueda.Location = New System.Drawing.Point(12, 139)
+        Me.GCBusqueda.Location = New System.Drawing.Point(12, 132)
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
-        Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RIChkCoincide, Me.RIChkFima, Me.RPIImgfirma})
-        Me.GCBusqueda.Size = New System.Drawing.Size(604, 179)
+        Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RIChkCoincide, Me.RIChkFima, Me.RPIImgfirma, Me.RepositoryItemComboBox1, Me.ChkEstado})
+        Me.GCBusqueda.Size = New System.Drawing.Size(604, 253)
         Me.GCBusqueda.TabIndex = 8
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -148,15 +243,36 @@ Partial Class XfrmCiudadanos
         '
         'GridView1
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.Fila, Me.colNOMBRE, Me.colNOMBRE_IGUAL, Me.colNOMBRE_PAPELETA, Me.colFIRMA, Me.colHUELLA, Me.colDIRECCION, Me.colIDENTIDAD, Me.colIMAGEN_FIRMA})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.Estado, Me.Fila, Me.colNOMBRE, Me.colFIRMA, Me.colHUELLA, Me.colDIRECCION, Me.colIDENTIDAD, Me.colIMAGEN_FIRMA})
         Me.GridView1.GridControl = Me.GCBusqueda
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[True]
-        Me.GridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridView1.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridView1.OptionsView.ColumnAutoWidth = False
         Me.GridView1.OptionsView.ShowDetailButtons = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
+        '
+        'Estado
+        '
+        Me.Estado.Caption = "Verificación"
+        Me.Estado.ColumnEdit = Me.ChkEstado
+        Me.Estado.FieldName = "Estado"
+        Me.Estado.Name = "Estado"
+        Me.Estado.OptionsColumn.AllowEdit = False
+        Me.Estado.ToolTip = "Verificar si la Información está correcta"
+        Me.Estado.Visible = True
+        Me.Estado.VisibleIndex = 0
+        '
+        'ChkEstado
+        '
+        Me.ChkEstado.AutoHeight = False
+        Me.ChkEstado.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.UserDefined
+        Me.ChkEstado.Name = "ChkEstado"
+        Me.ChkEstado.PictureChecked = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Ok
+        Me.ChkEstado.PictureUnchecked = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.errorIcon
+        Me.ChkEstado.ValueChecked = "S"
+        Me.ChkEstado.ValueUnchecked = "N"
         '
         'Fila
         '
@@ -166,45 +282,16 @@ Partial Class XfrmCiudadanos
         Me.Fila.OptionsColumn.AllowEdit = False
         Me.Fila.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.Fila.Visible = True
-        Me.Fila.VisibleIndex = 0
+        Me.Fila.VisibleIndex = 1
         '
         'colNOMBRE
         '
         Me.colNOMBRE.Caption = "Nombre"
         Me.colNOMBRE.FieldName = "NOMBRE"
         Me.colNOMBRE.Name = "colNOMBRE"
-        Me.colNOMBRE.OptionsColumn.AllowEdit = False
         Me.colNOMBRE.Visible = True
-        Me.colNOMBRE.VisibleIndex = 2
-        Me.colNOMBRE.Width = 127
-        '
-        'colNOMBRE_IGUAL
-        '
-        Me.colNOMBRE_IGUAL.Caption = "Coincide"
-        Me.colNOMBRE_IGUAL.ColumnEdit = Me.RIChkCoincide
-        Me.colNOMBRE_IGUAL.FieldName = "NOMBRE_IGUAL"
-        Me.colNOMBRE_IGUAL.Name = "colNOMBRE_IGUAL"
-        Me.colNOMBRE_IGUAL.Visible = True
-        Me.colNOMBRE_IGUAL.VisibleIndex = 3
-        Me.colNOMBRE_IGUAL.Width = 55
-        '
-        'RIChkCoincide
-        '
-        Me.RIChkCoincide.AutoHeight = False
-        Me.RIChkCoincide.Name = "RIChkCoincide"
-        Me.RIChkCoincide.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
-        Me.RIChkCoincide.ValueChecked = "S"
-        Me.RIChkCoincide.ValueUnchecked = "N"
-        '
-        'colNOMBRE_PAPELETA
-        '
-        Me.colNOMBRE_PAPELETA.Caption = "Nombre en la papeleta"
-        Me.colNOMBRE_PAPELETA.FieldName = "Nombre Papeleta"
-        Me.colNOMBRE_PAPELETA.Name = "colNOMBRE_PAPELETA"
-        Me.colNOMBRE_PAPELETA.OptionsColumn.AllowEdit = False
-        Me.colNOMBRE_PAPELETA.Visible = True
-        Me.colNOMBRE_PAPELETA.VisibleIndex = 4
-        Me.colNOMBRE_PAPELETA.Width = 125
+        Me.colNOMBRE.VisibleIndex = 3
+        Me.colNOMBRE.Width = 198
         '
         'colFIRMA
         '
@@ -213,7 +300,7 @@ Partial Class XfrmCiudadanos
         Me.colFIRMA.FieldName = "FIRMA"
         Me.colFIRMA.Name = "colFIRMA"
         Me.colFIRMA.Visible = True
-        Me.colFIRMA.VisibleIndex = 5
+        Me.colFIRMA.VisibleIndex = 4
         Me.colFIRMA.Width = 34
         '
         'RIChkFima
@@ -231,7 +318,7 @@ Partial Class XfrmCiudadanos
         Me.colHUELLA.FieldName = "HUELLA"
         Me.colHUELLA.Name = "colHUELLA"
         Me.colHUELLA.Visible = True
-        Me.colHUELLA.VisibleIndex = 6
+        Me.colHUELLA.VisibleIndex = 5
         Me.colHUELLA.Width = 38
         '
         'colDIRECCION
@@ -240,7 +327,7 @@ Partial Class XfrmCiudadanos
         Me.colDIRECCION.FieldName = "DIRECCION"
         Me.colDIRECCION.Name = "colDIRECCION"
         Me.colDIRECCION.Visible = True
-        Me.colDIRECCION.VisibleIndex = 7
+        Me.colDIRECCION.VisibleIndex = 6
         Me.colDIRECCION.Width = 135
         '
         'colIDENTIDAD
@@ -249,8 +336,8 @@ Partial Class XfrmCiudadanos
         Me.colIDENTIDAD.FieldName = "IDENTIDAD"
         Me.colIDENTIDAD.Name = "colIDENTIDAD"
         Me.colIDENTIDAD.Visible = True
-        Me.colIDENTIDAD.VisibleIndex = 1
-        Me.colIDENTIDAD.Width = 83
+        Me.colIDENTIDAD.VisibleIndex = 2
+        Me.colIDENTIDAD.Width = 123
         '
         'colIMAGEN_FIRMA
         '
@@ -259,13 +346,29 @@ Partial Class XfrmCiudadanos
         Me.colIMAGEN_FIRMA.FieldName = "IMAGEN_FIRMA"
         Me.colIMAGEN_FIRMA.Name = "colIMAGEN_FIRMA"
         Me.colIMAGEN_FIRMA.Visible = True
-        Me.colIMAGEN_FIRMA.VisibleIndex = 8
+        Me.colIMAGEN_FIRMA.VisibleIndex = 7
         Me.colIMAGEN_FIRMA.Width = 104
         '
         'RPIImgfirma
         '
         Me.RPIImgfirma.Name = "RPIImgfirma"
         Me.RPIImgfirma.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
+        '
+        'RIChkCoincide
+        '
+        Me.RIChkCoincide.AutoHeight = False
+        Me.RIChkCoincide.Name = "RIChkCoincide"
+        Me.RIChkCoincide.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
+        Me.RIChkCoincide.ValueChecked = "S"
+        Me.RIChkCoincide.ValueUnchecked = "N"
+        '
+        'RepositoryItemComboBox1
+        '
+        Me.RepositoryItemComboBox1.AutoHeight = False
+        Me.RepositoryItemComboBox1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemComboBox1.Items.AddRange(New Object() {"Si", "No"})
+        Me.RepositoryItemComboBox1.Name = "RepositoryItemComboBox1"
+        Me.RepositoryItemComboBox1.NullText = "Seleccione"
         '
         'GridView2
         '
@@ -274,24 +377,18 @@ Partial Class XfrmCiudadanos
         '
         'PanelControl1
         '
-        Me.PanelControl1.Controls.Add(Me.TextEdit1)
+        Me.PanelControl1.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.PanelControl1.Appearance.Options.UseBackColor = True
+        Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
         Me.PanelControl1.Controls.Add(Me.FlowLayoutPanel1)
         Me.PanelControl1.Location = New System.Drawing.Point(12, 12)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(353, 75)
+        Me.PanelControl1.Size = New System.Drawing.Size(522, 68)
         Me.PanelControl1.TabIndex = 4
-        '
-        'TextEdit1
-        '
-        Me.TextEdit1.Location = New System.Drawing.Point(259, 22)
-        Me.TextEdit1.Name = "TextEdit1"
-        Me.TextEdit1.Size = New System.Drawing.Size(49, 20)
-        Me.TextEdit1.TabIndex = 11
         '
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.Transparent
-        Me.FlowLayoutPanel1.Controls.Add(Me.BtnNuevo)
         Me.FlowLayoutPanel1.Controls.Add(Me.BtnGuardar)
         Me.FlowLayoutPanel1.Controls.Add(Me.BtnEliminar)
         Me.FlowLayoutPanel1.Controls.Add(Me.BtnSalir)
@@ -300,25 +397,13 @@ Partial Class XfrmCiudadanos
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(248, 64)
         Me.FlowLayoutPanel1.TabIndex = 10
         '
-        'BtnNuevo
-        '
-        Me.BtnNuevo.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnNuevo.Appearance.Options.UseFont = True
-        Me.BtnNuevo.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
-        Me.BtnNuevo.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnNuevo.Location = New System.Drawing.Point(3, 3)
-        Me.BtnNuevo.Name = "BtnNuevo"
-        Me.BtnNuevo.Size = New System.Drawing.Size(55, 55)
-        Me.BtnNuevo.TabIndex = 0
-        Me.BtnNuevo.Text = "Nuevo"
-        '
         'BtnGuardar
         '
         Me.BtnGuardar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
         Me.BtnGuardar.Appearance.Options.UseFont = True
         Me.BtnGuardar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.guardar1
         Me.BtnGuardar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnGuardar.Location = New System.Drawing.Point(64, 3)
+        Me.BtnGuardar.Location = New System.Drawing.Point(3, 3)
         Me.BtnGuardar.Name = "BtnGuardar"
         Me.BtnGuardar.Size = New System.Drawing.Size(55, 55)
         Me.BtnGuardar.TabIndex = 1
@@ -328,14 +413,13 @@ Partial Class XfrmCiudadanos
         '
         Me.BtnEliminar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
         Me.BtnEliminar.Appearance.Options.UseFont = True
-        Me.BtnEliminar.Enabled = False
-        Me.BtnEliminar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.eliminar
         Me.BtnEliminar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnEliminar.Location = New System.Drawing.Point(125, 3)
+        Me.BtnEliminar.Location = New System.Drawing.Point(64, 3)
         Me.BtnEliminar.Name = "BtnEliminar"
         Me.BtnEliminar.Size = New System.Drawing.Size(55, 55)
         Me.BtnEliminar.TabIndex = 2
-        Me.BtnEliminar.Text = "Eliminar"
+        Me.BtnEliminar.Text = "Verificar"
+        Me.BtnEliminar.ToolTipTitle = "Verificar Información Antes de Guardar"
         '
         'BtnSalir
         '
@@ -343,7 +427,7 @@ Partial Class XfrmCiudadanos
         Me.BtnSalir.Appearance.Options.UseFont = True
         Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
         Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnSalir.Location = New System.Drawing.Point(186, 3)
+        Me.BtnSalir.Location = New System.Drawing.Point(125, 3)
         Me.BtnSalir.Name = "BtnSalir"
         Me.BtnSalir.Size = New System.Drawing.Size(55, 55)
         Me.BtnSalir.TabIndex = 10
@@ -365,9 +449,12 @@ Partial Class XfrmCiudadanos
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(357, 0)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(526, 0)
+        Me.EmptySpaceItem2.MaxSize = New System.Drawing.Size(82, 72)
+        Me.EmptySpaceItem2.MinSize = New System.Drawing.Size(82, 72)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(251, 79)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(82, 72)
+        Me.EmptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -375,9 +462,9 @@ Partial Class XfrmCiudadanos
         '
         Me.EmptySpaceItem3.AllowHotTrack = False
         Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Location = New System.Drawing.Point(0, 310)
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(0, 377)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Size = New System.Drawing.Size(608, 109)
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(608, 42)
         Me.EmptySpaceItem3.Text = "EmptySpaceItem3"
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -387,7 +474,7 @@ Partial Class XfrmCiudadanos
         Me.LayoutControlItem1.CustomizationFormText = "LayoutControlItem1"
         Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(357, 79)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(526, 72)
         Me.LayoutControlItem1.Text = "LayoutControlItem1"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem1.TextToControlDistance = 0
@@ -397,175 +484,102 @@ Partial Class XfrmCiudadanos
         '
         Me.LayoutControlItem2.Control = Me.GCBusqueda
         Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 127)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 120)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(608, 183)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(608, 257)
         Me.LayoutControlItem2.Text = "LayoutControlItem2"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextToControlDistance = 0
         Me.LayoutControlItem2.TextVisible = False
         '
-        'IM_CIUDADANOS_RESPALDANTableAdapter
-        '
-        Me.IM_CIUDADANOS_RESPALDANTableAdapter.ClearBeforeFill = True
-        '
         'EmptySpaceItem1
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(458, 79)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(430, 72)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(150, 24)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(178, 24)
         Me.EmptySpaceItem1.Text = "EmptySpaceItem1"
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
-        'LookUpEdit1
-        '
-        Me.LookUpEdit1.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TAPARTIDOSPOLITICOSBindingSource, "CODIGO_PARTIDO", True))
-        Me.LookUpEdit1.Location = New System.Drawing.Point(85, 91)
-        Me.LookUpEdit1.Name = "LookUpEdit1"
-        Me.LookUpEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.LookUpEdit1.Properties.DataSource = Me.TAPARTIDOSPOLITICOSBindingSource
-        Me.LookUpEdit1.Properties.DisplayMember = "NOMBRE"
-        Me.LookUpEdit1.Properties.ValueMember = "CODIGO_PARTIDO"
-        Me.LookUpEdit1.Size = New System.Drawing.Size(147, 20)
-        Me.LookUpEdit1.StyleController = Me.LayoutControl1
-        Me.LookUpEdit1.TabIndex = 9
-        '
         'LayoutControlItem3
         '
-        Me.LayoutControlItem3.Control = Me.LookUpEdit1
+        Me.LayoutControlItem3.Control = Me.CmbPartido
         Me.LayoutControlItem3.CustomizationFormText = "Partido"
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 79)
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 72)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(224, 24)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(211, 24)
         Me.LayoutControlItem3.Text = "Partido"
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(69, 13)
         '
-        'LookUpEdit2
-        '
-        Me.LookUpEdit2.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TAMOVIMIENTOBindingSource, "CODIGO_MOVIMIENTO", True))
-        Me.LookUpEdit2.Location = New System.Drawing.Point(309, 91)
-        Me.LookUpEdit2.Name = "LookUpEdit2"
-        Me.LookUpEdit2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.LookUpEdit2.Properties.DataSource = Me.TAMOVIMIENTOBindingSource
-        Me.LookUpEdit2.Properties.DisplayMember = "NOMBRE_MOVIMIENTO"
-        Me.LookUpEdit2.Properties.ValueMember = "CODIGO_MOVIMIENTO"
-        Me.LookUpEdit2.Size = New System.Drawing.Size(157, 20)
-        Me.LookUpEdit2.StyleController = Me.LayoutControl1
-        Me.LookUpEdit2.TabIndex = 10
-        '
         'LayoutControlItem4
         '
-        Me.LayoutControlItem4.Control = Me.LookUpEdit2
+        Me.LayoutControlItem4.Control = Me.CmbMovimiento
         Me.LayoutControlItem4.CustomizationFormText = "Movimiento"
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(224, 79)
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(211, 72)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(234, 24)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(219, 24)
         Me.LayoutControlItem4.Text = "Movimiento"
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(69, 13)
         '
-        'LookUpEdit3
-        '
-        Me.LookUpEdit3.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TADEPARTAMENTOSBindingSource, "CODIGO_DEPARTAMENTO", True))
-        Me.LookUpEdit3.Location = New System.Drawing.Point(85, 115)
-        Me.LookUpEdit3.Name = "LookUpEdit3"
-        Me.LookUpEdit3.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.LookUpEdit3.Properties.DataSource = Me.TADEPARTAMENTOSBindingSource
-        Me.LookUpEdit3.Properties.DisplayMember = "DESCRIPCION"
-        Me.LookUpEdit3.Properties.ValueMember = "CODIGO_DEPARTAMENTO"
-        Me.LookUpEdit3.Size = New System.Drawing.Size(148, 20)
-        Me.LookUpEdit3.StyleController = Me.LayoutControl1
-        Me.LookUpEdit3.TabIndex = 11
-        '
         'LayoutControlItem5
         '
-        Me.LayoutControlItem5.Control = Me.LookUpEdit3
+        Me.LayoutControlItem5.Control = Me.CmbDepartamento
         Me.LayoutControlItem5.CustomizationFormText = "Departamento"
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 103)
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 96)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(225, 24)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(211, 24)
         Me.LayoutControlItem5.Text = "Departamento"
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(69, 13)
         '
-        'LookUpEdit4
-        '
-        Me.LookUpEdit4.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TAMUNICIPIOSBindingSource, "CODIGO_MUNICIPIO", True))
-        Me.LookUpEdit4.Location = New System.Drawing.Point(310, 115)
-        Me.LookUpEdit4.Name = "LookUpEdit4"
-        Me.LookUpEdit4.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.LookUpEdit4.Properties.DataSource = Me.TAMUNICIPIOSBindingSource
-        Me.LookUpEdit4.Properties.DisplayMember = "DESCRIPCION"
-        Me.LookUpEdit4.Properties.ValueMember = "CODIGO_MUNICIPIO"
-        Me.LookUpEdit4.Size = New System.Drawing.Size(155, 20)
-        Me.LookUpEdit4.StyleController = Me.LayoutControl1
-        Me.LookUpEdit4.TabIndex = 12
-        '
         'LayoutControlItem6
         '
-        Me.LayoutControlItem6.Control = Me.LookUpEdit4
+        Me.LayoutControlItem6.Control = Me.CmbMunicipio
         Me.LayoutControlItem6.CustomizationFormText = "Municipio"
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(225, 103)
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(211, 96)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(232, 24)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(219, 24)
         Me.LayoutControlItem6.Text = "Municipio"
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(69, 13)
-        '
-        'DSPolitico
-        '
-        Me.DSPolitico.DataSetName = "DSPolitico"
-        Me.DSPolitico.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'TAPARTIDOSPOLITICOSBindingSource
-        '
-        Me.TAPARTIDOSPOLITICOSBindingSource.DataMember = "TA_PARTIDOS_POLITICOS"
-        Me.TAPARTIDOSPOLITICOSBindingSource.DataSource = Me.DSPolitico
-        '
-        'TA_PARTIDOS_POLITICOSTableAdapter
-        '
-        Me.TA_PARTIDOS_POLITICOSTableAdapter.ClearBeforeFill = True
-        '
-        'TAMOVIMIENTOBindingSource
-        '
-        Me.TAMOVIMIENTOBindingSource.DataMember = "TA_MOVIMIENTO"
-        Me.TAMOVIMIENTOBindingSource.DataSource = Me.DSPolitico
-        '
-        'TA_MOVIMIENTOTableAdapter
-        '
-        Me.TA_MOVIMIENTOTableAdapter.ClearBeforeFill = True
-        '
-        'DSDeptoMuni
-        '
-        Me.DSDeptoMuni.DataSetName = "DSDeptoMuni"
-        Me.DSDeptoMuni.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'TADEPARTAMENTOSBindingSource
-        '
-        Me.TADEPARTAMENTOSBindingSource.DataMember = "TA_DEPARTAMENTOS"
-        Me.TADEPARTAMENTOSBindingSource.DataSource = Me.DSDeptoMuni
-        '
-        'TA_DEPARTAMENTOSTableAdapter
-        '
-        Me.TA_DEPARTAMENTOSTableAdapter.ClearBeforeFill = True
-        '
-        'TAMUNICIPIOSBindingSource
-        '
-        Me.TAMUNICIPIOSBindingSource.DataMember = "TA_MUNICIPIOS"
-        Me.TAMUNICIPIOSBindingSource.DataSource = Me.DSDeptoMuni
-        '
-        'TA_MUNICIPIOSTableAdapter
-        '
-        Me.TA_MUNICIPIOSTableAdapter.ClearBeforeFill = True
         '
         'EmptySpaceItem4
         '
         Me.EmptySpaceItem4.AllowHotTrack = False
         Me.EmptySpaceItem4.CustomizationFormText = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Location = New System.Drawing.Point(457, 103)
+        Me.EmptySpaceItem4.Location = New System.Drawing.Point(430, 96)
         Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Size = New System.Drawing.Size(151, 24)
+        Me.EmptySpaceItem4.Size = New System.Drawing.Size(178, 24)
         Me.EmptySpaceItem4.Text = "EmptySpaceItem4"
         Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'IM_CIUDADANOS_RESPALDANTableAdapter
+        '
+        Me.IM_CIUDADANOS_RESPALDANTableAdapter.ClearBeforeFill = True
+        '
+        'TA_PARTIDOS_POLITICOSTableAdapter
+        '
+        Me.TA_PARTIDOS_POLITICOSTableAdapter.ClearBeforeFill = True
+        '
+        'TA_MOVIMIENTOTableAdapter
+        '
+        Me.TA_MOVIMIENTOTableAdapter.ClearBeforeFill = True
+        '
+        'TA_DEPARTAMENTOSTableAdapter
+        '
+        Me.TA_DEPARTAMENTOSTableAdapter.ClearBeforeFill = True
+        '
+        'TA_MUNICIPIOSTableAdapter
+        '
+        Me.TA_MUNICIPIOSTableAdapter.ClearBeforeFill = True
+        '
+        'IM_CIUDADANOS_RESPALDAN1BindingSource
+        '
+        Me.IM_CIUDADANOS_RESPALDAN1BindingSource.DataMember = "IM_CIUDADANOS_RESPALDAN1"
+        Me.IM_CIUDADANOS_RESPALDAN1BindingSource.DataSource = Me.DSCiudadanos
+        '
+        'IM_CIUDADANOS_RESPALDAN1TableAdapter
+        '
+        Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.ClearBeforeFill = True
         '
         'XfrmCiudadanos
         '
@@ -574,20 +588,31 @@ Partial Class XfrmCiudadanos
         Me.ClientSize = New System.Drawing.Size(628, 439)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Name = "XfrmCiudadanos"
-        Me.Text = "XfrmCiudadanos"
+        Me.Text = "Ciudadanos"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.CmbMunicipio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TAMUNICIPIOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CmbDepartamento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TADEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CmbMovimiento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TAMOVIMIENTOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CmbPartido.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TAPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMCIUDADANOSRESPALDANBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DSCiudadanos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RIChkCoincide, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ChkEstado, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RIChkFima, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RPIImgfirma, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RIChkCoincide, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemComboBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
-        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -595,21 +620,12 @@ Partial Class XfrmCiudadanos
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LookUpEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LookUpEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LookUpEdit3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LookUpEdit4.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TAPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TAMOVIMIENTOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TADEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TAMUNICIPIOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IM_CIUDADANOS_RESPALDAN1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -620,10 +636,8 @@ Partial Class XfrmCiudadanos
     Friend WithEvents EmptySpaceItem3 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
-    Friend WithEvents BtnNuevo As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnGuardar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnEliminar As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents BtnSalir As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents GCBusqueda As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
@@ -631,7 +645,6 @@ Partial Class XfrmCiudadanos
     Friend WithEvents RIChkCoincide As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents RIChkFima As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents RPIImgfirma As DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
-    Friend WithEvents TextEdit1 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents DSCiudadanos As Inscripcion_de_Moviemientos.DSCiudadanos
     Friend WithEvents IMCIUDADANOSRESPALDANBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents IM_CIUDADANOS_RESPALDANTableAdapter As Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.IM_CIUDADANOS_RESPALDANTableAdapter
@@ -640,15 +653,13 @@ Partial Class XfrmCiudadanos
     Friend WithEvents colHUELLA As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colDIRECCION As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colIDENTIDAD As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colNOMBRE_IGUAL As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colIMAGEN_FIRMA As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colNOMBRE_PAPELETA As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents Fila As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents EmptySpaceItem1 As DevExpress.XtraLayout.EmptySpaceItem
-    Friend WithEvents LookUpEdit4 As DevExpress.XtraEditors.LookUpEdit
-    Friend WithEvents LookUpEdit3 As DevExpress.XtraEditors.LookUpEdit
-    Friend WithEvents LookUpEdit2 As DevExpress.XtraEditors.LookUpEdit
-    Friend WithEvents LookUpEdit1 As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents CmbMunicipio As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents CmbDepartamento As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents CmbMovimiento As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents CmbPartido As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem5 As DevExpress.XtraLayout.LayoutControlItem
@@ -664,4 +675,10 @@ Partial Class XfrmCiudadanos
     Friend WithEvents TAMUNICIPIOSBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents TA_MUNICIPIOSTableAdapter As Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_MUNICIPIOSTableAdapter
     Friend WithEvents EmptySpaceItem4 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents RepositoryItemComboBox1 As DevExpress.XtraEditors.Repository.RepositoryItemComboBox
+    Friend WithEvents BtnSalir As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents Estado As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ChkEstado As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+    Friend WithEvents IM_CIUDADANOS_RESPALDAN1BindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents IM_CIUDADANOS_RESPALDAN1TableAdapter As Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.IM_CIUDADANOS_RESPALDAN1TableAdapter
 End Class

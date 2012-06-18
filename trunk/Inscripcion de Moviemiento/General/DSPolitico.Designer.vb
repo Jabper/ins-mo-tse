@@ -72,6 +72,8 @@ Partial Public Class DSPolitico
     
     Private relationIM_FK3_CANDIDATOS1 As Global.System.Data.DataRelation
     
+    Private relationIM_FK1_MOVIMIENTOS2 As Global.System.Data.DataRelation
+    
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -427,6 +429,7 @@ Partial Public Class DSPolitico
         Me.relationIM_FK1_CARGOS_ELECTIVOS = Me.Relations("IM_FK1_CARGOS_ELECTIVOS")
         Me.relationIM_FK1_CARGOS_ELECTIVOS2 = Me.Relations("IM_FK1_CARGOS_ELECTIVOS2")
         Me.relationIM_FK3_CANDIDATOS1 = Me.Relations("IM_FK3_CANDIDATOS1")
+        Me.relationIM_FK1_MOVIMIENTOS2 = Me.Relations("IM_FK1_MOVIMIENTOS2")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -482,6 +485,8 @@ Partial Public Class DSPolitico
         Me.Relations.Add(Me.relationIM_FK1_CARGOS_ELECTIVOS2)
         Me.relationIM_FK3_CANDIDATOS1 = New Global.System.Data.DataRelation("IM_FK3_CANDIDATOS1", New Global.System.Data.DataColumn() {Me.tableTA_CARGOS.CODIGO_CARGO_ELECTIVOColumn}, New Global.System.Data.DataColumn() {Me.tableIM_CANDIDATOS.CODIGO_CARGO_ELECTIVOColumn}, false)
         Me.Relations.Add(Me.relationIM_FK3_CANDIDATOS1)
+        Me.relationIM_FK1_MOVIMIENTOS2 = New Global.System.Data.DataRelation("IM_FK1_MOVIMIENTOS2", New Global.System.Data.DataColumn() {Me.tableIM_PARTIDOS_POLITICOS.CODIGO_PARTIDOColumn}, New Global.System.Data.DataColumn() {Me.tableTA_MOVIMIENTO.CODIGO_PARTIDOColumn}, false)
+        Me.Relations.Add(Me.relationIM_FK1_MOVIMIENTOS2)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -4129,6 +4134,16 @@ Partial Public Class DSPolitico
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property IM_PARTIDOS_POLITICOSRow() As IM_PARTIDOS_POLITICOSRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("IM_FK1_MOVIMIENTOS2")),IM_PARTIDOS_POLITICOSRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("IM_FK1_MOVIMIENTOS2"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function GetIM_CANDIDATOSRows() As IM_CANDIDATOSRow()
             If (Me.Table.ChildRelations("IM_MOVIMIENTOS_FK1") Is Nothing) Then
                 Return New IM_CANDIDATOSRow(-1) {}
@@ -4436,6 +4451,15 @@ Partial Public Class DSPolitico
                 Return New IM_MOVIMIENTOSRow(-1) {}
             Else
                 Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("IM_FK1_MOVIMIENTOS1")),IM_MOVIMIENTOSRow())
+            End If
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function GetTA_MOVIMIENTORows() As TA_MOVIMIENTORow()
+            If (Me.Table.ChildRelations("IM_FK1_MOVIMIENTOS2") Is Nothing) Then
+                Return New TA_MOVIMIENTORow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("IM_FK1_MOVIMIENTOS2")),TA_MOVIMIENTORow())
             End If
         End Function
     End Class
@@ -6801,25 +6825,32 @@ Namespace DSPoliticoTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(1) {}
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        IM_MOVIMIENTOS.CODIGO_MOVIMIENTO, IM_MOVIMIENTOS.NOMBRE_MOVIMIENTO,"& _ 
-                " IM_MOVIMIENTOS.CODIGO_PARTIDO, IM_MOVIMIENTOS.INSIGNIA, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
-                "    IM_MOVIMIENTOS.EMBLEMA, IM_PARTIDOS_POLITICOS.NOMBRE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_MOV"& _ 
-                "IMIENTOS, IM_PARTIDOS_POLITICOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        IM_MOVIMIENTOS.CODIGO_PARTIDO = IM"& _ 
-                "_PARTIDOS_POLITICOS.CODIGO_PARTIDO"
+                " IM_MOVIMIENTOS.CODIGO_PARTIDO, IM_PARTIDOS_POLITICOS.NOMBRE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM"& _ 
+                "_MOVIMIENTOS, IM_PARTIDOS_POLITICOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        IM_MOVIMIENTOS.CODIGO_PARTIDO "& _ 
+                "= IM_PARTIDOS_POLITICOS.CODIGO_PARTIDO"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT        IM_MOVIMIENTOS.CODIGO_MOVIMIENTO, IM_MOVIMIENTOS.NOMBRE_MOVIMIENTO,"& _ 
-                " IM_MOVIMIENTOS.CODIGO_PARTIDO, IM_MOVIMIENTOS.INSIGNIA, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
-                "    IM_MOVIMIENTOS.EMBLEMA, IM_PARTIDOS_POLITICOS.NOMBRE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_MOV"& _ 
-                "IMIENTOS, IM_PARTIDOS_POLITICOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        IM_MOVIMIENTOS.CODIGO_PARTIDO = IM"& _ 
-                "_PARTIDOS_POLITICOS.CODIGO_PARTIDO AND (IM_MOVIMIENTOS.NOMBRE_MOVIMIENTO LIKE '%"& _ 
-                "' || :de || '%')"
+                " IM_MOVIMIENTOS.CODIGO_PARTIDO, IM_PARTIDOS_POLITICOS.NOMBRE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM"& _ 
+                "_MOVIMIENTOS, IM_PARTIDOS_POLITICOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        IM_MOVIMIENTOS.CODIGO_PARTIDO "& _ 
+                "= IM_PARTIDOS_POLITICOS.CODIGO_PARTIDO AND (IM_MOVIMIENTOS.NOMBRE_MOVIMIENTO LIK"& _ 
+                "E '%' || :de || '%')"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("de", Global.System.Data.OracleClient.OracleType.VarChar, 200, Global.System.Data.ParameterDirection.Input, "NOMBRE_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT        IM_MOVIMIENTOS.CODIGO_MOVIMIENTO, IM_MOVIMIENTOS.NOMBRE_MOVIMIENTO,"& _ 
+                " IM_MOVIMIENTOS.CODIGO_PARTIDO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_PARTIDOS_POLITICOS"& _ 
+                ".NOMBRE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_MOVIMIENTOS, IM_PARTIDOS_POLITICOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        IM_"& _ 
+                "MOVIMIENTOS.CODIGO_PARTIDO = IM_PARTIDOS_POLITICOS.CODIGO_PARTIDO AND (IM_MOVIMI"& _ 
+                "ENTOS.CODIGO_PARTIDO = :id)"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6871,6 +6902,30 @@ Namespace DSPoliticoTableAdapters
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(de,String)
             End If
+            Dim dataTable As DSPolitico.TA_MOVIMIENTODataTable = New DSPolitico.TA_MOVIMIENTODataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy1(ByVal dataTable As DSPolitico.TA_MOVIMIENTODataTable, ByVal id As Decimal) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id,Decimal)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy1(ByVal id As Decimal) As DSPolitico.TA_MOVIMIENTODataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id,Decimal)
             Dim dataTable As DSPolitico.TA_MOVIMIENTODataTable = New DSPolitico.TA_MOVIMIENTODataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -9731,21 +9786,21 @@ Namespace DSPoliticoTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Function UpdateUpdatedRows(ByVal dataSet As DSPolitico, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
+            If (Not (Me._iM_PARTIDOS_POLITICOSTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.IM_PARTIDOS_POLITICOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._iM_PARTIDOS_POLITICOSTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
             If (Not (Me._iM_NIVEL_ELECTIVOTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.IM_NIVEL_ELECTIVO.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._iM_NIVEL_ELECTIVOTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
-            If (Not (Me._tA_NIVEL_ELECTIVOTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.TA_NIVEL_ELECTIVO.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._tA_NIVEL_ELECTIVOTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -9758,12 +9813,12 @@ Namespace DSPoliticoTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._iM_PARTIDOS_POLITICOSTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.IM_PARTIDOS_POLITICOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._tA_NIVEL_ELECTIVOTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.TA_NIVEL_ELECTIVO.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._iM_PARTIDOS_POLITICOSTableAdapter.Update(updatedRows))
+                    result = (result + Me._tA_NIVEL_ELECTIVOTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -9812,19 +9867,19 @@ Namespace DSPoliticoTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Function UpdateInsertedRows(ByVal dataSet As DSPolitico, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
+            If (Not (Me._iM_PARTIDOS_POLITICOSTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.IM_PARTIDOS_POLITICOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._iM_PARTIDOS_POLITICOSTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
             If (Not (Me._iM_NIVEL_ELECTIVOTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.IM_NIVEL_ELECTIVO.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._iM_NIVEL_ELECTIVOTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
-            If (Not (Me._tA_NIVEL_ELECTIVOTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.TA_NIVEL_ELECTIVO.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._tA_NIVEL_ELECTIVOTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -9836,11 +9891,11 @@ Namespace DSPoliticoTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._iM_PARTIDOS_POLITICOSTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.IM_PARTIDOS_POLITICOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._tA_NIVEL_ELECTIVOTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.TA_NIVEL_ELECTIVO.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._iM_PARTIDOS_POLITICOSTableAdapter.Update(addedRows))
+                    result = (result + Me._tA_NIVEL_ELECTIVOTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -9917,11 +9972,11 @@ Namespace DSPoliticoTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._iM_PARTIDOS_POLITICOSTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.IM_PARTIDOS_POLITICOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._tA_NIVEL_ELECTIVOTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.TA_NIVEL_ELECTIVO.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._iM_PARTIDOS_POLITICOSTableAdapter.Update(deletedRows))
+                    result = (result + Me._tA_NIVEL_ELECTIVOTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -9933,19 +9988,19 @@ Namespace DSPoliticoTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._tA_NIVEL_ELECTIVOTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.TA_NIVEL_ELECTIVO.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._tA_NIVEL_ELECTIVOTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
             If (Not (Me._iM_NIVEL_ELECTIVOTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.IM_NIVEL_ELECTIVO.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._iM_NIVEL_ELECTIVOTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._iM_PARTIDOS_POLITICOSTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.IM_PARTIDOS_POLITICOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._iM_PARTIDOS_POLITICOSTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
