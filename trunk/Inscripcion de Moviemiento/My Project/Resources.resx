@@ -118,8 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="cargos" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cargos.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="im-aim" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\im-aim.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="guardar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\guardar1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,8 +136,8 @@
   <data name="SubirRespaldo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SubirRespaldo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="im-aim" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\im-aim.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="OpcionesdeAcceso" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OpcionesdeAcceso.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="officespreadsheet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\officespreadsheet.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,9 +163,6 @@
   <data name="modificarfirmas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\modificarfirmas.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="OpcionesdeAcceso" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OpcionesdeAcceso.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="new" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\new.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -174,6 +171,12 @@
   </data>
   <data name="Usuarios" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Usuarios.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cargos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cargos.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="turnoff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\turnoff.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="textback1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\textback1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -229,7 +232,7 @@
   <data name="departamento" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\departamento.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="turnoff" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\turnoff.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="motivo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\motivo1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
