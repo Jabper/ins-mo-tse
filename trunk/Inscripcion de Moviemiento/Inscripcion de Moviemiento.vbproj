@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -204,6 +204,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_CIUDADANOS_INH.xsd</DependentUpon>
     </Compile>
+    <Compile Include="General\DS_Motivos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_Motivos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="General\XfrmCargoElectivo.Designer.vb">
       <DependentUpon>XfrmCargoElectivo.vb</DependentUpon>
     </Compile>
@@ -220,6 +225,12 @@
       <DependentUpon>xfrmCiudadanosInha.vb</DependentUpon>
     </Compile>
     <Compile Include="General\xfrmCiudadanosInha.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="General\Xfrmmotivos.Designer.vb">
+      <DependentUpon>Xfrmmotivos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="General\Xfrmmotivos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="General\XfrmMovimientos.Designer.vb">
@@ -409,6 +420,9 @@
     <EmbeddedResource Include="General\xfrmCiudadanosInha.resx">
       <DependentUpon>xfrmCiudadanosInha.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="General\Xfrmmotivos.resx">
+      <DependentUpon>Xfrmmotivos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="General\XfrmMovimientos.resx">
       <DependentUpon>XfrmMovimientos.vb</DependentUpon>
@@ -748,6 +762,17 @@
     <None Include="Resources\session.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="General\DS_Motivos.xsc">
+      <DependentUpon>DS_Motivos.xsd</DependentUpon>
+    </None>
+    <None Include="General\DS_Motivos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Motivos.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="General\DS_Motivos.xss">
+      <DependentUpon>DS_Motivos.xsd</DependentUpon>
+    </None>
     <None Include="Resources\turnoff.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
