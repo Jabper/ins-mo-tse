@@ -323,8 +323,9 @@ Public Class XfrmCiudadanos
             Else
                 If XtraMessageBox.Show(capturarerrores.ToString & " registros no se pudieron guardar ¿Desea que el sistema intente guardarlos?", "Mensaje de Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
                     Me.Estado.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("Estado= 'False'")
+                    errores = 0
                     guardar()
-                    Me.Estado.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("Estado= 'False' or Estado= 'True'")
+                    Estado.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("Estado= 'False' or Estado= 'True'")
                 End If
             End If
 

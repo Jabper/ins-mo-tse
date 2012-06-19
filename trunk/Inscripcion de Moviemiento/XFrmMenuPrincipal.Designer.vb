@@ -43,6 +43,7 @@ Partial Class XFrmMenuPrincipal
         Me.BtnHacerRespaldo = New DevExpress.XtraBars.BarButtonItem
         Me.BtnSubirRespaldo = New DevExpress.XtraBars.BarButtonItem
         Me.BtnFirmas = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnModificarFirmas = New DevExpress.XtraBars.BarButtonItem
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage
@@ -67,9 +68,9 @@ Partial Class XFrmMenuPrincipal
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ExpandCollapseItem.Name = ""
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 24
+        Me.RibbonControl.MaxItemId = 25
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5, Me.RibbonPage6})
         Me.RibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010
@@ -225,6 +226,14 @@ Partial Class XFrmMenuPrincipal
         Me.BtnFirmas.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.officespreadsheet
         Me.BtnFirmas.Name = "BtnFirmas"
         '
+        'BtnModificarFirmas
+        '
+        Me.BtnModificarFirmas.Caption = "Modificación de Firmas"
+        Me.BtnModificarFirmas.Glyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.modificarfirmas
+        Me.BtnModificarFirmas.Id = 24
+        Me.BtnModificarFirmas.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.modificarfirmas
+        Me.BtnModificarFirmas.Name = "BtnModificarFirmas"
+        '
         'RibbonPage1
         '
         Me.RibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1})
@@ -255,6 +264,7 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnRequisitos)
         Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnCandidatos)
         Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnFirmas)
+        Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnModificarFirmas)
         Me.RibbonPageGroup3.Name = "RibbonPageGroup3"
         Me.RibbonPageGroup3.Text = "Operaciones"
         '
@@ -349,6 +359,7 @@ Partial Class XFrmMenuPrincipal
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.StatusBar = Me.RibbonStatusBar
         Me.Text = "Inscripción de Movimientos"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -393,6 +404,7 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents RibbonPageGroup6 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BtnFirmas As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnModificarFirmas As DevExpress.XtraBars.BarButtonItem
 
 
 End Class
