@@ -136,10 +136,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSCiudadanos.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Ciudadanos\DSCiudadanos.vb">
+      <DependentUpon>DSCiudadanos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Ciudadanos\XfrmCiudadanos.Designer.vb">
       <DependentUpon>XfrmCiudadanos.vb</DependentUpon>
     </Compile>
     <Compile Include="Ciudadanos\XfrmCiudadanos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ciudadanos\XfrmConsultaFirmas.Designer.vb">
+      <DependentUpon>XfrmConsultaFirmas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ciudadanos\XfrmConsultaFirmas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ciudadanos\XfrmFilas.Designer.vb">
@@ -294,6 +303,7 @@
     <Compile Include="Procesos\XfrmSubirRespaldo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Settings.vb" />
     <Compile Include="StandarControles.Designer.vb">
       <DependentUpon>StandarControles.vb</DependentUpon>
     </Compile>
@@ -374,6 +384,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ciudadanos\XfrmCiudadanos.resx">
       <DependentUpon>XfrmCiudadanos.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ciudadanos\XfrmConsultaFirmas.resx">
+      <DependentUpon>XfrmConsultaFirmas.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Ciudadanos\XfrmFilas.resx">
@@ -623,9 +637,6 @@
     <None Include="Candidatos\DSCandidato.xss">
       <DependentUpon>DSCandidato.xsd</DependentUpon>
     </None>
-    <None Include="Img\DUMMY">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Resources\cerrarventana.png" />
   </ItemGroup>
   <ItemGroup>
@@ -724,6 +735,7 @@
     <None Include="General\DS_CIUDADANOS_INH.xss">
       <DependentUpon>DS_CIUDADANOS_INH.xsd</DependentUpon>
     </None>
+    <None Include="Img\DUMMY" />
     <None Include="Resources\SubirRespaldo1.png" />
   </ItemGroup>
   <ItemGroup>

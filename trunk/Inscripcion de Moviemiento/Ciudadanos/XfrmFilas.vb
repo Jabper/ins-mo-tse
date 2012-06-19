@@ -41,6 +41,7 @@
         If Me.DxValidationProvider1.Validate = True Then
             If CType(Me.TxtFilas.Text, Integer) = 0 Or CType(Me.TxtFilas.Text, Integer) > 50 Then
                 Mensajes.mimensaje("Valor de rango de filas inválido")
+                Me.TxtFilas.Focus()
             Else
                 mostrar()
             End If
@@ -49,6 +50,16 @@
         End If
     End Sub
     Sub mostrar()
+
+
+
+        If VControles.ComprobarFormAbierto(XfrmCiudadanos) Then
+
+            XfrmCiudadanos.Close()
+        End If
+
+
+
         XfrmCiudadanos.Show()
         With XfrmCiudadanos
             .idpartido = Me.CmbPartido.EditValue
@@ -60,6 +71,8 @@
             .establecer()
         End With
         Me.Close()
+
+
     End Sub
 
  
