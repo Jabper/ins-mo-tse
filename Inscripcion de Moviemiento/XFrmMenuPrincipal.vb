@@ -191,4 +191,13 @@ Public Class XFrmMenuPrincipal
     Private Sub RibbonControl_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RibbonControl.Click
 
     End Sub
+
+    Private Sub BtnMotivo_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnMotivo.ItemClick
+        Try
+            Padre(Xfrmmotivos)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+    End Sub
 End Class

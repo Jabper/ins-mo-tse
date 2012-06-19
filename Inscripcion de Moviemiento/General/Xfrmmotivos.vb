@@ -6,14 +6,15 @@ Public Class Xfrmmotivos
     Dim id As String
 
     Private Sub Xfrmmotivos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DS_Motivos.IM_MOTIVOS_INHABILITACION' table. You can move, or remove it, as needed.
+        Me.IM_MOTIVOS_INHABILITACIONTableAdapter.Fill(Me.DS_Motivos.IM_MOTIVOS_INHABILITACION)
         'TODO: This line of code loads data into the 'DS_Motivos.TA_MOTIVOS_INHABILITACION' table. You can move, or remove it, as needed.
-
-
-
+        Me.TA_MOTIVOS_INHABILITACIONTableAdapter.Fill(Me.DS_Motivos.TA_MOTIVOS_INHABILITACION)
+        'TODO: This line of code loads data into the 'DS_Motivos.TA_MOTIVOS_INHABILITACION' table. You can move, or remove it, as needed.
         Me.TA_MOTIVOS_INHABILITACIONTableAdapter.Fill(Me.DS_Motivos.TA_MOTIVOS_INHABILITACION)
         'TODO: This line of code loads data into the 'DS_Motivos.IM_MOTIVOS_INHABILITACION' table. You can move, or remove it, as needed.
         Me.IM_MOTIVOS_INHABILITACIONTableAdapter.Fill(Me.DS_Motivos.IM_MOTIVOS_INHABILITACION)
-        ActualizarGrid()
+        'ActualizarGrid()
         Me.IMMOTIVOSINHABILITACIONBindingSource.AddNew()
         If COracle.credenciales("BtnMotivo", "MODIFICAR") = "N" And COracle.credenciales("BtnMotivo", "INSERTAR") = "N" Then
             DxControls.ObtenerCredencial("BtnMotivo", "MODIFICAR", Me.BtnGuardar)
@@ -110,17 +111,13 @@ Public Class Xfrmmotivos
 
     End Sub
 
-    Private Sub GCBusqueda_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        MostrarDatos()
 
-    End Sub
     Sub MostrarDatos()
         Try
 
             Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
 
             Me.IM_MOTIVOS_INHABILITACIONTableAdapter.FillBy(Me.DS_Motivos.IM_MOTIVOS_INHABILITACION, cellValue)
-
             actualizar = True
             id = cellValue
             BtnEliminar.Enabled = True
@@ -154,5 +151,10 @@ Public Class Xfrmmotivos
 
     Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
         Nuevo()
+    End Sub
+
+
+    Private Sub GridView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.Click
+        MostrarDatos()
     End Sub
 End Class

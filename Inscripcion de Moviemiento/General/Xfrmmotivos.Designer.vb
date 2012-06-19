@@ -21,16 +21,16 @@ Partial Class Xfrmmotivos
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
-        Me.TAMOTIVOSINHABILITACIONBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DSMotivosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DS_Motivos = New Inscripcion_de_Moviemientos.DS_Motivos
+        Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
         Me.DataLayoutControl1 = New DevExpress.XtraDataLayout.DataLayoutControl
-        Me.CODIGO_MOTIVOTextEdit = New DevExpress.XtraEditors.TextEdit
-        Me.IMMOTIVOSINHABILITACIONBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl
         Me.DESCRIPCIONTextEdit = New DevExpress.XtraEditors.TextEdit
+        Me.IMMOTIVOSINHABILITACIONBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DS_Motivos = New Inscripcion_de_Moviemientos.DS_Motivos
         Me.ADICIONADO_PORTextEdit = New DevExpress.XtraEditors.TextEdit
         Me.FECHA_ADICIONDateEdit = New DevExpress.XtraEditors.DateEdit
         Me.MODIFICADO_PORTextEdit = New DevExpress.XtraEditors.TextEdit
+        Me.CODIGO_MOTIVOTextEdit = New DevExpress.XtraEditors.TextEdit
         Me.FECHA_MODIFICACIONDateEdit = New DevExpress.XtraEditors.DateEdit
         Me.ItemForADICIONADO_POR = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForFECHA_ADICION = New DevExpress.XtraLayout.LayoutControlItem
@@ -40,17 +40,9 @@ Partial Class Xfrmmotivos
         Me.LayoutControlGroup2 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.ItemForCODIGO_MOTIVO = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForDESCRIPCION = New DevExpress.XtraLayout.LayoutControlItem
-        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel
-        Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
-        Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
-        Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
-        Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
-        Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
-        Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.EmptySpaceItem4 = New DevExpress.XtraLayout.EmptySpaceItem
-        Me.IM_MOTIVOS_INHABILITACIONTableAdapter = New Inscripcion_de_Moviemientos.DS_MotivosTableAdapters.IM_MOTIVOS_INHABILITACIONTableAdapter
-        Me.TA_MOTIVOS_INHABILITACIONTableAdapter = New Inscripcion_de_Moviemientos.DS_MotivosTableAdapters.TA_MOTIVOS_INHABILITACIONTableAdapter
+        Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
         Me.GCBusqueda = New DevExpress.XtraGrid.GridControl
+        Me.TAMOTIVOSINHABILITACIONBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.colCODIGO_MOTIVO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colDESCRIPCION = New DevExpress.XtraGrid.Columns.GridColumn
@@ -59,23 +51,32 @@ Partial Class Xfrmmotivos
         Me.colMODIFICADO_POR = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colFECHA_MODIFICACION = New DevExpress.XtraGrid.Columns.GridColumn
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
+        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel
+        Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
+        Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
+        Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.EmptySpaceItem4 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl
-        Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.TA_MOTIVOS_INHABILITACIONTableAdapter = New Inscripcion_de_Moviemientos.DS_MotivosTableAdapters.TA_MOTIVOS_INHABILITACIONTableAdapter
+        Me.IM_MOTIVOS_INHABILITACIONTableAdapter = New Inscripcion_de_Moviemientos.DS_MotivosTableAdapters.IM_MOTIVOS_INHABILITACIONTableAdapter
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
-        CType(Me.TAMOTIVOSINHABILITACIONBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DSMotivosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DS_Motivos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl1.SuspendLayout()
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DataLayoutControl1.SuspendLayout()
-        CType(Me.CODIGO_MOTIVOTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IMMOTIVOSINHABILITACIONBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DESCRIPCIONTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMMOTIVOSINHABILITACIONBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DS_Motivos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ADICIONADO_PORTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MODIFICADO_PORTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CODIGO_MOTIVOTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_MODIFICACIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_MODIFICACIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForADICIONADO_POR, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -86,19 +87,22 @@ Partial Class Xfrmmotivos
         CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForCODIGO_MOTIVO, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForDESCRIPCION, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TAMOTIVOSINHABILITACIONBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel2.SuspendLayout()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.PanelControl1)
         Me.LayoutControl1.Controls.Add(Me.GCBusqueda)
         Me.LayoutControl1.Controls.Add(Me.FlowLayoutPanel2)
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -106,24 +110,20 @@ Partial Class Xfrmmotivos
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(635, 253, 250, 350)
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(491, 411)
+        Me.LayoutControl1.Size = New System.Drawing.Size(466, 336)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
-        'TAMOTIVOSINHABILITACIONBindingSource
+        'PanelControl1
         '
-        Me.TAMOTIVOSINHABILITACIONBindingSource.DataMember = "TA_MOTIVOS_INHABILITACION"
-        Me.TAMOTIVOSINHABILITACIONBindingSource.DataSource = Me.DSMotivosBindingSource
-        '
-        'DSMotivosBindingSource
-        '
-        Me.DSMotivosBindingSource.DataSource = Me.DS_Motivos
-        Me.DSMotivosBindingSource.Position = 0
-        '
-        'DS_Motivos
-        '
-        Me.DS_Motivos.DataSetName = "DS_Motivos"
-        Me.DS_Motivos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.PanelControl1.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.PanelControl1.Appearance.Options.UseBackColor = True
+        Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl1.Controls.Add(Me.DataLayoutControl1)
+        Me.PanelControl1.Location = New System.Drawing.Point(12, 80)
+        Me.PanelControl1.Name = "PanelControl1"
+        Me.PanelControl1.Size = New System.Drawing.Size(442, 111)
+        Me.PanelControl1.TabIndex = 12
         '
         'DataLayoutControl1
         '
@@ -134,9 +134,8 @@ Partial Class Xfrmmotivos
         Me.DataLayoutControl1.Controls.Add(Me.MODIFICADO_PORTextEdit)
         Me.DataLayoutControl1.Controls.Add(Me.CODIGO_MOTIVOTextEdit)
         Me.DataLayoutControl1.Controls.Add(Me.FECHA_MODIFICACIONDateEdit)
-        Me.DataLayoutControl1.DataSource = Me.IMMOTIVOSINHABILITACIONBindingSource
         Me.DataLayoutControl1.HiddenItems.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForADICIONADO_POR, Me.ItemForFECHA_ADICION, Me.ItemForMODIFICADO_POR, Me.ItemForFECHA_MODIFICACION})
-        Me.DataLayoutControl1.Location = New System.Drawing.Point(3, 64)
+        Me.DataLayoutControl1.Location = New System.Drawing.Point(3, 3)
         Me.DataLayoutControl1.Name = "DataLayoutControl1"
         Me.DataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(698, 262, 250, 350)
         Me.DataLayoutControl1.Root = Me.Root
@@ -144,19 +143,13 @@ Partial Class Xfrmmotivos
         Me.DataLayoutControl1.TabIndex = 5
         Me.DataLayoutControl1.Text = "DataLayoutControl1"
         '
-        'CODIGO_MOTIVOTextEdit
+        'LabelControl1
         '
-        Me.CODIGO_MOTIVOTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMOTIVOSINHABILITACIONBindingSource, "CODIGO_MOTIVO", True))
-        Me.CODIGO_MOTIVOTextEdit.Location = New System.Drawing.Point(84, 12)
-        Me.CODIGO_MOTIVOTextEdit.Name = "CODIGO_MOTIVOTextEdit"
-        Me.CODIGO_MOTIVOTextEdit.Size = New System.Drawing.Size(50, 20)
-        Me.CODIGO_MOTIVOTextEdit.StyleController = Me.DataLayoutControl1
-        Me.CODIGO_MOTIVOTextEdit.TabIndex = 4
-        '
-        'IMMOTIVOSINHABILITACIONBindingSource
-        '
-        Me.IMMOTIVOSINHABILITACIONBindingSource.DataMember = "IM_MOTIVOS_INHABILITACION"
-        Me.IMMOTIVOSINHABILITACIONBindingSource.DataSource = Me.DSMotivosBindingSource
+        Me.LabelControl1.Location = New System.Drawing.Point(138, 12)
+        Me.LabelControl1.Name = "LabelControl1"
+        Me.LabelControl1.Size = New System.Drawing.Size(138, 13)
+        Me.LabelControl1.StyleController = Me.DataLayoutControl1
+        Me.LabelControl1.TabIndex = 10
         '
         'DESCRIPCIONTextEdit
         '
@@ -167,9 +160,18 @@ Partial Class Xfrmmotivos
         Me.DESCRIPCIONTextEdit.StyleController = Me.DataLayoutControl1
         Me.DESCRIPCIONTextEdit.TabIndex = 5
         '
+        'IMMOTIVOSINHABILITACIONBindingSource
+        '
+        Me.IMMOTIVOSINHABILITACIONBindingSource.DataMember = "IM_MOTIVOS_INHABILITACION"
+        Me.IMMOTIVOSINHABILITACIONBindingSource.DataSource = Me.DS_Motivos
+        '
+        'DS_Motivos
+        '
+        Me.DS_Motivos.DataSetName = "DS_Motivos"
+        Me.DS_Motivos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'ADICIONADO_PORTextEdit
         '
-        Me.ADICIONADO_PORTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMOTIVOSINHABILITACIONBindingSource, "ADICIONADO_POR", True))
         Me.ADICIONADO_PORTextEdit.Location = New System.Drawing.Point(0, 0)
         Me.ADICIONADO_PORTextEdit.Name = "ADICIONADO_PORTextEdit"
         Me.ADICIONADO_PORTextEdit.Size = New System.Drawing.Size(0, 20)
@@ -178,7 +180,6 @@ Partial Class Xfrmmotivos
         '
         'FECHA_ADICIONDateEdit
         '
-        Me.FECHA_ADICIONDateEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMOTIVOSINHABILITACIONBindingSource, "FECHA_ADICION", True))
         Me.FECHA_ADICIONDateEdit.EditValue = Nothing
         Me.FECHA_ADICIONDateEdit.Location = New System.Drawing.Point(0, 0)
         Me.FECHA_ADICIONDateEdit.Name = "FECHA_ADICIONDateEdit"
@@ -190,16 +191,23 @@ Partial Class Xfrmmotivos
         '
         'MODIFICADO_PORTextEdit
         '
-        Me.MODIFICADO_PORTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMOTIVOSINHABILITACIONBindingSource, "MODIFICADO_POR", True))
         Me.MODIFICADO_PORTextEdit.Location = New System.Drawing.Point(0, 0)
         Me.MODIFICADO_PORTextEdit.Name = "MODIFICADO_PORTextEdit"
         Me.MODIFICADO_PORTextEdit.Size = New System.Drawing.Size(0, 20)
         Me.MODIFICADO_PORTextEdit.StyleController = Me.DataLayoutControl1
         Me.MODIFICADO_PORTextEdit.TabIndex = 8
         '
+        'CODIGO_MOTIVOTextEdit
+        '
+        Me.CODIGO_MOTIVOTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMOTIVOSINHABILITACIONBindingSource, "CODIGO_MOTIVO", True))
+        Me.CODIGO_MOTIVOTextEdit.Location = New System.Drawing.Point(84, 12)
+        Me.CODIGO_MOTIVOTextEdit.Name = "CODIGO_MOTIVOTextEdit"
+        Me.CODIGO_MOTIVOTextEdit.Size = New System.Drawing.Size(50, 20)
+        Me.CODIGO_MOTIVOTextEdit.StyleController = Me.DataLayoutControl1
+        Me.CODIGO_MOTIVOTextEdit.TabIndex = 4
+        '
         'FECHA_MODIFICACIONDateEdit
         '
-        Me.FECHA_MODIFICACIONDateEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMOTIVOSINHABILITACIONBindingSource, "FECHA_MODIFICACION", True))
         Me.FECHA_MODIFICACIONDateEdit.EditValue = Nothing
         Me.FECHA_MODIFICACIONDateEdit.Location = New System.Drawing.Point(0, 0)
         Me.FECHA_MODIFICACIONDateEdit.Name = "FECHA_MODIFICACIONDateEdit"
@@ -296,6 +304,97 @@ Partial Class Xfrmmotivos
         Me.ItemForDESCRIPCION.Text = "Descripción"
         Me.ItemForDESCRIPCION.TextSize = New System.Drawing.Size(68, 13)
         '
+        'LayoutControlItem2
+        '
+        Me.LayoutControlItem2.Control = Me.LabelControl1
+        Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(126, 0)
+        Me.LayoutControlItem2.Name = "LayoutControlItem2"
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(142, 24)
+        Me.LayoutControlItem2.Text = "LayoutControlItem2"
+        Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem2.TextToControlDistance = 0
+        Me.LayoutControlItem2.TextVisible = False
+        '
+        'GCBusqueda
+        '
+        Me.GCBusqueda.DataSource = Me.TAMOTIVOSINHABILITACIONBindingSource
+        Me.GCBusqueda.Location = New System.Drawing.Point(12, 195)
+        Me.GCBusqueda.MainView = Me.GridView1
+        Me.GCBusqueda.Name = "GCBusqueda"
+        Me.GCBusqueda.Size = New System.Drawing.Size(442, 129)
+        Me.GCBusqueda.TabIndex = 10
+        Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
+        '
+        'TAMOTIVOSINHABILITACIONBindingSource
+        '
+        Me.TAMOTIVOSINHABILITACIONBindingSource.DataMember = "TA_MOTIVOS_INHABILITACION"
+        Me.TAMOTIVOSINHABILITACIONBindingSource.DataSource = Me.DS_Motivos
+        '
+        'GridView1
+        '
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_MOTIVO, Me.colDESCRIPCION, Me.colADICIONADO_POR, Me.colFECHA_ADICION, Me.colMODIFICADO_POR, Me.colFECHA_MODIFICACION})
+        Me.GridView1.GridControl = Me.GCBusqueda
+        Me.GridView1.Name = "GridView1"
+        Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GridView1.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.[False]
+        Me.GridView1.OptionsBehavior.Editable = False
+        Me.GridView1.OptionsView.ColumnAutoWidth = False
+        Me.GridView1.OptionsView.ShowDetailButtons = False
+        Me.GridView1.OptionsView.ShowGroupPanel = False
+        '
+        'colCODIGO_MOTIVO
+        '
+        Me.colCODIGO_MOTIVO.Caption = "Codigo"
+        Me.colCODIGO_MOTIVO.FieldName = "CODIGO_MOTIVO"
+        Me.colCODIGO_MOTIVO.Name = "colCODIGO_MOTIVO"
+        Me.colCODIGO_MOTIVO.Visible = True
+        Me.colCODIGO_MOTIVO.VisibleIndex = 0
+        Me.colCODIGO_MOTIVO.Width = 110
+        '
+        'colDESCRIPCION
+        '
+        Me.colDESCRIPCION.Caption = "Descripción"
+        Me.colDESCRIPCION.FieldName = "DESCRIPCION"
+        Me.colDESCRIPCION.Name = "colDESCRIPCION"
+        Me.colDESCRIPCION.Visible = True
+        Me.colDESCRIPCION.VisibleIndex = 1
+        Me.colDESCRIPCION.Width = 493
+        '
+        'colADICIONADO_POR
+        '
+        Me.colADICIONADO_POR.Caption = "Adicionado Por"
+        Me.colADICIONADO_POR.FieldName = "ADICIONADO_POR"
+        Me.colADICIONADO_POR.Name = "colADICIONADO_POR"
+        Me.colADICIONADO_POR.Width = 110
+        '
+        'colFECHA_ADICION
+        '
+        Me.colFECHA_ADICION.Caption = "Fecha de Adicíon"
+        Me.colFECHA_ADICION.FieldName = "FECHA_ADICION"
+        Me.colFECHA_ADICION.Name = "colFECHA_ADICION"
+        Me.colFECHA_ADICION.Width = 110
+        '
+        'colMODIFICADO_POR
+        '
+        Me.colMODIFICADO_POR.Caption = "Modificado Por"
+        Me.colMODIFICADO_POR.FieldName = "MODIFICADO_POR"
+        Me.colMODIFICADO_POR.Name = "colMODIFICADO_POR"
+        Me.colMODIFICADO_POR.Width = 110
+        '
+        'colFECHA_MODIFICACION
+        '
+        Me.colFECHA_MODIFICACION.Caption = "Fecha de Modificación"
+        Me.colFECHA_MODIFICACION.FieldName = "FECHA_MODIFICACION"
+        Me.colFECHA_MODIFICACION.Name = "colFECHA_MODIFICACION"
+        Me.colFECHA_MODIFICACION.Width = 110
+        '
+        'GridView2
+        '
+        Me.GridView2.GridControl = Me.GCBusqueda
+        Me.GridView2.Name = "GridView2"
+        '
         'FlowLayoutPanel2
         '
         Me.FlowLayoutPanel2.BackColor = System.Drawing.Color.Transparent
@@ -303,10 +402,9 @@ Partial Class Xfrmmotivos
         Me.FlowLayoutPanel2.Controls.Add(Me.BtnGuardar)
         Me.FlowLayoutPanel2.Controls.Add(Me.BtnEliminar)
         Me.FlowLayoutPanel2.Controls.Add(Me.BtnSalir)
-        Me.FlowLayoutPanel2.Controls.Add(Me.DataLayoutControl1)
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(12, 12)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(323, 169)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(307, 64)
         Me.FlowLayoutPanel2.TabIndex = 11
         '
         'BtnNuevo
@@ -363,10 +461,10 @@ Partial Class Xfrmmotivos
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem4, Me.EmptySpaceItem4, Me.LayoutControlItem1})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem4, Me.EmptySpaceItem4, Me.LayoutControlItem1, Me.LayoutControlItem3})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(491, 411)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(466, 336)
         Me.LayoutControlGroup1.Text = "Root"
         Me.LayoutControlGroup1.TextVisible = False
         '
@@ -376,7 +474,7 @@ Partial Class Xfrmmotivos
         Me.LayoutControlItem4.CustomizationFormText = "LayoutControlItem4"
         Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(327, 173)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(311, 68)
         Me.LayoutControlItem4.Text = "LayoutControlItem4"
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem4.TextToControlDistance = 0
@@ -386,148 +484,75 @@ Partial Class Xfrmmotivos
         '
         Me.EmptySpaceItem4.AllowHotTrack = False
         Me.EmptySpaceItem4.CustomizationFormText = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Location = New System.Drawing.Point(327, 0)
+        Me.EmptySpaceItem4.Location = New System.Drawing.Point(311, 0)
+        Me.EmptySpaceItem4.MaxSize = New System.Drawing.Size(135, 68)
+        Me.EmptySpaceItem4.MinSize = New System.Drawing.Size(135, 68)
         Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Size = New System.Drawing.Size(144, 173)
+        Me.EmptySpaceItem4.Size = New System.Drawing.Size(135, 68)
+        Me.EmptySpaceItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem4.Text = "EmptySpaceItem4"
         Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
-        '
-        'IM_MOTIVOS_INHABILITACIONTableAdapter
-        '
-        Me.IM_MOTIVOS_INHABILITACIONTableAdapter.ClearBeforeFill = True
-        '
-        'TA_MOTIVOS_INHABILITACIONTableAdapter
-        '
-        Me.TA_MOTIVOS_INHABILITACIONTableAdapter.ClearBeforeFill = True
-        '
-        'GCBusqueda
-        '
-        Me.GCBusqueda.DataSource = Me.TAMOTIVOSINHABILITACIONBindingSource
-        Me.GCBusqueda.Location = New System.Drawing.Point(12, 185)
-        Me.GCBusqueda.MainView = Me.GridView1
-        Me.GCBusqueda.Name = "GCBusqueda"
-        Me.GCBusqueda.Size = New System.Drawing.Size(467, 214)
-        Me.GCBusqueda.TabIndex = 10
-        Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
-        '
-        'GridView1
-        '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_MOTIVO, Me.colDESCRIPCION, Me.colADICIONADO_POR, Me.colFECHA_ADICION, Me.colMODIFICADO_POR, Me.colFECHA_MODIFICACION})
-        Me.GridView1.GridControl = Me.GCBusqueda
-        Me.GridView1.Name = "GridView1"
-        Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridView1.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.[False]
-        Me.GridView1.OptionsBehavior.Editable = False
-        Me.GridView1.OptionsView.ColumnAutoWidth = False
-        Me.GridView1.OptionsView.ShowDetailButtons = False
-        Me.GridView1.OptionsView.ShowGroupPanel = False
-        '
-        'colCODIGO_MOTIVO
-        '
-        Me.colCODIGO_MOTIVO.Caption = "Codigo"
-        Me.colCODIGO_MOTIVO.FieldName = "CODIGO_MOTIVO"
-        Me.colCODIGO_MOTIVO.Name = "colCODIGO_MOTIVO"
-        Me.colCODIGO_MOTIVO.Visible = True
-        Me.colCODIGO_MOTIVO.VisibleIndex = 0
-        Me.colCODIGO_MOTIVO.Width = 110
-        '
-        'colDESCRIPCION
-        '
-        Me.colDESCRIPCION.Caption = "Descripción"
-        Me.colDESCRIPCION.FieldName = "DESCRIPCION"
-        Me.colDESCRIPCION.Name = "colDESCRIPCION"
-        Me.colDESCRIPCION.Visible = True
-        Me.colDESCRIPCION.VisibleIndex = 1
-        Me.colDESCRIPCION.Width = 110
-        '
-        'colADICIONADO_POR
-        '
-        Me.colADICIONADO_POR.Caption = "Adicionado Por"
-        Me.colADICIONADO_POR.FieldName = "ADICIONADO_POR"
-        Me.colADICIONADO_POR.Name = "colADICIONADO_POR"
-        Me.colADICIONADO_POR.Width = 110
-        '
-        'colFECHA_ADICION
-        '
-        Me.colFECHA_ADICION.Caption = "Fecha de Adicíon"
-        Me.colFECHA_ADICION.FieldName = "FECHA_ADICION"
-        Me.colFECHA_ADICION.Name = "colFECHA_ADICION"
-        Me.colFECHA_ADICION.Width = 110
-        '
-        'colMODIFICADO_POR
-        '
-        Me.colMODIFICADO_POR.Caption = "Modificado Por"
-        Me.colMODIFICADO_POR.FieldName = "MODIFICADO_POR"
-        Me.colMODIFICADO_POR.Name = "colMODIFICADO_POR"
-        Me.colMODIFICADO_POR.Width = 110
-        '
-        'colFECHA_MODIFICACION
-        '
-        Me.colFECHA_MODIFICACION.Caption = "Fecha de Modificación"
-        Me.colFECHA_MODIFICACION.FieldName = "FECHA_MODIFICACION"
-        Me.colFECHA_MODIFICACION.Name = "colFECHA_MODIFICACION"
-        Me.colFECHA_MODIFICACION.Width = 110
-        '
-        'GridView2
-        '
-        Me.GridView2.GridControl = Me.GCBusqueda
-        Me.GridView2.Name = "GridView2"
         '
         'LayoutControlItem1
         '
         Me.LayoutControlItem1.Control = Me.GCBusqueda
         Me.LayoutControlItem1.CustomizationFormText = "LayoutControlItem1"
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 173)
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 183)
+        Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(446, 0)
+        Me.LayoutControlItem1.MinSize = New System.Drawing.Size(446, 24)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(471, 218)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(446, 133)
+        Me.LayoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem1.Text = "LayoutControlItem1"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem1.TextToControlDistance = 0
         Me.LayoutControlItem1.TextVisible = False
         '
-        'LabelControl1
+        'LayoutControlItem3
         '
-        Me.LabelControl1.Location = New System.Drawing.Point(138, 12)
-        Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(138, 13)
-        Me.LabelControl1.StyleController = Me.DataLayoutControl1
-        Me.LabelControl1.TabIndex = 10
+        Me.LayoutControlItem3.Control = Me.PanelControl1
+        Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 68)
+        Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(446, 115)
+        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(446, 115)
+        Me.LayoutControlItem3.Name = "LayoutControlItem3"
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(446, 115)
+        Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem3.Text = "LayoutControlItem3"
+        Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem3.TextToControlDistance = 0
+        Me.LayoutControlItem3.TextVisible = False
         '
-        'LayoutControlItem2
+        'TA_MOTIVOS_INHABILITACIONTableAdapter
         '
-        Me.LayoutControlItem2.Control = Me.LabelControl1
-        Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(126, 0)
-        Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(142, 24)
-        Me.LayoutControlItem2.Text = "LayoutControlItem2"
-        Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem2.TextToControlDistance = 0
-        Me.LayoutControlItem2.TextVisible = False
+        Me.TA_MOTIVOS_INHABILITACIONTableAdapter.ClearBeforeFill = True
+        '
+        'IM_MOTIVOS_INHABILITACIONTableAdapter
+        '
+        Me.IM_MOTIVOS_INHABILITACIONTableAdapter.ClearBeforeFill = True
         '
         'Xfrmmotivos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(491, 411)
+        Me.ClientSize = New System.Drawing.Size(466, 336)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Name = "Xfrmmotivos"
         Me.Text = "MOTIVOS INHABILITACION"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
-        CType(Me.TAMOTIVOSINHABILITACIONBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DSMotivosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DS_Motivos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl1.ResumeLayout(False)
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DataLayoutControl1.ResumeLayout(False)
-        CType(Me.CODIGO_MOTIVOTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IMMOTIVOSINHABILITACIONBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DESCRIPCIONTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMMOTIVOSINHABILITACIONBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DS_Motivos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ADICIONADO_PORTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MODIFICADO_PORTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CODIGO_MOTIVOTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_MODIFICACIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_MODIFICACIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForADICIONADO_POR, System.ComponentModel.ISupportInitialize).EndInit()
@@ -538,26 +563,24 @@ Partial Class Xfrmmotivos
         CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForCODIGO_MOTIVO, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForDESCRIPCION, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TAMOTIVOSINHABILITACIONBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel2.ResumeLayout(False)
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents LayoutControl1 As DevExpress.XtraLayout.LayoutControl
     Friend WithEvents LayoutControlGroup1 As DevExpress.XtraLayout.LayoutControlGroup
     Friend WithEvents DataLayoutControl1 As DevExpress.XtraDataLayout.DataLayoutControl
-    Friend WithEvents DSMotivosBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents DS_Motivos As Inscripcion_de_Moviemientos.DS_Motivos
     Friend WithEvents Root As DevExpress.XtraLayout.LayoutControlGroup
-    Friend WithEvents IMMOTIVOSINHABILITACIONBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents IM_MOTIVOS_INHABILITACIONTableAdapter As Inscripcion_de_Moviemientos.DS_MotivosTableAdapters.IM_MOTIVOS_INHABILITACIONTableAdapter
     Friend WithEvents CODIGO_MOTIVOTextEdit As DevExpress.XtraEditors.TextEdit
     Friend WithEvents DESCRIPCIONTextEdit As DevExpress.XtraEditors.TextEdit
     Friend WithEvents ADICIONADO_PORTextEdit As DevExpress.XtraEditors.TextEdit
@@ -571,8 +594,6 @@ Partial Class Xfrmmotivos
     Friend WithEvents LayoutControlGroup2 As DevExpress.XtraLayout.LayoutControlGroup
     Friend WithEvents ItemForCODIGO_MOTIVO As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents ItemForDESCRIPCION As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents TAMOTIVOSINHABILITACIONBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents TA_MOTIVOS_INHABILITACIONTableAdapter As Inscripcion_de_Moviemientos.DS_MotivosTableAdapters.TA_MOTIVOS_INHABILITACIONTableAdapter
     Friend WithEvents FlowLayoutPanel2 As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents BtnNuevo As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnGuardar As DevExpress.XtraEditors.SimpleButton
@@ -592,4 +613,11 @@ Partial Class Xfrmmotivos
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents DS_Motivos As Inscripcion_de_Moviemientos.DS_Motivos
+    Friend WithEvents TAMOTIVOSINHABILITACIONBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents TA_MOTIVOS_INHABILITACIONTableAdapter As Inscripcion_de_Moviemientos.DS_MotivosTableAdapters.TA_MOTIVOS_INHABILITACIONTableAdapter
+    Friend WithEvents IMMOTIVOSINHABILITACIONBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents IM_MOTIVOS_INHABILITACIONTableAdapter As Inscripcion_de_Moviemientos.DS_MotivosTableAdapters.IM_MOTIVOS_INHABILITACIONTableAdapter
 End Class
