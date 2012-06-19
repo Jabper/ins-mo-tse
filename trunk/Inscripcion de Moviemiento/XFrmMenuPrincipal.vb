@@ -200,4 +200,8 @@ Public Class XFrmMenuPrincipal
         End Try
 
     End Sub
+
+    Private Sub BtnModificarFirmas_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnModificarFirmas.ItemClick
+        Padre(XfrmConsultaFirmas)
+    End Sub
 End Class
