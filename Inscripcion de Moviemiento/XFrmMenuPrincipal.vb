@@ -33,6 +33,8 @@ Public Class XFrmMenuPrincipal
     End Sub
     Private Sub XFrmMenuPrincipal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         verificar_permisos()
+        Me.BtnCerrarSesion.Visibility = BarItemVisibility.Always
+        Me.BtnSalir.Visibility = BarItemVisibility.Always
         'Call conexion()
 
         'For i = 0 To Me.RibbonControl.Pages.Count - 1
@@ -175,5 +177,18 @@ Public Class XFrmMenuPrincipal
 
     Private Sub BtnSubirRespaldo_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnSubirRespaldo.ItemClick
         Padre(XfrmSubirRespaldo)
+    End Sub
+
+    Private Sub BtnCerrarSesion_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCerrarSesion.ItemClick
+        verificar_permisos()
+    End Sub
+
+    Private Sub RibbonControl_ApplicationButtonClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles RibbonControl.ApplicationButtonClick
+
+    End Sub
+
+    
+    Private Sub RibbonControl_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RibbonControl.Click
+
     End Sub
 End Class
