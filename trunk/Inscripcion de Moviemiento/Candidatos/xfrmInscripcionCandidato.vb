@@ -156,7 +156,7 @@ Public Class xfrmInscripcionCandidato
 
     Private Sub LookUpEdit1_EditValueChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LookUpEdit1.EditValueChanged
         Try
-            If IsDBNull(Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue) Or Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue Is Nothing Then
+            If IsDBNull(Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue) Or Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue Is Nothing  Then
             Else
                 'TODO: This line of code loads data into the 'DSInscripcionCandidatos.IM_CARGOS_ELECTIVOS' table. You can move, or remove it, as needed.
                 Me.IM_CARGOS_ELECTIVOSTableAdapter.FillBy(Me.DSInscripcionCandidatos.IM_CARGOS_ELECTIVOS, Me.LookUpEdit1.EditValue)
@@ -201,7 +201,8 @@ Public Class xfrmInscripcionCandidato
 
     Private Sub CODIGO_DEPARTAMENTOLookUpEdit_EditValueChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_DEPARTAMENTOLookUpEdit.EditValueChanged
         Try
-            If Me.CODIGO_DEPARTAMENTOLookUpEdit.EditValue Is Nothing Then
+            If Me.CODIGO_DEPARTAMENTOLookUpEdit.EditValue Is Nothing Or IsDBNull(Me.CODIGO_DEPARTAMENTOLookUpEdit.EditValue) Then
+            Else
                 'TODO: This line of code loads data into the 'DSInscripcionCandidatos.IM_MUNICIPIOS' table. You can move, or remove it, as needed.
                 Me.IM_MUNICIPIOSTableAdapter.FillBy(Me.DSInscripcionCandidatos.IM_MUNICIPIOS, Me.CODIGO_DEPARTAMENTOLookUpEdit.EditValue)
 
@@ -210,7 +211,9 @@ Public Class xfrmInscripcionCandidato
                     'actualizar el grid segun el movimiento
 
                     If Me.CODIGO_DEPARTAMENTOLookUpEdit Is Nothing Or Me.CODIGO_CARGO_ELECTIVOLookUpEdit.EditValue Is Nothing Or _
-                    Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue Is Nothing Or Me.CODIGO_PARTIDOLookUpEdit.EditValue Is Nothing Then
+                    Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue Is Nothing Or Me.CODIGO_PARTIDOLookUpEdit.EditValue Is Nothing _
+                    Or IsDBNull(Me.CODIGO_DEPARTAMENTOLookUpEdit.EditValue) Or IsDBNull(Me.CODIGO_CARGO_ELECTIVOLookUpEdit.EditValue) _
+                    Or IsDBNull(Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue) Or IsDBNull(Me.CODIGO_PARTIDOLookUpEdit.EditValue) Then
                     Else
                         Me.TA_CANDIDATOSTableAdapter.FillBydepto(Me.DSInscripcionCandidatos.TA_CANDIDATOS, Me.CODIGO_PARTIDOLookUpEdit.EditValue, _
                                                                 Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue, Me.CODIGO_CARGO_ELECTIVOLookUpEdit.EditValue, _
@@ -223,23 +226,34 @@ Public Class xfrmInscripcionCandidato
 
 
         Catch ex As Exception
-            Mensajes.mimensaje("depto")
+            Mensajes.mimensaje(ex.Message)
         End Try
     End Sub
 
     Private Sub CODIGO_MOVIMIENTOLookUpEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_MOVIMIENTOLookUpEdit.EditValueChanged
+        Try
+            If IsDBNull(Me.CODIGO_PARTIDOLookUpEdit.EditValue) Or Me.CODIGO_PARTIDOLookUpEdit.EditValue Is Nothing Or _
+            IsDBNull(Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue) Or Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue Is Nothing Then
+            Else
+                'actualizar el grid segun el movimiento
+                Me.TA_CANDIDATOSTableAdapter.FillBymovimiento(Me.DSInscripcionCandidatos.TA_CANDIDATOS, Me.CODIGO_PARTIDOLookUpEdit.EditValue, _
+                                                              Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue)
+                'TODO: This line of code loads data into the 'DSInscripcionCandidatos.IM_NIVEL_ELECTIVO' table. You can move, or remove it, as needed.
+                Me.IM_NIVEL_ELECTIVOTableAdapter.Fill(Me.DSInscripcionCandidatos.IM_NIVEL_ELECTIVO)
+            End If
+            
 
-        'actualizar el grid segun el movimiento
-        Me.TA_CANDIDATOSTableAdapter.FillBymovimiento(Me.DSInscripcionCandidatos.TA_CANDIDATOS, Me.CODIGO_PARTIDOLookUpEdit.EditValue, _
-                                                      Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue)
-        'TODO: This line of code loads data into the 'DSInscripcionCandidatos.IM_NIVEL_ELECTIVO' table. You can move, or remove it, as needed.
-        Me.IM_NIVEL_ELECTIVOTableAdapter.Fill(Me.DSInscripcionCandidatos.IM_NIVEL_ELECTIVO)
+        Catch ex As Exception
+            Mensajes.mimensaje(ex.Message)
+        End Try
+
     End Sub
 
     Private Sub CODIGO_CARGO_ELECTIVOLookUpEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_CARGO_ELECTIVOLookUpEdit.EditValueChanged
 
         Try
-            If Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue Is Nothing Or Me.CODIGO_PARTIDOLookUpEdit.EditValue Is Nothing Or Me.CODIGO_CARGO_ELECTIVOLookUpEdit.EditValue Is Nothing Then
+            If Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue Is Nothing Or Me.CODIGO_PARTIDOLookUpEdit.EditValue Is Nothing Or Me.CODIGO_CARGO_ELECTIVOLookUpEdit.EditValue Is Nothing _
+            Or IsDBNull(Me.CODIGO_MOVIMIENTOLookUpEdit.EditValue) Or IsDBNull(Me.CODIGO_PARTIDOLookUpEdit.EditValue) Or IsDBNull(me.CODIGO_CARGO_ELECTIVOLookUpEdit.EditValue) Then
 
             Else
 
