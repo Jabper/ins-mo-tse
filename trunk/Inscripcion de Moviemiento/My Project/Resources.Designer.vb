@@ -277,6 +277,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property session() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("session", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property SubirRespaldo() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("SubirRespaldo", resourceCulture)
@@ -294,6 +301,13 @@ Namespace My.Resources
         Friend ReadOnly Property textback1() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("textback1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        Friend ReadOnly Property turnoff() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("turnoff", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
