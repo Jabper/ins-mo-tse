@@ -1234,7 +1234,7 @@ Partial Public Class DSCiudadanos
             Me.columnCODIGO_MUNICIPIO.AllowDBNull = false
             Me.columnFIRMA.MaxLength = 1
             Me.columnHUELLA.MaxLength = 1
-            Me.columnDIRECCION.MaxLength = 300
+            Me.columnDIRECCION.MaxLength = 1
             Me.columnIDENTIDAD.AllowDBNull = false
             Me.columnIDENTIDAD.MaxLength = 15
             Me.columnNOMBRE_IGUAL.MaxLength = 2
