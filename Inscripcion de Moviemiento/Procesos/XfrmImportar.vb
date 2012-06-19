@@ -19,7 +19,7 @@ Public Class XfrmImportar
                 Try
                     Dim startInfo As ProcessStartInfo
                     Dim pStart As New Process
-                    startInfo = New ProcessStartInfo("cmd.exe", "/C imp TSE/oracle Buffer=5000000 File=" & TxtRuta.Text & " FROMUSER=TSE TOUSER=TSE ignore=Y TABLES=tmp_im_ciudadanos_respaldan")
+                    startInfo = New ProcessStartInfo("cmd.exe", "/C imp TSE/oracle@TSEDB2 Buffer=5000000 File=" & TxtRuta.Text & " FROMUSER=TSE TOUSER=TSE ignore=Y TABLES=tmp_im_ciudadanos_respaldan")
                     pStart.StartInfo = startInfo
                     pStart.Start()
                     pStart.WaitForExit()
@@ -39,7 +39,7 @@ Public Class XfrmImportar
                 Try
                     Dim startInfo As ProcessStartInfo
                     Dim pStart As New Process
-                    startInfo = New ProcessStartInfo("cmd.exe", "/C imp TSE/oracle Buffer=5000000 File=" & TxtRuta.Text & " FROMUSER=TSE TOUSER=TSE ignore=Y TABLES=tmp_im_candidatos,tmp_im_candidatos_repetidos,tmp_im_imagenes_candidato")
+                    startInfo = New ProcessStartInfo("cmd.exe", "/C imp TSE/oracle@TSEDB2 Buffer=5000000 File=" & TxtRuta.Text & " FROMUSER=TSE TOUSER=TSE ignore=Y TABLES=tmp_im_candidatos,tmp_im_candidatos_repetidos,tmp_im_imagenes_candidato")
                     pStart.StartInfo = startInfo
                     pStart.Start()
                     pStart.WaitForExit()

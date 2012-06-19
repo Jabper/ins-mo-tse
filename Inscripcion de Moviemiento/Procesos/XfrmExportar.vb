@@ -37,7 +37,7 @@ Public Class XfrmExportar
                     Try
                         Dim startInfo As ProcessStartInfo
                         Dim pStart As New Process
-                        startInfo = New ProcessStartInfo("cmd.exe", "/C exp TSE/oracle@XE Buffer=5000000 File=" & TxtRuta.Text & "\Firmas.dmp direct=Y Consistent=Y Rows=Y compress=N TABLES=tmp_im_ciudadanos_respaldan")
+                        startInfo = New ProcessStartInfo("cmd.exe", "/C exp TSE/oracle@TSEDB2 Buffer=5000000 File=" & TxtRuta.Text & "\Firmas.dmp direct=Y Consistent=Y Rows=Y compress=N TABLES=tmp_im_ciudadanos_respaldan")
                         pStart.StartInfo = startInfo
                         pStart.Start()
                         pStart.WaitForExit()                        
@@ -83,7 +83,7 @@ Public Class XfrmExportar
                     Try
                         Dim startInfo As ProcessStartInfo
                         Dim pStart As New Process
-                        startInfo = New ProcessStartInfo("cmd.exe", "/C exp TSE/oracle@XE Buffer=5000000 File=" & TxtRuta.Text & "\Planilla.dmp direct=Y Consistent=Y Rows=Y compress=N TABLES=tmp_im_candidatos,tmp_im_candidatos_repetidos,tmp_im_imagenes_candidato")
+                        startInfo = New ProcessStartInfo("cmd.exe", "/C exp TSE/oracle@TSEDB2 Buffer=5000000 File=" & TxtRuta.Text & "\Planilla.dmp direct=Y Consistent=Y Rows=Y compress=N TABLES=tmp_im_candidatos,tmp_im_candidatos_repetidos,tmp_im_imagenes_candidato")
                         pStart.StartInfo = startInfo
                         pStart.Start()
                         pStart.WaitForExit()                                            
