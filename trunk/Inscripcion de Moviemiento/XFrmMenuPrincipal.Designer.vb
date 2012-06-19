@@ -22,6 +22,9 @@ Partial Class XFrmMenuPrincipal
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(XFrmMenuPrincipal))
         Me.RibbonControl = New DevExpress.XtraBars.Ribbon.RibbonControl
+        Me.ApplicationMenu2 = New DevExpress.XtraBars.Ribbon.ApplicationMenu(Me.components)
+        Me.BtnCerrarSesion = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnSalir = New DevExpress.XtraBars.BarButtonItem
         Me.BtnMovimeintos = New DevExpress.XtraBars.BarButtonItem
         Me.BtnPartidos = New DevExpress.XtraBars.BarButtonItem
         Me.BtnMunicipio = New DevExpress.XtraBars.BarButtonItem
@@ -44,8 +47,6 @@ Partial Class XFrmMenuPrincipal
         Me.BtnSubirRespaldo = New DevExpress.XtraBars.BarButtonItem
         Me.BtnFirmas = New DevExpress.XtraBars.BarButtonItem
         Me.BtnModificarFirmas = New DevExpress.XtraBars.BarButtonItem
-        Me.BtnSalir = New DevExpress.XtraBars.BarButtonItem
-        Me.BtnCerrarSesion = New DevExpress.XtraBars.BarButtonItem
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage
@@ -62,15 +63,14 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonPageGroup4 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPageGroup6 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem
-        Me.ApplicationMenu1 = New DevExpress.XtraBars.Ribbon.ApplicationMenu(Me.components)
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ApplicationMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ApplicationMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'RibbonControl
         '
-        Me.RibbonControl.ApplicationButtonDropDownControl = Me.ApplicationMenu1
+        Me.RibbonControl.ApplicationButtonDropDownControl = Me.ApplicationMenu2
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ExpandCollapseItem.Name = ""
         Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion})
@@ -79,8 +79,32 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5, Me.RibbonPage6})
         Me.RibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010
+        Me.RibbonControl.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.[False]
+        Me.RibbonControl.ShowToolbarCustomizeItem = False
         Me.RibbonControl.Size = New System.Drawing.Size(815, 145)
         Me.RibbonControl.StatusBar = Me.RibbonStatusBar
+        Me.RibbonControl.Toolbar.ShowCustomizeItem = False
+        '
+        'ApplicationMenu2
+        '
+        Me.ApplicationMenu2.ItemLinks.Add(Me.BtnCerrarSesion)
+        Me.ApplicationMenu2.ItemLinks.Add(Me.BtnSalir)
+        Me.ApplicationMenu2.Name = "ApplicationMenu2"
+        Me.ApplicationMenu2.Ribbon = Me.RibbonControl
+        '
+        'BtnCerrarSesion
+        '
+        Me.BtnCerrarSesion.Caption = "Cerrar Sesión"
+        Me.BtnCerrarSesion.Glyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.session
+        Me.BtnCerrarSesion.Id = 26
+        Me.BtnCerrarSesion.Name = "BtnCerrarSesion"
+        '
+        'BtnSalir
+        '
+        Me.BtnSalir.Caption = "Salir"
+        Me.BtnSalir.Glyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.turnoff
+        Me.BtnSalir.Id = 25
+        Me.BtnSalir.Name = "BtnSalir"
         '
         'BtnMovimeintos
         '
@@ -239,20 +263,6 @@ Partial Class XFrmMenuPrincipal
         Me.BtnModificarFirmas.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.modificarfirmas
         Me.BtnModificarFirmas.Name = "BtnModificarFirmas"
         '
-        'BtnSalir
-        '
-        Me.BtnSalir.Caption = "Salir"
-        Me.BtnSalir.Glyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.turnoff
-        Me.BtnSalir.Id = 25
-        Me.BtnSalir.Name = "BtnSalir"
-        '
-        'BtnCerrarSesion
-        '
-        Me.BtnCerrarSesion.Caption = "Cerrar Sesión"
-        Me.BtnCerrarSesion.Glyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.session
-        Me.BtnCerrarSesion.Id = 26
-        Me.BtnCerrarSesion.Name = "BtnCerrarSesion"
-        '
         'RibbonPage1
         '
         Me.RibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1})
@@ -365,13 +375,6 @@ Partial Class XFrmMenuPrincipal
         Me.BarButtonItem1.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.exportar
         Me.BarButtonItem1.Name = "BarButtonItem1"
         '
-        'ApplicationMenu1
-        '
-        Me.ApplicationMenu1.ItemLinks.Add(Me.BtnCerrarSesion)
-        Me.ApplicationMenu1.ItemLinks.Add(Me.BtnSalir)
-        Me.ApplicationMenu1.Name = "ApplicationMenu1"
-        Me.ApplicationMenu1.Ribbon = Me.RibbonControl
-        '
         'XFrmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -382,13 +385,14 @@ Partial Class XFrmMenuPrincipal
         Me.IsMdiContainer = True
         Me.Name = "XFrmMenuPrincipal"
         Me.Ribbon = Me.RibbonControl
+        Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.StatusBar = Me.RibbonStatusBar
         Me.Text = "Inscripción de Movimientos"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ApplicationMenu2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ApplicationMenu1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -434,7 +438,7 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents BtnModificarFirmas As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BtnSalir As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BtnCerrarSesion As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents ApplicationMenu1 As DevExpress.XtraBars.Ribbon.ApplicationMenu
+    Friend WithEvents ApplicationMenu2 As DevExpress.XtraBars.Ribbon.ApplicationMenu
 
 
 End Class
