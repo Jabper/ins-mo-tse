@@ -42,7 +42,7 @@ Partial Class XfrmImportar
         '
         'BtnEjecutar
         '
-        Me.BtnEjecutar.Location = New System.Drawing.Point(137, 107)
+        Me.BtnEjecutar.Location = New System.Drawing.Point(113, 107)
         Me.BtnEjecutar.Name = "BtnEjecutar"
         Me.BtnEjecutar.Size = New System.Drawing.Size(75, 23)
         Me.BtnEjecutar.TabIndex = 14

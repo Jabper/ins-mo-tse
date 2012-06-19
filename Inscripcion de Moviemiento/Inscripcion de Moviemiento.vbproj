@@ -443,6 +443,10 @@
       <DependentUpon>XfrmImportar.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\XfrmSubirRespaldo.resx">
+      <DependentUpon>XfrmSubirRespaldo.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="StandarControles.resx">
       <DependentUpon>StandarControles.vb</DependentUpon>
       <SubType>Designer</SubType>
