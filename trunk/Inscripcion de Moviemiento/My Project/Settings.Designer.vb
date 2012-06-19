@@ -57,8 +57,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.1.156:1521;Persist Security Info=True;User ID=tse;Password=or"& _ 
-            "acle;")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source='\""192.168.1.180:1521/tsedb2""\';Persist Security Info=True;User ID=TS"& _ 
+            "E;Password=oracle")>  _
         Public ReadOnly Property ConnectionString() As String
             Get
                 Return CType(Me("ConnectionString"),String)
