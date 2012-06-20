@@ -22,6 +22,9 @@ Partial Class XfrmConCenso
         Me.components = New System.ComponentModel.Container
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.cbxMunicipio = New System.Windows.Forms.ComboBox
+        Me.IMFK1MUNICIPIOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DepartamentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DSConsultas = New Inscripcion_de_Moviemientos.DSConsultas
         Me.cbxDepartamento = New System.Windows.Forms.ComboBox
         Me.Label10 = New System.Windows.Forms.Label
         Me.Label9 = New System.Windows.Forms.Label
@@ -42,7 +45,6 @@ Partial Class XfrmConCenso
         Me.txtSNombre = New System.Windows.Forms.TextBox
         Me.cbxGenero = New System.Windows.Forms.ComboBox
         Me.GenerosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DSConsultas = New Inscripcion_de_Moviemientos.DSConsultas
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
         Me.btnFiltro = New DevExpress.XtraEditors.SimpleButton
         Me.btnSalir = New DevExpress.XtraEditors.SimpleButton
@@ -59,13 +61,17 @@ Partial Class XfrmConCenso
         Me.colMUNICIPIO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.GenerosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.GenerosTableAdapter
+        Me.DepartamentosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.DepartamentosTableAdapter
+        Me.MunicipiosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MunicipiosTableAdapter
         Me.GroupBox1.SuspendLayout()
+        CType(Me.IMFK1MUNICIPIOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DepartamentosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtdHasta.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtdHasta.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtdDesde.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtdDesde.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GenerosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel1.SuspendLayout()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -103,23 +109,40 @@ Partial Class XfrmConCenso
         '
         'cbxMunicipio
         '
+        Me.cbxMunicipio.DataSource = Me.IMFK1MUNICIPIOBindingSource
         Me.cbxMunicipio.DisplayMember = "DESCRIPCION"
         Me.cbxMunicipio.FormattingEnabled = True
-        Me.cbxMunicipio.Items.AddRange(New Object() {"{SELECCIONE EL GENERO}", "MASCULINO", "FEMENINO"})
         Me.cbxMunicipio.Location = New System.Drawing.Point(596, 141)
         Me.cbxMunicipio.Name = "cbxMunicipio"
         Me.cbxMunicipio.Size = New System.Drawing.Size(397, 21)
         Me.cbxMunicipio.TabIndex = 34
+        Me.cbxMunicipio.ValueMember = "CODIGO_MUNICIPIO"
+        '
+        'IMFK1MUNICIPIOBindingSource
+        '
+        Me.IMFK1MUNICIPIOBindingSource.DataMember = "IM_FK1_MUNICIPIO"
+        Me.IMFK1MUNICIPIOBindingSource.DataSource = Me.DepartamentosBindingSource
+        '
+        'DepartamentosBindingSource
+        '
+        Me.DepartamentosBindingSource.DataMember = "Departamentos"
+        Me.DepartamentosBindingSource.DataSource = Me.DSConsultas
+        '
+        'DSConsultas
+        '
+        Me.DSConsultas.DataSetName = "DSConsultas"
+        Me.DSConsultas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'cbxDepartamento
         '
+        Me.cbxDepartamento.DataSource = Me.DepartamentosBindingSource
         Me.cbxDepartamento.DisplayMember = "DESCRIPCION"
         Me.cbxDepartamento.FormattingEnabled = True
-        Me.cbxDepartamento.Items.AddRange(New Object() {"{SELECCIONE EL GENERO}", "MASCULINO", "FEMENINO"})
         Me.cbxDepartamento.Location = New System.Drawing.Point(596, 114)
         Me.cbxDepartamento.Name = "cbxDepartamento"
         Me.cbxDepartamento.Size = New System.Drawing.Size(397, 21)
         Me.cbxDepartamento.TabIndex = 33
+        Me.cbxDepartamento.ValueMember = "CODIGO_DEPARTAMENTO"
         '
         'Label10
         '
@@ -282,11 +305,6 @@ Partial Class XfrmConCenso
         Me.GenerosBindingSource.DataMember = "Generos"
         Me.GenerosBindingSource.DataSource = Me.DSConsultas
         '
-        'DSConsultas
-        '
-        Me.DSConsultas.DataSetName = "DSConsultas"
-        Me.DSConsultas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.Transparent
@@ -413,6 +431,8 @@ Partial Class XfrmConCenso
         Me.colFECHA_NACIMIENTO.FieldName = "FECHA_NACIMIENTO"
         Me.colFECHA_NACIMIENTO.Name = "colFECHA_NACIMIENTO"
         Me.colFECHA_NACIMIENTO.UnboundType = DevExpress.Data.UnboundColumnType.[String]
+        Me.colFECHA_NACIMIENTO.Visible = True
+        Me.colFECHA_NACIMIENTO.VisibleIndex = 8
         Me.colFECHA_NACIMIENTO.Width = 100
         '
         'colDEPARTAMENTO
@@ -444,6 +464,14 @@ Partial Class XfrmConCenso
         '
         Me.GenerosTableAdapter.ClearBeforeFill = True
         '
+        'DepartamentosTableAdapter
+        '
+        Me.DepartamentosTableAdapter.ClearBeforeFill = True
+        '
+        'MunicipiosTableAdapter
+        '
+        Me.MunicipiosTableAdapter.ClearBeforeFill = True
+        '
         'XfrmConCenso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -456,12 +484,14 @@ Partial Class XfrmConCenso
         Me.Text = "XfrmConCenso"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.IMFK1MUNICIPIOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DepartamentosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dtdHasta.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dtdHasta.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dtdDesde.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dtdDesde.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GenerosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -508,4 +538,8 @@ Partial Class XfrmConCenso
     Friend WithEvents DSConsultas As Inscripcion_de_Moviemientos.DSConsultas
     Friend WithEvents GenerosBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents GenerosTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.GenerosTableAdapter
+    Friend WithEvents DepartamentosBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents DepartamentosTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.DepartamentosTableAdapter
+    Friend WithEvents IMFK1MUNICIPIOBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents MunicipiosTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MunicipiosTableAdapter
 End Class

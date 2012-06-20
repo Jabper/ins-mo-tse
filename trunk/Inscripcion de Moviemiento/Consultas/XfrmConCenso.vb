@@ -2,6 +2,10 @@
 Public Class XfrmConCenso
 
     Private Sub XfrmConCenso_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        'TODO: This line of code loads data into the 'DSConsultas.Municipios' table. You can move, or remove it, as needed.
+        Me.MunicipiosTableAdapter.Fill(Me.DSConsultas.Municipios)
+        'TODO: This line of code loads data into the 'DSConsultas.Departamentos' table. You can move, or remove it, as needed.
+        Me.DepartamentosTableAdapter.Fill(Me.DSConsultas.Departamentos)
         'TODO: This line of code loads data into the 'DSConsultas.Generos' table. You can move, or remove it, as needed.
         Me.GenerosTableAdapter.Fill(Me.DSConsultas.Generos)
         Me.cbxDepartamento.SelectedIndex = 0
