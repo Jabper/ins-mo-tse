@@ -49,6 +49,7 @@ Partial Class XFrmMenuPrincipal
         Me.BtnModificarFirmas = New DevExpress.XtraBars.BarButtonItem
         Me.BtnMotivo = New DevExpress.XtraBars.BarButtonItem
         Me.btnCInhabilitados = New DevExpress.XtraBars.BarButtonItem
+        Me.btnConsultarCenso = New DevExpress.XtraBars.BarButtonItem
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage
@@ -66,7 +67,6 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonPageGroup4 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPageGroup6 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem
-        Me.btnConsultarCenso = New DevExpress.XtraBars.BarButtonItem
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -225,14 +225,14 @@ Partial Class XFrmMenuPrincipal
         '
         'BtnExportar
         '
-        Me.BtnExportar.Caption = "Exportar Datos"
+        Me.BtnExportar.Caption = "Exportar Firmas y Planilla"
         Me.BtnExportar.Id = 19
         Me.BtnExportar.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.exportar
         Me.BtnExportar.Name = "BtnExportar"
         '
         'BtnImportar
         '
-        Me.BtnImportar.Caption = "Importar Datos"
+        Me.BtnImportar.Caption = "Importar Firmas y Planilla"
         Me.BtnImportar.Id = 20
         Me.BtnImportar.LargeGlyph = CType(resources.GetObject("BtnImportar.LargeGlyph"), System.Drawing.Image)
         Me.BtnImportar.Name = "BtnImportar"
@@ -280,6 +280,13 @@ Partial Class XFrmMenuPrincipal
         Me.btnCInhabilitados.Id = 28
         Me.btnCInhabilitados.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.incompatibilidades
         Me.btnCInhabilitados.Name = "btnCInhabilitados"
+        '
+        'btnConsultarCenso
+        '
+        Me.btnConsultarCenso.Caption = "Consultar Censo"
+        Me.btnConsultarCenso.Id = 29
+        Me.btnConsultarCenso.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.incompatibilidades
+        Me.btnConsultarCenso.Name = "btnConsultarCenso"
         '
         'RibbonPage1
         '
@@ -401,13 +408,6 @@ Partial Class XFrmMenuPrincipal
         Me.BarButtonItem1.Id = 19
         Me.BarButtonItem1.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.exportar
         Me.BarButtonItem1.Name = "BarButtonItem1"
-        '
-        'btnConsultarCenso
-        '
-        Me.btnConsultarCenso.Caption = "Consultar Censo"
-        Me.btnConsultarCenso.Id = 29
-        Me.btnConsultarCenso.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.incompatibilidades
-        Me.btnConsultarCenso.Name = "btnConsultarCenso"
         '
         'XFrmMenuPrincipal
         '
