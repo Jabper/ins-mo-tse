@@ -39,7 +39,7 @@ Public Class XfrmSubirRespaldo
 
             Dim oradb1 As String = Configuracion.verconfig
             Dim conn1 As New OracleConnection()
-            Dim myCMD1 As New OracleCommand()            
+            Dim myCMD1 As New OracleCommand()
             conn1.ConnectionString = oradb1
             conn1.Open()
             If Trim(mensaje) = "OK" Then
@@ -84,8 +84,8 @@ Public Class XfrmSubirRespaldo
             Dim conn2 As New OracleConnection()
             Dim myCMD2 As New OracleCommand()
             conn2.ConnectionString = oradb2
-            conn2.Open()            
-            If mensaje = "OK" Then
+            conn2.Open()
+            If Trim(mensaje) = "OK" Then
                 Try
                     mensaje = "Error"
                     myCMD2.Connection = conn2
@@ -107,7 +107,7 @@ Public Class XfrmSubirRespaldo
             Dim myCMD3 As New OracleCommand()
             conn3.ConnectionString = oradb3
             conn3.Open()            
-            If mensaje = "OK" Then
+            If Trim(mensaje) = "OK" Then
                 Try
                     mensaje = "Error"
                     myCMD3.Connection = conn3
@@ -122,13 +122,13 @@ Public Class XfrmSubirRespaldo
                     Exit Sub
                 End Try
             End If
-            If mensaje = "OK" Then
+            If Trim(mensaje) = "OK" Then
                 MsgBox("La Importación ha Terminado Satisfactoriamente", MsgBoxStyle.Information)
                 TxtRuta.Text = Nothing
             Else
                 MsgBox("Error: " & mensaje, MsgBoxStyle.Information)
             End If
             conn3.Close()
-        End If
+            End If
     End Sub
 End Class
