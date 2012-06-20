@@ -32,7 +32,7 @@ Public Class XFrmMenuPrincipal
         e.KeyChar = S
     End Sub
     Private Sub XFrmMenuPrincipal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        verificar_permisos()
+        'verificar_permisos()
         Me.BtnCerrarSesion.Visibility = BarItemVisibility.Always
         Me.BtnSalir.Visibility = BarItemVisibility.Always
         'Call conexion()
@@ -203,5 +203,9 @@ Public Class XFrmMenuPrincipal
 
     Private Sub BtnModificarFirmas_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnModificarFirmas.ItemClick
         Padre(XfrmConsultaFirmas)
+    End Sub
+
+    Private Sub btnCInhabilitados_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnCInhabilitados.ItemClick
+        Padre(XfrmConCiudadanosInha)
     End Sub
 End Class
