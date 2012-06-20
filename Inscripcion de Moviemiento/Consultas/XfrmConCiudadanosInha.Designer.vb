@@ -195,7 +195,7 @@ Partial Class XfrmConCiudadanosInha
         Me.btnFiltro.Size = New System.Drawing.Size(55, 55)
         Me.btnFiltro.TabIndex = 0
         Me.btnFiltro.TabStop = False
-        Me.btnFiltro.Text = "Filtro"
+        Me.btnFiltro.Text = "Filtrar"
         '
         'btnSalir
         '
