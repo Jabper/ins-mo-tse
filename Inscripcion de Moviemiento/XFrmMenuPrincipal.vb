@@ -212,4 +212,8 @@ Public Class XFrmMenuPrincipal
     Private Sub btnConsultarCenso_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnConsultarCenso.ItemClick
 
     End Sub
+
+    Private Sub BtnSubirOtroSistema_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnSubirOtroSistema.ItemClick
+        Padre(XfrmSubirSistExterno)
+    End Sub
 End Class

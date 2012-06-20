@@ -25,6 +25,7 @@ Partial Class XfrmCrearRespaldo
         Me.BtnExplorar = New DevExpress.XtraEditors.SimpleButton
         Me.TxtRuta = New DevExpress.XtraEditors.TextEdit
         Me.FbUbicacion = New System.Windows.Forms.FolderBrowserDialog
+        Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.Panel1.SuspendLayout()
         CType(Me.TxtRuta.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -32,7 +33,7 @@ Partial Class XfrmCrearRespaldo
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(13, 34)
+        Me.Label1.Location = New System.Drawing.Point(13, 76)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(273, 13)
         Me.Label1.TabIndex = 15
@@ -41,18 +42,19 @@ Partial Class XfrmCrearRespaldo
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.BtnSalir)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.BtnEjecutar)
         Me.Panel1.Controls.Add(Me.BtnExplorar)
         Me.Panel1.Controls.Add(Me.TxtRuta)
         Me.Panel1.Location = New System.Drawing.Point(12, 12)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(336, 155)
+        Me.Panel1.Size = New System.Drawing.Size(336, 194)
         Me.Panel1.TabIndex = 11
         '
         'BtnEjecutar
         '
-        Me.BtnEjecutar.Location = New System.Drawing.Point(115, 104)
+        Me.BtnEjecutar.Location = New System.Drawing.Point(115, 146)
         Me.BtnEjecutar.Name = "BtnEjecutar"
         Me.BtnEjecutar.Size = New System.Drawing.Size(98, 23)
         Me.BtnEjecutar.TabIndex = 14
@@ -60,7 +62,7 @@ Partial Class XfrmCrearRespaldo
         '
         'BtnExplorar
         '
-        Me.BtnExplorar.Location = New System.Drawing.Point(242, 60)
+        Me.BtnExplorar.Location = New System.Drawing.Point(242, 102)
         Me.BtnExplorar.Name = "BtnExplorar"
         Me.BtnExplorar.Size = New System.Drawing.Size(75, 23)
         Me.BtnExplorar.TabIndex = 13
@@ -69,16 +71,28 @@ Partial Class XfrmCrearRespaldo
         'TxtRuta
         '
         Me.TxtRuta.Enabled = False
-        Me.TxtRuta.Location = New System.Drawing.Point(17, 61)
+        Me.TxtRuta.Location = New System.Drawing.Point(17, 103)
         Me.TxtRuta.Name = "TxtRuta"
         Me.TxtRuta.Size = New System.Drawing.Size(219, 20)
         Me.TxtRuta.TabIndex = 12
+        '
+        'BtnSalir
+        '
+        Me.BtnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnSalir.Appearance.Options.UseFont = True
+        Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
+        Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnSalir.Location = New System.Drawing.Point(13, 11)
+        Me.BtnSalir.Name = "BtnSalir"
+        Me.BtnSalir.Size = New System.Drawing.Size(55, 55)
+        Me.BtnSalir.TabIndex = 18
+        Me.BtnSalir.Text = "Salir"
         '
         'XfrmCrearRespaldo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(358, 179)
+        Me.ClientSize = New System.Drawing.Size(358, 218)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "XfrmCrearRespaldo"
         Me.Text = "Crear Respaldo"
@@ -94,4 +108,5 @@ Partial Class XfrmCrearRespaldo
     Friend WithEvents BtnExplorar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents TxtRuta As DevExpress.XtraEditors.TextEdit
     Friend WithEvents FbUbicacion As System.Windows.Forms.FolderBrowserDialog
+    Friend WithEvents BtnSalir As DevExpress.XtraEditors.SimpleButton
 End Class
