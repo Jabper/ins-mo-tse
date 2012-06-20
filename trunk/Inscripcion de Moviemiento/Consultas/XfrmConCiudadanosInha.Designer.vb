@@ -38,6 +38,7 @@ Partial Class XfrmConCiudadanosInha
         Me.btnFiltro = New DevExpress.XtraEditors.SimpleButton
         Me.btnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.cbxMotivo = New System.Windows.Forms.ComboBox
+        Me.MotivosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.Label7 = New System.Windows.Forms.Label
         Me.Label6 = New System.Windows.Forms.Label
@@ -52,7 +53,6 @@ Partial Class XfrmConCiudadanosInha
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
         Me.txtNombres = New System.Windows.Forms.TextBox
-        Me.MotivosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MotivosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MotivosTableAdapter
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMCIUDADANOSINHABILITADOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -60,8 +60,8 @@ Partial Class XfrmConCiudadanosInha
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel1.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
         CType(Me.MotivosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GCBusqueda
@@ -100,6 +100,7 @@ Partial Class XfrmConCiudadanosInha
         '
         'colNUMERO_IDENTIFICACION
         '
+        Me.colNUMERO_IDENTIFICACION.Caption = "No. Identificación"
         Me.colNUMERO_IDENTIFICACION.FieldName = "NUMERO_IDENTIFICACION"
         Me.colNUMERO_IDENTIFICACION.Name = "colNUMERO_IDENTIFICACION"
         Me.colNUMERO_IDENTIFICACION.Visible = True
@@ -108,6 +109,7 @@ Partial Class XfrmConCiudadanosInha
         '
         'colNOMBRES
         '
+        Me.colNOMBRES.Caption = "Nombres"
         Me.colNOMBRES.FieldName = "NOMBRES"
         Me.colNOMBRES.Name = "colNOMBRES"
         Me.colNOMBRES.Visible = True
@@ -115,6 +117,7 @@ Partial Class XfrmConCiudadanosInha
         '
         'colPRIMER_APELLIDO
         '
+        Me.colPRIMER_APELLIDO.Caption = "Primer Apellido"
         Me.colPRIMER_APELLIDO.FieldName = "PRIMER_APELLIDO"
         Me.colPRIMER_APELLIDO.Name = "colPRIMER_APELLIDO"
         Me.colPRIMER_APELLIDO.Visible = True
@@ -123,6 +126,7 @@ Partial Class XfrmConCiudadanosInha
         '
         'colSEGUNDO_APELLIDO
         '
+        Me.colSEGUNDO_APELLIDO.Caption = "Segundo Apellido"
         Me.colSEGUNDO_APELLIDO.FieldName = "SEGUNDO_APELLIDO"
         Me.colSEGUNDO_APELLIDO.Name = "colSEGUNDO_APELLIDO"
         Me.colSEGUNDO_APELLIDO.Visible = True
@@ -131,6 +135,7 @@ Partial Class XfrmConCiudadanosInha
         '
         'colDEPEDENCIA_GUBERNAMENTAL
         '
+        Me.colDEPEDENCIA_GUBERNAMENTAL.Caption = "Dependencia Gubernamental"
         Me.colDEPEDENCIA_GUBERNAMENTAL.FieldName = "DEPEDENCIA_GUBERNAMENTAL"
         Me.colDEPEDENCIA_GUBERNAMENTAL.Name = "colDEPEDENCIA_GUBERNAMENTAL"
         Me.colDEPEDENCIA_GUBERNAMENTAL.Visible = True
@@ -139,6 +144,7 @@ Partial Class XfrmConCiudadanosInha
         '
         'colCARGO
         '
+        Me.colCARGO.Caption = "Cargo"
         Me.colCARGO.FieldName = "CARGO"
         Me.colCARGO.Name = "colCARGO"
         Me.colCARGO.Visible = True
@@ -152,6 +158,7 @@ Partial Class XfrmConCiudadanosInha
         '
         'colDESCRIPCION
         '
+        Me.colDESCRIPCION.Caption = "Motivo"
         Me.colDESCRIPCION.FieldName = "DESCRIPCION"
         Me.colDESCRIPCION.Name = "colDESCRIPCION"
         Me.colDESCRIPCION.Visible = True
@@ -213,6 +220,11 @@ Partial Class XfrmConCiudadanosInha
         Me.cbxMotivo.Size = New System.Drawing.Size(361, 21)
         Me.cbxMotivo.TabIndex = 6
         Me.cbxMotivo.ValueMember = "CODIGO_MOTIVO"
+        '
+        'MotivosBindingSource
+        '
+        Me.MotivosBindingSource.DataMember = "Motivos"
+        Me.MotivosBindingSource.DataSource = Me.DSConsultas
         '
         'GroupBox1
         '
@@ -342,11 +354,6 @@ Partial Class XfrmConCiudadanosInha
         Me.txtNombres.Size = New System.Drawing.Size(361, 21)
         Me.txtNombres.TabIndex = 1
         '
-        'MotivosBindingSource
-        '
-        Me.MotivosBindingSource.DataMember = "Motivos"
-        Me.MotivosBindingSource.DataSource = Me.DSConsultas
-        '
         'MotivosTableAdapter
         '
         Me.MotivosTableAdapter.ClearBeforeFill = True
@@ -367,9 +374,9 @@ Partial Class XfrmConCiudadanosInha
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel1.ResumeLayout(False)
+        CType(Me.MotivosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.MotivosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
