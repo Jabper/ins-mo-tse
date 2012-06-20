@@ -9,7 +9,7 @@
 
     Private Sub btnFiltro_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFiltro.Click
         Dim filtro As String = String.Empty
-        If Me.txtIdentidad.Text <> String.Empty Then filtro = filtro & String.Format("NUMERO_IDENTIFICACION LIKE '%{0}%'", Me.txtNombres.Text).ToString
+        If Me.txtIdentidad.Text <> String.Empty Then filtro = filtro & String.Format("NUMERO_IDENTIFICACION LIKE '%{0}%'", Me.txtIdentidad.Text).ToString
         If Me.txtNombres.Text <> String.Empty Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("NOMBRES LIKE '%{0}%'", Me.txtNombres.Text).ToString
         If Me.txtPApellido.Text <> String.Empty Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("PRIMER_APELLIDO LIKE '%{0}%'", Me.txtPApellido.Text).ToString
         If Me.txtSApellido.Text <> String.Empty Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("SEGUNDO_APELLIDO LIKE '%{0}%'", Me.txtSApellido.Text).ToString
