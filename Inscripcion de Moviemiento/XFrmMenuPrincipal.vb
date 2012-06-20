@@ -216,4 +216,9 @@ Public Class XFrmMenuPrincipal
     Private Sub BtnSubirOtroSistema_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnSubirOtroSistema.ItemClick
         Padre(XfrmSubirSistExterno)
     End Sub
+
+    Private Sub BarButtonItem2_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem2.ItemClick
+        Dim reporte As Reporte_de_PlanillaNEM = New Reporte_de_PlanillaNEM
+        reporte.ShowPreview()
+    End Sub
 End Class
