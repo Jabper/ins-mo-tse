@@ -210,7 +210,7 @@ Public Class XFrmMenuPrincipal
     End Sub
 
     Private Sub btnConsultarCenso_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnConsultarCenso.ItemClick
-
+        Padre(XfrmConCenso)
     End Sub
 
     Private Sub BtnSubirOtroSistema_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnSubirOtroSistema.ItemClick
