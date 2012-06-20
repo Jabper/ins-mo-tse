@@ -405,7 +405,6 @@ Partial Class XfrmConCiudadanosInha
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents txtSApellido As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents TMotivoTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.tMotivoTableAdapter
     Friend WithEvents MotivosBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents MotivosTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MotivosTableAdapter
 End Class
