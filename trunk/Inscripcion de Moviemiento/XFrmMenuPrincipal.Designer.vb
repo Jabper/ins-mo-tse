@@ -50,6 +50,7 @@ Partial Class XFrmMenuPrincipal
         Me.BtnMotivo = New DevExpress.XtraBars.BarButtonItem
         Me.btnCInhabilitados = New DevExpress.XtraBars.BarButtonItem
         Me.btnConsultarCenso = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnSubirOtroSistema = New DevExpress.XtraBars.BarButtonItem
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage
@@ -77,9 +78,9 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonControl.ApplicationButtonDropDownControl = Me.ApplicationMenu2
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ExpandCollapseItem.Name = ""
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion, Me.BtnMotivo, Me.btnCInhabilitados, Me.btnConsultarCenso})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion, Me.BtnMotivo, Me.btnCInhabilitados, Me.btnConsultarCenso, Me.BtnSubirOtroSistema})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 30
+        Me.RibbonControl.MaxItemId = 31
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5, Me.RibbonPage6})
         Me.RibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010
@@ -288,6 +289,14 @@ Partial Class XFrmMenuPrincipal
         Me.btnConsultarCenso.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.incompatibilidades
         Me.btnConsultarCenso.Name = "btnConsultarCenso"
         '
+        'BtnSubirOtroSistema
+        '
+        Me.BtnSubirOtroSistema.Caption = "Importar de Otros Sistemas"
+        Me.BtnSubirOtroSistema.Glyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.importar_otros_sistemas
+        Me.BtnSubirOtroSistema.Id = 30
+        Me.BtnSubirOtroSistema.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.importar_otros_sistemas
+        Me.BtnSubirOtroSistema.Name = "BtnSubirOtroSistema"
+        '
         'RibbonPage1
         '
         Me.RibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1})
@@ -329,6 +338,7 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonPageGroup5.ItemLinks.Add(Me.BtnImportar)
         Me.RibbonPageGroup5.ItemLinks.Add(Me.BtnHacerRespaldo)
         Me.RibbonPageGroup5.ItemLinks.Add(Me.BtnSubirRespaldo)
+        Me.RibbonPageGroup5.ItemLinks.Add(Me.BtnSubirOtroSistema)
         Me.RibbonPageGroup5.Name = "RibbonPageGroup5"
         Me.RibbonPageGroup5.Text = "Respaldos"
         '
@@ -477,6 +487,7 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents btnCInhabilitados As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RibbonPageGroup7 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents btnConsultarCenso As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnSubirOtroSistema As DevExpress.XtraBars.BarButtonItem
 
 
 End Class

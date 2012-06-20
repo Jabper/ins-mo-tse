@@ -31,6 +31,7 @@ Public Class XfrmExportar
                 Mensajes.MensajeError(ex.Message)
                 Exit Sub
             End Try
+            conn.Close()
 
             If Trim(mensaje) = "OK" Then
                 Try
@@ -50,12 +51,10 @@ Public Class XfrmExportar
                     Mensajes.MensajeError(ex.Message)
                     Exit Sub
                 End Try
-            Else
-                conn.Close()
+            Else                
                 Mensajes.MensajeError(mensaje)
                 Exit Sub
-            End If
-            conn.Close()                
+            End If                  
         End If
     End Sub
 
