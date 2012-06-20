@@ -66,6 +66,7 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonPageGroup4 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPageGroup6 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem
+        Me.btnConsultarCenso = New DevExpress.XtraBars.BarButtonItem
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -76,9 +77,9 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonControl.ApplicationButtonDropDownControl = Me.ApplicationMenu2
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ExpandCollapseItem.Name = ""
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion, Me.BtnMotivo, Me.btnCInhabilitados})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion, Me.BtnMotivo, Me.btnCInhabilitados, Me.btnConsultarCenso})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 29
+        Me.RibbonControl.MaxItemId = 30
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5, Me.RibbonPage6})
         Me.RibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010
@@ -338,6 +339,7 @@ Partial Class XFrmMenuPrincipal
         'RibbonPageGroup7
         '
         Me.RibbonPageGroup7.ItemLinks.Add(Me.btnCInhabilitados)
+        Me.RibbonPageGroup7.ItemLinks.Add(Me.btnConsultarCenso)
         Me.RibbonPageGroup7.Name = "RibbonPageGroup7"
         Me.RibbonPageGroup7.Text = "Consultas"
         '
@@ -399,6 +401,13 @@ Partial Class XFrmMenuPrincipal
         Me.BarButtonItem1.Id = 19
         Me.BarButtonItem1.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.exportar
         Me.BarButtonItem1.Name = "BarButtonItem1"
+        '
+        'btnConsultarCenso
+        '
+        Me.btnConsultarCenso.Caption = "Consultar Censo"
+        Me.btnConsultarCenso.Id = 29
+        Me.btnConsultarCenso.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.incompatibilidades
+        Me.btnConsultarCenso.Name = "btnConsultarCenso"
         '
         'XFrmMenuPrincipal
         '
@@ -467,6 +476,7 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents BtnMotivo As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnCInhabilitados As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RibbonPageGroup7 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents btnConsultarCenso As DevExpress.XtraBars.BarButtonItem
 
 
 End Class

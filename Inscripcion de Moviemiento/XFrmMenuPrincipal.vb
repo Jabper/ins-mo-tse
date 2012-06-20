@@ -208,4 +208,8 @@ Public Class XFrmMenuPrincipal
     Private Sub btnCInhabilitados_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnCInhabilitados.ItemClick
         Padre(XfrmConCiudadanosInha)
     End Sub
+
+    Private Sub btnConsultarCenso_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnConsultarCenso.ItemClick
+
+    End Sub
 End Class
