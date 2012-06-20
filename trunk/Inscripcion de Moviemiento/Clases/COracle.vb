@@ -100,7 +100,7 @@ Public Class COracle
             Dim cnx As New OracleConnection(Configuracion.verconfig)
 
             cnx.Open()
-
+            Dim valor As Integer
 
             'Compruebo si existe el Usuario
             Dim Ssql As String = "SELECT " & nombre_sequencia & ".nextval NUMERO FROM dual"
@@ -110,15 +110,17 @@ Public Class COracle
             'Si existe Extraigo el password
             If dataread.Read = True Then
                 With dataread
-                    Return (.Item("NUMERO"))
+                    valor = (.Item("NUMERO"))
 
                 End With
             End If
             dataread.Close()
             cnx.Close()
-
+            Return valor
         Catch ex As Exception
+
             MessageBox.Show(ex.Message)
+
         End Try
     End Function
 

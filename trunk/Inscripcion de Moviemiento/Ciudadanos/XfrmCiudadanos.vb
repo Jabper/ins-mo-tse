@@ -6,14 +6,16 @@ Imports DevExpress.XtraEditors
 Public Class XfrmCiudadanos
     
 
-    Dim vi As Integer = 1
+    Dim vi As Integer = 0
     Dim errores As Integer = 0
     Public iddepto As Integer
     Public idmuni As Integer
     Public idpartido As Integer
     Public idmovimiento As Integer
     Public folio As String
-    Public ArregloDeErrores As Integer
+    Public ArregloDeErrores As Integer = 0
+    Public noinconsistentes As Integer = 0
+    Public pagina As Integer = 0
     Public Sub New()
 
         ' Llamada necesaria para el Diseñador de Windows Forms.
@@ -46,11 +48,15 @@ Public Class XfrmCiudadanos
 
     End Sub
 
+    Private Sub GridView1_InvalidRowException(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs) Handles GridView1.InvalidRowException
+
+    End Sub
+
     Private Sub GridView1_InvalidValueException(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs) Handles GridView1.InvalidValueException
-        'e.ExceptionMode = ExceptionMode.DisplayError
-        'e.WindowCaption = "Valor Inválido"
-        'e.ErrorText = "Error"
-        'GridView1.HideEditor()
+        e.ExceptionMode = ExceptionMode.DisplayError
+        e.WindowCaption = "Valor Inválido"
+        e.ErrorText = "Error"
+        GridView1.HideEditor()
     End Sub
 
     Private Sub GridView1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles GridView1.KeyPress
@@ -155,6 +161,7 @@ Public Class XfrmCiudadanos
 
         Estado.Visible = False
         lblfolio.Text = folio
+        pagina = COracle.FUN_EJECUTAR_SEQ("IM_SQ2_CIUDADANOS_RESPALDAN")
     End Sub
     Private Sub CmbPartido_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CmbPartido.EditValueChanged
         Try
@@ -259,7 +266,7 @@ Public Class XfrmCiudadanos
         'proceso de validacion con la base de datos
         Dim NombreIgual As String = "S"
         Dim NombreP As String = ""
-        Dim inconsistente As String = "N"
+        Dim inconsistente As String = "S"
         Dim Observacion As String = ""
         Try
 
@@ -279,13 +286,13 @@ Public Class XfrmCiudadanos
                     Dim papellido As String = view.GetRowCellValue(i, "PrimerApellido").ToString.Trim
 
                     If pnombre <> COracle.ObtenerDatos(consulta, "PRIMER_NOMBRE") Then
-                        inconsistente = "S"
+                        inconsistente = "N"
                         NombreIgual = "N"
                         Observacion &= "El primer nombre no coincide con el del padrón electoral "
                         'COMPROBANDO EL SEGUNDO NOMBRE
 
                     ElseIf papellido <> COracle.ObtenerDatos(consulta, "PRIMER_APELLIDO") Then
-                        inconsistente = "S"
+                        inconsistente = "N"
                         NombreIgual = "N"
                         Observacion &= "El primer apellido no coincide con el del padrón electoral "
                         'COMPROBANDO EL SEGUNDO NOMBRE
@@ -298,19 +305,19 @@ Public Class XfrmCiudadanos
 
                     If COracle.ObtenerDatos(consulta, "SEGUNDO_NOMBRE") = SNOMBRE Then
                     Else
-                        inconsistente = "S"
+                        inconsistente = "N"
                         NombreIgual = "N"
                         Observacion &= "El segundo nombre no coincide con el del padrón electoral "
                     End If
 
                     If COracle.ObtenerDatos(consulta, "SEGUNDO_APELLIDO") = SAPELLIDO Then
                     Else
-                        inconsistente = "S"
+                        inconsistente = "N"
                         NombreIgual = "N"
                         Observacion &= "El segundo apellido no coincide con el del padrón electoral "
                     End If
                 Else
-                    inconsistente = "S"
+                    inconsistente = "N"
                     Observacion = "Identidad no encontrada en el padrón electoral"
                     NombreIgual = ""
 
@@ -319,13 +326,18 @@ Public Class XfrmCiudadanos
             Next i
 
             If capturarerrores() = 0 Then
+                Me.BtnGuardar.Visible = False
                 Mensajes.MensajeGuardar()
+
             Else
+                Me.BtnGuardar.Visible = False
                 If XtraMessageBox.Show(capturarerrores.ToString & " registros no se pudieron guardar ¿Desea que el sistema intente guardarlos?", "Mensaje de Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
                     Me.Estado.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("Estado= 'False'")
-                    errores = 0
+                    ArregloDeErrores = 0
                     guardar()
                     Estado.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("Estado= 'False' or Estado= 'True'")
+                Else
+                    Me.Close()
                 End If
             End If
 
@@ -343,6 +355,7 @@ Public Class XfrmCiudadanos
             Dim ciudadanos As DSCiudadanos.IM_CIUDADANOS_RESPALDAN1Row
             ciudadanos = Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1.NewIM_CIUDADANOS_RESPALDAN1Row
             With ciudadanos
+                Dim cod As Integer = COracle.FUN_EJECUTAR_SEQ("IM_SQ1_CIUDADANOS_RESPALDAN")
                 .CODIGO_CUIDADANOS_RESPALDAN = COracle.FUN_EJECUTAR_SEQ("IM_SQ1_CIUDADANOS_RESPALDAN")
                 .CODIGO_PARTIDO = idpartido
                 .CODIGO_MOVIMIENTO = idmovimiento
@@ -364,6 +377,7 @@ Public Class XfrmCiudadanos
                     .FOLIO = CType(folio, Integer)
                 End If
                 If IsDBNull(GridView1.GetRowCellValue(i, "IMAGEN_FIRMA")) Then
+
                 Else
                     .IMAGEN_FIRMA = GridView1.GetRowCellValue(i, "IMAGEN_FIRMA")
                 End If
@@ -373,26 +387,26 @@ Public Class XfrmCiudadanos
                 .CONSISTENTE = inconsistente
                 .OBSERVACION = Observacion
                 .MAQUINA = SystemInformation.ComputerName
-                .PAGINA = COracle.FUN_EJECUTAR_SEQ("IM_SQ2_CIUDADANOS_RESPALDAN")
+                .PAGINA = pagina
             End With
 
             Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1.Rows.Add(ciudadanos)
 
             Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Update(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
             'GridView1.SetRowCellValue(i, "Estado", False)
-            If inconsistente = "S" Then
-                inconsistente += 1
+            If inconsistente = "N" Then
+                noinconsistentes += 1
             End If
         Catch ex As Exception
-            errores += 1
+            MsgBox(ex.Message)
             GridView1.SetRowCellValue(i, "Estado", False)
-            'ArregloDeErrores.Add(i.ToString)
+            ArregloDeErrores += 1
         End Try
 
     End Sub
 
     Function capturarerrores() As Integer
-        Return errores
+        Return ArregloDeErrores
     End Function
     Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Try
