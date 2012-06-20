@@ -57,6 +57,27 @@ WHERE        IM_CIUDADANOS_INHABILITADOS.CODIGO_MOTIVO = IM_MOTIVOS_INHABILITACI
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GenerosTableAdapter" GeneratorDataComponentClassName="GenerosTableAdapter" Name="Generos" UserDataComponentName="GenerosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT 0 AS COD, '{SELECCIONES UN GENERO}' AS DES FROM DUAL
+UNION 
+SELECT 1 AS COD, 'MASCULINO' AS DES FROM DUAL
+UNION
+SELECT 2 AS COD, 'FEMENINO' AS DES FROM DUAL</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="COD" DataSetColumn="COD" />
+              <Mapping SourceColumn="DES" DataSetColumn="DES" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -121,7 +142,7 @@ WHERE        IM_CIUDADANOS_INHABILITADOS.CODIGO_MOTIVO = IM_MOTIVOS_INHABILITACI
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Motivos" msprop:Generator_UserTableName="Motivos" msprop:Generator_RowDeletedName="MotivosRowDeleted" msprop:Generator_TableClassName="MotivosDataTable" msprop:Generator_RowChangedName="MotivosRowChanged" msprop:Generator_RowClassName="MotivosRow" msprop:Generator_RowChangingName="MotivosRowChanging" msprop:Generator_RowEvArgName="MotivosRowChangeEvent" msprop:Generator_RowEvHandlerName="MotivosRowChangeEventHandler" msprop:Generator_TablePropName="Motivos" msprop:Generator_TableVarName="tableMotivos" msprop:Generator_RowDeletingName="MotivosRowDeleting">
+        <xs:element name="Motivos" msprop:Generator_UserTableName="Motivos" msprop:Generator_RowDeletedName="MotivosRowDeleted" msprop:Generator_RowChangedName="MotivosRowChanged" msprop:Generator_RowClassName="MotivosRow" msprop:Generator_RowChangingName="MotivosRowChanging" msprop:Generator_RowEvArgName="MotivosRowChangeEvent" msprop:Generator_RowEvHandlerName="MotivosRowChangeEventHandler" msprop:Generator_TableClassName="MotivosDataTable" msprop:Generator_TableVarName="tableMotivos" msprop:Generator_RowDeletingName="MotivosRowDeleting" msprop:Generator_TablePropName="Motivos">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CODIGO_MOTIVO" msprop:Generator_UserColumnName="CODIGO_MOTIVO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOTIVO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOTIVO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOTIVOColumn" type="xs:decimal" minOccurs="0" />
@@ -129,6 +150,20 @@ WHERE        IM_CIUDADANOS_INHABILITADOS.CODIGO_MOTIVO = IM_MOTIVOS_INHABILITACI
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Generos" msprop:Generator_UserTableName="Generos" msprop:Generator_RowDeletedName="GenerosRowDeleted" msprop:Generator_TableClassName="GenerosDataTable" msprop:Generator_RowChangedName="GenerosRowChanged" msprop:Generator_RowClassName="GenerosRow" msprop:Generator_RowChangingName="GenerosRowChanging" msprop:Generator_RowEvArgName="GenerosRowChangeEvent" msprop:Generator_RowEvHandlerName="GenerosRowChangeEventHandler" msprop:Generator_TablePropName="Generos" msprop:Generator_TableVarName="tableGeneros" msprop:Generator_RowDeletingName="GenerosRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="COD" msprop:Generator_UserColumnName="COD" msprop:Generator_ColumnPropNameInRow="COD" msprop:Generator_ColumnVarNameInTable="columnCOD" msprop:Generator_ColumnPropNameInTable="CODColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DES" msprop:Generator_UserColumnName="DES" msprop:Generator_ColumnPropNameInRow="DES" msprop:Generator_ColumnVarNameInTable="columnDES" msprop:Generator_ColumnPropNameInTable="DESColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="23" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
