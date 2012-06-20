@@ -166,6 +166,20 @@
     <Compile Include="Clases\ORCL.vb" />
     <Compile Include="Clases\VControles.vb" />
     <Compile Include="Clases\VGlobales.vb" />
+    <Compile Include="Consultas\DSConsultas.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSConsultas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\DSConsultas.vb">
+      <DependentUpon>DSConsultas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\XfrmConCiudadanosInha.Designer.vb">
+      <DependentUpon>XfrmConCiudadanosInha.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\XfrmConCiudadanosInha.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DataSet1.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -403,6 +417,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ciudadanos\XfrmFilas.resx">
       <DependentUpon>XfrmFilas.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\XfrmConCiudadanosInha.resx">
+      <DependentUpon>XfrmConCiudadanosInha.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
@@ -778,6 +796,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\motivo.png" />
+    <None Include="Consultas\DSConsultas.xsc">
+      <DependentUpon>DSConsultas.xsd</DependentUpon>
+    </None>
+    <None Include="Consultas\DSConsultas.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSConsultas.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Consultas\DSConsultas.xss">
+      <DependentUpon>DSConsultas.xsd</DependentUpon>
+    </None>
     <None Include="Resources\motivo1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
