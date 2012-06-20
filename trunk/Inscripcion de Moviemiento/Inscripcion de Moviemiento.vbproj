@@ -197,6 +197,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\DS_REPORTE_DE_DP.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_REPORTE_DE_DP.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DS_REPORTE_DE_PNEM.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -353,6 +358,12 @@
     </Compile>
     <Compile Include="Reportes\DS_REPORTE_DE_PNEM.vb">
       <DependentUpon>DS_REPORTE_DE_PNEM.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Reporte_de_PlanillaDP.Designer.vb">
+      <DependentUpon>Reporte_de_PlanillaDP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Reporte_de_PlanillaDP.vb">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\Reporte_de_PlanillaNEM.Designer.vb">
       <DependentUpon>Reporte_de_PlanillaNEM.vb</DependentUpon>
@@ -533,6 +544,9 @@
     <EmbeddedResource Include="Procesos\XfrmSubirSistExterno.resx">
       <DependentUpon>XfrmSubirSistExterno.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Reporte_de_PlanillaDP.resx">
+      <DependentUpon>Reporte_de_PlanillaDP.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Reporte_de_PlanillaNEM.resx">
       <DependentUpon>Reporte_de_PlanillaNEM.vb</DependentUpon>
@@ -838,6 +852,17 @@
     <None Include="Resources\turnoff.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Reportes\DS_REPORTE_DE_DP.xsc">
+      <DependentUpon>DS_REPORTE_DE_DP.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_DP.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_REPORTE_DE_DP.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_DP.xss">
+      <DependentUpon>DS_REPORTE_DE_DP.xsd</DependentUpon>
+    </None>
     <None Include="Reportes\DS_REPORTE_DE_PNEM.xsc">
       <DependentUpon>DS_REPORTE_DE_PNEM.xsd</DependentUpon>
     </None>

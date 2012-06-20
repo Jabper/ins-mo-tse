@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:mstns="http://tempuri.org/nwindDataSet.xsd" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" id="DS_REPORTE_DE_DP" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Data Source=TSEDB2;User ID=tse;Password=oracle;" IsAppSettingsProperty="false" Modifier="Assembly" ParameterPrefix="@" Provider="System.Data.OracleClient" Name="Connection" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="IM_V_PLANILLAS_X_DPOLITICAAdapter" Name="IM_V_PLANILLAS_X_DPOLITICA" UserDataComponentName="IM_V_PLANILLAS_X_DPOLITICAAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Connection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT "CODIGO CANDIDATO", IDENTIDAD, "NOMBRE CANDIDATO", APELLIDO, DEPARTAMENTO, MUNICIPIO, "NOMBRE MOVIMIENTO ", "NOMBRE PARTIDO", "CARGO ELECTIVO", "NIVEL ELECTIVO", ESTADO FROM TSE.IM_V_PLANILLAS_X_DPOLITICA</CommandText>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CODIGO CANDIDATO" DataSetColumn="CODIGO CANDIDATO" />
+              <Mapping SourceColumn="IDENTIDAD" DataSetColumn="IDENTIDAD" />
+              <Mapping SourceColumn="NOMBRE CANDIDATO" DataSetColumn="NOMBRE CANDIDATO" />
+              <Mapping SourceColumn="APELLIDO" DataSetColumn="APELLIDO" />
+              <Mapping SourceColumn="DEPARTAMENTO" DataSetColumn="DEPARTAMENTO" />
+              <Mapping SourceColumn="MUNICIPIO" DataSetColumn="MUNICIPIO" />
+              <Mapping SourceColumn="NOMBRE MOVIMIENTO " DataSetColumn="NOMBRE MOVIMIENTO " />
+              <Mapping SourceColumn="NOMBRE PARTIDO" DataSetColumn="NOMBRE PARTIDO" />
+              <Mapping SourceColumn="CARGO ELECTIVO" DataSetColumn="CARGO ELECTIVO" />
+              <Mapping SourceColumn="NIVEL ELECTIVO" DataSetColumn="NIVEL ELECTIVO" />
+              <Mapping SourceColumn="ESTADO" DataSetColumn="ESTADO" />
+            </Mappings>
+          </TableAdapter>
+        </Tables>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_REPORTE_DE_DP" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="IM_V_PLANILLAS_X_DPOLITICA">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CODIGO_x0020_CANDIDATO" type="xs:decimal" minOccurs="0" />
+              <xs:element name="IDENTIDAD" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NOMBRE_x0020_CANDIDATO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="APELLIDO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DEPARTAMENTO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MUNICIPIO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NOMBRE_x0020_MOVIMIENTO_x0020_" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NOMBRE_x0020_PARTIDO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CARGO_x0020_ELECTIVO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NIVEL_x0020_ELECTIVO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ESTADO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

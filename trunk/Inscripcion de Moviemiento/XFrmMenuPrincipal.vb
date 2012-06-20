@@ -221,4 +221,9 @@ Public Class XFrmMenuPrincipal
         Dim reporte As Reporte_de_PlanillaNEM = New Reporte_de_PlanillaNEM
         reporte.ShowPreview()
     End Sub
+
+    Private Sub BarButtonItem3_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem3.ItemClick
+        Dim reporte2 As Reporte_de_PlanillaDP = New Reporte_de_PlanillaDP
+        reporte2.ShowPreview()
+    End Sub
 End Class
