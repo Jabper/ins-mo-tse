@@ -70,13 +70,13 @@ Partial Class xfrmInscripcionCandidato
         Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
         Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
         Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
-        Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl
-        Me.lblCopMuni = New DevExpress.XtraEditors.LabelControl
-        Me.lblMuni = New DevExpress.XtraEditors.LabelControl
-        Me.lbldepto_select = New DevExpress.XtraEditors.LabelControl
-        Me.lblPresidente_estado = New DevExpress.XtraEditors.LabelControl
-        Me.lbldepto = New DevExpress.XtraEditors.LabelControl
-        Me.lblPresidente = New DevExpress.XtraEditors.LabelControl
+        Me.GroupControl2 = New DevExpress.XtraEditors.GroupControl
+        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl
         Me.GCBusqueda = New DevExpress.XtraGrid.GridControl
         Me.TACANDIDATOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
@@ -100,17 +100,17 @@ Partial Class xfrmInscripcionCandidato
         Me.colMODIFICADO_POR = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colFECHA_MODIFICACION = New DevExpress.XtraGrid.Columns.GridColumn
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
+        Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.EmptySpaceItem9 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.EmptySpaceItem10 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.SimpleSeparator1 = New DevExpress.XtraLayout.SimpleSeparator
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
         Me.EmptySpaceItem4 = New DevExpress.XtraLayout.EmptySpaceItem
+        Me.LayoutControlItem7 = New DevExpress.XtraLayout.LayoutControlItem
         Me.IM_CANDIDATOSTableAdapter = New Inscripcion_de_Moviemientos.DSInscripcionCandidatosTableAdapters.IM_CANDIDATOSTableAdapter
         Me.IM_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DSInscripcionCandidatosTableAdapters.IM_PARTIDOS_POLITICOSTableAdapter
         Me.IM_MUNICIPIOSTableAdapter = New Inscripcion_de_Moviemientos.DSInscripcionCandidatosTableAdapters.IM_MUNICIPIOSTableAdapter
@@ -123,10 +123,6 @@ Partial Class xfrmInscripcionCandidato
         Me.EmptySpaceItem6 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.EmptySpaceItem7 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.TA_CANDIDATOSTableAdapter = New Inscripcion_de_Moviemientos.DSInscripcionCandidatosTableAdapters.TA_CANDIDATOSTableAdapter
-        Me.btnActualizar = New DevExpress.XtraEditors.SimpleButton
-        Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
-        Me.LayoutControlItem7 = New DevExpress.XtraLayout.LayoutControlItem
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -177,40 +173,35 @@ Partial Class xfrmInscripcionCandidato
         CType(Me.ItemForPOSICION, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForNOMBRE, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel1.SuspendLayout()
-        CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupControl1.SuspendLayout()
+        CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupControl2.SuspendLayout()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TACANDIDATOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmptySpaceItem9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem10, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SimpleSeparator1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem7, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
-        Me.LayoutControl1.Controls.Add(Me.PictureEdit1)
         Me.LayoutControl1.Controls.Add(Me.DataLayoutControl1)
         Me.LayoutControl1.Controls.Add(Me.FlowLayoutPanel1)
-        Me.LayoutControl1.Controls.Add(Me.GroupControl1)
         Me.LayoutControl1.Controls.Add(Me.GCBusqueda)
-        Me.LayoutControl1.Controls.Add(Me.btnActualizar)
+        Me.LayoutControl1.Controls.Add(Me.PictureEdit1)
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LayoutControl1.HiddenItems.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem6})
         Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
@@ -240,7 +231,7 @@ Partial Class xfrmInscripcionCandidato
         Me.DataLayoutControl1.Controls.Add(Me.POSICIONSpinEdit)
         Me.DataLayoutControl1.DataSource = Me.IMCANDIDATOSBindingSource
         Me.DataLayoutControl1.HiddenItems.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForCODIGO_CANDIDATOS, Me.ItemForADICIONADO_POR, Me.ItemForFECHA_ADICION, Me.ItemForMODIFICADO_POR, Me.ItemForFECHA_MODIFICACION})
-        Me.DataLayoutControl1.Location = New System.Drawing.Point(12, 86)
+        Me.DataLayoutControl1.Location = New System.Drawing.Point(12, 101)
         Me.DataLayoutControl1.Name = "DataLayoutControl1"
         Me.DataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(776, 141, 250, 350)
         Me.DataLayoutControl1.Root = Me.Root
@@ -257,7 +248,7 @@ Partial Class xfrmInscripcionCandidato
         Me.LookUpEdit1.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_NIVEL_ELECTIVO", "CODIGO", 30, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.LookUpEdit1.Properties.DataSource = Me.IMNIVELELECTIVOBindingSource
         Me.LookUpEdit1.Properties.DisplayMember = "DESCRIPCION"
-        Me.LookUpEdit1.Properties.NullValuePrompt = "Seleccione"
+        Me.LookUpEdit1.Properties.NullText = "Seleccione"
         Me.LookUpEdit1.Properties.NullValuePromptShowForEmptyValue = True
         Me.LookUpEdit1.Properties.ValueMember = "CODIGO_NIVEL_ELECTIVO"
         Me.LookUpEdit1.Size = New System.Drawing.Size(150, 20)
@@ -320,7 +311,7 @@ Partial Class xfrmInscripcionCandidato
         Me.CODIGO_DEPARTAMENTOLookUpEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_DEPARTAMENTO", "CODIGO", 30, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.CODIGO_DEPARTAMENTOLookUpEdit.Properties.DataSource = Me.IMDEPARTAMENTOSBindingSource
         Me.CODIGO_DEPARTAMENTOLookUpEdit.Properties.DisplayMember = "DESCRIPCION"
-        Me.CODIGO_DEPARTAMENTOLookUpEdit.Properties.NullValuePrompt = "Seleccione"
+        Me.CODIGO_DEPARTAMENTOLookUpEdit.Properties.NullText = "Seleccione"
         Me.CODIGO_DEPARTAMENTOLookUpEdit.Properties.ValueMember = "CODIGO_DEPARTAMENTO"
         Me.CODIGO_DEPARTAMENTOLookUpEdit.Size = New System.Drawing.Size(150, 20)
         Me.CODIGO_DEPARTAMENTOLookUpEdit.StyleController = Me.DataLayoutControl1
@@ -350,7 +341,7 @@ Partial Class xfrmInscripcionCandidato
         Me.CODIGO_PARTIDOLookUpEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_PARTIDO", "CODIGO", 25, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE", "NOMBRE", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.CODIGO_PARTIDOLookUpEdit.Properties.DataSource = Me.IMPARTIDOSPOLITICOSBindingSource
         Me.CODIGO_PARTIDOLookUpEdit.Properties.DisplayMember = "NOMBRE"
-        Me.CODIGO_PARTIDOLookUpEdit.Properties.NullValuePrompt = "Seleccione"
+        Me.CODIGO_PARTIDOLookUpEdit.Properties.NullText = "Seleccione"
         Me.CODIGO_PARTIDOLookUpEdit.Properties.ValueMember = "CODIGO_PARTIDO"
         Me.CODIGO_PARTIDOLookUpEdit.Size = New System.Drawing.Size(150, 20)
         Me.CODIGO_PARTIDOLookUpEdit.StyleController = Me.DataLayoutControl1
@@ -391,7 +382,7 @@ Partial Class xfrmInscripcionCandidato
         Me.CODIGO_MUNICIPIOLookUpEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MUNICIPIO", "CODIGO", 30, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.CODIGO_MUNICIPIOLookUpEdit.Properties.DataSource = Me.IMMUNICIPIOSBindingSource
         Me.CODIGO_MUNICIPIOLookUpEdit.Properties.DisplayMember = "DESCRIPCION"
-        Me.CODIGO_MUNICIPIOLookUpEdit.Properties.NullValuePrompt = "Seleccione"
+        Me.CODIGO_MUNICIPIOLookUpEdit.Properties.NullText = "Seleccione"
         Me.CODIGO_MUNICIPIOLookUpEdit.Properties.ValueMember = "CODIGO_MUNICIPIO"
         Me.CODIGO_MUNICIPIOLookUpEdit.Size = New System.Drawing.Size(204, 20)
         Me.CODIGO_MUNICIPIOLookUpEdit.StyleController = Me.DataLayoutControl1
@@ -420,7 +411,7 @@ Partial Class xfrmInscripcionCandidato
         Me.CODIGO_CARGO_ELECTIVOLookUpEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_CARGO_ELECTIVO", "CODIGO", 30, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.CODIGO_CARGO_ELECTIVOLookUpEdit.Properties.DataSource = Me.IMCARGOSELECTIVOSBindingSource
         Me.CODIGO_CARGO_ELECTIVOLookUpEdit.Properties.DisplayMember = "DESCRIPCION"
-        Me.CODIGO_CARGO_ELECTIVOLookUpEdit.Properties.NullValuePrompt = "Seleccione"
+        Me.CODIGO_CARGO_ELECTIVOLookUpEdit.Properties.NullText = "Seleccione"
         Me.CODIGO_CARGO_ELECTIVOLookUpEdit.Properties.ValueMember = "CODIGO_CARGO_ELECTIVO"
         Me.CODIGO_CARGO_ELECTIVOLookUpEdit.Size = New System.Drawing.Size(204, 20)
         Me.CODIGO_CARGO_ELECTIVOLookUpEdit.StyleController = Me.DataLayoutControl1
@@ -452,7 +443,7 @@ Partial Class xfrmInscripcionCandidato
         Me.CODIGO_MOVIMIENTOLookUpEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MOVIMIENTO", "CODIGO", 30, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE_MOVIMIENTO", "NOMBRE MOVIMIENTO", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.CODIGO_MOVIMIENTOLookUpEdit.Properties.DataSource = Me.IMMOVIMIENTOSBindingSource
         Me.CODIGO_MOVIMIENTOLookUpEdit.Properties.DisplayMember = "NOMBRE_MOVIMIENTO"
-        Me.CODIGO_MOVIMIENTOLookUpEdit.Properties.NullValuePrompt = "Seleccione"
+        Me.CODIGO_MOVIMIENTOLookUpEdit.Properties.NullText = "Seleccione"
         Me.CODIGO_MOVIMIENTOLookUpEdit.Properties.ValueMember = "CODIGO_MOVIMIENTO"
         Me.CODIGO_MOVIMIENTOLookUpEdit.Size = New System.Drawing.Size(204, 20)
         Me.CODIGO_MOVIMIENTOLookUpEdit.StyleController = Me.DataLayoutControl1
@@ -698,9 +689,10 @@ Partial Class xfrmInscripcionCandidato
         Me.FlowLayoutPanel1.Controls.Add(Me.BtnGuardar)
         Me.FlowLayoutPanel1.Controls.Add(Me.BtnEliminar)
         Me.FlowLayoutPanel1.Controls.Add(Me.BtnSalir)
+        Me.FlowLayoutPanel1.Controls.Add(Me.GroupControl2)
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(12, 12)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(430, 70)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(609, 85)
         Me.FlowLayoutPanel1.TabIndex = 10
         '
         'BtnNuevo
@@ -752,75 +744,75 @@ Partial Class xfrmInscripcionCandidato
         Me.BtnSalir.TabIndex = 10
         Me.BtnSalir.Text = "Salir"
         '
-        'GroupControl1
+        'GroupControl2
         '
-        Me.GroupControl1.Controls.Add(Me.lblCopMuni)
-        Me.GroupControl1.Controls.Add(Me.lblMuni)
-        Me.GroupControl1.Controls.Add(Me.lbldepto_select)
-        Me.GroupControl1.Controls.Add(Me.lblPresidente_estado)
-        Me.GroupControl1.Controls.Add(Me.lbldepto)
-        Me.GroupControl1.Controls.Add(Me.lblPresidente)
-        Me.GroupControl1.Location = New System.Drawing.Point(625, 12)
-        Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(354, 77)
-        Me.GroupControl1.TabIndex = 11
-        Me.GroupControl1.Text = "Estado de Planilla"
+        Me.GroupControl2.Controls.Add(Me.LabelControl1)
+        Me.GroupControl2.Controls.Add(Me.LabelControl2)
+        Me.GroupControl2.Controls.Add(Me.LabelControl3)
+        Me.GroupControl2.Controls.Add(Me.LabelControl4)
+        Me.GroupControl2.Controls.Add(Me.LabelControl5)
+        Me.GroupControl2.Controls.Add(Me.LabelControl6)
+        Me.GroupControl2.Location = New System.Drawing.Point(247, 3)
+        Me.GroupControl2.Name = "GroupControl2"
+        Me.GroupControl2.Size = New System.Drawing.Size(354, 77)
+        Me.GroupControl2.TabIndex = 12
+        Me.GroupControl2.Text = "Estado de Planilla"
         '
-        'lblCopMuni
+        'LabelControl1
         '
-        Me.lblCopMuni.Location = New System.Drawing.Point(84, 62)
-        Me.lblCopMuni.Name = "lblCopMuni"
-        Me.lblCopMuni.Size = New System.Drawing.Size(66, 13)
-        Me.lblCopMuni.TabIndex = 5
-        Me.lblCopMuni.Text = "LabelControl1"
+        Me.LabelControl1.Location = New System.Drawing.Point(84, 62)
+        Me.LabelControl1.Name = "LabelControl1"
+        Me.LabelControl1.Size = New System.Drawing.Size(66, 13)
+        Me.LabelControl1.TabIndex = 5
+        Me.LabelControl1.Text = "LabelControl1"
         '
-        'lblMuni
+        'LabelControl2
         '
-        Me.lblMuni.Location = New System.Drawing.Point(5, 62)
-        Me.lblMuni.Name = "lblMuni"
-        Me.lblMuni.Size = New System.Drawing.Size(77, 13)
-        Me.lblMuni.TabIndex = 4
-        Me.lblMuni.Text = "Corp. Municipal:"
+        Me.LabelControl2.Location = New System.Drawing.Point(5, 62)
+        Me.LabelControl2.Name = "LabelControl2"
+        Me.LabelControl2.Size = New System.Drawing.Size(77, 13)
+        Me.LabelControl2.TabIndex = 4
+        Me.LabelControl2.Text = "Corp. Municipal:"
         '
-        'lbldepto_select
+        'LabelControl3
         '
-        Me.lbldepto_select.Location = New System.Drawing.Point(84, 43)
-        Me.lbldepto_select.Name = "lbldepto_select"
-        Me.lbldepto_select.Size = New System.Drawing.Size(66, 13)
-        Me.lbldepto_select.TabIndex = 3
-        Me.lbldepto_select.Text = "LabelControl1"
+        Me.LabelControl3.Location = New System.Drawing.Point(84, 43)
+        Me.LabelControl3.Name = "LabelControl3"
+        Me.LabelControl3.Size = New System.Drawing.Size(66, 13)
+        Me.LabelControl3.TabIndex = 3
+        Me.LabelControl3.Text = "LabelControl1"
         '
-        'lblPresidente_estado
+        'LabelControl4
         '
-        Me.lblPresidente_estado.Location = New System.Drawing.Point(84, 24)
-        Me.lblPresidente_estado.Name = "lblPresidente_estado"
-        Me.lblPresidente_estado.Size = New System.Drawing.Size(66, 13)
-        Me.lblPresidente_estado.TabIndex = 2
-        Me.lblPresidente_estado.Text = "LabelControl1"
+        Me.LabelControl4.Location = New System.Drawing.Point(84, 24)
+        Me.LabelControl4.Name = "LabelControl4"
+        Me.LabelControl4.Size = New System.Drawing.Size(66, 13)
+        Me.LabelControl4.TabIndex = 2
+        Me.LabelControl4.Text = "LabelControl1"
         '
-        'lbldepto
+        'LabelControl5
         '
-        Me.lbldepto.Location = New System.Drawing.Point(5, 43)
-        Me.lbldepto.Name = "lbldepto"
-        Me.lbldepto.Size = New System.Drawing.Size(73, 13)
-        Me.lbldepto.TabIndex = 1
-        Me.lbldepto.Text = "Departamento:"
+        Me.LabelControl5.Location = New System.Drawing.Point(5, 43)
+        Me.LabelControl5.Name = "LabelControl5"
+        Me.LabelControl5.Size = New System.Drawing.Size(73, 13)
+        Me.LabelControl5.TabIndex = 1
+        Me.LabelControl5.Text = "Departamento:"
         '
-        'lblPresidente
+        'LabelControl6
         '
-        Me.lblPresidente.Location = New System.Drawing.Point(5, 24)
-        Me.lblPresidente.Name = "lblPresidente"
-        Me.lblPresidente.Size = New System.Drawing.Size(55, 13)
-        Me.lblPresidente.TabIndex = 0
-        Me.lblPresidente.Text = "Presidente:"
+        Me.LabelControl6.Location = New System.Drawing.Point(5, 24)
+        Me.LabelControl6.Name = "LabelControl6"
+        Me.LabelControl6.Size = New System.Drawing.Size(55, 13)
+        Me.LabelControl6.TabIndex = 0
+        Me.LabelControl6.Text = "Presidente:"
         '
         'GCBusqueda
         '
         Me.GCBusqueda.DataSource = Me.TACANDIDATOSBindingSource
-        Me.GCBusqueda.Location = New System.Drawing.Point(12, 278)
+        Me.GCBusqueda.Location = New System.Drawing.Point(12, 293)
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
-        Me.GCBusqueda.Size = New System.Drawing.Size(967, 129)
+        Me.GCBusqueda.Size = New System.Drawing.Size(967, 114)
         Me.GCBusqueda.TabIndex = 9
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -981,6 +973,14 @@ Partial Class xfrmInscripcionCandidato
         Me.GridView2.GridControl = Me.GCBusqueda
         Me.GridView2.Name = "GridView2"
         '
+        'PictureEdit1
+        '
+        Me.PictureEdit1.Location = New System.Drawing.Point(625, 12)
+        Me.PictureEdit1.Name = "PictureEdit1"
+        Me.PictureEdit1.Size = New System.Drawing.Size(186, 124)
+        Me.PictureEdit1.StyleController = Me.LayoutControl1
+        Me.PictureEdit1.TabIndex = 17
+        '
         'LayoutControlItem6
         '
         Me.LayoutControlItem6.CustomizationFormText = "LayoutControlItem6"
@@ -996,7 +996,7 @@ Partial Class xfrmInscripcionCandidato
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem4, Me.EmptySpaceItem9, Me.EmptySpaceItem10, Me.SimpleSeparator1, Me.EmptySpaceItem1, Me.LayoutControlItem2, Me.LayoutControlItem1, Me.LayoutControlItem3, Me.EmptySpaceItem4, Me.LayoutControlItem5, Me.LayoutControlItem7})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem4, Me.EmptySpaceItem10, Me.SimpleSeparator1, Me.EmptySpaceItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.EmptySpaceItem4, Me.LayoutControlItem7})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(991, 435)
@@ -1008,37 +1008,24 @@ Partial Class xfrmInscripcionCandidato
         Me.LayoutControlItem4.Control = Me.FlowLayoutPanel1
         Me.LayoutControlItem4.CustomizationFormText = "LayoutControlItem4"
         Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlItem4.MinSize = New System.Drawing.Size(104, 24)
+        Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(613, 89)
+        Me.LayoutControlItem4.MinSize = New System.Drawing.Size(613, 89)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(434, 74)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(613, 89)
         Me.LayoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem4.Text = "LayoutControlItem4"
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem4.TextToControlDistance = 0
         Me.LayoutControlItem4.TextVisible = False
         '
-        'EmptySpaceItem9
-        '
-        Me.EmptySpaceItem9.AllowHotTrack = False
-        Me.EmptySpaceItem9.CustomizationFormText = "EmptySpaceItem9"
-        Me.EmptySpaceItem9.Location = New System.Drawing.Point(434, 0)
-        Me.EmptySpaceItem9.MaxSize = New System.Drawing.Size(179, 74)
-        Me.EmptySpaceItem9.MinSize = New System.Drawing.Size(179, 74)
-        Me.EmptySpaceItem9.Name = "EmptySpaceItem9"
-        Me.EmptySpaceItem9.Size = New System.Drawing.Size(179, 74)
-        Me.EmptySpaceItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.EmptySpaceItem9.Text = "EmptySpaceItem9"
-        Me.EmptySpaceItem9.TextSize = New System.Drawing.Size(0, 0)
-        '
         'EmptySpaceItem10
         '
         Me.EmptySpaceItem10.AllowHotTrack = False
         Me.EmptySpaceItem10.CustomizationFormText = "EmptySpaceItem10"
-        Me.EmptySpaceItem10.Location = New System.Drawing.Point(792, 81)
-        Me.EmptySpaceItem10.MaxSize = New System.Drawing.Size(179, 128)
-        Me.EmptySpaceItem10.MinSize = New System.Drawing.Size(179, 128)
+        Me.EmptySpaceItem10.Location = New System.Drawing.Point(803, 0)
+        Me.EmptySpaceItem10.MinSize = New System.Drawing.Size(104, 24)
         Me.EmptySpaceItem10.Name = "EmptySpaceItem10"
-        Me.EmptySpaceItem10.Size = New System.Drawing.Size(179, 128)
+        Me.EmptySpaceItem10.Size = New System.Drawing.Size(168, 128)
         Me.EmptySpaceItem10.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem10.Text = "EmptySpaceItem10"
         Me.EmptySpaceItem10.TextSize = New System.Drawing.Size(0, 0)
@@ -1066,7 +1053,7 @@ Partial Class xfrmInscripcionCandidato
         '
         Me.LayoutControlItem2.Control = Me.DataLayoutControl1
         Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 74)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 89)
         Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(613, 192)
         Me.LayoutControlItem2.MinSize = New System.Drawing.Size(613, 192)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
@@ -1077,26 +1064,14 @@ Partial Class xfrmInscripcionCandidato
         Me.LayoutControlItem2.TextToControlDistance = 0
         Me.LayoutControlItem2.TextVisible = False
         '
-        'LayoutControlItem1
-        '
-        Me.LayoutControlItem1.Control = Me.GroupControl1
-        Me.LayoutControlItem1.CustomizationFormText = "LayoutControlItem1"
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(613, 0)
-        Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(358, 81)
-        Me.LayoutControlItem1.Text = "LayoutControlItem1"
-        Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem1.TextToControlDistance = 0
-        Me.LayoutControlItem1.TextVisible = False
-        '
         'LayoutControlItem3
         '
         Me.LayoutControlItem3.Control = Me.GCBusqueda
         Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 266)
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 281)
         Me.LayoutControlItem3.MinSize = New System.Drawing.Size(104, 24)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(971, 133)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(971, 118)
         Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem3.Text = "LayoutControlItem3"
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
@@ -1107,14 +1082,28 @@ Partial Class xfrmInscripcionCandidato
         '
         Me.EmptySpaceItem4.AllowHotTrack = False
         Me.EmptySpaceItem4.CustomizationFormText = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Location = New System.Drawing.Point(745, 209)
-        Me.EmptySpaceItem4.MaxSize = New System.Drawing.Size(226, 57)
-        Me.EmptySpaceItem4.MinSize = New System.Drawing.Size(226, 57)
+        Me.EmptySpaceItem4.Location = New System.Drawing.Point(613, 128)
+        Me.EmptySpaceItem4.MinSize = New System.Drawing.Size(104, 24)
         Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Size = New System.Drawing.Size(226, 57)
+        Me.EmptySpaceItem4.Size = New System.Drawing.Size(358, 153)
         Me.EmptySpaceItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem4.Text = "EmptySpaceItem4"
         Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'LayoutControlItem7
+        '
+        Me.LayoutControlItem7.Control = Me.PictureEdit1
+        Me.LayoutControlItem7.CustomizationFormText = "LayoutControlItem7"
+        Me.LayoutControlItem7.Location = New System.Drawing.Point(613, 0)
+        Me.LayoutControlItem7.MaxSize = New System.Drawing.Size(190, 128)
+        Me.LayoutControlItem7.MinSize = New System.Drawing.Size(190, 128)
+        Me.LayoutControlItem7.Name = "LayoutControlItem7"
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(190, 128)
+        Me.LayoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem7.Text = "LayoutControlItem7"
+        Me.LayoutControlItem7.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem7.TextToControlDistance = 0
+        Me.LayoutControlItem7.TextVisible = False
         '
         'IM_CANDIDATOSTableAdapter
         '
@@ -1188,51 +1177,6 @@ Partial Class xfrmInscripcionCandidato
         '
         Me.TA_CANDIDATOSTableAdapter.ClearBeforeFill = True
         '
-        'btnActualizar
-        '
-        Me.btnActualizar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.btnActualizar.Appearance.Options.UseFont = True
-        Me.btnActualizar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._1340052028_system_software_update
-        Me.btnActualizar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.btnActualizar.Location = New System.Drawing.Point(625, 221)
-        Me.btnActualizar.Name = "btnActualizar"
-        Me.btnActualizar.Size = New System.Drawing.Size(128, 53)
-        Me.btnActualizar.StyleController = Me.LayoutControl1
-        Me.btnActualizar.TabIndex = 16
-        Me.btnActualizar.Text = "Actualizar Tabla"
-        '
-        'LayoutControlItem5
-        '
-        Me.LayoutControlItem5.Control = Me.btnActualizar
-        Me.LayoutControlItem5.CustomizationFormText = "LayoutControlItem5"
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(613, 209)
-        Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(132, 57)
-        Me.LayoutControlItem5.Text = "LayoutControlItem5"
-        Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem5.TextToControlDistance = 0
-        Me.LayoutControlItem5.TextVisible = False
-        '
-        'PictureEdit1
-        '
-        Me.PictureEdit1.Location = New System.Drawing.Point(625, 93)
-        Me.PictureEdit1.Name = "PictureEdit1"
-        Me.PictureEdit1.Size = New System.Drawing.Size(175, 124)
-        Me.PictureEdit1.StyleController = Me.LayoutControl1
-        Me.PictureEdit1.TabIndex = 17
-        '
-        'LayoutControlItem7
-        '
-        Me.LayoutControlItem7.Control = Me.PictureEdit1
-        Me.LayoutControlItem7.CustomizationFormText = "LayoutControlItem7"
-        Me.LayoutControlItem7.Location = New System.Drawing.Point(613, 81)
-        Me.LayoutControlItem7.Name = "LayoutControlItem7"
-        Me.LayoutControlItem7.Size = New System.Drawing.Size(179, 128)
-        Me.LayoutControlItem7.Text = "LayoutControlItem7"
-        Me.LayoutControlItem7.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem7.TextToControlDistance = 0
-        Me.LayoutControlItem7.TextVisible = False
-        '
         'xfrmInscripcionCandidato
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1291,31 +1235,28 @@ Partial Class xfrmInscripcionCandidato
         CType(Me.ItemForPOSICION, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForNOMBRE, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel1.ResumeLayout(False)
-        CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupControl1.ResumeLayout(False)
-        Me.GroupControl1.PerformLayout()
+        CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupControl2.ResumeLayout(False)
+        Me.GroupControl2.PerformLayout()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TACANDIDATOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmptySpaceItem9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem10, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SimpleSeparator1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem7, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1346,7 +1287,6 @@ Partial Class xfrmInscripcionCandidato
     Friend WithEvents BtnEliminar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnSalir As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents EmptySpaceItem9 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents EmptySpaceItem10 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents TACANDIDATOSBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents TA_CANDIDATOSTableAdapter As Inscripcion_de_Moviemientos.DSInscripcionCandidatosTableAdapters.TA_CANDIDATOSTableAdapter
@@ -1387,16 +1327,8 @@ Partial Class xfrmInscripcionCandidato
     Friend WithEvents ItemForIDENTIDAD As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents ItemForPOSICION As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents EmptySpaceItem11 As DevExpress.XtraLayout.EmptySpaceItem
-    Friend WithEvents GroupControl1 As DevExpress.XtraEditors.GroupControl
-    Friend WithEvents lblCopMuni As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents lblMuni As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents lbldepto_select As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents lblPresidente_estado As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents lbldepto As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents lblPresidente As DevExpress.XtraEditors.LabelControl
     Friend WithEvents EmptySpaceItem1 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents GCBusqueda As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents colCODIGO_MOVIMIENTO As DevExpress.XtraGrid.Columns.GridColumn
@@ -1423,7 +1355,12 @@ Partial Class xfrmInscripcionCandidato
     Friend WithEvents LayoutControlItem6 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents EmptySpaceItem4 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents PictureEdit1 As DevExpress.XtraEditors.PictureEdit
-    Friend WithEvents btnActualizar As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents LayoutControlItem5 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem7 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents GroupControl2 As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl5 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
 End Class
