@@ -5,6 +5,7 @@ Imports DevExpress.XtraEditors
 Imports System.Threading
 Imports DevExpress.Utils
 Imports DevExpress.XtraGrid.Views.Base
+Imports System.Data.OracleClient
 
 Public Class XfrmConsultaFirmas
 
@@ -65,7 +66,7 @@ Public Class XfrmConsultaFirmas
         End If
     End Sub
 
- 
+
 
 
     Sub salir()
@@ -81,6 +82,8 @@ Public Class XfrmConsultaFirmas
     End Sub
 
     Private Sub XfrmCiudadanos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        'TODO: This line of code loads data into the 'DSCiudadanos.MOSTRAR_FIRMAS' table. You can move, or remove it, as needed.
+        Me.MOSTRAR_FIRMASTableAdapter.Fill(Me.DSCiudadanos.MOSTRAR_FIRMAS)
         '******************Ventana de espera
         Dim waitDialog As New WaitDialogForm("Obteniendo Información", "Por favor espere..")
         Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Fill(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
@@ -133,7 +136,7 @@ Public Class XfrmConsultaFirmas
 
 
 
-    Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
+    Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         'Me.GridView1.ExportToXls("E:\test.xls")
         'validarFilas()
     End Sub
@@ -218,7 +221,7 @@ Public Class XfrmConsultaFirmas
     Sub guardar(ByVal i As Integer)
         Dim NombreIgual As String = "S"
         Dim NombreP As String = ""
-        Dim inconsistente As String = "N"
+        Dim inconsistente As String = "S"
         Dim Observacion As String = ""
         Try
 
@@ -241,13 +244,13 @@ Public Class XfrmConsultaFirmas
                 Dim papellido As String = view.GetRowCellValue(i, "PRIMER_APELLIDO_PAPELETA").ToString.Trim
 
                 If pnombre <> COracle.ObtenerDatos(consulta, "PRIMER_NOMBRE") Then
-                    inconsistente = "S"
+                    inconsistente = "N"
                     NombreIgual = "N"
                     Observacion &= "El primer nombre no coincide con el del padrón electoral "
                     'COMPROBANDO EL SEGUNDO NOMBRE
 
                 ElseIf papellido <> COracle.ObtenerDatos(consulta, "PRIMER_APELLIDO") Then
-                    inconsistente = "S"
+                    inconsistente = "N"
                     NombreIgual = "N"
                     Observacion &= "El primer apellido no coincide con el del padrón electoral "
                     'COMPROBANDO EL SEGUNDO NOMBRE
@@ -260,24 +263,24 @@ Public Class XfrmConsultaFirmas
 
                 If COracle.ObtenerDatos(consulta, "SEGUNDO_NOMBRE") = SNOMBRE Then
                 Else
-                    inconsistente = "S"
+                    inconsistente = "N"
                     NombreIgual = "N"
                     Observacion &= "El segundo nombre no coincide con el del padrón electoral "
                 End If
 
                 If COracle.ObtenerDatos(consulta, "SEGUNDO_APELLIDO") = SAPELLIDO Then
                 Else
-                    inconsistente = "S"
+                    inconsistente = "N"
                     NombreIgual = "N"
                     Observacion &= "El segundo apellido no coincide con el del padrón electoral "
                 End If
             Else
-                inconsistente = "S"
+                inconsistente = "N"
                 Observacion = "Identidad no encontrada en el padrón electoral"
                 NombreIgual = ""
 
             End If
-
+            GuardarEnBase(i, NombreIgual, inconsistente, Observacion)
 
 
         Catch ex As Exception
@@ -285,7 +288,46 @@ Public Class XfrmConsultaFirmas
         End Try
     End Sub
 
+    Sub GuardarEnBase(ByVal i As Integer, ByVal NombreIgual As String, ByVal inconsistente As String, ByVal Observacion As String)
+        'Guardar Informacion
+        Try
 
+            Dim idciudadano = GridView1.GetRowCellValue(i, "CODIGO_CUIDADANOS_RESPALDAN")
+            Dim consulta As String
+            consulta = "update IM_CIUDADANOS_RESPALDAN set FIRMA='" & GridView1.GetRowCellValue(i, "FIRMA").ToString & "', "
+            consulta &= "HUELLA='" & GridView1.GetRowCellValue(i, "HUELLA").ToString & "', DIRECCION='" & GridView1.GetRowCellValue(i, "DIRECCION").ToString & "', "
+            consulta &= "IDENTIDAD='" & GridView1.GetRowCellValue(i, "IDENTIDAD").ToString.Trim & "',NOMBRE_IGUAL='" & NombreIgual & "', "
+            consulta &= "CONSISTENTE='" & inconsistente & "',OBSERVACION='" & Observacion & "', "
+            consulta &= "PRIMER_NOMBRE_PAPELETA='" & GridView1.GetRowCellValue(i, "PRIMER_NOMBRE_PAPELETA").ToString.Trim & "', "
+            consulta &= "SEGUNDO_NOMBRE_PAPELETA='" & GridView1.GetRowCellValue(i, "SEGUNDO_NOMBRE_PAPELETA").ToString.Trim & "', "
+            consulta &= "PRIMER_APELLIDO_PAPELETA='" & GridView1.GetRowCellValue(i, "PRIMER_APELLIDO_PAPELETA").ToString.Trim & "', "
+            consulta &= "SEGUNDO_APELLIDO_PAPELETA='" & GridView1.GetRowCellValue(i, "SEGUNDO_APELLIDO_PAPELETA").ToString.Trim & "', "
+            consulta &= "MODIFICADO_POR='" & usuario & "', FECHA_MODIFICACION =sysdate"
+            If folio <> "" Then
+                consulta &= ", FOLIO=" & GridView1.GetRowCellValue(i, "FOLIO")
+
+            End If
+            If Not IsDBNull(GridView1.GetRowCellValue(i, "IMAGEN_FIRMA")) Then
+
+
+                consulta &= ", IMAGEN_FIRMA= " & GridView1.GetRowCellValue(i, "IMAGEN_FIRMA")
+            Else
+                consulta &= ", IMAGEN_FIRMA=NULL "
+            End If
+
+            consulta &= " WHERE CODIGO_CUIDADANOS_RESPALDAN=" & GridView1.GetRowCellValue(i, "CODIGO_CUIDADANOS_RESPALDAN")
+            consulta &= " AND CODIGO_PARTIDO=" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO") & " AND CODIGO_MOVIMIENTO=" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO")
+            COracle.ejecutarconsulta(consulta)
+            Mensajes.MensajeActualizar()
+            GridView1.SetRowCellValue(i, "CONSISTENTE", inconsistente)
+            GridView1.SetRowCellValue(i, "OBSERVACIONES", Observacion)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+
+        End Try
+
+    End Sub
 
 
     Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -300,7 +342,7 @@ Public Class XfrmConsultaFirmas
     Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton1.Click
         GridView1.ActiveFilter.Clear()
 
-        
+
         If ChkMovimientos.CheckState = CheckState.Checked Then
 
             'Me.CODIGO_PARTIDO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_PARTIDO= '" & Me.CmbPartido.EditValue & "'")
@@ -319,7 +361,7 @@ Public Class XfrmConsultaFirmas
 
             End If
         End If
-       
+
         If Me.CmbFiltro.SelectedIndex = 0 Then
             ' Me.colCONSISTENTE.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CONSISTENTE= 'N' or CONSISTENTE= 'S'")
         ElseIf Me.CmbFiltro.SelectedIndex = 1 Then
@@ -354,10 +396,12 @@ Public Class XfrmConsultaFirmas
 
     Private Sub GridView1_RowUpdated(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.RowObjectEventArgs) Handles GridView1.RowUpdated
         Try
-
+            Dim view As GridView = CType(sender, GridView)
+            guardar(view.FocusedRowHandle)
             'Me.Validate()
             'Me.IM_CIUDADANOS_RESPALDAN1BindingSource.EndEdit()
             'Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Update(DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -390,19 +434,36 @@ Public Class XfrmConsultaFirmas
 
     Private Sub ChkGeografica_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChkGeografica.CheckedChanged
         If ChkGeografica.CheckState = CheckState.Checked Then
-            Me.CmbDepartamento.Enabled = True
-            Me.CmbMunicipio.Enabled = True
+            Me.CmbDepartamento.Enabled = False
+            Me.CmbMunicipio.Enabled = False
             Me.ChkDepto.CheckState = CheckState.Unchecked
             Me.ChkMuni.CheckState = CheckState.Unchecked
             Me.ChkDepto.Enabled = True
             Me.ChkMuni.Enabled = True
         Else
-            Me.CmbDepartamento.Enabled = False
-            Me.CmbMunicipio.Enabled = False
+            
             Me.ChkDepto.CheckState = CheckState.Unchecked
             Me.ChkMuni.CheckState = CheckState.Unchecked
             Me.ChkDepto.Enabled = False
             Me.ChkMuni.Enabled = False
+        End If
+    End Sub
+
+    Private Sub ChkDepto_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChkDepto.CheckedChanged
+        If ChkDepto.CheckState = CheckState.Checked Then
+            Me.CmbDepartamento.Enabled = True
+        Else
+            Me.CmbDepartamento.Enabled = False
+
+        End If
+    End Sub
+
+    Private Sub ChkMuni_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChkMuni.CheckedChanged
+        If ChkDepto.CheckState = CheckState.Checked Then
+            Me.CmbMunicipio.Enabled = True
+        Else
+            Me.CmbMunicipio.Enabled = False
+
         End If
     End Sub
 End Class

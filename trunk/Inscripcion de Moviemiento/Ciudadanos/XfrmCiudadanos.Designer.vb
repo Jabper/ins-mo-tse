@@ -85,6 +85,7 @@ Partial Class XfrmCiudadanos
         Me.TA_MUNICIPIOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_MUNICIPIOSTableAdapter
         Me.IM_CIUDADANOS_RESPALDAN1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_CIUDADANOS_RESPALDAN1TableAdapter = New Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.IM_CIUDADANOS_RESPALDAN1TableAdapter
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -170,9 +171,9 @@ Partial Class XfrmCiudadanos
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl2.Location = New System.Drawing.Point(196, 26)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(262, 14)
+        Me.LabelControl2.Size = New System.Drawing.Size(167, 14)
         Me.LabelControl2.TabIndex = 25
-        Me.LabelControl2.Text = "El registro presenta errores/ Inconsistente"
+        Me.LabelControl2.Text = "El registro presenta errores"
         '
         'PictureEdit2
         '
@@ -316,6 +317,7 @@ Partial Class XfrmCiudadanos
         '
         'GCBusqueda
         '
+        Me.GCBusqueda.ContextMenuStrip = Me.ContextMenuStrip1
         Me.GCBusqueda.DataSource = Me.IMCIUDADANOSRESPALDANBindingSource
         Me.GCBusqueda.Location = New System.Drawing.Point(12, 132)
         Me.GCBusqueda.MainView = Me.GridView1
@@ -737,6 +739,11 @@ Partial Class XfrmCiudadanos
         '
         Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.ClearBeforeFill = True
         '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
+        '
         'XfrmCiudadanos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -859,4 +866,5 @@ Partial Class XfrmCiudadanos
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents PanelControl3 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents LayoutControlItem8 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
 End Class
