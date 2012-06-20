@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -820,6 +820,7 @@
     <None Include="Resources\flecha.png" />
     <None Include="Resources\importar otros sistemas.png" />
     <Content Include="Resources\motivo.png" />
+    <None Include="Resources\Reporte.png" />
     <None Include="Resources\subir_movimientos.png" />
     <None Include="Resources\subir_requisitos.png" />
     <None Include="Resources\subir_candidatos.png" />
@@ -835,6 +836,9 @@
       <DependentUpon>DSConsultas.xsd</DependentUpon>
     </None>
     <None Include="Resources\motivo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reportes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
