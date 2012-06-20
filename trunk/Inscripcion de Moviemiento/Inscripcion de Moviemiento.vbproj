@@ -56,13 +56,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v11.2.Core, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v11.2.Core, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v11.2.Core, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v11.2.Core, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -190,6 +196,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DS_REPORTE_DE_PNEM.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_REPORTE_DE_PNEM.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
@@ -339,6 +350,15 @@
     </Compile>
     <Compile Include="Procesos\XfrmSubirSistExterno.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\DS_REPORTE_DE_PNEM.vb">
+      <DependentUpon>DS_REPORTE_DE_PNEM.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Reporte_de_PlanillaNEM.Designer.vb">
+      <DependentUpon>Reporte_de_PlanillaNEM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Reporte_de_PlanillaNEM.vb">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Settings.vb" />
     <Compile Include="StandarControles.Designer.vb">
@@ -513,6 +533,9 @@
     <EmbeddedResource Include="Procesos\XfrmSubirSistExterno.resx">
       <DependentUpon>XfrmSubirSistExterno.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Reporte_de_PlanillaNEM.resx">
+      <DependentUpon>Reporte_de_PlanillaNEM.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StandarControles.resx">
       <DependentUpon>StandarControles.vb</DependentUpon>
@@ -815,6 +838,17 @@
     <None Include="Resources\turnoff.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Reportes\DS_REPORTE_DE_PNEM.xsc">
+      <DependentUpon>DS_REPORTE_DE_PNEM.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_PNEM.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_REPORTE_DE_PNEM.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_PNEM.xss">
+      <DependentUpon>DS_REPORTE_DE_PNEM.xsd</DependentUpon>
+    </None>
     <None Include="Resources\candidatos_repetidos.png" />
     <None Include="Resources\firmas.png" />
     <None Include="Resources\flecha.png" />
@@ -836,9 +870,6 @@
       <DependentUpon>DSConsultas.xsd</DependentUpon>
     </None>
     <None Include="Resources\motivo1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reportes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
