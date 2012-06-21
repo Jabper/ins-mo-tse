@@ -29,7 +29,12 @@ Partial Class XfrmConFirmas
         Me.Label11 = New System.Windows.Forms.Label
         Me.txtFolio = New System.Windows.Forms.TextBox
         Me.cbxMovimiento = New System.Windows.Forms.ComboBox
+        Me.IMFK1MOVIMIENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PartidosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DSConsultas = New Inscripcion_de_Moviemientos.DSConsultas
         Me.cbxMunicipio = New System.Windows.Forms.ComboBox
+        Me.IMFK1MUNICIPIOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DepartamentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.cbxDepartamento = New System.Windows.Forms.ComboBox
         Me.Label10 = New System.Windows.Forms.Label
         Me.Label9 = New System.Windows.Forms.Label
@@ -73,25 +78,20 @@ Partial Class XfrmConFirmas
         Me.colOBSERVACION = New DevExpress.XtraGrid.Columns.GridColumn
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
-        Me.DSConsultas = New Inscripcion_de_Moviemientos.DSConsultas
-        Me.DepartamentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DepartamentosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.DepartamentosTableAdapter
-        Me.IMFK1MUNICIPIOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MunicipiosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MunicipiosTableAdapter
-        Me.PartidosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PartidosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.PartidosTableAdapter
-        Me.IMFK1MOVIMIENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MovimientosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MovimientosTableAdapter
         Me.GroupBox1.SuspendLayout()
+        CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PartidosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMFK1MUNICIPIOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DepartamentosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel1.SuspendLayout()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DepartamentosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IMFK1MUNICIPIOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PartidosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -203,6 +203,21 @@ Partial Class XfrmConFirmas
         Me.cbxMovimiento.TabIndex = 11
         Me.cbxMovimiento.ValueMember = "CODIGO_MOVIMIENTO"
         '
+        'IMFK1MOVIMIENTOSBindingSource
+        '
+        Me.IMFK1MOVIMIENTOSBindingSource.DataMember = "IM_FK1_MOVIMIENTOS"
+        Me.IMFK1MOVIMIENTOSBindingSource.DataSource = Me.PartidosBindingSource
+        '
+        'PartidosBindingSource
+        '
+        Me.PartidosBindingSource.DataMember = "Partidos"
+        Me.PartidosBindingSource.DataSource = Me.DSConsultas
+        '
+        'DSConsultas
+        '
+        Me.DSConsultas.DataSetName = "DSConsultas"
+        Me.DSConsultas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'cbxMunicipio
         '
         Me.cbxMunicipio.DataSource = Me.IMFK1MUNICIPIOBindingSource
@@ -213,6 +228,16 @@ Partial Class XfrmConFirmas
         Me.cbxMunicipio.Size = New System.Drawing.Size(397, 21)
         Me.cbxMunicipio.TabIndex = 13
         Me.cbxMunicipio.ValueMember = "CODIGO_MUNICIPIO"
+        '
+        'IMFK1MUNICIPIOBindingSource
+        '
+        Me.IMFK1MUNICIPIOBindingSource.DataMember = "IM_FK1_MUNICIPIO"
+        Me.IMFK1MUNICIPIOBindingSource.DataSource = Me.DepartamentosBindingSource
+        '
+        'DepartamentosBindingSource
+        '
+        Me.DepartamentosBindingSource.DataMember = "Departamentos"
+        Me.DepartamentosBindingSource.DataSource = Me.DSConsultas
         '
         'cbxDepartamento
         '
@@ -424,18 +449,27 @@ Partial Class XfrmConFirmas
         '
         Me.colCODIGO_CUIDADANOS_RESPALDAN.FieldName = "CODIGO_CUIDADANOS_RESPALDAN"
         Me.colCODIGO_CUIDADANOS_RESPALDAN.Name = "colCODIGO_CUIDADANOS_RESPALDAN"
+        Me.colCODIGO_CUIDADANOS_RESPALDAN.OptionsColumn.AllowEdit = False
+        Me.colCODIGO_CUIDADANOS_RESPALDAN.OptionsColumn.AllowFocus = False
+        Me.colCODIGO_CUIDADANOS_RESPALDAN.OptionsColumn.TabStop = False
         Me.colCODIGO_CUIDADANOS_RESPALDAN.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         '
         'colCODIGO_PARTIDO
         '
         Me.colCODIGO_PARTIDO.FieldName = "CODIGO_PARTIDO"
         Me.colCODIGO_PARTIDO.Name = "colCODIGO_PARTIDO"
+        Me.colCODIGO_PARTIDO.OptionsColumn.AllowEdit = False
+        Me.colCODIGO_PARTIDO.OptionsColumn.AllowFocus = False
+        Me.colCODIGO_PARTIDO.OptionsColumn.TabStop = False
         Me.colCODIGO_PARTIDO.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         '
         'colCODIGO_MOVIMIENTO
         '
         Me.colCODIGO_MOVIMIENTO.FieldName = "CODIGO_MOVIMIENTO"
         Me.colCODIGO_MOVIMIENTO.Name = "colCODIGO_MOVIMIENTO"
+        Me.colCODIGO_MOVIMIENTO.OptionsColumn.AllowEdit = False
+        Me.colCODIGO_MOVIMIENTO.OptionsColumn.AllowFocus = False
+        Me.colCODIGO_MOVIMIENTO.OptionsColumn.TabStop = False
         Me.colCODIGO_MOVIMIENTO.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         '
         'colPARTIDO
@@ -443,6 +477,9 @@ Partial Class XfrmConFirmas
         Me.colPARTIDO.Caption = "Partido"
         Me.colPARTIDO.FieldName = "PARTIDO"
         Me.colPARTIDO.Name = "colPARTIDO"
+        Me.colPARTIDO.OptionsColumn.AllowEdit = False
+        Me.colPARTIDO.OptionsColumn.AllowFocus = False
+        Me.colPARTIDO.OptionsColumn.TabStop = False
         Me.colPARTIDO.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colPARTIDO.Visible = True
         Me.colPARTIDO.VisibleIndex = 0
@@ -453,6 +490,9 @@ Partial Class XfrmConFirmas
         Me.colMOVIMIENTO.Caption = "Movimiento"
         Me.colMOVIMIENTO.FieldName = "MOVIMIENTO"
         Me.colMOVIMIENTO.Name = "colMOVIMIENTO"
+        Me.colMOVIMIENTO.OptionsColumn.AllowEdit = False
+        Me.colMOVIMIENTO.OptionsColumn.AllowFocus = False
+        Me.colMOVIMIENTO.OptionsColumn.TabStop = False
         Me.colMOVIMIENTO.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colMOVIMIENTO.Visible = True
         Me.colMOVIMIENTO.VisibleIndex = 1
@@ -463,6 +503,9 @@ Partial Class XfrmConFirmas
         Me.colDEPARTAMENTO.Caption = "Departamento"
         Me.colDEPARTAMENTO.FieldName = "DEPARTAMENTO"
         Me.colDEPARTAMENTO.Name = "colDEPARTAMENTO"
+        Me.colDEPARTAMENTO.OptionsColumn.AllowEdit = False
+        Me.colDEPARTAMENTO.OptionsColumn.AllowFocus = False
+        Me.colDEPARTAMENTO.OptionsColumn.TabStop = False
         Me.colDEPARTAMENTO.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colDEPARTAMENTO.Visible = True
         Me.colDEPARTAMENTO.VisibleIndex = 2
@@ -473,6 +516,9 @@ Partial Class XfrmConFirmas
         Me.colMUNICIPIO.Caption = "Municipio"
         Me.colMUNICIPIO.FieldName = "MUNICIPIO"
         Me.colMUNICIPIO.Name = "colMUNICIPIO"
+        Me.colMUNICIPIO.OptionsColumn.AllowEdit = False
+        Me.colMUNICIPIO.OptionsColumn.AllowFocus = False
+        Me.colMUNICIPIO.OptionsColumn.TabStop = False
         Me.colMUNICIPIO.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colMUNICIPIO.Visible = True
         Me.colMUNICIPIO.VisibleIndex = 3
@@ -484,6 +530,8 @@ Partial Class XfrmConFirmas
         Me.colIDENTIDAD.FieldName = "IDENTIDAD"
         Me.colIDENTIDAD.Name = "colIDENTIDAD"
         Me.colIDENTIDAD.OptionsColumn.AllowEdit = False
+        Me.colIDENTIDAD.OptionsColumn.AllowFocus = False
+        Me.colIDENTIDAD.OptionsColumn.TabStop = False
         Me.colIDENTIDAD.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colIDENTIDAD.Visible = True
         Me.colIDENTIDAD.VisibleIndex = 4
@@ -494,6 +542,9 @@ Partial Class XfrmConFirmas
         Me.colPRIMER_NOMBRE.Caption = "Primer Nombre"
         Me.colPRIMER_NOMBRE.FieldName = "PRIMER_NOMBRE_PAPELETA"
         Me.colPRIMER_NOMBRE.Name = "colPRIMER_NOMBRE"
+        Me.colPRIMER_NOMBRE.OptionsColumn.AllowEdit = False
+        Me.colPRIMER_NOMBRE.OptionsColumn.AllowFocus = False
+        Me.colPRIMER_NOMBRE.OptionsColumn.TabStop = False
         Me.colPRIMER_NOMBRE.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colPRIMER_NOMBRE.Visible = True
         Me.colPRIMER_NOMBRE.VisibleIndex = 5
@@ -504,6 +555,9 @@ Partial Class XfrmConFirmas
         Me.colSEGUNDO_NOMBRE.Caption = "Segundo Nombre"
         Me.colSEGUNDO_NOMBRE.FieldName = "SEGUNDO_NOMBRE_PAPELETA"
         Me.colSEGUNDO_NOMBRE.Name = "colSEGUNDO_NOMBRE"
+        Me.colSEGUNDO_NOMBRE.OptionsColumn.AllowEdit = False
+        Me.colSEGUNDO_NOMBRE.OptionsColumn.AllowFocus = False
+        Me.colSEGUNDO_NOMBRE.OptionsColumn.TabStop = False
         Me.colSEGUNDO_NOMBRE.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colSEGUNDO_NOMBRE.Visible = True
         Me.colSEGUNDO_NOMBRE.VisibleIndex = 6
@@ -514,6 +568,9 @@ Partial Class XfrmConFirmas
         Me.colPRIMER_APELLIDO.Caption = "Primer Apellido"
         Me.colPRIMER_APELLIDO.FieldName = "PRIMER_APELLIDO_PAPELETA"
         Me.colPRIMER_APELLIDO.Name = "colPRIMER_APELLIDO"
+        Me.colPRIMER_APELLIDO.OptionsColumn.AllowEdit = False
+        Me.colPRIMER_APELLIDO.OptionsColumn.AllowFocus = False
+        Me.colPRIMER_APELLIDO.OptionsColumn.TabStop = False
         Me.colPRIMER_APELLIDO.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colPRIMER_APELLIDO.Visible = True
         Me.colPRIMER_APELLIDO.VisibleIndex = 7
@@ -524,6 +581,9 @@ Partial Class XfrmConFirmas
         Me.colSEGUNDO_APELLIDO.Caption = "Segundo Apellido"
         Me.colSEGUNDO_APELLIDO.FieldName = "SEGUNDO_APELLIDO_PAPELETA"
         Me.colSEGUNDO_APELLIDO.Name = "colSEGUNDO_APELLIDO"
+        Me.colSEGUNDO_APELLIDO.OptionsColumn.AllowEdit = False
+        Me.colSEGUNDO_APELLIDO.OptionsColumn.AllowFocus = False
+        Me.colSEGUNDO_APELLIDO.OptionsColumn.TabStop = False
         Me.colSEGUNDO_APELLIDO.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colSEGUNDO_APELLIDO.Visible = True
         Me.colSEGUNDO_APELLIDO.VisibleIndex = 8
@@ -534,6 +594,9 @@ Partial Class XfrmConFirmas
         Me.colFOLIO.Caption = "Folio"
         Me.colFOLIO.FieldName = "FOLIO"
         Me.colFOLIO.Name = "colFOLIO"
+        Me.colFOLIO.OptionsColumn.AllowEdit = False
+        Me.colFOLIO.OptionsColumn.AllowFocus = False
+        Me.colFOLIO.OptionsColumn.TabStop = False
         Me.colFOLIO.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colFOLIO.Visible = True
         Me.colFOLIO.VisibleIndex = 9
@@ -544,6 +607,9 @@ Partial Class XfrmConFirmas
         Me.colPAGINA.Caption = "Página"
         Me.colPAGINA.FieldName = "PAGINA"
         Me.colPAGINA.Name = "colPAGINA"
+        Me.colPAGINA.OptionsColumn.AllowEdit = False
+        Me.colPAGINA.OptionsColumn.AllowFocus = False
+        Me.colPAGINA.OptionsColumn.TabStop = False
         Me.colPAGINA.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colPAGINA.Visible = True
         Me.colPAGINA.VisibleIndex = 10
@@ -553,6 +619,9 @@ Partial Class XfrmConFirmas
         Me.colFIRMA.Caption = "¿Con Firma?"
         Me.colFIRMA.FieldName = "FIRMA"
         Me.colFIRMA.Name = "colFIRMA"
+        Me.colFIRMA.OptionsColumn.AllowEdit = False
+        Me.colFIRMA.OptionsColumn.AllowFocus = False
+        Me.colFIRMA.OptionsColumn.TabStop = False
         Me.colFIRMA.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colFIRMA.Visible = True
         Me.colFIRMA.VisibleIndex = 11
@@ -563,6 +632,9 @@ Partial Class XfrmConFirmas
         Me.colHUELLA.Caption = "¿Con Huella?"
         Me.colHUELLA.FieldName = "HUELLA"
         Me.colHUELLA.Name = "colHUELLA"
+        Me.colHUELLA.OptionsColumn.AllowEdit = False
+        Me.colHUELLA.OptionsColumn.AllowFocus = False
+        Me.colHUELLA.OptionsColumn.TabStop = False
         Me.colHUELLA.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colHUELLA.Visible = True
         Me.colHUELLA.VisibleIndex = 12
@@ -573,6 +645,9 @@ Partial Class XfrmConFirmas
         Me.colDIRECCION.Caption = "¿Con Dirección?"
         Me.colDIRECCION.FieldName = "DIRECCION"
         Me.colDIRECCION.Name = "colDIRECCION"
+        Me.colDIRECCION.OptionsColumn.AllowEdit = False
+        Me.colDIRECCION.OptionsColumn.AllowFocus = False
+        Me.colDIRECCION.OptionsColumn.TabStop = False
         Me.colDIRECCION.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colDIRECCION.Visible = True
         Me.colDIRECCION.VisibleIndex = 13
@@ -583,6 +658,9 @@ Partial Class XfrmConFirmas
         Me.colIGUAL.Caption = "¿Nombre Coincide?"
         Me.colIGUAL.FieldName = "IGUAL"
         Me.colIGUAL.Name = "colIGUAL"
+        Me.colIGUAL.OptionsColumn.AllowEdit = False
+        Me.colIGUAL.OptionsColumn.AllowFocus = False
+        Me.colIGUAL.OptionsColumn.TabStop = False
         Me.colIGUAL.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colIGUAL.Visible = True
         Me.colIGUAL.VisibleIndex = 14
@@ -593,6 +671,9 @@ Partial Class XfrmConFirmas
         Me.colOBSERVACION.Caption = "Observación"
         Me.colOBSERVACION.FieldName = "OBSERVACION"
         Me.colOBSERVACION.Name = "colOBSERVACION"
+        Me.colOBSERVACION.OptionsColumn.AllowEdit = False
+        Me.colOBSERVACION.OptionsColumn.AllowFocus = False
+        Me.colOBSERVACION.OptionsColumn.TabStop = False
         Me.colOBSERVACION.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colOBSERVACION.Visible = True
         Me.colOBSERVACION.VisibleIndex = 15
@@ -612,42 +693,17 @@ Partial Class XfrmConFirmas
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Firma"
         '
-        'DSConsultas
-        '
-        Me.DSConsultas.DataSetName = "DSConsultas"
-        Me.DSConsultas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'DepartamentosBindingSource
-        '
-        Me.DepartamentosBindingSource.DataMember = "Departamentos"
-        Me.DepartamentosBindingSource.DataSource = Me.DSConsultas
-        '
         'DepartamentosTableAdapter
         '
         Me.DepartamentosTableAdapter.ClearBeforeFill = True
-        '
-        'IMFK1MUNICIPIOBindingSource
-        '
-        Me.IMFK1MUNICIPIOBindingSource.DataMember = "IM_FK1_MUNICIPIO"
-        Me.IMFK1MUNICIPIOBindingSource.DataSource = Me.DepartamentosBindingSource
         '
         'MunicipiosTableAdapter
         '
         Me.MunicipiosTableAdapter.ClearBeforeFill = True
         '
-        'PartidosBindingSource
-        '
-        Me.PartidosBindingSource.DataMember = "Partidos"
-        Me.PartidosBindingSource.DataSource = Me.DSConsultas
-        '
         'PartidosTableAdapter
         '
         Me.PartidosTableAdapter.ClearBeforeFill = True
-        '
-        'IMFK1MOVIMIENTOSBindingSource
-        '
-        Me.IMFK1MOVIMIENTOSBindingSource.DataMember = "IM_FK1_MOVIMIENTOS"
-        Me.IMFK1MOVIMIENTOSBindingSource.DataSource = Me.PartidosBindingSource
         '
         'MovimientosTableAdapter
         '
@@ -666,15 +722,15 @@ Partial Class XfrmConFirmas
         Me.Text = "XfrmConFirmas"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PartidosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMFK1MUNICIPIOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DepartamentosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DepartamentosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IMFK1MUNICIPIOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PartidosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
