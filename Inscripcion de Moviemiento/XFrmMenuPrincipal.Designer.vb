@@ -78,6 +78,7 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonPageGroup4 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPageGroup6 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem
+        Me.btnConsultarCandidatos = New DevExpress.XtraBars.BarButtonItem
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,9 +89,9 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonControl.ApplicationButtonDropDownControl = Me.ApplicationMenu2
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ExpandCollapseItem.Name = ""
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion, Me.BtnMotivo, Me.btnCInhabilitados, Me.btnConsultarCenso, Me.BtnSubirOtroSistema, Me.BtnRPlanilla, Me.BarButtonItem2, Me.BarButtonItem3, Me.btnConsultarFirmas, Me.BtnRFirmas, Me.BtnFDP, Me.BtnREstadistico})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion, Me.BtnMotivo, Me.btnCInhabilitados, Me.btnConsultarCenso, Me.BtnSubirOtroSistema, Me.BtnRPlanilla, Me.BarButtonItem2, Me.BarButtonItem3, Me.btnConsultarFirmas, Me.BtnRFirmas, Me.BtnFDP, Me.BtnREstadistico, Me.btnConsultarCandidatos})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 39
+        Me.RibbonControl.MaxItemId = 40
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5, Me.RibbonPage6})
         Me.RibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010
@@ -416,6 +417,7 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonPageGroup7.ItemLinks.Add(Me.btnCInhabilitados)
         Me.RibbonPageGroup7.ItemLinks.Add(Me.btnConsultarCenso)
         Me.RibbonPageGroup7.ItemLinks.Add(Me.btnConsultarFirmas)
+        Me.RibbonPageGroup7.ItemLinks.Add(Me.btnConsultarCandidatos)
         Me.RibbonPageGroup7.Name = "RibbonPageGroup7"
         Me.RibbonPageGroup7.Text = "Consultas"
         '
@@ -493,6 +495,13 @@ Partial Class XFrmMenuPrincipal
         Me.BarButtonItem1.Id = 19
         Me.BarButtonItem1.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.exportar
         Me.BarButtonItem1.Name = "BarButtonItem1"
+        '
+        'btnConsultarCandidatos
+        '
+        Me.btnConsultarCandidatos.Caption = "Consultar Candidatos"
+        Me.btnConsultarCandidatos.Id = 39
+        Me.btnConsultarCandidatos.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.incompatibilidades
+        Me.btnConsultarCandidatos.Name = "btnConsultarCandidatos"
         '
         'XFrmMenuPrincipal
         '
@@ -573,6 +582,7 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents RibbonPageGroup8 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents BtnREstadistico As DevExpress.XtraBars.BarSubItem
     Friend WithEvents RPGE As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents btnConsultarCandidatos As DevExpress.XtraBars.BarButtonItem
 
 
 End Class
