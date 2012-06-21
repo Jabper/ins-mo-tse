@@ -268,7 +268,7 @@ Partial Public Class Reporte_de__FirmasDP
         '
         'XrPageInfo1
         '
-        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(6.0!, 6.0!)
+        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(6.0!, 53.29163!)
         Me.XrPageInfo1.Name = "XrPageInfo1"
         Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
@@ -278,7 +278,7 @@ Partial Public Class Reporte_de__FirmasDP
         'XrPageInfo2
         '
         Me.XrPageInfo2.Format = "Page {0} of {1}"
-        Me.XrPageInfo2.LocationFloat = New DevExpress.Utils.PointFloat(331.0!, 6.0!)
+        Me.XrPageInfo2.LocationFloat = New DevExpress.Utils.PointFloat(713.0!, 53.29164!)
         Me.XrPageInfo2.Name = "XrPageInfo2"
         Me.XrPageInfo2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrPageInfo2.SizeF = New System.Drawing.SizeF(313.0!, 23.0!)
