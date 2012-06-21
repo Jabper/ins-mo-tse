@@ -28,9 +28,9 @@ Partial Public Class DSCiudadanos
     
     Private tableIM_CIUDADANOS_RESPALDAN As IM_CIUDADANOS_RESPALDANDataTable
     
-    Private tableIM_CIUDADANOS_RESPALDAN1 As IM_CIUDADANOS_RESPALDAN1DataTable
-    
     Private tableMOSTRAR_FIRMAS As MOSTRAR_FIRMASDataTable
+    
+    Private tableIM_CIUDADANOS_RESPALDAN1 As IM_CIUDADANOS_RESPALDAN1DataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -62,11 +62,11 @@ Partial Public Class DSCiudadanos
             If (Not (ds.Tables("IM_CIUDADANOS_RESPALDAN")) Is Nothing) Then
                 MyBase.Tables.Add(New IM_CIUDADANOS_RESPALDANDataTable(ds.Tables("IM_CIUDADANOS_RESPALDAN")))
             End If
-            If (Not (ds.Tables("IM_CIUDADANOS_RESPALDAN1")) Is Nothing) Then
-                MyBase.Tables.Add(New IM_CIUDADANOS_RESPALDAN1DataTable(ds.Tables("IM_CIUDADANOS_RESPALDAN1")))
-            End If
             If (Not (ds.Tables("MOSTRAR_FIRMAS")) Is Nothing) Then
                 MyBase.Tables.Add(New MOSTRAR_FIRMASDataTable(ds.Tables("MOSTRAR_FIRMAS")))
+            End If
+            If (Not (ds.Tables("IM_CIUDADANOS_RESPALDAN1")) Is Nothing) Then
+                MyBase.Tables.Add(New IM_CIUDADANOS_RESPALDAN1DataTable(ds.Tables("IM_CIUDADANOS_RESPALDAN1")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -97,18 +97,18 @@ Partial Public Class DSCiudadanos
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property IM_CIUDADANOS_RESPALDAN1() As IM_CIUDADANOS_RESPALDAN1DataTable
+    Public ReadOnly Property MOSTRAR_FIRMAS() As MOSTRAR_FIRMASDataTable
         Get
-            Return Me.tableIM_CIUDADANOS_RESPALDAN1
+            Return Me.tableMOSTRAR_FIRMAS
         End Get
     End Property
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property MOSTRAR_FIRMAS() As MOSTRAR_FIRMASDataTable
+    Public ReadOnly Property IM_CIUDADANOS_RESPALDAN1() As IM_CIUDADANOS_RESPALDAN1DataTable
         Get
-            Return Me.tableMOSTRAR_FIRMAS
+            Return Me.tableIM_CIUDADANOS_RESPALDAN1
         End Get
     End Property
     
@@ -174,11 +174,11 @@ Partial Public Class DSCiudadanos
             If (Not (ds.Tables("IM_CIUDADANOS_RESPALDAN")) Is Nothing) Then
                 MyBase.Tables.Add(New IM_CIUDADANOS_RESPALDANDataTable(ds.Tables("IM_CIUDADANOS_RESPALDAN")))
             End If
-            If (Not (ds.Tables("IM_CIUDADANOS_RESPALDAN1")) Is Nothing) Then
-                MyBase.Tables.Add(New IM_CIUDADANOS_RESPALDAN1DataTable(ds.Tables("IM_CIUDADANOS_RESPALDAN1")))
-            End If
             If (Not (ds.Tables("MOSTRAR_FIRMAS")) Is Nothing) Then
                 MyBase.Tables.Add(New MOSTRAR_FIRMASDataTable(ds.Tables("MOSTRAR_FIRMAS")))
+            End If
+            If (Not (ds.Tables("IM_CIUDADANOS_RESPALDAN1")) Is Nothing) Then
+                MyBase.Tables.Add(New IM_CIUDADANOS_RESPALDAN1DataTable(ds.Tables("IM_CIUDADANOS_RESPALDAN1")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -215,16 +215,16 @@ Partial Public Class DSCiudadanos
                 Me.tableIM_CIUDADANOS_RESPALDAN.InitVars
             End If
         End If
-        Me.tableIM_CIUDADANOS_RESPALDAN1 = CType(MyBase.Tables("IM_CIUDADANOS_RESPALDAN1"),IM_CIUDADANOS_RESPALDAN1DataTable)
-        If (initTable = true) Then
-            If (Not (Me.tableIM_CIUDADANOS_RESPALDAN1) Is Nothing) Then
-                Me.tableIM_CIUDADANOS_RESPALDAN1.InitVars
-            End If
-        End If
         Me.tableMOSTRAR_FIRMAS = CType(MyBase.Tables("MOSTRAR_FIRMAS"),MOSTRAR_FIRMASDataTable)
         If (initTable = true) Then
             If (Not (Me.tableMOSTRAR_FIRMAS) Is Nothing) Then
                 Me.tableMOSTRAR_FIRMAS.InitVars
+            End If
+        End If
+        Me.tableIM_CIUDADANOS_RESPALDAN1 = CType(MyBase.Tables("IM_CIUDADANOS_RESPALDAN1"),IM_CIUDADANOS_RESPALDAN1DataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableIM_CIUDADANOS_RESPALDAN1) Is Nothing) Then
+                Me.tableIM_CIUDADANOS_RESPALDAN1.InitVars
             End If
         End If
     End Sub
@@ -238,10 +238,10 @@ Partial Public Class DSCiudadanos
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
         Me.tableIM_CIUDADANOS_RESPALDAN = New IM_CIUDADANOS_RESPALDANDataTable
         MyBase.Tables.Add(Me.tableIM_CIUDADANOS_RESPALDAN)
-        Me.tableIM_CIUDADANOS_RESPALDAN1 = New IM_CIUDADANOS_RESPALDAN1DataTable
-        MyBase.Tables.Add(Me.tableIM_CIUDADANOS_RESPALDAN1)
         Me.tableMOSTRAR_FIRMAS = New MOSTRAR_FIRMASDataTable
         MyBase.Tables.Add(Me.tableMOSTRAR_FIRMAS)
+        Me.tableIM_CIUDADANOS_RESPALDAN1 = New IM_CIUDADANOS_RESPALDAN1DataTable
+        MyBase.Tables.Add(Me.tableIM_CIUDADANOS_RESPALDAN1)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -250,12 +250,12 @@ Partial Public Class DSCiudadanos
     End Function
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-    Private Function ShouldSerializeIM_CIUDADANOS_RESPALDAN1() As Boolean
+    Private Function ShouldSerializeMOSTRAR_FIRMAS() As Boolean
         Return false
     End Function
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-    Private Function ShouldSerializeMOSTRAR_FIRMAS() As Boolean
+    Private Function ShouldSerializeIM_CIUDADANOS_RESPALDAN1() As Boolean
         Return false
     End Function
     
@@ -317,9 +317,9 @@ Partial Public Class DSCiudadanos
     
     Public Delegate Sub IM_CIUDADANOS_RESPALDANRowChangeEventHandler(ByVal sender As Object, ByVal e As IM_CIUDADANOS_RESPALDANRowChangeEvent)
     
-    Public Delegate Sub IM_CIUDADANOS_RESPALDAN1RowChangeEventHandler(ByVal sender As Object, ByVal e As IM_CIUDADANOS_RESPALDAN1RowChangeEvent)
-    
     Public Delegate Sub MOSTRAR_FIRMASRowChangeEventHandler(ByVal sender As Object, ByVal e As MOSTRAR_FIRMASRowChangeEvent)
+    
+    Public Delegate Sub IM_CIUDADANOS_RESPALDAN1RowChangeEventHandler(ByVal sender As Object, ByVal e As IM_CIUDADANOS_RESPALDAN1RowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -802,564 +802,6 @@ Partial Public Class DSCiudadanos
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
             attribute2.Name = "tableTypeName"
             attribute2.FixedValue = "IM_CIUDADANOS_RESPALDANDataTable"
-            type.Attributes.Add(attribute2)
-            type.Particle = sequence
-            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
-            If xs.Contains(dsSchema.TargetNamespace) Then
-                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
-                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
-                Try 
-                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
-                    dsSchema.Write(s1)
-                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
-                    Do While schemas.MoveNext
-                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
-                        s2.SetLength(0)
-                        schema.Write(s2)
-                        If (s1.Length = s2.Length) Then
-                            s1.Position = 0
-                            s2.Position = 0
-                            
-                            Do While ((s1.Position <> s1.Length)  _
-                                        AndAlso (s1.ReadByte = s2.ReadByte))
-                                
-                                
-                            Loop
-                            If (s1.Position = s1.Length) Then
-                                Return type
-                            End If
-                        End If
-                        
-                    Loop
-                Finally
-                    If (Not (s1) Is Nothing) Then
-                        s1.Close
-                    End If
-                    If (Not (s2) Is Nothing) Then
-                        s2.Close
-                    End If
-                End Try
-            End If
-            xs.Add(dsSchema)
-            Return type
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the strongly named DataTable class.
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.Serializable(),  _
-     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class IM_CIUDADANOS_RESPALDAN1DataTable
-        Inherits Global.System.Data.TypedTableBase(Of IM_CIUDADANOS_RESPALDAN1Row)
-        
-        Private columnCODIGO_CUIDADANOS_RESPALDAN As Global.System.Data.DataColumn
-        
-        Private columnCODIGO_PARTIDO As Global.System.Data.DataColumn
-        
-        Private columnCODIGO_MOVIMIENTO As Global.System.Data.DataColumn
-        
-        Private columnCODIGO_DEPARTAMENTO As Global.System.Data.DataColumn
-        
-        Private columnCODIGO_MUNICIPIO As Global.System.Data.DataColumn
-        
-        Private columnFIRMA As Global.System.Data.DataColumn
-        
-        Private columnHUELLA As Global.System.Data.DataColumn
-        
-        Private columnDIRECCION As Global.System.Data.DataColumn
-        
-        Private columnIDENTIDAD As Global.System.Data.DataColumn
-        
-        Private columnNOMBRE_IGUAL As Global.System.Data.DataColumn
-        
-        Private columnFOLIO As Global.System.Data.DataColumn
-        
-        Private columnPRIMER_NOMBRE_PAPELETA As Global.System.Data.DataColumn
-        
-        Private columnIMAGEN_FIRMA As Global.System.Data.DataColumn
-        
-        Private columnADICIONADO_POR As Global.System.Data.DataColumn
-        
-        Private columnFECHA_ADICION As Global.System.Data.DataColumn
-        
-        Private columnMODIFICADO_POR As Global.System.Data.DataColumn
-        
-        Private columnFECHA_MODIFICACION As Global.System.Data.DataColumn
-        
-        Private columnCONSISTENTE As Global.System.Data.DataColumn
-        
-        Private columnOBSERVACION As Global.System.Data.DataColumn
-        
-        Private columnMAQUINA As Global.System.Data.DataColumn
-        
-        Private columnPAGINA As Global.System.Data.DataColumn
-        
-        Private columnSEGUNDO_NOMBRE_PAPELETA As Global.System.Data.DataColumn
-        
-        Private columnPRIMER_APELLIDO_PAPELETA As Global.System.Data.DataColumn
-        
-        Private columnSEGUNDO_APELLIDO_PAPELETA As Global.System.Data.DataColumn
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub New()
-            MyBase.New
-            Me.TableName = "IM_CIUDADANOS_RESPALDAN1"
-            Me.BeginInit
-            Me.InitClass
-            Me.EndInit
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Friend Sub New(ByVal table As Global.System.Data.DataTable)
-            MyBase.New
-            Me.TableName = table.TableName
-            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
-                Me.CaseSensitive = table.CaseSensitive
-            End If
-            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
-                Me.Locale = table.Locale
-            End If
-            If (table.Namespace <> table.DataSet.Namespace) Then
-                Me.Namespace = table.Namespace
-            End If
-            Me.Prefix = table.Prefix
-            Me.MinimumCapacity = table.MinimumCapacity
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
-            MyBase.New(info, context)
-            Me.InitVars
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property CODIGO_CUIDADANOS_RESPALDANColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCODIGO_CUIDADANOS_RESPALDAN
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property CODIGO_PARTIDOColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCODIGO_PARTIDO
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property CODIGO_MOVIMIENTOColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCODIGO_MOVIMIENTO
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property CODIGO_DEPARTAMENTOColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCODIGO_DEPARTAMENTO
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property CODIGO_MUNICIPIOColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCODIGO_MUNICIPIO
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property FIRMAColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnFIRMA
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property HUELLAColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnHUELLA
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property DIRECCIONColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDIRECCION
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property IDENTIDADColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnIDENTIDAD
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property NOMBRE_IGUALColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNOMBRE_IGUAL
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property FOLIOColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnFOLIO
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property PRIMER_NOMBRE_PAPELETAColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnPRIMER_NOMBRE_PAPELETA
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property IMAGEN_FIRMAColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnIMAGEN_FIRMA
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property ADICIONADO_PORColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnADICIONADO_POR
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property FECHA_ADICIONColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnFECHA_ADICION
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property MODIFICADO_PORColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnMODIFICADO_POR
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property FECHA_MODIFICACIONColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnFECHA_MODIFICACION
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property CONSISTENTEColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCONSISTENTE
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property OBSERVACIONColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnOBSERVACION
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property MAQUINAColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnMAQUINA
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property PAGINAColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnPAGINA
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property SEGUNDO_NOMBRE_PAPELETAColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSEGUNDO_NOMBRE_PAPELETA
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property PRIMER_APELLIDO_PAPELETAColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnPRIMER_APELLIDO_PAPELETA
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property SEGUNDO_APELLIDO_PAPELETAColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSEGUNDO_APELLIDO_PAPELETA
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Browsable(false)>  _
-        Public ReadOnly Property Count() As Integer
-            Get
-                Return Me.Rows.Count
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As IM_CIUDADANOS_RESPALDAN1Row
-            Get
-                Return CType(Me.Rows(index),IM_CIUDADANOS_RESPALDAN1Row)
-            End Get
-        End Property
-        
-        Public Event IM_CIUDADANOS_RESPALDAN1RowChanging As IM_CIUDADANOS_RESPALDAN1RowChangeEventHandler
-        
-        Public Event IM_CIUDADANOS_RESPALDAN1RowChanged As IM_CIUDADANOS_RESPALDAN1RowChangeEventHandler
-        
-        Public Event IM_CIUDADANOS_RESPALDAN1RowDeleting As IM_CIUDADANOS_RESPALDAN1RowChangeEventHandler
-        
-        Public Event IM_CIUDADANOS_RESPALDAN1RowDeleted As IM_CIUDADANOS_RESPALDAN1RowChangeEventHandler
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Sub AddIM_CIUDADANOS_RESPALDAN1Row(ByVal row As IM_CIUDADANOS_RESPALDAN1Row)
-            Me.Rows.Add(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddIM_CIUDADANOS_RESPALDAN1Row( _
-                    ByVal CODIGO_CUIDADANOS_RESPALDAN As Decimal,  _
-                    ByVal CODIGO_PARTIDO As Decimal,  _
-                    ByVal CODIGO_MOVIMIENTO As Decimal,  _
-                    ByVal CODIGO_DEPARTAMENTO As Decimal,  _
-                    ByVal CODIGO_MUNICIPIO As Decimal,  _
-                    ByVal FIRMA As String,  _
-                    ByVal HUELLA As String,  _
-                    ByVal DIRECCION As String,  _
-                    ByVal IDENTIDAD As String,  _
-                    ByVal NOMBRE_IGUAL As String,  _
-                    ByVal FOLIO As Decimal,  _
-                    ByVal PRIMER_NOMBRE_PAPELETA As String,  _
-                    ByVal IMAGEN_FIRMA() As Byte,  _
-                    ByVal ADICIONADO_POR As String,  _
-                    ByVal FECHA_ADICION As Date,  _
-                    ByVal MODIFICADO_POR As String,  _
-                    ByVal FECHA_MODIFICACION As Date,  _
-                    ByVal CONSISTENTE As String,  _
-                    ByVal OBSERVACION As String,  _
-                    ByVal MAQUINA As String,  _
-                    ByVal PAGINA As Decimal,  _
-                    ByVal SEGUNDO_NOMBRE_PAPELETA As String,  _
-                    ByVal PRIMER_APELLIDO_PAPELETA As String,  _
-                    ByVal SEGUNDO_APELLIDO_PAPELETA As String) As IM_CIUDADANOS_RESPALDAN1Row
-            Dim rowIM_CIUDADANOS_RESPALDAN1Row As IM_CIUDADANOS_RESPALDAN1Row = CType(Me.NewRow,IM_CIUDADANOS_RESPALDAN1Row)
-            Dim columnValuesArray() As Object = New Object() {CODIGO_CUIDADANOS_RESPALDAN, CODIGO_PARTIDO, CODIGO_MOVIMIENTO, CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, FIRMA, HUELLA, DIRECCION, IDENTIDAD, NOMBRE_IGUAL, FOLIO, PRIMER_NOMBRE_PAPELETA, IMAGEN_FIRMA, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, CONSISTENTE, OBSERVACION, MAQUINA, PAGINA, SEGUNDO_NOMBRE_PAPELETA, PRIMER_APELLIDO_PAPELETA, SEGUNDO_APELLIDO_PAPELETA}
-            rowIM_CIUDADANOS_RESPALDAN1Row.ItemArray = columnValuesArray
-            Me.Rows.Add(rowIM_CIUDADANOS_RESPALDAN1Row)
-            Return rowIM_CIUDADANOS_RESPALDAN1Row
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function FindByCODIGO_CUIDADANOS_RESPALDANCODIGO_PARTIDOCODIGO_MOVIMIENTO(ByVal CODIGO_CUIDADANOS_RESPALDAN As Decimal, ByVal CODIGO_PARTIDO As Decimal, ByVal CODIGO_MOVIMIENTO As Decimal) As IM_CIUDADANOS_RESPALDAN1Row
-            Return CType(Me.Rows.Find(New Object() {CODIGO_CUIDADANOS_RESPALDAN, CODIGO_PARTIDO, CODIGO_MOVIMIENTO}),IM_CIUDADANOS_RESPALDAN1Row)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As IM_CIUDADANOS_RESPALDAN1DataTable = CType(MyBase.Clone,IM_CIUDADANOS_RESPALDAN1DataTable)
-            cln.InitVars
-            Return cln
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New IM_CIUDADANOS_RESPALDAN1DataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Friend Sub InitVars()
-            Me.columnCODIGO_CUIDADANOS_RESPALDAN = MyBase.Columns("CODIGO_CUIDADANOS_RESPALDAN")
-            Me.columnCODIGO_PARTIDO = MyBase.Columns("CODIGO_PARTIDO")
-            Me.columnCODIGO_MOVIMIENTO = MyBase.Columns("CODIGO_MOVIMIENTO")
-            Me.columnCODIGO_DEPARTAMENTO = MyBase.Columns("CODIGO_DEPARTAMENTO")
-            Me.columnCODIGO_MUNICIPIO = MyBase.Columns("CODIGO_MUNICIPIO")
-            Me.columnFIRMA = MyBase.Columns("FIRMA")
-            Me.columnHUELLA = MyBase.Columns("HUELLA")
-            Me.columnDIRECCION = MyBase.Columns("DIRECCION")
-            Me.columnIDENTIDAD = MyBase.Columns("IDENTIDAD")
-            Me.columnNOMBRE_IGUAL = MyBase.Columns("NOMBRE_IGUAL")
-            Me.columnFOLIO = MyBase.Columns("FOLIO")
-            Me.columnPRIMER_NOMBRE_PAPELETA = MyBase.Columns("PRIMER_NOMBRE_PAPELETA")
-            Me.columnIMAGEN_FIRMA = MyBase.Columns("IMAGEN_FIRMA")
-            Me.columnADICIONADO_POR = MyBase.Columns("ADICIONADO_POR")
-            Me.columnFECHA_ADICION = MyBase.Columns("FECHA_ADICION")
-            Me.columnMODIFICADO_POR = MyBase.Columns("MODIFICADO_POR")
-            Me.columnFECHA_MODIFICACION = MyBase.Columns("FECHA_MODIFICACION")
-            Me.columnCONSISTENTE = MyBase.Columns("CONSISTENTE")
-            Me.columnOBSERVACION = MyBase.Columns("OBSERVACION")
-            Me.columnMAQUINA = MyBase.Columns("MAQUINA")
-            Me.columnPAGINA = MyBase.Columns("PAGINA")
-            Me.columnSEGUNDO_NOMBRE_PAPELETA = MyBase.Columns("SEGUNDO_NOMBRE_PAPELETA")
-            Me.columnPRIMER_APELLIDO_PAPELETA = MyBase.Columns("PRIMER_APELLIDO_PAPELETA")
-            Me.columnSEGUNDO_APELLIDO_PAPELETA = MyBase.Columns("SEGUNDO_APELLIDO_PAPELETA")
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private Sub InitClass()
-            Me.columnCODIGO_CUIDADANOS_RESPALDAN = New Global.System.Data.DataColumn("CODIGO_CUIDADANOS_RESPALDAN", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCODIGO_CUIDADANOS_RESPALDAN)
-            Me.columnCODIGO_PARTIDO = New Global.System.Data.DataColumn("CODIGO_PARTIDO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCODIGO_PARTIDO)
-            Me.columnCODIGO_MOVIMIENTO = New Global.System.Data.DataColumn("CODIGO_MOVIMIENTO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCODIGO_MOVIMIENTO)
-            Me.columnCODIGO_DEPARTAMENTO = New Global.System.Data.DataColumn("CODIGO_DEPARTAMENTO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCODIGO_DEPARTAMENTO)
-            Me.columnCODIGO_MUNICIPIO = New Global.System.Data.DataColumn("CODIGO_MUNICIPIO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCODIGO_MUNICIPIO)
-            Me.columnFIRMA = New Global.System.Data.DataColumn("FIRMA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFIRMA)
-            Me.columnHUELLA = New Global.System.Data.DataColumn("HUELLA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnHUELLA)
-            Me.columnDIRECCION = New Global.System.Data.DataColumn("DIRECCION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDIRECCION)
-            Me.columnIDENTIDAD = New Global.System.Data.DataColumn("IDENTIDAD", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnIDENTIDAD)
-            Me.columnNOMBRE_IGUAL = New Global.System.Data.DataColumn("NOMBRE_IGUAL", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNOMBRE_IGUAL)
-            Me.columnFOLIO = New Global.System.Data.DataColumn("FOLIO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFOLIO)
-            Me.columnPRIMER_NOMBRE_PAPELETA = New Global.System.Data.DataColumn("PRIMER_NOMBRE_PAPELETA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPRIMER_NOMBRE_PAPELETA)
-            Me.columnIMAGEN_FIRMA = New Global.System.Data.DataColumn("IMAGEN_FIRMA", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnIMAGEN_FIRMA)
-            Me.columnADICIONADO_POR = New Global.System.Data.DataColumn("ADICIONADO_POR", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnADICIONADO_POR)
-            Me.columnFECHA_ADICION = New Global.System.Data.DataColumn("FECHA_ADICION", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFECHA_ADICION)
-            Me.columnMODIFICADO_POR = New Global.System.Data.DataColumn("MODIFICADO_POR", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnMODIFICADO_POR)
-            Me.columnFECHA_MODIFICACION = New Global.System.Data.DataColumn("FECHA_MODIFICACION", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFECHA_MODIFICACION)
-            Me.columnCONSISTENTE = New Global.System.Data.DataColumn("CONSISTENTE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCONSISTENTE)
-            Me.columnOBSERVACION = New Global.System.Data.DataColumn("OBSERVACION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnOBSERVACION)
-            Me.columnMAQUINA = New Global.System.Data.DataColumn("MAQUINA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnMAQUINA)
-            Me.columnPAGINA = New Global.System.Data.DataColumn("PAGINA", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPAGINA)
-            Me.columnSEGUNDO_NOMBRE_PAPELETA = New Global.System.Data.DataColumn("SEGUNDO_NOMBRE_PAPELETA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSEGUNDO_NOMBRE_PAPELETA)
-            Me.columnPRIMER_APELLIDO_PAPELETA = New Global.System.Data.DataColumn("PRIMER_APELLIDO_PAPELETA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPRIMER_APELLIDO_PAPELETA)
-            Me.columnSEGUNDO_APELLIDO_PAPELETA = New Global.System.Data.DataColumn("SEGUNDO_APELLIDO_PAPELETA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSEGUNDO_APELLIDO_PAPELETA)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_CUIDADANOS_RESPALDAN, Me.columnCODIGO_PARTIDO, Me.columnCODIGO_MOVIMIENTO}, true))
-            Me.columnCODIGO_CUIDADANOS_RESPALDAN.AllowDBNull = false
-            Me.columnCODIGO_PARTIDO.AllowDBNull = false
-            Me.columnCODIGO_MOVIMIENTO.AllowDBNull = false
-            Me.columnCODIGO_DEPARTAMENTO.AllowDBNull = false
-            Me.columnCODIGO_MUNICIPIO.AllowDBNull = false
-            Me.columnFIRMA.MaxLength = 1
-            Me.columnHUELLA.MaxLength = 1
-            Me.columnDIRECCION.MaxLength = 1
-            Me.columnIDENTIDAD.AllowDBNull = false
-            Me.columnIDENTIDAD.MaxLength = 15
-            Me.columnNOMBRE_IGUAL.MaxLength = 2
-            Me.columnPRIMER_NOMBRE_PAPELETA.AllowDBNull = false
-            Me.columnPRIMER_NOMBRE_PAPELETA.MaxLength = 50
-            Me.columnADICIONADO_POR.AllowDBNull = false
-            Me.columnADICIONADO_POR.MaxLength = 10
-            Me.columnFECHA_ADICION.AllowDBNull = false
-            Me.columnMODIFICADO_POR.MaxLength = 10
-            Me.columnCONSISTENTE.MaxLength = 1
-            Me.columnOBSERVACION.MaxLength = 200
-            Me.columnMAQUINA.MaxLength = 50
-            Me.columnSEGUNDO_NOMBRE_PAPELETA.MaxLength = 50
-            Me.columnPRIMER_APELLIDO_PAPELETA.AllowDBNull = false
-            Me.columnPRIMER_APELLIDO_PAPELETA.MaxLength = 50
-            Me.columnSEGUNDO_APELLIDO_PAPELETA.MaxLength = 50
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function NewIM_CIUDADANOS_RESPALDAN1Row() As IM_CIUDADANOS_RESPALDAN1Row
-            Return CType(Me.NewRow,IM_CIUDADANOS_RESPALDAN1Row)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New IM_CIUDADANOS_RESPALDAN1Row(builder)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(IM_CIUDADANOS_RESPALDAN1Row)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanged(e)
-            If (Not (Me.IM_CIUDADANOS_RESPALDAN1RowChangedEvent) Is Nothing) Then
-                RaiseEvent IM_CIUDADANOS_RESPALDAN1RowChanged(Me, New IM_CIUDADANOS_RESPALDAN1RowChangeEvent(CType(e.Row,IM_CIUDADANOS_RESPALDAN1Row), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanging(e)
-            If (Not (Me.IM_CIUDADANOS_RESPALDAN1RowChangingEvent) Is Nothing) Then
-                RaiseEvent IM_CIUDADANOS_RESPALDAN1RowChanging(Me, New IM_CIUDADANOS_RESPALDAN1RowChangeEvent(CType(e.Row,IM_CIUDADANOS_RESPALDAN1Row), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleted(e)
-            If (Not (Me.IM_CIUDADANOS_RESPALDAN1RowDeletedEvent) Is Nothing) Then
-                RaiseEvent IM_CIUDADANOS_RESPALDAN1RowDeleted(Me, New IM_CIUDADANOS_RESPALDAN1RowChangeEvent(CType(e.Row,IM_CIUDADANOS_RESPALDAN1Row), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleting(e)
-            If (Not (Me.IM_CIUDADANOS_RESPALDAN1RowDeletingEvent) Is Nothing) Then
-                RaiseEvent IM_CIUDADANOS_RESPALDAN1RowDeleting(Me, New IM_CIUDADANOS_RESPALDAN1RowChangeEvent(CType(e.Row,IM_CIUDADANOS_RESPALDAN1Row), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub RemoveIM_CIUDADANOS_RESPALDAN1Row(ByVal row As IM_CIUDADANOS_RESPALDAN1Row)
-            Me.Rows.Remove(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence
-            Dim ds As DSCiudadanos = New DSCiudadanos
-            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
-            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
-            any1.MinOccurs = New Decimal(0)
-            any1.MaxOccurs = Decimal.MaxValue
-            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any1)
-            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
-            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
-            any2.MinOccurs = New Decimal(1)
-            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any2)
-            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
-            attribute1.Name = "namespace"
-            attribute1.FixedValue = ds.Namespace
-            type.Attributes.Add(attribute1)
-            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
-            attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "IM_CIUDADANOS_RESPALDAN1DataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -2022,6 +1464,564 @@ Partial Public Class DSCiudadanos
     End Class
     
     '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class IM_CIUDADANOS_RESPALDAN1DataTable
+        Inherits Global.System.Data.TypedTableBase(Of IM_CIUDADANOS_RESPALDAN1Row)
+        
+        Private columnCODIGO_CUIDADANOS_RESPALDAN As Global.System.Data.DataColumn
+        
+        Private columnCODIGO_PARTIDO As Global.System.Data.DataColumn
+        
+        Private columnCODIGO_MOVIMIENTO As Global.System.Data.DataColumn
+        
+        Private columnCODIGO_DEPARTAMENTO As Global.System.Data.DataColumn
+        
+        Private columnCODIGO_MUNICIPIO As Global.System.Data.DataColumn
+        
+        Private columnFIRMA As Global.System.Data.DataColumn
+        
+        Private columnHUELLA As Global.System.Data.DataColumn
+        
+        Private columnDIRECCION As Global.System.Data.DataColumn
+        
+        Private columnIDENTIDAD As Global.System.Data.DataColumn
+        
+        Private columnNOMBRE_IGUAL As Global.System.Data.DataColumn
+        
+        Private columnFOLIO As Global.System.Data.DataColumn
+        
+        Private columnPRIMER_NOMBRE_PAPELETA As Global.System.Data.DataColumn
+        
+        Private columnIMAGEN_FIRMA As Global.System.Data.DataColumn
+        
+        Private columnADICIONADO_POR As Global.System.Data.DataColumn
+        
+        Private columnFECHA_ADICION As Global.System.Data.DataColumn
+        
+        Private columnMODIFICADO_POR As Global.System.Data.DataColumn
+        
+        Private columnFECHA_MODIFICACION As Global.System.Data.DataColumn
+        
+        Private columnCONSISTENTE As Global.System.Data.DataColumn
+        
+        Private columnOBSERVACION As Global.System.Data.DataColumn
+        
+        Private columnMAQUINA As Global.System.Data.DataColumn
+        
+        Private columnPAGINA As Global.System.Data.DataColumn
+        
+        Private columnSEGUNDO_NOMBRE_PAPELETA As Global.System.Data.DataColumn
+        
+        Private columnPRIMER_APELLIDO_PAPELETA As Global.System.Data.DataColumn
+        
+        Private columnSEGUNDO_APELLIDO_PAPELETA As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "IM_CIUDADANOS_RESPALDAN1"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CODIGO_CUIDADANOS_RESPALDANColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCODIGO_CUIDADANOS_RESPALDAN
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CODIGO_PARTIDOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCODIGO_PARTIDO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CODIGO_MOVIMIENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCODIGO_MOVIMIENTO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CODIGO_DEPARTAMENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCODIGO_DEPARTAMENTO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CODIGO_MUNICIPIOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCODIGO_MUNICIPIO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property FIRMAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFIRMA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property HUELLAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnHUELLA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property DIRECCIONColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDIRECCION
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property IDENTIDADColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIDENTIDAD
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property NOMBRE_IGUALColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNOMBRE_IGUAL
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property FOLIOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFOLIO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property PRIMER_NOMBRE_PAPELETAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPRIMER_NOMBRE_PAPELETA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property IMAGEN_FIRMAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIMAGEN_FIRMA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ADICIONADO_PORColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnADICIONADO_POR
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property FECHA_ADICIONColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFECHA_ADICION
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property MODIFICADO_PORColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMODIFICADO_POR
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property FECHA_MODIFICACIONColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFECHA_MODIFICACION
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CONSISTENTEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCONSISTENTE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property OBSERVACIONColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnOBSERVACION
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property MAQUINAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMAQUINA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property PAGINAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPAGINA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property SEGUNDO_NOMBRE_PAPELETAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSEGUNDO_NOMBRE_PAPELETA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property PRIMER_APELLIDO_PAPELETAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPRIMER_APELLIDO_PAPELETA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property SEGUNDO_APELLIDO_PAPELETAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSEGUNDO_APELLIDO_PAPELETA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As IM_CIUDADANOS_RESPALDAN1Row
+            Get
+                Return CType(Me.Rows(index),IM_CIUDADANOS_RESPALDAN1Row)
+            End Get
+        End Property
+        
+        Public Event IM_CIUDADANOS_RESPALDAN1RowChanging As IM_CIUDADANOS_RESPALDAN1RowChangeEventHandler
+        
+        Public Event IM_CIUDADANOS_RESPALDAN1RowChanged As IM_CIUDADANOS_RESPALDAN1RowChangeEventHandler
+        
+        Public Event IM_CIUDADANOS_RESPALDAN1RowDeleting As IM_CIUDADANOS_RESPALDAN1RowChangeEventHandler
+        
+        Public Event IM_CIUDADANOS_RESPALDAN1RowDeleted As IM_CIUDADANOS_RESPALDAN1RowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Sub AddIM_CIUDADANOS_RESPALDAN1Row(ByVal row As IM_CIUDADANOS_RESPALDAN1Row)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Function AddIM_CIUDADANOS_RESPALDAN1Row( _
+                    ByVal CODIGO_CUIDADANOS_RESPALDAN As Decimal,  _
+                    ByVal CODIGO_PARTIDO As Decimal,  _
+                    ByVal CODIGO_MOVIMIENTO As Decimal,  _
+                    ByVal CODIGO_DEPARTAMENTO As Decimal,  _
+                    ByVal CODIGO_MUNICIPIO As Decimal,  _
+                    ByVal FIRMA As String,  _
+                    ByVal HUELLA As String,  _
+                    ByVal DIRECCION As String,  _
+                    ByVal IDENTIDAD As String,  _
+                    ByVal NOMBRE_IGUAL As String,  _
+                    ByVal FOLIO As Decimal,  _
+                    ByVal PRIMER_NOMBRE_PAPELETA As String,  _
+                    ByVal IMAGEN_FIRMA() As Byte,  _
+                    ByVal ADICIONADO_POR As String,  _
+                    ByVal FECHA_ADICION As Date,  _
+                    ByVal MODIFICADO_POR As String,  _
+                    ByVal FECHA_MODIFICACION As Date,  _
+                    ByVal CONSISTENTE As String,  _
+                    ByVal OBSERVACION As String,  _
+                    ByVal MAQUINA As String,  _
+                    ByVal PAGINA As Decimal,  _
+                    ByVal SEGUNDO_NOMBRE_PAPELETA As String,  _
+                    ByVal PRIMER_APELLIDO_PAPELETA As String,  _
+                    ByVal SEGUNDO_APELLIDO_PAPELETA As String) As IM_CIUDADANOS_RESPALDAN1Row
+            Dim rowIM_CIUDADANOS_RESPALDAN1Row As IM_CIUDADANOS_RESPALDAN1Row = CType(Me.NewRow,IM_CIUDADANOS_RESPALDAN1Row)
+            Dim columnValuesArray() As Object = New Object() {CODIGO_CUIDADANOS_RESPALDAN, CODIGO_PARTIDO, CODIGO_MOVIMIENTO, CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, FIRMA, HUELLA, DIRECCION, IDENTIDAD, NOMBRE_IGUAL, FOLIO, PRIMER_NOMBRE_PAPELETA, IMAGEN_FIRMA, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, CONSISTENTE, OBSERVACION, MAQUINA, PAGINA, SEGUNDO_NOMBRE_PAPELETA, PRIMER_APELLIDO_PAPELETA, SEGUNDO_APELLIDO_PAPELETA}
+            rowIM_CIUDADANOS_RESPALDAN1Row.ItemArray = columnValuesArray
+            Me.Rows.Add(rowIM_CIUDADANOS_RESPALDAN1Row)
+            Return rowIM_CIUDADANOS_RESPALDAN1Row
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function FindByCODIGO_CUIDADANOS_RESPALDANCODIGO_PARTIDOCODIGO_MOVIMIENTO(ByVal CODIGO_CUIDADANOS_RESPALDAN As Decimal, ByVal CODIGO_PARTIDO As Decimal, ByVal CODIGO_MOVIMIENTO As Decimal) As IM_CIUDADANOS_RESPALDAN1Row
+            Return CType(Me.Rows.Find(New Object() {CODIGO_CUIDADANOS_RESPALDAN, CODIGO_PARTIDO, CODIGO_MOVIMIENTO}),IM_CIUDADANOS_RESPALDAN1Row)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As IM_CIUDADANOS_RESPALDAN1DataTable = CType(MyBase.Clone,IM_CIUDADANOS_RESPALDAN1DataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New IM_CIUDADANOS_RESPALDAN1DataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub InitVars()
+            Me.columnCODIGO_CUIDADANOS_RESPALDAN = MyBase.Columns("CODIGO_CUIDADANOS_RESPALDAN")
+            Me.columnCODIGO_PARTIDO = MyBase.Columns("CODIGO_PARTIDO")
+            Me.columnCODIGO_MOVIMIENTO = MyBase.Columns("CODIGO_MOVIMIENTO")
+            Me.columnCODIGO_DEPARTAMENTO = MyBase.Columns("CODIGO_DEPARTAMENTO")
+            Me.columnCODIGO_MUNICIPIO = MyBase.Columns("CODIGO_MUNICIPIO")
+            Me.columnFIRMA = MyBase.Columns("FIRMA")
+            Me.columnHUELLA = MyBase.Columns("HUELLA")
+            Me.columnDIRECCION = MyBase.Columns("DIRECCION")
+            Me.columnIDENTIDAD = MyBase.Columns("IDENTIDAD")
+            Me.columnNOMBRE_IGUAL = MyBase.Columns("NOMBRE_IGUAL")
+            Me.columnFOLIO = MyBase.Columns("FOLIO")
+            Me.columnPRIMER_NOMBRE_PAPELETA = MyBase.Columns("PRIMER_NOMBRE_PAPELETA")
+            Me.columnIMAGEN_FIRMA = MyBase.Columns("IMAGEN_FIRMA")
+            Me.columnADICIONADO_POR = MyBase.Columns("ADICIONADO_POR")
+            Me.columnFECHA_ADICION = MyBase.Columns("FECHA_ADICION")
+            Me.columnMODIFICADO_POR = MyBase.Columns("MODIFICADO_POR")
+            Me.columnFECHA_MODIFICACION = MyBase.Columns("FECHA_MODIFICACION")
+            Me.columnCONSISTENTE = MyBase.Columns("CONSISTENTE")
+            Me.columnOBSERVACION = MyBase.Columns("OBSERVACION")
+            Me.columnMAQUINA = MyBase.Columns("MAQUINA")
+            Me.columnPAGINA = MyBase.Columns("PAGINA")
+            Me.columnSEGUNDO_NOMBRE_PAPELETA = MyBase.Columns("SEGUNDO_NOMBRE_PAPELETA")
+            Me.columnPRIMER_APELLIDO_PAPELETA = MyBase.Columns("PRIMER_APELLIDO_PAPELETA")
+            Me.columnSEGUNDO_APELLIDO_PAPELETA = MyBase.Columns("SEGUNDO_APELLIDO_PAPELETA")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitClass()
+            Me.columnCODIGO_CUIDADANOS_RESPALDAN = New Global.System.Data.DataColumn("CODIGO_CUIDADANOS_RESPALDAN", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_CUIDADANOS_RESPALDAN)
+            Me.columnCODIGO_PARTIDO = New Global.System.Data.DataColumn("CODIGO_PARTIDO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_PARTIDO)
+            Me.columnCODIGO_MOVIMIENTO = New Global.System.Data.DataColumn("CODIGO_MOVIMIENTO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_MOVIMIENTO)
+            Me.columnCODIGO_DEPARTAMENTO = New Global.System.Data.DataColumn("CODIGO_DEPARTAMENTO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_DEPARTAMENTO)
+            Me.columnCODIGO_MUNICIPIO = New Global.System.Data.DataColumn("CODIGO_MUNICIPIO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_MUNICIPIO)
+            Me.columnFIRMA = New Global.System.Data.DataColumn("FIRMA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFIRMA)
+            Me.columnHUELLA = New Global.System.Data.DataColumn("HUELLA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnHUELLA)
+            Me.columnDIRECCION = New Global.System.Data.DataColumn("DIRECCION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDIRECCION)
+            Me.columnIDENTIDAD = New Global.System.Data.DataColumn("IDENTIDAD", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIDENTIDAD)
+            Me.columnNOMBRE_IGUAL = New Global.System.Data.DataColumn("NOMBRE_IGUAL", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNOMBRE_IGUAL)
+            Me.columnFOLIO = New Global.System.Data.DataColumn("FOLIO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFOLIO)
+            Me.columnPRIMER_NOMBRE_PAPELETA = New Global.System.Data.DataColumn("PRIMER_NOMBRE_PAPELETA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPRIMER_NOMBRE_PAPELETA)
+            Me.columnIMAGEN_FIRMA = New Global.System.Data.DataColumn("IMAGEN_FIRMA", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIMAGEN_FIRMA)
+            Me.columnADICIONADO_POR = New Global.System.Data.DataColumn("ADICIONADO_POR", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnADICIONADO_POR)
+            Me.columnFECHA_ADICION = New Global.System.Data.DataColumn("FECHA_ADICION", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFECHA_ADICION)
+            Me.columnMODIFICADO_POR = New Global.System.Data.DataColumn("MODIFICADO_POR", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMODIFICADO_POR)
+            Me.columnFECHA_MODIFICACION = New Global.System.Data.DataColumn("FECHA_MODIFICACION", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFECHA_MODIFICACION)
+            Me.columnCONSISTENTE = New Global.System.Data.DataColumn("CONSISTENTE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCONSISTENTE)
+            Me.columnOBSERVACION = New Global.System.Data.DataColumn("OBSERVACION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnOBSERVACION)
+            Me.columnMAQUINA = New Global.System.Data.DataColumn("MAQUINA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMAQUINA)
+            Me.columnPAGINA = New Global.System.Data.DataColumn("PAGINA", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPAGINA)
+            Me.columnSEGUNDO_NOMBRE_PAPELETA = New Global.System.Data.DataColumn("SEGUNDO_NOMBRE_PAPELETA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSEGUNDO_NOMBRE_PAPELETA)
+            Me.columnPRIMER_APELLIDO_PAPELETA = New Global.System.Data.DataColumn("PRIMER_APELLIDO_PAPELETA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPRIMER_APELLIDO_PAPELETA)
+            Me.columnSEGUNDO_APELLIDO_PAPELETA = New Global.System.Data.DataColumn("SEGUNDO_APELLIDO_PAPELETA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSEGUNDO_APELLIDO_PAPELETA)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_CUIDADANOS_RESPALDAN, Me.columnCODIGO_PARTIDO, Me.columnCODIGO_MOVIMIENTO}, true))
+            Me.columnCODIGO_CUIDADANOS_RESPALDAN.AllowDBNull = false
+            Me.columnCODIGO_PARTIDO.AllowDBNull = false
+            Me.columnCODIGO_MOVIMIENTO.AllowDBNull = false
+            Me.columnCODIGO_DEPARTAMENTO.AllowDBNull = false
+            Me.columnCODIGO_MUNICIPIO.AllowDBNull = false
+            Me.columnFIRMA.MaxLength = 1
+            Me.columnHUELLA.MaxLength = 1
+            Me.columnDIRECCION.MaxLength = 1
+            Me.columnIDENTIDAD.AllowDBNull = false
+            Me.columnIDENTIDAD.MaxLength = 15
+            Me.columnNOMBRE_IGUAL.MaxLength = 2
+            Me.columnPRIMER_NOMBRE_PAPELETA.AllowDBNull = false
+            Me.columnPRIMER_NOMBRE_PAPELETA.MaxLength = 50
+            Me.columnADICIONADO_POR.AllowDBNull = false
+            Me.columnADICIONADO_POR.MaxLength = 10
+            Me.columnFECHA_ADICION.AllowDBNull = false
+            Me.columnMODIFICADO_POR.MaxLength = 10
+            Me.columnCONSISTENTE.MaxLength = 1
+            Me.columnOBSERVACION.MaxLength = 200
+            Me.columnMAQUINA.MaxLength = 50
+            Me.columnSEGUNDO_NOMBRE_PAPELETA.MaxLength = 50
+            Me.columnPRIMER_APELLIDO_PAPELETA.AllowDBNull = false
+            Me.columnPRIMER_APELLIDO_PAPELETA.MaxLength = 50
+            Me.columnSEGUNDO_APELLIDO_PAPELETA.MaxLength = 50
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function NewIM_CIUDADANOS_RESPALDAN1Row() As IM_CIUDADANOS_RESPALDAN1Row
+            Return CType(Me.NewRow,IM_CIUDADANOS_RESPALDAN1Row)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New IM_CIUDADANOS_RESPALDAN1Row(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(IM_CIUDADANOS_RESPALDAN1Row)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.IM_CIUDADANOS_RESPALDAN1RowChangedEvent) Is Nothing) Then
+                RaiseEvent IM_CIUDADANOS_RESPALDAN1RowChanged(Me, New IM_CIUDADANOS_RESPALDAN1RowChangeEvent(CType(e.Row,IM_CIUDADANOS_RESPALDAN1Row), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.IM_CIUDADANOS_RESPALDAN1RowChangingEvent) Is Nothing) Then
+                RaiseEvent IM_CIUDADANOS_RESPALDAN1RowChanging(Me, New IM_CIUDADANOS_RESPALDAN1RowChangeEvent(CType(e.Row,IM_CIUDADANOS_RESPALDAN1Row), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.IM_CIUDADANOS_RESPALDAN1RowDeletedEvent) Is Nothing) Then
+                RaiseEvent IM_CIUDADANOS_RESPALDAN1RowDeleted(Me, New IM_CIUDADANOS_RESPALDAN1RowChangeEvent(CType(e.Row,IM_CIUDADANOS_RESPALDAN1Row), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.IM_CIUDADANOS_RESPALDAN1RowDeletingEvent) Is Nothing) Then
+                RaiseEvent IM_CIUDADANOS_RESPALDAN1RowDeleting(Me, New IM_CIUDADANOS_RESPALDAN1RowChangeEvent(CType(e.Row,IM_CIUDADANOS_RESPALDAN1Row), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub RemoveIM_CIUDADANOS_RESPALDAN1Row(ByVal row As IM_CIUDADANOS_RESPALDAN1Row)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence
+            Dim ds As DSCiudadanos = New DSCiudadanos
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "IM_CIUDADANOS_RESPALDAN1DataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
@@ -2609,466 +2609,6 @@ Partial Public Class DSCiudadanos
     '''Represents strongly named DataRow class.
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
-    Partial Public Class IM_CIUDADANOS_RESPALDAN1Row
-        Inherits Global.System.Data.DataRow
-        
-        Private tableIM_CIUDADANOS_RESPALDAN1 As IM_CIUDADANOS_RESPALDAN1DataTable
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tableIM_CIUDADANOS_RESPALDAN1 = CType(Me.Table,IM_CIUDADANOS_RESPALDAN1DataTable)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property CODIGO_CUIDADANOS_RESPALDAN() As Decimal
-            Get
-                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CODIGO_CUIDADANOS_RESPALDANColumn),Decimal)
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CODIGO_CUIDADANOS_RESPALDANColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property CODIGO_PARTIDO() As Decimal
-            Get
-                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CODIGO_PARTIDOColumn),Decimal)
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CODIGO_PARTIDOColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property CODIGO_MOVIMIENTO() As Decimal
-            Get
-                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CODIGO_MOVIMIENTOColumn),Decimal)
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CODIGO_MOVIMIENTOColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property CODIGO_DEPARTAMENTO() As Decimal
-            Get
-                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CODIGO_DEPARTAMENTOColumn),Decimal)
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CODIGO_DEPARTAMENTOColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property CODIGO_MUNICIPIO() As Decimal
-            Get
-                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CODIGO_MUNICIPIOColumn),Decimal)
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CODIGO_MUNICIPIOColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property FIRMA() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FIRMAColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'FIRMA' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FIRMAColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property HUELLA() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.HUELLAColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'HUELLA' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.HUELLAColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property DIRECCION() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.DIRECCIONColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'DIRECCION' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.DIRECCIONColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property IDENTIDAD() As String
-            Get
-                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.IDENTIDADColumn),String)
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.IDENTIDADColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property NOMBRE_IGUAL() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.NOMBRE_IGUALColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'NOMBRE_IGUAL' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNull"& _ 
-                            ".", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.NOMBRE_IGUALColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property FOLIO() As Decimal
-            Get
-                Try 
-                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FOLIOColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'FOLIO' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FOLIOColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property PRIMER_NOMBRE_PAPELETA() As String
-            Get
-                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.PRIMER_NOMBRE_PAPELETAColumn),String)
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.PRIMER_NOMBRE_PAPELETAColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property IMAGEN_FIRMA() As Byte()
-            Get
-                Try 
-                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.IMAGEN_FIRMAColumn),Byte())
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'IMAGEN_FIRMA' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNull"& _ 
-                            ".", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.IMAGEN_FIRMAColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property ADICIONADO_POR() As String
-            Get
-                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.ADICIONADO_PORColumn),String)
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.ADICIONADO_PORColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property FECHA_ADICION() As Date
-            Get
-                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FECHA_ADICIONColumn),Date)
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FECHA_ADICIONColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property MODIFICADO_POR() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.MODIFICADO_PORColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'MODIFICADO_POR' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNu"& _ 
-                            "ll.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.MODIFICADO_PORColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property FECHA_MODIFICACION() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FECHA_MODIFICACIONColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'FECHA_MODIFICACION' in table 'IM_CIUDADANOS_RESPALDAN1' is "& _ 
-                            "DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FECHA_MODIFICACIONColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property CONSISTENTE() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CONSISTENTEColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CONSISTENTE' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNull."& _ 
-                            "", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CONSISTENTEColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property OBSERVACION() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.OBSERVACIONColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'OBSERVACION' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNull."& _ 
-                            "", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.OBSERVACIONColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property MAQUINA() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.MAQUINAColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'MAQUINA' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.MAQUINAColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property PAGINA() As Decimal
-            Get
-                Try 
-                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.PAGINAColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'PAGINA' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.PAGINAColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property SEGUNDO_NOMBRE_PAPELETA() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_NOMBRE_PAPELETAColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'SEGUNDO_NOMBRE_PAPELETA' in table 'IM_CIUDADANOS_RESPALDAN1"& _ 
-                            "' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_NOMBRE_PAPELETAColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property PRIMER_APELLIDO_PAPELETA() As String
-            Get
-                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.PRIMER_APELLIDO_PAPELETAColumn),String)
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.PRIMER_APELLIDO_PAPELETAColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property SEGUNDO_APELLIDO_PAPELETA() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_APELLIDO_PAPELETAColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'SEGUNDO_APELLIDO_PAPELETA' in table 'IM_CIUDADANOS_RESPALDA"& _ 
-                            "N1' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_APELLIDO_PAPELETAColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsFIRMANull() As Boolean
-            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.FIRMAColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetFIRMANull()
-            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FIRMAColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsHUELLANull() As Boolean
-            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.HUELLAColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetHUELLANull()
-            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.HUELLAColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsDIRECCIONNull() As Boolean
-            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.DIRECCIONColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetDIRECCIONNull()
-            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.DIRECCIONColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsNOMBRE_IGUALNull() As Boolean
-            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.NOMBRE_IGUALColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetNOMBRE_IGUALNull()
-            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.NOMBRE_IGUALColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsFOLIONull() As Boolean
-            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.FOLIOColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetFOLIONull()
-            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FOLIOColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsIMAGEN_FIRMANull() As Boolean
-            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.IMAGEN_FIRMAColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetIMAGEN_FIRMANull()
-            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.IMAGEN_FIRMAColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsMODIFICADO_PORNull() As Boolean
-            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.MODIFICADO_PORColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetMODIFICADO_PORNull()
-            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.MODIFICADO_PORColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsFECHA_MODIFICACIONNull() As Boolean
-            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.FECHA_MODIFICACIONColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetFECHA_MODIFICACIONNull()
-            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FECHA_MODIFICACIONColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsCONSISTENTENull() As Boolean
-            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.CONSISTENTEColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetCONSISTENTENull()
-            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CONSISTENTEColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsOBSERVACIONNull() As Boolean
-            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.OBSERVACIONColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetOBSERVACIONNull()
-            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.OBSERVACIONColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsMAQUINANull() As Boolean
-            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.MAQUINAColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetMAQUINANull()
-            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.MAQUINAColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsPAGINANull() As Boolean
-            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.PAGINAColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetPAGINANull()
-            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.PAGINAColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsSEGUNDO_NOMBRE_PAPELETANull() As Boolean
-            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_NOMBRE_PAPELETAColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetSEGUNDO_NOMBRE_PAPELETANull()
-            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_NOMBRE_PAPELETAColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsSEGUNDO_APELLIDO_PAPELETANull() As Boolean
-            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_APELLIDO_PAPELETAColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetSEGUNDO_APELLIDO_PAPELETANull()
-            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_APELLIDO_PAPELETAColumn) = Global.System.Convert.DBNull
-        End Sub
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
     Partial Public Class MOSTRAR_FIRMASRow
         Inherits Global.System.Data.DataRow
         
@@ -3560,6 +3100,466 @@ Partial Public Class DSCiudadanos
     End Class
     
     '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Partial Public Class IM_CIUDADANOS_RESPALDAN1Row
+        Inherits Global.System.Data.DataRow
+        
+        Private tableIM_CIUDADANOS_RESPALDAN1 As IM_CIUDADANOS_RESPALDAN1DataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableIM_CIUDADANOS_RESPALDAN1 = CType(Me.Table,IM_CIUDADANOS_RESPALDAN1DataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CODIGO_CUIDADANOS_RESPALDAN() As Decimal
+            Get
+                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CODIGO_CUIDADANOS_RESPALDANColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CODIGO_CUIDADANOS_RESPALDANColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CODIGO_PARTIDO() As Decimal
+            Get
+                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CODIGO_PARTIDOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CODIGO_PARTIDOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CODIGO_MOVIMIENTO() As Decimal
+            Get
+                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CODIGO_MOVIMIENTOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CODIGO_MOVIMIENTOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CODIGO_DEPARTAMENTO() As Decimal
+            Get
+                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CODIGO_DEPARTAMENTOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CODIGO_DEPARTAMENTOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CODIGO_MUNICIPIO() As Decimal
+            Get
+                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CODIGO_MUNICIPIOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CODIGO_MUNICIPIOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property FIRMA() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FIRMAColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FIRMA' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FIRMAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property HUELLA() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.HUELLAColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'HUELLA' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.HUELLAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property DIRECCION() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.DIRECCIONColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DIRECCION' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.DIRECCIONColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property IDENTIDAD() As String
+            Get
+                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.IDENTIDADColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.IDENTIDADColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property NOMBRE_IGUAL() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.NOMBRE_IGUALColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'NOMBRE_IGUAL' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNull"& _ 
+                            ".", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.NOMBRE_IGUALColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property FOLIO() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FOLIOColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FOLIO' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FOLIOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property PRIMER_NOMBRE_PAPELETA() As String
+            Get
+                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.PRIMER_NOMBRE_PAPELETAColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.PRIMER_NOMBRE_PAPELETAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property IMAGEN_FIRMA() As Byte()
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.IMAGEN_FIRMAColumn),Byte())
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'IMAGEN_FIRMA' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNull"& _ 
+                            ".", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.IMAGEN_FIRMAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ADICIONADO_POR() As String
+            Get
+                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.ADICIONADO_PORColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.ADICIONADO_PORColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property FECHA_ADICION() As Date
+            Get
+                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FECHA_ADICIONColumn),Date)
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FECHA_ADICIONColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property MODIFICADO_POR() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.MODIFICADO_PORColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'MODIFICADO_POR' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNu"& _ 
+                            "ll.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.MODIFICADO_PORColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property FECHA_MODIFICACION() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FECHA_MODIFICACIONColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FECHA_MODIFICACION' in table 'IM_CIUDADANOS_RESPALDAN1' is "& _ 
+                            "DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FECHA_MODIFICACIONColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CONSISTENTE() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CONSISTENTEColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CONSISTENTE' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNull."& _ 
+                            "", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CONSISTENTEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property OBSERVACION() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.OBSERVACIONColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'OBSERVACION' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNull."& _ 
+                            "", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.OBSERVACIONColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property MAQUINA() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.MAQUINAColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'MAQUINA' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.MAQUINAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property PAGINA() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.PAGINAColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PAGINA' in table 'IM_CIUDADANOS_RESPALDAN1' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.PAGINAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property SEGUNDO_NOMBRE_PAPELETA() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_NOMBRE_PAPELETAColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SEGUNDO_NOMBRE_PAPELETA' in table 'IM_CIUDADANOS_RESPALDAN1"& _ 
+                            "' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_NOMBRE_PAPELETAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property PRIMER_APELLIDO_PAPELETA() As String
+            Get
+                Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.PRIMER_APELLIDO_PAPELETAColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.PRIMER_APELLIDO_PAPELETAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property SEGUNDO_APELLIDO_PAPELETA() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_APELLIDO_PAPELETAColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SEGUNDO_APELLIDO_PAPELETA' in table 'IM_CIUDADANOS_RESPALDA"& _ 
+                            "N1' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_APELLIDO_PAPELETAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsFIRMANull() As Boolean
+            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.FIRMAColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetFIRMANull()
+            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FIRMAColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsHUELLANull() As Boolean
+            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.HUELLAColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetHUELLANull()
+            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.HUELLAColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsDIRECCIONNull() As Boolean
+            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.DIRECCIONColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetDIRECCIONNull()
+            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.DIRECCIONColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsNOMBRE_IGUALNull() As Boolean
+            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.NOMBRE_IGUALColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetNOMBRE_IGUALNull()
+            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.NOMBRE_IGUALColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsFOLIONull() As Boolean
+            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.FOLIOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetFOLIONull()
+            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FOLIOColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsIMAGEN_FIRMANull() As Boolean
+            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.IMAGEN_FIRMAColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetIMAGEN_FIRMANull()
+            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.IMAGEN_FIRMAColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsMODIFICADO_PORNull() As Boolean
+            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.MODIFICADO_PORColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetMODIFICADO_PORNull()
+            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.MODIFICADO_PORColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsFECHA_MODIFICACIONNull() As Boolean
+            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.FECHA_MODIFICACIONColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetFECHA_MODIFICACIONNull()
+            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.FECHA_MODIFICACIONColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsCONSISTENTENull() As Boolean
+            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.CONSISTENTEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetCONSISTENTENull()
+            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.CONSISTENTEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsOBSERVACIONNull() As Boolean
+            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.OBSERVACIONColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetOBSERVACIONNull()
+            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.OBSERVACIONColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsMAQUINANull() As Boolean
+            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.MAQUINAColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetMAQUINANull()
+            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.MAQUINAColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsPAGINANull() As Boolean
+            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.PAGINAColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetPAGINANull()
+            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.PAGINAColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsSEGUNDO_NOMBRE_PAPELETANull() As Boolean
+            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_NOMBRE_PAPELETAColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetSEGUNDO_NOMBRE_PAPELETANull()
+            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_NOMBRE_PAPELETAColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsSEGUNDO_APELLIDO_PAPELETANull() As Boolean
+            Return Me.IsNull(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_APELLIDO_PAPELETAColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetSEGUNDO_APELLIDO_PAPELETANull()
+            Me(Me.tableIM_CIUDADANOS_RESPALDAN1.SEGUNDO_APELLIDO_PAPELETAColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
@@ -3596,22 +3596,22 @@ Partial Public Class DSCiudadanos
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
-    Public Class IM_CIUDADANOS_RESPALDAN1RowChangeEvent
+    Public Class MOSTRAR_FIRMASRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As IM_CIUDADANOS_RESPALDAN1Row
+        Private eventRow As MOSTRAR_FIRMASRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub New(ByVal row As IM_CIUDADANOS_RESPALDAN1Row, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As MOSTRAR_FIRMASRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Row() As IM_CIUDADANOS_RESPALDAN1Row
+        Public ReadOnly Property Row() As MOSTRAR_FIRMASRow
             Get
                 Return Me.eventRow
             End Get
@@ -3629,22 +3629,22 @@ Partial Public Class DSCiudadanos
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
-    Public Class MOSTRAR_FIRMASRowChangeEvent
+    Public Class IM_CIUDADANOS_RESPALDAN1RowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As MOSTRAR_FIRMASRow
+        Private eventRow As IM_CIUDADANOS_RESPALDAN1Row
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub New(ByVal row As MOSTRAR_FIRMASRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As IM_CIUDADANOS_RESPALDAN1Row, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Row() As MOSTRAR_FIRMASRow
+        Public ReadOnly Property Row() As IM_CIUDADANOS_RESPALDAN1Row
             Get
                 Return Me.eventRow
             End Get
@@ -4525,6 +4525,221 @@ Namespace DSCiudadanosTableAdapters
                     Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class MOSTRAR_FIRMASTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.OracleClient.OracleDataAdapter
+        
+        Private _connection As Global.System.Data.OracleClient.OracleConnection
+        
+        Private _transaction As Global.System.Data.OracleClient.OracleTransaction
+        
+        Private _commandCollection() As Global.System.Data.OracleClient.OracleCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.OracleClient.OracleDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Connection() As Global.System.Data.OracleClient.OracleConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.OracleClient.OracleCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Transaction() As Global.System.Data.OracleClient.OracleTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.OracleClient.OracleCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.OracleClient.OracleDataAdapter
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "MOSTRAR_FIRMAS"
+            tableMapping.ColumnMappings.Add("CODIGO_CUIDADANOS_RESPALDAN", "CODIGO_CUIDADANOS_RESPALDAN")
+            tableMapping.ColumnMappings.Add("CODIGO_PARTIDO", "CODIGO_PARTIDO")
+            tableMapping.ColumnMappings.Add("CODIGO_MOVIMIENTO", "CODIGO_MOVIMIENTO")
+            tableMapping.ColumnMappings.Add("CODIGO_DEPARTAMENTO", "CODIGO_DEPARTAMENTO")
+            tableMapping.ColumnMappings.Add("CODIGO_MUNICIPIO", "CODIGO_MUNICIPIO")
+            tableMapping.ColumnMappings.Add("FIRMA", "FIRMA")
+            tableMapping.ColumnMappings.Add("HUELLA", "HUELLA")
+            tableMapping.ColumnMappings.Add("DIRECCION", "DIRECCION")
+            tableMapping.ColumnMappings.Add("IDENTIDAD", "IDENTIDAD")
+            tableMapping.ColumnMappings.Add("NOMBRE_IGUAL", "NOMBRE_IGUAL")
+            tableMapping.ColumnMappings.Add("FOLIO", "FOLIO")
+            tableMapping.ColumnMappings.Add("PRIMER_NOMBRE_PAPELETA", "PRIMER_NOMBRE_PAPELETA")
+            tableMapping.ColumnMappings.Add("IMAGEN_FIRMA", "IMAGEN_FIRMA")
+            tableMapping.ColumnMappings.Add("ADICIONADO_POR", "ADICIONADO_POR")
+            tableMapping.ColumnMappings.Add("FECHA_ADICION", "FECHA_ADICION")
+            tableMapping.ColumnMappings.Add("MODIFICADO_POR", "MODIFICADO_POR")
+            tableMapping.ColumnMappings.Add("FECHA_MODIFICACION", "FECHA_MODIFICACION")
+            tableMapping.ColumnMappings.Add("CONSISTENTE", "CONSISTENTE")
+            tableMapping.ColumnMappings.Add("OBSERVACION", "OBSERVACION")
+            tableMapping.ColumnMappings.Add("MAQUINA", "MAQUINA")
+            tableMapping.ColumnMappings.Add("PAGINA", "PAGINA")
+            tableMapping.ColumnMappings.Add("SEGUNDO_NOMBRE_PAPELETA", "SEGUNDO_NOMBRE_PAPELETA")
+            tableMapping.ColumnMappings.Add("PRIMER_APELLIDO_PAPELETA", "PRIMER_APELLIDO_PAPELETA")
+            tableMapping.ColumnMappings.Add("SEGUNDO_APELLIDO_PAPELETA", "SEGUNDO_APELLIDO_PAPELETA")
+            tableMapping.ColumnMappings.Add("NOMBRE", "NOMBRE")
+            tableMapping.ColumnMappings.Add("NOMBRE_MOVIMIENTO", "NOMBRE_MOVIMIENTO")
+            tableMapping.ColumnMappings.Add("DEPARTAMENTO", "DEPARTAMENTO")
+            tableMapping.ColumnMappings.Add("MUNICIPIO", "MUNICIPIO")
+            Me._adapter.TableMappings.Add(tableMapping)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.OracleClient.OracleConnection
+            Me._connection.ConnectionString = Global.Inscripcion_de_Moviemientos.My.MySettings.Default.ConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT        IM_CIUDADANOS_RESPALDAN.CODIGO_CUIDADANOS_RESPALDAN, IM_CIUDADANOS_"& _ 
+                "RESPALDAN.CODIGO_PARTIDO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_CIUDADANOS_RESPALDAN.COD"& _ 
+                "IGO_MOVIMIENTO, IM_CIUDADANOS_RESPALDAN.CODIGO_DEPARTAMENTO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                 "& _ 
+                "        IM_CIUDADANOS_RESPALDAN.CODIGO_MUNICIPIO, IM_CIUDADANOS_RESPALDAN.FIRMA,"& _ 
+                " IM_CIUDADANOS_RESPALDAN.HUELLA, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_CIUDADANOS_RESPAL"& _ 
+                "DAN.DIRECCION, IM_CIUDADANOS_RESPALDAN.IDENTIDAD, IM_CIUDADANOS_RESPALDAN.NOMBRE"& _ 
+                "_IGUAL, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_CIUDADANOS_RESPALDAN.FOLIO, IM_CIUDADANOS_"& _ 
+                "RESPALDAN.PRIMER_NOMBRE_PAPELETA, IM_CIUDADANOS_RESPALDAN.IMAGEN_FIRMA, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
+                "                   IM_CIUDADANOS_RESPALDAN.ADICIONADO_POR, IM_CIUDADANOS_RESPALD"& _ 
+                "AN.FECHA_ADICION, IM_CIUDADANOS_RESPALDAN.MODIFICADO_POR, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
+                "     IM_CIUDADANOS_RESPALDAN.FECHA_MODIFICACION, IM_CIUDADANOS_RESPALDAN.CONSIST"& _ 
+                "ENTE, IM_CIUDADANOS_RESPALDAN.OBSERVACION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_CIUDADA"& _ 
+                "NOS_RESPALDAN.MAQUINA, IM_CIUDADANOS_RESPALDAN.PAGINA, IM_CIUDADANOS_RESPALDAN.S"& _ 
+                "EGUNDO_NOMBRE_PAPELETA, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_CIUDADANOS_RESPALDAN.PRIME"& _ 
+                "R_APELLIDO_PAPELETA, IM_CIUDADANOS_RESPALDAN.SEGUNDO_APELLIDO_PAPELETA, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
+                "                   IM_PARTIDOS_POLITICOS.NOMBRE, IM_MOVIMIENTOS.NOMBRE_MOVIMIENT"& _ 
+                "O, IM_DEPARTAMENTOS.DESCRIPCION AS DEPARTAMENTO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_M"& _ 
+                "UNICIPIOS.DESCRIPCION AS MUNICIPIO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_CIUDADANOS_RESPALDAN, IM_"& _ 
+                "PARTIDOS_POLITICOS, IM_MOVIMIENTOS, IM_DEPARTAMENTOS, IM_MUNICIPIOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE      "& _ 
+                "  IM_CIUDADANOS_RESPALDAN.CODIGO_PARTIDO = IM_PARTIDOS_POLITICOS.CODIGO_PARTIDO "& _ 
+                "AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_CIUDADANOS_RESPALDAN.CODIGO_MOVIMIENTO = IM_MO"& _ 
+                "VIMIENTOS.CODIGO_MOVIMIENTO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_CIUDADANOS_RESPALD"& _ 
+                "AN.CODIGO_DEPARTAMENTO = IM_DEPARTAMENTOS.CODIGO_DEPARTAMENTO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "             IM_CIUDADANOS_RESPALDAN.CODIGO_MUNICIPIO = IM_MUNICIPIOS.CODIGO_MUN"& _ 
+                "ICIPIO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_CIUDADANOS_RESPALDAN.CODIGO_DEPARTAMENT"& _ 
+                "O = IM_MUNICIPIOS.CODIGO_DEPARTAMENTO"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DSCiudadanos.MOSTRAR_FIRMASDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As DSCiudadanos.MOSTRAR_FIRMASDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As DSCiudadanos.MOSTRAR_FIRMASDataTable = New DSCiudadanos.MOSTRAR_FIRMASDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
         End Function
     End Class
     
@@ -5602,221 +5817,6 @@ Namespace DSCiudadanosTableAdapters
                     ByVal p9 As String,  _
                     ByVal p11 As String) As Integer
             Return Me.Update(p2, Original_CODIGO_PARTIDO, Original_CODIGO_MOVIMIENTO, CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, FIRMA, HUELLA, DIRECCION, IDENTIDAD, NOMBRE_IGUAL, FOLIO, p3, IMAGEN_FIRMA, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, CONSISTENTE, OBSERVACION, MAQUINA, PAGINA, p5, p8, p10, p2, Original_CODIGO_PARTIDO, Original_CODIGO_MOVIMIENTO, Original_CODIGO_DEPARTAMENTO, Original_CODIGO_MUNICIPIO, Original_FIRMA, Original_HUELLA, Original_DIRECCION, Original_IDENTIDAD, Original_NOMBRE_IGUAL, Original_FOLIO, p4, Original_ADICIONADO_POR, Original_FECHA_ADICION, Original_MODIFICADO_POR, Original_FECHA_MODIFICACION, Original_CONSISTENTE, Original_OBSERVACION, Original_MAQUINA, Original_PAGINA, p6, p9, p11)
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the connection and commands used to retrieve and save data.
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class MOSTRAR_FIRMASTableAdapter
-        Inherits Global.System.ComponentModel.Component
-        
-        Private WithEvents _adapter As Global.System.Data.OracleClient.OracleDataAdapter
-        
-        Private _connection As Global.System.Data.OracleClient.OracleConnection
-        
-        Private _transaction As Global.System.Data.OracleClient.OracleTransaction
-        
-        Private _commandCollection() As Global.System.Data.OracleClient.OracleCommand
-        
-        Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Friend ReadOnly Property Adapter() As Global.System.Data.OracleClient.OracleDataAdapter
-            Get
-                If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
-                End If
-                Return Me._adapter
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Friend Property Connection() As Global.System.Data.OracleClient.OracleConnection
-            Get
-                If (Me._connection Is Nothing) Then
-                    Me.InitConnection
-                End If
-                Return Me._connection
-            End Get
-            Set
-                Me._connection = value
-                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
-                End If
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.OracleClient.OracleCommand).Connection = value
-                    End If
-                    i = (i + 1)
-                Loop
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Friend Property Transaction() As Global.System.Data.OracleClient.OracleTransaction
-            Get
-                Return Me._transaction
-            End Get
-            Set
-                Me._transaction = value
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    Me.CommandCollection(i).Transaction = Me._transaction
-                    i = (i + 1)
-                Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
-                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
-                    Me.Adapter.InsertCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
-                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
-                End If
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected ReadOnly Property CommandCollection() As Global.System.Data.OracleClient.OracleCommand()
-            Get
-                If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
-                End If
-                Return Me._commandCollection
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property ClearBeforeFill() As Boolean
-            Get
-                Return Me._clearBeforeFill
-            End Get
-            Set
-                Me._clearBeforeFill = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private Sub InitAdapter()
-            Me._adapter = New Global.System.Data.OracleClient.OracleDataAdapter
-            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
-            tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "MOSTRAR_FIRMAS"
-            tableMapping.ColumnMappings.Add("CODIGO_CUIDADANOS_RESPALDAN", "CODIGO_CUIDADANOS_RESPALDAN")
-            tableMapping.ColumnMappings.Add("CODIGO_PARTIDO", "CODIGO_PARTIDO")
-            tableMapping.ColumnMappings.Add("CODIGO_MOVIMIENTO", "CODIGO_MOVIMIENTO")
-            tableMapping.ColumnMappings.Add("CODIGO_DEPARTAMENTO", "CODIGO_DEPARTAMENTO")
-            tableMapping.ColumnMappings.Add("CODIGO_MUNICIPIO", "CODIGO_MUNICIPIO")
-            tableMapping.ColumnMappings.Add("FIRMA", "FIRMA")
-            tableMapping.ColumnMappings.Add("HUELLA", "HUELLA")
-            tableMapping.ColumnMappings.Add("DIRECCION", "DIRECCION")
-            tableMapping.ColumnMappings.Add("IDENTIDAD", "IDENTIDAD")
-            tableMapping.ColumnMappings.Add("NOMBRE_IGUAL", "NOMBRE_IGUAL")
-            tableMapping.ColumnMappings.Add("FOLIO", "FOLIO")
-            tableMapping.ColumnMappings.Add("PRIMER_NOMBRE_PAPELETA", "PRIMER_NOMBRE_PAPELETA")
-            tableMapping.ColumnMappings.Add("IMAGEN_FIRMA", "IMAGEN_FIRMA")
-            tableMapping.ColumnMappings.Add("ADICIONADO_POR", "ADICIONADO_POR")
-            tableMapping.ColumnMappings.Add("FECHA_ADICION", "FECHA_ADICION")
-            tableMapping.ColumnMappings.Add("MODIFICADO_POR", "MODIFICADO_POR")
-            tableMapping.ColumnMappings.Add("FECHA_MODIFICACION", "FECHA_MODIFICACION")
-            tableMapping.ColumnMappings.Add("CONSISTENTE", "CONSISTENTE")
-            tableMapping.ColumnMappings.Add("OBSERVACION", "OBSERVACION")
-            tableMapping.ColumnMappings.Add("MAQUINA", "MAQUINA")
-            tableMapping.ColumnMappings.Add("PAGINA", "PAGINA")
-            tableMapping.ColumnMappings.Add("SEGUNDO_NOMBRE_PAPELETA", "SEGUNDO_NOMBRE_PAPELETA")
-            tableMapping.ColumnMappings.Add("PRIMER_APELLIDO_PAPELETA", "PRIMER_APELLIDO_PAPELETA")
-            tableMapping.ColumnMappings.Add("SEGUNDO_APELLIDO_PAPELETA", "SEGUNDO_APELLIDO_PAPELETA")
-            tableMapping.ColumnMappings.Add("NOMBRE", "NOMBRE")
-            tableMapping.ColumnMappings.Add("NOMBRE_MOVIMIENTO", "NOMBRE_MOVIMIENTO")
-            tableMapping.ColumnMappings.Add("DEPARTAMENTO", "DEPARTAMENTO")
-            tableMapping.ColumnMappings.Add("MUNICIPIO", "MUNICIPIO")
-            Me._adapter.TableMappings.Add(tableMapping)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private Sub InitConnection()
-            Me._connection = New Global.System.Data.OracleClient.OracleConnection
-            Me._connection.ConnectionString = Global.Inscripcion_de_Moviemientos.My.MySettings.Default.ConnectionString
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
-            Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
-            Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        IM_CIUDADANOS_RESPALDAN.CODIGO_CUIDADANOS_RESPALDAN, IM_CIUDADANOS_"& _ 
-                "RESPALDAN.CODIGO_PARTIDO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_CIUDADANOS_RESPALDAN.COD"& _ 
-                "IGO_MOVIMIENTO, IM_CIUDADANOS_RESPALDAN.CODIGO_DEPARTAMENTO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                 "& _ 
-                "        IM_CIUDADANOS_RESPALDAN.CODIGO_MUNICIPIO, IM_CIUDADANOS_RESPALDAN.FIRMA,"& _ 
-                " IM_CIUDADANOS_RESPALDAN.HUELLA, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_CIUDADANOS_RESPAL"& _ 
-                "DAN.DIRECCION, IM_CIUDADANOS_RESPALDAN.IDENTIDAD, IM_CIUDADANOS_RESPALDAN.NOMBRE"& _ 
-                "_IGUAL, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_CIUDADANOS_RESPALDAN.FOLIO, IM_CIUDADANOS_"& _ 
-                "RESPALDAN.PRIMER_NOMBRE_PAPELETA, IM_CIUDADANOS_RESPALDAN.IMAGEN_FIRMA, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
-                "                   IM_CIUDADANOS_RESPALDAN.ADICIONADO_POR, IM_CIUDADANOS_RESPALD"& _ 
-                "AN.FECHA_ADICION, IM_CIUDADANOS_RESPALDAN.MODIFICADO_POR, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
-                "     IM_CIUDADANOS_RESPALDAN.FECHA_MODIFICACION, IM_CIUDADANOS_RESPALDAN.CONSIST"& _ 
-                "ENTE, IM_CIUDADANOS_RESPALDAN.OBSERVACION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_CIUDADA"& _ 
-                "NOS_RESPALDAN.MAQUINA, IM_CIUDADANOS_RESPALDAN.PAGINA, IM_CIUDADANOS_RESPALDAN.S"& _ 
-                "EGUNDO_NOMBRE_PAPELETA, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_CIUDADANOS_RESPALDAN.PRIME"& _ 
-                "R_APELLIDO_PAPELETA, IM_CIUDADANOS_RESPALDAN.SEGUNDO_APELLIDO_PAPELETA, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
-                "                   IM_PARTIDOS_POLITICOS.NOMBRE, IM_MOVIMIENTOS.NOMBRE_MOVIMIENT"& _ 
-                "O, IM_DEPARTAMENTOS.DESCRIPCION AS DEPARTAMENTO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_M"& _ 
-                "UNICIPIOS.DESCRIPCION AS MUNICIPIO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_CIUDADANOS_RESPALDAN, IM_"& _ 
-                "PARTIDOS_POLITICOS, IM_MOVIMIENTOS, IM_DEPARTAMENTOS, IM_MUNICIPIOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE      "& _ 
-                "  IM_CIUDADANOS_RESPALDAN.CODIGO_PARTIDO = IM_PARTIDOS_POLITICOS.CODIGO_PARTIDO "& _ 
-                "AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_CIUDADANOS_RESPALDAN.CODIGO_MOVIMIENTO = IM_MO"& _ 
-                "VIMIENTOS.CODIGO_MOVIMIENTO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_CIUDADANOS_RESPALD"& _ 
-                "AN.CODIGO_DEPARTAMENTO = IM_DEPARTAMENTOS.CODIGO_DEPARTAMENTO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
-                "             IM_CIUDADANOS_RESPALDAN.CODIGO_MUNICIPIO = IM_MUNICIPIOS.CODIGO_MUN"& _ 
-                "ICIPIO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_CIUDADANOS_RESPALDAN.CODIGO_DEPARTAMENT"& _ 
-                "O = IM_MUNICIPIOS.CODIGO_DEPARTAMENTO"
-            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSCiudadanos.MOSTRAR_FIRMASDataTable) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DSCiudadanos.MOSTRAR_FIRMASDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DSCiudadanos.MOSTRAR_FIRMASDataTable = New DSCiudadanos.MOSTRAR_FIRMASDataTable
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
         End Function
     End Class
     
