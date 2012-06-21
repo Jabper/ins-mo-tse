@@ -113,6 +113,8 @@ Partial Class xfrmInscripcionCandidato
         Me.CODIGO_CANDIDATO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.CODIGO_MOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.CODIGO_PARTIDO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.Cumplido = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.chkCumplido = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
         Me.RIChkCoincide = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
         Me.RIChkFima = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
         Me.RPIImgfirma = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
@@ -220,6 +222,7 @@ Partial Class xfrmInscripcionCandidato
         CType(Me.GridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chkCumplido, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RIChkCoincide, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RIChkFima, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RPIImgfirma, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1022,7 +1025,7 @@ Partial Class xfrmInscripcionCandidato
         Me.GridControl1.Location = New System.Drawing.Point(444, 309)
         Me.GridControl1.MainView = Me.GridView3
         Me.GridControl1.Name = "GridControl1"
-        Me.GridControl1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RIChkCoincide, Me.RIChkFima, Me.RPIImgfirma, Me.RepositoryItemComboBox1, Me.ChkEstado, Me.RepositoryItemTextEdit1, Me.RepositoryItemTextEdit2, Me.RepositoryItemTextEdit3, Me.RepositoryItemCheckEdit1, Me.RepositoryItemPictureEdit1})
+        Me.GridControl1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RIChkCoincide, Me.RIChkFima, Me.RPIImgfirma, Me.RepositoryItemComboBox1, Me.ChkEstado, Me.RepositoryItemTextEdit1, Me.RepositoryItemTextEdit2, Me.RepositoryItemTextEdit3, Me.RepositoryItemCheckEdit1, Me.RepositoryItemPictureEdit1, Me.chkCumplido})
         Me.GridControl1.Size = New System.Drawing.Size(425, 146)
         Me.GridControl1.TabIndex = 10
         Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView3, Me.GridView4})
@@ -1034,7 +1037,7 @@ Partial Class xfrmInscripcionCandidato
         '
         'GridView3
         '
-        Me.GridView3.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colDESCRIPCION, Me.colCODIGO_REQUISITO, Me.colCODIGO_CARGO_ELECTIVO1, Me.colESTADO, Me.IMAGEN, Me.CODIGO_CANDIDATO, Me.CODIGO_MOVIMIENTO, Me.CODIGO_PARTIDO})
+        Me.GridView3.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colDESCRIPCION, Me.colCODIGO_REQUISITO, Me.colCODIGO_CARGO_ELECTIVO1, Me.colESTADO, Me.IMAGEN, Me.CODIGO_CANDIDATO, Me.CODIGO_MOVIMIENTO, Me.CODIGO_PARTIDO, Me.Cumplido})
         Me.GridView3.GridControl = Me.GridControl1
         Me.GridView3.Name = "GridView3"
         Me.GridView3.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[True]
@@ -1117,6 +1120,21 @@ Partial Class xfrmInscripcionCandidato
         Me.CODIGO_PARTIDO.Caption = "GridColumn1"
         Me.CODIGO_PARTIDO.FieldName = "CODIGO_PARTIDO"
         Me.CODIGO_PARTIDO.Name = "CODIGO_PARTIDO"
+        '
+        'Cumplido
+        '
+        Me.Cumplido.Caption = "Cumplido"
+        Me.Cumplido.ColumnEdit = Me.chkCumplido
+        Me.Cumplido.FieldName = "Cumplido"
+        Me.Cumplido.Name = "Cumplido"
+        Me.Cumplido.Visible = True
+        Me.Cumplido.VisibleIndex = 3
+        '
+        'chkCumplido
+        '
+        Me.chkCumplido.AutoHeight = False
+        Me.chkCumplido.Name = "chkCumplido"
+        Me.chkCumplido.ValueGrayed = "False"
         '
         'RIChkCoincide
         '
@@ -1470,6 +1488,7 @@ Partial Class xfrmInscripcionCandidato
         CType(Me.GridView3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chkCumplido, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RIChkCoincide, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RIChkFima, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RPIImgfirma, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1626,4 +1645,6 @@ Partial Class xfrmInscripcionCandidato
     Friend WithEvents IM_REQUISITOS1TableAdapter As Inscripcion_de_Moviemientos.DSInscripcionCandidatosTableAdapters.IM_REQUISITOS1TableAdapter
     Friend WithEvents IMREQUISITOSXCANDIDATOBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents IM_REQUISITOS_X_CANDIDATOTableAdapter As Inscripcion_de_Moviemientos.DSInscripcionCandidatosTableAdapters.IM_REQUISITOS_X_CANDIDATOTableAdapter
+    Friend WithEvents Cumplido As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents chkCumplido As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
 End Class

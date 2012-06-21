@@ -34,6 +34,7 @@ Public Class XfrmCiudadanos
     Private Sub GridView1_CustomColumnDisplayText(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs) Handles GridView1.CustomColumnDisplayText
 
         If (e.Column.FieldName = "Fila") Then
+
             If e.RowHandle < 0 Then
                 e.DisplayText = vi + 1
 

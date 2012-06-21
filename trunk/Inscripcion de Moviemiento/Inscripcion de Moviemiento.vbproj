@@ -137,6 +137,7 @@
     <Compile Include="Candidatos\XfrmRequisitos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Ciudadanos\CREstadistico.vb" />
     <Compile Include="Ciudadanos\DSCiudadanos.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -6,7 +6,43 @@ Public Class xfrmInscripcionCandidato
     Dim id As Integer
     Dim rEstado As String
 
+    Sub VerificarRequisitos()
+        Try
 
+            Dim view2 As GridView = GridView5
+            'RECORRER EL GRID
+            Dim vestado As String
+            For i = 0 To view2.DataRowCount - 1
+                If view2.GetRowCellValue(i, "CODIGO_REQUISITO") = 4 Or view2.GetRowCellValue(i, "CODIGO_REQUISITO") = 5 Or view2.GetRowCellValue(i, "CODIGO_REQUISITO") = 6 Then
+
+                    Dim oradb As String = Configuracion.verconfig
+                    Dim opcion As Integer
+                    Dim conn As New OracleConnection()
+                    conn.ConnectionString = oradb
+                    conn.Open()
+
+                    Dim myCMD As New OracleCommand()
+                    myCMD.Connection = conn
+                    myCMD.CommandText = "IM_K_VALIDACIONES.IM_P_VALIDA_EDAD"
+                    myCMD.CommandType = CommandType.StoredProcedure
+                    myCMD.Parameters.Add(New OracleParameter("p_numero_identidad", OracleType.NVarChar, 100, ParameterDirection.Input)).Value = Me.IDENTIDADTextEdit.EditValue
+                    myCMD.Parameters.Add(New OracleParameter("p_requisito", OracleType.Number, 3, ParameterDirection.Input)).Value = view2.GetRowCellValue(i, "CODIGO_REQUISITO")
+                    myCMD.Parameters.Add(New OracleParameter("p_estado", OracleType.Char, 1)).Direction = ParameterDirection.InputOutput
+                    myCMD.ExecuteOracleScalar()
+                    vestado = myCMD.Parameters("p_estado").Value
+                    view2.SetRowCellValue(i, "ESTADO", vestado)
+                Else
+                    vestado = "C"
+                    view2.SetRowCellValue(i, "ESTADO", vestado)
+                End If
+            Next i
+
+
+        Catch ex As Exception
+            Mensajes.mimensaje(ex.Message)
+        End Try
+
+    End Sub
 
     Sub GuardarRequisitos()
 
@@ -23,11 +59,9 @@ Public Class xfrmInscripcionCandidato
             Dim view As GridView = GridView3
             'RECORRER EL GRID
 
-
-            
             For i = 0 To view.DataRowCount - 1
 
-                'view.SetRowCellValue(i, "ESTADO", "C")
+                view.SetRowCellValue(i, "ESTADO", "C")
                 'Return
 
                 vCodigo_requisito = view.GetRowCellValue(i, "CODIGO_REQUISITO")
@@ -70,7 +104,8 @@ Public Class xfrmInscripcionCandidato
                 'Return
 
                 vCodigo_requisito = view2.GetRowCellValue(i, "CODIGO_REQUISITO")
-                'vestado = view2.GetRowCellValue(i, "ESTADO1")
+                view2.SetRowCellValue(i, "ESTADO1", "C")
+                vestado = view2.GetRowCellValue(i, "ESTADO1")
 
                 Dim CANDIDATOS As DSInscripcionCandidatos.IM_REQUISITOS_X_CANDIDATORow
                 CANDIDATOS = DSInscripcionCandidatos.IM_REQUISITOS_X_CANDIDATO.NewIM_REQUISITOS_X_CANDIDATORow
@@ -273,8 +308,29 @@ Public Class xfrmInscripcionCandidato
         guardar()
     End Sub
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
+        VerificarRequisitos()
 
-        Me.Close()
+        'Dim view2 As GridView = GridView5
+        ''RECORRER EL GRID
+        'Dim vestado As String = "C"
+        'For i = 0 To view2.DataRowCount - 1
+
+        '    view2.SetRowCellValue(i, "ESTADO", vestado)
+
+        'Next i
+
+        'Dim view1 As GridView = GridView3
+        ''RECORRER EL GRID
+
+        'For i = 0 To view2.DataRowCount - 1
+
+        '    view1.SetRowCellValue(i, "ESTADO", vestado)
+
+        'Next i
+
+
+
+        'Me.Close()
 
     End Sub
 
@@ -298,6 +354,7 @@ Public Class xfrmInscripcionCandidato
             Try
                 Me.IM_REQUISITOSTableAdapter.FillBY(Me.DSInscripcionCandidatos.IM_REQUISITOS, Me.CODIGO_CARGO_ELECTIVOLookUpEdit.EditValue, "N")
                 Me.IM_REQUISITOS1TableAdapter.FillBY(Me.DSInscripcionCandidatos.IM_REQUISITOS1, Me.CODIGO_CARGO_ELECTIVOLookUpEdit.EditValue, "S")
+                VerificarRequisitos()
             Catch ex As Exception
 
             End Try
@@ -328,6 +385,7 @@ Public Class xfrmInscripcionCandidato
         Try
             Me.IM_REQUISITOSTableAdapter.FillBY(Me.DSInscripcionCandidatos.IM_REQUISITOS, Me.CODIGO_CARGO_ELECTIVOLookUpEdit.EditValue, "N")
             Me.IM_REQUISITOS1TableAdapter.FillBY(Me.DSInscripcionCandidatos.IM_REQUISITOS1, Me.CODIGO_CARGO_ELECTIVOLookUpEdit.EditValue, "S")
+            VerificarRequisitos()
         Catch ex As Exception
 
         End Try
@@ -474,47 +532,27 @@ Public Class xfrmInscripcionCandidato
         End Try
     End Sub
 
-    Public Sub AddRow(ByVal View As DevExpress.XtraGrid.Views.Grid.GridView)
 
-        Dim currentRow As Integer
+    Private Sub GridView3_CellValueChanged(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs) Handles GridView3.CellValueChanged
+        'Dim view2 As GridView = GridView3
 
-        currentRow = View.FocusedRowHandle
+        'If (e.Column.FieldName = "Cumplido") Then
+        '    If e.Value = True Then
+        '        view2.SetRowCellValue(e.RowHandle, "ESTADO", "C")
+        '    ElseIf e.Value = False Then
+        '        view2.SetRowCellValue(e.RowHandle, "ESTADO", "I")
+        '    End If
 
-        If currentRow < 0 Then
-
-            currentRow = View.GetDataRowHandleByGroupRowHandle(currentRow)
-
-        End If
-
-        View.AddNewRow()
-
-
-
-        If View.GroupedColumns.Count = 0 Then Exit Sub
-
-
-
-        ' Initialize group values
-
-        Dim groupColumn As DevExpress.XtraGrid.Columns.GridColumn
-
-        For Each groupColumn In View.GroupedColumns
-
-            Dim value As Object = View.GetRowCellValue(currentRow, groupColumn)
-
-            View.SetRowCellValue(View.FocusedRowHandle, groupColumn, value)
-
-        Next
-
-        View.UpdateCurrentRow()
-
-        View.MakeRowVisible(View.FocusedRowHandle, True)
-
-        View.ShowEditor()
-
+        'End If
     End Sub
 
+    Private Sub chkCumplido_EditValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles chkCumplido.EditValueChanged
+        Dim view2 As GridView = GridView3
+
+        'If view2.GetRowCellValue(i, "CODIGO_REQUISITO") = Then
+
+        'End If
 
 
-
+    End Sub
 End Class
