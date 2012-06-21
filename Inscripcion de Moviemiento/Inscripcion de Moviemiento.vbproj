@@ -203,6 +203,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\DS_REPORTE_DE_FDP.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_REPORTE_DE_FDP.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DS_REPORTE_DE_DP.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -364,6 +369,12 @@
     </Compile>
     <Compile Include="Reportes\DS_REPORTE_DE_PNEM.vb">
       <DependentUpon>DS_REPORTE_DE_PNEM.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Reporte_de _FirmasDP.Designer.vb">
+      <DependentUpon>Reporte_de _FirmasDP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Reporte_de _FirmasDP.vb">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\Reporte_de_PlanillaDP.Designer.vb">
       <DependentUpon>Reporte_de_PlanillaDP.vb</DependentUpon>
@@ -554,6 +565,9 @@
     <EmbeddedResource Include="Procesos\XfrmSubirSistExterno.resx">
       <DependentUpon>XfrmSubirSistExterno.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Reporte_de _FirmasDP.resx">
+      <DependentUpon>Reporte_de _FirmasDP.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Reporte_de_PlanillaDP.resx">
       <DependentUpon>Reporte_de_PlanillaDP.vb</DependentUpon>
@@ -864,6 +878,17 @@
     <None Include="Resources\turnoff.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Reportes\DS_REPORTE_DE_FDP.xsc">
+      <DependentUpon>DS_REPORTE_DE_FDP.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_FDP.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_REPORTE_DE_FDP.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_FDP.xss">
+      <DependentUpon>DS_REPORTE_DE_FDP.xsd</DependentUpon>
+    </None>
     <None Include="Reportes\DS_REPORTE_DE_DP.xsc">
       <DependentUpon>DS_REPORTE_DE_DP.xsd</DependentUpon>
     </None>
@@ -890,6 +915,8 @@
     <None Include="Resources\firmas.png" />
     <None Include="Resources\flecha.png" />
     <None Include="Resources\importar otros sistemas.png" />
+    <Content Include="Resources\FIRMAS1.png" />
+    <None Include="Resources\FIRMAS11.png" />
     <Content Include="Resources\motivo.png" />
     <None Include="Resources\Reporte.png" />
     <None Include="Resources\subir_movimientos.png" />
