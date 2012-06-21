@@ -476,6 +476,10 @@
       <DependentUpon>XfrmConCiudadanosInha.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\XfrmConFirmas.resx">
+      <DependentUpon>XfrmConFirmas.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Designer</SubType>
