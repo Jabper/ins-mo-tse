@@ -174,7 +174,7 @@ FROM            IM_CIUDADANOS_RESPALDAN</CommandText>
               <Mapping SourceColumn="IMAGEN_FIRMA" DataSetColumn="IMAGEN_FIRMA" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="TSE.IM_CIUDADANOS_RESPALDAN" DbObjectType="Table" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="GetImage" Modifier="Public" Name="GetImage" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="GetImage">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="TSE.IM_CIUDADANOS_RESPALDAN" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        IMAGEN_FIRMA
@@ -281,50 +281,50 @@ FROM            IM_MOVIMIENTOS</CommandText>
         <xs:element name="IM_CIUDADANOS_INHABILITADOS" msprop:Generator_UserTableName="IM_CIUDADANOS_INHABILITADOS" msprop:Generator_RowDeletedName="IM_CIUDADANOS_INHABILITADOSRowDeleted" msprop:Generator_RowChangedName="IM_CIUDADANOS_INHABILITADOSRowChanged" msprop:Generator_RowClassName="IM_CIUDADANOS_INHABILITADOSRow" msprop:Generator_RowChangingName="IM_CIUDADANOS_INHABILITADOSRowChanging" msprop:Generator_RowEvArgName="IM_CIUDADANOS_INHABILITADOSRowChangeEvent" msprop:Generator_RowEvHandlerName="IM_CIUDADANOS_INHABILITADOSRowChangeEventHandler" msprop:Generator_TableClassName="IM_CIUDADANOS_INHABILITADOSDataTable" msprop:Generator_TableVarName="tableIM_CIUDADANOS_INHABILITADOS" msprop:Generator_RowDeletingName="IM_CIUDADANOS_INHABILITADOSRowDeleting" msprop:Generator_TablePropName="IM_CIUDADANOS_INHABILITADOS">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="NUMERO_IDENTIFICACION" msprop:Generator_UserColumnName="NUMERO_IDENTIFICACION" msprop:Generator_ColumnVarNameInTable="columnNUMERO_IDENTIFICACION" msprop:Generator_ColumnPropNameInRow="NUMERO_IDENTIFICACION" msprop:Generator_ColumnPropNameInTable="NUMERO_IDENTIFICACIONColumn">
+              <xs:element name="NUMERO_IDENTIFICACION" msprop:Generator_UserColumnName="NUMERO_IDENTIFICACION" msprop:Generator_ColumnPropNameInRow="NUMERO_IDENTIFICACION" msprop:Generator_ColumnVarNameInTable="columnNUMERO_IDENTIFICACION" msprop:Generator_ColumnPropNameInTable="NUMERO_IDENTIFICACIONColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NOMBRES" msprop:Generator_UserColumnName="NOMBRES" msprop:Generator_ColumnVarNameInTable="columnNOMBRES" msprop:Generator_ColumnPropNameInRow="NOMBRES" msprop:Generator_ColumnPropNameInTable="NOMBRESColumn">
+              <xs:element name="NOMBRES" msprop:Generator_UserColumnName="NOMBRES" msprop:Generator_ColumnPropNameInRow="NOMBRES" msprop:Generator_ColumnVarNameInTable="columnNOMBRES" msprop:Generator_ColumnPropNameInTable="NOMBRESColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="40" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PRIMER_APELLIDO" msprop:Generator_UserColumnName="PRIMER_APELLIDO" msprop:Generator_ColumnVarNameInTable="columnPRIMER_APELLIDO" msprop:Generator_ColumnPropNameInRow="PRIMER_APELLIDO" msprop:Generator_ColumnPropNameInTable="PRIMER_APELLIDOColumn">
+              <xs:element name="PRIMER_APELLIDO" msprop:Generator_UserColumnName="PRIMER_APELLIDO" msprop:Generator_ColumnPropNameInRow="PRIMER_APELLIDO" msprop:Generator_ColumnVarNameInTable="columnPRIMER_APELLIDO" msprop:Generator_ColumnPropNameInTable="PRIMER_APELLIDOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="25" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SEGUNDO_APELLIDO" msprop:Generator_UserColumnName="SEGUNDO_APELLIDO" msprop:Generator_ColumnVarNameInTable="columnSEGUNDO_APELLIDO" msprop:Generator_ColumnPropNameInRow="SEGUNDO_APELLIDO" msprop:Generator_ColumnPropNameInTable="SEGUNDO_APELLIDOColumn">
+              <xs:element name="SEGUNDO_APELLIDO" msprop:Generator_UserColumnName="SEGUNDO_APELLIDO" msprop:Generator_ColumnPropNameInRow="SEGUNDO_APELLIDO" msprop:Generator_ColumnVarNameInTable="columnSEGUNDO_APELLIDO" msprop:Generator_ColumnPropNameInTable="SEGUNDO_APELLIDOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="25" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DEPEDENCIA_GUBERNAMENTAL" msprop:Generator_UserColumnName="DEPEDENCIA_GUBERNAMENTAL" msprop:Generator_ColumnVarNameInTable="columnDEPEDENCIA_GUBERNAMENTAL" msprop:Generator_ColumnPropNameInRow="DEPEDENCIA_GUBERNAMENTAL" msprop:Generator_ColumnPropNameInTable="DEPEDENCIA_GUBERNAMENTALColumn" minOccurs="0">
+              <xs:element name="DEPEDENCIA_GUBERNAMENTAL" msprop:Generator_UserColumnName="DEPEDENCIA_GUBERNAMENTAL" msprop:Generator_ColumnPropNameInRow="DEPEDENCIA_GUBERNAMENTAL" msprop:Generator_ColumnVarNameInTable="columnDEPEDENCIA_GUBERNAMENTAL" msprop:Generator_ColumnPropNameInTable="DEPEDENCIA_GUBERNAMENTALColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="80" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CARGO" msprop:Generator_UserColumnName="CARGO" msprop:Generator_ColumnVarNameInTable="columnCARGO" msprop:Generator_ColumnPropNameInRow="CARGO" msprop:Generator_ColumnPropNameInTable="CARGOColumn" minOccurs="0">
+              <xs:element name="CARGO" msprop:Generator_UserColumnName="CARGO" msprop:Generator_ColumnPropNameInRow="CARGO" msprop:Generator_ColumnVarNameInTable="columnCARGO" msprop:Generator_ColumnPropNameInTable="CARGOColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="80" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CODIGO_MOTIVO" msprop:Generator_UserColumnName="CODIGO_MOTIVO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOTIVO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOTIVO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOTIVOColumn" type="xs:decimal" />
-              <xs:element name="DESCRIPCION" msprop:Generator_UserColumnName="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn">
+              <xs:element name="CODIGO_MOTIVO" msprop:Generator_UserColumnName="CODIGO_MOTIVO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOTIVO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOTIVO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOTIVOColumn" type="xs:decimal" />
+              <xs:element name="DESCRIPCION" msprop:Generator_UserColumnName="DESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="150" />
@@ -337,8 +337,8 @@ FROM            IM_MOVIMIENTOS</CommandText>
         <xs:element name="Motivos" msprop:Generator_UserTableName="Motivos" msprop:Generator_RowDeletedName="MotivosRowDeleted" msprop:Generator_RowChangedName="MotivosRowChanged" msprop:Generator_RowClassName="MotivosRow" msprop:Generator_RowChangingName="MotivosRowChanging" msprop:Generator_RowEvArgName="MotivosRowChangeEvent" msprop:Generator_RowEvHandlerName="MotivosRowChangeEventHandler" msprop:Generator_TableClassName="MotivosDataTable" msprop:Generator_TableVarName="tableMotivos" msprop:Generator_RowDeletingName="MotivosRowDeleting" msprop:Generator_TablePropName="Motivos">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CODIGO_MOTIVO" msprop:Generator_UserColumnName="CODIGO_MOTIVO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOTIVO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOTIVO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOTIVOColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="DESCRIPCION" msprop:Generator_UserColumnName="DESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn" minOccurs="0">
+              <xs:element name="CODIGO_MOTIVO" msprop:Generator_UserColumnName="CODIGO_MOTIVO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOTIVO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOTIVO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOTIVOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DESCRIPCION" msprop:Generator_UserColumnName="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="150" />
@@ -351,8 +351,8 @@ FROM            IM_MOVIMIENTOS</CommandText>
         <xs:element name="Generos" msprop:Generator_UserTableName="Generos" msprop:Generator_RowDeletedName="GenerosRowDeleted" msprop:Generator_RowChangedName="GenerosRowChanged" msprop:Generator_RowClassName="GenerosRow" msprop:Generator_RowChangingName="GenerosRowChanging" msprop:Generator_RowEvArgName="GenerosRowChangeEvent" msprop:Generator_RowEvHandlerName="GenerosRowChangeEventHandler" msprop:Generator_TableClassName="GenerosDataTable" msprop:Generator_TableVarName="tableGeneros" msprop:Generator_RowDeletingName="GenerosRowDeleting" msprop:Generator_TablePropName="Generos">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="COD" msprop:Generator_UserColumnName="COD" msprop:Generator_ColumnPropNameInRow="COD" msprop:Generator_ColumnVarNameInTable="columnCOD" msprop:Generator_ColumnPropNameInTable="CODColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="DES" msprop:Generator_UserColumnName="DES" msprop:Generator_ColumnPropNameInRow="DES" msprop:Generator_ColumnVarNameInTable="columnDES" msprop:Generator_ColumnPropNameInTable="DESColumn" minOccurs="0">
+              <xs:element name="COD" msprop:Generator_UserColumnName="COD" msprop:Generator_ColumnVarNameInTable="columnCOD" msprop:Generator_ColumnPropNameInRow="COD" msprop:Generator_ColumnPropNameInTable="CODColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DES" msprop:Generator_UserColumnName="DES" msprop:Generator_ColumnVarNameInTable="columnDES" msprop:Generator_ColumnPropNameInRow="DES" msprop:Generator_ColumnPropNameInTable="DESColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="23" />
@@ -365,8 +365,8 @@ FROM            IM_MOVIMIENTOS</CommandText>
         <xs:element name="Departamentos" msprop:Generator_UserTableName="Departamentos" msprop:Generator_RowDeletedName="DepartamentosRowDeleted" msprop:Generator_RowChangedName="DepartamentosRowChanged" msprop:Generator_RowClassName="DepartamentosRow" msprop:Generator_RowChangingName="DepartamentosRowChanging" msprop:Generator_RowEvArgName="DepartamentosRowChangeEvent" msprop:Generator_RowEvHandlerName="DepartamentosRowChangeEventHandler" msprop:Generator_TableClassName="DepartamentosDataTable" msprop:Generator_TableVarName="tableDepartamentos" msprop:Generator_RowDeletingName="DepartamentosRowDeleting" msprop:Generator_TablePropName="Departamentos">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CODIGO_DEPARTAMENTO" msprop:Generator_UserColumnName="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_DEPARTAMENTOColumn" type="xs:decimal" />
-              <xs:element name="DESCRIPCION" msprop:Generator_UserColumnName="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn">
+              <xs:element name="CODIGO_DEPARTAMENTO" msprop:Generator_UserColumnName="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_DEPARTAMENTOColumn" type="xs:decimal" />
+              <xs:element name="DESCRIPCION" msprop:Generator_UserColumnName="DESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
@@ -379,9 +379,9 @@ FROM            IM_MOVIMIENTOS</CommandText>
         <xs:element name="Municipios" msprop:Generator_UserTableName="Municipios" msprop:Generator_RowDeletedName="MunicipiosRowDeleted" msprop:Generator_RowChangedName="MunicipiosRowChanged" msprop:Generator_RowClassName="MunicipiosRow" msprop:Generator_RowChangingName="MunicipiosRowChanging" msprop:Generator_RowEvArgName="MunicipiosRowChangeEvent" msprop:Generator_RowEvHandlerName="MunicipiosRowChangeEventHandler" msprop:Generator_TableClassName="MunicipiosDataTable" msprop:Generator_TableVarName="tableMunicipios" msprop:Generator_RowDeletingName="MunicipiosRowDeleting" msprop:Generator_TablePropName="Municipios">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CODIGO_MUNICIPIO" msprop:Generator_UserColumnName="CODIGO_MUNICIPIO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MUNICIPIO" msprop:Generator_ColumnPropNameInRow="CODIGO_MUNICIPIO" msprop:Generator_ColumnPropNameInTable="CODIGO_MUNICIPIOColumn" type="xs:decimal" />
-              <xs:element name="CODIGO_DEPARTAMENTO" msprop:Generator_UserColumnName="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_DEPARTAMENTOColumn" type="xs:decimal" />
-              <xs:element name="DESCRIPCION" msprop:Generator_UserColumnName="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn">
+              <xs:element name="CODIGO_MUNICIPIO" msprop:Generator_UserColumnName="CODIGO_MUNICIPIO" msprop:Generator_ColumnPropNameInRow="CODIGO_MUNICIPIO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MUNICIPIO" msprop:Generator_ColumnPropNameInTable="CODIGO_MUNICIPIOColumn" type="xs:decimal" />
+              <xs:element name="CODIGO_DEPARTAMENTO" msprop:Generator_UserColumnName="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_DEPARTAMENTOColumn" type="xs:decimal" />
+              <xs:element name="DESCRIPCION" msprop:Generator_UserColumnName="DESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
@@ -394,15 +394,15 @@ FROM            IM_MOVIMIENTOS</CommandText>
         <xs:element name="ImagenesCiudadanosRespaldan" msprop:Generator_UserTableName="ImagenesCiudadanosRespaldan" msprop:Generator_RowDeletedName="ImagenesCiudadanosRespaldanRowDeleted" msprop:Generator_RowChangedName="ImagenesCiudadanosRespaldanRowChanged" msprop:Generator_RowClassName="ImagenesCiudadanosRespaldanRow" msprop:Generator_RowChangingName="ImagenesCiudadanosRespaldanRowChanging" msprop:Generator_RowEvArgName="ImagenesCiudadanosRespaldanRowChangeEvent" msprop:Generator_RowEvHandlerName="ImagenesCiudadanosRespaldanRowChangeEventHandler" msprop:Generator_TableClassName="ImagenesCiudadanosRespaldanDataTable" msprop:Generator_TableVarName="tableImagenesCiudadanosRespaldan" msprop:Generator_RowDeletingName="ImagenesCiudadanosRespaldanRowDeleting" msprop:Generator_TablePropName="ImagenesCiudadanosRespaldan">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="IMAGEN_FIRMA" msprop:Generator_UserColumnName="IMAGEN_FIRMA" msprop:Generator_ColumnVarNameInTable="columnIMAGEN_FIRMA" msprop:Generator_ColumnPropNameInRow="IMAGEN_FIRMA" msprop:Generator_ColumnPropNameInTable="IMAGEN_FIRMAColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="IMAGEN_FIRMA" msprop:Generator_UserColumnName="IMAGEN_FIRMA" msprop:Generator_ColumnPropNameInRow="IMAGEN_FIRMA" msprop:Generator_ColumnVarNameInTable="columnIMAGEN_FIRMA" msprop:Generator_ColumnPropNameInTable="IMAGEN_FIRMAColumn" type="xs:base64Binary" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Partidos" msprop:Generator_UserTableName="Partidos" msprop:Generator_RowDeletedName="PartidosRowDeleted" msprop:Generator_TableClassName="PartidosDataTable" msprop:Generator_RowChangedName="PartidosRowChanged" msprop:Generator_RowClassName="PartidosRow" msprop:Generator_RowChangingName="PartidosRowChanging" msprop:Generator_RowEvArgName="PartidosRowChangeEvent" msprop:Generator_RowEvHandlerName="PartidosRowChangeEventHandler" msprop:Generator_TablePropName="Partidos" msprop:Generator_TableVarName="tablePartidos" msprop:Generator_RowDeletingName="PartidosRowDeleting">
+        <xs:element name="Partidos" msprop:Generator_UserTableName="Partidos" msprop:Generator_RowDeletedName="PartidosRowDeleted" msprop:Generator_RowChangedName="PartidosRowChanged" msprop:Generator_RowClassName="PartidosRow" msprop:Generator_RowChangingName="PartidosRowChanging" msprop:Generator_RowEvArgName="PartidosRowChangeEvent" msprop:Generator_RowEvHandlerName="PartidosRowChangeEventHandler" msprop:Generator_TableClassName="PartidosDataTable" msprop:Generator_TableVarName="tablePartidos" msprop:Generator_RowDeletingName="PartidosRowDeleting" msprop:Generator_TablePropName="Partidos">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" type="xs:decimal" />
-              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn">
+              <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" type="xs:decimal" />
+              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
@@ -412,12 +412,12 @@ FROM            IM_MOVIMIENTOS</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Movimientos" msprop:Generator_UserTableName="Movimientos" msprop:Generator_RowDeletedName="MovimientosRowDeleted" msprop:Generator_TableClassName="MovimientosDataTable" msprop:Generator_RowChangedName="MovimientosRowChanged" msprop:Generator_RowClassName="MovimientosRow" msprop:Generator_RowChangingName="MovimientosRowChanging" msprop:Generator_RowEvArgName="MovimientosRowChangeEvent" msprop:Generator_RowEvHandlerName="MovimientosRowChangeEventHandler" msprop:Generator_TablePropName="Movimientos" msprop:Generator_TableVarName="tableMovimientos" msprop:Generator_RowDeletingName="MovimientosRowDeleting">
+        <xs:element name="Movimientos" msprop:Generator_UserTableName="Movimientos" msprop:Generator_RowDeletedName="MovimientosRowDeleted" msprop:Generator_RowChangedName="MovimientosRowChanged" msprop:Generator_RowClassName="MovimientosRow" msprop:Generator_RowChangingName="MovimientosRowChanging" msprop:Generator_RowEvArgName="MovimientosRowChangeEvent" msprop:Generator_RowEvHandlerName="MovimientosRowChangeEventHandler" msprop:Generator_TableClassName="MovimientosDataTable" msprop:Generator_TableVarName="tableMovimientos" msprop:Generator_RowDeletingName="MovimientosRowDeleting" msprop:Generator_TablePropName="Movimientos">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CODIGO_MOVIMIENTO" msprop:Generator_UserColumnName="CODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOVIMIENTOColumn" type="xs:decimal" />
-              <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" type="xs:decimal" />
-              <xs:element name="NOMBRE_MOVIMIENTO" msprop:Generator_UserColumnName="NOMBRE_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="NOMBRE_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="NOMBRE_MOVIMIENTOColumn">
+              <xs:element name="CODIGO_MOVIMIENTO" msprop:Generator_UserColumnName="CODIGO_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOVIMIENTOColumn" type="xs:decimal" />
+              <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" type="xs:decimal" />
+              <xs:element name="NOMBRE_MOVIMIENTO" msprop:Generator_UserColumnName="NOMBRE_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="NOMBRE_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="NOMBRE_MOVIMIENTOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />

@@ -1,9 +1,12 @@
 ﻿Imports System.Data.OracleClient
 Imports DevExpress.XtraGrid.Views.Base
+Imports DevExpress.XtraGrid.Views.Grid
 
 Public Class XfrmConFirmas
 
     Private Sub XfrmConFirmas_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        'TODO: This line of code loads data into the 'DSConsultas.ImagenesCiudadanosRespaldan' table. You can move, or remove it, as needed.
+        'Me.ImagenesCiudadanosRespaldanTableAdapter.Fill(Me.DSConsultas.ImagenesCiudadanosRespaldan)
         'TODO: This line of code loads data into the 'DSConsultas.Movimientos' table. You can move, or remove it, as needed.
         Me.MovimientosTableAdapter.Fill(Me.DSConsultas.Movimientos)
         'TODO: This line of code loads data into the 'DSConsultas.Partidos' table. You can move, or remove it, as needed.
@@ -14,7 +17,7 @@ Public Class XfrmConFirmas
         Me.DepartamentosTableAdapter.Fill(Me.DSConsultas.Departamentos)
         Dim fTodos1 As Integer = Me.cbxDepartamento.FindStringExact("TODOS")
         If fTodos1 > 0 Then Me.cbxDepartamento.SelectedIndex = fTodos1
-        Dim fTodos2 As Integer = Me.cbxDepartamento.FindStringExact("TODOS")
+        Dim fTodos2 As Integer = Me.cbxPartido.FindStringExact("TODOS")
         If fTodos2 > 0 Then Me.cbxPartido.SelectedIndex = fTodos2
 
         fillGrid()
@@ -72,8 +75,12 @@ Public Class XfrmConFirmas
     End Sub
 
     Private Sub GridView1_FocusedRowChanged(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles GridView1.FocusedRowChanged
-        Dim row As DataRow = Me.GCBusqueda.DefaultView.GetRow(e.FocusedRowHandle)
-        Stop
-
+        Dim rw As DataRowView = GridView1.GetRow(e.FocusedRowHandle)
+        If rw IsNot Nothing Then
+            Dim codCiuRes As Integer = rw.Row.Item(0)
+            Dim codPar As Integer = rw.Row.Item(1)
+            Dim codMov As Integer = rw.Row.Item(2)
+            Me.ImagenesCiudadanosRespaldanTableAdapter.FillBy(Me.DSConsultas.ImagenesCiudadanosRespaldan, codCiuRes, codPar, codMov)
+        End If
     End Sub
 End Class
