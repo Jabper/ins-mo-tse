@@ -26,16 +26,15 @@
     Private Sub btnFiltro_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFiltro.Click
         Dim filtro As String = String.Empty
         If Me.txtIdentidad.Text <> String.Empty Then filtro = filtro & String.Format("IDENTIDAD LIKE '%{0}%'", Me.txtIdentidad.Text).ToString
-        If Me.txtNombre.Text <> String.Empty Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("NOMBRE LIKE '%{0}%'", Me.txtNombre.Text).ToString
-        If Me.txtApellido.Text <> String.Empty Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("APELLIDO LIKE '%{0}%'", Me.txtApellido.Text).ToString
-        If Me.cbxPartido.SelectedText <> "TODOS" Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("CODIGO_PARTIDO = {0}", Me.cbxPartido.SelectedValue).ToString
-        If Me.cbxMovimiento.SelectedText <> "TODOS" Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("CODIGO_MOVIMIENTO = {0}", Me.cbxMovimiento.SelectedValue).ToString
-        If Me.cbxDepartamento.SelectedText <> "TODOS" Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("CODIGO_DEPARTAMENTO = {0}", Me.cbxDepartamento.SelectedValue).ToString
-        If Me.cbxMunicipio.SelectedText <> "TODOS" Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("CODIGO_MUNICIPIO = {0}", Me.cbxMunicipio.SelectedValue).ToString
-        If Me.cbxNivel.SelectedText <> "NINGUNO" Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("CODIGO_NIVEL_ELECTIVO = {0}", Me.cbxNivel.SelectedValue).ToString
-        If Me.cbxCargo.SelectedText <> "NINGUNO" Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("CODIGO_CARGO_ELECTIVO = {0}", Me.cbxCargo.SelectedValue).ToString
-        If Me.cbxEstado.SelectedIndex <> 0 Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("ESTADO = {0}", Me.cbxEstado.SelectedText).ToString
-        'If filtro = String.Empty Then filtro = "1=1"
+        If Me.txtNombre.Text <> String.Empty Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("NOMBRE LIKE '%{0}%'", Me.txtNombre.Text)
+        If Me.txtApellido.Text <> String.Empty Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("APELLIDO LIKE '%{0}%'", Me.txtApellido.Text)
+        If Me.cbxPartido.Text <> "TODOS" Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("CODIGO_PARTIDO = {0}", Me.cbxPartido.SelectedValue)
+        If Me.cbxMovimiento.Text <> "TODOS" Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("CODIGO_MOVIMIENTO = {0}", Me.cbxMovimiento.SelectedValue)
+        If Me.cbxDepartamento.Text <> "TODOS" Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("CODIGO_DEPARTAMENTO = {0}", Me.cbxDepartamento.SelectedValue)
+        If Me.cbxMunicipio.Text <> "TODOS" Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("CODIGO_MUNICIPIO = {0}", Me.cbxMunicipio.SelectedValue)
+        If Me.cbxNivel.Text <> "NINGUNO" Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("CODIGO_NIVEL_ELECTIVO = {0}", Me.cbxNivel.SelectedValue)
+        If Me.cbxCargo.Text <> "NINGUNO" Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("CODIGO_CARGO_ELECTIVO = {0}", Me.cbxCargo.SelectedValue)
+        If Me.cbxEstado.SelectedIndex <> 0 Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("ESTADO = '{0}'", Me.cbxEstado.Text)
         Me.IMVCANDIDATOSBindingSource.Filter = filtro
     End Sub
 

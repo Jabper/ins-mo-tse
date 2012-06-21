@@ -50,6 +50,8 @@ Partial Class XfrmConCenso
         Me.btnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.GCBusqueda = New DevExpress.XtraGrid.GridControl
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
+        Me.colDEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colMUNICIPIO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colNUMERO_IDENTIDAD = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colPRIMER_NOMBRE = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colSEGUNDO_NOMBRE = New DevExpress.XtraGrid.Columns.GridColumn
@@ -57,8 +59,6 @@ Partial Class XfrmConCenso
         Me.colSEGUNDO_APELLIDO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colGENERO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colFECHA_NACIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colDEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colMUNICIPIO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.GenerosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.GenerosTableAdapter
         Me.DepartamentosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.DepartamentosTableAdapter
@@ -364,6 +364,32 @@ Partial Class XfrmConCenso
         Me.GridView1.OptionsView.ShowDetailButtons = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
         '
+        'colDEPARTAMENTO
+        '
+        Me.colDEPARTAMENTO.Caption = "Departamento"
+        Me.colDEPARTAMENTO.FieldName = "DEPARTAMENTO"
+        Me.colDEPARTAMENTO.Name = "colDEPARTAMENTO"
+        Me.colDEPARTAMENTO.OptionsColumn.AllowEdit = False
+        Me.colDEPARTAMENTO.OptionsColumn.AllowFocus = False
+        Me.colDEPARTAMENTO.OptionsColumn.TabStop = False
+        Me.colDEPARTAMENTO.UnboundType = DevExpress.Data.UnboundColumnType.[String]
+        Me.colDEPARTAMENTO.Visible = True
+        Me.colDEPARTAMENTO.VisibleIndex = 0
+        Me.colDEPARTAMENTO.Width = 100
+        '
+        'colMUNICIPIO
+        '
+        Me.colMUNICIPIO.Caption = "Municipio"
+        Me.colMUNICIPIO.FieldName = "MUNICIPIO"
+        Me.colMUNICIPIO.Name = "colMUNICIPIO"
+        Me.colMUNICIPIO.OptionsColumn.AllowEdit = False
+        Me.colMUNICIPIO.OptionsColumn.AllowFocus = False
+        Me.colMUNICIPIO.OptionsColumn.TabStop = False
+        Me.colMUNICIPIO.UnboundType = DevExpress.Data.UnboundColumnType.[String]
+        Me.colMUNICIPIO.Visible = True
+        Me.colMUNICIPIO.VisibleIndex = 1
+        Me.colMUNICIPIO.Width = 100
+        '
         'colNUMERO_IDENTIDAD
         '
         Me.colNUMERO_IDENTIDAD.Caption = "No. Identificación"
@@ -455,32 +481,6 @@ Partial Class XfrmConCenso
         Me.colFECHA_NACIMIENTO.VisibleIndex = 8
         Me.colFECHA_NACIMIENTO.Width = 100
         '
-        'colDEPARTAMENTO
-        '
-        Me.colDEPARTAMENTO.Caption = "Departamento"
-        Me.colDEPARTAMENTO.FieldName = "DEPARTAMENTO"
-        Me.colDEPARTAMENTO.Name = "colDEPARTAMENTO"
-        Me.colDEPARTAMENTO.OptionsColumn.AllowEdit = False
-        Me.colDEPARTAMENTO.OptionsColumn.AllowFocus = False
-        Me.colDEPARTAMENTO.OptionsColumn.TabStop = False
-        Me.colDEPARTAMENTO.UnboundType = DevExpress.Data.UnboundColumnType.[String]
-        Me.colDEPARTAMENTO.Visible = True
-        Me.colDEPARTAMENTO.VisibleIndex = 0
-        Me.colDEPARTAMENTO.Width = 100
-        '
-        'colMUNICIPIO
-        '
-        Me.colMUNICIPIO.Caption = "Municipio"
-        Me.colMUNICIPIO.FieldName = "MUNICIPIO"
-        Me.colMUNICIPIO.Name = "colMUNICIPIO"
-        Me.colMUNICIPIO.OptionsColumn.AllowEdit = False
-        Me.colMUNICIPIO.OptionsColumn.AllowFocus = False
-        Me.colMUNICIPIO.OptionsColumn.TabStop = False
-        Me.colMUNICIPIO.UnboundType = DevExpress.Data.UnboundColumnType.[String]
-        Me.colMUNICIPIO.Visible = True
-        Me.colMUNICIPIO.VisibleIndex = 1
-        Me.colMUNICIPIO.Width = 100
-        '
         'GridView2
         '
         Me.GridView2.GridControl = Me.GCBusqueda
@@ -507,7 +507,7 @@ Partial Class XfrmConCenso
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.GCBusqueda)
         Me.Name = "XfrmConCenso"
-        Me.Text = "XfrmConCenso"
+        Me.Text = "Consultar Censo"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.IMFK1MUNICIPIOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

@@ -391,7 +391,7 @@ Partial Class XfrmConCiudadanosInha
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.GCBusqueda)
         Me.Name = "XfrmConCiudadanosInha"
-        Me.Text = "XfrmConCiudadanosInha"
+        Me.Text = "Ciudadanos Inhabilitados"
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMCIUDADANOSINHABILITADOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).EndInit()

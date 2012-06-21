@@ -610,7 +610,7 @@ Partial Class XfrmConCandidatos
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Name = "XfrmConCandidatos"
-        Me.Text = "XfrmConCandidatos"
+        Me.Text = "Consultar Candidatos"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.IMFK1CARGOSELECTIVOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

@@ -745,7 +745,7 @@ Partial Class XfrmConFirmas
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.GCBusqueda)
         Me.Name = "XfrmConFirmas"
-        Me.Text = "XfrmConFirmas"
+        Me.Text = "Consultar Fimas"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
