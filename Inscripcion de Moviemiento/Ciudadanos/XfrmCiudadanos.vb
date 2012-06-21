@@ -125,7 +125,7 @@ Public Class XfrmCiudadanos
 
     Private Sub XfrmCiudadanos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'TODO: This line of code loads data into the 'DSCiudadanos.IM_CIUDADANOS_RESPALDAN1' table. You can move, or remove it, as needed.
-        Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Fill(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
+        'Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Fill(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
         Me.MdiParent = XFrmMenuPrincipal
         Me.TA_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.TA_DEPARTAMENTOS)
         Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
@@ -328,16 +328,20 @@ Public Class XfrmCiudadanos
             If capturarerrores() = 0 Then
                 Me.BtnGuardar.Visible = False
                 Mensajes.MensajeGuardar()
-
+                If XtraMessageBox.Show(capturarerrores.ToString & "Registros almacenados correctamente," & vbCrLf & noinconsistentes & " registros presentan inconsistencia" & vbCrLf & "presione Ok para cerrar la pantalla", "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
+                    Me.Close()
+                End If
             Else
-                Me.BtnGuardar.Visible = False
-                If XtraMessageBox.Show(capturarerrores.ToString & " registros no se pudieron guardar ¿Desea que el sistema intente guardarlos?", "Mensaje de Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+
+                If XtraMessageBox.Show(capturarerrores.ToString & " registros no se pudieron guardar ¿Desea intentar guardarlos manualmente?", "Mensaje de Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
                     Me.Estado.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("Estado= 'False'")
                     ArregloDeErrores = 0
-                    guardar()
-                    Estado.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("Estado= 'False' or Estado= 'True'")
+
+
                 Else
-                    Me.Close()
+                    If XtraMessageBox.Show("presione Ok para cerrar la pantalla", "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
+                        Me.Close()
+                    End If
                 End If
             End If
 
@@ -355,7 +359,7 @@ Public Class XfrmCiudadanos
             Dim ciudadanos As DSCiudadanos.IM_CIUDADANOS_RESPALDAN1Row
             ciudadanos = Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1.NewIM_CIUDADANOS_RESPALDAN1Row
             With ciudadanos
-                Dim cod As Integer = COracle.FUN_EJECUTAR_SEQ("IM_SQ1_CIUDADANOS_RESPALDAN")
+
                 .CODIGO_CUIDADANOS_RESPALDAN = COracle.FUN_EJECUTAR_SEQ("IM_SQ1_CIUDADANOS_RESPALDAN")
                 .CODIGO_PARTIDO = idpartido
                 .CODIGO_MOVIMIENTO = idmovimiento

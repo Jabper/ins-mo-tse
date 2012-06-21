@@ -29,7 +29,7 @@ Public Class XfrmConsultaFirmas
         Me.KeyPreview = True
 
     End Sub
-    Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
+    Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.Close()
 
     End Sub
@@ -47,26 +47,19 @@ Public Class XfrmConsultaFirmas
 
 
     Private Sub GridView1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles GridView1.KeyDown
-        If (e.KeyCode = Keys.Delete) Then
-            If (XtraMessageBox.Show("¿Desea eliminar el registro seleccionado?", "Confirmar", MessageBoxButtons.YesNo) <> DialogResult.Yes) Then Return
-            Dim view As GridView = CType(sender, GridView)
-            Dim consulta As String
-            consulta = "delete from IM_CIUDADANOS_RESPALDAN where "
-            consulta &= "CODIGO_CUIDADANOS_RESPALDAN=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_CUIDADANOS_RESPALDAN")
-            consulta &= " and CODIGO_PARTIDO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO")
-            consulta &= " and CODIGO_MOVIMIENTO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO")
-            Try
-                COracle.ejecutarconsulta(consulta)
-                view.DeleteRow(view.FocusedRowHandle)
-            Catch ex As Exception
-                Mensajes.mimensaje("No se pudo eliminar el registro seleccionado")
-            End Try
+       
 
 
-        End If
+
     End Sub
 
-
+    Sub estadistico()
+        CREstadistico.calcular()
+        Me.lblconsistentes.Text = CREstadistico.Firmasmovimiento
+        Me.lblporcentaje.Text = CREstadistico.porcentaje.ToString & "%"
+        Me.lblfirmasnecesarias.Text = CREstadistico.Firmasmovimiento
+        Me.lblinconsistentes.Text = CREstadistico.FirmasInconsistentes
+    End Sub
 
 
     Sub salir()
@@ -83,17 +76,18 @@ Public Class XfrmConsultaFirmas
 
     Private Sub XfrmCiudadanos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'TODO: This line of code loads data into the 'DSCiudadanos.MOSTRAR_FIRMAS' table. You can move, or remove it, as needed.
-        Me.MOSTRAR_FIRMASTableAdapter.Fill(Me.DSCiudadanos.MOSTRAR_FIRMAS)
+
         '******************Ventana de espera
         Dim waitDialog As New WaitDialogForm("Obteniendo Información", "Por favor espere..")
-        Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Fill(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
+        'Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Fill(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
+        Me.MOSTRAR_FIRMASTableAdapter.Fill(Me.DSCiudadanos.MOSTRAR_FIRMAS)
         waitDialog.Caption = "finalizando..."
         waitDialog.Close()
 
 
         Me.TA_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.TA_DEPARTAMENTOS)
         Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
-
+        estadistico()
 
     End Sub
 
@@ -125,7 +119,7 @@ Public Class XfrmConsultaFirmas
 
 
     End Sub
-    Private Sub CmbPartido_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CmbPartido.EditValueChanged
+    Private Sub CmbPartido_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Try
             Me.TA_MOVIMIENTOTableAdapter.FillBy1(Me.DSPolitico.TA_MOVIMIENTO, CmbPartido.EditValue)
 
@@ -142,74 +136,10 @@ Public Class XfrmConsultaFirmas
     End Sub
 
 
-    'Sub validarFilas(ByVal i As Integer)
-    '    errores = 0
-
-    '    Try
-    '        Dim view As GridView = GridView1
-
-
-    '        'VERIFICAR QUE EL CAMPO IDENTIDAD NO ESTE VACIO
-    '        If IsDBNull(view.GetRowCellValue(i, "IDENTIDAD")) Or view.GetRowCellValue(i, "IDENTIDAD").ToString Is Nothing Then
-    '            'CONTAR ERRORES
-    '            errores += 1
-    '            'Mostar icono de Error
-
-    '            'VERIFICAR QUE EL NOMBRE NO ESTE VACIO
-    '        ElseIf IsDBNull(view.GetRowCellValue(i, "PRIMER_NOMBRE_PAPELETA")) Or view.GetRowCellValue(i, "PRIMER_NOMBRE_PAPELETA").ToString Is Nothing Then
-    '            'CONTAR ERRORES
-    '            errores += 1
-    '            'Mostar icono de Error
-
-    '            'VERIFICAR QUE EL APELLIDO NO ESTE VACIO
-    '        ElseIf IsDBNull(view.GetRowCellValue(i, "PRIMER_APELLIDO_PAPELETA")) Or view.GetRowCellValue(i, "PRIMER_APELLIDO_PAPELETA").ToString Is Nothing Then
-    '            'CONTAR ERRORES
-    '            errores += 1
-    '            'Mostar icono de Error
-
-
-    '        ElseIf Not IsDBNull(view.GetRowCellValue(i, "IDENTIDAD")) Or Not IsDBNull(view.GetRowCellValue(i, "PRIMER_NOMBRE_PAPELETA")) Or Not IsDBNull(view.GetRowCellValue(i, "PRIMER_APELLIDO_PAPELETA")) Then
-    '            Dim identidad As String = view.GetRowCellValue(i, "IDENTIDAD")
-    '            Dim nombre As String = view.GetRowCellValue(i, "PRIMER_NOMBRE_PAPELETA")
-    '            Dim apellido As String = view.GetRowCellValue(i, "PRIMER_APELLIDO_PAPELETA")
-    '            If (identidad = Nothing Or identidad = "") Or (nombre = Nothing Or nombre = "") Or (apellido = Nothing Or apellido = "") Then
-    '                errores += 1
-
-    '            Else
-
-    '            End If
-
-
-    '        End If
 
 
 
-
-    '        If errores = 0 Then
-    '            errores = 0
-    '            'guardar(i)
-
-    '        Else
-    '            Dim mensaje As String = "Errores encontrados: " & errores
-    '            mensaje &= vbCrLf & "Para poder guardar los registros verifique:" & vbCrLf & "1.Que el número de identidad no se encuentre en blanco"
-    '            mensaje &= vbCrLf & "2. El primer nombre y primer apellido no estén en blanco"
-    '            'Dim view2 As ColumnView = CType(GCBusqueda.FocusedView, ColumnView)
-    '            'If view2.IsEditing Then view.HideEditor()
-    '            'view.CancelUpdateCurrentRow()
-    '            Mensajes.mimensaje(mensaje)
-    '            'view.CancelUpdateCurrentRow()
-
-    '        End If
-
-    '    Catch ex As Exception
-    '        MsgBox(ex.Message)
-    '    End Try
-
-    'End Sub
-
-
-
-    Private Sub CmbDepartamento_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CmbDepartamento.EditValueChanged
+    Private Sub CmbDepartamento_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Try
             Me.TA_MUNICIPIOSTableAdapter.FillBy1(Me.DSDeptoMuni.TA_MUNICIPIOS, CmbDepartamento.EditValue)
 
@@ -291,7 +221,7 @@ Public Class XfrmConsultaFirmas
     Sub GuardarEnBase(ByVal i As Integer, ByVal NombreIgual As String, ByVal inconsistente As String, ByVal Observacion As String)
         'Guardar Informacion
         Try
-
+            Dim view As GridView = GridView1
             Dim idciudadano = GridView1.GetRowCellValue(i, "CODIGO_CUIDADANOS_RESPALDAN")
             Dim consulta As String
             consulta = "update IM_CIUDADANOS_RESPALDAN set FIRMA='" & GridView1.GetRowCellValue(i, "FIRMA").ToString & "', "
@@ -310,7 +240,7 @@ Public Class XfrmConsultaFirmas
             If Not IsDBNull(GridView1.GetRowCellValue(i, "IMAGEN_FIRMA")) Then
 
 
-                consulta &= ", IMAGEN_FIRMA= " & GridView1.GetRowCellValue(i, "IMAGEN_FIRMA")
+                consulta &= ", IMAGEN_FIRMA= " + GridView1.GetRowCellValue(i, "IMAGEN_FIRMA")
             Else
                 consulta &= ", IMAGEN_FIRMA=NULL "
             End If
@@ -318,9 +248,10 @@ Public Class XfrmConsultaFirmas
             consulta &= " WHERE CODIGO_CUIDADANOS_RESPALDAN=" & GridView1.GetRowCellValue(i, "CODIGO_CUIDADANOS_RESPALDAN")
             consulta &= " AND CODIGO_PARTIDO=" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO") & " AND CODIGO_MOVIMIENTO=" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO")
             COracle.ejecutarconsulta(consulta)
+            view.SetRowCellValue(i, "CONSISTENTE", inconsistente)
+            view.SetRowCellValue(i, "OBSERVACION", Observacion)
             Mensajes.MensajeActualizar()
-            GridView1.SetRowCellValue(i, "CONSISTENTE", inconsistente)
-            GridView1.SetRowCellValue(i, "OBSERVACIONES", Observacion)
+            
         Catch ex As Exception
             MsgBox(ex.Message)
 
@@ -339,14 +270,87 @@ Public Class XfrmConsultaFirmas
 
     End Sub
 
+   
+
+
+  
+
+
+    Private Sub GridView1_ValidatingEditor(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs) Handles GridView1.ValidatingEditor
+        Dim view As GridView = TryCast(sender, GridView)
+        booleanerror = False
+        If view.FocusedColumn.FieldName = "PRIMER_NOMBRE_PAPELETA" Or view.FocusedColumn.FieldName = "PRIMER_APELLIDO_PAPELETA" Or view.FocusedColumn.FieldName = "IDENTIDAD" Then
+            e.Valid = e.Value IsNot Nothing AndAlso Not e.Value.Equals(String.Empty)
+
+        End If
+
+    End Sub
+
+  
+
+   
+
+ 
+    Private Sub ChkMuni_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChkMuni.CheckedChanged
+        If ChkDepto.CheckState = CheckState.Checked Then
+            Me.CmbMunicipio.Enabled = True
+        Else
+            Me.CmbMunicipio.Enabled = False
+
+        End If
+    End Sub
+
+    Private Sub ChkDepto_CheckedChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChkDepto.CheckedChanged
+        If ChkDepto.CheckState = CheckState.Checked Then
+            Me.CmbDepartamento.Enabled = True
+        Else
+            Me.CmbDepartamento.Enabled = False
+
+        End If
+    End Sub
+
+    Private Sub ChkGeografica_CheckedChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChkGeografica.CheckedChanged
+        If ChkGeografica.CheckState = CheckState.Checked Then
+            Me.CmbDepartamento.Enabled = False
+            Me.CmbMunicipio.Enabled = False
+            Me.ChkDepto.CheckState = CheckState.Unchecked
+            Me.ChkMuni.CheckState = CheckState.Unchecked
+            Me.ChkDepto.Enabled = True
+            Me.ChkMuni.Enabled = True
+        Else
+
+            Me.ChkDepto.CheckState = CheckState.Unchecked
+            Me.ChkMuni.CheckState = CheckState.Unchecked
+            Me.ChkDepto.Enabled = False
+            Me.ChkMuni.Enabled = False
+        End If
+    End Sub
+
+    Private Sub ChkMovimientos_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChkMovimientos.CheckedChanged
+        If ChkMovimientos.CheckState = CheckState.Checked Then
+            Me.CmbPartido.Enabled = True
+            Me.CmbMovimiento.Enabled = True
+        Else
+            Me.CmbPartido.Enabled = False
+            Me.CmbMovimiento.Enabled = False
+        End If
+    End Sub
+
+   
     Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton1.Click
         GridView1.ActiveFilter.Clear()
 
+        If txtidentidad.Text = Nothing Or txtidentidad.Text = "" Then
+        Else
+
+            Me.colIDENTIDAD.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("IDENTIDAD LIKE '%" & Me.txtidentidad.Text & "%'")
+
+        End If
 
         If ChkMovimientos.CheckState = CheckState.Checked Then
 
-            'Me.CODIGO_PARTIDO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_PARTIDO= '" & Me.CmbPartido.EditValue & "'")
-            'Me.CODIGO_MOVIMIENTO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_MOVIMIENTO= '" & Me.CmbMovimiento.EditValue & "'")
+            Me.CODIGO_PARTIDO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo(Me.CmbPartido.EditValue)
+            Me.CODIGO_MOVIMIENTO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo(Me.CmbMovimiento.EditValue)
 
         End If
 
@@ -371,99 +375,47 @@ Public Class XfrmConsultaFirmas
             Me.colCONSISTENTE.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CONSISTENTE= 'N'")
 
         End If
-
     End Sub
 
-
-    'If Me.CheckEdit1.CheckState = CheckState.Checked Then
-    '       Me.colCONSISTENTE.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CONSISTENTE= 'N'")
-    '   Else
-    '       Me.colCONSISTENTE.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CONSISTENTE= 'S'")
-
-
-    '   End If
-
-
-    Private Sub GridView1_ValidatingEditor(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs) Handles GridView1.ValidatingEditor
-        Dim view As GridView = TryCast(sender, GridView)
-        booleanerror = False
-        If view.FocusedColumn.FieldName = "PRIMER_NOMBRE_PAPELETA" Or view.FocusedColumn.FieldName = "PRIMER_APELLIDO_PAPELETA" Or view.FocusedColumn.FieldName = "IDENTIDAD" Then
-            e.Valid = e.Value IsNot Nothing AndAlso Not e.Value.Equals(String.Empty)
-
-        End If
-
-    End Sub
-
-    Private Sub GridView1_RowUpdated(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.RowObjectEventArgs) Handles GridView1.RowUpdated
-        Try
-            Dim view As GridView = CType(sender, GridView)
-            guardar(view.FocusedRowHandle)
-            'Me.Validate()
-            'Me.IM_CIUDADANOS_RESPALDAN1BindingSource.EndEdit()
-            'Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Update(DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
-
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-
-    End Sub
-
-    Private Sub SimpleButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnReestablecer.Click
+    Private Sub BtnReestablecer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnReestablecer.Click
         GridView1.ActiveFilter.Clear()
         Me.ChkMovimientos.CheckState = CheckState.Unchecked
         Me.ChkGeografica.CheckState = CheckState.Unchecked
-    End Sub
 
-    Private Sub CmbFiltro_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CmbFiltro.SelectedIndexChanged
 
     End Sub
 
-    Private Sub LabelControl1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LabelControl1.Click
-
+    Private Sub SimpleButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
+        If (XtraMessageBox.Show("¿Desea eliminar el registro seleccionado?", "Confirmar", MessageBoxButtons.YesNo) <> DialogResult.Yes) Then Return
+        Dim view As GridView = CType(sender, GridView)
+        Dim consulta As String
+        consulta = "delete from IM_CIUDADANOS_RESPALDAN where "
+        consulta &= "CODIGO_CUIDADANOS_RESPALDAN=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_CUIDADANOS_RESPALDAN")
+        consulta &= " and CODIGO_PARTIDO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO")
+        consulta &= " and CODIGO_MOVIMIENTO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO")
+        Try
+            COracle.ejecutarconsulta(consulta)
+            view.DeleteRow(view.FocusedRowHandle)
+        Catch ex As Exception
+            Mensajes.mimensaje("No se pudo eliminar el registro seleccionado")
+        End Try
     End Sub
 
-    Private Sub ChkMovimientos_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChkMovimientos.CheckedChanged
-        If ChkMovimientos.CheckState = CheckState.Checked Then
-            Me.CmbPartido.Enabled = True
-            Me.CmbMovimiento.Enabled = True
-        Else
-            Me.CmbPartido.Enabled = False
-            Me.CmbMovimiento.Enabled = False
-        End If
-    End Sub
+    Private Sub BtnUpdate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnUpdate.Click
+        Try
+            If (XtraMessageBox.Show("¿Desea actualizar el registro seleccionado?", "Confirmar", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes) Then
 
-    Private Sub ChkGeografica_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChkGeografica.CheckedChanged
-        If ChkGeografica.CheckState = CheckState.Checked Then
-            Me.CmbDepartamento.Enabled = False
-            Me.CmbMunicipio.Enabled = False
-            Me.ChkDepto.CheckState = CheckState.Unchecked
-            Me.ChkMuni.CheckState = CheckState.Unchecked
-            Me.ChkDepto.Enabled = True
-            Me.ChkMuni.Enabled = True
-        Else
-            
-            Me.ChkDepto.CheckState = CheckState.Unchecked
-            Me.ChkMuni.CheckState = CheckState.Unchecked
-            Me.ChkDepto.Enabled = False
-            Me.ChkMuni.Enabled = False
-        End If
-    End Sub
-
-    Private Sub ChkDepto_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChkDepto.CheckedChanged
-        If ChkDepto.CheckState = CheckState.Checked Then
-            Me.CmbDepartamento.Enabled = True
-        Else
-            Me.CmbDepartamento.Enabled = False
-
-        End If
-    End Sub
-
-    Private Sub ChkMuni_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChkMuni.CheckedChanged
-        If ChkDepto.CheckState = CheckState.Checked Then
-            Me.CmbMunicipio.Enabled = True
-        Else
-            Me.CmbMunicipio.Enabled = False
-
-        End If
+                Dim view As GridView = GridView1
+                guardar(view.FocusedRowHandle)
+            Else
+                Dim view As GridView = CType(sender, GridView)
+                view.CancelUpdateCurrentRow()
+                'Me.Validate()
+                'Me.IM_CIUDADANOS_RESPALDAN1BindingSource.EndEdit()
+                'Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Update(DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 End Class

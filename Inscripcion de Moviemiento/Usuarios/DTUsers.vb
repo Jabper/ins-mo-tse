@@ -1,4 +1,8 @@
 ﻿Partial Class DTUsers
+    Partial Class IM_ROLESDataTable
+
+    End Class
+
 End Class
 
 Namespace DTUsersTableAdapters

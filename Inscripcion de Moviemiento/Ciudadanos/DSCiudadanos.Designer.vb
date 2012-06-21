@@ -4877,7 +4877,7 @@ Namespace DSCiudadanosTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        CODIGO_CUIDADANOS_RESPALDAN, CODIGO_PARTIDO, CODIGO_MOVIMIENTO, COD"& _ 
@@ -4887,6 +4887,19 @@ Namespace DSCiudadanosTableAdapters
                 "ODIFICACION, CONSISTENTE, OBSERVACION, MAQUINA, PAGINA, SEGUNDO_NOMBRE_PAPELETA,"& _ 
                 " PRIMER_APELLIDO_PAPELETA, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         SEGUNDO_APELLIDO_PAPELETA"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_CIUDADANOS_RESPALDAN"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        CODIGO_CUIDADANOS_RESPALDAN, CODIGO_PARTIDO, CODIGO_MOVIMIENTO, COD"& _ 
+                "IGO_DEPARTAMENTO, CODIGO_MUNICIPIO, FIRMA, HUELLA, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         DI"& _ 
+                "RECCION, IDENTIDAD, NOMBRE_IGUAL, FOLIO, PRIMER_NOMBRE_PAPELETA, IMAGEN_FIRMA, A"& _ 
+                "DICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FECHA_M"& _ 
+                "ODIFICACION, CONSISTENTE, OBSERVACION, MAQUINA, PAGINA, SEGUNDO_NOMBRE_PAPELETA,"& _ 
+                " PRIMER_APELLIDO_PAPELETA, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         SEGUNDO_APELLIDO_PAPELETA"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_CIUDADANOS_RESPALDAN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CODIGO_CUIDADANOS_RESPAL"& _ 
+                "DAN = :ic) AND (CODIGO_PARTIDO = :ip) AND (CODIGO_MOVIMIENTO = :im)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ic", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_CUIDADANOS_RESPALDAN", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ip", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("im", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4906,6 +4919,34 @@ Namespace DSCiudadanosTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As DSCiudadanos.IM_CIUDADANOS_RESPALDAN1DataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As DSCiudadanos.IM_CIUDADANOS_RESPALDAN1DataTable = New DSCiudadanos.IM_CIUDADANOS_RESPALDAN1DataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DSCiudadanos.IM_CIUDADANOS_RESPALDAN1DataTable, ByVal ic As Decimal, ByVal ip As Decimal, ByVal im As Decimal) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(ic,Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(ip,Decimal)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(im,Decimal)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy(ByVal ic As Decimal, ByVal ip As Decimal, ByVal im As Decimal) As DSCiudadanos.IM_CIUDADANOS_RESPALDAN1DataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(ic,Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(ip,Decimal)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(im,Decimal)
             Dim dataTable As DSCiudadanos.IM_CIUDADANOS_RESPALDAN1DataTable = New DSCiudadanos.IM_CIUDADANOS_RESPALDAN1DataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
