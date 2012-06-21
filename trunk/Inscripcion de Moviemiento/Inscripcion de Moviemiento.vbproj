@@ -180,6 +180,12 @@
     <Compile Include="Consultas\DSConsultas.vb">
       <DependentUpon>DSConsultas.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Consultas\XfrmConCandidatos.Designer.vb">
+      <DependentUpon>XfrmConCandidatos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\XfrmConCandidatos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Consultas\XfrmConCenso.Designer.vb">
       <DependentUpon>XfrmConCenso.vb</DependentUpon>
     </Compile>
@@ -477,6 +483,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ciudadanos\XfrmFilas.resx">
       <DependentUpon>XfrmFilas.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\XfrmConCandidatos.resx">
+      <DependentUpon>XfrmConCandidatos.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\XfrmConCenso.resx">
