@@ -7,6 +7,7 @@ Imports DevExpress.Utils
 Imports DevExpress.XtraGrid.Views.Base
 Imports System.Data.OracleClient
 
+
 Public Class XfrmConsultaFirmas
 
 
@@ -87,6 +88,8 @@ Public Class XfrmConsultaFirmas
     End Sub
 
     Private Sub XfrmCiudadanos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        'TODO: This line of code loads data into the 'DSCiudadanos.IM_CIUDADANOS_RESPALDAN1' table. You can move, or remove it, as needed.
+        'Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Fill(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
         'TODO: This line of code loads data into the 'DSCiudadanos.MOSTRAR_FIRMAS' table. You can move, or remove it, as needed.
 
         '******************Ventana de espera
@@ -250,20 +253,28 @@ Public Class XfrmConsultaFirmas
 
             End If
             If Not IsDBNull(GridView1.GetRowCellValue(i, "IMAGEN_FIRMA")) Then
+
                 Try
 
-                
-                    Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.FillBy(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1, GridView1.GetRowCellValue(i, "CODIGO_CUIDADANOS_RESPALDAN"), GridView1.GetRowCellValue(i, "CODIGO_PARTIDO"), GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO"))
-
-                    Me.Imgimagen.Image = Data.ConvertByteArrayToImage(view.GetRowCellValue(view.FocusedRowHandle, "IMAGEN_FIRMA"))
-
-
-                    Me.IM_CIUDADANOS_RESPALDAN1BindingSource.EndEdit()
-                    Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Update(DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
+                    Dim cnx As New OracleConnection(Configuracion.verconfig)
+                    '
+                    Dim bo As Byte() = view.GetRowCellValue(view.FocusedRowHandle, "IMAGEN_FIRMA") 'Data.ConvertImageToByteArray(Me.Imgimagen.EditValue)
+                    Dim idc As Integer = CType(GridView1.GetRowCellValue(i, "CODIGO_CUIDADANOS_RESPALDAN"), Integer)
+                    Dim sqlstring As String
+                    sqlstring = "UPDATE IM_CIUDADANOS_RESPALDAN SET IMAGEN_FIRMA=:ft WHERE CODIGO_CUIDADANOS_RESPALDAN=:cod AND CODIGO_PARTIDO=:cp AND CODIGO_MOVIMIENTO=:cm"
+                    Dim cmd As New OracleCommand(sqlstring, cnx)
+                    cmd.Parameters.Add(":ft", OracleType.Blob).Value = bo
+                    cmd.Parameters.Add(":cod", OracleType.Number, 8).Value = idc
+                    cmd.Parameters.Add(":cp", OracleType.Number, 2).Value = CType((GridView1.GetRowCellValue(i, "CODIGO_PARTIDO")), Integer)
+                    cmd.Parameters.Add(":cm", OracleType.Number, 3).Value = CType(GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO"), Integer)
+                    cnx.Open()
+                    cmd.ExecuteNonQuery()
+                    cnx.Close()
 
                 Catch ex As Exception
-
+                    Mensajes.mimensaje(ex.Message)
                 End Try
+
             Else
                 consulta &= ", IMAGEN_FIRMA=NULL "
             End If
@@ -332,22 +343,22 @@ Public Class XfrmConsultaFirmas
         End If
     End Sub
 
-    Private Sub ChkGeografica_CheckedChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChkGeografica.CheckedChanged
-        If ChkGeografica.CheckState = CheckState.Checked Then
-            Me.CmbDepartamento.Enabled = False
-            Me.CmbMunicipio.Enabled = False
-            Me.ChkDepto.CheckState = CheckState.Unchecked
-            Me.ChkMuni.CheckState = CheckState.Unchecked
-            Me.ChkDepto.Enabled = True
-            Me.ChkMuni.Enabled = True
-        Else
+    'Private Sub ChkGeografica_CheckedChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChkGeografica.CheckedChanged
+    '    If ChkGeografica.CheckState = CheckState.Checked Then
+    '        Me.CmbDepartamento.Enabled = False
+    '        Me.CmbMunicipio.Enabled = False
+    '        Me.ChkDepto.CheckState = CheckState.Unchecked
+    '        Me.ChkMuni.CheckState = CheckState.Unchecked
+    '        Me.ChkDepto.Enabled = True
+    '        Me.ChkMuni.Enabled = True
+    '    Else
 
-            Me.ChkDepto.CheckState = CheckState.Unchecked
-            Me.ChkMuni.CheckState = CheckState.Unchecked
-            Me.ChkDepto.Enabled = False
-            Me.ChkMuni.Enabled = False
-        End If
-    End Sub
+    '        Me.ChkDepto.CheckState = CheckState.Unchecked
+    '        Me.ChkMuni.CheckState = CheckState.Unchecked
+    '        Me.ChkDepto.Enabled = False
+    '        Me.ChkMuni.Enabled = False
+    '    End If
+    'End Sub
 
     Private Sub ChkMovimientos_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChkMovimientos.CheckedChanged
         If ChkMovimientos.CheckState = CheckState.Checked Then
@@ -377,17 +388,17 @@ Public Class XfrmConsultaFirmas
 
         End If
 
-        If ChkGeografica.CheckState = CheckState.Checked Then
-            If ChkDepto.CheckState = CheckState.Checked Then
-                Me.colCODIGO_DEPARTAMENTO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo(Me.CmbDepartamento.EditValue)
 
-            End If
+        If ChkDepto.CheckState = CheckState.Checked Then
+            Me.colCODIGO_DEPARTAMENTO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo(Me.CmbDepartamento.EditValue)
 
-            If ChkMuni.CheckState = CheckState.Checked Then
-                Me.colCODIGO_MUNICIPIO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo(Me.CmbMunicipio.EditValue)
-
-            End If
         End If
+
+        If ChkMuni.CheckState = CheckState.Checked Then
+            Me.colCODIGO_MUNICIPIO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo(Me.CmbMunicipio.EditValue)
+
+        End If
+
 
         If Me.CmbFiltro.SelectedIndex = 0 Then
             ' Me.colCONSISTENTE.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CONSISTENTE= 'N' or CONSISTENTE= 'S'")
@@ -403,8 +414,8 @@ Public Class XfrmConsultaFirmas
     Private Sub BtnReestablecer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnReestablecer.Click
         GridView1.ActiveFilter.Clear()
         Me.ChkMovimientos.CheckState = CheckState.Unchecked
-        Me.ChkGeografica.CheckState = CheckState.Unchecked
-
+        Me.ChkDepto.CheckState = CheckState.Unchecked
+        Me.ChkMovimientos.CheckState = CheckState.Unchecked
 
     End Sub
 
