@@ -328,7 +328,7 @@ Public Class XfrmCiudadanos
             If capturarerrores() = 0 Then
                 Me.BtnGuardar.Visible = False
                 Mensajes.MensajeGuardar()
-                If XtraMessageBox.Show(capturarerrores.ToString & "Registros almacenados correctamente," & vbCrLf & noinconsistentes & " registros presentan inconsistencia" & vbCrLf & "presione Ok para cerrar la pantalla", "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
+                If XtraMessageBox.Show("Registros almacenados correctamente," & vbCrLf & noinconsistentes & " registros presentan inconsistencia" & vbCrLf & "presione Ok para cerrar la pantalla", "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
                     Me.Close()
                 End If
             Else
@@ -359,8 +359,8 @@ Public Class XfrmCiudadanos
             Dim ciudadanos As DSCiudadanos.IM_CIUDADANOS_RESPALDAN1Row
             ciudadanos = Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1.NewIM_CIUDADANOS_RESPALDAN1Row
             With ciudadanos
-
-                .CODIGO_CUIDADANOS_RESPALDAN = COracle.FUN_EJECUTAR_SEQ("IM_SQ1_CIUDADANOS_RESPALDAN")
+                Dim cod As Integer = COracle.FUN_EJECUTAR_SEQ("IM_SQ1_CIUDADANOS_RESPALDAN")
+                .CODIGO_CUIDADANOS_RESPALDAN = cod
                 .CODIGO_PARTIDO = idpartido
                 .CODIGO_MOVIMIENTO = idmovimiento
                 .CODIGO_DEPARTAMENTO = iddepto
