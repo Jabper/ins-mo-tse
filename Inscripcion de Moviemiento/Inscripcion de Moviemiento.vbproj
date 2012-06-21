@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -918,6 +918,7 @@
     <Content Include="Resources\FIRMAS1.png" />
     <None Include="Resources\FIRMAS11.png" />
     <Content Include="Resources\motivo.png" />
+    <None Include="Resources\Restadisticos.png" />
     <None Include="Resources\Reporte.png" />
     <None Include="Resources\subir_movimientos.png" />
     <None Include="Resources\subir_requisitos.png" />
