@@ -210,6 +210,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\DS_REPORTE_DE_FI.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_REPORTE_DE_FI.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DS_REPORTE_DE_FDP.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -376,6 +381,12 @@
     </Compile>
     <Compile Include="Reportes\DS_REPORTE_DE_PNEM.vb">
       <DependentUpon>DS_REPORTE_DE_PNEM.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Reporte_de Firmas_In.Designer.vb">
+      <DependentUpon>Reporte_de Firmas_In.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Reporte_de Firmas_In.vb">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\Reporte_de _FirmasDP.Designer.vb">
       <DependentUpon>Reporte_de _FirmasDP.vb</DependentUpon>
@@ -576,6 +587,9 @@
     <EmbeddedResource Include="Procesos\XfrmSubirSistExterno.resx">
       <DependentUpon>XfrmSubirSistExterno.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Reporte_de Firmas_In.resx">
+      <DependentUpon>Reporte_de Firmas_In.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Reporte_de _FirmasDP.resx">
       <DependentUpon>Reporte_de _FirmasDP.vb</DependentUpon>
@@ -890,6 +904,17 @@
     <None Include="Resources\turnoff.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Reportes\DS_REPORTE_DE_FI.xsc">
+      <DependentUpon>DS_REPORTE_DE_FI.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_FI.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_REPORTE_DE_FI.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_FI.xss">
+      <DependentUpon>DS_REPORTE_DE_FI.xsd</DependentUpon>
+    </None>
     <None Include="Reportes\DS_REPORTE_DE_FDP.xsc">
       <DependentUpon>DS_REPORTE_DE_FDP.xsd</DependentUpon>
     </None>

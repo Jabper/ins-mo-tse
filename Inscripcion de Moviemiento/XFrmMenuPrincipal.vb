@@ -239,4 +239,9 @@ Public Class XFrmMenuPrincipal
     Private Sub btnConsultarCandidatos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnConsultarCandidatos.ItemClick
         Padre(XfrmConCandidatos)
     End Sub
+
+    Private Sub BarButtonItem4_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem4.ItemClick
+        Dim reporte4 As Reporte_de_Firmas_In = New Reporte_de_Firmas_In
+        reporte4.ShowPreview()
+    End Sub
 End Class
