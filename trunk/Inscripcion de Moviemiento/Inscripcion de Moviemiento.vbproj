@@ -590,6 +590,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Reporte_de Firmas_In.resx">
       <DependentUpon>Reporte_de Firmas_In.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Reporte_de _FirmasDP.resx">
       <DependentUpon>Reporte_de _FirmasDP.vb</DependentUpon>
