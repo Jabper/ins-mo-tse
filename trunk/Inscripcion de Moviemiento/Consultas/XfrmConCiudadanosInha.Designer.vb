@@ -71,7 +71,7 @@ Partial Class XfrmConCiudadanosInha
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
         Me.GCBusqueda.Size = New System.Drawing.Size(1038, 408)
-        Me.GCBusqueda.TabIndex = 8
+        Me.GCBusqueda.TabIndex = 7
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
         'IMCIUDADANOSINHABILITADOSBindingSource
@@ -103,6 +103,9 @@ Partial Class XfrmConCiudadanosInha
         Me.colNUMERO_IDENTIFICACION.Caption = "No. Identificación"
         Me.colNUMERO_IDENTIFICACION.FieldName = "NUMERO_IDENTIFICACION"
         Me.colNUMERO_IDENTIFICACION.Name = "colNUMERO_IDENTIFICACION"
+        Me.colNUMERO_IDENTIFICACION.OptionsColumn.AllowEdit = False
+        Me.colNUMERO_IDENTIFICACION.OptionsColumn.AllowFocus = False
+        Me.colNUMERO_IDENTIFICACION.OptionsColumn.TabStop = False
         Me.colNUMERO_IDENTIFICACION.Visible = True
         Me.colNUMERO_IDENTIFICACION.VisibleIndex = 0
         Me.colNUMERO_IDENTIFICACION.Width = 152
@@ -112,6 +115,9 @@ Partial Class XfrmConCiudadanosInha
         Me.colNOMBRES.Caption = "Nombres"
         Me.colNOMBRES.FieldName = "NOMBRES"
         Me.colNOMBRES.Name = "colNOMBRES"
+        Me.colNOMBRES.OptionsColumn.AllowEdit = False
+        Me.colNOMBRES.OptionsColumn.AllowFocus = False
+        Me.colNOMBRES.OptionsColumn.TabStop = False
         Me.colNOMBRES.Visible = True
         Me.colNOMBRES.VisibleIndex = 1
         '
@@ -120,6 +126,9 @@ Partial Class XfrmConCiudadanosInha
         Me.colPRIMER_APELLIDO.Caption = "Primer Apellido"
         Me.colPRIMER_APELLIDO.FieldName = "PRIMER_APELLIDO"
         Me.colPRIMER_APELLIDO.Name = "colPRIMER_APELLIDO"
+        Me.colPRIMER_APELLIDO.OptionsColumn.AllowEdit = False
+        Me.colPRIMER_APELLIDO.OptionsColumn.AllowFocus = False
+        Me.colPRIMER_APELLIDO.OptionsColumn.TabStop = False
         Me.colPRIMER_APELLIDO.Visible = True
         Me.colPRIMER_APELLIDO.VisibleIndex = 2
         Me.colPRIMER_APELLIDO.Width = 111
@@ -129,6 +138,9 @@ Partial Class XfrmConCiudadanosInha
         Me.colSEGUNDO_APELLIDO.Caption = "Segundo Apellido"
         Me.colSEGUNDO_APELLIDO.FieldName = "SEGUNDO_APELLIDO"
         Me.colSEGUNDO_APELLIDO.Name = "colSEGUNDO_APELLIDO"
+        Me.colSEGUNDO_APELLIDO.OptionsColumn.AllowEdit = False
+        Me.colSEGUNDO_APELLIDO.OptionsColumn.AllowFocus = False
+        Me.colSEGUNDO_APELLIDO.OptionsColumn.TabStop = False
         Me.colSEGUNDO_APELLIDO.Visible = True
         Me.colSEGUNDO_APELLIDO.VisibleIndex = 3
         Me.colSEGUNDO_APELLIDO.Width = 121
@@ -138,6 +150,9 @@ Partial Class XfrmConCiudadanosInha
         Me.colDEPEDENCIA_GUBERNAMENTAL.Caption = "Dependencia Gubernamental"
         Me.colDEPEDENCIA_GUBERNAMENTAL.FieldName = "DEPEDENCIA_GUBERNAMENTAL"
         Me.colDEPEDENCIA_GUBERNAMENTAL.Name = "colDEPEDENCIA_GUBERNAMENTAL"
+        Me.colDEPEDENCIA_GUBERNAMENTAL.OptionsColumn.AllowEdit = False
+        Me.colDEPEDENCIA_GUBERNAMENTAL.OptionsColumn.AllowFocus = False
+        Me.colDEPEDENCIA_GUBERNAMENTAL.OptionsColumn.TabStop = False
         Me.colDEPEDENCIA_GUBERNAMENTAL.Visible = True
         Me.colDEPEDENCIA_GUBERNAMENTAL.VisibleIndex = 4
         Me.colDEPEDENCIA_GUBERNAMENTAL.Width = 174
@@ -147,6 +162,9 @@ Partial Class XfrmConCiudadanosInha
         Me.colCARGO.Caption = "Cargo"
         Me.colCARGO.FieldName = "CARGO"
         Me.colCARGO.Name = "colCARGO"
+        Me.colCARGO.OptionsColumn.AllowEdit = False
+        Me.colCARGO.OptionsColumn.AllowFocus = False
+        Me.colCARGO.OptionsColumn.TabStop = False
         Me.colCARGO.Visible = True
         Me.colCARGO.VisibleIndex = 5
         '
@@ -154,6 +172,9 @@ Partial Class XfrmConCiudadanosInha
         '
         Me.colCODIGO_MOTIVO.FieldName = "CODIGO_MOTIVO"
         Me.colCODIGO_MOTIVO.Name = "colCODIGO_MOTIVO"
+        Me.colCODIGO_MOTIVO.OptionsColumn.AllowEdit = False
+        Me.colCODIGO_MOTIVO.OptionsColumn.AllowFocus = False
+        Me.colCODIGO_MOTIVO.OptionsColumn.TabStop = False
         Me.colCODIGO_MOTIVO.Width = 96
         '
         'colDESCRIPCION
@@ -161,6 +182,9 @@ Partial Class XfrmConCiudadanosInha
         Me.colDESCRIPCION.Caption = "Motivo"
         Me.colDESCRIPCION.FieldName = "DESCRIPCION"
         Me.colDESCRIPCION.Name = "colDESCRIPCION"
+        Me.colDESCRIPCION.OptionsColumn.AllowEdit = False
+        Me.colDESCRIPCION.OptionsColumn.AllowFocus = False
+        Me.colDESCRIPCION.OptionsColumn.TabStop = False
         Me.colDESCRIPCION.Visible = True
         Me.colDESCRIPCION.VisibleIndex = 6
         Me.colDESCRIPCION.Width = 88

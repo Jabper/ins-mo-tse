@@ -352,7 +352,7 @@ Partial Class XfrmConCenso
         '
         'GridView1
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colNUMERO_IDENTIDAD, Me.colPRIMER_NOMBRE, Me.colSEGUNDO_NOMBRE, Me.colPRIMER_APELLIDO, Me.colSEGUNDO_APELLIDO, Me.colGENERO, Me.colFECHA_NACIMIENTO, Me.colDEPARTAMENTO, Me.colMUNICIPIO})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colDEPARTAMENTO, Me.colMUNICIPIO, Me.colNUMERO_IDENTIDAD, Me.colPRIMER_NOMBRE, Me.colSEGUNDO_NOMBRE, Me.colPRIMER_APELLIDO, Me.colSEGUNDO_APELLIDO, Me.colGENERO, Me.colFECHA_NACIMIENTO})
         Me.GridView1.CustomizationFormBounds = New System.Drawing.Rectangle(653, 515, 216, 185)
         Me.GridView1.GridControl = Me.GCBusqueda
         Me.GridView1.Name = "GridView1"
@@ -370,9 +370,11 @@ Partial Class XfrmConCenso
         Me.colNUMERO_IDENTIDAD.FieldName = "NUMERO_IDENTIDAD"
         Me.colNUMERO_IDENTIDAD.Name = "colNUMERO_IDENTIDAD"
         Me.colNUMERO_IDENTIDAD.OptionsColumn.AllowEdit = False
+        Me.colNUMERO_IDENTIDAD.OptionsColumn.AllowFocus = False
+        Me.colNUMERO_IDENTIDAD.OptionsColumn.TabStop = False
         Me.colNUMERO_IDENTIDAD.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colNUMERO_IDENTIDAD.Visible = True
-        Me.colNUMERO_IDENTIDAD.VisibleIndex = 0
+        Me.colNUMERO_IDENTIDAD.VisibleIndex = 2
         Me.colNUMERO_IDENTIDAD.Width = 100
         '
         'colPRIMER_NOMBRE
@@ -380,9 +382,12 @@ Partial Class XfrmConCenso
         Me.colPRIMER_NOMBRE.Caption = "Primer Nombre"
         Me.colPRIMER_NOMBRE.FieldName = "PRIMER_NOMBRE"
         Me.colPRIMER_NOMBRE.Name = "colPRIMER_NOMBRE"
+        Me.colPRIMER_NOMBRE.OptionsColumn.AllowEdit = False
+        Me.colPRIMER_NOMBRE.OptionsColumn.AllowFocus = False
+        Me.colPRIMER_NOMBRE.OptionsColumn.TabStop = False
         Me.colPRIMER_NOMBRE.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colPRIMER_NOMBRE.Visible = True
-        Me.colPRIMER_NOMBRE.VisibleIndex = 1
+        Me.colPRIMER_NOMBRE.VisibleIndex = 3
         Me.colPRIMER_NOMBRE.Width = 100
         '
         'colSEGUNDO_NOMBRE
@@ -390,9 +395,12 @@ Partial Class XfrmConCenso
         Me.colSEGUNDO_NOMBRE.Caption = "Segundo Nombre"
         Me.colSEGUNDO_NOMBRE.FieldName = "SEGUNDO_NOMBRE"
         Me.colSEGUNDO_NOMBRE.Name = "colSEGUNDO_NOMBRE"
+        Me.colSEGUNDO_NOMBRE.OptionsColumn.AllowEdit = False
+        Me.colSEGUNDO_NOMBRE.OptionsColumn.AllowFocus = False
+        Me.colSEGUNDO_NOMBRE.OptionsColumn.TabStop = False
         Me.colSEGUNDO_NOMBRE.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colSEGUNDO_NOMBRE.Visible = True
-        Me.colSEGUNDO_NOMBRE.VisibleIndex = 2
+        Me.colSEGUNDO_NOMBRE.VisibleIndex = 4
         Me.colSEGUNDO_NOMBRE.Width = 100
         '
         'colPRIMER_APELLIDO
@@ -400,9 +408,12 @@ Partial Class XfrmConCenso
         Me.colPRIMER_APELLIDO.Caption = "Primer Apellido"
         Me.colPRIMER_APELLIDO.FieldName = "PRIMER_APELLIDO"
         Me.colPRIMER_APELLIDO.Name = "colPRIMER_APELLIDO"
+        Me.colPRIMER_APELLIDO.OptionsColumn.AllowEdit = False
+        Me.colPRIMER_APELLIDO.OptionsColumn.AllowFocus = False
+        Me.colPRIMER_APELLIDO.OptionsColumn.TabStop = False
         Me.colPRIMER_APELLIDO.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colPRIMER_APELLIDO.Visible = True
-        Me.colPRIMER_APELLIDO.VisibleIndex = 3
+        Me.colPRIMER_APELLIDO.VisibleIndex = 5
         Me.colPRIMER_APELLIDO.Width = 100
         '
         'colSEGUNDO_APELLIDO
@@ -410,9 +421,12 @@ Partial Class XfrmConCenso
         Me.colSEGUNDO_APELLIDO.Caption = "Segundo Apellido"
         Me.colSEGUNDO_APELLIDO.FieldName = "SEGUNDO_APELLIDO"
         Me.colSEGUNDO_APELLIDO.Name = "colSEGUNDO_APELLIDO"
+        Me.colSEGUNDO_APELLIDO.OptionsColumn.AllowEdit = False
+        Me.colSEGUNDO_APELLIDO.OptionsColumn.AllowFocus = False
+        Me.colSEGUNDO_APELLIDO.OptionsColumn.TabStop = False
         Me.colSEGUNDO_APELLIDO.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colSEGUNDO_APELLIDO.Visible = True
-        Me.colSEGUNDO_APELLIDO.VisibleIndex = 4
+        Me.colSEGUNDO_APELLIDO.VisibleIndex = 6
         Me.colSEGUNDO_APELLIDO.Width = 100
         '
         'colGENERO
@@ -420,9 +434,12 @@ Partial Class XfrmConCenso
         Me.colGENERO.Caption = "Género"
         Me.colGENERO.FieldName = "GENERO"
         Me.colGENERO.Name = "colGENERO"
+        Me.colGENERO.OptionsColumn.AllowEdit = False
+        Me.colGENERO.OptionsColumn.AllowFocus = False
+        Me.colGENERO.OptionsColumn.TabStop = False
         Me.colGENERO.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colGENERO.Visible = True
-        Me.colGENERO.VisibleIndex = 5
+        Me.colGENERO.VisibleIndex = 7
         Me.colGENERO.Width = 100
         '
         'colFECHA_NACIMIENTO
@@ -430,6 +447,9 @@ Partial Class XfrmConCenso
         Me.colFECHA_NACIMIENTO.Caption = "Fecha Nacimiento"
         Me.colFECHA_NACIMIENTO.FieldName = "FECHA_NACIMIENTO"
         Me.colFECHA_NACIMIENTO.Name = "colFECHA_NACIMIENTO"
+        Me.colFECHA_NACIMIENTO.OptionsColumn.AllowEdit = False
+        Me.colFECHA_NACIMIENTO.OptionsColumn.AllowFocus = False
+        Me.colFECHA_NACIMIENTO.OptionsColumn.TabStop = False
         Me.colFECHA_NACIMIENTO.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colFECHA_NACIMIENTO.Visible = True
         Me.colFECHA_NACIMIENTO.VisibleIndex = 8
@@ -440,9 +460,12 @@ Partial Class XfrmConCenso
         Me.colDEPARTAMENTO.Caption = "Departamento"
         Me.colDEPARTAMENTO.FieldName = "DEPARTAMENTO"
         Me.colDEPARTAMENTO.Name = "colDEPARTAMENTO"
+        Me.colDEPARTAMENTO.OptionsColumn.AllowEdit = False
+        Me.colDEPARTAMENTO.OptionsColumn.AllowFocus = False
+        Me.colDEPARTAMENTO.OptionsColumn.TabStop = False
         Me.colDEPARTAMENTO.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colDEPARTAMENTO.Visible = True
-        Me.colDEPARTAMENTO.VisibleIndex = 6
+        Me.colDEPARTAMENTO.VisibleIndex = 0
         Me.colDEPARTAMENTO.Width = 100
         '
         'colMUNICIPIO
@@ -450,9 +473,12 @@ Partial Class XfrmConCenso
         Me.colMUNICIPIO.Caption = "Municipio"
         Me.colMUNICIPIO.FieldName = "MUNICIPIO"
         Me.colMUNICIPIO.Name = "colMUNICIPIO"
+        Me.colMUNICIPIO.OptionsColumn.AllowEdit = False
+        Me.colMUNICIPIO.OptionsColumn.AllowFocus = False
+        Me.colMUNICIPIO.OptionsColumn.TabStop = False
         Me.colMUNICIPIO.UnboundType = DevExpress.Data.UnboundColumnType.[String]
         Me.colMUNICIPIO.Visible = True
-        Me.colMUNICIPIO.VisibleIndex = 7
+        Me.colMUNICIPIO.VisibleIndex = 1
         Me.colMUNICIPIO.Width = 100
         '
         'GridView2
