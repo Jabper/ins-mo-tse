@@ -3,7 +3,7 @@
     Public Shared Firmasmovimiento As Double
     Public Shared porcentaje As Double
     Public Shared FirmasInconsistentes As Double
-
+    'obtencion de estadisticas de los movimientos
     Public Shared Sub obtenerfirmas()
         Dim consulta As String
         consulta = "SELECT CANTIDAD_FIRMAS  FROM IM_PARTIDOS_POLITICOS "
