@@ -4553,31 +4553,31 @@ Namespace DSConsultasTableAdapters
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function GetImage(ByVal codCiuRes As Decimal, ByVal codPar As Decimal, ByVal codMov As Decimal) As Object
-            Dim command As Global.System.Data.OracleClient.OracleCommand = Me.CommandCollection(1)
-            command.Parameters(0).Value = CType(codCiuRes,Decimal)
-            command.Parameters(1).Value = CType(codPar,Decimal)
-            command.Parameters(2).Value = CType(codMov,Decimal)
-            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DSConsultas.ImagenesCiudadanosRespaldanDataTable, ByVal codCiuRes As Decimal, ByVal codPar As Decimal, ByVal codMov As Decimal) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(codCiuRes,Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(codPar,Decimal)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(codMov,Decimal)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
-            Dim returnValue As Object
-            Try 
-                returnValue = command.ExecuteScalar
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close
-                End If
-            End Try
-            If ((returnValue Is Nothing)  _
-                        OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
-                Return Nothing
-            Else
-                Return CType(returnValue,Object)
-            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy(ByVal codCiuRes As Decimal, ByVal codPar As Decimal, ByVal codMov As Decimal) As DSConsultas.ImagenesCiudadanosRespaldanDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(codCiuRes,Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(codPar,Decimal)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(codMov,Decimal)
+            Dim dataTable As DSConsultas.ImagenesCiudadanosRespaldanDataTable = New DSConsultas.ImagenesCiudadanosRespaldanDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
         End Function
     End Class
     

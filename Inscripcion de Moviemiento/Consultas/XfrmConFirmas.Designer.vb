@@ -82,6 +82,9 @@ Partial Class XfrmConFirmas
         Me.MunicipiosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MunicipiosTableAdapter
         Me.PartidosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.PartidosTableAdapter
         Me.MovimientosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MovimientosTableAdapter
+        Me.pbxFirma = New System.Windows.Forms.PictureBox
+        Me.ImagenesCiudadanosRespaldanBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ImagenesCiudadanosRespaldanTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.ImagenesCiudadanosRespaldanTableAdapter
         Me.GroupBox1.SuspendLayout()
         CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PartidosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -92,6 +95,9 @@ Partial Class XfrmConFirmas
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox2.SuspendLayout()
+        CType(Me.pbxFirma, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImagenesCiudadanosRespaldanBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -686,6 +692,7 @@ Partial Class XfrmConFirmas
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.pbxFirma)
         Me.GroupBox2.Location = New System.Drawing.Point(914, 82)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(193, 197)
@@ -709,6 +716,25 @@ Partial Class XfrmConFirmas
         '
         Me.MovimientosTableAdapter.ClearBeforeFill = True
         '
+        'pbxFirma
+        '
+        Me.pbxFirma.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.ImagenesCiudadanosRespaldanBindingSource, "IMAGEN_FIRMA", True))
+        Me.pbxFirma.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pbxFirma.Location = New System.Drawing.Point(3, 17)
+        Me.pbxFirma.Name = "pbxFirma"
+        Me.pbxFirma.Size = New System.Drawing.Size(187, 177)
+        Me.pbxFirma.TabIndex = 0
+        Me.pbxFirma.TabStop = False
+        '
+        'ImagenesCiudadanosRespaldanBindingSource
+        '
+        Me.ImagenesCiudadanosRespaldanBindingSource.DataMember = "ImagenesCiudadanosRespaldan"
+        Me.ImagenesCiudadanosRespaldanBindingSource.DataSource = Me.DSConsultas
+        '
+        'ImagenesCiudadanosRespaldanTableAdapter
+        '
+        Me.ImagenesCiudadanosRespaldanTableAdapter.ClearBeforeFill = True
+        '
         'XfrmConFirmas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -731,6 +757,9 @@ Partial Class XfrmConFirmas
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox2.ResumeLayout(False)
+        CType(Me.pbxFirma, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImagenesCiudadanosRespaldanBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -796,4 +825,7 @@ Partial Class XfrmConFirmas
     Friend WithEvents PartidosTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.PartidosTableAdapter
     Friend WithEvents IMFK1MOVIMIENTOSBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents MovimientosTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MovimientosTableAdapter
+    Friend WithEvents pbxFirma As System.Windows.Forms.PictureBox
+    Friend WithEvents ImagenesCiudadanosRespaldanBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents ImagenesCiudadanosRespaldanTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.ImagenesCiudadanosRespaldanTableAdapter
 End Class
