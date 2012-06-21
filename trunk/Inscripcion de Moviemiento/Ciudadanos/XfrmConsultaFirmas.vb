@@ -55,10 +55,10 @@ Public Class XfrmConsultaFirmas
 
     Sub estadistico()
         CREstadistico.calcular()
-        Me.lblconsistentes.Text = CREstadistico.Firmasmovimiento
-        Me.lblporcentaje.Text = CREstadistico.porcentaje.ToString & "%"
-        Me.lblfirmasnecesarias.Text = CREstadistico.Firmasmovimiento
-        Me.lblinconsistentes.Text = CREstadistico.FirmasInconsistentes
+        Me.lblconsistentes.Text = Math.Round(CREstadistico.Firmasmovimiento, 0)
+        Me.lblporcentaje.Text = Math.Round(CREstadistico.porcentaje, 2) & "%"
+        Me.lblfirmasnecesarias.Text = Math.Round(CREstadistico.TotalFirmas, 0)
+        Me.lblinconsistentes.Text = Math.Round(CREstadistico.FirmasInconsistentes, 0)
     End Sub
 
 
@@ -238,9 +238,12 @@ Public Class XfrmConsultaFirmas
 
             End If
             If Not IsDBNull(GridView1.GetRowCellValue(i, "IMAGEN_FIRMA")) Then
+                Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.FillBy(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1, GridView1.GetRowCellValue(i, "CODIGO_CUIDADANOS_RESPALDAN"), GridView1.GetRowCellValue(i, "CODIGO_PARTIDO"), GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO"))
+                Me.Validate()
+                Me.IM_CIUDADANOS_RESPALDAN1BindingSource.EndEdit()
+                Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Update(DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
 
-
-                consulta &= ", IMAGEN_FIRMA= " + GridView1.GetRowCellValue(i, "IMAGEN_FIRMA")
+                'consulta &= ", IMAGEN_FIRMA= " + GridView1.GetRowCellValue(i, "IMAGEN_FIRMA")
             Else
                 consulta &= ", IMAGEN_FIRMA=NULL "
             End If
@@ -410,10 +413,7 @@ Public Class XfrmConsultaFirmas
             Else
                 Dim view As GridView = CType(sender, GridView)
                 view.CancelUpdateCurrentRow()
-                'Me.Validate()
-                'Me.IM_CIUDADANOS_RESPALDAN1BindingSource.EndEdit()
-                'Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Update(DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
-            End If
+           End If
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
