@@ -115,7 +115,7 @@ Partial Class XfrmConCenso
         Me.cbxMunicipio.Location = New System.Drawing.Point(596, 141)
         Me.cbxMunicipio.Name = "cbxMunicipio"
         Me.cbxMunicipio.Size = New System.Drawing.Size(397, 21)
-        Me.cbxMunicipio.TabIndex = 34
+        Me.cbxMunicipio.TabIndex = 9
         Me.cbxMunicipio.ValueMember = "CODIGO_MUNICIPIO"
         '
         'IMFK1MUNICIPIOBindingSource
@@ -141,7 +141,7 @@ Partial Class XfrmConCenso
         Me.cbxDepartamento.Location = New System.Drawing.Point(596, 114)
         Me.cbxDepartamento.Name = "cbxDepartamento"
         Me.cbxDepartamento.Size = New System.Drawing.Size(397, 21)
-        Me.cbxDepartamento.TabIndex = 33
+        Me.cbxDepartamento.TabIndex = 8
         Me.cbxDepartamento.ValueMember = "CODIGO_DEPARTAMENTO"
         '
         'Label10
@@ -176,7 +176,7 @@ Partial Class XfrmConCenso
         Me.txtPNombre.Location = New System.Drawing.Point(111, 60)
         Me.txtPNombre.Name = "txtPNombre"
         Me.txtPNombre.Size = New System.Drawing.Size(361, 21)
-        Me.txtPNombre.TabIndex = 29
+        Me.txtPNombre.TabIndex = 1
         '
         'dtdHasta
         '
@@ -186,7 +186,7 @@ Partial Class XfrmConCenso
         Me.dtdHasta.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.dtdHasta.Properties.VistaTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
         Me.dtdHasta.Size = New System.Drawing.Size(165, 20)
-        Me.dtdHasta.TabIndex = 28
+        Me.dtdHasta.TabIndex = 7
         '
         'dtdDesde
         '
@@ -196,7 +196,7 @@ Partial Class XfrmConCenso
         Me.dtdDesde.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.dtdDesde.Properties.VistaTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
         Me.dtdDesde.Size = New System.Drawing.Size(165, 20)
-        Me.dtdDesde.TabIndex = 27
+        Me.dtdDesde.TabIndex = 6
         '
         'Label7
         '
@@ -246,7 +246,7 @@ Partial Class XfrmConCenso
         Me.txtSApellido.Location = New System.Drawing.Point(111, 141)
         Me.txtSApellido.Name = "txtSApellido"
         Me.txtSApellido.Size = New System.Drawing.Size(361, 21)
-        Me.txtSApellido.TabIndex = 3
+        Me.txtSApellido.TabIndex = 4
         '
         'Label3
         '
@@ -262,7 +262,7 @@ Partial Class XfrmConCenso
         Me.txtPApellido.Location = New System.Drawing.Point(111, 114)
         Me.txtPApellido.Name = "txtPApellido"
         Me.txtPApellido.Size = New System.Drawing.Size(361, 21)
-        Me.txtPApellido.TabIndex = 2
+        Me.txtPApellido.TabIndex = 3
         '
         'Label2
         '
@@ -287,7 +287,7 @@ Partial Class XfrmConCenso
         Me.txtSNombre.Location = New System.Drawing.Point(111, 87)
         Me.txtSNombre.Name = "txtSNombre"
         Me.txtSNombre.Size = New System.Drawing.Size(361, 21)
-        Me.txtSNombre.TabIndex = 1
+        Me.txtSNombre.TabIndex = 2
         '
         'cbxGenero
         '
@@ -297,7 +297,7 @@ Partial Class XfrmConCenso
         Me.cbxGenero.Location = New System.Drawing.Point(596, 60)
         Me.cbxGenero.Name = "cbxGenero"
         Me.cbxGenero.Size = New System.Drawing.Size(165, 21)
-        Me.cbxGenero.TabIndex = 6
+        Me.cbxGenero.TabIndex = 5
         Me.cbxGenero.ValueMember = "COD"
         '
         'GenerosBindingSource
