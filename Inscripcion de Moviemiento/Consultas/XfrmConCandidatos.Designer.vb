@@ -22,14 +22,14 @@ Partial Class XfrmConCandidatos
         Me.components = New System.ComponentModel.Container
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.Label10 = New System.Windows.Forms.Label
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox
+        Me.cbxEstado = New System.Windows.Forms.ComboBox
         Me.Label9 = New System.Windows.Forms.Label
         Me.Label8 = New System.Windows.Forms.Label
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox
+        Me.cbxCargo = New System.Windows.Forms.ComboBox
         Me.IMFK1CARGOSELECTIVOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.NivelesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DSConsultas = New Inscripcion_de_Moviemientos.DSConsultas
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox
+        Me.cbxNivel = New System.Windows.Forms.ComboBox
         Me.Label4 = New System.Windows.Forms.Label
         Me.cbxMovimiento = New System.Windows.Forms.ComboBox
         Me.IMFK1MOVIMIENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -97,11 +97,11 @@ Partial Class XfrmConCandidatos
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Label10)
-        Me.GroupBox1.Controls.Add(Me.ComboBox3)
+        Me.GroupBox1.Controls.Add(Me.cbxEstado)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.ComboBox2)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
+        Me.GroupBox1.Controls.Add(Me.cbxCargo)
+        Me.GroupBox1.Controls.Add(Me.cbxNivel)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.cbxMovimiento)
         Me.GroupBox1.Controls.Add(Me.cbxMunicipio)
@@ -132,16 +132,16 @@ Partial Class XfrmConCandidatos
         Me.Label10.TabIndex = 37
         Me.Label10.Text = "Estado"
         '
-        'ComboBox3
+        'cbxEstado
         '
-        Me.ComboBox3.DisplayMember = "DESCRIPCION"
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Items.AddRange(New Object() {"{SELECCIONE UN ESTADO}", "HABILITADO", "INHABILITADO"})
-        Me.ComboBox3.Location = New System.Drawing.Point(581, 128)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(275, 21)
-        Me.ComboBox3.TabIndex = 36
-        Me.ComboBox3.ValueMember = "CODIGO_DEPARTAMENTO"
+        Me.cbxEstado.DisplayMember = "DESCRIPCION"
+        Me.cbxEstado.FormattingEnabled = True
+        Me.cbxEstado.Items.AddRange(New Object() {"{SELECCIONE UN ESTADO}", "HABILITADO", "INHABILITADO"})
+        Me.cbxEstado.Location = New System.Drawing.Point(581, 128)
+        Me.cbxEstado.Name = "cbxEstado"
+        Me.cbxEstado.Size = New System.Drawing.Size(275, 21)
+        Me.cbxEstado.TabIndex = 36
+        Me.cbxEstado.ValueMember = "CODIGO_DEPARTAMENTO"
         '
         'Label9
         '
@@ -161,16 +161,16 @@ Partial Class XfrmConCandidatos
         Me.Label8.TabIndex = 34
         Me.Label8.Text = "Nivel"
         '
-        'ComboBox2
+        'cbxCargo
         '
-        Me.ComboBox2.DataSource = Me.IMFK1CARGOSELECTIVOSBindingSource
-        Me.ComboBox2.DisplayMember = "DESCRIPCION"
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(581, 101)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(275, 21)
-        Me.ComboBox2.TabIndex = 33
-        Me.ComboBox2.ValueMember = "CODIGO_CARGO_ELECTIVO"
+        Me.cbxCargo.DataSource = Me.IMFK1CARGOSELECTIVOSBindingSource
+        Me.cbxCargo.DisplayMember = "DESCRIPCION"
+        Me.cbxCargo.FormattingEnabled = True
+        Me.cbxCargo.Location = New System.Drawing.Point(581, 101)
+        Me.cbxCargo.Name = "cbxCargo"
+        Me.cbxCargo.Size = New System.Drawing.Size(275, 21)
+        Me.cbxCargo.TabIndex = 33
+        Me.cbxCargo.ValueMember = "CODIGO_CARGO_ELECTIVO"
         '
         'IMFK1CARGOSELECTIVOSBindingSource
         '
@@ -187,16 +187,16 @@ Partial Class XfrmConCandidatos
         Me.DSConsultas.DataSetName = "DSConsultas"
         Me.DSConsultas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'ComboBox1
+        'cbxNivel
         '
-        Me.ComboBox1.DataSource = Me.NivelesBindingSource
-        Me.ComboBox1.DisplayMember = "DESCRIPCION"
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(581, 74)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(275, 21)
-        Me.ComboBox1.TabIndex = 32
-        Me.ComboBox1.ValueMember = "CODIGO_NIVEL_ELECTIVO"
+        Me.cbxNivel.DataSource = Me.NivelesBindingSource
+        Me.cbxNivel.DisplayMember = "DESCRIPCION"
+        Me.cbxNivel.FormattingEnabled = True
+        Me.cbxNivel.Location = New System.Drawing.Point(581, 74)
+        Me.cbxNivel.Name = "cbxNivel"
+        Me.cbxNivel.Size = New System.Drawing.Size(275, 21)
+        Me.cbxNivel.TabIndex = 32
+        Me.cbxNivel.ValueMember = "CODIGO_NIVEL_ELECTIVO"
         '
         'Label4
         '
@@ -397,7 +397,7 @@ Partial Class XfrmConCandidatos
         Me.GCBusqueda.Location = New System.Drawing.Point(12, 250)
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
-        Me.GCBusqueda.Size = New System.Drawing.Size(1038, 331)
+        Me.GCBusqueda.Size = New System.Drawing.Size(1038, 462)
         Me.GCBusqueda.TabIndex = 18
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -605,7 +605,7 @@ Partial Class XfrmConCandidatos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1112, 642)
+        Me.ClientSize = New System.Drawing.Size(1112, 724)
         Me.Controls.Add(Me.GCBusqueda)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.FlowLayoutPanel1)
@@ -670,11 +670,11 @@ Partial Class XfrmConCandidatos
     Friend WithEvents cbxPartido As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
+    Friend WithEvents cbxEstado As System.Windows.Forms.ComboBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents cbxCargo As System.Windows.Forms.ComboBox
+    Friend WithEvents cbxNivel As System.Windows.Forms.ComboBox
     Friend WithEvents PartidosBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents PartidosTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.PartidosTableAdapter
     Friend WithEvents IMFK1MOVIMIENTOSBindingSource As System.Windows.Forms.BindingSource
