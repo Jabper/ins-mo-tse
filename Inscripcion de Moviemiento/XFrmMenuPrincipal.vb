@@ -230,4 +230,9 @@ Public Class XFrmMenuPrincipal
     Private Sub btnConsultarFirmas_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnConsultarFirmas.ItemClick
         Padre(XfrmConFirmas)
     End Sub
+
+    Private Sub BtnFDP_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnFDP.ItemClick
+        Dim reporte3 As Reporte_de__FirmasDP = New Reporte_de__FirmasDP
+        reporte3.ShowPreview()
+    End Sub
 End Class
