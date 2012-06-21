@@ -35,6 +35,9 @@ Partial Class XfrmConsultaFirmas
         Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl
+        Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit
+        Me.IM_CIUDADANOS_RESPALDAN1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DSCiudadanos = New Inscripcion_de_Moviemientos.DSCiudadanos
         Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
         Me.BtnUpdate = New DevExpress.XtraEditors.SimpleButton
         Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton
@@ -66,7 +69,6 @@ Partial Class XfrmConsultaFirmas
         Me.GCBusqueda = New DevExpress.XtraGrid.GridControl
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.MOSTRARFIRMASBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DSCiudadanos = New Inscripcion_de_Moviemientos.DSCiudadanos
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.colCODIGO_CUIDADANOS_RESPALDAN = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCONSISTENTE = New DevExpress.XtraGrid.Columns.GridColumn
@@ -110,7 +112,6 @@ Partial Class XfrmConsultaFirmas
         Me.LayoutControlItem10 = New DevExpress.XtraLayout.LayoutControlItem
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.IM_CIUDADANOS_RESPALDAN1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IMCIUDADANOSRESPALDANBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_CIUDADANOS_RESPALDANTableAdapter = New Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.IM_CIUDADANOS_RESPALDANTableAdapter
         Me.TA_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_PARTIDOS_POLITICOSTableAdapter
@@ -120,6 +121,8 @@ Partial Class XfrmConsultaFirmas
         Me.IM_CIUDADANOS_RESPALDAN1TableAdapter = New Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.IM_CIUDADANOS_RESPALDAN1TableAdapter
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.MOSTRAR_FIRMASTableAdapter = New Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.MOSTRAR_FIRMASTableAdapter
+        Me.TextEdit2 = New DevExpress.XtraEditors.TextEdit
+        Me.TextEdit3 = New DevExpress.XtraEditors.TextEdit
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -128,6 +131,9 @@ Partial Class XfrmConsultaFirmas
         CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl3.SuspendLayout()
+        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IM_CIUDADANOS_RESPALDAN1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DSCiudadanos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtidentidad.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ChkMuni.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ChkDepto.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -147,7 +153,6 @@ Partial Class XfrmConsultaFirmas
         CType(Me.Imgimagen.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MOSTRARFIRMASBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DSCiudadanos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ChkEstado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -167,9 +172,10 @@ Partial Class XfrmConsultaFirmas
         CType(Me.LayoutControlItem10, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IM_CIUDADANOS_RESPALDAN1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMCIUDADANOSRESPALDANBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TextEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TextEdit3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -213,7 +219,7 @@ Partial Class XfrmConsultaFirmas
         Me.lblfirmasnecesarias.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblfirmasnecesarias.Appearance.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblfirmasnecesarias.Appearance.ForeColor = System.Drawing.Color.DarkCyan
-        Me.lblfirmasnecesarias.Location = New System.Drawing.Point(424, 47)
+        Me.lblfirmasnecesarias.Location = New System.Drawing.Point(384, 47)
         Me.lblfirmasnecesarias.Name = "lblfirmasnecesarias"
         Me.lblfirmasnecesarias.Size = New System.Drawing.Size(64, 25)
         Me.lblfirmasnecesarias.TabIndex = 34
@@ -224,7 +230,7 @@ Partial Class XfrmConsultaFirmas
         Me.LabelControl12.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.LabelControl12.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl12.Appearance.ForeColor = System.Drawing.Color.DarkCyan
-        Me.LabelControl12.Location = New System.Drawing.Point(385, 12)
+        Me.LabelControl12.Location = New System.Drawing.Point(348, 12)
         Me.LabelControl12.Name = "LabelControl12"
         Me.LabelControl12.Size = New System.Drawing.Size(139, 14)
         Me.LabelControl12.TabIndex = 33
@@ -235,7 +241,7 @@ Partial Class XfrmConsultaFirmas
         Me.lblporcentaje.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblporcentaje.Appearance.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblporcentaje.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.lblporcentaje.Location = New System.Drawing.Point(632, 47)
+        Me.lblporcentaje.Location = New System.Drawing.Point(572, 47)
         Me.lblporcentaje.Name = "lblporcentaje"
         Me.lblporcentaje.Size = New System.Drawing.Size(64, 25)
         Me.lblporcentaje.TabIndex = 32
@@ -246,7 +252,7 @@ Partial Class XfrmConsultaFirmas
         Me.LabelControl11.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.LabelControl11.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl11.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.LabelControl11.Location = New System.Drawing.Point(570, 12)
+        Me.LabelControl11.Location = New System.Drawing.Point(516, 12)
         Me.LabelControl11.Name = "LabelControl11"
         Me.LabelControl11.Size = New System.Drawing.Size(189, 14)
         Me.LabelControl11.TabIndex = 31
@@ -256,7 +262,7 @@ Partial Class XfrmConsultaFirmas
         '
         Me.lblinconsistentes.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblinconsistentes.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblinconsistentes.Location = New System.Drawing.Point(241, 66)
+        Me.lblinconsistentes.Location = New System.Drawing.Point(240, 70)
         Me.lblinconsistentes.Name = "lblinconsistentes"
         Me.lblinconsistentes.Size = New System.Drawing.Size(56, 14)
         Me.lblinconsistentes.TabIndex = 30
@@ -267,7 +273,7 @@ Partial Class XfrmConsultaFirmas
         Me.LabelControl10.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.LabelControl10.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl10.Appearance.ForeColor = System.Drawing.Color.Orange
-        Me.LabelControl10.Location = New System.Drawing.Point(241, 12)
+        Me.LabelControl10.Location = New System.Drawing.Point(222, 12)
         Me.LabelControl10.Name = "LabelControl10"
         Me.LabelControl10.Size = New System.Drawing.Size(93, 14)
         Me.LabelControl10.TabIndex = 29
@@ -277,7 +283,7 @@ Partial Class XfrmConsultaFirmas
         '
         Me.lblconsistentes.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblconsistentes.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblconsistentes.Location = New System.Drawing.Point(241, 32)
+        Me.lblconsistentes.Location = New System.Drawing.Point(240, 32)
         Me.lblconsistentes.Name = "lblconsistentes"
         Me.lblconsistentes.Size = New System.Drawing.Size(56, 14)
         Me.lblconsistentes.TabIndex = 28
@@ -287,7 +293,7 @@ Partial Class XfrmConsultaFirmas
         '
         Me.LabelControl6.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl6.Location = New System.Drawing.Point(60, 70)
+        Me.LabelControl6.Location = New System.Drawing.Point(41, 70)
         Me.LabelControl6.Name = "LabelControl6"
         Me.LabelControl6.Size = New System.Drawing.Size(150, 14)
         Me.LabelControl6.TabIndex = 25
@@ -296,7 +302,7 @@ Partial Class XfrmConsultaFirmas
         'PictureEdit2
         '
         Me.PictureEdit2.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.errorIcon
-        Me.PictureEdit2.Location = New System.Drawing.Point(30, 66)
+        Me.PictureEdit2.Location = New System.Drawing.Point(11, 66)
         Me.PictureEdit2.Name = "PictureEdit2"
         Me.PictureEdit2.Properties.AllowFocused = False
         Me.PictureEdit2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
@@ -311,7 +317,7 @@ Partial Class XfrmConsultaFirmas
         '
         Me.LabelControl7.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.LabelControl7.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl7.Location = New System.Drawing.Point(60, 36)
+        Me.LabelControl7.Location = New System.Drawing.Point(41, 36)
         Me.LabelControl7.Name = "LabelControl7"
         Me.LabelControl7.Size = New System.Drawing.Size(141, 14)
         Me.LabelControl7.TabIndex = 27
@@ -321,7 +327,7 @@ Partial Class XfrmConsultaFirmas
         '
         Me.LabelControl8.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl8.Appearance.ForeColor = System.Drawing.Color.OrangeRed
-        Me.LabelControl8.Location = New System.Drawing.Point(30, 12)
+        Me.LabelControl8.Location = New System.Drawing.Point(11, 12)
         Me.LabelControl8.Name = "LabelControl8"
         Me.LabelControl8.Size = New System.Drawing.Size(167, 14)
         Me.LabelControl8.TabIndex = 24
@@ -330,7 +336,7 @@ Partial Class XfrmConsultaFirmas
         'PictureEdit1
         '
         Me.PictureEdit1.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Ok
-        Me.PictureEdit1.Location = New System.Drawing.Point(30, 32)
+        Me.PictureEdit1.Location = New System.Drawing.Point(11, 32)
         Me.PictureEdit1.Name = "PictureEdit1"
         Me.PictureEdit1.Properties.AllowFocused = False
         Me.PictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
@@ -346,6 +352,9 @@ Partial Class XfrmConsultaFirmas
         Me.PanelControl3.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.PanelControl3.Appearance.Options.UseBackColor = True
         Me.PanelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl3.Controls.Add(Me.TextEdit3)
+        Me.PanelControl3.Controls.Add(Me.TextEdit2)
+        Me.PanelControl3.Controls.Add(Me.TextEdit1)
         Me.PanelControl3.Controls.Add(Me.BtnEliminar)
         Me.PanelControl3.Controls.Add(Me.BtnUpdate)
         Me.PanelControl3.Controls.Add(Me.SimpleButton2)
@@ -370,16 +379,35 @@ Partial Class XfrmConsultaFirmas
         Me.PanelControl3.Controls.Add(Me.Imgimagen)
         Me.PanelControl3.Location = New System.Drawing.Point(12, 12)
         Me.PanelControl3.Name = "PanelControl3"
-        Me.PanelControl3.Size = New System.Drawing.Size(759, 252)
+        Me.PanelControl3.Size = New System.Drawing.Size(759, 241)
         Me.PanelControl3.TabIndex = 17
+        '
+        'TextEdit1
+        '
+        Me.TextEdit1.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IM_CIUDADANOS_RESPALDAN1BindingSource, "CODIGO_CUIDADANOS_RESPALDAN", True))
+        Me.TextEdit1.Location = New System.Drawing.Point(578, 44)
+        Me.TextEdit1.Name = "TextEdit1"
+        Me.TextEdit1.Size = New System.Drawing.Size(58, 20)
+        Me.TextEdit1.TabIndex = 47
+        '
+        'IM_CIUDADANOS_RESPALDAN1BindingSource
+        '
+        Me.IM_CIUDADANOS_RESPALDAN1BindingSource.DataMember = "IM_CIUDADANOS_RESPALDAN1"
+        Me.IM_CIUDADANOS_RESPALDAN1BindingSource.DataSource = Me.DSCiudadanos
+        '
+        'DSCiudadanos
+        '
+        Me.DSCiudadanos.DataSetName = "DSCiudadanos"
+        Me.DSCiudadanos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BtnEliminar
         '
         Me.BtnEliminar.Appearance.Options.UseTextOptions = True
         Me.BtnEliminar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.BtnEliminar.Location = New System.Drawing.Point(120, 203)
+        Me.BtnEliminar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.eliminar
+        Me.BtnEliminar.Location = New System.Drawing.Point(112, 196)
         Me.BtnEliminar.Name = "BtnEliminar"
-        Me.BtnEliminar.Size = New System.Drawing.Size(78, 36)
+        Me.BtnEliminar.Size = New System.Drawing.Size(96, 36)
         Me.BtnEliminar.TabIndex = 46
         Me.BtnEliminar.Text = "Eliminar Registro"
         '
@@ -387,9 +415,10 @@ Partial Class XfrmConsultaFirmas
         '
         Me.BtnUpdate.Appearance.Options.UseTextOptions = True
         Me.BtnUpdate.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.BtnUpdate.Location = New System.Drawing.Point(19, 203)
+        Me.BtnUpdate.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.guardar1
+        Me.BtnUpdate.Location = New System.Drawing.Point(10, 196)
         Me.BtnUpdate.Name = "BtnUpdate"
-        Me.BtnUpdate.Size = New System.Drawing.Size(79, 36)
+        Me.BtnUpdate.Size = New System.Drawing.Size(96, 36)
         Me.BtnUpdate.TabIndex = 45
         Me.BtnUpdate.Text = "Actualizar Registro"
         '
@@ -403,16 +432,16 @@ Partial Class XfrmConsultaFirmas
         '
         'txtidentidad
         '
-        Me.txtidentidad.Location = New System.Drawing.Point(370, 140)
+        Me.txtidentidad.Location = New System.Drawing.Point(384, 128)
         Me.txtidentidad.Name = "txtidentidad"
         Me.txtidentidad.Properties.MaxLength = 15
-        Me.txtidentidad.Size = New System.Drawing.Size(159, 20)
+        Me.txtidentidad.Size = New System.Drawing.Size(152, 20)
         Me.txtidentidad.TabIndex = 43
         '
         'LabelControl9
         '
         Me.LabelControl9.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl9.Location = New System.Drawing.Point(314, 147)
+        Me.LabelControl9.Location = New System.Drawing.Point(322, 131)
         Me.LabelControl9.Name = "LabelControl9"
         Me.LabelControl9.Size = New System.Drawing.Size(50, 13)
         Me.LabelControl9.TabIndex = 42
@@ -421,7 +450,7 @@ Partial Class XfrmConsultaFirmas
         'ChkMuni
         '
         Me.ChkMuni.Enabled = False
-        Me.ChkMuni.Location = New System.Drawing.Point(299, 103)
+        Me.ChkMuni.Location = New System.Drawing.Point(300, 96)
         Me.ChkMuni.Name = "ChkMuni"
         Me.ChkMuni.Properties.Caption = ""
         Me.ChkMuni.Size = New System.Drawing.Size(16, 19)
@@ -430,7 +459,7 @@ Partial Class XfrmConsultaFirmas
         'ChkDepto
         '
         Me.ChkDepto.Enabled = False
-        Me.ChkDepto.Location = New System.Drawing.Point(35, 102)
+        Me.ChkDepto.Location = New System.Drawing.Point(19, 95)
         Me.ChkDepto.Name = "ChkDepto"
         Me.ChkDepto.Properties.Caption = ""
         Me.ChkDepto.Size = New System.Drawing.Size(16, 19)
@@ -438,7 +467,7 @@ Partial Class XfrmConsultaFirmas
         '
         'BtnReestablecer
         '
-        Me.BtnReestablecer.Location = New System.Drawing.Point(446, 182)
+        Me.BtnReestablecer.Location = New System.Drawing.Point(411, 175)
         Me.BtnReestablecer.Name = "BtnReestablecer"
         Me.BtnReestablecer.Size = New System.Drawing.Size(125, 22)
         Me.BtnReestablecer.TabIndex = 35
@@ -446,7 +475,7 @@ Partial Class XfrmConsultaFirmas
         '
         'LabelControl5
         '
-        Me.LabelControl5.Location = New System.Drawing.Point(57, 106)
+        Me.LabelControl5.Location = New System.Drawing.Point(41, 99)
         Me.LabelControl5.Name = "LabelControl5"
         Me.LabelControl5.Size = New System.Drawing.Size(69, 13)
         Me.LabelControl5.TabIndex = 39
@@ -454,7 +483,7 @@ Partial Class XfrmConsultaFirmas
         '
         'SimpleButton1
         '
-        Me.SimpleButton1.Location = New System.Drawing.Point(315, 182)
+        Me.SimpleButton1.Location = New System.Drawing.Point(274, 175)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(125, 22)
         Me.SimpleButton1.TabIndex = 30
@@ -463,7 +492,7 @@ Partial Class XfrmConsultaFirmas
         'CmbFiltro
         '
         Me.CmbFiltro.EditValue = "Ninguno"
-        Me.CmbFiltro.Location = New System.Drawing.Point(132, 140)
+        Me.CmbFiltro.Location = New System.Drawing.Point(133, 128)
         Me.CmbFiltro.Name = "CmbFiltro"
         Me.CmbFiltro.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CmbFiltro.Properties.Items.AddRange(New Object() {"Ninguno", "Consistentes", "Inconsistentes"})
@@ -473,7 +502,7 @@ Partial Class XfrmConsultaFirmas
         'LabelControl1
         '
         Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl1.Location = New System.Drawing.Point(89, 147)
+        Me.LabelControl1.Location = New System.Drawing.Point(38, 131)
         Me.LabelControl1.Name = "LabelControl1"
         Me.LabelControl1.Size = New System.Drawing.Size(37, 13)
         Me.LabelControl1.TabIndex = 32
@@ -481,7 +510,7 @@ Partial Class XfrmConsultaFirmas
         '
         'LabelControl4
         '
-        Me.LabelControl4.Location = New System.Drawing.Point(321, 106)
+        Me.LabelControl4.Location = New System.Drawing.Point(322, 99)
         Me.LabelControl4.Name = "LabelControl4"
         Me.LabelControl4.Size = New System.Drawing.Size(43, 13)
         Me.LabelControl4.TabIndex = 38
@@ -489,7 +518,7 @@ Partial Class XfrmConsultaFirmas
         '
         'LabelControl3
         '
-        Me.LabelControl3.Location = New System.Drawing.Point(301, 54)
+        Me.LabelControl3.Location = New System.Drawing.Point(302, 47)
         Me.LabelControl3.Name = "LabelControl3"
         Me.LabelControl3.Size = New System.Drawing.Size(54, 13)
         Me.LabelControl3.TabIndex = 37
@@ -497,7 +526,7 @@ Partial Class XfrmConsultaFirmas
         '
         'LabelControl2
         '
-        Me.LabelControl2.Location = New System.Drawing.Point(64, 54)
+        Me.LabelControl2.Location = New System.Drawing.Point(41, 47)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(34, 13)
         Me.LabelControl2.TabIndex = 36
@@ -505,7 +534,7 @@ Partial Class XfrmConsultaFirmas
         '
         'ChkMovimientos
         '
-        Me.ChkMovimientos.Location = New System.Drawing.Point(18, 29)
+        Me.ChkMovimientos.Location = New System.Drawing.Point(19, 22)
         Me.ChkMovimientos.Name = "ChkMovimientos"
         Me.ChkMovimientos.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChkMovimientos.Properties.Appearance.Options.UseFont = True
@@ -517,7 +546,7 @@ Partial Class XfrmConsultaFirmas
         '
         Me.CmbPartido.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TAPARTIDOSPOLITICOSBindingSource, "CODIGO_PARTIDO", True))
         Me.CmbPartido.Enabled = False
-        Me.CmbPartido.Location = New System.Drawing.Point(132, 51)
+        Me.CmbPartido.Location = New System.Drawing.Point(133, 44)
         Me.CmbPartido.Name = "CmbPartido"
         Me.CmbPartido.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CmbPartido.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_PARTIDO", "Código", 30, DevExpress.Utils.FormatType.Numeric, "", False, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE", "Partido", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.Ascending)})
@@ -542,7 +571,7 @@ Partial Class XfrmConsultaFirmas
         '
         Me.CmbMovimiento.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TAMOVIMIENTOBindingSource, "CODIGO_MOVIMIENTO", True))
         Me.CmbMovimiento.Enabled = False
-        Me.CmbMovimiento.Location = New System.Drawing.Point(370, 51)
+        Me.CmbMovimiento.Location = New System.Drawing.Point(384, 44)
         Me.CmbMovimiento.Name = "CmbMovimiento"
         Me.CmbMovimiento.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CmbMovimiento.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MOVIMIENTO", "CODIGO_MOVIMIENTO", 135, DevExpress.Utils.FormatType.Numeric, "", False, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE_MOVIMIENTO", "Movimiento", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.Ascending)})
@@ -560,7 +589,7 @@ Partial Class XfrmConsultaFirmas
         '
         'ChkGeografica
         '
-        Me.ChkGeografica.Location = New System.Drawing.Point(18, 77)
+        Me.ChkGeografica.Location = New System.Drawing.Point(19, 70)
         Me.ChkGeografica.Name = "ChkGeografica"
         Me.ChkGeografica.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChkGeografica.Properties.Appearance.Options.UseFont = True
@@ -571,7 +600,7 @@ Partial Class XfrmConsultaFirmas
         'CmbMunicipio
         '
         Me.CmbMunicipio.Enabled = False
-        Me.CmbMunicipio.Location = New System.Drawing.Point(370, 103)
+        Me.CmbMunicipio.Location = New System.Drawing.Point(384, 94)
         Me.CmbMunicipio.Name = "CmbMunicipio"
         Me.CmbMunicipio.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CmbMunicipio.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MUNICIPIO", "Código", 30, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.Ascending), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Departamento", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
@@ -595,7 +624,7 @@ Partial Class XfrmConsultaFirmas
         'CmbDepartamento
         '
         Me.CmbDepartamento.Enabled = False
-        Me.CmbDepartamento.Location = New System.Drawing.Point(132, 102)
+        Me.CmbDepartamento.Location = New System.Drawing.Point(133, 95)
         Me.CmbDepartamento.Name = "CmbDepartamento"
         Me.CmbDepartamento.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CmbDepartamento.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_DEPARTAMENTO", "Código", 30, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.Ascending), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Departamento", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
@@ -614,23 +643,22 @@ Partial Class XfrmConsultaFirmas
         'Imgimagen
         '
         Me.Imgimagen.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IM_CIUDADANOS_RESPALDAN1BindingSource, "IMAGEN_FIRMA", True))
-        Me.Imgimagen.Location = New System.Drawing.Point(685, 194)
+        Me.Imgimagen.Location = New System.Drawing.Point(578, 122)
         Me.Imgimagen.Name = "Imgimagen"
         Me.Imgimagen.Properties.PictureStoreMode = DevExpress.XtraEditors.Controls.PictureStoreMode.ByteArray
         Me.Imgimagen.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
         Me.Imgimagen.Size = New System.Drawing.Size(58, 45)
         Me.Imgimagen.TabIndex = 17
-        Me.Imgimagen.Visible = False
         '
         'GCBusqueda
         '
         Me.GCBusqueda.ContextMenuStrip = Me.ContextMenuStrip1
         Me.GCBusqueda.DataSource = Me.MOSTRARFIRMASBindingSource
-        Me.GCBusqueda.Location = New System.Drawing.Point(12, 268)
+        Me.GCBusqueda.Location = New System.Drawing.Point(12, 257)
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
         Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RIChkCoincide, Me.RIChkFima, Me.RPIImgfirma, Me.RepositoryItemComboBox1, Me.ChkEstado, Me.RepositoryItemMemoExEdit1, Me.RepositoryItemTextEdit1, Me.RepositoryItemTextEdit2, Me.RepositoryItemMemoEdit1, Me.RepositoryItemTextEdit3, Me.RepositoryItemPictureEdit1})
-        Me.GCBusqueda.Size = New System.Drawing.Size(804, 404)
+        Me.GCBusqueda.Size = New System.Drawing.Size(804, 415)
         Me.GCBusqueda.TabIndex = 8
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -643,11 +671,6 @@ Partial Class XfrmConsultaFirmas
         '
         Me.MOSTRARFIRMASBindingSource.DataMember = "MOSTRAR_FIRMAS"
         Me.MOSTRARFIRMASBindingSource.DataSource = Me.DSCiudadanos
-        '
-        'DSCiudadanos
-        '
-        Me.DSCiudadanos.DataSetName = "DSCiudadanos"
-        Me.DSCiudadanos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GridView1
         '
@@ -986,9 +1009,9 @@ Partial Class XfrmConsultaFirmas
         '
         Me.LayoutControlItem2.Control = Me.GCBusqueda
         Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 256)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 245)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(808, 408)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(808, 419)
         Me.LayoutControlItem2.Text = "LayoutControlItem2"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextToControlDistance = 0
@@ -1000,7 +1023,7 @@ Partial Class XfrmConsultaFirmas
         Me.LayoutControlItem10.CustomizationFormText = "LayoutControlItem10"
         Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem10.Name = "LayoutControlItem10"
-        Me.LayoutControlItem10.Size = New System.Drawing.Size(763, 256)
+        Me.LayoutControlItem10.Size = New System.Drawing.Size(763, 245)
         Me.LayoutControlItem10.Text = "LayoutControlItem10"
         Me.LayoutControlItem10.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem10.TextToControlDistance = 0
@@ -1011,8 +1034,11 @@ Partial Class XfrmConsultaFirmas
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
         Me.EmptySpaceItem1.Location = New System.Drawing.Point(763, 0)
+        Me.EmptySpaceItem1.MaxSize = New System.Drawing.Size(45, 245)
+        Me.EmptySpaceItem1.MinSize = New System.Drawing.Size(45, 245)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(45, 256)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(45, 245)
+        Me.EmptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem1.Text = "EmptySpaceItem1"
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -1027,11 +1053,6 @@ Partial Class XfrmConsultaFirmas
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextToControlDistance = 0
         Me.LayoutControlItem3.TextVisible = False
-        '
-        'IM_CIUDADANOS_RESPALDAN1BindingSource
-        '
-        Me.IM_CIUDADANOS_RESPALDAN1BindingSource.DataMember = "IM_CIUDADANOS_RESPALDAN1"
-        Me.IM_CIUDADANOS_RESPALDAN1BindingSource.DataSource = Me.DSCiudadanos
         '
         'IMCIUDADANOSRESPALDANBindingSource
         '
@@ -1070,6 +1091,22 @@ Partial Class XfrmConsultaFirmas
         '
         Me.MOSTRAR_FIRMASTableAdapter.ClearBeforeFill = True
         '
+        'TextEdit2
+        '
+        Me.TextEdit2.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IM_CIUDADANOS_RESPALDAN1BindingSource, "CODIGO_PARTIDO", True))
+        Me.TextEdit2.Location = New System.Drawing.Point(578, 70)
+        Me.TextEdit2.Name = "TextEdit2"
+        Me.TextEdit2.Size = New System.Drawing.Size(58, 20)
+        Me.TextEdit2.TabIndex = 48
+        '
+        'TextEdit3
+        '
+        Me.TextEdit3.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IM_CIUDADANOS_RESPALDAN1BindingSource, "CODIGO_MOVIMIENTO", True))
+        Me.TextEdit3.Location = New System.Drawing.Point(578, 96)
+        Me.TextEdit3.Name = "TextEdit3"
+        Me.TextEdit3.Size = New System.Drawing.Size(58, 20)
+        Me.TextEdit3.TabIndex = 49
+        '
         'XfrmConsultaFirmas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1089,6 +1126,9 @@ Partial Class XfrmConsultaFirmas
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl3.ResumeLayout(False)
         Me.PanelControl3.PerformLayout()
+        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IM_CIUDADANOS_RESPALDAN1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DSCiudadanos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtidentidad.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ChkMuni.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ChkDepto.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1108,7 +1148,6 @@ Partial Class XfrmConsultaFirmas
         CType(Me.Imgimagen.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MOSTRARFIRMASBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DSCiudadanos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ChkEstado, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1128,9 +1167,10 @@ Partial Class XfrmConsultaFirmas
         CType(Me.LayoutControlItem10, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IM_CIUDADANOS_RESPALDAN1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMCIUDADANOSRESPALDANBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TextEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TextEdit3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1234,4 +1274,7 @@ Partial Class XfrmConsultaFirmas
     Friend WithEvents SimpleButton2 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnEliminar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnUpdate As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents TextEdit1 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit3 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit2 As DevExpress.XtraEditors.TextEdit
 End Class

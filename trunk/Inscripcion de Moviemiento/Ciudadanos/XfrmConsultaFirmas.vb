@@ -34,6 +34,18 @@ Public Class XfrmConsultaFirmas
 
     End Sub
 
+    Private Sub GridView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.Click
+        'Try
+        '    Dim view As GridView = GridView1
+        '    'MsgBox(view.GetRowCellValue(view.FocusedRowHandle, "IDENTIDAD"))
+        '    'Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.FillBy(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1, GridView1.GetRowCellValue(view.FocusedRowHandle, "CODIGO_CUIDADANOS_RESPALDAN"), GridView1.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO"), GridView1.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO"))
+
+        'Catch ex As Exception
+        '    MsgBox(ex.Message)
+        'End Try
+        
+    End Sub
+
 
 
     Private Sub GridView1_InvalidValueException(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs) Handles GridView1.InvalidValueException
@@ -211,7 +223,7 @@ Public Class XfrmConsultaFirmas
 
             End If
             GuardarEnBase(i, NombreIgual, inconsistente, Observacion)
-
+            estadistico()
 
         Catch ex As Exception
             Mensajes.mimensaje(ex.Message)
@@ -238,12 +250,20 @@ Public Class XfrmConsultaFirmas
 
             End If
             If Not IsDBNull(GridView1.GetRowCellValue(i, "IMAGEN_FIRMA")) Then
-                Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.FillBy(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1, GridView1.GetRowCellValue(i, "CODIGO_CUIDADANOS_RESPALDAN"), GridView1.GetRowCellValue(i, "CODIGO_PARTIDO"), GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO"))
-                Me.Validate()
-                Me.IM_CIUDADANOS_RESPALDAN1BindingSource.EndEdit()
-                Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Update(DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
+                Try
 
-                'consulta &= ", IMAGEN_FIRMA= " + GridView1.GetRowCellValue(i, "IMAGEN_FIRMA")
+                
+                    Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.FillBy(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1, GridView1.GetRowCellValue(i, "CODIGO_CUIDADANOS_RESPALDAN"), GridView1.GetRowCellValue(i, "CODIGO_PARTIDO"), GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO"))
+
+                    Me.Imgimagen.Image = Data.ConvertByteArrayToImage(view.GetRowCellValue(view.FocusedRowHandle, "IMAGEN_FIRMA"))
+
+
+                    Me.IM_CIUDADANOS_RESPALDAN1BindingSource.EndEdit()
+                    Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Update(DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
+
+                Catch ex As Exception
+
+                End Try
             Else
                 consulta &= ", IMAGEN_FIRMA=NULL "
             End If
@@ -254,7 +274,7 @@ Public Class XfrmConsultaFirmas
             view.SetRowCellValue(i, "CONSISTENTE", inconsistente)
             view.SetRowCellValue(i, "OBSERVACION", Observacion)
             Mensajes.MensajeActualizar()
-            
+
         Catch ex As Exception
             MsgBox(ex.Message)
 
@@ -399,6 +419,7 @@ Public Class XfrmConsultaFirmas
         Try
             COracle.ejecutarconsulta(consulta)
             view.DeleteRow(view.FocusedRowHandle)
+            estadistico()
         Catch ex As Exception
             Mensajes.mimensaje("No se pudo eliminar el registro seleccionado")
         End Try
@@ -417,5 +438,9 @@ Public Class XfrmConsultaFirmas
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+    End Sub
+
+    Private Sub GCBusqueda_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GCBusqueda.Click
+
     End Sub
 End Class
