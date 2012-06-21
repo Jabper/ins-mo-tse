@@ -1624,6 +1624,7 @@ ORDER BY 1</CommandText>
               </xs:element>
               <xs:element name="ESTADO" msprop:Generator_UserColumnName="ESTADO" msprop:Generator_ColumnPropNameInRow="ESTADO" msprop:Generator_ColumnVarNameInTable="columnESTADO" msprop:Generator_ColumnPropNameInTable="ESTADOColumn" type="xs:string" minOccurs="0" />
               <xs:element name="IMAGEN" msprop:Generator_UserColumnName="IMAGEN" msprop:Generator_ColumnPropNameInRow="IMAGEN" msprop:Generator_ColumnVarNameInTable="columnIMAGEN" msprop:Generator_ColumnPropNameInTable="IMAGENColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Cumplido" msprop:Generator_UserColumnName="Cumplido" msprop:Generator_ColumnPropNameInRow="Cumplido" msprop:Generator_ColumnVarNameInTable="columnCumplido" msprop:Generator_ColumnPropNameInTable="CumplidoColumn" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -4802,6 +4802,8 @@ Partial Public Class DSInscripcionCandidatos
         
         Private columnIMAGEN As Global.System.Data.DataColumn
         
+        Private columnCumplido As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -4876,6 +4878,13 @@ Partial Public Class DSInscripcionCandidatos
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CumplidoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCumplido
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4905,9 +4914,9 @@ Partial Public Class DSInscripcionCandidatos
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddIM_REQUISITOSRow(ByVal DESCRIPCION As String, ByVal CODIGO_REQUISITO As Decimal, ByVal parentIM_CARGOS_ELECTIVOSRowByIM_FK1_REQUISITOS As IM_CARGOS_ELECTIVOSRow, ByVal AUTOMATICO As String, ByVal ESTADO As String, ByVal IMAGEN() As Byte) As IM_REQUISITOSRow
+        Public Overloads Function AddIM_REQUISITOSRow(ByVal DESCRIPCION As String, ByVal CODIGO_REQUISITO As Decimal, ByVal parentIM_CARGOS_ELECTIVOSRowByIM_FK1_REQUISITOS As IM_CARGOS_ELECTIVOSRow, ByVal AUTOMATICO As String, ByVal ESTADO As String, ByVal IMAGEN() As Byte, ByVal Cumplido As String) As IM_REQUISITOSRow
             Dim rowIM_REQUISITOSRow As IM_REQUISITOSRow = CType(Me.NewRow,IM_REQUISITOSRow)
-            Dim columnValuesArray() As Object = New Object() {DESCRIPCION, CODIGO_REQUISITO, Nothing, AUTOMATICO, ESTADO, IMAGEN}
+            Dim columnValuesArray() As Object = New Object() {DESCRIPCION, CODIGO_REQUISITO, Nothing, AUTOMATICO, ESTADO, IMAGEN, Cumplido}
             If (Not (parentIM_CARGOS_ELECTIVOSRowByIM_FK1_REQUISITOS) Is Nothing) Then
                 columnValuesArray(2) = parentIM_CARGOS_ELECTIVOSRowByIM_FK1_REQUISITOS(0)
             End If
@@ -4941,6 +4950,7 @@ Partial Public Class DSInscripcionCandidatos
             Me.columnAUTOMATICO = MyBase.Columns("AUTOMATICO")
             Me.columnESTADO = MyBase.Columns("ESTADO")
             Me.columnIMAGEN = MyBase.Columns("IMAGEN")
+            Me.columnCumplido = MyBase.Columns("Cumplido")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -4957,6 +4967,8 @@ Partial Public Class DSInscripcionCandidatos
             MyBase.Columns.Add(Me.columnESTADO)
             Me.columnIMAGEN = New Global.System.Data.DataColumn("IMAGEN", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIMAGEN)
+            Me.columnCumplido = New Global.System.Data.DataColumn("Cumplido", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCumplido)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_REQUISITO}, true))
             Me.columnDESCRIPCION.AllowDBNull = false
             Me.columnDESCRIPCION.MaxLength = 100
@@ -7659,6 +7671,20 @@ Partial Public Class DSInscripcionCandidatos
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property Cumplido() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_REQUISITOS.CumplidoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Cumplido' in table 'IM_REQUISITOS' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_REQUISITOS.CumplidoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property IM_CARGOS_ELECTIVOSRow() As IM_CARGOS_ELECTIVOSRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("IM_FK1_REQUISITOS")),IM_CARGOS_ELECTIVOSRow)
@@ -7696,6 +7722,16 @@ Partial Public Class DSInscripcionCandidatos
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetIMAGENNull()
             Me(Me.tableIM_REQUISITOS.IMAGENColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsCumplidoNull() As Boolean
+            Return Me.IsNull(Me.tableIM_REQUISITOS.CumplidoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetCumplidoNull()
+            Me(Me.tableIM_REQUISITOS.CumplidoColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _

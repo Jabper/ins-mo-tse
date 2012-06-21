@@ -18,7 +18,7 @@
     <Shape ID="DesignTable:IM_NIVEL_ELECTIVO" ZOrder="23" X="1449" Y="513" Height="191" Width="261" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
     <Shape ID="DesignTable:TA_CANDIDATOS" ZOrder="16" X="48" Y="259" Height="457" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="294" />
     <Shape ID="DesignTable:IM_REQUISITOS_X_CANDIDATO" ZOrder="9" X="33" Y="732" Height="286" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="235" />
-    <Shape ID="DesignTable:IM_REQUISITOS" ZOrder="1" X="481" Y="789" Height="191" Width="236" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
+    <Shape ID="DesignTable:IM_REQUISITOS" ZOrder="1" X="481" Y="789" Height="210" Width="236" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
     <Shape ID="DesignTable:IM_REQUISITOS1" ZOrder="5" X="797" Y="837" Height="191" Width="244" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
   </Shapes>
   <Connectors>
