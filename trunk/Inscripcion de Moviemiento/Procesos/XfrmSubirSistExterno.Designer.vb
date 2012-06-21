@@ -35,6 +35,7 @@ Partial Class XfrmSubirSistExterno
         Me.PictureBox3 = New System.Windows.Forms.PictureBox
         Me.PictureBox4 = New System.Windows.Forms.PictureBox
         Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
         Me.Panel1.SuspendLayout()
         CType(Me.TxtRuta.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -100,7 +101,7 @@ Partial Class XfrmSubirSistExterno
         'BtnCandidatos
         '
         Me.BtnCandidatos.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnCandidatos.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.BtnCandidatos.Appearance.ForeColor = System.Drawing.Color.LimeGreen
         Me.BtnCandidatos.Appearance.Options.UseFont = True
         Me.BtnCandidatos.Appearance.Options.UseForeColor = True
         Me.BtnCandidatos.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.subir_candidatos
@@ -146,9 +147,9 @@ Partial Class XfrmSubirSistExterno
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(79, 111)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(173, 13)
+        Me.Label2.Size = New System.Drawing.Size(165, 13)
         Me.Label2.TabIndex = 32
-        Me.Label2.Text = "Seleccione el Archivo de Respaldo:"
+        Me.Label2.Text = "Seleccione el Archivo a Importar:"
         '
         'BtnEjecutar
         '
@@ -233,6 +234,10 @@ Partial Class XfrmSubirSistExterno
         Me.BtnSalir.TabIndex = 33
         Me.BtnSalir.Text = "Salir"
         '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
         'XfrmSubirSistExterno
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -267,4 +272,5 @@ Partial Class XfrmSubirSistExterno
     Friend WithEvents BtnExplorar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents TxtRuta As DevExpress.XtraEditors.TextEdit
     Friend WithEvents BtnSalir As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
 End Class
