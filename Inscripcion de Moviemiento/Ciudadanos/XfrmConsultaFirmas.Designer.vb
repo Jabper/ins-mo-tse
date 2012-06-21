@@ -35,6 +35,8 @@ Partial Class XfrmConsultaFirmas
         Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl
+        Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnUpdate = New DevExpress.XtraEditors.SimpleButton
         Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton
         Me.txtidentidad = New DevExpress.XtraEditors.TextEdit
         Me.LabelControl9 = New DevExpress.XtraEditors.LabelControl
@@ -60,8 +62,7 @@ Partial Class XfrmConsultaFirmas
         Me.DSDeptoMuni = New Inscripcion_de_Moviemientos.DSDeptoMuni
         Me.CmbDepartamento = New DevExpress.XtraEditors.LookUpEdit
         Me.TADEPARTAMENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.LabelControl13 = New DevExpress.XtraEditors.LabelControl
-        Me.PictureEdit3 = New DevExpress.XtraEditors.PictureEdit
+        Me.Imgimagen = New DevExpress.XtraEditors.PictureEdit
         Me.GCBusqueda = New DevExpress.XtraGrid.GridControl
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.MOSTRARFIRMASBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -119,8 +120,6 @@ Partial Class XfrmConsultaFirmas
         Me.IM_CIUDADANOS_RESPALDAN1TableAdapter = New Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.IM_CIUDADANOS_RESPALDAN1TableAdapter
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.MOSTRAR_FIRMASTableAdapter = New Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.MOSTRAR_FIRMASTableAdapter
-        Me.BtnUpdate = New DevExpress.XtraEditors.SimpleButton
-        Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -145,7 +144,7 @@ Partial Class XfrmConsultaFirmas
         CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CmbDepartamento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TADEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureEdit3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Imgimagen.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MOSTRARFIRMASBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSCiudadanos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -290,9 +289,9 @@ Partial Class XfrmConsultaFirmas
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl6.Location = New System.Drawing.Point(60, 70)
         Me.LabelControl6.Name = "LabelControl6"
-        Me.LabelControl6.Size = New System.Drawing.Size(138, 14)
+        Me.LabelControl6.Size = New System.Drawing.Size(150, 14)
         Me.LabelControl6.TabIndex = 25
-        Me.LabelControl6.Text = "Registro inconsistente"
+        Me.LabelControl6.Text = "Registros inconsistentes"
         '
         'PictureEdit2
         '
@@ -314,9 +313,9 @@ Partial Class XfrmConsultaFirmas
         Me.LabelControl7.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl7.Location = New System.Drawing.Point(60, 36)
         Me.LabelControl7.Name = "LabelControl7"
-        Me.LabelControl7.Size = New System.Drawing.Size(129, 14)
+        Me.LabelControl7.Size = New System.Drawing.Size(141, 14)
         Me.LabelControl7.TabIndex = 27
-        Me.LabelControl7.Text = "Registro Consistente"
+        Me.LabelControl7.Text = "Registros Consistentes"
         '
         'LabelControl8
         '
@@ -368,12 +367,31 @@ Partial Class XfrmConsultaFirmas
         Me.PanelControl3.Controls.Add(Me.ChkGeografica)
         Me.PanelControl3.Controls.Add(Me.CmbMunicipio)
         Me.PanelControl3.Controls.Add(Me.CmbDepartamento)
-        Me.PanelControl3.Controls.Add(Me.LabelControl13)
-        Me.PanelControl3.Controls.Add(Me.PictureEdit3)
+        Me.PanelControl3.Controls.Add(Me.Imgimagen)
         Me.PanelControl3.Location = New System.Drawing.Point(12, 12)
         Me.PanelControl3.Name = "PanelControl3"
         Me.PanelControl3.Size = New System.Drawing.Size(759, 252)
         Me.PanelControl3.TabIndex = 17
+        '
+        'BtnEliminar
+        '
+        Me.BtnEliminar.Appearance.Options.UseTextOptions = True
+        Me.BtnEliminar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.BtnEliminar.Location = New System.Drawing.Point(120, 203)
+        Me.BtnEliminar.Name = "BtnEliminar"
+        Me.BtnEliminar.Size = New System.Drawing.Size(78, 36)
+        Me.BtnEliminar.TabIndex = 46
+        Me.BtnEliminar.Text = "Eliminar Registro"
+        '
+        'BtnUpdate
+        '
+        Me.BtnUpdate.Appearance.Options.UseTextOptions = True
+        Me.BtnUpdate.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.BtnUpdate.Location = New System.Drawing.Point(19, 203)
+        Me.BtnUpdate.Name = "BtnUpdate"
+        Me.BtnUpdate.Size = New System.Drawing.Size(79, 36)
+        Me.BtnUpdate.TabIndex = 45
+        Me.BtnUpdate.Text = "Actualizar Registro"
         '
         'SimpleButton2
         '
@@ -593,21 +611,16 @@ Partial Class XfrmConsultaFirmas
         Me.TADEPARTAMENTOSBindingSource.DataMember = "TA_DEPARTAMENTOS"
         Me.TADEPARTAMENTOSBindingSource.DataSource = Me.DSDeptoMuni
         '
-        'LabelControl13
+        'Imgimagen
         '
-        Me.LabelControl13.Location = New System.Drawing.Point(611, 57)
-        Me.LabelControl13.Name = "LabelControl13"
-        Me.LabelControl13.Size = New System.Drawing.Size(69, 13)
-        Me.LabelControl13.TabIndex = 25
-        Me.LabelControl13.Text = "Departamento"
-        '
-        'PictureEdit3
-        '
-        Me.PictureEdit3.Location = New System.Drawing.Point(611, 82)
-        Me.PictureEdit3.Name = "PictureEdit3"
-        Me.PictureEdit3.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
-        Me.PictureEdit3.Size = New System.Drawing.Size(134, 106)
-        Me.PictureEdit3.TabIndex = 17
+        Me.Imgimagen.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IM_CIUDADANOS_RESPALDAN1BindingSource, "IMAGEN_FIRMA", True))
+        Me.Imgimagen.Location = New System.Drawing.Point(685, 194)
+        Me.Imgimagen.Name = "Imgimagen"
+        Me.Imgimagen.Properties.PictureStoreMode = DevExpress.XtraEditors.Controls.PictureStoreMode.ByteArray
+        Me.Imgimagen.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
+        Me.Imgimagen.Size = New System.Drawing.Size(58, 45)
+        Me.Imgimagen.TabIndex = 17
+        Me.Imgimagen.Visible = False
         '
         'GCBusqueda
         '
@@ -1057,26 +1070,6 @@ Partial Class XfrmConsultaFirmas
         '
         Me.MOSTRAR_FIRMASTableAdapter.ClearBeforeFill = True
         '
-        'BtnUpdate
-        '
-        Me.BtnUpdate.Appearance.Options.UseTextOptions = True
-        Me.BtnUpdate.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.BtnUpdate.Location = New System.Drawing.Point(19, 203)
-        Me.BtnUpdate.Name = "BtnUpdate"
-        Me.BtnUpdate.Size = New System.Drawing.Size(79, 36)
-        Me.BtnUpdate.TabIndex = 45
-        Me.BtnUpdate.Text = "Actualizar Registro"
-        '
-        'BtnEliminar
-        '
-        Me.BtnEliminar.Appearance.Options.UseTextOptions = True
-        Me.BtnEliminar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.BtnEliminar.Location = New System.Drawing.Point(120, 203)
-        Me.BtnEliminar.Name = "BtnEliminar"
-        Me.BtnEliminar.Size = New System.Drawing.Size(78, 36)
-        Me.BtnEliminar.TabIndex = 46
-        Me.BtnEliminar.Text = "Eliminar Registro"
-        '
         'XfrmConsultaFirmas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1112,7 +1105,7 @@ Partial Class XfrmConsultaFirmas
         CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CmbDepartamento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TADEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureEdit3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Imgimagen.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MOSTRARFIRMASBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DSCiudadanos, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1219,8 +1212,7 @@ Partial Class XfrmConsultaFirmas
     Friend WithEvents lblporcentaje As DevExpress.XtraEditors.LabelControl
     Friend WithEvents lblfirmasnecesarias As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl12 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents LabelControl13 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents PictureEdit3 As DevExpress.XtraEditors.PictureEdit
+    Friend WithEvents Imgimagen As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents txtidentidad As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl9 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents ChkMuni As DevExpress.XtraEditors.CheckEdit
