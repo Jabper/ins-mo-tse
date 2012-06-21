@@ -57,6 +57,7 @@ Partial Class XFrmMenuPrincipal
         Me.btnConsultarFirmas = New DevExpress.XtraBars.BarButtonItem
         Me.BtnRFirmas = New DevExpress.XtraBars.BarSubItem
         Me.BtnFDP = New DevExpress.XtraBars.BarButtonItem
+        Me.BarButtonItem4 = New DevExpress.XtraBars.BarButtonItem
         Me.BtnREstadistico = New DevExpress.XtraBars.BarSubItem
         Me.btnConsultarCandidatos = New DevExpress.XtraBars.BarButtonItem
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage
@@ -79,7 +80,6 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonPageGroup4 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPageGroup6 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem
-        Me.BarButtonItem4 = New DevExpress.XtraBars.BarButtonItem
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -290,15 +290,17 @@ Partial Class XFrmMenuPrincipal
         'btnCInhabilitados
         '
         Me.btnCInhabilitados.Caption = "Ciudadanos Inhabilitados"
+        Me.btnCInhabilitados.Glyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Consulta
         Me.btnCInhabilitados.Id = 28
-        Me.btnCInhabilitados.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.incompatibilidades
+        Me.btnCInhabilitados.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Consulta
         Me.btnCInhabilitados.Name = "btnCInhabilitados"
         '
         'btnConsultarCenso
         '
         Me.btnConsultarCenso.Caption = "Consultar Censo"
+        Me.btnConsultarCenso.Glyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Consulta
         Me.btnConsultarCenso.Id = 29
-        Me.btnConsultarCenso.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.incompatibilidades
+        Me.btnConsultarCenso.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Consulta
         Me.btnConsultarCenso.Name = "btnConsultarCenso"
         '
         'BtnSubirOtroSistema
@@ -332,8 +334,9 @@ Partial Class XFrmMenuPrincipal
         'btnConsultarFirmas
         '
         Me.btnConsultarFirmas.Caption = "Consultar Firmas"
+        Me.btnConsultarFirmas.Glyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Consulta
         Me.btnConsultarFirmas.Id = 34
-        Me.btnConsultarFirmas.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.incompatibilidades
+        Me.btnConsultarFirmas.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Consulta
         Me.btnConsultarFirmas.Name = "btnConsultarFirmas"
         '
         'BtnRFirmas
@@ -350,6 +353,12 @@ Partial Class XFrmMenuPrincipal
         Me.BtnFDP.Id = 37
         Me.BtnFDP.Name = "BtnFDP"
         '
+        'BarButtonItem4
+        '
+        Me.BarButtonItem4.Caption = "Reporte de Firmas Inconsistentes "
+        Me.BarButtonItem4.Id = 40
+        Me.BarButtonItem4.Name = "BarButtonItem4"
+        '
         'BtnREstadistico
         '
         Me.BtnREstadistico.Caption = "Reportes Estadisticos"
@@ -360,8 +369,9 @@ Partial Class XFrmMenuPrincipal
         'btnConsultarCandidatos
         '
         Me.btnConsultarCandidatos.Caption = "Consultar Candidatos"
+        Me.btnConsultarCandidatos.Glyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Consulta
         Me.btnConsultarCandidatos.Id = 39
-        Me.btnConsultarCandidatos.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.incompatibilidades
+        Me.btnConsultarCandidatos.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Consulta
         Me.btnConsultarCandidatos.Name = "btnConsultarCandidatos"
         '
         'RibbonPage1
@@ -503,12 +513,6 @@ Partial Class XFrmMenuPrincipal
         Me.BarButtonItem1.Id = 19
         Me.BarButtonItem1.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.exportar
         Me.BarButtonItem1.Name = "BarButtonItem1"
-        '
-        'BarButtonItem4
-        '
-        Me.BarButtonItem4.Caption = "Reporte de Firmas Inconsistentes "
-        Me.BarButtonItem4.Id = 40
-        Me.BarButtonItem4.Name = "BarButtonItem4"
         '
         'XFrmMenuPrincipal
         '
