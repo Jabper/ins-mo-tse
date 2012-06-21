@@ -1,4 +1,6 @@
 ﻿Imports System.Data.OracleClient
+Imports DevExpress.XtraGrid.Views.Base
+
 Public Class XfrmConFirmas
 
     Private Sub XfrmConFirmas_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -10,6 +12,11 @@ Public Class XfrmConFirmas
         Me.MunicipiosTableAdapter.Fill(Me.DSConsultas.Municipios)
         'TODO: This line of code loads data into the 'DSConsultas.Departamentos' table. You can move, or remove it, as needed.
         Me.DepartamentosTableAdapter.Fill(Me.DSConsultas.Departamentos)
+        Dim fTodos1 As Integer = Me.cbxDepartamento.FindStringExact("TODOS")
+        If fTodos1 > 0 Then Me.cbxDepartamento.SelectedIndex = fTodos1
+        Dim fTodos2 As Integer = Me.cbxDepartamento.FindStringExact("TODOS")
+        If fTodos2 > 0 Then Me.cbxPartido.SelectedIndex = fTodos2
+
         fillGrid()
     End Sub
 
@@ -62,5 +69,11 @@ Public Class XfrmConFirmas
         End Try
         Me.GCBusqueda.DataSource = Ds.Tables(0)
         Oraclecon.Close()
+    End Sub
+
+    Private Sub GridView1_FocusedRowChanged(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles GridView1.FocusedRowChanged
+        Dim row As DataRow = Me.GCBusqueda.DefaultView.GetRow(e.FocusedRowHandle)
+        Stop
+
     End Sub
 End Class
