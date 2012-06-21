@@ -176,6 +176,8 @@ Public Class COracle
             Return Nothing
         End Try
     End Function
+
+
     'Try
 
     '    'CREANDO CADENA DE CONEXION
