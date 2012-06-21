@@ -83,4 +83,5 @@ Public Class XfrmConFirmas
             Me.ImagenesCiudadanosRespaldanTableAdapter.FillBy(Me.DSConsultas.ImagenesCiudadanosRespaldan, codCiuRes, codPar, codMov)
         End If
     End Sub
+
 End Class

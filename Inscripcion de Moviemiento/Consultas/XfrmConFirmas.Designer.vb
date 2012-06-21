@@ -78,12 +78,12 @@ Partial Class XfrmConFirmas
         Me.colOBSERVACION = New DevExpress.XtraGrid.Columns.GridColumn
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
+        Me.pbxFirma = New System.Windows.Forms.PictureBox
+        Me.ImagenesCiudadanosRespaldanBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DepartamentosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.DepartamentosTableAdapter
         Me.MunicipiosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MunicipiosTableAdapter
         Me.PartidosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.PartidosTableAdapter
         Me.MovimientosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MovimientosTableAdapter
-        Me.pbxFirma = New System.Windows.Forms.PictureBox
-        Me.ImagenesCiudadanosRespaldanBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ImagenesCiudadanosRespaldanTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.ImagenesCiudadanosRespaldanTableAdapter
         Me.GroupBox1.SuspendLayout()
         CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -434,7 +434,7 @@ Partial Class XfrmConFirmas
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
         Me.GCBusqueda.Size = New System.Drawing.Size(1095, 408)
-        Me.GCBusqueda.TabIndex = 18
+        Me.GCBusqueda.TabIndex = 15
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
         'GridView1
@@ -700,6 +700,21 @@ Partial Class XfrmConFirmas
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Firma"
         '
+        'pbxFirma
+        '
+        Me.pbxFirma.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.ImagenesCiudadanosRespaldanBindingSource, "IMAGEN_FIRMA", True))
+        Me.pbxFirma.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pbxFirma.Location = New System.Drawing.Point(3, 17)
+        Me.pbxFirma.Name = "pbxFirma"
+        Me.pbxFirma.Size = New System.Drawing.Size(187, 177)
+        Me.pbxFirma.TabIndex = 0
+        Me.pbxFirma.TabStop = False
+        '
+        'ImagenesCiudadanosRespaldanBindingSource
+        '
+        Me.ImagenesCiudadanosRespaldanBindingSource.DataMember = "ImagenesCiudadanosRespaldan"
+        Me.ImagenesCiudadanosRespaldanBindingSource.DataSource = Me.DSConsultas
+        '
         'DepartamentosTableAdapter
         '
         Me.DepartamentosTableAdapter.ClearBeforeFill = True
@@ -715,21 +730,6 @@ Partial Class XfrmConFirmas
         'MovimientosTableAdapter
         '
         Me.MovimientosTableAdapter.ClearBeforeFill = True
-        '
-        'pbxFirma
-        '
-        Me.pbxFirma.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.ImagenesCiudadanosRespaldanBindingSource, "IMAGEN_FIRMA", True))
-        Me.pbxFirma.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pbxFirma.Location = New System.Drawing.Point(3, 17)
-        Me.pbxFirma.Name = "pbxFirma"
-        Me.pbxFirma.Size = New System.Drawing.Size(187, 177)
-        Me.pbxFirma.TabIndex = 0
-        Me.pbxFirma.TabStop = False
-        '
-        'ImagenesCiudadanosRespaldanBindingSource
-        '
-        Me.ImagenesCiudadanosRespaldanBindingSource.DataMember = "ImagenesCiudadanosRespaldan"
-        Me.ImagenesCiudadanosRespaldanBindingSource.DataSource = Me.DSConsultas
         '
         'ImagenesCiudadanosRespaldanTableAdapter
         '
