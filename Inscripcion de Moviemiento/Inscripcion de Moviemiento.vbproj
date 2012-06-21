@@ -953,6 +953,8 @@
     <None Include="Resources\firmas.png" />
     <None Include="Resources\flecha.png" />
     <None Include="Resources\importar otros sistemas.png" />
+    <Content Include="Resources\Consulta.png" />
+    <Content Include="Resources\Filtro.png" />
     <Content Include="Resources\FIRMAS1.png" />
     <None Include="Resources\FIRMAS11.png" />
     <Content Include="Resources\motivo.png" />
