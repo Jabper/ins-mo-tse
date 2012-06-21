@@ -226,4 +226,8 @@ Public Class XFrmMenuPrincipal
         Dim reporte2 As Reporte_de_PlanillaDP = New Reporte_de_PlanillaDP
         reporte2.ShowPreview()
     End Sub
+
+    Private Sub btnConsultarFirmas_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnConsultarFirmas.ItemClick
+        Padre(XfrmConFirmas)
+    End Sub
 End Class
