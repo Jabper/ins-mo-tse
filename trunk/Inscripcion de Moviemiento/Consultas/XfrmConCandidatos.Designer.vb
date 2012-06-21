@@ -21,6 +21,24 @@ Partial Class XfrmConCandidatos
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.Label10 = New System.Windows.Forms.Label
+        Me.ComboBox3 = New System.Windows.Forms.ComboBox
+        Me.Label9 = New System.Windows.Forms.Label
+        Me.Label8 = New System.Windows.Forms.Label
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox
+        Me.IMFK1CARGOSELECTIVOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.NivelesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DSConsultas = New Inscripcion_de_Moviemientos.DSConsultas
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox
+        Me.Label4 = New System.Windows.Forms.Label
+        Me.cbxMovimiento = New System.Windows.Forms.ComboBox
+        Me.IMFK1MOVIMIENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PartidosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.cbxMunicipio = New System.Windows.Forms.ComboBox
+        Me.IMFK1MUNICIPIOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DepartamentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.cbxDepartamento = New System.Windows.Forms.ComboBox
+        Me.cbxPartido = New System.Windows.Forms.ComboBox
         Me.Label7 = New System.Windows.Forms.Label
         Me.Label6 = New System.Windows.Forms.Label
         Me.txtIdentidad = New System.Windows.Forms.TextBox
@@ -33,12 +51,10 @@ Partial Class XfrmConCandidatos
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
         Me.btnFiltro = New DevExpress.XtraEditors.SimpleButton
         Me.btnSalir = New DevExpress.XtraEditors.SimpleButton
-        Me.DSConsultas = New Inscripcion_de_Moviemientos.DSConsultas
         Me.IMVCANDIDATOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_V_CANDIDATOSTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.IM_V_CANDIDATOSTableAdapter
         Me.GCBusqueda = New DevExpress.XtraGrid.GridControl
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
-        Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.colCODIGO_PARTIDO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colPARTIDO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCODIGO_MOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
@@ -56,42 +72,26 @@ Partial Class XfrmConCandidatos
         Me.colCODIGO_CARGO_ELECTIVO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCARGO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colESTADO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.cbxMovimiento = New System.Windows.Forms.ComboBox
-        Me.cbxMunicipio = New System.Windows.Forms.ComboBox
-        Me.cbxDepartamento = New System.Windows.Forms.ComboBox
-        Me.cbxPartido = New System.Windows.Forms.ComboBox
-        Me.Label4 = New System.Windows.Forms.Label
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox
-        Me.Label8 = New System.Windows.Forms.Label
-        Me.Label9 = New System.Windows.Forms.Label
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox
-        Me.Label10 = New System.Windows.Forms.Label
-        Me.PartidosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.PartidosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.PartidosTableAdapter
-        Me.IMFK1MOVIMIENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MovimientosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MovimientosTableAdapter
-        Me.DepartamentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DepartamentosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.DepartamentosTableAdapter
-        Me.IMFK1MUNICIPIOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MunicipiosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MunicipiosTableAdapter
-        Me.NivelesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.NivelesTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.NivelesTableAdapter
-        Me.IMFK1CARGOSELECTIVOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CargosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.CargosTableAdapter
         Me.GroupBox1.SuspendLayout()
-        Me.FlowLayoutPanel1.SuspendLayout()
+        CType(Me.IMFK1CARGOSELECTIVOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NivelesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PartidosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMFK1MUNICIPIOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DepartamentosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FlowLayoutPanel1.SuspendLayout()
         CType(Me.IMVCANDIDATOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PartidosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DepartamentosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IMFK1MUNICIPIOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NivelesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IMFK1CARGOSELECTIVOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -122,6 +122,154 @@ Partial Class XfrmConCandidatos
         Me.GroupBox1.TabIndex = 17
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filtros"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(539, 131)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(40, 13)
+        Me.Label10.TabIndex = 37
+        Me.Label10.Text = "Estado"
+        '
+        'ComboBox3
+        '
+        Me.ComboBox3.DisplayMember = "DESCRIPCION"
+        Me.ComboBox3.FormattingEnabled = True
+        Me.ComboBox3.Items.AddRange(New Object() {"{SELECCIONE UN ESTADO}", "HABILITADO", "INHABILITADO"})
+        Me.ComboBox3.Location = New System.Drawing.Point(581, 128)
+        Me.ComboBox3.Name = "ComboBox3"
+        Me.ComboBox3.Size = New System.Drawing.Size(275, 21)
+        Me.ComboBox3.TabIndex = 36
+        Me.ComboBox3.ValueMember = "CODIGO_DEPARTAMENTO"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(539, 104)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(36, 13)
+        Me.Label9.TabIndex = 35
+        Me.Label9.Text = "Cargo"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(545, 77)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(30, 13)
+        Me.Label8.TabIndex = 34
+        Me.Label8.Text = "Nivel"
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.DataSource = Me.IMFK1CARGOSELECTIVOSBindingSource
+        Me.ComboBox2.DisplayMember = "DESCRIPCION"
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(581, 101)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(275, 21)
+        Me.ComboBox2.TabIndex = 33
+        Me.ComboBox2.ValueMember = "CODIGO_CARGO_ELECTIVO"
+        '
+        'IMFK1CARGOSELECTIVOSBindingSource
+        '
+        Me.IMFK1CARGOSELECTIVOSBindingSource.DataMember = "IM_FK1_CARGOS_ELECTIVOS"
+        Me.IMFK1CARGOSELECTIVOSBindingSource.DataSource = Me.NivelesBindingSource
+        '
+        'NivelesBindingSource
+        '
+        Me.NivelesBindingSource.DataMember = "Niveles"
+        Me.NivelesBindingSource.DataSource = Me.DSConsultas
+        '
+        'DSConsultas
+        '
+        Me.DSConsultas.DataSetName = "DSConsultas"
+        Me.DSConsultas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.DataSource = Me.NivelesBindingSource
+        Me.ComboBox1.DisplayMember = "DESCRIPCION"
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(581, 74)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(275, 21)
+        Me.ComboBox1.TabIndex = 32
+        Me.ComboBox1.ValueMember = "CODIGO_NIVEL_ELECTIVO"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(59, 104)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(41, 13)
+        Me.Label4.TabIndex = 31
+        Me.Label4.Text = "Partido"
+        '
+        'cbxMovimiento
+        '
+        Me.cbxMovimiento.DataSource = Me.IMFK1MOVIMIENTOSBindingSource
+        Me.cbxMovimiento.DisplayMember = "NOMBRE_MOVIMIENTO"
+        Me.cbxMovimiento.FormattingEnabled = True
+        Me.cbxMovimiento.Location = New System.Drawing.Point(106, 128)
+        Me.cbxMovimiento.Name = "cbxMovimiento"
+        Me.cbxMovimiento.Size = New System.Drawing.Size(361, 21)
+        Me.cbxMovimiento.TabIndex = 28
+        Me.cbxMovimiento.ValueMember = "CODIGO_MOVIMIENTO"
+        '
+        'IMFK1MOVIMIENTOSBindingSource
+        '
+        Me.IMFK1MOVIMIENTOSBindingSource.DataMember = "IM_FK1_MOVIMIENTOS"
+        Me.IMFK1MOVIMIENTOSBindingSource.DataSource = Me.PartidosBindingSource
+        '
+        'PartidosBindingSource
+        '
+        Me.PartidosBindingSource.DataMember = "Partidos"
+        Me.PartidosBindingSource.DataSource = Me.DSConsultas
+        '
+        'cbxMunicipio
+        '
+        Me.cbxMunicipio.DataSource = Me.IMFK1MUNICIPIOBindingSource
+        Me.cbxMunicipio.DisplayMember = "DESCRIPCION"
+        Me.cbxMunicipio.FormattingEnabled = True
+        Me.cbxMunicipio.Location = New System.Drawing.Point(581, 47)
+        Me.cbxMunicipio.Name = "cbxMunicipio"
+        Me.cbxMunicipio.Size = New System.Drawing.Size(275, 21)
+        Me.cbxMunicipio.TabIndex = 30
+        Me.cbxMunicipio.ValueMember = "CODIGO_MUNICIPIO"
+        '
+        'IMFK1MUNICIPIOBindingSource
+        '
+        Me.IMFK1MUNICIPIOBindingSource.DataMember = "IM_FK1_MUNICIPIO"
+        Me.IMFK1MUNICIPIOBindingSource.DataSource = Me.DepartamentosBindingSource
+        '
+        'DepartamentosBindingSource
+        '
+        Me.DepartamentosBindingSource.DataMember = "Departamentos"
+        Me.DepartamentosBindingSource.DataSource = Me.DSConsultas
+        '
+        'cbxDepartamento
+        '
+        Me.cbxDepartamento.DataSource = Me.DepartamentosBindingSource
+        Me.cbxDepartamento.DisplayMember = "DESCRIPCION"
+        Me.cbxDepartamento.FormattingEnabled = True
+        Me.cbxDepartamento.Location = New System.Drawing.Point(581, 20)
+        Me.cbxDepartamento.Name = "cbxDepartamento"
+        Me.cbxDepartamento.Size = New System.Drawing.Size(275, 21)
+        Me.cbxDepartamento.TabIndex = 29
+        Me.cbxDepartamento.ValueMember = "CODIGO_DEPARTAMENTO"
+        '
+        'cbxPartido
+        '
+        Me.cbxPartido.DataSource = Me.PartidosBindingSource
+        Me.cbxPartido.DisplayMember = "NOMBRE"
+        Me.cbxPartido.FormattingEnabled = True
+        Me.cbxPartido.Location = New System.Drawing.Point(106, 101)
+        Me.cbxPartido.Name = "cbxPartido"
+        Me.cbxPartido.Size = New System.Drawing.Size(361, 21)
+        Me.cbxPartido.TabIndex = 27
+        Me.cbxPartido.ValueMember = "CODIGO_PARTIDO"
         '
         'Label7
         '
@@ -234,11 +382,6 @@ Partial Class XfrmConCandidatos
         Me.btnSalir.TabStop = False
         Me.btnSalir.Text = "Salir"
         '
-        'DSConsultas
-        '
-        Me.DSConsultas.DataSetName = "DSConsultas"
-        Me.DSConsultas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'IMVCANDIDATOSBindingSource
         '
         Me.IMVCANDIDATOSBindingSource.DataMember = "IM_V_CANDIDATOS"
@@ -270,11 +413,6 @@ Partial Class XfrmConCandidatos
         Me.GridView1.OptionsView.ColumnAutoWidth = False
         Me.GridView1.OptionsView.ShowDetailButtons = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
-        '
-        'GridView2
-        '
-        Me.GridView2.GridControl = Me.GCBusqueda
-        Me.GridView2.Name = "GridView2"
         '
         'colCODIGO_PARTIDO
         '
@@ -434,168 +572,30 @@ Partial Class XfrmConCandidatos
         Me.colESTADO.Visible = True
         Me.colESTADO.VisibleIndex = 10
         '
-        'cbxMovimiento
+        'GridView2
         '
-        Me.cbxMovimiento.DataSource = Me.IMFK1MOVIMIENTOSBindingSource
-        Me.cbxMovimiento.DisplayMember = "NOMBRE_MOVIMIENTO"
-        Me.cbxMovimiento.FormattingEnabled = True
-        Me.cbxMovimiento.Location = New System.Drawing.Point(106, 128)
-        Me.cbxMovimiento.Name = "cbxMovimiento"
-        Me.cbxMovimiento.Size = New System.Drawing.Size(361, 21)
-        Me.cbxMovimiento.TabIndex = 28
-        Me.cbxMovimiento.ValueMember = "CODIGO_MOVIMIENTO"
-        '
-        'cbxMunicipio
-        '
-        Me.cbxMunicipio.DataSource = Me.IMFK1MUNICIPIOBindingSource
-        Me.cbxMunicipio.DisplayMember = "DESCRIPCION"
-        Me.cbxMunicipio.FormattingEnabled = True
-        Me.cbxMunicipio.Location = New System.Drawing.Point(581, 47)
-        Me.cbxMunicipio.Name = "cbxMunicipio"
-        Me.cbxMunicipio.Size = New System.Drawing.Size(275, 21)
-        Me.cbxMunicipio.TabIndex = 30
-        Me.cbxMunicipio.ValueMember = "CODIGO_MUNICIPIO"
-        '
-        'cbxDepartamento
-        '
-        Me.cbxDepartamento.DataSource = Me.DepartamentosBindingSource
-        Me.cbxDepartamento.DisplayMember = "DESCRIPCION"
-        Me.cbxDepartamento.FormattingEnabled = True
-        Me.cbxDepartamento.Location = New System.Drawing.Point(581, 20)
-        Me.cbxDepartamento.Name = "cbxDepartamento"
-        Me.cbxDepartamento.Size = New System.Drawing.Size(275, 21)
-        Me.cbxDepartamento.TabIndex = 29
-        Me.cbxDepartamento.ValueMember = "CODIGO_DEPARTAMENTO"
-        '
-        'cbxPartido
-        '
-        Me.cbxPartido.DataSource = Me.PartidosBindingSource
-        Me.cbxPartido.DisplayMember = "NOMBRE"
-        Me.cbxPartido.FormattingEnabled = True
-        Me.cbxPartido.Location = New System.Drawing.Point(106, 101)
-        Me.cbxPartido.Name = "cbxPartido"
-        Me.cbxPartido.Size = New System.Drawing.Size(361, 21)
-        Me.cbxPartido.TabIndex = 27
-        Me.cbxPartido.ValueMember = "CODIGO_PARTIDO"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(59, 104)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(41, 13)
-        Me.Label4.TabIndex = 31
-        Me.Label4.Text = "Partido"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.DataSource = Me.NivelesBindingSource
-        Me.ComboBox1.DisplayMember = "DESCRIPCION"
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(581, 74)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(275, 21)
-        Me.ComboBox1.TabIndex = 32
-        Me.ComboBox1.ValueMember = "CODIGO_NIVEL_ELECTIVO"
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.DataSource = Me.IMFK1CARGOSELECTIVOSBindingSource
-        Me.ComboBox2.DisplayMember = "DESCRIPCION"
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(581, 101)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(275, 21)
-        Me.ComboBox2.TabIndex = 33
-        Me.ComboBox2.ValueMember = "CODIGO_CARGO_ELECTIVO"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(545, 77)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(30, 13)
-        Me.Label8.TabIndex = 34
-        Me.Label8.Text = "Nivel"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(539, 104)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(36, 13)
-        Me.Label9.TabIndex = 35
-        Me.Label9.Text = "Cargo"
-        '
-        'ComboBox3
-        '
-        Me.ComboBox3.DisplayMember = "DESCRIPCION"
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Items.AddRange(New Object() {"{SELECCIONE UN ESTADO}", "HABILITADO", "INHABILITADO"})
-        Me.ComboBox3.Location = New System.Drawing.Point(581, 128)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(275, 21)
-        Me.ComboBox3.TabIndex = 36
-        Me.ComboBox3.ValueMember = "CODIGO_DEPARTAMENTO"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(539, 131)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(40, 13)
-        Me.Label10.TabIndex = 37
-        Me.Label10.Text = "Estado"
-        '
-        'PartidosBindingSource
-        '
-        Me.PartidosBindingSource.DataMember = "Partidos"
-        Me.PartidosBindingSource.DataSource = Me.DSConsultas
+        Me.GridView2.GridControl = Me.GCBusqueda
+        Me.GridView2.Name = "GridView2"
         '
         'PartidosTableAdapter
         '
         Me.PartidosTableAdapter.ClearBeforeFill = True
         '
-        'IMFK1MOVIMIENTOSBindingSource
-        '
-        Me.IMFK1MOVIMIENTOSBindingSource.DataMember = "IM_FK1_MOVIMIENTOS"
-        Me.IMFK1MOVIMIENTOSBindingSource.DataSource = Me.PartidosBindingSource
-        '
         'MovimientosTableAdapter
         '
         Me.MovimientosTableAdapter.ClearBeforeFill = True
-        '
-        'DepartamentosBindingSource
-        '
-        Me.DepartamentosBindingSource.DataMember = "Departamentos"
-        Me.DepartamentosBindingSource.DataSource = Me.DSConsultas
         '
         'DepartamentosTableAdapter
         '
         Me.DepartamentosTableAdapter.ClearBeforeFill = True
         '
-        'IMFK1MUNICIPIOBindingSource
-        '
-        Me.IMFK1MUNICIPIOBindingSource.DataMember = "IM_FK1_MUNICIPIO"
-        Me.IMFK1MUNICIPIOBindingSource.DataSource = Me.DepartamentosBindingSource
-        '
         'MunicipiosTableAdapter
         '
         Me.MunicipiosTableAdapter.ClearBeforeFill = True
         '
-        'NivelesBindingSource
-        '
-        Me.NivelesBindingSource.DataMember = "Niveles"
-        Me.NivelesBindingSource.DataSource = Me.DSConsultas
-        '
         'NivelesTableAdapter
         '
         Me.NivelesTableAdapter.ClearBeforeFill = True
-        '
-        'IMFK1CARGOSELECTIVOSBindingSource
-        '
-        Me.IMFK1CARGOSELECTIVOSBindingSource.DataMember = "IM_FK1_CARGOS_ELECTIVOS"
-        Me.IMFK1CARGOSELECTIVOSBindingSource.DataSource = Me.NivelesBindingSource
         '
         'CargosTableAdapter
         '
@@ -613,18 +613,18 @@ Partial Class XfrmConCandidatos
         Me.Text = "XfrmConCandidatos"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.FlowLayoutPanel1.ResumeLayout(False)
+        CType(Me.IMFK1CARGOSELECTIVOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NivelesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PartidosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMFK1MUNICIPIOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DepartamentosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.FlowLayoutPanel1.ResumeLayout(False)
         CType(Me.IMVCANDIDATOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PartidosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DepartamentosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IMFK1MUNICIPIOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NivelesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IMFK1CARGOSELECTIVOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
