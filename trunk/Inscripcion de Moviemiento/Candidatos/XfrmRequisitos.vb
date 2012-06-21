@@ -115,7 +115,7 @@ Public Class XfrmRequisitos
         eliminar()
     End Sub
     Sub correlativo()
-        CODIGO_REQUISITOSpinEdit.EditValue = COracle.FUN_EJECUTAR_SEQ("IM_SQ1_REQUISITOS")
+        CODIGO_REQUISITOSpinEdit.EditValue = CType(COracle.ObtenerDatos("SELECT MAX(CODIGO_REQUISITO)+1 MAXIMO FROM IM_REQUISITOS", "MAXIMO"), Integer)
     End Sub
 
     Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
