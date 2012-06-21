@@ -150,8 +150,32 @@ Public Class COracle
             Return "N"
         End Try
     End Function
+    Public Shared Function ObtenerImagen(ByVal consulta As String, ByVal campo As String) As Image
+        Try
+            Dim cnx As New OracleConnection(Configuracion.verconfig)
+
+            cnx.Open()
 
 
+
+            Dim sqdel As New OracleCommand(consulta, cnx)
+            Dim dataread As OracleDataReader = sqdel.ExecuteReader()
+
+
+            If dataread.Read = True Then
+                With dataread
+                    Dim ba As Byte() = ((.Item(campo)))
+                    Return Data.ConvertByteArrayToImage(ba)
+                End With
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+
+            MessageBox.Show(ex.Message)
+            Return Nothing
+        End Try
+    End Function
     'Try
 
     '    'CREANDO CADENA DE CONEXION
