@@ -406,7 +406,7 @@ Partial Class XfrmConFirmas
         '
         Me.btnFiltro.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
         Me.btnFiltro.Appearance.Options.UseFont = True
-        Me.btnFiltro.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
+        Me.btnFiltro.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Filtro
         Me.btnFiltro.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
         Me.btnFiltro.Location = New System.Drawing.Point(3, 3)
         Me.btnFiltro.Name = "btnFiltro"
