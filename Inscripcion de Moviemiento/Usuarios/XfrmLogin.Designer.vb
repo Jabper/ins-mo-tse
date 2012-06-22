@@ -20,8 +20,8 @@ Partial Class XfrmLogin
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim ConditionValidationRule3 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Dim ConditionValidationRule1 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
+        Dim ConditionValidationRule2 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Me.PictureBox2 = New System.Windows.Forms.PictureBox
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.Label1 = New System.Windows.Forms.Label
@@ -30,7 +30,6 @@ Partial Class XfrmLogin
         Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
         Me.TxtUsuario = New DevExpress.XtraEditors.TextEdit
         Me.TxtPassword = New DevExpress.XtraEditors.TextEdit
-        Me.Label3 = New System.Windows.Forms.Label
         Me.Label4 = New System.Windows.Forms.Label
         Me.Button1 = New System.Windows.Forms.Button
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -105,11 +104,11 @@ Partial Class XfrmLogin
         Me.TxtUsuario.Name = "TxtUsuario"
         Me.TxtUsuario.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
         Me.TxtUsuario.Size = New System.Drawing.Size(146, 18)
-        Me.TxtUsuario.TabIndex = 8
-        ConditionValidationRule3.CaseSensitive = True
-        ConditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule3.ErrorText = "Valor Inválido"
-        Me.DxValidationProvider1.SetValidationRule(Me.TxtUsuario, ConditionValidationRule3)
+        Me.TxtUsuario.TabIndex = 0
+        ConditionValidationRule1.CaseSensitive = True
+        ConditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule1.ErrorText = "Valor Inválido"
+        Me.DxValidationProvider1.SetValidationRule(Me.TxtUsuario, ConditionValidationRule1)
         '
         'TxtPassword
         '
@@ -118,23 +117,11 @@ Partial Class XfrmLogin
         Me.TxtPassword.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
         Me.TxtPassword.Properties.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TxtPassword.Size = New System.Drawing.Size(146, 18)
-        Me.TxtPassword.TabIndex = 9
-        ConditionValidationRule1.CaseSensitive = True
-        ConditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule1.ErrorText = "Valor Inválido"
-        Me.DxValidationProvider1.SetValidationRule(Me.TxtPassword, ConditionValidationRule1)
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(34, 317)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(78, 16)
-        Me.Label3.TabIndex = 10
-        Me.Label3.Text = "Bienvenido"
+        Me.TxtPassword.TabIndex = 2
+        ConditionValidationRule2.CaseSensitive = True
+        ConditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule2.ErrorText = "Valor Inválido"
+        Me.DxValidationProvider1.SetValidationRule(Me.TxtPassword, ConditionValidationRule2)
         '
         'Label4
         '
@@ -175,7 +162,6 @@ Partial Class XfrmLogin
         Me.ControlBox = False
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.TxtPassword)
         Me.Controls.Add(Me.TxtUsuario)
         Me.Controls.Add(Me.PictureBox3)
@@ -207,7 +193,6 @@ Partial Class XfrmLogin
     Friend WithEvents DxValidationProvider1 As DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider
     Friend WithEvents TxtUsuario As DevExpress.XtraEditors.TextEdit
     Friend WithEvents TxtPassword As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class
