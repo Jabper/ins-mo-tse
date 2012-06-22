@@ -79,6 +79,8 @@ Partial Class xfrmRegCandidatos
         Me.RepositoryItemComboBox1 = New DevExpress.XtraEditors.Repository.RepositoryItemComboBox
         Me.RepositoryItemTextEdit3 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
+        Me.lblPartido = New DevExpress.XtraEditors.LabelControl
+        Me.lblMovimiento = New DevExpress.XtraEditors.LabelControl
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl
         Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -638,6 +640,28 @@ Partial Class xfrmRegCandidatos
         Me.GridView2.GridControl = Me.GCBusqueda
         Me.GridView2.Name = "GridView2"
         '
+        'lblPartido
+        '
+        Me.lblPartido.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.lblPartido.Appearance.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPartido.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.lblPartido.Location = New System.Drawing.Point(337, 12)
+        Me.lblPartido.Name = "lblPartido"
+        Me.lblPartido.Size = New System.Drawing.Size(161, 25)
+        Me.lblPartido.TabIndex = 33
+        Me.lblPartido.Text = "Partido Politico"
+        '
+        'lblMovimiento
+        '
+        Me.lblMovimiento.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.lblMovimiento.Appearance.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMovimiento.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.lblMovimiento.Location = New System.Drawing.Point(337, 47)
+        Me.lblMovimiento.Name = "lblMovimiento"
+        Me.lblMovimiento.Size = New System.Drawing.Size(123, 25)
+        Me.lblMovimiento.TabIndex = 34
+        Me.lblMovimiento.Text = "Movimiento"
+        '
         'LabelControl3
         '
         Me.LabelControl3.Appearance.BackColor = System.Drawing.Color.Transparent
@@ -665,8 +689,8 @@ Partial Class xfrmRegCandidatos
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(951, 501)
-        Me.Controls.Add(Me.LabelControl4)
-        Me.Controls.Add(Me.LabelControl3)
+        Me.Controls.Add(Me.lblMovimiento)
+        Me.Controls.Add(Me.lblPartido)
         Me.Controls.Add(Me.GCBusqueda)
         Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.TextEdit1)
@@ -775,6 +799,8 @@ Partial Class xfrmRegCandidatos
     Friend WithEvents RepositoryItemComboBox1 As DevExpress.XtraEditors.Repository.RepositoryItemComboBox
     Friend WithEvents RepositoryItemTextEdit3 As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
     Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents lblPartido As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents lblMovimiento As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
 End Class
