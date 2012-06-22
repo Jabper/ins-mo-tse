@@ -20,16 +20,21 @@ Partial Public Class Reporte_de_Firmas_In
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Detail = New DevExpress.XtraReports.UI.DetailBand
+        Me.XrLabel14 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel15 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel16 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel17 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel18 = New DevExpress.XtraReports.UI.XRLabel
         Me.IM_V_FIRMAS_INCONSISTENTESAdapter1 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FITableAdapters.IM_V_FIRMAS_INCONSISTENTESAdapter
         Me.DS_REPORTE_DE_FI1 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FI
         Me.GroupHeaderBand1 = New DevExpress.XtraReports.UI.GroupHeaderBand
-        Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel2 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel2 = New DevExpress.XtraReports.UI.XRLabel
         Me.GroupHeaderBand2 = New DevExpress.XtraReports.UI.GroupHeaderBand
-        Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel6 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel7 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel8 = New DevExpress.XtraReports.UI.XRLabel
         Me.GroupHeaderBand4 = New DevExpress.XtraReports.UI.GroupHeaderBand
@@ -40,11 +45,6 @@ Partial Public Class Reporte_de_Firmas_In
         Me.XrLabel13 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLine1 = New DevExpress.XtraReports.UI.XRLine
         Me.XrLine2 = New DevExpress.XtraReports.UI.XRLine
-        Me.XrLabel14 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel15 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel16 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel17 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel18 = New DevExpress.XtraReports.UI.XRLabel
         Me.PageFooterBand1 = New DevExpress.XtraReports.UI.PageFooterBand
         Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo
         Me.XrPageInfo2 = New DevExpress.XtraReports.UI.XRPageInfo
@@ -56,6 +56,8 @@ Partial Public Class Reporte_de_Firmas_In
         Me.DataField = New DevExpress.XtraReports.UI.XRControlStyle
         Me.TopMarginBand1 = New DevExpress.XtraReports.UI.TopMarginBand
         Me.BottomMarginBand1 = New DevExpress.XtraReports.UI.BottomMarginBand
+        Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
+        Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
         CType(Me.DS_REPORTE_DE_FI1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
@@ -67,6 +69,53 @@ Partial Public Class Reporte_de_Firmas_In
         Me.Detail.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.Detail.StyleName = "DataField"
         Me.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
+        '
+        'XrLabel14
+        '
+        Me.XrLabel14.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_INCONSISTENTES.IDENTIDAD")})
+        Me.XrLabel14.LocationFloat = New DevExpress.Utils.PointFloat(6.0!, 14.66662!)
+        Me.XrLabel14.Name = "XrLabel14"
+        Me.XrLabel14.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel14.SizeF = New System.Drawing.SizeF(132.0!, 15.0!)
+        Me.XrLabel14.Text = "XrLabel14"
+        '
+        'XrLabel15
+        '
+        Me.XrLabel15.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_INCONSISTENTES.NOMBRE")})
+        Me.XrLabel15.LocationFloat = New DevExpress.Utils.PointFloat(138.0!, 14.66662!)
+        Me.XrLabel15.Name = "XrLabel15"
+        Me.XrLabel15.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel15.SizeF = New System.Drawing.SizeF(151.119!, 14.99999!)
+        Me.XrLabel15.Text = "XrLabel15"
+        '
+        'XrLabel16
+        '
+        Me.XrLabel16.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_INCONSISTENTES.APELLIDOS")})
+        Me.XrLabel16.LocationFloat = New DevExpress.Utils.PointFloat(289.119!, 14.66662!)
+        Me.XrLabel16.Name = "XrLabel16"
+        Me.XrLabel16.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel16.SizeF = New System.Drawing.SizeF(214.4107!, 14.99999!)
+        Me.XrLabel16.Text = "XrLabel16"
+        '
+        'XrLabel17
+        '
+        Me.XrLabel17.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_INCONSISTENTES.ESTADO")})
+        Me.XrLabel17.LocationFloat = New DevExpress.Utils.PointFloat(518.6548!, 14.66662!)
+        Me.XrLabel17.Name = "XrLabel17"
+        Me.XrLabel17.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel17.SizeF = New System.Drawing.SizeF(97.42857!, 15.0!)
+        Me.XrLabel17.StylePriority.UseTextAlignment = False
+        Me.XrLabel17.Text = "XrLabel17"
+        Me.XrLabel17.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
+        '
+        'XrLabel18
+        '
+        Me.XrLabel18.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_INCONSISTENTES.OBSERVACION")})
+        Me.XrLabel18.LocationFloat = New DevExpress.Utils.PointFloat(663.4583!, 14.66662!)
+        Me.XrLabel18.Name = "XrLabel18"
+        Me.XrLabel18.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel18.SizeF = New System.Drawing.SizeF(351.5417!, 14.99999!)
+        Me.XrLabel18.Text = "XrLabel18"
         '
         'IM_V_FIRMAS_INCONSISTENTESAdapter1
         '
@@ -84,6 +133,26 @@ Partial Public Class Reporte_de_Firmas_In
         Me.GroupHeaderBand1.HeightF = 59.95833!
         Me.GroupHeaderBand1.Level = 2
         Me.GroupHeaderBand1.Name = "GroupHeaderBand1"
+        '
+        'XrLabel3
+        '
+        Me.XrLabel3.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_INCONSISTENTES.NOMBRE PARTIDO")})
+        Me.XrLabel3.LocationFloat = New DevExpress.Utils.PointFloat(225.2084!, 0.0!)
+        Me.XrLabel3.Name = "XrLabel3"
+        Me.XrLabel3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel3.SizeF = New System.Drawing.SizeF(369.0!, 19.33333!)
+        Me.XrLabel3.StyleName = "DataField"
+        Me.XrLabel3.Text = "XrLabel3"
+        '
+        'XrLabel4
+        '
+        Me.XrLabel4.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_INCONSISTENTES.NOMBRE MOVIMIENTO")})
+        Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(225.2084!, 30.20833!)
+        Me.XrLabel4.Name = "XrLabel4"
+        Me.XrLabel4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel4.SizeF = New System.Drawing.SizeF(369.0!, 17.25!)
+        Me.XrLabel4.StyleName = "DataField"
+        Me.XrLabel4.Text = "XrLabel4"
         '
         'XrLabel1
         '
@@ -103,26 +172,6 @@ Partial Public Class Reporte_de_Firmas_In
         Me.XrLabel2.StyleName = "FieldCaption"
         Me.XrLabel2.Text = "NOMBRE MOVIMIENTO:"
         '
-        'XrLabel3
-        '
-        Me.XrLabel3.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_INCONSISTENTES.PARTIDO")})
-        Me.XrLabel3.LocationFloat = New DevExpress.Utils.PointFloat(225.2084!, 0.0!)
-        Me.XrLabel3.Name = "XrLabel3"
-        Me.XrLabel3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel3.SizeF = New System.Drawing.SizeF(369.0!, 19.33333!)
-        Me.XrLabel3.StyleName = "DataField"
-        Me.XrLabel3.Text = "XrLabel3"
-        '
-        'XrLabel4
-        '
-        Me.XrLabel4.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_INCONSISTENTES.MOVIMIENTO")})
-        Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(225.2084!, 30.20833!)
-        Me.XrLabel4.Name = "XrLabel4"
-        Me.XrLabel4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel4.SizeF = New System.Drawing.SizeF(369.0!, 17.25!)
-        Me.XrLabel4.StyleName = "DataField"
-        Me.XrLabel4.Text = "XrLabel4"
-        '
         'GroupHeaderBand2
         '
         Me.GroupHeaderBand2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel6, Me.XrLabel5, Me.XrLabel7, Me.XrLabel8})
@@ -130,15 +179,6 @@ Partial Public Class Reporte_de_Firmas_In
         Me.GroupHeaderBand2.HeightF = 83.91667!
         Me.GroupHeaderBand2.Level = 1
         Me.GroupHeaderBand2.Name = "GroupHeaderBand2"
-        '
-        'XrLabel5
-        '
-        Me.XrLabel5.LocationFloat = New DevExpress.Utils.PointFloat(6.00001!, 0.0!)
-        Me.XrLabel5.Name = "XrLabel5"
-        Me.XrLabel5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel5.SizeF = New System.Drawing.SizeF(207.0!, 17.25!)
-        Me.XrLabel5.StyleName = "FieldCaption"
-        Me.XrLabel5.Text = "NOMBRE DEPARTAMENTO:"
         '
         'XrLabel6
         '
@@ -149,6 +189,15 @@ Partial Public Class Reporte_de_Firmas_In
         Me.XrLabel6.SizeF = New System.Drawing.SizeF(418.7916!, 17.25!)
         Me.XrLabel6.StyleName = "DataField"
         Me.XrLabel6.Text = "XrLabel6"
+        '
+        'XrLabel5
+        '
+        Me.XrLabel5.LocationFloat = New DevExpress.Utils.PointFloat(6.00001!, 0.0!)
+        Me.XrLabel5.Name = "XrLabel5"
+        Me.XrLabel5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel5.SizeF = New System.Drawing.SizeF(207.0!, 17.25!)
+        Me.XrLabel5.StyleName = "FieldCaption"
+        Me.XrLabel5.Text = "NOMBRE DEPARTAMENTO:"
         '
         'XrLabel7
         '
@@ -231,53 +280,6 @@ Partial Public Class Reporte_de_Firmas_In
         Me.XrLine2.LocationFloat = New DevExpress.Utils.PointFloat(6.0!, 25.0!)
         Me.XrLine2.Name = "XrLine2"
         Me.XrLine2.SizeF = New System.Drawing.SizeF(1030.0!, 2.0!)
-        '
-        'XrLabel14
-        '
-        Me.XrLabel14.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_INCONSISTENTES.IDENTIDAD")})
-        Me.XrLabel14.LocationFloat = New DevExpress.Utils.PointFloat(6.0!, 14.66662!)
-        Me.XrLabel14.Name = "XrLabel14"
-        Me.XrLabel14.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel14.SizeF = New System.Drawing.SizeF(132.0!, 15.0!)
-        Me.XrLabel14.Text = "XrLabel14"
-        '
-        'XrLabel15
-        '
-        Me.XrLabel15.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_INCONSISTENTES.NOMBRE")})
-        Me.XrLabel15.LocationFloat = New DevExpress.Utils.PointFloat(138.0!, 14.66662!)
-        Me.XrLabel15.Name = "XrLabel15"
-        Me.XrLabel15.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel15.SizeF = New System.Drawing.SizeF(151.119!, 14.99999!)
-        Me.XrLabel15.Text = "XrLabel15"
-        '
-        'XrLabel16
-        '
-        Me.XrLabel16.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_INCONSISTENTES.APELLIDOS")})
-        Me.XrLabel16.LocationFloat = New DevExpress.Utils.PointFloat(289.119!, 14.66662!)
-        Me.XrLabel16.Name = "XrLabel16"
-        Me.XrLabel16.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel16.SizeF = New System.Drawing.SizeF(214.4107!, 14.99999!)
-        Me.XrLabel16.Text = "XrLabel16"
-        '
-        'XrLabel17
-        '
-        Me.XrLabel17.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_INCONSISTENTES.ESTADO")})
-        Me.XrLabel17.LocationFloat = New DevExpress.Utils.PointFloat(518.6548!, 14.66662!)
-        Me.XrLabel17.Name = "XrLabel17"
-        Me.XrLabel17.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel17.SizeF = New System.Drawing.SizeF(97.42857!, 15.0!)
-        Me.XrLabel17.StylePriority.UseTextAlignment = False
-        Me.XrLabel17.Text = "XrLabel17"
-        Me.XrLabel17.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
-        '
-        'XrLabel18
-        '
-        Me.XrLabel18.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_INCONSISTENTES.OBSERVACION")})
-        Me.XrLabel18.LocationFloat = New DevExpress.Utils.PointFloat(663.4583!, 14.66662!)
-        Me.XrLabel18.Name = "XrLabel18"
-        Me.XrLabel18.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel18.SizeF = New System.Drawing.SizeF(351.5417!, 14.99999!)
-        Me.XrLabel18.Text = "XrLabel18"
         '
         'PageFooterBand1
         '
@@ -371,16 +373,28 @@ Partial Public Class Reporte_de_Firmas_In
         '
         Me.BottomMarginBand1.Name = "BottomMarginBand1"
         '
+        'NombrePartido
+        '
+        Me.NombrePartido.Description = "Nombre de Partido Politico"
+        Me.NombrePartido.Name = "NombrePartido"
+        '
+        'NombreMovimiento
+        '
+        Me.NombreMovimiento.Description = "Nombre de Movimiento"
+        Me.NombreMovimiento.Name = "NombreMovimiento"
+        '
         'Reporte_de_Firmas_In
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.GroupHeaderBand1, Me.GroupHeaderBand2, Me.GroupHeaderBand4, Me.PageFooterBand1, Me.ReportHeaderBand1, Me.TopMarginBand1, Me.BottomMarginBand1})
         Me.DataAdapter = Me.IM_V_FIRMAS_INCONSISTENTESAdapter1
         Me.DataMember = "IM_V_FIRMAS_INCONSISTENTES"
         Me.DataSource = Me.DS_REPORTE_DE_FI1
+        Me.FilterString = "[NOMBRE PARTIDO] = ?NombrePartido Or [NOMBRE MOVIMIENTO] = ?NombreMovimiento"
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(45, 16, 25, 100)
         Me.PageHeight = 850
         Me.PageWidth = 1100
+        Me.Parameters.AddRange(New DevExpress.XtraReports.Parameters.Parameter() {Me.NombrePartido, Me.NombreMovimiento})
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.StyleSheet.AddRange(New DevExpress.XtraReports.UI.XRControlStyle() {Me.Title, Me.FieldCaption, Me.PageInfo, Me.DataField})
         Me.Version = "11.2"
@@ -425,4 +439,6 @@ Partial Public Class Reporte_de_Firmas_In
     Friend WithEvents DataField As DevExpress.XtraReports.UI.XRControlStyle
     Friend WithEvents TopMarginBand1 As DevExpress.XtraReports.UI.TopMarginBand
     Friend WithEvents BottomMarginBand1 As DevExpress.XtraReports.UI.BottomMarginBand
+    Friend WithEvents NombrePartido As DevExpress.XtraReports.Parameters.Parameter
+    Friend WithEvents NombreMovimiento As DevExpress.XtraReports.Parameters.Parameter
 End Class
