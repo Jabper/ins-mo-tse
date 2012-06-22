@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -216,6 +216,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_REPORTE_DE_FMOV.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_REPORTE_DE_FMOV.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DS_REPORTE_DE_FI.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -398,6 +403,12 @@
       <DependentUpon>Reporte_de _FirmasDP.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\Reporte_de _FirmasDP.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\Reporte_de_cruce_FMOV.Designer.vb">
+      <DependentUpon>Reporte_de_cruce_FMOV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Reporte_de_cruce_FMOV.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\Reporte_de_PlanillaDP.Designer.vb">
@@ -605,6 +616,9 @@
     <EmbeddedResource Include="Reportes\Reporte_de _FirmasDP.resx">
       <DependentUpon>Reporte_de _FirmasDP.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Reporte_de_cruce_FMOV.resx">
+      <DependentUpon>Reporte_de_cruce_FMOV.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Reporte_de_PlanillaDP.resx">
       <DependentUpon>Reporte_de_PlanillaDP.vb</DependentUpon>
@@ -915,6 +929,17 @@
     <None Include="Resources\turnoff.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="DS_REPORTE_DE_FMOV.xsc">
+      <DependentUpon>DS_REPORTE_DE_FMOV.xsd</DependentUpon>
+    </None>
+    <None Include="DS_REPORTE_DE_FMOV.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_REPORTE_DE_FMOV.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DS_REPORTE_DE_FMOV.xss">
+      <DependentUpon>DS_REPORTE_DE_FMOV.xsd</DependentUpon>
+    </None>
     <None Include="Reportes\DS_REPORTE_DE_FI.xsc">
       <DependentUpon>DS_REPORTE_DE_FI.xsd</DependentUpon>
     </None>
