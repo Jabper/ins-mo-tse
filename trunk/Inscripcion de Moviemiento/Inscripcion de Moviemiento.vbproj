@@ -216,7 +216,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DS_REPORTE_DE_FMOV.Designer.vb">
+    <Compile Include="Reportes\DS_REPORTE_DE_FMOV.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_REPORTE_DE_FMOV.xsd</DependentUpon>
@@ -929,15 +929,15 @@
     <None Include="Resources\turnoff.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DS_REPORTE_DE_FMOV.xsc">
+    <None Include="Reportes\DS_REPORTE_DE_FMOV.xsc">
       <DependentUpon>DS_REPORTE_DE_FMOV.xsd</DependentUpon>
     </None>
-    <None Include="DS_REPORTE_DE_FMOV.xsd">
+    <None Include="Reportes\DS_REPORTE_DE_FMOV.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DS_REPORTE_DE_FMOV.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="DS_REPORTE_DE_FMOV.xss">
+    <None Include="Reportes\DS_REPORTE_DE_FMOV.xss">
       <DependentUpon>DS_REPORTE_DE_FMOV.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DS_REPORTE_DE_FI.xsc">
