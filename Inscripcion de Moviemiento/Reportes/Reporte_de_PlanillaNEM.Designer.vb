@@ -20,15 +20,21 @@ Partial Public Class Reporte_de_PlanillaNEM
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Detail = New DevExpress.XtraReports.UI.DetailBand
+        Me.XrLabel13 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel14 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel15 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel16 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel17 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel18 = New DevExpress.XtraReports.UI.XRLabel
         Me.IM_V_PLANILLAS_X_NIVELAdapter1 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_PNEMTableAdapters.IM_V_PLANILLAS_X_NIVELAdapter
         Me.DS_REPORTE_DE_PNEM1 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_PNEM
         Me.GroupHeaderBand1 = New DevExpress.XtraReports.UI.GroupHeaderBand
-        Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel2 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel6 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel
         Me.GroupHeaderBand2 = New DevExpress.XtraReports.UI.GroupHeaderBand
         Me.XrLabel7 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel8 = New DevExpress.XtraReports.UI.XRLabel
@@ -38,12 +44,6 @@ Partial Public Class Reporte_de_PlanillaNEM
         Me.XrLabel12 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLine1 = New DevExpress.XtraReports.UI.XRLine
         Me.XrLine2 = New DevExpress.XtraReports.UI.XRLine
-        Me.XrLabel13 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel14 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel15 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel16 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel17 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel18 = New DevExpress.XtraReports.UI.XRLabel
         Me.PageFooterBand1 = New DevExpress.XtraReports.UI.PageFooterBand
         Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo
         Me.XrPageInfo2 = New DevExpress.XtraReports.UI.XRPageInfo
@@ -70,6 +70,64 @@ Partial Public Class Reporte_de_PlanillaNEM
         Me.Detail.StyleName = "DataField"
         Me.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
         '
+        'XrLabel13
+        '
+        Me.XrLabel13.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_PLANILLAS_X_NIVEL.CODIGO CANDIDATO", "{0}")})
+        Me.XrLabel13.LocationFloat = New DevExpress.Utils.PointFloat(10.0!, 0.0!)
+        Me.XrLabel13.Name = "XrLabel13"
+        Me.XrLabel13.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel13.SizeF = New System.Drawing.SizeF(145.3062!, 15.0!)
+        Me.XrLabel13.StylePriority.UseTextAlignment = False
+        Me.XrLabel13.Text = "XrLabel13"
+        Me.XrLabel13.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'XrLabel14
+        '
+        Me.XrLabel14.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_PLANILLAS_X_NIVEL.IDENTIDAD")})
+        Me.XrLabel14.LocationFloat = New DevExpress.Utils.PointFloat(172.1395!, 0.0!)
+        Me.XrLabel14.Name = "XrLabel14"
+        Me.XrLabel14.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel14.SizeF = New System.Drawing.SizeF(80.83258!, 15.0!)
+        Me.XrLabel14.Text = "XrLabel14"
+        '
+        'XrLabel15
+        '
+        Me.XrLabel15.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_PLANILLAS_X_NIVEL.NOMBRE CANDIDATO")})
+        Me.XrLabel15.LocationFloat = New DevExpress.Utils.PointFloat(284.2787!, 0.0!)
+        Me.XrLabel15.Name = "XrLabel15"
+        Me.XrLabel15.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel15.SizeF = New System.Drawing.SizeF(150.1176!, 15.0!)
+        Me.XrLabel15.Text = "XrLabel15"
+        '
+        'XrLabel16
+        '
+        Me.XrLabel16.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_PLANILLAS_X_NIVEL.APELLIDO")})
+        Me.XrLabel16.LocationFloat = New DevExpress.Utils.PointFloat(434.3963!, 0.0!)
+        Me.XrLabel16.Name = "XrLabel16"
+        Me.XrLabel16.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel16.SizeF = New System.Drawing.SizeF(195.8267!, 14.99999!)
+        Me.XrLabel16.Text = "XrLabel16"
+        '
+        'XrLabel17
+        '
+        Me.XrLabel17.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_PLANILLAS_X_NIVEL.CARGO ELECTIVO")})
+        Me.XrLabel17.LocationFloat = New DevExpress.Utils.PointFloat(637.6595!, 0.0!)
+        Me.XrLabel17.Name = "XrLabel17"
+        Me.XrLabel17.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel17.SizeF = New System.Drawing.SizeF(293.7616!, 14.99999!)
+        Me.XrLabel17.Text = "XrLabel17"
+        '
+        'XrLabel18
+        '
+        Me.XrLabel18.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_PLANILLAS_X_NIVEL.ESTADO")})
+        Me.XrLabel18.LocationFloat = New DevExpress.Utils.PointFloat(931.4211!, 0.0!)
+        Me.XrLabel18.Name = "XrLabel18"
+        Me.XrLabel18.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel18.SizeF = New System.Drawing.SizeF(107.5789!, 15.0!)
+        Me.XrLabel18.StylePriority.UseTextAlignment = False
+        Me.XrLabel18.Text = "XrLabel18"
+        Me.XrLabel18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
+        '
         'IM_V_PLANILLAS_X_NIVELAdapter1
         '
         Me.IM_V_PLANILLAS_X_NIVELAdapter1.ClearBeforeFill = True
@@ -86,6 +144,36 @@ Partial Public Class Reporte_de_PlanillaNEM
         Me.GroupHeaderBand1.HeightF = 109.9583!
         Me.GroupHeaderBand1.Level = 1
         Me.GroupHeaderBand1.Name = "GroupHeaderBand1"
+        '
+        'XrLabel4
+        '
+        Me.XrLabel4.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_PLANILLAS_X_NIVEL.NOMBRE PARTIDO")})
+        Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(215.9897!, 0.0!)
+        Me.XrLabel4.Name = "XrLabel4"
+        Me.XrLabel4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel4.SizeF = New System.Drawing.SizeF(412.2195!, 18.29166!)
+        Me.XrLabel4.StyleName = "DataField"
+        Me.XrLabel4.Text = "XrLabel4"
+        '
+        'XrLabel5
+        '
+        Me.XrLabel5.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_PLANILLAS_X_NIVEL.NOMBRE MOVIMIENTO ")})
+        Me.XrLabel5.LocationFloat = New DevExpress.Utils.PointFloat(215.9897!, 36.45833!)
+        Me.XrLabel5.Name = "XrLabel5"
+        Me.XrLabel5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel5.SizeF = New System.Drawing.SizeF(412.2195!, 18.29166!)
+        Me.XrLabel5.StyleName = "DataField"
+        Me.XrLabel5.Text = "XrLabel5"
+        '
+        'XrLabel6
+        '
+        Me.XrLabel6.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_PLANILLAS_X_NIVEL.NIVEL ELECTIVO")})
+        Me.XrLabel6.LocationFloat = New DevExpress.Utils.PointFloat(215.9897!, 70.83334!)
+        Me.XrLabel6.Name = "XrLabel6"
+        Me.XrLabel6.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel6.SizeF = New System.Drawing.SizeF(412.2195!, 17.24999!)
+        Me.XrLabel6.StyleName = "DataField"
+        Me.XrLabel6.Text = "XrLabel6"
         '
         'XrLabel1
         '
@@ -113,36 +201,6 @@ Partial Public Class Reporte_de_PlanillaNEM
         Me.XrLabel3.SizeF = New System.Drawing.SizeF(191.4737!, 17.25!)
         Me.XrLabel3.StyleName = "FieldCaption"
         Me.XrLabel3.Text = "NIVEL ELECTIVO:"
-        '
-        'XrLabel4
-        '
-        Me.XrLabel4.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_PLANILLAS_X_NIVEL.NOMBRE PARTIDO")})
-        Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(215.9897!, 0.0!)
-        Me.XrLabel4.Name = "XrLabel4"
-        Me.XrLabel4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel4.SizeF = New System.Drawing.SizeF(218.4066!, 18.29166!)
-        Me.XrLabel4.StyleName = "DataField"
-        Me.XrLabel4.Text = "XrLabel4"
-        '
-        'XrLabel5
-        '
-        Me.XrLabel5.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_PLANILLAS_X_NIVEL.NOMBRE MOVIMIENTO ")})
-        Me.XrLabel5.LocationFloat = New DevExpress.Utils.PointFloat(215.9897!, 36.45833!)
-        Me.XrLabel5.Name = "XrLabel5"
-        Me.XrLabel5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel5.SizeF = New System.Drawing.SizeF(412.2195!, 18.29166!)
-        Me.XrLabel5.StyleName = "DataField"
-        Me.XrLabel5.Text = "XrLabel5"
-        '
-        'XrLabel6
-        '
-        Me.XrLabel6.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_PLANILLAS_X_NIVEL.NIVEL ELECTIVO")})
-        Me.XrLabel6.LocationFloat = New DevExpress.Utils.PointFloat(215.9897!, 70.83334!)
-        Me.XrLabel6.Name = "XrLabel6"
-        Me.XrLabel6.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel6.SizeF = New System.Drawing.SizeF(412.2195!, 17.24999!)
-        Me.XrLabel6.StyleName = "DataField"
-        Me.XrLabel6.Text = "XrLabel6"
         '
         'GroupHeaderBand2
         '
@@ -216,64 +274,6 @@ Partial Public Class Reporte_de_PlanillaNEM
         Me.XrLine2.LocationFloat = New DevExpress.Utils.PointFloat(6.0!, 25.0!)
         Me.XrLine2.Name = "XrLine2"
         Me.XrLine2.SizeF = New System.Drawing.SizeF(1030.0!, 2.0!)
-        '
-        'XrLabel13
-        '
-        Me.XrLabel13.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_PLANILLAS_X_NIVEL.CODIGO CANDIDATO", "{0}")})
-        Me.XrLabel13.LocationFloat = New DevExpress.Utils.PointFloat(10.0!, 0.0!)
-        Me.XrLabel13.Name = "XrLabel13"
-        Me.XrLabel13.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel13.SizeF = New System.Drawing.SizeF(145.3062!, 15.0!)
-        Me.XrLabel13.StylePriority.UseTextAlignment = False
-        Me.XrLabel13.Text = "XrLabel13"
-        Me.XrLabel13.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'XrLabel14
-        '
-        Me.XrLabel14.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_PLANILLAS_X_NIVEL.IDENTIDAD")})
-        Me.XrLabel14.LocationFloat = New DevExpress.Utils.PointFloat(172.1395!, 0.0!)
-        Me.XrLabel14.Name = "XrLabel14"
-        Me.XrLabel14.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel14.SizeF = New System.Drawing.SizeF(80.83258!, 15.0!)
-        Me.XrLabel14.Text = "XrLabel14"
-        '
-        'XrLabel15
-        '
-        Me.XrLabel15.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_PLANILLAS_X_NIVEL.NOMBRE CANDIDATO")})
-        Me.XrLabel15.LocationFloat = New DevExpress.Utils.PointFloat(284.2787!, 0.0!)
-        Me.XrLabel15.Name = "XrLabel15"
-        Me.XrLabel15.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel15.SizeF = New System.Drawing.SizeF(150.1176!, 15.0!)
-        Me.XrLabel15.Text = "XrLabel15"
-        '
-        'XrLabel16
-        '
-        Me.XrLabel16.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_PLANILLAS_X_NIVEL.APELLIDO")})
-        Me.XrLabel16.LocationFloat = New DevExpress.Utils.PointFloat(434.3963!, 0.0!)
-        Me.XrLabel16.Name = "XrLabel16"
-        Me.XrLabel16.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel16.SizeF = New System.Drawing.SizeF(195.8267!, 14.99999!)
-        Me.XrLabel16.Text = "XrLabel16"
-        '
-        'XrLabel17
-        '
-        Me.XrLabel17.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_PLANILLAS_X_NIVEL.CARGO ELECTIVO")})
-        Me.XrLabel17.LocationFloat = New DevExpress.Utils.PointFloat(637.6595!, 0.0!)
-        Me.XrLabel17.Name = "XrLabel17"
-        Me.XrLabel17.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel17.SizeF = New System.Drawing.SizeF(293.7616!, 14.99999!)
-        Me.XrLabel17.Text = "XrLabel17"
-        '
-        'XrLabel18
-        '
-        Me.XrLabel18.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_PLANILLAS_X_NIVEL.ESTADO")})
-        Me.XrLabel18.LocationFloat = New DevExpress.Utils.PointFloat(931.4211!, 0.0!)
-        Me.XrLabel18.Name = "XrLabel18"
-        Me.XrLabel18.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel18.SizeF = New System.Drawing.SizeF(107.5789!, 15.0!)
-        Me.XrLabel18.StylePriority.UseTextAlignment = False
-        Me.XrLabel18.Text = "XrLabel18"
-        Me.XrLabel18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
         '
         'PageFooterBand1
         '
@@ -371,12 +371,12 @@ Partial Public Class Reporte_de_PlanillaNEM
         '
         'NombrePartido
         '
-        Me.NombrePartido.Description = "Nombre Partido"
+        Me.NombrePartido.Description = "Nombre de Partido Politico"
         Me.NombrePartido.Name = "NombrePartido"
         '
         'NombreMovimiento
         '
-        Me.NombreMovimiento.Description = "Nombre Movimiento"
+        Me.NombreMovimiento.Description = "Nombre de Movimiento"
         Me.NombreMovimiento.Name = "NombreMovimiento"
         '
         'NivelElectivo
@@ -390,6 +390,8 @@ Partial Public Class Reporte_de_PlanillaNEM
         Me.DataAdapter = Me.IM_V_PLANILLAS_X_NIVELAdapter1
         Me.DataMember = "IM_V_PLANILLAS_X_NIVEL"
         Me.DataSource = Me.DS_REPORTE_DE_PNEM1
+        Me.FilterString = "[NOMBRE PARTIDO] = ?NombrePartido Or [NOMBRE MOVIMIENTO ] = ?NombreMovimiento Or " & _
+            "[NIVEL ELECTIVO] = ?NivelElectivo"
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(25, 26, 44, 100)
         Me.PageHeight = 850
