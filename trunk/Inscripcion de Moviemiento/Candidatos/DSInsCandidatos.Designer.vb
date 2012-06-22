@@ -2550,8 +2550,6 @@ Partial Public Class DSInsCandidatos
         
         Private columnCODIGO_PARTIDO As Global.System.Data.DataColumn
         
-        Private columnIMAGEN As Global.System.Data.DataColumn
-        
         Private columnNOMBRE As Global.System.Data.DataColumn
         
         Private columnCANTIDAD_FIRMAS As Global.System.Data.DataColumn
@@ -2600,13 +2598,6 @@ Partial Public Class DSInsCandidatos
         Public ReadOnly Property CODIGO_PARTIDOColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnCODIGO_PARTIDO
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property IMAGENColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnIMAGEN
             End Get
         End Property
         
@@ -2681,9 +2672,9 @@ Partial Public Class DSInsCandidatos
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddIM_PARTIDOS_POLITICOSRow(ByVal CODIGO_PARTIDO As Decimal, ByVal IMAGEN() As Byte, ByVal NOMBRE As String, ByVal CANTIDAD_FIRMAS As Decimal, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Date) As IM_PARTIDOS_POLITICOSRow
+        Public Overloads Function AddIM_PARTIDOS_POLITICOSRow(ByVal CODIGO_PARTIDO As Decimal, ByVal NOMBRE As String, ByVal CANTIDAD_FIRMAS As Decimal, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Date) As IM_PARTIDOS_POLITICOSRow
             Dim rowIM_PARTIDOS_POLITICOSRow As IM_PARTIDOS_POLITICOSRow = CType(Me.NewRow,IM_PARTIDOS_POLITICOSRow)
-            Dim columnValuesArray() As Object = New Object() {CODIGO_PARTIDO, IMAGEN, NOMBRE, CANTIDAD_FIRMAS, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION}
+            Dim columnValuesArray() As Object = New Object() {CODIGO_PARTIDO, NOMBRE, CANTIDAD_FIRMAS, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION}
             rowIM_PARTIDOS_POLITICOSRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowIM_PARTIDOS_POLITICOSRow)
             Return rowIM_PARTIDOS_POLITICOSRow
@@ -2709,7 +2700,6 @@ Partial Public Class DSInsCandidatos
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Sub InitVars()
             Me.columnCODIGO_PARTIDO = MyBase.Columns("CODIGO_PARTIDO")
-            Me.columnIMAGEN = MyBase.Columns("IMAGEN")
             Me.columnNOMBRE = MyBase.Columns("NOMBRE")
             Me.columnCANTIDAD_FIRMAS = MyBase.Columns("CANTIDAD_FIRMAS")
             Me.columnADICIONADO_POR = MyBase.Columns("ADICIONADO_POR")
@@ -2722,8 +2712,6 @@ Partial Public Class DSInsCandidatos
         Private Sub InitClass()
             Me.columnCODIGO_PARTIDO = New Global.System.Data.DataColumn("CODIGO_PARTIDO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCODIGO_PARTIDO)
-            Me.columnIMAGEN = New Global.System.Data.DataColumn("IMAGEN", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnIMAGEN)
             Me.columnNOMBRE = New Global.System.Data.DataColumn("NOMBRE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNOMBRE)
             Me.columnCANTIDAD_FIRMAS = New Global.System.Data.DataColumn("CANTIDAD_FIRMAS", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
@@ -2739,7 +2727,6 @@ Partial Public Class DSInsCandidatos
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_PARTIDO}, true))
             Me.columnCODIGO_PARTIDO.AllowDBNull = false
             Me.columnCODIGO_PARTIDO.Unique = true
-            Me.columnIMAGEN.AllowDBNull = false
             Me.columnNOMBRE.AllowDBNull = false
             Me.columnNOMBRE.MaxLength = 100
             Me.columnCANTIDAD_FIRMAS.AllowDBNull = false
@@ -3559,10 +3546,6 @@ Partial Public Class DSInsCandidatos
         
         Private columnCODIGO_PARTIDO As Global.System.Data.DataColumn
         
-        Private columnINSIGNIA As Global.System.Data.DataColumn
-        
-        Private columnEMBLEMA As Global.System.Data.DataColumn
-        
         Private columnADICIONADO_POR As Global.System.Data.DataColumn
         
         Private columnFECHA_ADICION As Global.System.Data.DataColumn
@@ -3625,20 +3608,6 @@ Partial Public Class DSInsCandidatos
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property INSIGNIAColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnINSIGNIA
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property EMBLEMAColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEMBLEMA
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public ReadOnly Property ADICIONADO_PORColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnADICIONADO_POR
@@ -3695,9 +3664,9 @@ Partial Public Class DSInsCandidatos
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddIM_MOVIMIENTOSRow(ByVal CODIGO_MOVIMIENTO As Decimal, ByVal NOMBRE_MOVIMIENTO As String, ByVal parentIM_PARTIDOS_POLITICOSRowByIM_FK1_MOVIMIENTOS As IM_PARTIDOS_POLITICOSRow, ByVal INSIGNIA() As Byte, ByVal EMBLEMA() As Byte, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Date) As IM_MOVIMIENTOSRow
+        Public Overloads Function AddIM_MOVIMIENTOSRow(ByVal CODIGO_MOVIMIENTO As Decimal, ByVal NOMBRE_MOVIMIENTO As String, ByVal parentIM_PARTIDOS_POLITICOSRowByIM_FK1_MOVIMIENTOS As IM_PARTIDOS_POLITICOSRow, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Date) As IM_MOVIMIENTOSRow
             Dim rowIM_MOVIMIENTOSRow As IM_MOVIMIENTOSRow = CType(Me.NewRow,IM_MOVIMIENTOSRow)
-            Dim columnValuesArray() As Object = New Object() {CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO, Nothing, INSIGNIA, EMBLEMA, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION}
+            Dim columnValuesArray() As Object = New Object() {CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO, Nothing, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION}
             If (Not (parentIM_PARTIDOS_POLITICOSRowByIM_FK1_MOVIMIENTOS) Is Nothing) Then
                 columnValuesArray(2) = parentIM_PARTIDOS_POLITICOSRowByIM_FK1_MOVIMIENTOS(0)
             End If
@@ -3728,8 +3697,6 @@ Partial Public Class DSInsCandidatos
             Me.columnCODIGO_MOVIMIENTO = MyBase.Columns("CODIGO_MOVIMIENTO")
             Me.columnNOMBRE_MOVIMIENTO = MyBase.Columns("NOMBRE_MOVIMIENTO")
             Me.columnCODIGO_PARTIDO = MyBase.Columns("CODIGO_PARTIDO")
-            Me.columnINSIGNIA = MyBase.Columns("INSIGNIA")
-            Me.columnEMBLEMA = MyBase.Columns("EMBLEMA")
             Me.columnADICIONADO_POR = MyBase.Columns("ADICIONADO_POR")
             Me.columnFECHA_ADICION = MyBase.Columns("FECHA_ADICION")
             Me.columnMODIFICADO_POR = MyBase.Columns("MODIFICADO_POR")
@@ -3744,10 +3711,6 @@ Partial Public Class DSInsCandidatos
             MyBase.Columns.Add(Me.columnNOMBRE_MOVIMIENTO)
             Me.columnCODIGO_PARTIDO = New Global.System.Data.DataColumn("CODIGO_PARTIDO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCODIGO_PARTIDO)
-            Me.columnINSIGNIA = New Global.System.Data.DataColumn("INSIGNIA", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnINSIGNIA)
-            Me.columnEMBLEMA = New Global.System.Data.DataColumn("EMBLEMA", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEMBLEMA)
             Me.columnADICIONADO_POR = New Global.System.Data.DataColumn("ADICIONADO_POR", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnADICIONADO_POR)
             Me.columnFECHA_ADICION = New Global.System.Data.DataColumn("FECHA_ADICION", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
@@ -3761,8 +3724,6 @@ Partial Public Class DSInsCandidatos
             Me.columnNOMBRE_MOVIMIENTO.AllowDBNull = false
             Me.columnNOMBRE_MOVIMIENTO.MaxLength = 200
             Me.columnCODIGO_PARTIDO.AllowDBNull = false
-            Me.columnINSIGNIA.AllowDBNull = false
-            Me.columnEMBLEMA.AllowDBNull = false
             Me.columnADICIONADO_POR.AllowDBNull = false
             Me.columnADICIONADO_POR.MaxLength = 10
             Me.columnFECHA_ADICION.AllowDBNull = false
@@ -5239,16 +5200,6 @@ Partial Public Class DSInsCandidatos
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property IMAGEN() As Byte()
-            Get
-                Return CType(Me(Me.tableIM_PARTIDOS_POLITICOS.IMAGENColumn),Byte())
-            End Get
-            Set
-                Me(Me.tableIM_PARTIDOS_POLITICOS.IMAGENColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property NOMBRE() As String
             Get
                 Return CType(Me(Me.tableIM_PARTIDOS_POLITICOS.NOMBREColumn),String)
@@ -5855,26 +5806,6 @@ Partial Public Class DSInsCandidatos
             End Get
             Set
                 Me(Me.tableIM_MOVIMIENTOS.CODIGO_PARTIDOColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property INSIGNIA() As Byte()
-            Get
-                Return CType(Me(Me.tableIM_MOVIMIENTOS.INSIGNIAColumn),Byte())
-            End Get
-            Set
-                Me(Me.tableIM_MOVIMIENTOS.INSIGNIAColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property EMBLEMA() As Byte()
-            Get
-                Return CType(Me(Me.tableIM_MOVIMIENTOS.EMBLEMAColumn),Byte())
-            End Get
-            Set
-                Me(Me.tableIM_MOVIMIENTOS.EMBLEMAColumn) = value
             End Set
         End Property
         
@@ -9742,7 +9673,6 @@ Namespace DSInsCandidatosTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "IM_PARTIDOS_POLITICOS"
             tableMapping.ColumnMappings.Add("CODIGO_PARTIDO", "CODIGO_PARTIDO")
-            tableMapping.ColumnMappings.Add("IMAGEN", "IMAGEN")
             tableMapping.ColumnMappings.Add("NOMBRE", "NOMBRE")
             tableMapping.ColumnMappings.Add("CANTIDAD_FIRMAS", "CANTIDAD_FIRMAS")
             tableMapping.ColumnMappings.Add("ADICIONADO_POR", "ADICIONADO_POR")
@@ -9752,13 +9682,13 @@ Namespace DSInsCandidatosTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OracleClient.OracleCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM ""TSE"".""IM_PARTIDOS_POLITICOS"" WHERE ((""CODIGO_PARTIDO"" = :Original_CO"& _ 
-                "DIGO_PARTIDO) AND (""NOMBRE"" = :Original_NOMBRE) AND (""CANTIDAD_FIRMAS"" = :Origin"& _ 
-                "al_CANTIDAD_FIRMAS) AND (""ADICIONADO_POR"" = :Original_ADICIONADO_POR) AND (""FECH"& _ 
-                "A_ADICION"" = :Original_FECHA_ADICION) AND ((:IsNull_MODIFICADO_POR = 1 AND ""MODI"& _ 
-                "FICADO_POR"" IS NULL) OR (""MODIFICADO_POR"" = :Original_MODIFICADO_POR)) AND ((:Is"& _ 
-                "Null_FECHA_MODIFICACION = 1 AND ""FECHA_MODIFICACION"" IS NULL) OR (""FECHA_MODIFIC"& _ 
-                "ACION"" = :Original_FECHA_MODIFICACION)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM ""IM_PARTIDOS_POLITICOS"" WHERE ((""CODIGO_PARTIDO"" = :Original_CODIGO_P"& _ 
+                "ARTIDO) AND (""NOMBRE"" = :Original_NOMBRE) AND (""CANTIDAD_FIRMAS"" = :Original_CAN"& _ 
+                "TIDAD_FIRMAS) AND (""ADICIONADO_POR"" = :Original_ADICIONADO_POR) AND (""FECHA_ADIC"& _ 
+                "ION"" = :Original_FECHA_ADICION) AND ((:IsNull_MODIFICADO_POR = 1 AND ""MODIFICADO"& _ 
+                "_POR"" IS NULL) OR (""MODIFICADO_POR"" = :Original_MODIFICADO_POR)) AND ((:IsNull_F"& _ 
+                "ECHA_MODIFICACION = 1 AND ""FECHA_MODIFICACION"" IS NULL) OR (""FECHA_MODIFICACION"""& _ 
+                " = :Original_FECHA_MODIFICACION)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_PARTIDO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_NOMBRE", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -9786,19 +9716,18 @@ Namespace DSInsCandidatosTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FECHA_MODIFICACION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_MODIFICACION", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OracleClient.OracleCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE ""TSE"".""IM_PARTIDOS_POLITICOS"" SET ""CODIGO_PARTIDO"" = :CODIGO_PARTIDO, ""IMA"& _ 
-                "GEN"" = :IMAGEN, ""NOMBRE"" = :NOMBRE, ""CANTIDAD_FIRMAS"" = :CANTIDAD_FIRMAS, ""ADICI"& _ 
-                "ONADO_POR"" = :ADICIONADO_POR, ""FECHA_ADICION"" = :FECHA_ADICION, ""MODIFICADO_POR"""& _ 
-                " = :MODIFICADO_POR, ""FECHA_MODIFICACION"" = :FECHA_MODIFICACION WHERE ((""CODIGO_P"& _ 
-                "ARTIDO"" = :Original_CODIGO_PARTIDO) AND (""NOMBRE"" = :Original_NOMBRE) AND (""CANT"& _ 
-                "IDAD_FIRMAS"" = :Original_CANTIDAD_FIRMAS) AND (""ADICIONADO_POR"" = :Original_ADIC"& _ 
-                "IONADO_POR) AND (""FECHA_ADICION"" = :Original_FECHA_ADICION) AND ((:IsNull_MODIFI"& _ 
-                "CADO_POR = 1 AND ""MODIFICADO_POR"" IS NULL) OR (""MODIFICADO_POR"" = :Original_MODI"& _ 
-                "FICADO_POR)) AND ((:IsNull_FECHA_MODIFICACION = 1 AND ""FECHA_MODIFICACION"" IS NU"& _ 
-                "LL) OR (""FECHA_MODIFICACION"" = :Original_FECHA_MODIFICACION)))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE ""IM_PARTIDOS_POLITICOS"" SET ""CODIGO_PARTIDO"" = :CODIGO_PARTIDO, ""NOMBRE"" ="& _ 
+                " :NOMBRE, ""CANTIDAD_FIRMAS"" = :CANTIDAD_FIRMAS, ""ADICIONADO_POR"" = :ADICIONADO_P"& _ 
+                "OR, ""FECHA_ADICION"" = :FECHA_ADICION, ""MODIFICADO_POR"" = :MODIFICADO_POR, ""FECHA"& _ 
+                "_MODIFICACION"" = :FECHA_MODIFICACION WHERE ((""CODIGO_PARTIDO"" = :Original_CODIGO"& _ 
+                "_PARTIDO) AND (""NOMBRE"" = :Original_NOMBRE) AND (""CANTIDAD_FIRMAS"" = :Original_C"& _ 
+                "ANTIDAD_FIRMAS) AND (""ADICIONADO_POR"" = :Original_ADICIONADO_POR) AND (""FECHA_AD"& _ 
+                "ICION"" = :Original_FECHA_ADICION) AND ((:IsNull_MODIFICADO_POR = 1 AND ""MODIFICA"& _ 
+                "DO_POR"" IS NULL) OR (""MODIFICADO_POR"" = :Original_MODIFICADO_POR)) AND ((:IsNull"& _ 
+                "_FECHA_MODIFICACION = 1 AND ""FECHA_MODIFICACION"" IS NULL) OR (""FECHA_MODIFICACIO"& _ 
+                "N"" = :Original_FECHA_MODIFICACION)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_PARTIDO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IMAGEN", Global.System.Data.OracleClient.OracleType.Blob, 0, Global.System.Data.ParameterDirection.Input, "IMAGEN", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NOMBRE", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CANTIDAD_FIRMAS", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CANTIDAD_FIRMAS", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -9827,8 +9756,8 @@ Namespace DSInsCandidatosTableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT CODIGO_PARTIDO, IMAGEN, NOMBRE, CANTIDAD_FIRMAS, ADICIONADO_POR, FECHA_ADI"& _ 
-                "CION, MODIFICADO_POR, FECHA_MODIFICACION FROM TSE.IM_PARTIDOS_POLITICOS"
+            Me._commandCollection(0).CommandText = "SELECT CODIGO_PARTIDO, NOMBRE, CANTIDAD_FIRMAS, ADICIONADO_POR, FECHA_ADICION, MO"& _ 
+                "DIFICADO_POR, FECHA_MODIFICACION FROM IM_PARTIDOS_POLITICOS"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -9974,61 +9903,56 @@ Namespace DSInsCandidatosTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal CODIGO_PARTIDO As Decimal, ByVal IMAGEN() As Byte, ByVal NOMBRE As String, ByVal CANTIDAD_FIRMAS As Decimal, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_PARTIDO As Decimal, ByVal Original_NOMBRE As String, ByVal Original_CANTIDAD_FIRMAS As Decimal, ByVal Original_ADICIONADO_POR As String, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As String, ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Update(ByVal CODIGO_PARTIDO As Decimal, ByVal NOMBRE As String, ByVal CANTIDAD_FIRMAS As Decimal, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_PARTIDO As Decimal, ByVal Original_NOMBRE As String, ByVal Original_CANTIDAD_FIRMAS As Decimal, ByVal Original_ADICIONADO_POR As String, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As String, ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CODIGO_PARTIDO,Decimal)
-            If (IMAGEN Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("IMAGEN")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(IMAGEN,Byte())
-            End If
             If (NOMBRE Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("NOMBRE")
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(NOMBRE,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(NOMBRE,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(CANTIDAD_FIRMAS,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(CANTIDAD_FIRMAS,Decimal)
             If (ADICIONADO_POR Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("ADICIONADO_POR")
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(ADICIONADO_POR,String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(ADICIONADO_POR,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(FECHA_ADICION,Date)
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(FECHA_ADICION,Date)
             If (MODIFICADO_POR Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(MODIFICADO_POR,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(MODIFICADO_POR,String)
             End If
             If (FECHA_MODIFICACION.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(FECHA_MODIFICACION.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(FECHA_MODIFICACION.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_CODIGO_PARTIDO,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_CODIGO_PARTIDO,Decimal)
             If (Original_NOMBRE Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_NOMBRE")
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_NOMBRE,String)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_NOMBRE,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_CANTIDAD_FIRMAS,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_CANTIDAD_FIRMAS,Decimal)
             If (Original_ADICIONADO_POR Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_ADICIONADO_POR")
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_ADICIONADO_POR,String)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_ADICIONADO_POR,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_FECHA_ADICION,Date)
+            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_FECHA_ADICION,Date)
             If (Original_MODIFICADO_POR Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_MODIFICADO_POR,String)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_MODIFICADO_POR,String)
             End If
             If (Original_FECHA_MODIFICACION.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_FECHA_MODIFICACION.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_FECHA_MODIFICACION.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -10048,8 +9972,8 @@ Namespace DSInsCandidatosTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal IMAGEN() As Byte, ByVal NOMBRE As String, ByVal CANTIDAD_FIRMAS As Decimal, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_PARTIDO As Decimal, ByVal Original_NOMBRE As String, ByVal Original_CANTIDAD_FIRMAS As Decimal, ByVal Original_ADICIONADO_POR As String, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As String, ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
-            Return Me.Update(Original_CODIGO_PARTIDO, IMAGEN, NOMBRE, CANTIDAD_FIRMAS, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, Original_CODIGO_PARTIDO, Original_NOMBRE, Original_CANTIDAD_FIRMAS, Original_ADICIONADO_POR, Original_FECHA_ADICION, Original_MODIFICADO_POR, Original_FECHA_MODIFICACION)
+        Public Overloads Overridable Function Update(ByVal NOMBRE As String, ByVal CANTIDAD_FIRMAS As Decimal, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_PARTIDO As Decimal, ByVal Original_NOMBRE As String, ByVal Original_CANTIDAD_FIRMAS As Decimal, ByVal Original_ADICIONADO_POR As String, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As String, ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+            Return Me.Update(Original_CODIGO_PARTIDO, NOMBRE, CANTIDAD_FIRMAS, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, Original_CODIGO_PARTIDO, Original_NOMBRE, Original_CANTIDAD_FIRMAS, Original_ADICIONADO_POR, Original_FECHA_ADICION, Original_MODIFICADO_POR, Original_FECHA_MODIFICACION)
         End Function
     End Class
     
@@ -10961,8 +10885,6 @@ Namespace DSInsCandidatosTableAdapters
             tableMapping.ColumnMappings.Add("CODIGO_MOVIMIENTO", "CODIGO_MOVIMIENTO")
             tableMapping.ColumnMappings.Add("NOMBRE_MOVIMIENTO", "NOMBRE_MOVIMIENTO")
             tableMapping.ColumnMappings.Add("CODIGO_PARTIDO", "CODIGO_PARTIDO")
-            tableMapping.ColumnMappings.Add("INSIGNIA", "INSIGNIA")
-            tableMapping.ColumnMappings.Add("EMBLEMA", "EMBLEMA")
             tableMapping.ColumnMappings.Add("ADICIONADO_POR", "ADICIONADO_POR")
             tableMapping.ColumnMappings.Add("FECHA_ADICION", "FECHA_ADICION")
             tableMapping.ColumnMappings.Add("MODIFICADO_POR", "MODIFICADO_POR")
@@ -10970,13 +10892,13 @@ Namespace DSInsCandidatosTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OracleClient.OracleCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM ""TSE"".""IM_MOVIMIENTOS"" WHERE ((""CODIGO_MOVIMIENTO"" = :Original_CODIGO"& _ 
-                "_MOVIMIENTO) AND (""NOMBRE_MOVIMIENTO"" = :Original_NOMBRE_MOVIMIENTO) AND (""CODIG"& _ 
-                "O_PARTIDO"" = :Original_CODIGO_PARTIDO) AND (""ADICIONADO_POR"" = :Original_ADICION"& _ 
-                "ADO_POR) AND (""FECHA_ADICION"" = :Original_FECHA_ADICION) AND ((:IsNull_MODIFICAD"& _ 
-                "O_POR = 1 AND ""MODIFICADO_POR"" IS NULL) OR (""MODIFICADO_POR"" = :Original_MODIFIC"& _ 
-                "ADO_POR)) AND ((:IsNull_FECHA_MODIFICACION = 1 AND ""FECHA_MODIFICACION"" IS NULL)"& _ 
-                " OR (""FECHA_MODIFICACION"" = :Original_FECHA_MODIFICACION)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM ""IM_MOVIMIENTOS"" WHERE ((""CODIGO_MOVIMIENTO"" = :Original_CODIGO_MOVIM"& _ 
+                "IENTO) AND (""NOMBRE_MOVIMIENTO"" = :Original_NOMBRE_MOVIMIENTO) AND (""CODIGO_PART"& _ 
+                "IDO"" = :Original_CODIGO_PARTIDO) AND (""ADICIONADO_POR"" = :Original_ADICIONADO_PO"& _ 
+                "R) AND (""FECHA_ADICION"" = :Original_FECHA_ADICION) AND ((:IsNull_MODIFICADO_POR "& _ 
+                "= 1 AND ""MODIFICADO_POR"" IS NULL) OR (""MODIFICADO_POR"" = :Original_MODIFICADO_PO"& _ 
+                "R)) AND ((:IsNull_FECHA_MODIFICACION = 1 AND ""FECHA_MODIFICACION"" IS NULL) OR ("""& _ 
+                "FECHA_MODIFICACION"" = :Original_FECHA_MODIFICACION)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_MOVIMIENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_NOMBRE_MOVIMIENTO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE_MOVIMIENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -11006,23 +10928,21 @@ Namespace DSInsCandidatosTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FECHA_MODIFICACION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_MODIFICACION", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OracleClient.OracleCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE ""TSE"".""IM_MOVIMIENTOS"" SET ""CODIGO_MOVIMIENTO"" = :CODIGO_MOVIMIENTO, ""NOMB"& _ 
-                "RE_MOVIMIENTO"" = :NOMBRE_MOVIMIENTO, ""CODIGO_PARTIDO"" = :CODIGO_PARTIDO, ""INSIGN"& _ 
-                "IA"" = :INSIGNIA, ""EMBLEMA"" = :EMBLEMA, ""ADICIONADO_POR"" = :ADICIONADO_POR, ""FECH"& _ 
-                "A_ADICION"" = :FECHA_ADICION, ""MODIFICADO_POR"" = :MODIFICADO_POR, ""FECHA_MODIFICA"& _ 
-                "CION"" = :FECHA_MODIFICACION WHERE ((""CODIGO_MOVIMIENTO"" = :Original_CODIGO_MOVIM"& _ 
-                "IENTO) AND (""NOMBRE_MOVIMIENTO"" = :Original_NOMBRE_MOVIMIENTO) AND (""CODIGO_PART"& _ 
-                "IDO"" = :Original_CODIGO_PARTIDO) AND (""ADICIONADO_POR"" = :Original_ADICIONADO_PO"& _ 
-                "R) AND (""FECHA_ADICION"" = :Original_FECHA_ADICION) AND ((:IsNull_MODIFICADO_POR "& _ 
-                "= 1 AND ""MODIFICADO_POR"" IS NULL) OR (""MODIFICADO_POR"" = :Original_MODIFICADO_PO"& _ 
-                "R)) AND ((:IsNull_FECHA_MODIFICACION = 1 AND ""FECHA_MODIFICACION"" IS NULL) OR ("""& _ 
-                "FECHA_MODIFICACION"" = :Original_FECHA_MODIFICACION)))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE ""IM_MOVIMIENTOS"" SET ""CODIGO_MOVIMIENTO"" = :CODIGO_MOVIMIENTO, ""NOMBRE_MOV"& _ 
+                "IMIENTO"" = :NOMBRE_MOVIMIENTO, ""CODIGO_PARTIDO"" = :CODIGO_PARTIDO, ""ADICIONADO_P"& _ 
+                "OR"" = :ADICIONADO_POR, ""FECHA_ADICION"" = :FECHA_ADICION, ""MODIFICADO_POR"" = :MOD"& _ 
+                "IFICADO_POR, ""FECHA_MODIFICACION"" = :FECHA_MODIFICACION WHERE ((""CODIGO_MOVIMIEN"& _ 
+                "TO"" = :Original_CODIGO_MOVIMIENTO) AND (""NOMBRE_MOVIMIENTO"" = :Original_NOMBRE_M"& _ 
+                "OVIMIENTO) AND (""CODIGO_PARTIDO"" = :Original_CODIGO_PARTIDO) AND (""ADICIONADO_PO"& _ 
+                "R"" = :Original_ADICIONADO_POR) AND (""FECHA_ADICION"" = :Original_FECHA_ADICION) A"& _ 
+                "ND ((:IsNull_MODIFICADO_POR = 1 AND ""MODIFICADO_POR"" IS NULL) OR (""MODIFICADO_PO"& _ 
+                "R"" = :Original_MODIFICADO_POR)) AND ((:IsNull_FECHA_MODIFICACION = 1 AND ""FECHA_"& _ 
+                "MODIFICACION"" IS NULL) OR (""FECHA_MODIFICACION"" = :Original_FECHA_MODIFICACION))"& _ 
+                ")"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_MOVIMIENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NOMBRE_MOVIMIENTO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_PARTIDO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("INSIGNIA", Global.System.Data.OracleClient.OracleType.Blob, 0, Global.System.Data.ParameterDirection.Input, "INSIGNIA", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("EMBLEMA", Global.System.Data.OracleClient.OracleType.Blob, 0, Global.System.Data.ParameterDirection.Input, "EMBLEMA", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ADICIONADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "ADICIONADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("FECHA_ADICION", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("MODIFICADO_POR", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "MODIFICADO_POR", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -11049,9 +10969,8 @@ Namespace DSInsCandidatosTableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO, CODIGO_PARTIDO, INSIGNIA, EMBLEMA, A"& _ 
-                "DICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION FROM TSE.IM_MOV"& _ 
-                "IMIENTOS"
+            Me._commandCollection(0).CommandText = "SELECT CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO, CODIGO_PARTIDO, ADICIONADO_POR, FECH"& _ 
+                "A_ADICION, MODIFICADO_POR, FECHA_MODIFICACION FROM IM_MOVIMIENTOS"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -11202,23 +11121,7 @@ Namespace DSInsCandidatosTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal CODIGO_MOVIMIENTO As Decimal,  _
-                    ByVal NOMBRE_MOVIMIENTO As String,  _
-                    ByVal CODIGO_PARTIDO As Decimal,  _
-                    ByVal INSIGNIA() As Byte,  _
-                    ByVal EMBLEMA() As Byte,  _
-                    ByVal ADICIONADO_POR As String,  _
-                    ByVal FECHA_ADICION As Date,  _
-                    ByVal MODIFICADO_POR As String,  _
-                    ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date),  _
-                    ByVal Original_CODIGO_MOVIMIENTO As Decimal,  _
-                    ByVal Original_NOMBRE_MOVIMIENTO As String,  _
-                    ByVal Original_CODIGO_PARTIDO As Decimal,  _
-                    ByVal Original_ADICIONADO_POR As String,  _
-                    ByVal Original_FECHA_ADICION As Date,  _
-                    ByVal Original_MODIFICADO_POR As String,  _
-                    ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Update(ByVal CODIGO_MOVIMIENTO As Decimal, ByVal NOMBRE_MOVIMIENTO As String, ByVal CODIGO_PARTIDO As Decimal, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_MOVIMIENTO As Decimal, ByVal Original_NOMBRE_MOVIMIENTO As String, ByVal Original_CODIGO_PARTIDO As Decimal, ByVal Original_ADICIONADO_POR As String, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As String, ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CODIGO_MOVIMIENTO,Decimal)
             If (NOMBRE_MOVIMIENTO Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("NOMBRE_MOVIMIENTO")
@@ -11226,58 +11129,48 @@ Namespace DSInsCandidatosTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(1).Value = CType(NOMBRE_MOVIMIENTO,String)
             End If
             Me.Adapter.UpdateCommand.Parameters(2).Value = CType(CODIGO_PARTIDO,Decimal)
-            If (INSIGNIA Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("INSIGNIA")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(INSIGNIA,Byte())
-            End If
-            If (EMBLEMA Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("EMBLEMA")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(EMBLEMA,Byte())
-            End If
             If (ADICIONADO_POR Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("ADICIONADO_POR")
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(ADICIONADO_POR,String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(ADICIONADO_POR,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(FECHA_ADICION,Date)
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(FECHA_ADICION,Date)
             If (MODIFICADO_POR Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(MODIFICADO_POR,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(MODIFICADO_POR,String)
             End If
             If (FECHA_MODIFICACION.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(FECHA_MODIFICACION.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(FECHA_MODIFICACION.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_CODIGO_MOVIMIENTO,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_CODIGO_MOVIMIENTO,Decimal)
             If (Original_NOMBRE_MOVIMIENTO Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_NOMBRE_MOVIMIENTO")
             Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_NOMBRE_MOVIMIENTO,String)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_NOMBRE_MOVIMIENTO,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_CODIGO_PARTIDO,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_CODIGO_PARTIDO,Decimal)
             If (Original_ADICIONADO_POR Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_ADICIONADO_POR")
             Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_ADICIONADO_POR,String)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_ADICIONADO_POR,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_FECHA_ADICION,Date)
+            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_FECHA_ADICION,Date)
             If (Original_MODIFICADO_POR Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_MODIFICADO_POR,String)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_MODIFICADO_POR,String)
             End If
             If (Original_FECHA_MODIFICACION.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_FECHA_MODIFICACION.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_FECHA_MODIFICACION.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -11297,8 +11190,8 @@ Namespace DSInsCandidatosTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal NOMBRE_MOVIMIENTO As String, ByVal INSIGNIA() As Byte, ByVal EMBLEMA() As Byte, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_MOVIMIENTO As Decimal, ByVal Original_NOMBRE_MOVIMIENTO As String, ByVal Original_CODIGO_PARTIDO As Decimal, ByVal Original_ADICIONADO_POR As String, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As String, ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
-            Return Me.Update(Original_CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO, Original_CODIGO_PARTIDO, INSIGNIA, EMBLEMA, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, Original_CODIGO_MOVIMIENTO, Original_NOMBRE_MOVIMIENTO, Original_CODIGO_PARTIDO, Original_ADICIONADO_POR, Original_FECHA_ADICION, Original_MODIFICADO_POR, Original_FECHA_MODIFICACION)
+        Public Overloads Overridable Function Update(ByVal NOMBRE_MOVIMIENTO As String, ByVal ADICIONADO_POR As String, ByVal FECHA_ADICION As Date, ByVal MODIFICADO_POR As String, ByVal FECHA_MODIFICACION As Global.System.Nullable(Of Date), ByVal Original_CODIGO_MOVIMIENTO As Decimal, ByVal Original_NOMBRE_MOVIMIENTO As String, ByVal Original_CODIGO_PARTIDO As Decimal, ByVal Original_ADICIONADO_POR As String, ByVal Original_FECHA_ADICION As Date, ByVal Original_MODIFICADO_POR As String, ByVal Original_FECHA_MODIFICACION As Global.System.Nullable(Of Date)) As Integer
+            Return Me.Update(Original_CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO, Original_CODIGO_PARTIDO, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, Original_CODIGO_MOVIMIENTO, Original_NOMBRE_MOVIMIENTO, Original_CODIGO_PARTIDO, Original_ADICIONADO_POR, Original_FECHA_ADICION, Original_MODIFICADO_POR, Original_FECHA_MODIFICACION)
         End Function
     End Class
     

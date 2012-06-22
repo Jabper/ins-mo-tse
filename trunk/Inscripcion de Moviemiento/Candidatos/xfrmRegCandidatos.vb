@@ -4,7 +4,7 @@ Public Class xfrmRegCandidatos
     Dim vi As Integer = 0
     Dim depto As Integer = 0
     Dim muni As Integer = 0
-    Dim estado_candidato As Integer = "I"
+    Dim estado_candidato As String = "I"
 
 
     Sub AgregarFilasGrid(ByVal NumeroCeldas As Integer)
@@ -34,10 +34,11 @@ Public Class xfrmRegCandidatos
     End Sub
     Private Sub xfrmRegCandidatos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
+        Dim cons As String = "SELECT NOMBRE FROM IM_PARTIDOS_POLITICOS WHERE CODIGO_PARTIDO = " & IdPartidoPolitico
+        Dim con As String = "SELECT NOMBRE_MOVIMIENTO FROM IM_MOVIMIENTOS WHERE CODIGO_PARTIDO = " & IdPartidoPolitico & " AND CODIGO_MOVIMIENTO = " & IdMovimientoPolitico
 
-
-        Me.lblMovimiento.Text = IdMovimientoPolitico
-        Me.lblPartido.Text = IdPartidoPolitico
+        Me.lblMovimiento.Text = COracle.ObtenerDatos(con, "NOMBRE_MOVIMIENTO")
+        Me.lblPartido.Text = COracle.ObtenerDatos(con, "NOMBRE")
         'TODO: This line of code loads data into the 'DSInsCandidatos.DUAL' table. You can move, or remove it, as needed.
         'Me.DUALTableAdapter.Fill(Me.DSInsCandidatos.DUAL)
         'TODO: This line of code loads data into the 'DSInsCandidatos.IM_CANDIDATOS' table. You can move, or remove it, as needed.
@@ -117,7 +118,7 @@ Public Class xfrmRegCandidatos
     End Sub
 
 
-    Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton1.Click
+    Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         ' AgregarFilasGrid(Me.TextEdit1.EditValue)
 
     End Sub
