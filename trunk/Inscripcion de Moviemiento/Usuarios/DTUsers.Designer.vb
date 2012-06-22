@@ -5874,7 +5874,7 @@ Namespace DTUsersTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(1) {}
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(3) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT CODIGO_USUARIO, CODIGO_ROL, NOMBRE, IDENTIDAD, CONTRASENA, ESTADO, CODIGO_"& _ 
@@ -5890,6 +5890,21 @@ Namespace DTUsersTableAdapters
                 "OS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE CODIGO_USUARIO=:Us"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Us", Global.System.Data.OracleClient.OracleType.VarChar, 10, Global.System.Data.ParameterDirection.Input, "CODIGO_USUARIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT        CODIGO_USUARIO, CODIGO_ROL, NOMBRE, IDENTIDAD, CONTRASENA, ESTADO, "& _ 
+                "CODIGO_MOVIMIENTO, PREGUNTA_SEGURIDAD, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RESPUESTA_SEGU"& _ 
+                "RIDAD, NIVEL, CODIGO_PARTIDO, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FEC"& _ 
+                "HA_MODIFICACION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_USUARIOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (NIVEL = 3) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
+                "                    (NIVEL = 2)"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(3).Connection = Me.Connection
+            Me._commandCollection(3).CommandText = "SELECT CODIGO_USUARIO, CODIGO_ROL, NOMBRE, IDENTIDAD, CONTRASENA, ESTADO, CODIGO_"& _ 
+                "MOVIMIENTO, PREGUNTA_SEGURIDAD, RESPUESTA_SEGURIDAD, NIVEL, CODIGO_PARTIDO, ADIC"& _ 
+                "IONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION FROM TSE.IM_USUARI"& _ 
+                "OS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where NIVEL=3"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5941,6 +5956,50 @@ Namespace DTUsersTableAdapters
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(Us,String)
             End If
+            Dim dataTable As DTUsers.IM_USUARIOSDataTable = New DTUsers.IM_USUARIOSDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy1(ByVal dataTable As DTUsers.IM_USUARIOSDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy2() As DTUsers.IM_USUARIOSDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Dim dataTable As DTUsers.IM_USUARIOSDataTable = New DTUsers.IM_USUARIOSDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function VerNivel3(ByVal dataTable As DTUsers.IM_USUARIOSDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy1() As DTUsers.IM_USUARIOSDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             Dim dataTable As DTUsers.IM_USUARIOSDataTable = New DTUsers.IM_USUARIOSDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -7810,7 +7869,7 @@ Namespace DTUsersTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT IM_USUARIOS.CODIGO_USUARIO,  IM_USUARIOS.IDENTIDAD,  IM_USUARIOS.NIVEL, IM"& _ 
@@ -7823,6 +7882,31 @@ Namespace DTUsersTableAdapters
                 "DIGO_USUARIO = IM_PARTIDOS_POLITICOS.ADICIONADO_POR AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"IM_MOVIMIENTOS.CODIGO_"& _ 
                 "PARTIDO = IM_PARTIDOS_POLITICOS.CODIGO_PARTIDO"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT IM_USUARIOS.CODIGO_USUARIO,  IM_USUARIOS.IDENTIDAD,  IM_USUARIOS.NIVEL, IM"& _ 
+                "_USUARIOS.NOMBRE, IM_USUARIOS.ESTADO, IM_ROLES.DESCRIPCION ROL, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       IM_PART"& _ 
+                "IDOS_POLITICOS.NOMBRE AS PARTIDO, IM_MOVIMIENTOS.NOMBRE_MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM IM_USUA"& _ 
+                "RIOS, IM_ROLES, IM_MOVIMIENTOS, IM_PARTIDOS_POLITICOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE IM_USUARIOS.CODIGO_"& _ 
+                "ROL = IM_ROLES.CODIGO_ROL AND IM_USUARIOS.CODIGO_USUARIO = IM_ROLES.ADICIONADO_P"& _ 
+                "OR AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"IM_USUARIOS.CODIGO_USUARIO = IM_MOVIMIENTOS.ADICIONADO_POR AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"IM_USU"& _ 
+                "ARIOS.CODIGO_PARTIDO = IM_PARTIDOS_POLITICOS.CODIGO_PARTIDO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"IM_USUARIOS.CO"& _ 
+                "DIGO_USUARIO = IM_PARTIDOS_POLITICOS.ADICIONADO_POR AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"IM_MOVIMIENTOS.CODIGO_"& _ 
+                "PARTIDO = IM_PARTIDOS_POLITICOS.CODIGO_PARTIDO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and       (IM_USUARIOS.NIVEL= 3)"& _ 
+                " OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (IM_USUARIOS.NIVEL= 2)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT IM_USUARIOS.CODIGO_USUARIO,  IM_USUARIOS.IDENTIDAD,  IM_USUARIOS.NIVEL, IM"& _ 
+                "_USUARIOS.NOMBRE, IM_USUARIOS.ESTADO, IM_ROLES.DESCRIPCION ROL, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       IM_PART"& _ 
+                "IDOS_POLITICOS.NOMBRE AS PARTIDO, IM_MOVIMIENTOS.NOMBRE_MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM IM_USUA"& _ 
+                "RIOS, IM_ROLES, IM_MOVIMIENTOS, IM_PARTIDOS_POLITICOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE IM_USUARIOS.CODIGO_"& _ 
+                "ROL = IM_ROLES.CODIGO_ROL AND IM_USUARIOS.CODIGO_USUARIO = IM_ROLES.ADICIONADO_P"& _ 
+                "OR AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"IM_USUARIOS.CODIGO_USUARIO = IM_MOVIMIENTOS.ADICIONADO_POR AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"IM_USU"& _ 
+                "ARIOS.CODIGO_PARTIDO = IM_PARTIDOS_POLITICOS.CODIGO_PARTIDO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"IM_USUARIOS.CO"& _ 
+                "DIGO_USUARIO = IM_PARTIDOS_POLITICOS.ADICIONADO_POR AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"IM_MOVIMIENTOS.CODIGO_"& _ 
+                "PARTIDO = IM_PARTIDOS_POLITICOS.CODIGO_PARTIDO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and  IM_USUARIOS.NIVEL=3"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7842,6 +7926,50 @@ Namespace DTUsersTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As DTUsers.DT_USUARIOSDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As DTUsers.DT_USUARIOSDataTable = New DTUsers.DT_USUARIOSDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function Nivel2(ByVal dataTable As DTUsers.DT_USUARIOSDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy() As DTUsers.DT_USUARIOSDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Dim dataTable As DTUsers.DT_USUARIOSDataTable = New DTUsers.DT_USUARIOSDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function Nivel3(ByVal dataTable As DTUsers.DT_USUARIOSDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy1() As DTUsers.DT_USUARIOSDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
             Dim dataTable As DTUsers.DT_USUARIOSDataTable = New DTUsers.DT_USUARIOSDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable

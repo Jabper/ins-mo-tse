@@ -22,6 +22,7 @@ Partial Class XfrmUsuarios
         Me.components = New System.ComponentModel.Container
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
+        Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
         Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
         Me.DataLayoutControl1 = New DevExpress.XtraDataLayout.DataLayoutControl
@@ -45,7 +46,7 @@ Partial Class XfrmUsuarios
         Me.CODIGO_MOVIMIENTOSpinEdit = New DevExpress.XtraEditors.LookUpEdit
         Me.IMMOVIMIENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ESTADOTextEdit = New DevExpress.XtraEditors.CheckEdit
-        Me.NIVELSpinEdit = New DevExpress.XtraEditors.SpinEdit
+        Me.NIVELSpinEdit = New DevExpress.XtraEditors.LookUpEdit
         Me.ItemForADICIONADO_POR = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForFECHA_ADICION = New DevExpress.XtraLayout.LayoutControlItem
         Me.ItemForMODIFICADO_POR = New DevExpress.XtraLayout.LayoutControlItem
@@ -79,6 +80,7 @@ Partial Class XfrmUsuarios
         Me.colCODIGO_USUARIO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colNOMBRE = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colESTADO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
         Me.colNOMBRE_MOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colPARTIDO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colROL = New DevExpress.XtraGrid.Columns.GridColumn
@@ -154,6 +156,7 @@ Partial Class XfrmUsuarios
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DTUSUARIOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -180,12 +183,25 @@ Partial Class XfrmUsuarios
         'PanelControl1
         '
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl1.Controls.Add(Me.BtnSalir)
         Me.PanelControl1.Controls.Add(Me.BtnNuevo)
         Me.PanelControl1.Controls.Add(Me.BtnGuardar)
         Me.PanelControl1.Location = New System.Drawing.Point(12, 12)
         Me.PanelControl1.Name = "PanelControl1"
         Me.PanelControl1.Size = New System.Drawing.Size(321, 61)
         Me.PanelControl1.TabIndex = 7
+        '
+        'BtnSalir
+        '
+        Me.BtnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnSalir.Appearance.Options.UseFont = True
+        Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
+        Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnSalir.Location = New System.Drawing.Point(123, 3)
+        Me.BtnSalir.Name = "BtnSalir"
+        Me.BtnSalir.Size = New System.Drawing.Size(55, 55)
+        Me.BtnSalir.TabIndex = 11
+        Me.BtnSalir.Text = "Salir"
         '
         'BtnNuevo
         '
@@ -264,8 +280,7 @@ Partial Class XfrmUsuarios
         Me.IDENTIDADTextEdit.Location = New System.Drawing.Point(133, 60)
         Me.IDENTIDADTextEdit.Name = "IDENTIDADTextEdit"
         Me.IDENTIDADTextEdit.Properties.Mask.BeepOnError = True
-        Me.IDENTIDADTextEdit.Properties.Mask.EditMask = "0000-0000-00000"
-        Me.IDENTIDADTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple
+        Me.IDENTIDADTextEdit.Properties.MaxLength = 15
         Me.IDENTIDADTextEdit.Size = New System.Drawing.Size(167, 20)
         Me.IDENTIDADTextEdit.StyleController = Me.DataLayoutControl1
         Me.IDENTIDADTextEdit.TabIndex = 7
@@ -435,6 +450,7 @@ Partial Class XfrmUsuarios
         Me.ESTADOTextEdit.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
         Me.ESTADOTextEdit.Properties.Caption = "Activar Usuario"
         Me.ESTADOTextEdit.Properties.ValueChecked = "A"
+        Me.ESTADOTextEdit.Properties.ValueGrayed = "I"
         Me.ESTADOTextEdit.Properties.ValueUnchecked = "I"
         Me.ESTADOTextEdit.Size = New System.Drawing.Size(215, 19)
         Me.ESTADOTextEdit.StyleController = Me.DataLayoutControl1
@@ -446,7 +462,9 @@ Partial Class XfrmUsuarios
         Me.NIVELSpinEdit.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
         Me.NIVELSpinEdit.Location = New System.Drawing.Point(133, 228)
         Me.NIVELSpinEdit.Name = "NIVELSpinEdit"
-        Me.NIVELSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
+        Me.NIVELSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.NIVELSpinEdit.Properties.NullText = ""
+        Me.NIVELSpinEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
         Me.NIVELSpinEdit.Size = New System.Drawing.Size(110, 20)
         Me.NIVELSpinEdit.StyleController = Me.DataLayoutControl1
         Me.NIVELSpinEdit.TabIndex = 13
@@ -736,6 +754,7 @@ Partial Class XfrmUsuarios
         Me.GCBusqueda.Location = New System.Drawing.Point(12, 367)
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
+        Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1})
         Me.GCBusqueda.Size = New System.Drawing.Size(867, 92)
         Me.GCBusqueda.TabIndex = 8
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
@@ -757,6 +776,7 @@ Partial Class XfrmUsuarios
         Me.GridView1.OptionsView.ColumnAutoWidth = False
         Me.GridView1.OptionsView.ShowDetailButtons = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
+        Me.GridView1.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.colNOMBRE, DevExpress.Data.ColumnSortOrder.Descending)})
         '
         'colCODIGO_USUARIO
         '
@@ -779,11 +799,20 @@ Partial Class XfrmUsuarios
         'colESTADO
         '
         Me.colESTADO.Caption = "Estado"
+        Me.colESTADO.ColumnEdit = Me.RepositoryItemCheckEdit1
         Me.colESTADO.FieldName = "ESTADO"
         Me.colESTADO.Name = "colESTADO"
         Me.colESTADO.Visible = True
         Me.colESTADO.VisibleIndex = 7
         Me.colESTADO.Width = 48
+        '
+        'RepositoryItemCheckEdit1
+        '
+        Me.RepositoryItemCheckEdit1.AutoHeight = False
+        Me.RepositoryItemCheckEdit1.Name = "RepositoryItemCheckEdit1"
+        Me.RepositoryItemCheckEdit1.ValueChecked = "A"
+        Me.RepositoryItemCheckEdit1.ValueGrayed = "I"
+        Me.RepositoryItemCheckEdit1.ValueUnchecked = "I"
         '
         'colNOMBRE_MOVIMIENTO
         '
@@ -992,6 +1021,7 @@ Partial Class XfrmUsuarios
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DTUSUARIOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1073,7 +1103,9 @@ Partial Class XfrmUsuarios
     Friend WithEvents colROL As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colIDENTIDAD As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colNIVEL As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents NIVELSpinEdit As DevExpress.XtraEditors.SpinEdit
     Friend WithEvents EmptySpaceItem11 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents BtnSalir As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents NIVELSpinEdit As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
 End Class
