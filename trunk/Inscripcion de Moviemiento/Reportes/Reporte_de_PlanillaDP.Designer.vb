@@ -60,6 +60,9 @@ Partial Public Class Reporte_de_PlanillaDP
         Me.DataField = New DevExpress.XtraReports.UI.XRControlStyle
         Me.TopMarginBand1 = New DevExpress.XtraReports.UI.TopMarginBand
         Me.BottomMarginBand1 = New DevExpress.XtraReports.UI.BottomMarginBand
+        Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
+        Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
+        Me.NivelElectivo = New DevExpress.XtraReports.Parameters.Parameter
         CType(Me.DS_REPORTE_DE_DP1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
@@ -421,16 +424,34 @@ Partial Public Class Reporte_de_PlanillaDP
         '
         Me.BottomMarginBand1.Name = "BottomMarginBand1"
         '
+        'NombrePartido
+        '
+        Me.NombrePartido.Description = "Nombre de Partido Politico"
+        Me.NombrePartido.Name = "NombrePartido"
+        '
+        'NombreMovimiento
+        '
+        Me.NombreMovimiento.Description = "Nombre de Movimiento"
+        Me.NombreMovimiento.Name = "NombreMovimiento"
+        '
+        'NivelElectivo
+        '
+        Me.NivelElectivo.Description = "Nivel Electivo"
+        Me.NivelElectivo.Name = "NivelElectivo"
+        '
         'Reporte_de_PlanillaDP
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.GroupHeaderBand1, Me.GroupHeaderBand2, Me.GroupHeaderBand3, Me.PageFooterBand1, Me.ReportHeaderBand1, Me.TopMarginBand1, Me.BottomMarginBand1})
         Me.DataAdapter = Me.IM_V_PLANILLAS_X_DPOLITICAAdapter1
         Me.DataMember = "IM_V_PLANILLAS_X_DPOLITICA"
         Me.DataSource = Me.DS_REPORTE_DE_DP1
+        Me.FilterString = "[NOMBRE PARTIDO] = ?NombrePartido Or [NOMBRE MOVIMIENTO ] = ?NombreMovimiento Or " & _
+            "[NIVEL ELECTIVO] = ?NivelElectivo"
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(32, 23, 38, 100)
         Me.PageHeight = 850
         Me.PageWidth = 1100
+        Me.Parameters.AddRange(New DevExpress.XtraReports.Parameters.Parameter() {Me.NombrePartido, Me.NombreMovimiento, Me.NivelElectivo})
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.StyleSheet.AddRange(New DevExpress.XtraReports.UI.XRControlStyle() {Me.Title, Me.FieldCaption, Me.PageInfo, Me.DataField})
         Me.Version = "11.2"
@@ -479,4 +500,7 @@ Partial Public Class Reporte_de_PlanillaDP
     Friend WithEvents DataField As DevExpress.XtraReports.UI.XRControlStyle
     Friend WithEvents TopMarginBand1 As DevExpress.XtraReports.UI.TopMarginBand
     Friend WithEvents BottomMarginBand1 As DevExpress.XtraReports.UI.BottomMarginBand
+    Friend WithEvents NombrePartido As DevExpress.XtraReports.Parameters.Parameter
+    Friend WithEvents NombreMovimiento As DevExpress.XtraReports.Parameters.Parameter
+    Friend WithEvents NivelElectivo As DevExpress.XtraReports.Parameters.Parameter
 End Class

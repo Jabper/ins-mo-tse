@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:mstns="http://tempuri.org/nwindDataSet.xsd" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" id="DS_REPORTE_DE_FDP" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema id="DS_REPORTE_DE_FDP" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="Data Source=TSEDB2;User ID=tse;Password=oracle;" IsAppSettingsProperty="false" Modifier="Assembly" ParameterPrefix="@" Provider="System.Data.OracleClient" Name="Connection" />
+          <Connection ConnectionStringObject="Data Source=TSEDB2;User ID=tse;Password=oracle" IsAppSettingsProperty="false" Modifier="Assembly" Name="Connection" ParameterPrefix="@" Provider="System.Data.OracleClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="IM_V_FIRMAS_DIVISION_POLITICAAdapter" Name="IM_V_FIRMAS_DIVISION_POLITICA" UserDataComponentName="IM_V_FIRMAS_DIVISION_POLITICAAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="IM_V_FIRMAS_DIVISION_POLITICAAdapter" GeneratorDataComponentClassName="IM_V_FIRMAS_DIVISION_POLITICAAdapter" Name="IM_V_FIRMAS_DIVISION_POLITICA" UserDataComponentName="IM_V_FIRMAS_DIVISION_POLITICAAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Connection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="Connection" DbObjectName="TSE.IM_V_FIRMAS_DIVISION_POLITICA" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT IDENTIDAD, NOMBRE, APELLIDOS, PARTIDO, MOVIMIENTO, DEPARTAMENTO, MUNICIPIO, ESTADO FROM TSE.IM_V_FIRMAS_DIVISION_POLITICA</CommandText>
+                    <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
@@ -27,70 +28,142 @@
               <Mapping SourceColumn="MUNICIPIO" DataSetColumn="MUNICIPIO" />
               <Mapping SourceColumn="ESTADO" DataSetColumn="ESTADO" />
             </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DT_PLANILLA_PARTIDO_MTableAdapter" GeneratorDataComponentClassName="DT_PLANILLA_PARTIDO_MTableAdapter" Name="DT_PLANILLA_PARTIDO_M" UserDataComponentName="DT_PLANILLA_PARTIDO_MTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Connection" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT 0 CODIGO_PARTIDO, 'TODOS' "NOMBRE PARTIDO"
+FROM IM_PARTIDOS_POLITICOS
+UNION
+SELECT  CODIGO_PARTIDO, NOMBRE "NOMBRE PARTIDO"
+FROM IM_PARTIDOS_POLITICOS</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CODIGO_PARTIDO" DataSetColumn="CODIGO_PARTIDO" />
+              <Mapping SourceColumn="NOMBRE PARTIDO" DataSetColumn="NOMBRE PARTIDO" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DT_PLANILLA_NIVEL_MTableAdapter" GeneratorDataComponentClassName="DT_PLANILLA_NIVEL_MTableAdapter" Name="DT_PLANILLA_NIVEL_M" UserDataComponentName="DT_PLANILLA_NIVEL_MTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Connection" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT 99 CODIGO_NIVEL_ELECTIVO, 'TODOS' "NIVEL ELECTIVO"
+FROM IM_NIVEL_ELECTIVO
+UNION
+SELECT CODIGO_NIVEL_ELECTIVO, DESCRIPCION "NIVEL ELECTIVO"
+FROM IM_NIVEL_ELECTIVO</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CODIGO_NIVEL_ELECTIVO" DataSetColumn="CODIGO_NIVEL_ELECTIVO" />
+              <Mapping SourceColumn="NIVEL ELECTIVO" DataSetColumn="NIVEL ELECTIVO" />
+            </Mappings>
+            <Sources />
           </TableAdapter>
         </Tables>
+        <Sources />
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DS_REPORTE_DE_FDP" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+  <xs:element name="DS_REPORTE_DE_FDP" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DS_REPORTE_DE_FDP" msprop:Generator_DataSetName="DS_REPORTE_DE_FDP">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="IM_V_FIRMAS_DIVISION_POLITICA">
+        <xs:element name="IM_V_FIRMAS_DIVISION_POLITICA" msprop:Generator_UserTableName="IM_V_FIRMAS_DIVISION_POLITICA" msprop:Generator_RowDeletedName="IM_V_FIRMAS_DIVISION_POLITICARowDeleted" msprop:Generator_TableClassName="IM_V_FIRMAS_DIVISION_POLITICADataTable" msprop:Generator_RowChangedName="IM_V_FIRMAS_DIVISION_POLITICARowChanged" msprop:Generator_RowClassName="IM_V_FIRMAS_DIVISION_POLITICARow" msprop:Generator_RowChangingName="IM_V_FIRMAS_DIVISION_POLITICARowChanging" msprop:Generator_RowEvArgName="IM_V_FIRMAS_DIVISION_POLITICARowChangeEvent" msprop:Generator_RowEvHandlerName="IM_V_FIRMAS_DIVISION_POLITICARowChangeEventHandler" msprop:Generator_TablePropName="IM_V_FIRMAS_DIVISION_POLITICA" msprop:Generator_TableVarName="tableIM_V_FIRMAS_DIVISION_POLITICA" msprop:Generator_RowDeletingName="IM_V_FIRMAS_DIVISION_POLITICARowDeleting">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="IDENTIDAD">
+              <xs:element name="IDENTIDAD" msprop:Generator_UserColumnName="IDENTIDAD" msprop:Generator_ColumnPropNameInRow="IDENTIDAD" msprop:Generator_ColumnVarNameInTable="columnIDENTIDAD" msprop:Generator_ColumnPropNameInTable="IDENTIDADColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="15" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NOMBRE" minOccurs="0">
+              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="101" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="APELLIDOS" minOccurs="0">
+              <xs:element name="APELLIDOS" msprop:Generator_UserColumnName="APELLIDOS" msprop:Generator_ColumnPropNameInRow="APELLIDOS" msprop:Generator_ColumnVarNameInTable="columnAPELLIDOS" msprop:Generator_ColumnPropNameInTable="APELLIDOSColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="101" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PARTIDO">
+              <xs:element name="PARTIDO" msprop:Generator_UserColumnName="PARTIDO" msprop:Generator_ColumnPropNameInRow="PARTIDO" msprop:Generator_ColumnVarNameInTable="columnPARTIDO" msprop:Generator_ColumnPropNameInTable="PARTIDOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MOVIMIENTO">
+              <xs:element name="MOVIMIENTO" msprop:Generator_UserColumnName="MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnMOVIMIENTO" msprop:Generator_ColumnPropNameInTable="MOVIMIENTOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DEPARTAMENTO">
+              <xs:element name="DEPARTAMENTO" msprop:Generator_UserColumnName="DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MUNICIPIO">
+              <xs:element name="MUNICIPIO" msprop:Generator_UserColumnName="MUNICIPIO" msprop:Generator_ColumnPropNameInRow="MUNICIPIO" msprop:Generator_ColumnVarNameInTable="columnMUNICIPIO" msprop:Generator_ColumnPropNameInTable="MUNICIPIOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ESTADO" minOccurs="0">
+              <xs:element name="ESTADO" msprop:Generator_UserColumnName="ESTADO" msprop:Generator_ColumnPropNameInRow="ESTADO" msprop:Generator_ColumnVarNameInTable="columnESTADO" msprop:Generator_ColumnPropNameInTable="ESTADOColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_PLANILLA_PARTIDO_M" msprop:Generator_UserTableName="DT_PLANILLA_PARTIDO_M" msprop:Generator_RowDeletedName="DT_PLANILLA_PARTIDO_MRowDeleted" msprop:Generator_TableClassName="DT_PLANILLA_PARTIDO_MDataTable" msprop:Generator_RowChangedName="DT_PLANILLA_PARTIDO_MRowChanged" msprop:Generator_RowClassName="DT_PLANILLA_PARTIDO_MRow" msprop:Generator_RowChangingName="DT_PLANILLA_PARTIDO_MRowChanging" msprop:Generator_RowEvArgName="DT_PLANILLA_PARTIDO_MRowChangeEvent" msprop:Generator_RowEvHandlerName="DT_PLANILLA_PARTIDO_MRowChangeEventHandler" msprop:Generator_TablePropName="DT_PLANILLA_PARTIDO_M" msprop:Generator_TableVarName="tableDT_PLANILLA_PARTIDO_M" msprop:Generator_RowDeletingName="DT_PLANILLA_PARTIDO_MRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NOMBRE_x0020_PARTIDO" msprop:Generator_UserColumnName="NOMBRE PARTIDO" msprop:Generator_ColumnPropNameInRow="NOMBRE_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_PARTIDO" msprop:Generator_ColumnPropNameInTable="NOMBRE_PARTIDOColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_PLANILLA_NIVEL_M" msprop:Generator_UserTableName="DT_PLANILLA_NIVEL_M" msprop:Generator_RowDeletedName="DT_PLANILLA_NIVEL_MRowDeleted" msprop:Generator_TableClassName="DT_PLANILLA_NIVEL_MDataTable" msprop:Generator_RowChangedName="DT_PLANILLA_NIVEL_MRowChanged" msprop:Generator_RowClassName="DT_PLANILLA_NIVEL_MRow" msprop:Generator_RowChangingName="DT_PLANILLA_NIVEL_MRowChanging" msprop:Generator_RowEvArgName="DT_PLANILLA_NIVEL_MRowChangeEvent" msprop:Generator_RowEvHandlerName="DT_PLANILLA_NIVEL_MRowChangeEventHandler" msprop:Generator_TablePropName="DT_PLANILLA_NIVEL_M" msprop:Generator_TableVarName="tableDT_PLANILLA_NIVEL_M" msprop:Generator_RowDeletingName="DT_PLANILLA_NIVEL_MRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CODIGO_NIVEL_ELECTIVO" msprop:Generator_UserColumnName="CODIGO_NIVEL_ELECTIVO" msprop:Generator_ColumnPropNameInRow="CODIGO_NIVEL_ELECTIVO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_NIVEL_ELECTIVO" msprop:Generator_ColumnPropNameInTable="CODIGO_NIVEL_ELECTIVOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NIVEL_x0020_ELECTIVO" msprop:Generator_UserColumnName="NIVEL ELECTIVO" msprop:Generator_ColumnPropNameInRow="NIVEL_ELECTIVO" msprop:Generator_ColumnVarNameInTable="columnNIVEL_ELECTIVO" msprop:Generator_ColumnPropNameInTable="NIVEL_ELECTIVOColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
