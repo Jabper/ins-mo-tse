@@ -56,8 +56,6 @@ Partial Class xfrmRegCandidatos
         Me.PictureEdit2 = New DevExpress.XtraEditors.PictureEdit
         Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
-        Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit
-        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton
         Me.DUALTableAdapter = New Inscripcion_de_Moviemientos.DSInsCandidatosTableAdapters.DUALTableAdapter
         Me.GCBusqueda = New DevExpress.XtraGrid.GridControl
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
@@ -102,7 +100,6 @@ Partial Class xfrmRegCandidatos
         Me.PanelControl3.SuspendLayout()
         CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ChkEstado, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -447,21 +444,6 @@ Partial Class xfrmRegCandidatos
         Me.PictureEdit1.Size = New System.Drawing.Size(24, 25)
         Me.PictureEdit1.TabIndex = 23
         '
-        'TextEdit1
-        '
-        Me.TextEdit1.Location = New System.Drawing.Point(371, 93)
-        Me.TextEdit1.Name = "TextEdit1"
-        Me.TextEdit1.Size = New System.Drawing.Size(100, 20)
-        Me.TextEdit1.TabIndex = 28
-        '
-        'SimpleButton1
-        '
-        Me.SimpleButton1.Location = New System.Drawing.Point(562, 96)
-        Me.SimpleButton1.Name = "SimpleButton1"
-        Me.SimpleButton1.Size = New System.Drawing.Size(75, 23)
-        Me.SimpleButton1.TabIndex = 29
-        Me.SimpleButton1.Text = "SimpleButton1"
-        '
         'DUALTableAdapter
         '
         Me.DUALTableAdapter.ClearBeforeFill = True
@@ -692,8 +674,6 @@ Partial Class xfrmRegCandidatos
         Me.Controls.Add(Me.lblMovimiento)
         Me.Controls.Add(Me.lblPartido)
         Me.Controls.Add(Me.GCBusqueda)
-        Me.Controls.Add(Me.SimpleButton1)
-        Me.Controls.Add(Me.TextEdit1)
         Me.Controls.Add(Me.PanelControl2)
         Me.Controls.Add(Me.LabelControl5)
         Me.Controls.Add(Me.cboCargo)
@@ -724,7 +704,6 @@ Partial Class xfrmRegCandidatos
         Me.PanelControl3.PerformLayout()
         CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ChkEstado, System.ComponentModel.ISupportInitialize).EndInit()
@@ -775,8 +754,6 @@ Partial Class xfrmRegCandidatos
     Friend WithEvents PictureEdit2 As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents LabelControl8 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents PictureEdit1 As DevExpress.XtraEditors.PictureEdit
-    Friend WithEvents TextEdit1 As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents DUALBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents DUALTableAdapter As Inscripcion_de_Moviemientos.DSInsCandidatosTableAdapters.DUALTableAdapter
     Friend WithEvents GCBusqueda As DevExpress.XtraGrid.GridControl
