@@ -12,7 +12,8 @@ Public Class XfrmLogin
         Me.KeyPreview = True
 
     End Sub
-    Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox3.Click
+
+    Sub ingresar()
         If Me.DxValidationProvider1.Validate = True Then
 
             If COracle.Login(Me.TxtUsuario, Me.TxtPassword) = True Then
@@ -32,6 +33,9 @@ Public Class XfrmLogin
 
             End If
         End If
+    End Sub
+    Private Sub PictureBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox3.Click
+        ingresar()
     End Sub
 
     Private Sub XfrmLogin_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
@@ -58,5 +62,26 @@ Public Class XfrmLogin
     Private Sub PictureBox3_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox3.MouseLeave
         PictureBox3.Height -= 3
         PictureBox3.Width -= 3
+    End Sub
+
+    Private Sub TxtPassword_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TxtPassword.EditValueChanged
+
+    End Sub
+
+    Private Sub TxtPassword_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TxtPassword.KeyDown
+        If e.KeyCode = Keys.End Then
+            ingresar()
+        End If
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+
+        If (XtraMessageBox.Show("¿Desea salir del sistema?", "Confirmar", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes) Then
+
+            End
+
+        End If
+
+
     End Sub
 End Class
