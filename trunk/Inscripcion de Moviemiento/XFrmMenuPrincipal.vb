@@ -259,4 +259,9 @@ Public Class XFrmMenuPrincipal
         Dim reporte6 As Reporte_de_cruce_FPA = New Reporte_de_cruce_FPA
         reporte6.ShowPreview()
     End Sub
+
+    Private Sub BarButtonItem7_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem7.ItemClick
+        Dim reporte7 As Reporte_de_Resumen_Firmas_DP = New Reporte_de_Resumen_Firmas_DP
+        reporte7.ShowPreview()
+    End Sub
 End Class
