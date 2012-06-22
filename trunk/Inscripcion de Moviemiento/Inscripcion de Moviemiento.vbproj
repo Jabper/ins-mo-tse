@@ -205,6 +205,12 @@
     <Compile Include="Consultas\XfrmConFirmas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Consultas\XfrmJerarquico.Designer.vb">
+      <DependentUpon>XfrmJerarquico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\XfrmJerarquico.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DataSet1.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -511,6 +517,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\XfrmConFirmas.resx">
       <DependentUpon>XfrmConFirmas.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\XfrmJerarquico.resx">
+      <DependentUpon>XfrmJerarquico.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
