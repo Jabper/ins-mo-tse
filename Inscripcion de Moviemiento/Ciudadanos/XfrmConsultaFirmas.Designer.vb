@@ -35,6 +35,7 @@ Partial Class XfrmConsultaFirmas
         Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl
+        Me.SimpleButton3 = New DevExpress.XtraEditors.SimpleButton
         Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
         Me.BtnUpdate = New DevExpress.XtraEditors.SimpleButton
         Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton
@@ -336,6 +337,7 @@ Partial Class XfrmConsultaFirmas
         Me.PanelControl3.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.PanelControl3.Appearance.Options.UseBackColor = True
         Me.PanelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl3.Controls.Add(Me.SimpleButton3)
         Me.PanelControl3.Controls.Add(Me.BtnEliminar)
         Me.PanelControl3.Controls.Add(Me.BtnUpdate)
         Me.PanelControl3.Controls.Add(Me.SimpleButton2)
@@ -360,6 +362,17 @@ Partial Class XfrmConsultaFirmas
         Me.PanelControl3.Name = "PanelControl3"
         Me.PanelControl3.Size = New System.Drawing.Size(759, 241)
         Me.PanelControl3.TabIndex = 17
+        '
+        'SimpleButton3
+        '
+        Me.SimpleButton3.Appearance.Options.UseTextOptions = True
+        Me.SimpleButton3.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.SimpleButton3.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
+        Me.SimpleButton3.Location = New System.Drawing.Point(214, 196)
+        Me.SimpleButton3.Name = "SimpleButton3"
+        Me.SimpleButton3.Size = New System.Drawing.Size(96, 36)
+        Me.SimpleButton3.TabIndex = 47
+        Me.SimpleButton3.Text = "Salir"
         '
         'BtnEliminar
         '
@@ -626,6 +639,7 @@ Partial Class XfrmConsultaFirmas
         Me.GridView1.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridView1.OptionsView.ColumnAutoWidth = False
         Me.GridView1.OptionsView.ShowDetailButtons = False
+        Me.GridView1.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never
         Me.GridView1.OptionsView.ShowGroupPanel = False
         Me.GridView1.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.colNOMBRE_IGUAL, DevExpress.Data.ColumnSortOrder.Ascending)})
         '
@@ -1176,4 +1190,5 @@ Partial Class XfrmConsultaFirmas
     Friend WithEvents SimpleButton2 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnEliminar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnUpdate As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton3 As DevExpress.XtraEditors.SimpleButton
 End Class

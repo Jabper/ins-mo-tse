@@ -123,7 +123,13 @@ Public Class XfrmCiudadanos
             VControles.solonumeros(e)
         End If
     End Sub
-
+    Sub estadistico()
+        CREstadistico.calcular()
+        Me.lblconsistentes.Text = Math.Round(CREstadistico.Firmasmovimiento, 0)
+        Me.lblporcentaje.Text = Math.Round(CREstadistico.porcentaje, 2) & "%"
+        Me.lblfirmasnecesarias.Text = Math.Round(CREstadistico.TotalFirmas, 0)
+        Me.lblinconsistentes.Text = Math.Round(CREstadistico.FirmasInconsistentes, 0)
+    End Sub
     Private Sub XfrmCiudadanos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'TODO: This line of code loads data into the 'DSCiudadanos.IM_CIUDADANOS_RESPALDAN1' table. You can move, or remove it, as needed.
         'Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Fill(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
@@ -131,7 +137,7 @@ Public Class XfrmCiudadanos
         Me.TA_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.TA_DEPARTAMENTOS)
         Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
         Estado.OptionsColumn.AllowEdit = False
-
+        estadistico()
     End Sub
 
     Sub establecer()
@@ -329,6 +335,7 @@ Public Class XfrmCiudadanos
             If capturarerrores() = 0 Then
                 Me.BtnGuardar.Visible = False
                 Mensajes.MensajeGuardar()
+                estadistico()
                 If XtraMessageBox.Show("Registros almacenados correctamente," & vbCrLf & noinconsistentes & " registros presentan inconsistencia" & vbCrLf & "presione Ok para cerrar la pantalla", "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
                     Me.Close()
                 End If
