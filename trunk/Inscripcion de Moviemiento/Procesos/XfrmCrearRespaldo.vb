@@ -19,7 +19,7 @@ Public Class XfrmCrearRespaldo
             Try
                 Dim startInfo As ProcessStartInfo
                 Dim pStart As New Process
-                startInfo = New ProcessStartInfo("cmd.exe", "/C exp TSE/oracle@TSEDB2 Buffer=5000000 File=" & TxtRuta.Text & "\Respaldo.dmp direct=Y Consistent=Y Rows=Y compress=N")
+                startInfo = New ProcessStartInfo("cmd.exe", "/C exp TSE/oracle@TSEDB2 Buffer=5000000 File=" & TxtRuta.Text & "\Respaldo.dmp direct=Y Consistent=Y compress=N")
                 pStart.StartInfo = startInfo
                 pStart.Start()
                 pStart.WaitForExit()
