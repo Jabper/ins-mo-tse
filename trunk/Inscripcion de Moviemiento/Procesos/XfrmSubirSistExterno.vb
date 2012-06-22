@@ -150,7 +150,7 @@ Public Class XfrmSubirSistExterno
 
                 Dim oradb As String = Configuracion.verconfig
                 Dim conn As New OracleConnection()
-                Dim myCMD As New OracleCommand()
+                Dim myCMD As New OracleCommand()               
                 conn.ConnectionString = oradb
                 conn.Open()
                 For Each row As System.Data.DataRow In dt.Rows
@@ -165,14 +165,14 @@ Public Class XfrmSubirSistExterno
                         & "', '" & row.Item(8).ToString & "', '" & row.Item(9).ToString & "', 'TSE', to_date('" & DateTime.Now & "','dd/mm/yyyy hh:mi:ss p.m.')" _
                         & ", null, null, '" & row.Item(10).ToString & "')"
                         myCMD.CommandType = CommandType.Text
-                        myCMD.ExecuteOracleScalar()
+                        myCMD.ExecuteOracleScalar()                        
                     Catch ex As Exception
                         conn.Close()
                         waitDialog.Caption = "finalizando..."
                         waitDialog.Close()
                         Mensajes.MensajeError(ex.Message)
                         Return False
-                    End Try
+                    End Try                   
                 Next
                 conn.Close()
             End Using
@@ -345,7 +345,7 @@ Public Class XfrmSubirSistExterno
     End Function
 
     Private Function subir_firmas(ByVal Filename As String) As Boolean
-        Dim waitDialog As New WaitDialogForm("Procesando Información", "Por favor espere..")
+        'Dim waitDialog As New WaitDialogForm("Procesando Información", "Por favor espere..")
         Try
             Dim extension As String = IO.Path.GetExtension(Filename)
             Dim connString As String = "Data Source=" & Filename
@@ -356,8 +356,8 @@ Public Class XfrmSubirSistExterno
                 connString &= ";Provider=Microsoft.ACE.OLEDB.12.0; Extended Properties='Excel 12.0 Xml;HDR=YES;IMEX=1'"
             Else
                 Mensajes.MensajeError("El tipo de archivo seleccionado no esta permitido")
-                waitDialog.Caption = "finalizando..."
-                waitDialog.Close()
+                'waitDialog.Caption = "finalizando..."
+                'waitDialog.Close()
                 Return False
             End If
 
@@ -379,8 +379,8 @@ Public Class XfrmSubirSistExterno
                     myCMD1.ExecuteOracleScalar()
                 Catch ex As Exception
                     conn1.Close()
-                    waitDialog.Caption = "finalizando..."
-                    waitDialog.Close()
+                    'waitDialog.Caption = "finalizando..."
+                    'waitDialog.Close()
                     Mensajes.MensajeError(ex.Message)
                     Return False
                 End Try
@@ -389,6 +389,7 @@ Public Class XfrmSubirSistExterno
                 Dim oradb As String = Configuracion.verconfig
                 Dim conn As New OracleConnection()
                 Dim myCMD As New OracleCommand()
+                Dim i As Integer = 0
                 conn.ConnectionString = oradb
                 conn.Open()
                 Try
@@ -409,23 +410,27 @@ Public Class XfrmSubirSistExterno
                         myCMD.CommandType = CommandType.Text
                         myCMD.ExecuteOracleScalar()
                         'CoWaitForMultipleHandles(
+                        i = i + 1
+                        If i Mod 5000 = 0 Then
+                            MsgBox("Se ha procesado " & i & " registros. Procesando por favor espere...")
+                        End If
                     Next
                 Catch ex As Exception
                     conn.Close()
-                    waitDialog.Caption = "finalizando..."
-                    waitDialog.Close()
+                    ' waitDialog.Caption = "finalizando..."
+                    'waitDialog.Close()
                     Mensajes.MensajeError(ex.Message)
                     Return False
                 End Try
                 conn.Close()
             End Using
-            waitDialog.Caption = "finalizando..."
-            waitDialog.Close()
+            'waitDialog.Caption = "finalizando..."
+            'waitDialog.Close()
             MsgBox("La Importacion de Firmas ha terminado exitosamente", MsgBoxStyle.Information)
             Return True
         Catch ex As Exception
-            waitDialog.Caption = "finalizando..."
-            waitDialog.Close()
+            'waitDialog.Caption = "finalizando..."
+            'waitDialog.Close()
             Mensajes.MensajeError(ex.Message)
             Return False
         End Try
