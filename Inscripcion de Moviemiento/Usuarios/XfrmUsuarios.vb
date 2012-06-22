@@ -11,12 +11,13 @@ Public Class XfrmUsuarios
 
     Private Sub XfrmUsuarios_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         '******************************************
-        Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
-        Me.DT_USUARIOSTableAdapter.Fill(Me.DTUsers.DT_USUARIOS)
+        ActualizarGrid()
+
         'Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
         'TODO: This line of code loads data into the 'DSPolitico.IM_MOVIMIENTOS' table. You can move, or remove it, as needed.
-        Me.TA_ROLESTableAdapter.Fill(Me.DTUsers.TA_ROLES)
+
         PreguntasDeSeguridad()
+        niveles()
         Me.IMUSUARIOSBindingSource.AddNew()
         '*******************************************
        
@@ -36,7 +37,9 @@ Public Class XfrmUsuarios
         'SE AGREGAN LAS FILAS CON LA INFORMACION
         tbl.Rows.Add(1, "¿Nombre de mi mascosta?")
         tbl.Rows.Add(2, "¿Lugar de Nacimiento?")
-
+        tbl.Rows.Add(3, "¿Color Favorito?")
+        tbl.Rows.Add(4, "¿Lugar de nacimiento?")
+        tbl.Rows.Add(5, "¿Lugar de nacimiento?")
         'SE ENLAZA EL DATATABLE CREADO PARA MOSTRARLO EN EL CONTROL
         With PREGUNTA_SEGURIDADTextEdit
             .Properties.DataSource = tbl
@@ -53,7 +56,41 @@ Public Class XfrmUsuarios
 
     End Sub
 
+    Sub niveles()
+        Dim tblniveles As New DataTable()
+        'SE CREAN LAS COLUMNAS DEL DATA TABLE
+        tblniveles.Columns.Add("Id", GetType(Integer))
+        tblniveles.Columns.Add("Nivel", GetType(String))
+        'SE AGREGAN LAS FILAS CON LA INFORMACION
+        Select Case NivelUsuario
+            Case 3
+                tblniveles.Rows.Add(3, "3")
+            Case 2
+                tblniveles.Rows.Add(2, "2")
+                tblniveles.Rows.Add(3, "3")
+            Case 1
+                tblniveles.Rows.Add(1, "1")
+                tblniveles.Rows.Add(2, "2")
+                tblniveles.Rows.Add(3, "3")
 
+        End Select
+        
+        'SE ENLAZA EL DATATABLE CREADO PARA MOSTRARLO EN EL CONTROL
+        With NIVELSpinEdit
+            .Properties.DataSource = tblniveles
+            .Properties.ValueMember = "Id"
+            .Properties.DisplayMember = "Nivel"
+            'SE PREPARA EL CONTROL PARA OCULTAR COLUMNAS
+            .Properties.ForceInitialize()
+            .Properties.PopulateColumns()
+            'SE OCULTA INFORMACION 
+            .Properties.Columns(0).Visible = False
+            .Properties.Columns(1).Visible = True
+        End With
+
+
+
+    End Sub
     Sub Nuevo()
         Try
             Me.IMUSUARIOSBindingSource.CancelEdit()
@@ -118,7 +155,15 @@ Public Class XfrmUsuarios
     End Sub
 
     Sub ActualizarGrid()
+        Select Case NivelUsuario
+            Case 3
+                Me.DT_USUARIOSTableAdapter.Nivel3(Me.DTUsers.DT_USUARIOS)
+            Case 2
+                Me.DT_USUARIOSTableAdapter.Nivel2(Me.DTUsers.DT_USUARIOS)
+            Case 1
+                Me.DT_USUARIOSTableAdapter.Fill(Me.DTUsers.DT_USUARIOS)
 
+        End Select
     End Sub
 
     Private Sub CODIGO_PARTIDOSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_PARTIDOSpinEdit.EditValueChanged
@@ -148,12 +193,21 @@ Public Class XfrmUsuarios
         Nuevo()
     End Sub
 
-    Private Sub GridView1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.DoubleClick
+    Private Sub GridView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.Click
         MostrarDatos()
     End Sub
 
   
     Private Sub CODIGO_USUARIOSpinEdit_InvalidValue(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs) Handles CODIGO_USUARIOSpinEdit.InvalidValue
         e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction
+    End Sub
+
+
+    Private Sub IDENTIDADTextEdit_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles IDENTIDADTextEdit.KeyPress
+        VControles.solonumeros(e)
+    End Sub
+
+    Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
+        Me.Close()
     End Sub
 End Class

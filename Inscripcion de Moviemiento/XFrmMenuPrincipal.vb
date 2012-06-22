@@ -54,9 +54,9 @@ Public Class XFrmMenuPrincipal
         '    End If
         'Next
 
+        Me.Hide()
+        XfrmLogin.ShowDialog(Me)
 
-        'XfrmLogin.ShowDialog(Me)
-        'Me.Hide()
     End Sub
 
     Private Sub verificar_permisos()
@@ -142,7 +142,7 @@ Public Class XFrmMenuPrincipal
     End Sub
 
     Private Sub BtnCandidatos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCandidatos.ItemClick
-        Padre(xfrmInscripcionCandidato)
+        Padre(xfrmRegCandidatos)
     End Sub
 
     Private Sub BtnOperaciones_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnOperaciones.ItemClick
