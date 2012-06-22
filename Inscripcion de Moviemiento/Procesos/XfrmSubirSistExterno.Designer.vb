@@ -20,6 +20,7 @@ Partial Class XfrmSubirSistExterno
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel
+        Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.BtnCandidatosRepetidos = New DevExpress.XtraEditors.SimpleButton
         Me.BtnFirmas = New DevExpress.XtraEditors.SimpleButton
         Me.BtnCandidatos = New DevExpress.XtraEditors.SimpleButton
@@ -34,7 +35,6 @@ Partial Class XfrmSubirSistExterno
         Me.PictureBox2 = New System.Windows.Forms.PictureBox
         Me.PictureBox3 = New System.Windows.Forms.PictureBox
         Me.PictureBox4 = New System.Windows.Forms.PictureBox
-        Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
         Me.Panel1.SuspendLayout()
         CType(Me.TxtRuta.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,6 +66,20 @@ Partial Class XfrmSubirSistExterno
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(559, 238)
         Me.Panel1.TabIndex = 24
+        '
+        'BtnSalir
+        '
+        Me.BtnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnSalir.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.BtnSalir.Appearance.Options.UseFont = True
+        Me.BtnSalir.Appearance.Options.UseForeColor = True
+        Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
+        Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnSalir.Location = New System.Drawing.Point(467, 157)
+        Me.BtnSalir.Name = "BtnSalir"
+        Me.BtnSalir.Size = New System.Drawing.Size(67, 66)
+        Me.BtnSalir.TabIndex = 33
+        Me.BtnSalir.Text = "Salir"
         '
         'BtnCandidatosRepetidos
         '
@@ -219,20 +233,6 @@ Partial Class XfrmSubirSistExterno
         Me.PictureBox4.Size = New System.Drawing.Size(34, 34)
         Me.PictureBox4.TabIndex = 28
         Me.PictureBox4.TabStop = False
-        '
-        'BtnSalir
-        '
-        Me.BtnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnSalir.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.BtnSalir.Appearance.Options.UseFont = True
-        Me.BtnSalir.Appearance.Options.UseForeColor = True
-        Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
-        Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnSalir.Location = New System.Drawing.Point(467, 157)
-        Me.BtnSalir.Name = "BtnSalir"
-        Me.BtnSalir.Size = New System.Drawing.Size(67, 66)
-        Me.BtnSalir.TabIndex = 33
-        Me.BtnSalir.Text = "Salir"
         '
         'OpenFileDialog1
         '
