@@ -14,6 +14,7 @@ Public Class XfrmLogin
     End Sub
 
     Sub ingresar()
+        config()
         If Me.DxValidationProvider1.Validate = True Then
 
             If COracle.Login(Me.TxtUsuario, Me.TxtPassword) = True Then
@@ -47,11 +48,34 @@ Public Class XfrmLogin
             End If
         End If
     End Sub
+    Sub config()
+        ORCL.DSoruce = SystemInformation.ComputerName
+        ORCL.pass = "tseoracle2012"
+        ORCL.userid = "TSE"
 
+        If ORCL.ComprobarConexion1 = True Then
+            Configuracion.cambiarconfiguracion()
+            
+        Else
+
+            If ORCL.ComprobarConexion2 = True Then
+
+                Configuracion.cambiarconfiguracion()
+                
+            Else
+                Dim mensaje As String
+                mensaje = "Error al accesar a la base de datos" & vbCrLf & "1. Asegurese de que todos los componentes necesarios esten instalados"
+
+                MsgBox(mensaje, MsgBoxStyle.Critical, "Error de Conexión")
+
+            End If
+        End If
+    End Sub
 
 
     Private Sub XfrmLogin_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.TxtUsuario.Focus()
+
     End Sub
 
     Private Sub PictureBox3_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox3.MouseHover
