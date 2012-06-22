@@ -798,7 +798,7 @@ Namespace DS_REPORTE_DE_FPARTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OracleClient.OracleConnection
-            Me._connection.ConnectionString = "Data Source=TSEDB2;User ID=tse;Password=oracle;"
+            Me._connection.ConnectionString = "Data Source=TSEDB2;User ID=tse;Password=oracle"
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _

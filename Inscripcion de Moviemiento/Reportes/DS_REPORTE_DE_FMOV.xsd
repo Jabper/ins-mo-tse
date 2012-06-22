@@ -1,18 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:mstns="http://tempuri.org/nwindDataSet.xsd" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" id="DS_REPORTE_DE_FMOV" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema id="DS_REPORTE_DE_FMOV" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="Data Source=TSEDB2;User ID=tse;Password=oracle;" IsAppSettingsProperty="false" Modifier="Assembly" ParameterPrefix="@" Provider="System.Data.OracleClient" Name="Connection" />
+          <Connection ConnectionStringObject="Data Source=TSEDB2;User ID=tse;Password=oracle" IsAppSettingsProperty="false" Modifier="Assembly" Name="Connection" ParameterPrefix="@" Provider="System.Data.OracleClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="IM_V_CRUZE_FIRMAS_MOVAdapter" Name="IM_V_CRUZE_FIRMAS_MOV" UserDataComponentName="IM_V_CRUZE_FIRMAS_MOVAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="IM_V_CRUZE_FIRMAS_MOVAdapter" GeneratorDataComponentClassName="IM_V_CRUZE_FIRMAS_MOVAdapter" Name="IM_V_CRUZE_FIRMAS_MOV" UserDataComponentName="IM_V_CRUZE_FIRMAS_MOVAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Connection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="Connection" DbObjectName="TSE.IM_V_CRUZE_FIRMAS_MOV" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT MOVIMIENTO, PARTIDO, IDENTIDAD, NOMBRE, APELLIDOS, DEPARTAMENTO, MUNICIPIO, ESTADO FROM TSE.IM_V_CRUZE_FIRMAS_MOV</CommandText>
+                    <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
@@ -27,67 +28,150 @@
               <Mapping SourceColumn="MUNICIPIO" DataSetColumn="MUNICIPIO" />
               <Mapping SourceColumn="ESTADO" DataSetColumn="ESTADO" />
             </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DT_PARTIDO_CRUCEMTableAdapter" GeneratorDataComponentClassName="DT_PARTIDO_CRUCEMTableAdapter" Name="DT_PARTIDO_CRUCEM" UserDataComponentName="DT_PARTIDO_CRUCEMTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Connection" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT 0 CODIGO_PARTIDO, 'TODOS' "NOMBRE PARTIDO"
+FROM IM_PARTIDOS_POLITICOS
+UNION
+SELECT  CODIGO_PARTIDO, NOMBRE "NOMBRE PARTIDO"
+FROM IM_PARTIDOS_POLITICOS</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CODIGO_PARTIDO" DataSetColumn="CODIGO_PARTIDO" />
+              <Mapping SourceColumn="NOMBRE PARTIDO" DataSetColumn="NOMBRE PARTIDO" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DT_MOVIMIENTO_CRUCEMTableAdapter" GeneratorDataComponentClassName="DT_MOVIMIENTO_CRUCEMTableAdapter" Name="DT_MOVIMIENTO_CRUCEM" UserDataComponentName="DT_MOVIMIENTO_CRUCEMTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Connection" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT 0 CODIGO_MOVIMIENTO, 'TODOS' "NOMBRE MOVIMIENTO"
+FROM IM_MOVIMIENTOS
+UNION
+SELECT CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO "NOMBRE MOVIMIENTO"
+FROM IM_MOVIMIENTOS</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CODIGO_MOVIMIENTO" DataSetColumn="CODIGO_MOVIMIENTO" />
+              <Mapping SourceColumn="NOMBRE MOVIMIENTO" DataSetColumn="NOMBRE MOVIMIENTO" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="IM_DEPARTAMENTOS_CMOVTableAdapter" GeneratorDataComponentClassName="IM_DEPARTAMENTOS_CMOVTableAdapter" Name="IM_DEPARTAMENTOS_CMOV" UserDataComponentName="IM_DEPARTAMENTOS_CMOVTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Connection" DbObjectName="TSE.IM_DEPARTAMENTOS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM "IM_DEPARTAMENTOS" WHERE (("CODIGO_DEPARTAMENTO" = :Original_CODIGO_DEPARTAMENTO) AND ("DESCRIPCION" = :Original_DEPARTAMENTO))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="VarNumeric" Direction="Input" ParameterName="Original_CODIGO_DEPARTAMENTO" Precision="0" ProviderType="Number" Scale="0" Size="0" SourceColumn="CODIGO_DEPARTAMENTO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="Original_DEPARTAMENTO" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DEPARTAMENTO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        CODIGO_DEPARTAMENTO, DESCRIPCION "DEPARTAMENTO"
+FROM            IM_DEPARTAMENTOS
+ORDER BY CODIGO_DEPARTAMENTO</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE "IM_DEPARTAMENTOS" SET "CODIGO_DEPARTAMENTO" = :CODIGO_DEPARTAMENTO, "DESCRIPCION" = :DEPARTAMENTO WHERE (("CODIGO_DEPARTAMENTO" = :Original_CODIGO_DEPARTAMENTO) AND ("DESCRIPCION" = :Original_DEPARTAMENTO))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="VarNumeric" Direction="Input" ParameterName="CODIGO_DEPARTAMENTO" Precision="0" ProviderType="Number" Scale="0" Size="0" SourceColumn="CODIGO_DEPARTAMENTO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="DEPARTAMENTO" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DEPARTAMENTO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="VarNumeric" Direction="Input" ParameterName="Original_CODIGO_DEPARTAMENTO" Precision="0" ProviderType="Number" Scale="0" Size="0" SourceColumn="CODIGO_DEPARTAMENTO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="Original_DEPARTAMENTO" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DEPARTAMENTO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CODIGO_DEPARTAMENTO" DataSetColumn="CODIGO_DEPARTAMENTO" />
+              <Mapping SourceColumn="DEPARTAMENTO" DataSetColumn="DEPARTAMENTO" />
+            </Mappings>
+            <Sources />
           </TableAdapter>
         </Tables>
+        <Sources />
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DS_REPORTE_DE_FMOV" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+  <xs:element name="DS_REPORTE_DE_FMOV" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DS_REPORTE_DE_FMOV" msprop:Generator_DataSetName="DS_REPORTE_DE_FMOV">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="IM_V_CRUZE_FIRMAS_MOV">
+        <xs:element name="IM_V_CRUZE_FIRMAS_MOV" msprop:Generator_UserTableName="IM_V_CRUZE_FIRMAS_MOV" msprop:Generator_RowDeletedName="IM_V_CRUZE_FIRMAS_MOVRowDeleted" msprop:Generator_TableClassName="IM_V_CRUZE_FIRMAS_MOVDataTable" msprop:Generator_RowChangedName="IM_V_CRUZE_FIRMAS_MOVRowChanged" msprop:Generator_RowClassName="IM_V_CRUZE_FIRMAS_MOVRow" msprop:Generator_RowChangingName="IM_V_CRUZE_FIRMAS_MOVRowChanging" msprop:Generator_RowEvArgName="IM_V_CRUZE_FIRMAS_MOVRowChangeEvent" msprop:Generator_RowEvHandlerName="IM_V_CRUZE_FIRMAS_MOVRowChangeEventHandler" msprop:Generator_TablePropName="IM_V_CRUZE_FIRMAS_MOV" msprop:Generator_TableVarName="tableIM_V_CRUZE_FIRMAS_MOV" msprop:Generator_RowDeletingName="IM_V_CRUZE_FIRMAS_MOVRowDeleting">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="MOVIMIENTO">
+              <xs:element name="MOVIMIENTO" msprop:Generator_UserColumnName="MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnMOVIMIENTO" msprop:Generator_ColumnPropNameInTable="MOVIMIENTOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PARTIDO">
+              <xs:element name="PARTIDO" msprop:Generator_UserColumnName="PARTIDO" msprop:Generator_ColumnPropNameInRow="PARTIDO" msprop:Generator_ColumnVarNameInTable="columnPARTIDO" msprop:Generator_ColumnPropNameInTable="PARTIDOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="IDENTIDAD">
+              <xs:element name="IDENTIDAD" msprop:Generator_UserColumnName="IDENTIDAD" msprop:Generator_ColumnPropNameInRow="IDENTIDAD" msprop:Generator_ColumnVarNameInTable="columnIDENTIDAD" msprop:Generator_ColumnPropNameInTable="IDENTIDADColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="15" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NOMBRE" minOccurs="0">
+              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="101" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="APELLIDOS" minOccurs="0">
+              <xs:element name="APELLIDOS" msprop:Generator_UserColumnName="APELLIDOS" msprop:Generator_ColumnPropNameInRow="APELLIDOS" msprop:Generator_ColumnVarNameInTable="columnAPELLIDOS" msprop:Generator_ColumnPropNameInTable="APELLIDOSColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="101" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DEPARTAMENTO">
+              <xs:element name="DEPARTAMENTO" msprop:Generator_UserColumnName="DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MUNICIPIO">
+              <xs:element name="MUNICIPIO" msprop:Generator_UserColumnName="MUNICIPIO" msprop:Generator_ColumnPropNameInRow="MUNICIPIO" msprop:Generator_ColumnVarNameInTable="columnMUNICIPIO" msprop:Generator_ColumnPropNameInTable="MUNICIPIOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ESTADO" minOccurs="0">
+              <xs:element name="ESTADO" msprop:Generator_UserColumnName="ESTADO" msprop:Generator_ColumnPropNameInRow="ESTADO" msprop:Generator_ColumnVarNameInTable="columnESTADO" msprop:Generator_ColumnPropNameInTable="ESTADOColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="13" />
@@ -97,7 +181,53 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="DT_PARTIDO_CRUCEM" msprop:Generator_UserTableName="DT_PARTIDO_CRUCEM" msprop:Generator_RowDeletedName="DT_PARTIDO_CRUCEMRowDeleted" msprop:Generator_TableClassName="DT_PARTIDO_CRUCEMDataTable" msprop:Generator_RowChangedName="DT_PARTIDO_CRUCEMRowChanged" msprop:Generator_RowClassName="DT_PARTIDO_CRUCEMRow" msprop:Generator_RowChangingName="DT_PARTIDO_CRUCEMRowChanging" msprop:Generator_RowEvArgName="DT_PARTIDO_CRUCEMRowChangeEvent" msprop:Generator_RowEvHandlerName="DT_PARTIDO_CRUCEMRowChangeEventHandler" msprop:Generator_TablePropName="DT_PARTIDO_CRUCEM" msprop:Generator_TableVarName="tableDT_PARTIDO_CRUCEM" msprop:Generator_RowDeletingName="DT_PARTIDO_CRUCEMRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NOMBRE_x0020_PARTIDO" msprop:Generator_UserColumnName="NOMBRE PARTIDO" msprop:Generator_ColumnPropNameInRow="NOMBRE_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_PARTIDO" msprop:Generator_ColumnPropNameInTable="NOMBRE_PARTIDOColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_MOVIMIENTO_CRUCEM" msprop:Generator_UserTableName="DT_MOVIMIENTO_CRUCEM" msprop:Generator_RowDeletedName="DT_MOVIMIENTO_CRUCEMRowDeleted" msprop:Generator_TableClassName="DT_MOVIMIENTO_CRUCEMDataTable" msprop:Generator_RowChangedName="DT_MOVIMIENTO_CRUCEMRowChanged" msprop:Generator_RowClassName="DT_MOVIMIENTO_CRUCEMRow" msprop:Generator_RowChangingName="DT_MOVIMIENTO_CRUCEMRowChanging" msprop:Generator_RowEvArgName="DT_MOVIMIENTO_CRUCEMRowChangeEvent" msprop:Generator_RowEvHandlerName="DT_MOVIMIENTO_CRUCEMRowChangeEventHandler" msprop:Generator_TablePropName="DT_MOVIMIENTO_CRUCEM" msprop:Generator_TableVarName="tableDT_MOVIMIENTO_CRUCEM" msprop:Generator_RowDeletingName="DT_MOVIMIENTO_CRUCEMRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CODIGO_MOVIMIENTO" msprop:Generator_UserColumnName="CODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOVIMIENTOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NOMBRE_x0020_MOVIMIENTO" msprop:Generator_UserColumnName="NOMBRE MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="NOMBRE_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="NOMBRE_MOVIMIENTOColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="IM_DEPARTAMENTOS_CMOV" msprop:Generator_UserTableName="IM_DEPARTAMENTOS_CMOV" msprop:Generator_RowDeletedName="IM_DEPARTAMENTOS_CMOVRowDeleted" msprop:Generator_TableClassName="IM_DEPARTAMENTOS_CMOVDataTable" msprop:Generator_RowChangedName="IM_DEPARTAMENTOS_CMOVRowChanged" msprop:Generator_RowClassName="IM_DEPARTAMENTOS_CMOVRow" msprop:Generator_RowChangingName="IM_DEPARTAMENTOS_CMOVRowChanging" msprop:Generator_RowEvArgName="IM_DEPARTAMENTOS_CMOVRowChangeEvent" msprop:Generator_RowEvHandlerName="IM_DEPARTAMENTOS_CMOVRowChangeEventHandler" msprop:Generator_TablePropName="IM_DEPARTAMENTOS_CMOV" msprop:Generator_TableVarName="tableIM_DEPARTAMENTOS_CMOV" msprop:Generator_RowDeletingName="IM_DEPARTAMENTOS_CMOVRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CODIGO_DEPARTAMENTO" msprop:Generator_UserColumnName="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_DEPARTAMENTOColumn" type="xs:decimal" />
+              <xs:element name="DEPARTAMENTO" msprop:Generator_UserColumnName="DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//IM_DEPARTAMENTOS_CMOV" />
+      <xs:field xpath="CODIGO_DEPARTAMENTO" />
+    </xs:unique>
   </xs:element>
 </xs:schema>
