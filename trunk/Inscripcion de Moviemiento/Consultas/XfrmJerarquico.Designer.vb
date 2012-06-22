@@ -26,17 +26,24 @@ Partial Class XfrmJerarquico
         Dim GridLevelNode4 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode
         Dim GridLevelNode5 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode
         Dim GridLevelNode6 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode
-        Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
-        Me.colCODIGO_PARTIDO1 = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colCODIGO_MOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colNOMBRE_MOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.GridControl1 = New DevExpress.XtraGrid.GridControl
         Me.JrPartidosPoliticosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DSConsultas = New Inscripcion_de_Moviemientos.DSConsultas
+        Me.JrPartidosPoliticosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrPartidosPoliticosTableAdapter
+        Me.JrMovimientosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrMovimientosTableAdapter
+        Me.JrNivelesElectivosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrNivelesElectivosTableAdapter
+        Me.JrCargosElectivosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrCargosElectivosTableAdapter
+        Me.JrDepartamentosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrDepartamentosTableAdapter
+        Me.JrMunicipiosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrMunicipiosTableAdapter
+        Me.JrCandidatosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrCandidatosTableAdapter
+        Me.GridControl1 = New DevExpress.XtraGrid.GridControl
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.colCODIGO_PARTIDO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colNOMBRE = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCANTIDAD_FIRMAS = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
+        Me.colCODIGO_PARTIDO1 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCODIGO_MOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colNOMBRE_MOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.GridView3 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.colCODIGO_PARTIDO2 = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCODIGO_MOVIMIENTO1 = New DevExpress.XtraGrid.Columns.GridColumn
@@ -78,78 +85,17 @@ Partial Class XfrmJerarquico
         Me.colNOMBRE1 = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colAPELLIDO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colESTADO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.JrPartidosPoliticosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrPartidosPoliticosTableAdapter
-        Me.JrMovimientosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrMovimientosTableAdapter
-        Me.JrNivelesElectivosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrNivelesElectivosTableAdapter
-        Me.JrCargosElectivosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrCargosElectivosTableAdapter
-        Me.JrDepartamentosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrDepartamentosTableAdapter
-        Me.JrMunicipiosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrMunicipiosTableAdapter
-        Me.JrCandidatosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrCandidatosTableAdapter
-        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.JrPartidosPoliticosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'GridView2
-        '
-        Me.GridView2.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_PARTIDO1, Me.colCODIGO_MOVIMIENTO, Me.colNOMBRE_MOVIMIENTO})
-        Me.GridView2.DetailHeight = 100000
-        Me.GridView2.GridControl = Me.GridControl1
-        Me.GridView2.Name = "GridView2"
-        Me.GridView2.OptionsView.ShowColumnHeaders = False
-        Me.GridView2.OptionsView.ShowGroupPanel = False
-        '
-        'colCODIGO_PARTIDO1
-        '
-        Me.colCODIGO_PARTIDO1.FieldName = "CODIGO_PARTIDO"
-        Me.colCODIGO_PARTIDO1.Name = "colCODIGO_PARTIDO1"
-        '
-        'colCODIGO_MOVIMIENTO
-        '
-        Me.colCODIGO_MOVIMIENTO.FieldName = "CODIGO_MOVIMIENTO"
-        Me.colCODIGO_MOVIMIENTO.Name = "colCODIGO_MOVIMIENTO"
-        '
-        'colNOMBRE_MOVIMIENTO
-        '
-        Me.colNOMBRE_MOVIMIENTO.FieldName = "NOMBRE_MOVIMIENTO"
-        Me.colNOMBRE_MOVIMIENTO.Name = "colNOMBRE_MOVIMIENTO"
-        Me.colNOMBRE_MOVIMIENTO.Visible = True
-        Me.colNOMBRE_MOVIMIENTO.VisibleIndex = 0
-        '
-        'GridControl1
-        '
-        Me.GridControl1.DataSource = Me.JrPartidosPoliticosBindingSource
-        GridLevelNode1.LevelTemplate = Me.GridView2
-        GridLevelNode2.LevelTemplate = Me.GridView3
-        GridLevelNode3.LevelTemplate = Me.GridView4
-        GridLevelNode4.LevelTemplate = Me.GridView5
-        GridLevelNode5.LevelTemplate = Me.GridView6
-        GridLevelNode6.LevelTemplate = Me.GridView7
-        GridLevelNode6.RelationName = "jrCandidatosMunicipio"
-        GridLevelNode5.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode6})
-        GridLevelNode5.RelationName = "jrMunicipiosDepartamento"
-        GridLevelNode4.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode5})
-        GridLevelNode4.RelationName = "jrDepartamentosCargoElectivo"
-        GridLevelNode3.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode4})
-        GridLevelNode3.RelationName = "jrCargosElectivosNivelElectivo"
-        GridLevelNode2.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode3})
-        GridLevelNode2.RelationName = "jrNivelesElectivosMovimiento"
-        GridLevelNode1.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode2})
-        GridLevelNode1.RelationName = "jrMovimientosPartidoPolitico"
-        Me.GridControl1.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode1})
-        Me.GridControl1.Location = New System.Drawing.Point(12, 12)
-        Me.GridControl1.MainView = Me.GridView1
-        Me.GridControl1.Name = "GridControl1"
-        Me.GridControl1.Size = New System.Drawing.Size(1345, 830)
-        Me.GridControl1.TabIndex = 0
-        Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView3, Me.GridView4, Me.GridView5, Me.GridView6, Me.GridView7, Me.GridView2})
         '
         'JrPartidosPoliticosBindingSource
         '
@@ -160,6 +106,62 @@ Partial Class XfrmJerarquico
         '
         Me.DSConsultas.DataSetName = "DSConsultas"
         Me.DSConsultas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'JrPartidosPoliticosTableAdapter
+        '
+        Me.JrPartidosPoliticosTableAdapter.ClearBeforeFill = True
+        '
+        'JrMovimientosTableAdapter
+        '
+        Me.JrMovimientosTableAdapter.ClearBeforeFill = True
+        '
+        'JrNivelesElectivosTableAdapter
+        '
+        Me.JrNivelesElectivosTableAdapter.ClearBeforeFill = True
+        '
+        'JrCargosElectivosTableAdapter
+        '
+        Me.JrCargosElectivosTableAdapter.ClearBeforeFill = True
+        '
+        'JrDepartamentosTableAdapter
+        '
+        Me.JrDepartamentosTableAdapter.ClearBeforeFill = True
+        '
+        'JrMunicipiosTableAdapter
+        '
+        Me.JrMunicipiosTableAdapter.ClearBeforeFill = True
+        '
+        'JrCandidatosTableAdapter
+        '
+        Me.JrCandidatosTableAdapter.ClearBeforeFill = True
+        '
+        'GridControl1
+        '
+        Me.GridControl1.DataSource = Me.JrPartidosPoliticosBindingSource
+        GridLevelNode1.LevelTemplate = Me.GridView2
+        GridLevelNode2.LevelTemplate = Me.GridView3
+        GridLevelNode3.LevelTemplate = Me.GridView4
+        GridLevelNode4.LevelTemplate = Me.GridView5
+        GridLevelNode5.LevelTemplate = Me.GridView6
+        GridLevelNode6.LevelTemplate = Me.GridView7
+        GridLevelNode6.RelationName = "Candidatos"
+        GridLevelNode5.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode6})
+        GridLevelNode5.RelationName = "Municipios"
+        GridLevelNode4.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode5})
+        GridLevelNode4.RelationName = "Departamentos"
+        GridLevelNode3.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode4})
+        GridLevelNode3.RelationName = "Cargos Electivos"
+        GridLevelNode2.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode3})
+        GridLevelNode2.RelationName = "Niveles Electivos"
+        GridLevelNode1.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode2})
+        GridLevelNode1.RelationName = "Movimientos"
+        Me.GridControl1.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode1})
+        Me.GridControl1.Location = New System.Drawing.Point(12, 12)
+        Me.GridControl1.MainView = Me.GridView1
+        Me.GridControl1.Name = "GridControl1"
+        Me.GridControl1.Size = New System.Drawing.Size(1345, 830)
+        Me.GridControl1.TabIndex = 0
+        Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2, Me.GridView3, Me.GridView4, Me.GridView5, Me.GridView6, Me.GridView7})
         '
         'GridView1
         '
@@ -187,6 +189,32 @@ Partial Class XfrmJerarquico
         Me.colCANTIDAD_FIRMAS.Name = "colCANTIDAD_FIRMAS"
         Me.colCANTIDAD_FIRMAS.Visible = True
         Me.colCANTIDAD_FIRMAS.VisibleIndex = 1
+        '
+        'GridView2
+        '
+        Me.GridView2.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_PARTIDO1, Me.colCODIGO_MOVIMIENTO, Me.colNOMBRE_MOVIMIENTO})
+        Me.GridView2.DetailHeight = 100000
+        Me.GridView2.GridControl = Me.GridControl1
+        Me.GridView2.Name = "GridView2"
+        Me.GridView2.OptionsView.ShowColumnHeaders = False
+        Me.GridView2.OptionsView.ShowGroupPanel = False
+        '
+        'colCODIGO_PARTIDO1
+        '
+        Me.colCODIGO_PARTIDO1.FieldName = "CODIGO_PARTIDO"
+        Me.colCODIGO_PARTIDO1.Name = "colCODIGO_PARTIDO1"
+        '
+        'colCODIGO_MOVIMIENTO
+        '
+        Me.colCODIGO_MOVIMIENTO.FieldName = "CODIGO_MOVIMIENTO"
+        Me.colCODIGO_MOVIMIENTO.Name = "colCODIGO_MOVIMIENTO"
+        '
+        'colNOMBRE_MOVIMIENTO
+        '
+        Me.colNOMBRE_MOVIMIENTO.FieldName = "NOMBRE_MOVIMIENTO"
+        Me.colNOMBRE_MOVIMIENTO.Name = "colNOMBRE_MOVIMIENTO"
+        Me.colNOMBRE_MOVIMIENTO.Visible = True
+        Me.colNOMBRE_MOVIMIENTO.VisibleIndex = 0
         '
         'GridView3
         '
@@ -362,6 +390,7 @@ Partial Class XfrmJerarquico
         Me.GridView7.GridControl = Me.GridControl1
         Me.GridView7.Name = "GridView7"
         Me.GridView7.OptionsView.ShowGroupPanel = False
+        Me.GridView7.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.colCODIGO_PARTIDO6, DevExpress.Data.ColumnSortOrder.Descending)})
         '
         'colCODIGO_PARTIDO6
         '
@@ -435,34 +464,6 @@ Partial Class XfrmJerarquico
         Me.colESTADO.Visible = True
         Me.colESTADO.VisibleIndex = 5
         '
-        'JrPartidosPoliticosTableAdapter
-        '
-        Me.JrPartidosPoliticosTableAdapter.ClearBeforeFill = True
-        '
-        'JrMovimientosTableAdapter
-        '
-        Me.JrMovimientosTableAdapter.ClearBeforeFill = True
-        '
-        'JrNivelesElectivosTableAdapter
-        '
-        Me.JrNivelesElectivosTableAdapter.ClearBeforeFill = True
-        '
-        'JrCargosElectivosTableAdapter
-        '
-        Me.JrCargosElectivosTableAdapter.ClearBeforeFill = True
-        '
-        'JrDepartamentosTableAdapter
-        '
-        Me.JrDepartamentosTableAdapter.ClearBeforeFill = True
-        '
-        'JrMunicipiosTableAdapter
-        '
-        Me.JrMunicipiosTableAdapter.ClearBeforeFill = True
-        '
-        'JrCandidatosTableAdapter
-        '
-        Me.JrCandidatosTableAdapter.ClearBeforeFill = True
-        '
         'XfrmJerarquico
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -471,11 +472,11 @@ Partial Class XfrmJerarquico
         Me.Controls.Add(Me.GridControl1)
         Me.Name = "XfrmJerarquico"
         Me.Text = "Consulta Jerárquica de Candidatos"
-        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.JrPartidosPoliticosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView5, System.ComponentModel.ISupportInitialize).EndInit()
@@ -499,10 +500,6 @@ Partial Class XfrmJerarquico
     Friend WithEvents colCODIGO_MOVIMIENTO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colNOMBRE_MOVIMIENTO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridView3 As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents colCODIGO_PARTIDO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colNOMBRE As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colCANTIDAD_FIRMAS As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colCODIGO_PARTIDO2 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colCODIGO_MOVIMIENTO1 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colCODIGO_NIVEL_ELECTIVO As DevExpress.XtraGrid.Columns.GridColumn
@@ -543,4 +540,8 @@ Partial Class XfrmJerarquico
     Friend WithEvents colNOMBRE1 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colAPELLIDO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colESTADO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents colCODIGO_PARTIDO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colNOMBRE As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colCANTIDAD_FIRMAS As DevExpress.XtraGrid.Columns.GridColumn
 End Class

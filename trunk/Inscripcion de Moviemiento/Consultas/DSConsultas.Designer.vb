@@ -68,17 +68,17 @@ Partial Public Class DSConsultas
     
     Private relationIM_FK1_CARGOS_ELECTIVOS As Global.System.Data.DataRelation
     
-    Private relationjrMovimientosPartidoPolitico As Global.System.Data.DataRelation
+    Private relationMovimientos As Global.System.Data.DataRelation
     
-    Private relationjrNivelesElectivosMovimiento As Global.System.Data.DataRelation
+    Private relationNiveles_Electivos As Global.System.Data.DataRelation
     
-    Private relationjrCargosElectivosNivelElectivo As Global.System.Data.DataRelation
+    Private relationCargos_Electivos As Global.System.Data.DataRelation
     
-    Private relationjrDepartamentosCargoElectivo As Global.System.Data.DataRelation
+    Private relationDepartamentos As Global.System.Data.DataRelation
     
-    Private relationjrMunicipiosDepartamento As Global.System.Data.DataRelation
+    Private relationMunicipios As Global.System.Data.DataRelation
     
-    Private relationjrCandidatosMunicipio As Global.System.Data.DataRelation
+    Private relationCandidatos As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -593,12 +593,12 @@ Partial Public Class DSConsultas
         Me.relationIM_FK1_MUNICIPIO = Me.Relations("IM_FK1_MUNICIPIO")
         Me.relationIM_FK1_MOVIMIENTOS = Me.Relations("IM_FK1_MOVIMIENTOS")
         Me.relationIM_FK1_CARGOS_ELECTIVOS = Me.Relations("IM_FK1_CARGOS_ELECTIVOS")
-        Me.relationjrMovimientosPartidoPolitico = Me.Relations("jrMovimientosPartidoPolitico")
-        Me.relationjrNivelesElectivosMovimiento = Me.Relations("jrNivelesElectivosMovimiento")
-        Me.relationjrCargosElectivosNivelElectivo = Me.Relations("jrCargosElectivosNivelElectivo")
-        Me.relationjrDepartamentosCargoElectivo = Me.Relations("jrDepartamentosCargoElectivo")
-        Me.relationjrMunicipiosDepartamento = Me.Relations("jrMunicipiosDepartamento")
-        Me.relationjrCandidatosMunicipio = Me.Relations("jrCandidatosMunicipio")
+        Me.relationMovimientos = Me.Relations("Movimientos")
+        Me.relationNiveles_Electivos = Me.Relations("Niveles Electivos")
+        Me.relationCargos_Electivos = Me.Relations("Cargos Electivos")
+        Me.relationDepartamentos = Me.Relations("Departamentos")
+        Me.relationMunicipios = Me.Relations("Municipios")
+        Me.relationCandidatos = Me.Relations("Candidatos")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -650,18 +650,18 @@ Partial Public Class DSConsultas
         Me.Relations.Add(Me.relationIM_FK1_MOVIMIENTOS)
         Me.relationIM_FK1_CARGOS_ELECTIVOS = New Global.System.Data.DataRelation("IM_FK1_CARGOS_ELECTIVOS", New Global.System.Data.DataColumn() {Me.tableNiveles.CODIGO_NIVEL_ELECTIVOColumn}, New Global.System.Data.DataColumn() {Me.tableCargos.CODIGO_NIVEL_ELECTIVOColumn}, false)
         Me.Relations.Add(Me.relationIM_FK1_CARGOS_ELECTIVOS)
-        Me.relationjrMovimientosPartidoPolitico = New Global.System.Data.DataRelation("jrMovimientosPartidoPolitico", New Global.System.Data.DataColumn() {Me.tablejrPartidosPoliticos.CODIGO_PARTIDOColumn}, New Global.System.Data.DataColumn() {Me.tablejrMovimientos.CODIGO_PARTIDOColumn}, false)
-        Me.Relations.Add(Me.relationjrMovimientosPartidoPolitico)
-        Me.relationjrNivelesElectivosMovimiento = New Global.System.Data.DataRelation("jrNivelesElectivosMovimiento", New Global.System.Data.DataColumn() {Me.tablejrMovimientos.CODIGO_PARTIDOColumn, Me.tablejrMovimientos.CODIGO_MOVIMIENTOColumn}, New Global.System.Data.DataColumn() {Me.tablejrNivelesElectivos.CODIGO_PARTIDOColumn, Me.tablejrNivelesElectivos.CODIGO_MOVIMIENTOColumn}, false)
-        Me.Relations.Add(Me.relationjrNivelesElectivosMovimiento)
-        Me.relationjrCargosElectivosNivelElectivo = New Global.System.Data.DataRelation("jrCargosElectivosNivelElectivo", New Global.System.Data.DataColumn() {Me.tablejrNivelesElectivos.CODIGO_PARTIDOColumn, Me.tablejrNivelesElectivos.CODIGO_MOVIMIENTOColumn, Me.tablejrNivelesElectivos.CODIGO_NIVEL_ELECTIVOColumn}, New Global.System.Data.DataColumn() {Me.tablejrCargosElectivos.CODIGO_PARTIDOColumn, Me.tablejrCargosElectivos.CODIGO_MOVIMIENTOColumn, Me.tablejrCargosElectivos.CODIGO_NIVEL_ELECTIVOColumn}, false)
-        Me.Relations.Add(Me.relationjrCargosElectivosNivelElectivo)
-        Me.relationjrDepartamentosCargoElectivo = New Global.System.Data.DataRelation("jrDepartamentosCargoElectivo", New Global.System.Data.DataColumn() {Me.tablejrCargosElectivos.CODIGO_PARTIDOColumn, Me.tablejrCargosElectivos.CODIGO_MOVIMIENTOColumn, Me.tablejrCargosElectivos.CODIGO_NIVEL_ELECTIVOColumn, Me.tablejrCargosElectivos.CODIGO_CARGO_ELECTIVOColumn}, New Global.System.Data.DataColumn() {Me.tablejrDepartamentos.CODIGO_PARTIDOColumn, Me.tablejrDepartamentos.CODIGO_MOVIMIENTOColumn, Me.tablejrDepartamentos.CODIGO_NIVEL_ELECTIVOColumn, Me.tablejrDepartamentos.CODIGO_CARGO_ELECTIVOColumn}, false)
-        Me.Relations.Add(Me.relationjrDepartamentosCargoElectivo)
-        Me.relationjrMunicipiosDepartamento = New Global.System.Data.DataRelation("jrMunicipiosDepartamento", New Global.System.Data.DataColumn() {Me.tablejrDepartamentos.CODIGO_PARTIDOColumn, Me.tablejrDepartamentos.CODIGO_MOVIMIENTOColumn, Me.tablejrDepartamentos.CODIGO_NIVEL_ELECTIVOColumn, Me.tablejrDepartamentos.CODIGO_CARGO_ELECTIVOColumn, Me.tablejrDepartamentos.CODIGO_DEPARTAMENTOColumn}, New Global.System.Data.DataColumn() {Me.tablejrMunicipios.CODIGO_PARTIDOColumn, Me.tablejrMunicipios.CODIGO_MOVIMIENTOColumn, Me.tablejrMunicipios.CODIGO_NIVEL_ELECTIVOColumn, Me.tablejrMunicipios.CODIGO_CARGO_ELECTIVOColumn, Me.tablejrMunicipios.CODIGO_DEPARTAMENTOColumn}, false)
-        Me.Relations.Add(Me.relationjrMunicipiosDepartamento)
-        Me.relationjrCandidatosMunicipio = New Global.System.Data.DataRelation("jrCandidatosMunicipio", New Global.System.Data.DataColumn() {Me.tablejrMunicipios.CODIGO_PARTIDOColumn, Me.tablejrMunicipios.CODIGO_MOVIMIENTOColumn, Me.tablejrMunicipios.CODIGO_NIVEL_ELECTIVOColumn, Me.tablejrMunicipios.CODIGO_CARGO_ELECTIVOColumn, Me.tablejrMunicipios.CODIGO_DEPARTAMENTOColumn, Me.tablejrMunicipios.CODIGO_MUNICIPIOColumn}, New Global.System.Data.DataColumn() {Me.tablejrCandidatos.CODIGO_PARTIDOColumn, Me.tablejrCandidatos.CODIGO_MOVIMIENTOColumn, Me.tablejrCandidatos.CODIGO_NIVEL_ELECTIVOColumn, Me.tablejrCandidatos.CODIGO_CARGO_ELECTIVOColumn, Me.tablejrCandidatos.CODIGO_DEPARTAMENTOColumn, Me.tablejrCandidatos.CODIGO_MUNICIPIOColumn}, false)
-        Me.Relations.Add(Me.relationjrCandidatosMunicipio)
+        Me.relationMovimientos = New Global.System.Data.DataRelation("Movimientos", New Global.System.Data.DataColumn() {Me.tablejrPartidosPoliticos.CODIGO_PARTIDOColumn}, New Global.System.Data.DataColumn() {Me.tablejrMovimientos.CODIGO_PARTIDOColumn}, false)
+        Me.Relations.Add(Me.relationMovimientos)
+        Me.relationNiveles_Electivos = New Global.System.Data.DataRelation("Niveles Electivos", New Global.System.Data.DataColumn() {Me.tablejrMovimientos.CODIGO_PARTIDOColumn, Me.tablejrMovimientos.CODIGO_MOVIMIENTOColumn}, New Global.System.Data.DataColumn() {Me.tablejrNivelesElectivos.CODIGO_PARTIDOColumn, Me.tablejrNivelesElectivos.CODIGO_MOVIMIENTOColumn}, false)
+        Me.Relations.Add(Me.relationNiveles_Electivos)
+        Me.relationCargos_Electivos = New Global.System.Data.DataRelation("Cargos Electivos", New Global.System.Data.DataColumn() {Me.tablejrNivelesElectivos.CODIGO_PARTIDOColumn, Me.tablejrNivelesElectivos.CODIGO_MOVIMIENTOColumn, Me.tablejrNivelesElectivos.CODIGO_NIVEL_ELECTIVOColumn}, New Global.System.Data.DataColumn() {Me.tablejrCargosElectivos.CODIGO_PARTIDOColumn, Me.tablejrCargosElectivos.CODIGO_MOVIMIENTOColumn, Me.tablejrCargosElectivos.CODIGO_NIVEL_ELECTIVOColumn}, false)
+        Me.Relations.Add(Me.relationCargos_Electivos)
+        Me.relationDepartamentos = New Global.System.Data.DataRelation("Departamentos", New Global.System.Data.DataColumn() {Me.tablejrCargosElectivos.CODIGO_PARTIDOColumn, Me.tablejrCargosElectivos.CODIGO_MOVIMIENTOColumn, Me.tablejrCargosElectivos.CODIGO_NIVEL_ELECTIVOColumn, Me.tablejrCargosElectivos.CODIGO_CARGO_ELECTIVOColumn}, New Global.System.Data.DataColumn() {Me.tablejrDepartamentos.CODIGO_PARTIDOColumn, Me.tablejrDepartamentos.CODIGO_MOVIMIENTOColumn, Me.tablejrDepartamentos.CODIGO_NIVEL_ELECTIVOColumn, Me.tablejrDepartamentos.CODIGO_CARGO_ELECTIVOColumn}, false)
+        Me.Relations.Add(Me.relationDepartamentos)
+        Me.relationMunicipios = New Global.System.Data.DataRelation("Municipios", New Global.System.Data.DataColumn() {Me.tablejrDepartamentos.CODIGO_PARTIDOColumn, Me.tablejrDepartamentos.CODIGO_MOVIMIENTOColumn, Me.tablejrDepartamentos.CODIGO_NIVEL_ELECTIVOColumn, Me.tablejrDepartamentos.CODIGO_CARGO_ELECTIVOColumn, Me.tablejrDepartamentos.CODIGO_DEPARTAMENTOColumn}, New Global.System.Data.DataColumn() {Me.tablejrMunicipios.CODIGO_PARTIDOColumn, Me.tablejrMunicipios.CODIGO_MOVIMIENTOColumn, Me.tablejrMunicipios.CODIGO_NIVEL_ELECTIVOColumn, Me.tablejrMunicipios.CODIGO_CARGO_ELECTIVOColumn, Me.tablejrMunicipios.CODIGO_DEPARTAMENTOColumn}, false)
+        Me.Relations.Add(Me.relationMunicipios)
+        Me.relationCandidatos = New Global.System.Data.DataRelation("Candidatos", New Global.System.Data.DataColumn() {Me.tablejrMunicipios.CODIGO_PARTIDOColumn, Me.tablejrMunicipios.CODIGO_MOVIMIENTOColumn, Me.tablejrMunicipios.CODIGO_NIVEL_ELECTIVOColumn, Me.tablejrMunicipios.CODIGO_CARGO_ELECTIVOColumn, Me.tablejrMunicipios.CODIGO_DEPARTAMENTOColumn, Me.tablejrMunicipios.CODIGO_MUNICIPIOColumn}, New Global.System.Data.DataColumn() {Me.tablejrCandidatos.CODIGO_PARTIDOColumn, Me.tablejrCandidatos.CODIGO_MOVIMIENTOColumn, Me.tablejrCandidatos.CODIGO_NIVEL_ELECTIVOColumn, Me.tablejrCandidatos.CODIGO_CARGO_ELECTIVOColumn, Me.tablejrCandidatos.CODIGO_DEPARTAMENTOColumn, Me.tablejrCandidatos.CODIGO_MUNICIPIOColumn}, false)
+        Me.Relations.Add(Me.relationCandidatos)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -4240,11 +4240,11 @@ Partial Public Class DSConsultas
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddjrMovimientosRow(ByVal parentjrPartidosPoliticosRowByjrMovimientosPartidoPolitico As jrPartidosPoliticosRow, ByVal CODIGO_MOVIMIENTO As Decimal, ByVal NOMBRE_MOVIMIENTO As String) As jrMovimientosRow
+        Public Overloads Function AddjrMovimientosRow(ByVal parentjrPartidosPoliticosRowByMovimientos As jrPartidosPoliticosRow, ByVal CODIGO_MOVIMIENTO As Decimal, ByVal NOMBRE_MOVIMIENTO As String) As jrMovimientosRow
             Dim rowjrMovimientosRow As jrMovimientosRow = CType(Me.NewRow,jrMovimientosRow)
             Dim columnValuesArray() As Object = New Object() {Nothing, CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO}
-            If (Not (parentjrPartidosPoliticosRowByjrMovimientosPartidoPolitico) Is Nothing) Then
-                columnValuesArray(0) = parentjrPartidosPoliticosRowByjrMovimientosPartidoPolitico(0)
+            If (Not (parentjrPartidosPoliticosRowByMovimientos) Is Nothing) Then
+                columnValuesArray(0) = parentjrPartidosPoliticosRowByMovimientos(0)
             End If
             rowjrMovimientosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowjrMovimientosRow)
@@ -7055,10 +7055,10 @@ Partial Public Class DSConsultas
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function GetjrMovimientosRows() As jrMovimientosRow()
-            If (Me.Table.ChildRelations("jrMovimientosPartidoPolitico") Is Nothing) Then
+            If (Me.Table.ChildRelations("Movimientos") Is Nothing) Then
                 Return New jrMovimientosRow(-1) {}
             Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("jrMovimientosPartidoPolitico")),jrMovimientosRow())
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("Movimientos")),jrMovimientosRow())
             End If
         End Function
     End Class
@@ -7111,19 +7111,19 @@ Partial Public Class DSConsultas
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property jrPartidosPoliticosRow() As jrPartidosPoliticosRow
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("jrMovimientosPartidoPolitico")),jrPartidosPoliticosRow)
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("Movimientos")),jrPartidosPoliticosRow)
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("jrMovimientosPartidoPolitico"))
+                Me.SetParentRow(value, Me.Table.ParentRelations("Movimientos"))
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function GetjrNivelesElectivosRows() As jrNivelesElectivosRow()
-            If (Me.Table.ChildRelations("jrNivelesElectivosMovimiento") Is Nothing) Then
+            If (Me.Table.ChildRelations("Niveles Electivos") Is Nothing) Then
                 Return New jrNivelesElectivosRow(-1) {}
             Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("jrNivelesElectivosMovimiento")),jrNivelesElectivosRow())
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("Niveles Electivos")),jrNivelesElectivosRow())
             End If
         End Function
     End Class
@@ -7186,19 +7186,19 @@ Partial Public Class DSConsultas
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property jrMovimientosRowParent() As jrMovimientosRow
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("jrNivelesElectivosMovimiento")),jrMovimientosRow)
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("Niveles Electivos")),jrMovimientosRow)
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("jrNivelesElectivosMovimiento"))
+                Me.SetParentRow(value, Me.Table.ParentRelations("Niveles Electivos"))
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function GetjrCargosElectivosRows() As jrCargosElectivosRow()
-            If (Me.Table.ChildRelations("jrCargosElectivosNivelElectivo") Is Nothing) Then
+            If (Me.Table.ChildRelations("Cargos Electivos") Is Nothing) Then
                 Return New jrCargosElectivosRow(-1) {}
             Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("jrCargosElectivosNivelElectivo")),jrCargosElectivosRow())
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("Cargos Electivos")),jrCargosElectivosRow())
             End If
         End Function
     End Class
@@ -7299,10 +7299,10 @@ Partial Public Class DSConsultas
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property jrNivelesElectivosRowParent() As jrNivelesElectivosRow
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("jrCargosElectivosNivelElectivo")),jrNivelesElectivosRow)
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("Cargos Electivos")),jrNivelesElectivosRow)
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("jrCargosElectivosNivelElectivo"))
+                Me.SetParentRow(value, Me.Table.ParentRelations("Cargos Electivos"))
             End Set
         End Property
         
@@ -7328,10 +7328,10 @@ Partial Public Class DSConsultas
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function GetjrDepartamentosRows() As jrDepartamentosRow()
-            If (Me.Table.ChildRelations("jrDepartamentosCargoElectivo") Is Nothing) Then
+            If (Me.Table.ChildRelations("Departamentos") Is Nothing) Then
                 Return New jrDepartamentosRow(-1) {}
             Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("jrDepartamentosCargoElectivo")),jrDepartamentosRow())
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("Departamentos")),jrDepartamentosRow())
             End If
         End Function
     End Class
@@ -7418,10 +7418,10 @@ Partial Public Class DSConsultas
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property jrCargosElectivosRowParent() As jrCargosElectivosRow
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("jrDepartamentosCargoElectivo")),jrCargosElectivosRow)
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("Departamentos")),jrCargosElectivosRow)
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("jrDepartamentosCargoElectivo"))
+                Me.SetParentRow(value, Me.Table.ParentRelations("Departamentos"))
             End Set
         End Property
         
@@ -7437,10 +7437,10 @@ Partial Public Class DSConsultas
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function GetjrMunicipiosRows() As jrMunicipiosRow()
-            If (Me.Table.ChildRelations("jrMunicipiosDepartamento") Is Nothing) Then
+            If (Me.Table.ChildRelations("Municipios") Is Nothing) Then
                 Return New jrMunicipiosRow(-1) {}
             Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("jrMunicipiosDepartamento")),jrMunicipiosRow())
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("Municipios")),jrMunicipiosRow())
             End If
         End Function
     End Class
@@ -7537,10 +7537,10 @@ Partial Public Class DSConsultas
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property jrDepartamentosRowParent() As jrDepartamentosRow
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("jrMunicipiosDepartamento")),jrDepartamentosRow)
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("Municipios")),jrDepartamentosRow)
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("jrMunicipiosDepartamento"))
+                Me.SetParentRow(value, Me.Table.ParentRelations("Municipios"))
             End Set
         End Property
         
@@ -7556,10 +7556,10 @@ Partial Public Class DSConsultas
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function GetjrCandidatosRows() As jrCandidatosRow()
-            If (Me.Table.ChildRelations("jrCandidatosMunicipio") Is Nothing) Then
+            If (Me.Table.ChildRelations("Candidatos") Is Nothing) Then
                 Return New jrCandidatosRow(-1) {}
             Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("jrCandidatosMunicipio")),jrCandidatosRow())
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("Candidatos")),jrCandidatosRow())
             End If
         End Function
     End Class
@@ -7722,10 +7722,10 @@ Partial Public Class DSConsultas
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property jrMunicipiosRowParent() As jrMunicipiosRow
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("jrCandidatosMunicipio")),jrMunicipiosRow)
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("Candidatos")),jrMunicipiosRow)
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("jrCandidatosMunicipio"))
+                Me.SetParentRow(value, Me.Table.ParentRelations("Candidatos"))
             End Set
         End Property
         
