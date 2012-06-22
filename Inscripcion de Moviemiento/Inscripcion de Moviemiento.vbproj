@@ -4,6 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -111,6 +112,11 @@
     <Compile Include="Candidatos\DSCandidato.vb">
       <DependentUpon>DSCandidato.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Candidatos\DSInsCandidatos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSInsCandidatos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Candidatos\DSInscripcionCandidatos.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -129,6 +135,12 @@
       <DependentUpon>xfrmInscripcionCandidato.vb</DependentUpon>
     </Compile>
     <Compile Include="Candidatos\xfrmInscripcionCandidato.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Candidatos\xfrmRegCandidatos.Designer.vb">
+      <DependentUpon>xfrmRegCandidatos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Candidatos\xfrmRegCandidatos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Candidatos\XfrmRequisitos.Designer.vb">
@@ -498,6 +510,10 @@
       <DependentUpon>xfrmInscripcionCandidato.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Candidatos\xfrmRegCandidatos.resx">
+      <DependentUpon>xfrmRegCandidatos.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Candidatos\XfrmRequisitos.resx">
       <DependentUpon>XfrmRequisitos.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -619,6 +635,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Reporte_de_cruce_FMOV.resx">
       <DependentUpon>Reporte_de_cruce_FMOV.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Reporte_de_PlanillaDP.resx">
       <DependentUpon>Reporte_de_PlanillaDP.vb</DependentUpon>
@@ -929,6 +946,17 @@
     <None Include="Resources\turnoff.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Candidatos\DSInsCandidatos.xsc">
+      <DependentUpon>DSInsCandidatos.xsd</DependentUpon>
+    </None>
+    <None Include="Candidatos\DSInsCandidatos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSInsCandidatos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Candidatos\DSInsCandidatos.xss">
+      <DependentUpon>DSInsCandidatos.xsd</DependentUpon>
+    </None>
     <None Include="Reportes\DS_REPORTE_DE_FMOV.xsc">
       <DependentUpon>DS_REPORTE_DE_FMOV.xsd</DependentUpon>
     </None>
@@ -989,6 +1017,7 @@
     <None Include="Resources\flecha.png" />
     <None Include="Resources\importar otros sistemas.png" />
     <Content Include="Resources\Consulta.png" />
+    <None Include="Resources\Captura.JPG" />
     <Content Include="Resources\Filtro.png" />
     <Content Include="Resources\FIRMAS1.png" />
     <None Include="Resources\FIRMAS11.png" />

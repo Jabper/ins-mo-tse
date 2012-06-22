@@ -109,6 +109,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property Captura() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Captura", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property cargos() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("cargos", resourceCulture)
