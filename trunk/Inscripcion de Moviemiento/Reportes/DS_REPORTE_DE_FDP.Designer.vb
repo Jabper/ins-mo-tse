@@ -28,9 +28,13 @@ Partial Public Class DS_REPORTE_DE_FDP
     
     Private tableIM_V_FIRMAS_DIVISION_POLITICA As IM_V_FIRMAS_DIVISION_POLITICADataTable
     
-    Private tableDT_PLANILLA_PARTIDO_M As DT_PLANILLA_PARTIDO_MDataTable
+    Private tableDT_PARTIDO_FDP As DT_PARTIDO_FDPDataTable
     
     Private tableDT_PLANILLA_NIVEL_M As DT_PLANILLA_NIVEL_MDataTable
+    
+    Private tableDT_MOVIMIENTO_FDP As DT_MOVIMIENTO_FDPDataTable
+    
+    Private tableIM_DEPARTAMENTOS_FDP As IM_DEPARTAMENTOS_FDPDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -62,11 +66,17 @@ Partial Public Class DS_REPORTE_DE_FDP
             If (Not (ds.Tables("IM_V_FIRMAS_DIVISION_POLITICA")) Is Nothing) Then
                 MyBase.Tables.Add(New IM_V_FIRMAS_DIVISION_POLITICADataTable(ds.Tables("IM_V_FIRMAS_DIVISION_POLITICA")))
             End If
-            If (Not (ds.Tables("DT_PLANILLA_PARTIDO_M")) Is Nothing) Then
-                MyBase.Tables.Add(New DT_PLANILLA_PARTIDO_MDataTable(ds.Tables("DT_PLANILLA_PARTIDO_M")))
+            If (Not (ds.Tables("DT_PARTIDO_FDP")) Is Nothing) Then
+                MyBase.Tables.Add(New DT_PARTIDO_FDPDataTable(ds.Tables("DT_PARTIDO_FDP")))
             End If
             If (Not (ds.Tables("DT_PLANILLA_NIVEL_M")) Is Nothing) Then
                 MyBase.Tables.Add(New DT_PLANILLA_NIVEL_MDataTable(ds.Tables("DT_PLANILLA_NIVEL_M")))
+            End If
+            If (Not (ds.Tables("DT_MOVIMIENTO_FDP")) Is Nothing) Then
+                MyBase.Tables.Add(New DT_MOVIMIENTO_FDPDataTable(ds.Tables("DT_MOVIMIENTO_FDP")))
+            End If
+            If (Not (ds.Tables("IM_DEPARTAMENTOS_FDP")) Is Nothing) Then
+                MyBase.Tables.Add(New IM_DEPARTAMENTOS_FDPDataTable(ds.Tables("IM_DEPARTAMENTOS_FDP")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -97,9 +107,9 @@ Partial Public Class DS_REPORTE_DE_FDP
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property DT_PLANILLA_PARTIDO_M() As DT_PLANILLA_PARTIDO_MDataTable
+    Public ReadOnly Property DT_PARTIDO_FDP() As DT_PARTIDO_FDPDataTable
         Get
-            Return Me.tableDT_PLANILLA_PARTIDO_M
+            Return Me.tableDT_PARTIDO_FDP
         End Get
     End Property
     
@@ -109,6 +119,24 @@ Partial Public Class DS_REPORTE_DE_FDP
     Public ReadOnly Property DT_PLANILLA_NIVEL_M() As DT_PLANILLA_NIVEL_MDataTable
         Get
             Return Me.tableDT_PLANILLA_NIVEL_M
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property DT_MOVIMIENTO_FDP() As DT_MOVIMIENTO_FDPDataTable
+        Get
+            Return Me.tableDT_MOVIMIENTO_FDP
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property IM_DEPARTAMENTOS_FDP() As IM_DEPARTAMENTOS_FDPDataTable
+        Get
+            Return Me.tableIM_DEPARTAMENTOS_FDP
         End Get
     End Property
     
@@ -174,11 +202,17 @@ Partial Public Class DS_REPORTE_DE_FDP
             If (Not (ds.Tables("IM_V_FIRMAS_DIVISION_POLITICA")) Is Nothing) Then
                 MyBase.Tables.Add(New IM_V_FIRMAS_DIVISION_POLITICADataTable(ds.Tables("IM_V_FIRMAS_DIVISION_POLITICA")))
             End If
-            If (Not (ds.Tables("DT_PLANILLA_PARTIDO_M")) Is Nothing) Then
-                MyBase.Tables.Add(New DT_PLANILLA_PARTIDO_MDataTable(ds.Tables("DT_PLANILLA_PARTIDO_M")))
+            If (Not (ds.Tables("DT_PARTIDO_FDP")) Is Nothing) Then
+                MyBase.Tables.Add(New DT_PARTIDO_FDPDataTable(ds.Tables("DT_PARTIDO_FDP")))
             End If
             If (Not (ds.Tables("DT_PLANILLA_NIVEL_M")) Is Nothing) Then
                 MyBase.Tables.Add(New DT_PLANILLA_NIVEL_MDataTable(ds.Tables("DT_PLANILLA_NIVEL_M")))
+            End If
+            If (Not (ds.Tables("DT_MOVIMIENTO_FDP")) Is Nothing) Then
+                MyBase.Tables.Add(New DT_MOVIMIENTO_FDPDataTable(ds.Tables("DT_MOVIMIENTO_FDP")))
+            End If
+            If (Not (ds.Tables("IM_DEPARTAMENTOS_FDP")) Is Nothing) Then
+                MyBase.Tables.Add(New IM_DEPARTAMENTOS_FDPDataTable(ds.Tables("IM_DEPARTAMENTOS_FDP")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -215,16 +249,28 @@ Partial Public Class DS_REPORTE_DE_FDP
                 Me.tableIM_V_FIRMAS_DIVISION_POLITICA.InitVars
             End If
         End If
-        Me.tableDT_PLANILLA_PARTIDO_M = CType(MyBase.Tables("DT_PLANILLA_PARTIDO_M"),DT_PLANILLA_PARTIDO_MDataTable)
+        Me.tableDT_PARTIDO_FDP = CType(MyBase.Tables("DT_PARTIDO_FDP"),DT_PARTIDO_FDPDataTable)
         If (initTable = true) Then
-            If (Not (Me.tableDT_PLANILLA_PARTIDO_M) Is Nothing) Then
-                Me.tableDT_PLANILLA_PARTIDO_M.InitVars
+            If (Not (Me.tableDT_PARTIDO_FDP) Is Nothing) Then
+                Me.tableDT_PARTIDO_FDP.InitVars
             End If
         End If
         Me.tableDT_PLANILLA_NIVEL_M = CType(MyBase.Tables("DT_PLANILLA_NIVEL_M"),DT_PLANILLA_NIVEL_MDataTable)
         If (initTable = true) Then
             If (Not (Me.tableDT_PLANILLA_NIVEL_M) Is Nothing) Then
                 Me.tableDT_PLANILLA_NIVEL_M.InitVars
+            End If
+        End If
+        Me.tableDT_MOVIMIENTO_FDP = CType(MyBase.Tables("DT_MOVIMIENTO_FDP"),DT_MOVIMIENTO_FDPDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableDT_MOVIMIENTO_FDP) Is Nothing) Then
+                Me.tableDT_MOVIMIENTO_FDP.InitVars
+            End If
+        End If
+        Me.tableIM_DEPARTAMENTOS_FDP = CType(MyBase.Tables("IM_DEPARTAMENTOS_FDP"),IM_DEPARTAMENTOS_FDPDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableIM_DEPARTAMENTOS_FDP) Is Nothing) Then
+                Me.tableIM_DEPARTAMENTOS_FDP.InitVars
             End If
         End If
     End Sub
@@ -237,10 +283,14 @@ Partial Public Class DS_REPORTE_DE_FDP
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
         Me.tableIM_V_FIRMAS_DIVISION_POLITICA = New IM_V_FIRMAS_DIVISION_POLITICADataTable
         MyBase.Tables.Add(Me.tableIM_V_FIRMAS_DIVISION_POLITICA)
-        Me.tableDT_PLANILLA_PARTIDO_M = New DT_PLANILLA_PARTIDO_MDataTable
-        MyBase.Tables.Add(Me.tableDT_PLANILLA_PARTIDO_M)
+        Me.tableDT_PARTIDO_FDP = New DT_PARTIDO_FDPDataTable
+        MyBase.Tables.Add(Me.tableDT_PARTIDO_FDP)
         Me.tableDT_PLANILLA_NIVEL_M = New DT_PLANILLA_NIVEL_MDataTable
         MyBase.Tables.Add(Me.tableDT_PLANILLA_NIVEL_M)
+        Me.tableDT_MOVIMIENTO_FDP = New DT_MOVIMIENTO_FDPDataTable
+        MyBase.Tables.Add(Me.tableDT_MOVIMIENTO_FDP)
+        Me.tableIM_DEPARTAMENTOS_FDP = New IM_DEPARTAMENTOS_FDPDataTable
+        MyBase.Tables.Add(Me.tableIM_DEPARTAMENTOS_FDP)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -249,12 +299,22 @@ Partial Public Class DS_REPORTE_DE_FDP
     End Function
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-    Private Function ShouldSerializeDT_PLANILLA_PARTIDO_M() As Boolean
+    Private Function ShouldSerializeDT_PARTIDO_FDP() As Boolean
         Return false
     End Function
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Private Function ShouldSerializeDT_PLANILLA_NIVEL_M() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+    Private Function ShouldSerializeDT_MOVIMIENTO_FDP() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+    Private Function ShouldSerializeIM_DEPARTAMENTOS_FDP() As Boolean
         Return false
     End Function
     
@@ -316,9 +376,13 @@ Partial Public Class DS_REPORTE_DE_FDP
     
     Public Delegate Sub IM_V_FIRMAS_DIVISION_POLITICARowChangeEventHandler(ByVal sender As Object, ByVal e As IM_V_FIRMAS_DIVISION_POLITICARowChangeEvent)
     
-    Public Delegate Sub DT_PLANILLA_PARTIDO_MRowChangeEventHandler(ByVal sender As Object, ByVal e As DT_PLANILLA_PARTIDO_MRowChangeEvent)
+    Public Delegate Sub DT_PARTIDO_FDPRowChangeEventHandler(ByVal sender As Object, ByVal e As DT_PARTIDO_FDPRowChangeEvent)
     
     Public Delegate Sub DT_PLANILLA_NIVEL_MRowChangeEventHandler(ByVal sender As Object, ByVal e As DT_PLANILLA_NIVEL_MRowChangeEvent)
+    
+    Public Delegate Sub DT_MOVIMIENTO_FDPRowChangeEventHandler(ByVal sender As Object, ByVal e As DT_MOVIMIENTO_FDPRowChangeEvent)
+    
+    Public Delegate Sub IM_DEPARTAMENTOS_FDPRowChangeEventHandler(ByVal sender As Object, ByVal e As IM_DEPARTAMENTOS_FDPRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -335,15 +399,15 @@ Partial Public Class DS_REPORTE_DE_FDP
         
         Private columnAPELLIDOS As Global.System.Data.DataColumn
         
-        Private columnPARTIDO As Global.System.Data.DataColumn
-        
-        Private columnMOVIMIENTO As Global.System.Data.DataColumn
-        
-        Private columnDEPARTAMENTO As Global.System.Data.DataColumn
-        
         Private columnMUNICIPIO As Global.System.Data.DataColumn
         
         Private columnESTADO As Global.System.Data.DataColumn
+        
+        Private columnNOMBRE_PARTIDO As Global.System.Data.DataColumn
+        
+        Private columnNOMBRE_MOVIMIENTO As Global.System.Data.DataColumn
+        
+        Private columnNOMBRE_DEPARTAMENTO As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
@@ -399,27 +463,6 @@ Partial Public Class DS_REPORTE_DE_FDP
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property PARTIDOColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnPARTIDO
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property MOVIMIENTOColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnMOVIMIENTO
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property DEPARTAMENTOColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnDEPARTAMENTO
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public ReadOnly Property MUNICIPIOColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnMUNICIPIO
@@ -430,6 +473,27 @@ Partial Public Class DS_REPORTE_DE_FDP
         Public ReadOnly Property ESTADOColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnESTADO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property NOMBRE_PARTIDOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNOMBRE_PARTIDO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property NOMBRE_MOVIMIENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNOMBRE_MOVIMIENTO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property NOMBRE_DEPARTAMENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNOMBRE_DEPARTAMENTO
             End Get
         End Property
         
@@ -462,9 +526,9 @@ Partial Public Class DS_REPORTE_DE_FDP
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddIM_V_FIRMAS_DIVISION_POLITICARow(ByVal IDENTIDAD As String, ByVal NOMBRE As String, ByVal APELLIDOS As String, ByVal PARTIDO As String, ByVal MOVIMIENTO As String, ByVal DEPARTAMENTO As String, ByVal MUNICIPIO As String, ByVal ESTADO As String) As IM_V_FIRMAS_DIVISION_POLITICARow
+        Public Overloads Function AddIM_V_FIRMAS_DIVISION_POLITICARow(ByVal IDENTIDAD As String, ByVal NOMBRE As String, ByVal APELLIDOS As String, ByVal MUNICIPIO As String, ByVal ESTADO As String, ByVal NOMBRE_PARTIDO As String, ByVal NOMBRE_MOVIMIENTO As String, ByVal NOMBRE_DEPARTAMENTO As String) As IM_V_FIRMAS_DIVISION_POLITICARow
             Dim rowIM_V_FIRMAS_DIVISION_POLITICARow As IM_V_FIRMAS_DIVISION_POLITICARow = CType(Me.NewRow,IM_V_FIRMAS_DIVISION_POLITICARow)
-            Dim columnValuesArray() As Object = New Object() {IDENTIDAD, NOMBRE, APELLIDOS, PARTIDO, MOVIMIENTO, DEPARTAMENTO, MUNICIPIO, ESTADO}
+            Dim columnValuesArray() As Object = New Object() {IDENTIDAD, NOMBRE, APELLIDOS, MUNICIPIO, ESTADO, NOMBRE_PARTIDO, NOMBRE_MOVIMIENTO, NOMBRE_DEPARTAMENTO}
             rowIM_V_FIRMAS_DIVISION_POLITICARow.ItemArray = columnValuesArray
             Me.Rows.Add(rowIM_V_FIRMAS_DIVISION_POLITICARow)
             Return rowIM_V_FIRMAS_DIVISION_POLITICARow
@@ -487,11 +551,11 @@ Partial Public Class DS_REPORTE_DE_FDP
             Me.columnIDENTIDAD = MyBase.Columns("IDENTIDAD")
             Me.columnNOMBRE = MyBase.Columns("NOMBRE")
             Me.columnAPELLIDOS = MyBase.Columns("APELLIDOS")
-            Me.columnPARTIDO = MyBase.Columns("PARTIDO")
-            Me.columnMOVIMIENTO = MyBase.Columns("MOVIMIENTO")
-            Me.columnDEPARTAMENTO = MyBase.Columns("DEPARTAMENTO")
             Me.columnMUNICIPIO = MyBase.Columns("MUNICIPIO")
             Me.columnESTADO = MyBase.Columns("ESTADO")
+            Me.columnNOMBRE_PARTIDO = MyBase.Columns("NOMBRE PARTIDO")
+            Me.columnNOMBRE_MOVIMIENTO = MyBase.Columns("NOMBRE MOVIMIENTO")
+            Me.columnNOMBRE_DEPARTAMENTO = MyBase.Columns("NOMBRE DEPARTAMENTO")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -502,29 +566,29 @@ Partial Public Class DS_REPORTE_DE_FDP
             MyBase.Columns.Add(Me.columnNOMBRE)
             Me.columnAPELLIDOS = New Global.System.Data.DataColumn("APELLIDOS", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAPELLIDOS)
-            Me.columnPARTIDO = New Global.System.Data.DataColumn("PARTIDO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPARTIDO)
-            Me.columnMOVIMIENTO = New Global.System.Data.DataColumn("MOVIMIENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnMOVIMIENTO)
-            Me.columnDEPARTAMENTO = New Global.System.Data.DataColumn("DEPARTAMENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDEPARTAMENTO)
             Me.columnMUNICIPIO = New Global.System.Data.DataColumn("MUNICIPIO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMUNICIPIO)
             Me.columnESTADO = New Global.System.Data.DataColumn("ESTADO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnESTADO)
+            Me.columnNOMBRE_PARTIDO = New Global.System.Data.DataColumn("NOMBRE PARTIDO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNOMBRE_PARTIDO)
+            Me.columnNOMBRE_MOVIMIENTO = New Global.System.Data.DataColumn("NOMBRE MOVIMIENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNOMBRE_MOVIMIENTO)
+            Me.columnNOMBRE_DEPARTAMENTO = New Global.System.Data.DataColumn("NOMBRE DEPARTAMENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNOMBRE_DEPARTAMENTO)
             Me.columnIDENTIDAD.AllowDBNull = false
             Me.columnIDENTIDAD.MaxLength = 15
             Me.columnNOMBRE.MaxLength = 101
             Me.columnAPELLIDOS.MaxLength = 101
-            Me.columnPARTIDO.AllowDBNull = false
-            Me.columnPARTIDO.MaxLength = 100
-            Me.columnMOVIMIENTO.AllowDBNull = false
-            Me.columnMOVIMIENTO.MaxLength = 200
-            Me.columnDEPARTAMENTO.AllowDBNull = false
-            Me.columnDEPARTAMENTO.MaxLength = 100
             Me.columnMUNICIPIO.AllowDBNull = false
             Me.columnMUNICIPIO.MaxLength = 100
             Me.columnESTADO.MaxLength = 13
+            Me.columnNOMBRE_PARTIDO.AllowDBNull = false
+            Me.columnNOMBRE_PARTIDO.MaxLength = 100
+            Me.columnNOMBRE_MOVIMIENTO.AllowDBNull = false
+            Me.columnNOMBRE_MOVIMIENTO.MaxLength = 200
+            Me.columnNOMBRE_DEPARTAMENTO.AllowDBNull = false
+            Me.columnNOMBRE_DEPARTAMENTO.MaxLength = 100
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -651,8 +715,8 @@ Partial Public Class DS_REPORTE_DE_FDP
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
      Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class DT_PLANILLA_PARTIDO_MDataTable
-        Inherits Global.System.Data.TypedTableBase(Of DT_PLANILLA_PARTIDO_MRow)
+    Partial Public Class DT_PARTIDO_FDPDataTable
+        Inherits Global.System.Data.TypedTableBase(Of DT_PARTIDO_FDPRow)
         
         Private columnCODIGO_PARTIDO As Global.System.Data.DataColumn
         
@@ -661,7 +725,7 @@ Partial Public Class DS_REPORTE_DE_FDP
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "DT_PLANILLA_PARTIDO_M"
+            Me.TableName = "DT_PARTIDO_FDP"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -713,44 +777,44 @@ Partial Public Class DS_REPORTE_DE_FDP
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As DT_PLANILLA_PARTIDO_MRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As DT_PARTIDO_FDPRow
             Get
-                Return CType(Me.Rows(index),DT_PLANILLA_PARTIDO_MRow)
+                Return CType(Me.Rows(index),DT_PARTIDO_FDPRow)
             End Get
         End Property
         
-        Public Event DT_PLANILLA_PARTIDO_MRowChanging As DT_PLANILLA_PARTIDO_MRowChangeEventHandler
+        Public Event DT_PARTIDO_FDPRowChanging As DT_PARTIDO_FDPRowChangeEventHandler
         
-        Public Event DT_PLANILLA_PARTIDO_MRowChanged As DT_PLANILLA_PARTIDO_MRowChangeEventHandler
+        Public Event DT_PARTIDO_FDPRowChanged As DT_PARTIDO_FDPRowChangeEventHandler
         
-        Public Event DT_PLANILLA_PARTIDO_MRowDeleting As DT_PLANILLA_PARTIDO_MRowChangeEventHandler
+        Public Event DT_PARTIDO_FDPRowDeleting As DT_PARTIDO_FDPRowChangeEventHandler
         
-        Public Event DT_PLANILLA_PARTIDO_MRowDeleted As DT_PLANILLA_PARTIDO_MRowChangeEventHandler
+        Public Event DT_PARTIDO_FDPRowDeleted As DT_PARTIDO_FDPRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Sub AddDT_PLANILLA_PARTIDO_MRow(ByVal row As DT_PLANILLA_PARTIDO_MRow)
+        Public Overloads Sub AddDT_PARTIDO_FDPRow(ByVal row As DT_PARTIDO_FDPRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddDT_PLANILLA_PARTIDO_MRow(ByVal CODIGO_PARTIDO As Decimal, ByVal NOMBRE_PARTIDO As String) As DT_PLANILLA_PARTIDO_MRow
-            Dim rowDT_PLANILLA_PARTIDO_MRow As DT_PLANILLA_PARTIDO_MRow = CType(Me.NewRow,DT_PLANILLA_PARTIDO_MRow)
+        Public Overloads Function AddDT_PARTIDO_FDPRow(ByVal CODIGO_PARTIDO As Decimal, ByVal NOMBRE_PARTIDO As String) As DT_PARTIDO_FDPRow
+            Dim rowDT_PARTIDO_FDPRow As DT_PARTIDO_FDPRow = CType(Me.NewRow,DT_PARTIDO_FDPRow)
             Dim columnValuesArray() As Object = New Object() {CODIGO_PARTIDO, NOMBRE_PARTIDO}
-            rowDT_PLANILLA_PARTIDO_MRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowDT_PLANILLA_PARTIDO_MRow)
-            Return rowDT_PLANILLA_PARTIDO_MRow
+            rowDT_PARTIDO_FDPRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowDT_PARTIDO_FDPRow)
+            Return rowDT_PARTIDO_FDPRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As DT_PLANILLA_PARTIDO_MDataTable = CType(MyBase.Clone,DT_PLANILLA_PARTIDO_MDataTable)
+            Dim cln As DT_PARTIDO_FDPDataTable = CType(MyBase.Clone,DT_PARTIDO_FDPDataTable)
             cln.InitVars
             Return cln
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New DT_PLANILLA_PARTIDO_MDataTable
+            Return New DT_PARTIDO_FDPDataTable
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -769,54 +833,54 @@ Partial Public Class DS_REPORTE_DE_FDP
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function NewDT_PLANILLA_PARTIDO_MRow() As DT_PLANILLA_PARTIDO_MRow
-            Return CType(Me.NewRow,DT_PLANILLA_PARTIDO_MRow)
+        Public Function NewDT_PARTIDO_FDPRow() As DT_PARTIDO_FDPRow
+            Return CType(Me.NewRow,DT_PARTIDO_FDPRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New DT_PLANILLA_PARTIDO_MRow(builder)
+            Return New DT_PARTIDO_FDPRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(DT_PLANILLA_PARTIDO_MRow)
+            Return GetType(DT_PARTIDO_FDPRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.DT_PLANILLA_PARTIDO_MRowChangedEvent) Is Nothing) Then
-                RaiseEvent DT_PLANILLA_PARTIDO_MRowChanged(Me, New DT_PLANILLA_PARTIDO_MRowChangeEvent(CType(e.Row,DT_PLANILLA_PARTIDO_MRow), e.Action))
+            If (Not (Me.DT_PARTIDO_FDPRowChangedEvent) Is Nothing) Then
+                RaiseEvent DT_PARTIDO_FDPRowChanged(Me, New DT_PARTIDO_FDPRowChangeEvent(CType(e.Row,DT_PARTIDO_FDPRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.DT_PLANILLA_PARTIDO_MRowChangingEvent) Is Nothing) Then
-                RaiseEvent DT_PLANILLA_PARTIDO_MRowChanging(Me, New DT_PLANILLA_PARTIDO_MRowChangeEvent(CType(e.Row,DT_PLANILLA_PARTIDO_MRow), e.Action))
+            If (Not (Me.DT_PARTIDO_FDPRowChangingEvent) Is Nothing) Then
+                RaiseEvent DT_PARTIDO_FDPRowChanging(Me, New DT_PARTIDO_FDPRowChangeEvent(CType(e.Row,DT_PARTIDO_FDPRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.DT_PLANILLA_PARTIDO_MRowDeletedEvent) Is Nothing) Then
-                RaiseEvent DT_PLANILLA_PARTIDO_MRowDeleted(Me, New DT_PLANILLA_PARTIDO_MRowChangeEvent(CType(e.Row,DT_PLANILLA_PARTIDO_MRow), e.Action))
+            If (Not (Me.DT_PARTIDO_FDPRowDeletedEvent) Is Nothing) Then
+                RaiseEvent DT_PARTIDO_FDPRowDeleted(Me, New DT_PARTIDO_FDPRowChangeEvent(CType(e.Row,DT_PARTIDO_FDPRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.DT_PLANILLA_PARTIDO_MRowDeletingEvent) Is Nothing) Then
-                RaiseEvent DT_PLANILLA_PARTIDO_MRowDeleting(Me, New DT_PLANILLA_PARTIDO_MRowChangeEvent(CType(e.Row,DT_PLANILLA_PARTIDO_MRow), e.Action))
+            If (Not (Me.DT_PARTIDO_FDPRowDeletingEvent) Is Nothing) Then
+                RaiseEvent DT_PARTIDO_FDPRowDeleting(Me, New DT_PARTIDO_FDPRowChangeEvent(CType(e.Row,DT_PARTIDO_FDPRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub RemoveDT_PLANILLA_PARTIDO_MRow(ByVal row As DT_PLANILLA_PARTIDO_MRow)
+        Public Sub RemoveDT_PARTIDO_FDPRow(ByVal row As DT_PARTIDO_FDPRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -842,7 +906,7 @@ Partial Public Class DS_REPORTE_DE_FDP
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "DT_PLANILLA_PARTIDO_MDataTable"
+            attribute2.FixedValue = "DT_PARTIDO_FDPDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -1128,6 +1192,497 @@ Partial Public Class DS_REPORTE_DE_FDP
     End Class
     
     '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class DT_MOVIMIENTO_FDPDataTable
+        Inherits Global.System.Data.TypedTableBase(Of DT_MOVIMIENTO_FDPRow)
+        
+        Private columnCODIGO_MOVIMIENTO As Global.System.Data.DataColumn
+        
+        Private columnNOMBRE_MOVIMIENTO As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "DT_MOVIMIENTO_FDP"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CODIGO_MOVIMIENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCODIGO_MOVIMIENTO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property NOMBRE_MOVIMIENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNOMBRE_MOVIMIENTO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As DT_MOVIMIENTO_FDPRow
+            Get
+                Return CType(Me.Rows(index),DT_MOVIMIENTO_FDPRow)
+            End Get
+        End Property
+        
+        Public Event DT_MOVIMIENTO_FDPRowChanging As DT_MOVIMIENTO_FDPRowChangeEventHandler
+        
+        Public Event DT_MOVIMIENTO_FDPRowChanged As DT_MOVIMIENTO_FDPRowChangeEventHandler
+        
+        Public Event DT_MOVIMIENTO_FDPRowDeleting As DT_MOVIMIENTO_FDPRowChangeEventHandler
+        
+        Public Event DT_MOVIMIENTO_FDPRowDeleted As DT_MOVIMIENTO_FDPRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Sub AddDT_MOVIMIENTO_FDPRow(ByVal row As DT_MOVIMIENTO_FDPRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Function AddDT_MOVIMIENTO_FDPRow(ByVal CODIGO_MOVIMIENTO As Decimal, ByVal NOMBRE_MOVIMIENTO As String) As DT_MOVIMIENTO_FDPRow
+            Dim rowDT_MOVIMIENTO_FDPRow As DT_MOVIMIENTO_FDPRow = CType(Me.NewRow,DT_MOVIMIENTO_FDPRow)
+            Dim columnValuesArray() As Object = New Object() {CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO}
+            rowDT_MOVIMIENTO_FDPRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowDT_MOVIMIENTO_FDPRow)
+            Return rowDT_MOVIMIENTO_FDPRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As DT_MOVIMIENTO_FDPDataTable = CType(MyBase.Clone,DT_MOVIMIENTO_FDPDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New DT_MOVIMIENTO_FDPDataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub InitVars()
+            Me.columnCODIGO_MOVIMIENTO = MyBase.Columns("CODIGO_MOVIMIENTO")
+            Me.columnNOMBRE_MOVIMIENTO = MyBase.Columns("NOMBRE MOVIMIENTO")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitClass()
+            Me.columnCODIGO_MOVIMIENTO = New Global.System.Data.DataColumn("CODIGO_MOVIMIENTO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_MOVIMIENTO)
+            Me.columnNOMBRE_MOVIMIENTO = New Global.System.Data.DataColumn("NOMBRE MOVIMIENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNOMBRE_MOVIMIENTO)
+            Me.columnNOMBRE_MOVIMIENTO.MaxLength = 200
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function NewDT_MOVIMIENTO_FDPRow() As DT_MOVIMIENTO_FDPRow
+            Return CType(Me.NewRow,DT_MOVIMIENTO_FDPRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New DT_MOVIMIENTO_FDPRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(DT_MOVIMIENTO_FDPRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.DT_MOVIMIENTO_FDPRowChangedEvent) Is Nothing) Then
+                RaiseEvent DT_MOVIMIENTO_FDPRowChanged(Me, New DT_MOVIMIENTO_FDPRowChangeEvent(CType(e.Row,DT_MOVIMIENTO_FDPRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.DT_MOVIMIENTO_FDPRowChangingEvent) Is Nothing) Then
+                RaiseEvent DT_MOVIMIENTO_FDPRowChanging(Me, New DT_MOVIMIENTO_FDPRowChangeEvent(CType(e.Row,DT_MOVIMIENTO_FDPRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.DT_MOVIMIENTO_FDPRowDeletedEvent) Is Nothing) Then
+                RaiseEvent DT_MOVIMIENTO_FDPRowDeleted(Me, New DT_MOVIMIENTO_FDPRowChangeEvent(CType(e.Row,DT_MOVIMIENTO_FDPRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.DT_MOVIMIENTO_FDPRowDeletingEvent) Is Nothing) Then
+                RaiseEvent DT_MOVIMIENTO_FDPRowDeleting(Me, New DT_MOVIMIENTO_FDPRowChangeEvent(CType(e.Row,DT_MOVIMIENTO_FDPRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub RemoveDT_MOVIMIENTO_FDPRow(ByVal row As DT_MOVIMIENTO_FDPRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence
+            Dim ds As DS_REPORTE_DE_FDP = New DS_REPORTE_DE_FDP
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "DT_MOVIMIENTO_FDPDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class IM_DEPARTAMENTOS_FDPDataTable
+        Inherits Global.System.Data.TypedTableBase(Of IM_DEPARTAMENTOS_FDPRow)
+        
+        Private columnCODIGO_DEPARTAMENTO As Global.System.Data.DataColumn
+        
+        Private columnNOMBRE_DEPARTAMENTO As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "IM_DEPARTAMENTOS_FDP"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CODIGO_DEPARTAMENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCODIGO_DEPARTAMENTO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property NOMBRE_DEPARTAMENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNOMBRE_DEPARTAMENTO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As IM_DEPARTAMENTOS_FDPRow
+            Get
+                Return CType(Me.Rows(index),IM_DEPARTAMENTOS_FDPRow)
+            End Get
+        End Property
+        
+        Public Event IM_DEPARTAMENTOS_FDPRowChanging As IM_DEPARTAMENTOS_FDPRowChangeEventHandler
+        
+        Public Event IM_DEPARTAMENTOS_FDPRowChanged As IM_DEPARTAMENTOS_FDPRowChangeEventHandler
+        
+        Public Event IM_DEPARTAMENTOS_FDPRowDeleting As IM_DEPARTAMENTOS_FDPRowChangeEventHandler
+        
+        Public Event IM_DEPARTAMENTOS_FDPRowDeleted As IM_DEPARTAMENTOS_FDPRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Sub AddIM_DEPARTAMENTOS_FDPRow(ByVal row As IM_DEPARTAMENTOS_FDPRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Function AddIM_DEPARTAMENTOS_FDPRow(ByVal CODIGO_DEPARTAMENTO As Decimal, ByVal NOMBRE_DEPARTAMENTO As String) As IM_DEPARTAMENTOS_FDPRow
+            Dim rowIM_DEPARTAMENTOS_FDPRow As IM_DEPARTAMENTOS_FDPRow = CType(Me.NewRow,IM_DEPARTAMENTOS_FDPRow)
+            Dim columnValuesArray() As Object = New Object() {CODIGO_DEPARTAMENTO, NOMBRE_DEPARTAMENTO}
+            rowIM_DEPARTAMENTOS_FDPRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowIM_DEPARTAMENTOS_FDPRow)
+            Return rowIM_DEPARTAMENTOS_FDPRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function FindByCODIGO_DEPARTAMENTO(ByVal CODIGO_DEPARTAMENTO As Decimal) As IM_DEPARTAMENTOS_FDPRow
+            Return CType(Me.Rows.Find(New Object() {CODIGO_DEPARTAMENTO}),IM_DEPARTAMENTOS_FDPRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As IM_DEPARTAMENTOS_FDPDataTable = CType(MyBase.Clone,IM_DEPARTAMENTOS_FDPDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New IM_DEPARTAMENTOS_FDPDataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub InitVars()
+            Me.columnCODIGO_DEPARTAMENTO = MyBase.Columns("CODIGO_DEPARTAMENTO")
+            Me.columnNOMBRE_DEPARTAMENTO = MyBase.Columns("NOMBRE DEPARTAMENTO")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitClass()
+            Me.columnCODIGO_DEPARTAMENTO = New Global.System.Data.DataColumn("CODIGO_DEPARTAMENTO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_DEPARTAMENTO)
+            Me.columnNOMBRE_DEPARTAMENTO = New Global.System.Data.DataColumn("NOMBRE DEPARTAMENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNOMBRE_DEPARTAMENTO)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_DEPARTAMENTO}, true))
+            Me.columnCODIGO_DEPARTAMENTO.AllowDBNull = false
+            Me.columnCODIGO_DEPARTAMENTO.Unique = true
+            Me.columnNOMBRE_DEPARTAMENTO.AllowDBNull = false
+            Me.columnNOMBRE_DEPARTAMENTO.MaxLength = 100
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function NewIM_DEPARTAMENTOS_FDPRow() As IM_DEPARTAMENTOS_FDPRow
+            Return CType(Me.NewRow,IM_DEPARTAMENTOS_FDPRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New IM_DEPARTAMENTOS_FDPRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(IM_DEPARTAMENTOS_FDPRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.IM_DEPARTAMENTOS_FDPRowChangedEvent) Is Nothing) Then
+                RaiseEvent IM_DEPARTAMENTOS_FDPRowChanged(Me, New IM_DEPARTAMENTOS_FDPRowChangeEvent(CType(e.Row,IM_DEPARTAMENTOS_FDPRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.IM_DEPARTAMENTOS_FDPRowChangingEvent) Is Nothing) Then
+                RaiseEvent IM_DEPARTAMENTOS_FDPRowChanging(Me, New IM_DEPARTAMENTOS_FDPRowChangeEvent(CType(e.Row,IM_DEPARTAMENTOS_FDPRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.IM_DEPARTAMENTOS_FDPRowDeletedEvent) Is Nothing) Then
+                RaiseEvent IM_DEPARTAMENTOS_FDPRowDeleted(Me, New IM_DEPARTAMENTOS_FDPRowChangeEvent(CType(e.Row,IM_DEPARTAMENTOS_FDPRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.IM_DEPARTAMENTOS_FDPRowDeletingEvent) Is Nothing) Then
+                RaiseEvent IM_DEPARTAMENTOS_FDPRowDeleting(Me, New IM_DEPARTAMENTOS_FDPRowChangeEvent(CType(e.Row,IM_DEPARTAMENTOS_FDPRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub RemoveIM_DEPARTAMENTOS_FDPRow(ByVal row As IM_DEPARTAMENTOS_FDPRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence
+            Dim ds As DS_REPORTE_DE_FDP = New DS_REPORTE_DE_FDP
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "IM_DEPARTAMENTOS_FDPDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
@@ -1183,36 +1738,6 @@ Partial Public Class DS_REPORTE_DE_FDP
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property PARTIDO() As String
-            Get
-                Return CType(Me(Me.tableIM_V_FIRMAS_DIVISION_POLITICA.PARTIDOColumn),String)
-            End Get
-            Set
-                Me(Me.tableIM_V_FIRMAS_DIVISION_POLITICA.PARTIDOColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property MOVIMIENTO() As String
-            Get
-                Return CType(Me(Me.tableIM_V_FIRMAS_DIVISION_POLITICA.MOVIMIENTOColumn),String)
-            End Get
-            Set
-                Me(Me.tableIM_V_FIRMAS_DIVISION_POLITICA.MOVIMIENTOColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property DEPARTAMENTO() As String
-            Get
-                Return CType(Me(Me.tableIM_V_FIRMAS_DIVISION_POLITICA.DEPARTAMENTOColumn),String)
-            End Get
-            Set
-                Me(Me.tableIM_V_FIRMAS_DIVISION_POLITICA.DEPARTAMENTOColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property MUNICIPIO() As String
             Get
                 Return CType(Me(Me.tableIM_V_FIRMAS_DIVISION_POLITICA.MUNICIPIOColumn),String)
@@ -1234,6 +1759,36 @@ Partial Public Class DS_REPORTE_DE_FDP
             End Get
             Set
                 Me(Me.tableIM_V_FIRMAS_DIVISION_POLITICA.ESTADOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property NOMBRE_PARTIDO() As String
+            Get
+                Return CType(Me(Me.tableIM_V_FIRMAS_DIVISION_POLITICA.NOMBRE_PARTIDOColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_V_FIRMAS_DIVISION_POLITICA.NOMBRE_PARTIDOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property NOMBRE_MOVIMIENTO() As String
+            Get
+                Return CType(Me(Me.tableIM_V_FIRMAS_DIVISION_POLITICA.NOMBRE_MOVIMIENTOColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_V_FIRMAS_DIVISION_POLITICA.NOMBRE_MOVIMIENTOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property NOMBRE_DEPARTAMENTO() As String
+            Get
+                Return CType(Me(Me.tableIM_V_FIRMAS_DIVISION_POLITICA.NOMBRE_DEPARTAMENTOColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_V_FIRMAS_DIVISION_POLITICA.NOMBRE_DEPARTAMENTOColumn) = value
             End Set
         End Property
         
@@ -1272,29 +1827,28 @@ Partial Public Class DS_REPORTE_DE_FDP
     '''Represents strongly named DataRow class.
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
-    Partial Public Class DT_PLANILLA_PARTIDO_MRow
+    Partial Public Class DT_PARTIDO_FDPRow
         Inherits Global.System.Data.DataRow
         
-        Private tableDT_PLANILLA_PARTIDO_M As DT_PLANILLA_PARTIDO_MDataTable
+        Private tableDT_PARTIDO_FDP As DT_PARTIDO_FDPDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableDT_PLANILLA_PARTIDO_M = CType(Me.Table,DT_PLANILLA_PARTIDO_MDataTable)
+            Me.tableDT_PARTIDO_FDP = CType(Me.Table,DT_PARTIDO_FDPDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property CODIGO_PARTIDO() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableDT_PLANILLA_PARTIDO_M.CODIGO_PARTIDOColumn),Decimal)
+                    Return CType(Me(Me.tableDT_PARTIDO_FDP.CODIGO_PARTIDOColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CODIGO_PARTIDO' in table 'DT_PLANILLA_PARTIDO_M' is DBNull."& _ 
-                            "", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CODIGO_PARTIDO' in table 'DT_PARTIDO_FDP' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDT_PLANILLA_PARTIDO_M.CODIGO_PARTIDOColumn) = value
+                Me(Me.tableDT_PARTIDO_FDP.CODIGO_PARTIDOColumn) = value
             End Set
         End Property
         
@@ -1302,35 +1856,34 @@ Partial Public Class DS_REPORTE_DE_FDP
         Public Property NOMBRE_PARTIDO() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableDT_PLANILLA_PARTIDO_M.NOMBRE_PARTIDOColumn),String)
+                    Return CType(Me(Me.tableDT_PARTIDO_FDP.NOMBRE_PARTIDOColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'NOMBRE PARTIDO' in table 'DT_PLANILLA_PARTIDO_M' is DBNull."& _ 
-                            "", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'NOMBRE PARTIDO' in table 'DT_PARTIDO_FDP' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableDT_PLANILLA_PARTIDO_M.NOMBRE_PARTIDOColumn) = value
+                Me(Me.tableDT_PARTIDO_FDP.NOMBRE_PARTIDOColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsCODIGO_PARTIDONull() As Boolean
-            Return Me.IsNull(Me.tableDT_PLANILLA_PARTIDO_M.CODIGO_PARTIDOColumn)
+            Return Me.IsNull(Me.tableDT_PARTIDO_FDP.CODIGO_PARTIDOColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetCODIGO_PARTIDONull()
-            Me(Me.tableDT_PLANILLA_PARTIDO_M.CODIGO_PARTIDOColumn) = Global.System.Convert.DBNull
+            Me(Me.tableDT_PARTIDO_FDP.CODIGO_PARTIDOColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsNOMBRE_PARTIDONull() As Boolean
-            Return Me.IsNull(Me.tableDT_PLANILLA_PARTIDO_M.NOMBRE_PARTIDOColumn)
+            Return Me.IsNull(Me.tableDT_PARTIDO_FDP.NOMBRE_PARTIDOColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetNOMBRE_PARTIDONull()
-            Me(Me.tableDT_PLANILLA_PARTIDO_M.NOMBRE_PARTIDOColumn) = Global.System.Convert.DBNull
+            Me(Me.tableDT_PARTIDO_FDP.NOMBRE_PARTIDOColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1400,6 +1953,106 @@ Partial Public Class DS_REPORTE_DE_FDP
     End Class
     
     '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Partial Public Class DT_MOVIMIENTO_FDPRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableDT_MOVIMIENTO_FDP As DT_MOVIMIENTO_FDPDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableDT_MOVIMIENTO_FDP = CType(Me.Table,DT_MOVIMIENTO_FDPDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CODIGO_MOVIMIENTO() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableDT_MOVIMIENTO_FDP.CODIGO_MOVIMIENTOColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CODIGO_MOVIMIENTO' in table 'DT_MOVIMIENTO_FDP' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDT_MOVIMIENTO_FDP.CODIGO_MOVIMIENTOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property NOMBRE_MOVIMIENTO() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDT_MOVIMIENTO_FDP.NOMBRE_MOVIMIENTOColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'NOMBRE MOVIMIENTO' in table 'DT_MOVIMIENTO_FDP' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDT_MOVIMIENTO_FDP.NOMBRE_MOVIMIENTOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsCODIGO_MOVIMIENTONull() As Boolean
+            Return Me.IsNull(Me.tableDT_MOVIMIENTO_FDP.CODIGO_MOVIMIENTOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetCODIGO_MOVIMIENTONull()
+            Me(Me.tableDT_MOVIMIENTO_FDP.CODIGO_MOVIMIENTOColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsNOMBRE_MOVIMIENTONull() As Boolean
+            Return Me.IsNull(Me.tableDT_MOVIMIENTO_FDP.NOMBRE_MOVIMIENTOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetNOMBRE_MOVIMIENTONull()
+            Me(Me.tableDT_MOVIMIENTO_FDP.NOMBRE_MOVIMIENTOColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Partial Public Class IM_DEPARTAMENTOS_FDPRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableIM_DEPARTAMENTOS_FDP As IM_DEPARTAMENTOS_FDPDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableIM_DEPARTAMENTOS_FDP = CType(Me.Table,IM_DEPARTAMENTOS_FDPDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CODIGO_DEPARTAMENTO() As Decimal
+            Get
+                Return CType(Me(Me.tableIM_DEPARTAMENTOS_FDP.CODIGO_DEPARTAMENTOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIM_DEPARTAMENTOS_FDP.CODIGO_DEPARTAMENTOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property NOMBRE_DEPARTAMENTO() As String
+            Get
+                Return CType(Me(Me.tableIM_DEPARTAMENTOS_FDP.NOMBRE_DEPARTAMENTOColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_DEPARTAMENTOS_FDP.NOMBRE_DEPARTAMENTOColumn) = value
+            End Set
+        End Property
+    End Class
+    
+    '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
@@ -1436,22 +2089,22 @@ Partial Public Class DS_REPORTE_DE_FDP
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
-    Public Class DT_PLANILLA_PARTIDO_MRowChangeEvent
+    Public Class DT_PARTIDO_FDPRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As DT_PLANILLA_PARTIDO_MRow
+        Private eventRow As DT_PARTIDO_FDPRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub New(ByVal row As DT_PLANILLA_PARTIDO_MRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As DT_PARTIDO_FDPRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Row() As DT_PLANILLA_PARTIDO_MRow
+        Public ReadOnly Property Row() As DT_PARTIDO_FDPRow
             Get
                 Return Me.eventRow
             End Get
@@ -1485,6 +2138,72 @@ Partial Public Class DS_REPORTE_DE_FDP
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public ReadOnly Property Row() As DT_PLANILLA_NIVEL_MRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Public Class DT_MOVIMIENTO_FDPRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As DT_MOVIMIENTO_FDPRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New(ByVal row As DT_MOVIMIENTO_FDPRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Row() As DT_MOVIMIENTO_FDPRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Public Class IM_DEPARTAMENTOS_FDPRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As IM_DEPARTAMENTOS_FDPRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New(ByVal row As IM_DEPARTAMENTOS_FDPRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Row() As IM_DEPARTAMENTOS_FDPRow
             Get
                 Return Me.eventRow
             End Get
@@ -1596,11 +2315,11 @@ Namespace DS_REPORTE_DE_FDPTableAdapters
             tableMapping.ColumnMappings.Add("IDENTIDAD", "IDENTIDAD")
             tableMapping.ColumnMappings.Add("NOMBRE", "NOMBRE")
             tableMapping.ColumnMappings.Add("APELLIDOS", "APELLIDOS")
-            tableMapping.ColumnMappings.Add("PARTIDO", "PARTIDO")
-            tableMapping.ColumnMappings.Add("MOVIMIENTO", "MOVIMIENTO")
-            tableMapping.ColumnMappings.Add("DEPARTAMENTO", "DEPARTAMENTO")
             tableMapping.ColumnMappings.Add("MUNICIPIO", "MUNICIPIO")
             tableMapping.ColumnMappings.Add("ESTADO", "ESTADO")
+            tableMapping.ColumnMappings.Add("NOMBRE PARTIDO", "NOMBRE PARTIDO")
+            tableMapping.ColumnMappings.Add("NOMBRE MOVIMIENTO", "NOMBRE MOVIMIENTO")
+            tableMapping.ColumnMappings.Add("NOMBRE DEPARTAMENTO", "NOMBRE DEPARTAMENTO")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -1615,8 +2334,9 @@ Namespace DS_REPORTE_DE_FDPTableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT IDENTIDAD, NOMBRE, APELLIDOS, PARTIDO, MOVIMIENTO, DEPARTAMENTO, MUNICIPIO"& _ 
-                ", ESTADO FROM TSE.IM_V_FIRMAS_DIVISION_POLITICA"
+            Me._commandCollection(0).CommandText = "SELECT        IDENTIDAD, NOMBRE, APELLIDOS, PARTIDO AS ""NOMBRE PARTIDO"", MOVIMIEN"& _ 
+                "TO AS ""NOMBRE MOVIMIENTO"", DEPARTAMENTO AS ""NOMBRE DEPARTAMENTO"","&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
+                "             MUNICIPIO, ESTADO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_FIRMAS_DIVISION_POLITICA"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -1653,7 +2373,7 @@ Namespace DS_REPORTE_DE_FDPTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class DT_PLANILLA_PARTIDO_MTableAdapter
+    Partial Public Class DT_PARTIDO_FDPTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.OracleClient.OracleDataAdapter
@@ -1734,7 +2454,7 @@ Namespace DS_REPORTE_DE_FDPTableAdapters
             Me._adapter = New Global.System.Data.OracleClient.OracleDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "DT_PLANILLA_PARTIDO_M"
+            tableMapping.DataSetTable = "DT_PARTIDO_FDP"
             tableMapping.ColumnMappings.Add("CODIGO_PARTIDO", "CODIGO_PARTIDO")
             tableMapping.ColumnMappings.Add("NOMBRE PARTIDO", "NOMBRE PARTIDO")
             Me._adapter.TableMappings.Add(tableMapping)
@@ -1760,7 +2480,7 @@ Namespace DS_REPORTE_DE_FDPTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DS_REPORTE_DE_FDP.DT_PLANILLA_PARTIDO_MDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_REPORTE_DE_FDP.DT_PARTIDO_FDPDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -1772,9 +2492,9 @@ Namespace DS_REPORTE_DE_FDPTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DS_REPORTE_DE_FDP.DT_PLANILLA_PARTIDO_MDataTable
+        Public Overloads Overridable Function GetData() As DS_REPORTE_DE_FDP.DT_PARTIDO_FDPDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DS_REPORTE_DE_FDP.DT_PLANILLA_PARTIDO_MDataTable = New DS_REPORTE_DE_FDP.DT_PLANILLA_PARTIDO_MDataTable
+            Dim dataTable As DS_REPORTE_DE_FDP.DT_PARTIDO_FDPDataTable = New DS_REPORTE_DE_FDP.DT_PARTIDO_FDPDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -1914,6 +2634,383 @@ Namespace DS_REPORTE_DE_FDPTableAdapters
             Dim dataTable As DS_REPORTE_DE_FDP.DT_PLANILLA_NIVEL_MDataTable = New DS_REPORTE_DE_FDP.DT_PLANILLA_NIVEL_MDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class DT_MOVIMIENTO_FDPTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.OracleClient.OracleDataAdapter
+        
+        Private _connection As Global.System.Data.OracleClient.OracleConnection
+        
+        Private _commandCollection() As Global.System.Data.OracleClient.OracleCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private ReadOnly Property Adapter() As Global.System.Data.OracleClient.OracleDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Connection() As Global.System.Data.OracleClient.OracleConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.OracleClient.OracleCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.OracleClient.OracleCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.OracleClient.OracleDataAdapter
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "DT_MOVIMIENTO_FDP"
+            tableMapping.ColumnMappings.Add("CODIGO_MOVIMIENTO", "CODIGO_MOVIMIENTO")
+            tableMapping.ColumnMappings.Add("NOMBRE MOVIMIENTO", "NOMBRE MOVIMIENTO")
+            Me._adapter.TableMappings.Add(tableMapping)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.OracleClient.OracleConnection
+            Me._connection.ConnectionString = "Data Source=TSEDB2;User ID=tse;Password=oracle"
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT 0 CODIGO_MOVIMIENTO, 'TODOS' ""NOMBRE MOVIMIENTO"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM IM_MOVIMIENTOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNI"& _ 
+                "ON"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO ""NOMBRE MOVIMIENTO"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM IM_MOV"& _ 
+                "IMIENTOS"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_REPORTE_DE_FDP.DT_MOVIMIENTO_FDPDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As DS_REPORTE_DE_FDP.DT_MOVIMIENTO_FDPDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As DS_REPORTE_DE_FDP.DT_MOVIMIENTO_FDPDataTable = New DS_REPORTE_DE_FDP.DT_MOVIMIENTO_FDPDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class IM_DEPARTAMENTOS_FDPTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.OracleClient.OracleDataAdapter
+        
+        Private _connection As Global.System.Data.OracleClient.OracleConnection
+        
+        Private _commandCollection() As Global.System.Data.OracleClient.OracleCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private ReadOnly Property Adapter() As Global.System.Data.OracleClient.OracleDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Connection() As Global.System.Data.OracleClient.OracleConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.OracleClient.OracleCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.OracleClient.OracleCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.OracleClient.OracleDataAdapter
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "IM_DEPARTAMENTOS_FDP"
+            tableMapping.ColumnMappings.Add("CODIGO_DEPARTAMENTO", "CODIGO_DEPARTAMENTO")
+            tableMapping.ColumnMappings.Add("NOMBRE DEPARTAMENTO", "NOMBRE DEPARTAMENTO")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.OracleClient.OracleCommand
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM ""IM_DEPARTAMENTOS"" WHERE ((""CODIGO_DEPARTAMENTO"" = :Original_CODIGO_D"& _ 
+                "EPARTAMENTO) AND (""DESCRIPCION"" = :Original_NOMBRE_DEPARTAMENTO))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_NOMBRE_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand = New Global.System.Data.OracleClient.OracleCommand
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE ""IM_DEPARTAMENTOS"" SET ""CODIGO_DEPARTAMENTO"" = :CODIGO_DEPARTAMENTO, ""DESC"& _ 
+                "RIPCION"" = :NOMBRE_DEPARTAMENTO WHERE ((""CODIGO_DEPARTAMENTO"" = :Original_CODIGO"& _ 
+                "_DEPARTAMENTO) AND (""DESCRIPCION"" = :Original_NOMBRE_DEPARTAMENTO))"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NOMBRE_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_NOMBRE_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.OracleClient.OracleConnection
+            Me._connection.ConnectionString = "Data Source=TSEDB2;User ID=tse;Password=oracle"
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT        CODIGO_DEPARTAMENTO, DESCRIPCION AS ""NOMBRE DEPARTAMENTO"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM    "& _ 
+                "        IM_DEPARTAMENTOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY CODIGO_DEPARTAMENTO"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_REPORTE_DE_FDP.IM_DEPARTAMENTOS_FDPDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As DS_REPORTE_DE_FDP.IM_DEPARTAMENTOS_FDPDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As DS_REPORTE_DE_FDP.IM_DEPARTAMENTOS_FDPDataTable = New DS_REPORTE_DE_FDP.IM_DEPARTAMENTOS_FDPDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As DS_REPORTE_DE_FDP.IM_DEPARTAMENTOS_FDPDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As DS_REPORTE_DE_FDP) As Integer
+            Return Me.Adapter.Update(dataSet, "IM_DEPARTAMENTOS_FDP")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_CODIGO_DEPARTAMENTO As Decimal, ByVal Original_NOMBRE_DEPARTAMENTO As String) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CODIGO_DEPARTAMENTO,Decimal)
+            If (Original_NOMBRE_DEPARTAMENTO Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_NOMBRE_DEPARTAMENTO")
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_NOMBRE_DEPARTAMENTO,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal CODIGO_DEPARTAMENTO As Decimal, ByVal NOMBRE_DEPARTAMENTO As String, ByVal Original_CODIGO_DEPARTAMENTO As Decimal, ByVal Original_NOMBRE_DEPARTAMENTO As String) As Integer
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CODIGO_DEPARTAMENTO,Decimal)
+            If (NOMBRE_DEPARTAMENTO Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("NOMBRE_DEPARTAMENTO")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(NOMBRE_DEPARTAMENTO,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_CODIGO_DEPARTAMENTO,Decimal)
+            If (Original_NOMBRE_DEPARTAMENTO Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_NOMBRE_DEPARTAMENTO")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_NOMBRE_DEPARTAMENTO,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal NOMBRE_DEPARTAMENTO As String, ByVal Original_CODIGO_DEPARTAMENTO As Decimal, ByVal Original_NOMBRE_DEPARTAMENTO As String) As Integer
+            Return Me.Update(Original_CODIGO_DEPARTAMENTO, NOMBRE_DEPARTAMENTO, Original_CODIGO_DEPARTAMENTO, Original_NOMBRE_DEPARTAMENTO)
         End Function
     End Class
 End Namespace

@@ -54,6 +54,8 @@ Partial Public Class Reporte_de__FirmasDP
         Me.DataField = New DevExpress.XtraReports.UI.XRControlStyle
         Me.TopMarginBand1 = New DevExpress.XtraReports.UI.TopMarginBand
         Me.BottomMarginBand1 = New DevExpress.XtraReports.UI.BottomMarginBand
+        Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
+        Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
         CType(Me.DS_REPORTE_DE_FDP1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
@@ -123,7 +125,7 @@ Partial Public Class Reporte_de__FirmasDP
         '
         'XrLabel3
         '
-        Me.XrLabel3.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_DIVISION_POLITICA.PARTIDO")})
+        Me.XrLabel3.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_DIVISION_POLITICA.NOMBRE PARTIDO")})
         Me.XrLabel3.LocationFloat = New DevExpress.Utils.PointFloat(185.8389!, 0.0!)
         Me.XrLabel3.Name = "XrLabel3"
         Me.XrLabel3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -133,7 +135,7 @@ Partial Public Class Reporte_de__FirmasDP
         '
         'XrLabel4
         '
-        Me.XrLabel4.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_DIVISION_POLITICA.MOVIMIENTO")})
+        Me.XrLabel4.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_DIVISION_POLITICA.NOMBRE MOVIMIENTO")})
         Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(185.8389!, 36.29166!)
         Me.XrLabel4.Name = "XrLabel4"
         Me.XrLabel4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -354,16 +356,28 @@ Partial Public Class Reporte_de__FirmasDP
         '
         Me.BottomMarginBand1.Name = "BottomMarginBand1"
         '
+        'NombrePartido
+        '
+        Me.NombrePartido.Description = "Nombre de Partido Politico"
+        Me.NombrePartido.Name = "NombrePartido"
+        '
+        'NombreMovimiento
+        '
+        Me.NombreMovimiento.Description = "Nombre de Movimiento"
+        Me.NombreMovimiento.Name = "NombreMovimiento"
+        '
         'Reporte_de__FirmasDP
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.GroupHeaderBand1, Me.GroupHeaderBand2, Me.GroupHeaderBand3, Me.PageFooterBand1, Me.ReportHeaderBand1, Me.TopMarginBand1, Me.BottomMarginBand1})
         Me.DataAdapter = Me.IM_V_FIRMAS_DIVISION_POLITICAAdapter1
         Me.DataMember = "IM_V_FIRMAS_DIVISION_POLITICA"
         Me.DataSource = Me.DS_REPORTE_DE_FDP1
+        Me.FilterString = "[NOMBRE PARTIDO] = ?NombrePartido Or [NOMBRE MOVIMIENTO] = ?NombreMovimiento"
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(23, 41, 31, 100)
         Me.PageHeight = 850
         Me.PageWidth = 1100
+        Me.Parameters.AddRange(New DevExpress.XtraReports.Parameters.Parameter() {Me.NombrePartido, Me.NombreMovimiento})
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.StyleSheet.AddRange(New DevExpress.XtraReports.UI.XRControlStyle() {Me.Title, Me.FieldCaption, Me.PageInfo, Me.DataField})
         Me.Version = "11.2"
@@ -406,4 +420,6 @@ Partial Public Class Reporte_de__FirmasDP
     Friend WithEvents DataField As DevExpress.XtraReports.UI.XRControlStyle
     Friend WithEvents TopMarginBand1 As DevExpress.XtraReports.UI.TopMarginBand
     Friend WithEvents BottomMarginBand1 As DevExpress.XtraReports.UI.BottomMarginBand
+    Friend WithEvents NombrePartido As DevExpress.XtraReports.Parameters.Parameter
+    Friend WithEvents NombreMovimiento As DevExpress.XtraReports.Parameters.Parameter
 End Class
