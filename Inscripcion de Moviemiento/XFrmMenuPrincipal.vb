@@ -248,4 +248,9 @@ Public Class XFrmMenuPrincipal
     Private Sub btnJerarquico_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnJerarquico.ItemClick
         Padre(XfrmJerarquico)
     End Sub
+
+    Private Sub BarButtonItem5_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem5.ItemClick
+        Dim reporte5 As Reporte_de_cruce_FMOV = New Reporte_de_cruce_FMOV
+        reporte5.ShowPreview()
+    End Sub
 End Class
