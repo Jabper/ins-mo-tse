@@ -244,4 +244,8 @@ Public Class XFrmMenuPrincipal
         Dim reporte4 As Reporte_de_Firmas_In = New Reporte_de_Firmas_In
         reporte4.ShowPreview()
     End Sub
+
+    Private Sub btnJerarquico_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnJerarquico.ItemClick
+        Padre(XfrmJerarquico)
+    End Sub
 End Class
