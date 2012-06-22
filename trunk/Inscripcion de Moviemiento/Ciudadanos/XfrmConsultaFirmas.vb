@@ -454,4 +454,8 @@ Public Class XfrmConsultaFirmas
     Private Sub GCBusqueda_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GCBusqueda.Click
 
     End Sub
+
+    Private Sub SimpleButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton3.Click
+        Me.Close()
+    End Sub
 End Class

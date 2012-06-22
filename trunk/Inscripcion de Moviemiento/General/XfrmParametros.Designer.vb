@@ -342,6 +342,7 @@ Partial Class XfrmParametros
         Me.ItemForPARTICIPACION_MUJER_PORCEN.Size = New System.Drawing.Size(351, 24)
         Me.ItemForPARTICIPACION_MUJER_PORCEN.Text = "Porcentaje de Participación Femenina"
         Me.ItemForPARTICIPACION_MUJER_PORCEN.TextSize = New System.Drawing.Size(293, 13)
+        Me.ItemForPARTICIPACION_MUJER_PORCEN.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
         '
         'ItemForFORMULAS_DEPART_MIN
         '
@@ -402,6 +403,7 @@ Partial Class XfrmParametros
         Me.EmptySpaceItem1.Size = New System.Drawing.Size(67, 24)
         Me.EmptySpaceItem1.Text = "EmptySpaceItem1"
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
+        Me.EmptySpaceItem1.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
         '
         'EmptySpaceItem2
         '

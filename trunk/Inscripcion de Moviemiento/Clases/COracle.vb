@@ -74,6 +74,7 @@ Public Class COracle
                     pass = (.Item("CONTRASENA"))
                     NombreUsuario = (.Item("NOMBRE"))
                     usuario = (.Item("CODIGO_USUARIO"))
+                    NivelUsuario = (.Item("NIVEL"))
                 End With
 
                 'compruebo la contraseña
