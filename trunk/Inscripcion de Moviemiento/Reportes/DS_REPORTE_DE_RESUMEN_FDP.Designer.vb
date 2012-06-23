@@ -871,22 +871,15 @@ Namespace DS_REPORTE_DE_RESUMEN_FDPTableAdapters
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        DEPARTAMENTO, MUNICIPIO, ""NOMBRE PARTIDO"", ""NOMBRE MOVIMIENTO"", IDE"& _ 
-                "NTIDAD, NOMBRE, APELLIDOS, ESTADO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_REPORTE_RESUMEN_FIRMAS_DP"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (""NOMBRE PARTIDO"" = DECODE(:NombrePartido, 'TODOS', ""NOMBRE PARTID"& _ 
-                "O"", :NombrePartido))"
+                "NTIDAD, NOMBRE, APELLIDOS, ESTADO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_REPORTE_RESUMEN_FIRMAS_DP"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NombrePartido", Global.System.Data.OracleClient.OracleType.VarChar, 100, Global.System.Data.ParameterDirection.Input, "NOMBRE PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DS_REPORTE_DE_RESUMEN_FDP.IM_REPORTE_RESUMEN_FIRMAS_DPDataTable, ByVal NombrePartido As String) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_REPORTE_DE_RESUMEN_FDP.IM_REPORTE_RESUMEN_FIRMAS_DPDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (NombrePartido Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("NombrePartido")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(NombrePartido,String)
-            End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -897,13 +890,8 @@ Namespace DS_REPORTE_DE_RESUMEN_FDPTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal NombrePartido As String) As DS_REPORTE_DE_RESUMEN_FDP.IM_REPORTE_RESUMEN_FIRMAS_DPDataTable
+        Public Overloads Overridable Function GetData() As DS_REPORTE_DE_RESUMEN_FDP.IM_REPORTE_RESUMEN_FIRMAS_DPDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (NombrePartido Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("NombrePartido")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(NombrePartido,String)
-            End If
             Dim dataTable As DS_REPORTE_DE_RESUMEN_FDP.IM_REPORTE_RESUMEN_FIRMAS_DPDataTable = New DS_REPORTE_DE_RESUMEN_FDP.IM_REPORTE_RESUMEN_FIRMAS_DPDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
