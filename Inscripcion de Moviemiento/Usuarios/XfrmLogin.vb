@@ -14,13 +14,13 @@ Public Class XfrmLogin
     End Sub
 
     Sub ingresar()
-        config()
+        'config()
         If Me.DxValidationProvider1.Validate = True Then
 
             If COracle.Login(Me.TxtUsuario, Me.TxtPassword) = True Then
 
 
-
+                'config()
                 'DESDE ACA PUEDO MANDAR A DESHABILITAR LAS OPCIONES DE VISUALIZACION DEL FORMULARIO PRINCIPAL
 
                 'CREAR EN EL MENU PRINCIPAL UN PROCEDIMIENTO QUE ME MUESTRE EL USUARIO CONECTADO
@@ -50,7 +50,7 @@ Public Class XfrmLogin
     End Sub
     Sub config()
         ORCL.DSoruce = SystemInformation.ComputerName
-        ORCL.pass = "tseoracle2012"
+        ORCL.pass = "TSEORACLE2012"
         ORCL.userid = "TSE"
 
         If ORCL.ComprobarConexion1 = True Then
@@ -63,10 +63,10 @@ Public Class XfrmLogin
                 Configuracion.cambiarconfiguracion()
                 
             Else
-                Dim mensaje As String
-                mensaje = "Error al accesar a la base de datos" & vbCrLf & "1. Asegurese de que todos los componentes necesarios esten instalados"
+                'Dim mensaje As String
+                'mensaje = "Error al accesar a la base de datos" & vbCrLf & "1. Asegurese de que todos los componentes necesarios esten instalados"
 
-                MsgBox(mensaje, MsgBoxStyle.Critical, "Error de Conexión")
+                'MsgBox(mensaje, MsgBoxStyle.Critical, "Error de Conexión")
 
             End If
         End If
@@ -93,7 +93,7 @@ Public Class XfrmLogin
     End Sub
 
     Private Sub TxtPassword_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles TxtPassword.KeyDown
-        If e.KeyCode = Keys.End Then
+        If e.KeyCode = Keys.Enter Then
             ingresar()
         End If
     End Sub
