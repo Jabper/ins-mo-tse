@@ -213,7 +213,7 @@ Partial Class XfrmPartidos
         '
         'PanelControl2
         '
-        Me.PanelControl2.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.PanelControl2.Appearance.BackColor = System.Drawing.Color.White
         Me.PanelControl2.Appearance.Options.UseBackColor = True
         Me.PanelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
         Me.PanelControl2.Controls.Add(Me.DataLayoutControl1)

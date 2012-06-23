@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports DevExpress.XtraEditors
+Imports System.Data.OracleClient
 
 Public Class XfrmMovimientos
     Public UrlInsignia As String
@@ -48,30 +49,31 @@ Public Class XfrmMovimientos
                 ElseIf _datar.RowState = DataRowState.Modified Then
                     _datar.MODIFICADO_POR = usuario
                     _datar.FECHA_MODIFICACION = DateTime.Now
-                    _datar.INSIGNIA = Data.ConvertImageToByteArray(Me.INSIGNIAPictureEdit.Image)
-                    _datar.EMBLEMA = Data.ConvertImageToByteArray(Me.EMBLEMAPictureEdit.Image)
+                    '_datar.INSIGNIA = Data.ConvertImageToByteArray(Me.INSIGNIAPictureEdit.Image)
+                    '_datar.EMBLEMA = Data.ConvertImageToByteArray(Me.EMBLEMAPictureEdit.Image)
 
                 End If
             Next
 
             Me.IM_MOVIMIENTOSTableAdapter.Update(Me.DSPolitico.IM_MOVIMIENTOS)
 
-            Dim ThumImgIn As String = Application.StartupPath.ToString & "\Img\In" & CODIGO_MOVIMIENTOSpinEdit.EditValue.ToString & NOMBRE_MOVIMIENTOTextEdit.EditValue.ToString & ".jpg"
-            Dim ThumImgEm As String = Application.StartupPath.ToString & "\Img\Em" & CODIGO_MOVIMIENTOSpinEdit.EditValue.ToString & NOMBRE_MOVIMIENTOTextEdit.EditValue.ToString & ".jpg"
+            'Dim ThumImgIn As String = Application.StartupPath.ToString & "\Img\In" & CODIGO_MOVIMIENTOSpinEdit.EditValue.ToString & NOMBRE_MOVIMIENTOTextEdit.EditValue.ToString & ".jpg"
+            'Dim ThumImgEm As String = Application.StartupPath.ToString & "\Img\Em" & CODIGO_MOVIMIENTOSpinEdit.EditValue.ToString & NOMBRE_MOVIMIENTOTextEdit.EditValue.ToString & ".jpg"
 
-            If File.Exists(UrlInsignia) Then
-                Data.CopiarArchivo(UrlInsignia, ThumImgIn)
-            End If
+            'If File.Exists(UrlInsignia) Then
+            '    Data.CopiarArchivo(UrlInsignia, ThumImgIn)
+            'End If
 
-            If File.Exists(UrlEmblema) Then
-                Data.CopiarArchivo(UrlEmblema, ThumImgEm)
-            End If
+            'If File.Exists(UrlEmblema) Then
+            '    Data.CopiarArchivo(UrlEmblema, ThumImgEm)
+            'End If
 
             ActualizarGrid()
 
             'Edicion
             BtnEliminar.Enabled = False
             If actualizar = True Then
+                actualizarimagen()
                 Mensajes.MensajeActualizar()
                 actualizar = False
             Else
@@ -103,6 +105,7 @@ Public Class XfrmMovimientos
         Me.TA_MOVIMIENTOTableAdapter.Fill(Me.DSPolitico.TA_MOVIMIENTO)
     End Sub
 
+   
     Sub MostrarDatos()
 
         Try
@@ -110,28 +113,34 @@ Public Class XfrmMovimientos
             'SE LE ASIGNA A UNA VARIABLE EL VALOR DE LA CELDA QUE SE DESEA
             Dim idmov As String = Data.CapturarDatoGrid(Me.GridView1, 0)
             Dim idpart As String = Data.CapturarDatoGrid(Me.GridView1, 2)
+            EMBLEMAPictureEdit.EditValue = Nothing
+            INSIGNIAPictureEdit.EditValue = Nothing
             'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
             Me.IM_MOVIMIENTOSTableAdapter.FillBy1(Me.DSPolitico.IM_MOVIMIENTOS, CType(idmov, Integer), CType(idpart, Integer))
 
+            Dim consulta As String = "SELECT INSIGNIA FROM IM_MOVIMIENTOS WHERE CODIGO_MOVIMIENTO=" & CODIGO_MOVIMIENTOSpinEdit.EditValue
+            Me.INSIGNIAPictureEdit.Image = COracle.ObtenerImagen(consulta, "INSIGNIA")
+            Dim consulta2 As String = "SELECT EMBLEMA FROM IM_MOVIMIENTOS WHERE CODIGO_MOVIMIENTO=" & CODIGO_MOVIMIENTOSpinEdit.EditValue
+            Me.EMBLEMAPictureEdit.Image = COracle.ObtenerImagen(consulta2, "EMBLEMA")
             'OBTENEMOS LA INFORMACION PARA LA BUSQUEDA DE LA IMAGEN
-            UrlInsignia = Application.StartupPath.ToString & "\Img\In" & CODIGO_MOVIMIENTOSpinEdit.EditValue.ToString & NOMBRE_MOVIMIENTOTextEdit.EditValue.ToString & ".jpg"
-            UrlEmblema = Application.StartupPath.ToString & "\Img\Em" & CODIGO_MOVIMIENTOSpinEdit.EditValue.ToString & NOMBRE_MOVIMIENTOTextEdit.EditValue.ToString & ".jpg"
+            'UrlInsignia = Application.StartupPath.ToString & "\Img\In" & CODIGO_MOVIMIENTOSpinEdit.EditValue.ToString & NOMBRE_MOVIMIENTOTextEdit.EditValue.ToString & ".jpg"
+            'UrlEmblema = Application.StartupPath.ToString & "\Img\Em" & CODIGO_MOVIMIENTOSpinEdit.EditValue.ToString & NOMBRE_MOVIMIENTOTextEdit.EditValue.ToString & ".jpg"
 
-            If File.Exists(UrlInsignia) Then
-                'SI EL ARCHIVO EXISTE MOSTRAMOS LA IMAGEN
-                DxControls.CargarImagen(Me.INSIGNIAPictureEdit, UrlInsignia)
-            Else
-                'SI NO SE ENCUENTRA LIMPIAMOS EL PICTURE EDIT
-                Me.INSIGNIAPictureEdit.EditValue = Nothing
-            End If
+            'If File.Exists(UrlInsignia) Then
+            '    'SI EL ARCHIVO EXISTE MOSTRAMOS LA IMAGEN
+            '    DxControls.CargarImagen(Me.INSIGNIAPictureEdit, UrlInsignia)
+            'Else
+            '    'SI NO SE ENCUENTRA LIMPIAMOS EL PICTURE EDIT
+            '    Me.INSIGNIAPictureEdit.EditValue = Nothing
+            'End If
 
-            If File.Exists(UrlEmblema) Then
-                'SI EL ARCHIVO EXISTE MOSTRAMOS LA IMAGEN
-                DxControls.CargarImagen(Me.EMBLEMAPictureEdit, UrlEmblema)
-            Else
-                'SI NO SE ENCUENTRA LIMPIAMOS EL PICTURE EDIT
-                Me.EMBLEMAPictureEdit.EditValue = Nothing
-            End If
+            'If File.Exists(UrlEmblema) Then
+            '    'SI EL ARCHIVO EXISTE MOSTRAMOS LA IMAGEN
+            '    DxControls.CargarImagen(Me.EMBLEMAPictureEdit, UrlEmblema)
+            'Else
+            '    'SI NO SE ENCUENTRA LIMPIAMOS EL PICTURE EDIT
+            '    Me.EMBLEMAPictureEdit.EditValue = Nothing
+            'End If
 
             actualizar = True
 
@@ -142,7 +151,24 @@ Public Class XfrmMovimientos
 
     End Sub
 
+    Sub actualizarimagen()
+        Try
 
+            Dim cnx As New OracleConnection(Configuracion.verconfig)
+            Dim sqlstring As String
+            sqlstring = "UPDATE IM_MOVIMIENTOS SET INSIGNIA=:ft, EMBLEMA=:em WHERE CODIGO_MOVIMIENTO=:cod"
+            Dim cmd As New OracleCommand(sqlstring, cnx)
+            cmd.Parameters.Add(":ft", OracleType.Blob).Value = Data.ConvertImageToByteArray(Me.INSIGNIAPictureEdit.Image)
+            cmd.Parameters.Add(":em", OracleType.Blob).Value = Data.ConvertImageToByteArray(Me.EMBLEMAPictureEdit.Image)
+            cmd.Parameters.Add(":cod", OracleType.Number, 8).Value = Me.CODIGO_MOVIMIENTOSpinEdit.EditValue
+            cnx.Open()
+            cmd.ExecuteNonQuery()
+            cnx.Close()
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
 
     Private Sub BtnInsignia_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnInsignia.Click
         'ABRE EL EXPLORADOR PARA CAPTURAR LA DIRECCION DE LA IMAGEN
@@ -154,11 +180,16 @@ Public Class XfrmMovimientos
     End Sub
 
     Private Sub BtnEmblema_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEmblema.Click
-        'ABRE EL EXPLORADOR PARA CAPTURAR LA DIRECCION DE LA IMAGEN
-        OFDEmblema.ShowDialog()
-        'LA VARIABLE URLIMAGEN CAPTURA LA DIRECCION DE LA IMAGEN
-        UrlEmblema = OFDEmblema.FileName
-        DxControls.CargarImagen(Me.EMBLEMAPictureEdit, UrlEmblema)
+        Try
+            'ABRE EL EXPLORADOR PARA CAPTURAR LA DIRECCION DE LA IMAGEN
+            OFDEmblema.ShowDialog()
+            'LA VARIABLE URLIMAGEN CAPTURA LA DIRECCION DE LA IMAGEN
+            UrlEmblema = OFDEmblema.FileName
+            DxControls.CargarImagen(Me.EMBLEMAPictureEdit, UrlEmblema)
+        Catch ex As Exception
+
+        End Try
+       
     End Sub
 
     Private Sub GridView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.Click
@@ -243,5 +274,15 @@ Public Class XfrmMovimientos
             NOMBRE_MOVIMIENTOTextEdit.SelectedText = Char.ToUpper(e.KeyChar)
             e.Handled = True
         End If
+    End Sub
+
+    Private Sub CODIGO_PARTIDOSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_PARTIDOSpinEdit.EditValueChanged
+
+    End Sub
+
+    Private Sub CODIGO_PARTIDOSpinEdit_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CODIGO_PARTIDOSpinEdit.TextChanged
+        Dim consulta As String = "SELECT IMAGEN FROM IM_PARTIDOS_POLITICOS WHERE CODIGO_PARTIDO=" & CODIGO_PARTIDOSpinEdit.EditValue
+        Me.INSIGNIAPictureEdit.Image = COracle.ObtenerImagen(consulta, "IMAGEN")
+
     End Sub
 End Class
