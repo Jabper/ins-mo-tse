@@ -149,10 +149,12 @@ Partial Class xfrmSeleccionarPartidoMovimiento
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(528, 201)
+        Me.ControlBox = False
         Me.Controls.Add(Me.BtnCrear)
         Me.Controls.Add(Me.BtnSalir)
         Me.Controls.Add(Me.GroupControl1)
         Me.Name = "xfrmSeleccionarPartidoMovimiento"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Seleccion los Datos"
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl1.ResumeLayout(False)

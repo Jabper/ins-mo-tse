@@ -3243,6 +3243,12 @@ Partial Public Class DSInsCandidatos
         
         Private columnPOSICION As Global.System.Data.DataColumn
         
+        Private columnIDENTIDAD As Global.System.Data.DataColumn
+        
+        Private columnCONS_VECINDAD As Global.System.Data.DataColumn
+        
+        Private columnCONS_VECINDAD_IMG As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -3331,6 +3337,27 @@ Partial Public Class DSInsCandidatos
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property IDENTIDADColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIDENTIDAD
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CONS_VECINDADColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCONS_VECINDAD
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CONS_VECINDAD_IMGColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCONS_VECINDAD_IMG
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3360,9 +3387,9 @@ Partial Public Class DSInsCandidatos
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddDUALRow(ByVal DUMMY As String, ByVal PRIMER_NOMBRE As String, ByVal SEGUNDO_NOMBRE As String, ByVal PRIMER_APELLIDO As String, ByVal SEGUNDO_APELLIDO As String, ByVal IMAGEN() As Byte, ByVal ESTADO As String, ByVal POSICION As String) As DUALRow
+        Public Overloads Function AddDUALRow(ByVal DUMMY As String, ByVal PRIMER_NOMBRE As String, ByVal SEGUNDO_NOMBRE As String, ByVal PRIMER_APELLIDO As String, ByVal SEGUNDO_APELLIDO As String, ByVal IMAGEN() As Byte, ByVal ESTADO As String, ByVal POSICION As String, ByVal IDENTIDAD As String, ByVal CONS_VECINDAD As String, ByVal CONS_VECINDAD_IMG() As Byte) As DUALRow
             Dim rowDUALRow As DUALRow = CType(Me.NewRow,DUALRow)
-            Dim columnValuesArray() As Object = New Object() {DUMMY, PRIMER_NOMBRE, SEGUNDO_NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO, IMAGEN, ESTADO, POSICION}
+            Dim columnValuesArray() As Object = New Object() {DUMMY, PRIMER_NOMBRE, SEGUNDO_NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO, IMAGEN, ESTADO, POSICION, IDENTIDAD, CONS_VECINDAD, CONS_VECINDAD_IMG}
             rowDUALRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDUALRow)
             Return rowDUALRow
@@ -3390,6 +3417,9 @@ Partial Public Class DSInsCandidatos
             Me.columnIMAGEN = MyBase.Columns("IMAGEN")
             Me.columnESTADO = MyBase.Columns("ESTADO")
             Me.columnPOSICION = MyBase.Columns("POSICION")
+            Me.columnIDENTIDAD = MyBase.Columns("IDENTIDAD")
+            Me.columnCONS_VECINDAD = MyBase.Columns("CONS_VECINDAD")
+            Me.columnCONS_VECINDAD_IMG = MyBase.Columns("CONS_VECINDAD_IMG")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -3410,6 +3440,12 @@ Partial Public Class DSInsCandidatos
             MyBase.Columns.Add(Me.columnESTADO)
             Me.columnPOSICION = New Global.System.Data.DataColumn("POSICION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPOSICION)
+            Me.columnIDENTIDAD = New Global.System.Data.DataColumn("IDENTIDAD", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIDENTIDAD)
+            Me.columnCONS_VECINDAD = New Global.System.Data.DataColumn("CONS_VECINDAD", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCONS_VECINDAD)
+            Me.columnCONS_VECINDAD_IMG = New Global.System.Data.DataColumn("CONS_VECINDAD_IMG", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCONS_VECINDAD_IMG)
             Me.columnDUMMY.MaxLength = 1
         End Sub
         
@@ -5684,6 +5720,48 @@ Partial Public Class DSInsCandidatos
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property IDENTIDAD() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDUAL.IDENTIDADColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'IDENTIDAD' in table 'DUAL' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDUAL.IDENTIDADColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CONS_VECINDAD() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDUAL.CONS_VECINDADColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CONS_VECINDAD' in table 'DUAL' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDUAL.CONS_VECINDADColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CONS_VECINDAD_IMG() As Byte()
+            Get
+                Try 
+                    Return CType(Me(Me.tableDUAL.CONS_VECINDAD_IMGColumn),Byte())
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CONS_VECINDAD_IMG' in table 'DUAL' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDUAL.CONS_VECINDAD_IMGColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsDUMMYNull() As Boolean
             Return Me.IsNull(Me.tableDUAL.DUMMYColumn)
         End Function
@@ -5761,6 +5839,36 @@ Partial Public Class DSInsCandidatos
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetPOSICIONNull()
             Me(Me.tableDUAL.POSICIONColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsIDENTIDADNull() As Boolean
+            Return Me.IsNull(Me.tableDUAL.IDENTIDADColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetIDENTIDADNull()
+            Me(Me.tableDUAL.IDENTIDADColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsCONS_VECINDADNull() As Boolean
+            Return Me.IsNull(Me.tableDUAL.CONS_VECINDADColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetCONS_VECINDADNull()
+            Me(Me.tableDUAL.CONS_VECINDADColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsCONS_VECINDAD_IMGNull() As Boolean
+            Return Me.IsNull(Me.tableDUAL.CONS_VECINDAD_IMGColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetCONS_VECINDAD_IMGNull()
+            Me(Me.tableDUAL.CONS_VECINDAD_IMGColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -10966,12 +11074,19 @@ Namespace DSInsCandidatosTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO, CODIGO_PARTIDO, ADICIONADO_POR, FECH"& _ 
                 "A_ADICION, MODIFICADO_POR, FECHA_MODIFICACION FROM IM_MOVIMIENTOS"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO, CODIGO_PARTIDO, ADICIONADO_PO"& _ 
+                "R, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_MOVIMIE"& _ 
+                "NTOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CODIGO_PARTIDO = :ID_PARTIDO)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ID_PARTIDO", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10991,6 +11106,30 @@ Namespace DSInsCandidatosTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As DSInsCandidatos.IM_MOVIMIENTOSDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As DSInsCandidatos.IM_MOVIMIENTOSDataTable = New DSInsCandidatos.IM_MOVIMIENTOSDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DSInsCandidatos.IM_MOVIMIENTOSDataTable, ByVal ID_PARTIDO As Decimal) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(ID_PARTIDO,Decimal)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy(ByVal ID_PARTIDO As Decimal) As DSInsCandidatos.IM_MOVIMIENTOSDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(ID_PARTIDO,Decimal)
             Dim dataTable As DSInsCandidatos.IM_MOVIMIENTOSDataTable = New DSInsCandidatos.IM_MOVIMIENTOSDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
