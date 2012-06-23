@@ -20,7 +20,7 @@ Partial Class XfrmPartidos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim ConditionValidationRule2 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
+        Dim ConditionValidationRule1 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
         Me.ButtonEdit1 = New DevExpress.XtraEditors.ButtonEdit
         Me.GCPartidos_Politicos = New DevExpress.XtraGrid.GridControl
@@ -213,6 +213,9 @@ Partial Class XfrmPartidos
         '
         'PanelControl2
         '
+        Me.PanelControl2.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.PanelControl2.Appearance.Options.UseBackColor = True
+        Me.PanelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
         Me.PanelControl2.Controls.Add(Me.DataLayoutControl1)
         Me.PanelControl2.Location = New System.Drawing.Point(12, 85)
         Me.PanelControl2.Name = "PanelControl2"
@@ -242,6 +245,9 @@ Partial Class XfrmPartidos
         '
         'PanelControl3
         '
+        Me.PanelControl3.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.PanelControl3.Appearance.Options.UseBackColor = True
+        Me.PanelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
         Me.PanelControl3.Controls.Add(Me.SimpleButton1)
         Me.PanelControl3.Location = New System.Drawing.Point(325, 134)
         Me.PanelControl3.Name = "PanelControl3"
@@ -265,9 +271,9 @@ Partial Class XfrmPartidos
         Me.IMAGENPictureEdit.Size = New System.Drawing.Size(193, 102)
         Me.IMAGENPictureEdit.StyleController = Me.DataLayoutControl1
         Me.IMAGENPictureEdit.TabIndex = 5
-        ConditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule2.ErrorText = "Ingrese una imágen"
-        Me.DxValidationProvider1.SetValidationRule(Me.IMAGENPictureEdit, ConditionValidationRule2)
+        ConditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule1.ErrorText = "Ingrese una imágen"
+        Me.DxValidationProvider1.SetValidationRule(Me.IMAGENPictureEdit, ConditionValidationRule1)
         '
         'NOMBRETextEdit
         '
@@ -580,8 +586,11 @@ Partial Class XfrmPartidos
         Me.LayoutControlItem3.Control = Me.PanelControl1
         Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
         Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(534, 73)
+        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(534, 73)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
         Me.LayoutControlItem3.Size = New System.Drawing.Size(534, 73)
+        Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem3.Text = "LayoutControlItem3"
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextToControlDistance = 0
@@ -592,8 +601,11 @@ Partial Class XfrmPartidos
         Me.LayoutControlItem1.Control = Me.PanelControl2
         Me.LayoutControlItem1.CustomizationFormText = "LayoutControlItem1"
         Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 73)
+        Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(534, 184)
+        Me.LayoutControlItem1.MinSize = New System.Drawing.Size(534, 184)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
         Me.LayoutControlItem1.Size = New System.Drawing.Size(534, 184)
+        Me.LayoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem1.Text = "LayoutControlItem1"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem1.TextToControlDistance = 0
@@ -604,8 +616,11 @@ Partial Class XfrmPartidos
         Me.LayoutControlItem6.Control = Me.GCPartidos_Politicos
         Me.LayoutControlItem6.CustomizationFormText = "LayoutControlItem6"
         Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 281)
+        Me.LayoutControlItem6.MaxSize = New System.Drawing.Size(534, 144)
+        Me.LayoutControlItem6.MinSize = New System.Drawing.Size(534, 144)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
         Me.LayoutControlItem6.Size = New System.Drawing.Size(534, 144)
+        Me.LayoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem6.Text = "LayoutControlItem6"
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem6.TextToControlDistance = 0
@@ -616,8 +631,11 @@ Partial Class XfrmPartidos
         Me.LayoutControlItem7.Control = Me.ButtonEdit1
         Me.LayoutControlItem7.CustomizationFormText = "Búsqueda"
         Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 257)
+        Me.LayoutControlItem7.MaxSize = New System.Drawing.Size(534, 24)
+        Me.LayoutControlItem7.MinSize = New System.Drawing.Size(534, 24)
         Me.LayoutControlItem7.Name = "LayoutControlItem7"
         Me.LayoutControlItem7.Size = New System.Drawing.Size(534, 24)
+        Me.LayoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem7.Text = "Búsqueda"
         Me.LayoutControlItem7.TextSize = New System.Drawing.Size(47, 13)
         '
