@@ -86,7 +86,12 @@ Public Class XfrmConsultaFirmas
             VControles.solonumeros(e)
         End If
     End Sub
-
+    Sub limpiar()
+        CmbPartido.EditValue = DBNull.Value
+        CmbDepartamento.EditValue = DBNull.Value
+        CmbMunicipio.EditValue = DBNull.Value
+        CmbMovimiento.EditValue = DBNull.Value
+    End Sub
     Private Sub XfrmCiudadanos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'TODO: This line of code loads data into the 'DSCiudadanos.IM_CIUDADANOS_RESPALDAN1' table. You can move, or remove it, as needed.
         'Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Fill(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
@@ -103,7 +108,7 @@ Public Class XfrmConsultaFirmas
         Me.TA_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.TA_DEPARTAMENTOS)
         Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
         estadistico()
-
+        limpiar()
     End Sub
 
     Sub establecer()
@@ -471,7 +476,7 @@ Public Class XfrmConsultaFirmas
 
     Private Sub CmbPartido_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CmbPartido.TextChanged
         Try
-            Me.TA_MOVIMIENTOTableAdapter.Fill(Me.DSPolitico.TA_MOVIMIENTO)
+            Me.TA_MOVIMIENTOTableAdapter.FillBy1(Me.DSPolitico.TA_MOVIMIENTO, Me.CmbDepartamento.EditValue)
         Catch ex As Exception
 
         End Try
