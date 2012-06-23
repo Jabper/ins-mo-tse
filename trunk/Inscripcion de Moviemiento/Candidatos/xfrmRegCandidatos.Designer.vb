@@ -46,13 +46,33 @@ Partial Class xfrmRegCandidatos
         Me.IM_CARGOS_ELECTIVOSTableAdapter = New Inscripcion_de_Moviemientos.DSInsCandidatosTableAdapters.IM_CARGOS_ELECTIVOSTableAdapter
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl
-        Me.lblfirmasnecesarias = New DevExpress.XtraEditors.LabelControl
+        Me.PanelControl4 = New DevExpress.XtraEditors.PanelControl
+        Me.lblregidores = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl35 = New DevExpress.XtraEditors.LabelControl
+        Me.lblvice = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl32 = New DevExpress.XtraEditors.LabelControl
+        Me.lblalcalde = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl34 = New DevExpress.XtraEditors.LabelControl
+        Me.lblcnr2 = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl24 = New DevExpress.XtraEditors.LabelControl
+        Me.lblcnr1 = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl26 = New DevExpress.XtraEditors.LabelControl
+        Me.lblparlacen2 = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl15 = New DevExpress.XtraEditors.LabelControl
+        Me.lblparlacen1 = New DevExpress.XtraEditors.LabelControl
+        Me.labler23455 = New DevExpress.XtraEditors.LabelControl
+        Me.lbldesignados = New DevExpress.XtraEditors.LabelControl
+        Me.label234 = New DevExpress.XtraEditors.LabelControl
+        Me.lblpresidnete = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl21 = New DevExpress.XtraEditors.LabelControl
         Me.LabelControl12 = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl13 = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl9 = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl10 = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl7 = New DevExpress.XtraEditors.LabelControl
         Me.lblporcentaje = New DevExpress.XtraEditors.LabelControl
         Me.LabelControl11 = New DevExpress.XtraEditors.LabelControl
-        Me.lblinconsistentes = New DevExpress.XtraEditors.LabelControl
-        Me.LabelControl10 = New DevExpress.XtraEditors.LabelControl
-        Me.lblconsistentes = New DevExpress.XtraEditors.LabelControl
         Me.PictureEdit2 = New DevExpress.XtraEditors.PictureEdit
         Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
@@ -72,6 +92,11 @@ Partial Class xfrmRegCandidatos
         Me.colSegundoApellido = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colPrimerApellido = New DevExpress.XtraGrid.Columns.GridColumn
         Me.Posicion = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.RepositoryItemTextEdit4 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
+        Me.CONS_VECINDAD = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.chkConstancia = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+        Me.CONS_VECINDAD_IMG = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.PICImagenConstancia = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
         Me.RIChkCoincide = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
         Me.RIChkFima = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
         Me.RepositoryItemComboBox1 = New DevExpress.XtraEditors.Repository.RepositoryItemComboBox
@@ -83,10 +108,7 @@ Partial Class xfrmRegCandidatos
         Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl
         Me.IMREQUISITOSXCANDIDATOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_REQUISITOS_X_CANDIDATOTableAdapter = New Inscripcion_de_Moviemientos.DSInsCandidatosTableAdapters.IM_REQUISITOS_X_CANDIDATOTableAdapter
-        Me.CONS_VECINDAD = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.chkConstancia = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
-        Me.CONS_VECINDAD_IMG = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.PICImagenConstancia = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
+        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
@@ -104,6 +126,8 @@ Partial Class xfrmRegCandidatos
         Me.PanelControl2.SuspendLayout()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl3.SuspendLayout()
+        CType(Me.PanelControl4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl4.SuspendLayout()
         CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -112,14 +136,15 @@ Partial Class xfrmRegCandidatos
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RPIImgen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTextEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemTextEdit4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chkConstancia, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PICImagenConstancia, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RIChkCoincide, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RIChkFima, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemComboBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTextEdit3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMREQUISITOSXCANDIDATOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.chkConstancia, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PICImagenConstancia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelControl1
@@ -325,107 +350,341 @@ Partial Class xfrmRegCandidatos
         Me.PanelControl3.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.PanelControl3.Appearance.Options.UseBackColor = True
         Me.PanelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PanelControl3.Controls.Add(Me.lblfirmasnecesarias)
+        Me.PanelControl3.Controls.Add(Me.PanelControl4)
         Me.PanelControl3.Controls.Add(Me.LabelControl12)
+        Me.PanelControl3.Controls.Add(Me.LabelControl13)
+        Me.PanelControl3.Controls.Add(Me.LabelControl9)
+        Me.PanelControl3.Controls.Add(Me.LabelControl10)
+        Me.PanelControl3.Controls.Add(Me.LabelControl6)
+        Me.PanelControl3.Controls.Add(Me.LabelControl7)
         Me.PanelControl3.Controls.Add(Me.lblporcentaje)
         Me.PanelControl3.Controls.Add(Me.LabelControl11)
-        Me.PanelControl3.Controls.Add(Me.lblinconsistentes)
-        Me.PanelControl3.Controls.Add(Me.LabelControl10)
-        Me.PanelControl3.Controls.Add(Me.lblconsistentes)
         Me.PanelControl3.Controls.Add(Me.PictureEdit2)
         Me.PanelControl3.Controls.Add(Me.LabelControl8)
         Me.PanelControl3.Controls.Add(Me.PictureEdit1)
-        Me.PanelControl3.Location = New System.Drawing.Point(77, 7)
+        Me.PanelControl3.Location = New System.Drawing.Point(5, 7)
         Me.PanelControl3.Name = "PanelControl3"
-        Me.PanelControl3.Size = New System.Drawing.Size(775, 98)
+        Me.PanelControl3.Size = New System.Drawing.Size(914, 98)
         Me.PanelControl3.TabIndex = 17
         '
-        'lblfirmasnecesarias
+        'PanelControl4
         '
-        Me.lblfirmasnecesarias.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.lblfirmasnecesarias.Appearance.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblfirmasnecesarias.Appearance.ForeColor = System.Drawing.Color.DarkCyan
-        Me.lblfirmasnecesarias.Location = New System.Drawing.Point(384, 47)
-        Me.lblfirmasnecesarias.Name = "lblfirmasnecesarias"
-        Me.lblfirmasnecesarias.Size = New System.Drawing.Size(64, 25)
-        Me.lblfirmasnecesarias.TabIndex = 34
-        Me.lblfirmasnecesarias.Text = "100%"
-        Me.lblfirmasnecesarias.Visible = False
+        Me.PanelControl4.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.PanelControl4.Appearance.Options.UseBackColor = True
+        Me.PanelControl4.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl4.Controls.Add(Me.lblregidores)
+        Me.PanelControl4.Controls.Add(Me.LabelControl35)
+        Me.PanelControl4.Controls.Add(Me.lblvice)
+        Me.PanelControl4.Controls.Add(Me.LabelControl32)
+        Me.PanelControl4.Controls.Add(Me.lblalcalde)
+        Me.PanelControl4.Controls.Add(Me.LabelControl34)
+        Me.PanelControl4.Controls.Add(Me.lblcnr2)
+        Me.PanelControl4.Controls.Add(Me.LabelControl24)
+        Me.PanelControl4.Controls.Add(Me.lblcnr1)
+        Me.PanelControl4.Controls.Add(Me.LabelControl26)
+        Me.PanelControl4.Controls.Add(Me.lblparlacen2)
+        Me.PanelControl4.Controls.Add(Me.LabelControl15)
+        Me.PanelControl4.Controls.Add(Me.lblparlacen1)
+        Me.PanelControl4.Controls.Add(Me.labler23455)
+        Me.PanelControl4.Controls.Add(Me.lbldesignados)
+        Me.PanelControl4.Controls.Add(Me.label234)
+        Me.PanelControl4.Controls.Add(Me.lblpresidnete)
+        Me.PanelControl4.Controls.Add(Me.LabelControl21)
+        Me.PanelControl4.Location = New System.Drawing.Point(0, -1)
+        Me.PanelControl4.Name = "PanelControl4"
+        Me.PanelControl4.Size = New System.Drawing.Size(914, 98)
+        Me.PanelControl4.TabIndex = 39
+        '
+        'lblregidores
+        '
+        Me.lblregidores.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.lblregidores.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblregidores.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.lblregidores.Location = New System.Drawing.Point(665, 33)
+        Me.lblregidores.Name = "lblregidores"
+        Me.lblregidores.Size = New System.Drawing.Size(38, 14)
+        Me.lblregidores.TabIndex = 52
+        Me.lblregidores.Text = "100%"
+        '
+        'LabelControl35
+        '
+        Me.LabelControl35.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.LabelControl35.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl35.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.LabelControl35.Location = New System.Drawing.Point(665, 14)
+        Me.LabelControl35.Name = "LabelControl35"
+        Me.LabelControl35.Size = New System.Drawing.Size(61, 14)
+        Me.LabelControl35.TabIndex = 51
+        Me.LabelControl35.Text = "Regidores"
+        '
+        'lblvice
+        '
+        Me.lblvice.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.lblvice.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblvice.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.lblvice.Location = New System.Drawing.Point(554, 74)
+        Me.lblvice.Name = "lblvice"
+        Me.lblvice.Size = New System.Drawing.Size(38, 14)
+        Me.lblvice.TabIndex = 50
+        Me.lblvice.Text = "100%"
+        '
+        'LabelControl32
+        '
+        Me.LabelControl32.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.LabelControl32.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl32.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.LabelControl32.Location = New System.Drawing.Point(554, 54)
+        Me.LabelControl32.Name = "LabelControl32"
+        Me.LabelControl32.Size = New System.Drawing.Size(65, 14)
+        Me.LabelControl32.TabIndex = 49
+        Me.LabelControl32.Text = "Vicealcalde"
+        '
+        'lblalcalde
+        '
+        Me.lblalcalde.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.lblalcalde.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblalcalde.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.lblalcalde.Location = New System.Drawing.Point(554, 34)
+        Me.lblalcalde.Name = "lblalcalde"
+        Me.lblalcalde.Size = New System.Drawing.Size(38, 14)
+        Me.lblalcalde.TabIndex = 48
+        Me.lblalcalde.Text = "100%"
+        '
+        'LabelControl34
+        '
+        Me.LabelControl34.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.LabelControl34.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl34.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.LabelControl34.Location = New System.Drawing.Point(554, 14)
+        Me.LabelControl34.Name = "LabelControl34"
+        Me.LabelControl34.Size = New System.Drawing.Size(43, 14)
+        Me.LabelControl34.TabIndex = 47
+        Me.LabelControl34.Text = "Alcalde"
+        '
+        'lblcnr2
+        '
+        Me.lblcnr2.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.lblcnr2.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblcnr2.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.lblcnr2.Location = New System.Drawing.Point(397, 74)
+        Me.lblcnr2.Name = "lblcnr2"
+        Me.lblcnr2.Size = New System.Drawing.Size(38, 14)
+        Me.lblcnr2.TabIndex = 42
+        Me.lblcnr2.Text = "100%"
+        '
+        'LabelControl24
+        '
+        Me.LabelControl24.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.LabelControl24.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl24.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.LabelControl24.Location = New System.Drawing.Point(397, 54)
+        Me.LabelControl24.Name = "LabelControl24"
+        Me.LabelControl24.Size = New System.Drawing.Size(109, 14)
+        Me.LabelControl24.TabIndex = 41
+        Me.LabelControl24.Text = "Dip. al CNR Suple."
+        '
+        'lblcnr1
+        '
+        Me.lblcnr1.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.lblcnr1.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblcnr1.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.lblcnr1.Location = New System.Drawing.Point(397, 34)
+        Me.lblcnr1.Name = "lblcnr1"
+        Me.lblcnr1.Size = New System.Drawing.Size(38, 14)
+        Me.lblcnr1.TabIndex = 40
+        Me.lblcnr1.Text = "100%"
+        '
+        'LabelControl26
+        '
+        Me.LabelControl26.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.LabelControl26.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl26.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.LabelControl26.Location = New System.Drawing.Point(397, 14)
+        Me.LabelControl26.Name = "LabelControl26"
+        Me.LabelControl26.Size = New System.Drawing.Size(104, 14)
+        Me.LabelControl26.TabIndex = 39
+        Me.LabelControl26.Text = "Dip. al CNR Prop."
+        '
+        'lblparlacen2
+        '
+        Me.lblparlacen2.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.lblparlacen2.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblparlacen2.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.lblparlacen2.Location = New System.Drawing.Point(236, 74)
+        Me.lblparlacen2.Name = "lblparlacen2"
+        Me.lblparlacen2.Size = New System.Drawing.Size(38, 14)
+        Me.lblparlacen2.TabIndex = 38
+        Me.lblparlacen2.Text = "100%"
+        '
+        'LabelControl15
+        '
+        Me.LabelControl15.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.LabelControl15.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl15.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.LabelControl15.Location = New System.Drawing.Point(236, 54)
+        Me.LabelControl15.Name = "LabelControl15"
+        Me.LabelControl15.Size = New System.Drawing.Size(135, 14)
+        Me.LabelControl15.TabIndex = 37
+        Me.LabelControl15.Text = "Dip. al Parlacen Suple."
+        '
+        'lblparlacen1
+        '
+        Me.lblparlacen1.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.lblparlacen1.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblparlacen1.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.lblparlacen1.Location = New System.Drawing.Point(236, 34)
+        Me.lblparlacen1.Name = "lblparlacen1"
+        Me.lblparlacen1.Size = New System.Drawing.Size(38, 14)
+        Me.lblparlacen1.TabIndex = 36
+        Me.lblparlacen1.Text = "100%"
+        '
+        'labler23455
+        '
+        Me.labler23455.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.labler23455.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.labler23455.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.labler23455.Location = New System.Drawing.Point(236, 14)
+        Me.labler23455.Name = "labler23455"
+        Me.labler23455.Size = New System.Drawing.Size(130, 14)
+        Me.labler23455.TabIndex = 35
+        Me.labler23455.Text = "Dip. al Parlacen Prop."
+        '
+        'lbldesignados
+        '
+        Me.lbldesignados.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.lbldesignados.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lbldesignados.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.lbldesignados.Location = New System.Drawing.Point(130, 74)
+        Me.lbldesignados.Name = "lbldesignados"
+        Me.lbldesignados.Size = New System.Drawing.Size(38, 14)
+        Me.lbldesignados.TabIndex = 34
+        Me.lbldesignados.Text = "100%"
+        '
+        'label234
+        '
+        Me.label234.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.label234.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.label234.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.label234.Location = New System.Drawing.Point(129, 54)
+        Me.label234.Name = "label234"
+        Me.label234.Size = New System.Drawing.Size(70, 14)
+        Me.label234.TabIndex = 33
+        Me.label234.Text = "Designados"
+        '
+        'lblpresidnete
+        '
+        Me.lblpresidnete.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.lblpresidnete.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblpresidnete.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.lblpresidnete.Location = New System.Drawing.Point(129, 34)
+        Me.lblpresidnete.Name = "lblpresidnete"
+        Me.lblpresidnete.Size = New System.Drawing.Size(38, 14)
+        Me.lblpresidnete.TabIndex = 32
+        Me.lblpresidnete.Text = "100%"
+        '
+        'LabelControl21
+        '
+        Me.LabelControl21.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.LabelControl21.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl21.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.LabelControl21.Location = New System.Drawing.Point(129, 14)
+        Me.LabelControl21.Name = "LabelControl21"
+        Me.LabelControl21.Size = New System.Drawing.Size(65, 14)
+        Me.LabelControl21.TabIndex = 31
+        Me.LabelControl21.Text = "Presidente"
         '
         'LabelControl12
         '
         Me.LabelControl12.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.LabelControl12.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl12.Appearance.ForeColor = System.Drawing.Color.DarkCyan
-        Me.LabelControl12.Location = New System.Drawing.Point(348, 12)
+        Me.LabelControl12.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl12.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.LabelControl12.Location = New System.Drawing.Point(299, 72)
         Me.LabelControl12.Name = "LabelControl12"
-        Me.LabelControl12.Size = New System.Drawing.Size(139, 14)
-        Me.LabelControl12.TabIndex = 33
-        Me.LabelControl12.Text = "Total Firmas Necesarias"
-        Me.LabelControl12.Visible = False
+        Me.LabelControl12.Size = New System.Drawing.Size(38, 14)
+        Me.LabelControl12.TabIndex = 38
+        Me.LabelControl12.Text = "100%"
         '
-        'lblporcentaje
+        'LabelControl13
         '
-        Me.lblporcentaje.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.lblporcentaje.Appearance.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblporcentaje.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.lblporcentaje.Location = New System.Drawing.Point(572, 47)
-        Me.lblporcentaje.Name = "lblporcentaje"
-        Me.lblporcentaje.Size = New System.Drawing.Size(64, 25)
-        Me.lblporcentaje.TabIndex = 32
-        Me.lblporcentaje.Text = "100%"
-        Me.lblporcentaje.Visible = False
+        Me.LabelControl13.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.LabelControl13.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl13.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.LabelControl13.Location = New System.Drawing.Point(299, 52)
+        Me.LabelControl13.Name = "LabelControl13"
+        Me.LabelControl13.Size = New System.Drawing.Size(135, 14)
+        Me.LabelControl13.TabIndex = 37
+        Me.LabelControl13.Text = "Dip. al Parlacen Suple."
         '
-        'LabelControl11
+        'LabelControl9
         '
-        Me.LabelControl11.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.LabelControl11.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl11.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.LabelControl11.Location = New System.Drawing.Point(516, 12)
-        Me.LabelControl11.Name = "LabelControl11"
-        Me.LabelControl11.Size = New System.Drawing.Size(189, 14)
-        Me.LabelControl11.TabIndex = 31
-        Me.LabelControl11.Text = "Porcentaje de Firmas Correctas"
-        Me.LabelControl11.Visible = False
-        '
-        'lblinconsistentes
-        '
-        Me.lblinconsistentes.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.lblinconsistentes.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblinconsistentes.Location = New System.Drawing.Point(240, 70)
-        Me.lblinconsistentes.Name = "lblinconsistentes"
-        Me.lblinconsistentes.Size = New System.Drawing.Size(56, 14)
-        Me.lblinconsistentes.TabIndex = 30
-        Me.lblinconsistentes.Text = "Registro "
-        Me.lblinconsistentes.Visible = False
+        Me.LabelControl9.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.LabelControl9.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl9.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.LabelControl9.Location = New System.Drawing.Point(299, 32)
+        Me.LabelControl9.Name = "LabelControl9"
+        Me.LabelControl9.Size = New System.Drawing.Size(38, 14)
+        Me.LabelControl9.TabIndex = 36
+        Me.LabelControl9.Text = "100%"
         '
         'LabelControl10
         '
         Me.LabelControl10.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.LabelControl10.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl10.Appearance.ForeColor = System.Drawing.Color.Orange
-        Me.LabelControl10.Location = New System.Drawing.Point(222, 12)
+        Me.LabelControl10.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl10.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.LabelControl10.Location = New System.Drawing.Point(299, 12)
         Me.LabelControl10.Name = "LabelControl10"
-        Me.LabelControl10.Size = New System.Drawing.Size(93, 14)
-        Me.LabelControl10.TabIndex = 29
-        Me.LabelControl10.Text = "Total Registros"
-        Me.LabelControl10.Visible = False
+        Me.LabelControl10.Size = New System.Drawing.Size(130, 14)
+        Me.LabelControl10.TabIndex = 35
+        Me.LabelControl10.Text = "Dip. al Parlacen Prop."
         '
-        'lblconsistentes
+        'LabelControl6
         '
-        Me.lblconsistentes.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.lblconsistentes.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblconsistentes.Location = New System.Drawing.Point(240, 32)
-        Me.lblconsistentes.Name = "lblconsistentes"
-        Me.lblconsistentes.Size = New System.Drawing.Size(56, 14)
-        Me.lblconsistentes.TabIndex = 28
-        Me.lblconsistentes.Text = "Registro "
-        Me.lblconsistentes.Visible = False
+        Me.LabelControl6.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl6.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.LabelControl6.Location = New System.Drawing.Point(185, 72)
+        Me.LabelControl6.Name = "LabelControl6"
+        Me.LabelControl6.Size = New System.Drawing.Size(38, 14)
+        Me.LabelControl6.TabIndex = 34
+        Me.LabelControl6.Text = "100%"
+        '
+        'LabelControl7
+        '
+        Me.LabelControl7.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.LabelControl7.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl7.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.LabelControl7.Location = New System.Drawing.Point(184, 52)
+        Me.LabelControl7.Name = "LabelControl7"
+        Me.LabelControl7.Size = New System.Drawing.Size(70, 14)
+        Me.LabelControl7.TabIndex = 33
+        Me.LabelControl7.Text = "Designados"
+        '
+        'lblporcentaje
+        '
+        Me.lblporcentaje.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.lblporcentaje.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblporcentaje.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.lblporcentaje.Location = New System.Drawing.Point(202, 32)
+        Me.lblporcentaje.Name = "lblporcentaje"
+        Me.lblporcentaje.Size = New System.Drawing.Size(38, 14)
+        Me.lblporcentaje.TabIndex = 32
+        Me.lblporcentaje.Text = "100%"
+        '
+        'LabelControl11
+        '
+        Me.LabelControl11.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.LabelControl11.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl11.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.LabelControl11.Location = New System.Drawing.Point(184, 12)
+        Me.LabelControl11.Name = "LabelControl11"
+        Me.LabelControl11.Size = New System.Drawing.Size(65, 14)
+        Me.LabelControl11.TabIndex = 31
+        Me.LabelControl11.Text = "Presidente"
         '
         'PictureEdit2
         '
         Me.PictureEdit2.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.errorIcon
-        Me.PictureEdit2.Location = New System.Drawing.Point(11, 66)
+        Me.PictureEdit2.Location = New System.Drawing.Point(106, 32)
         Me.PictureEdit2.Name = "PictureEdit2"
         Me.PictureEdit2.Properties.AllowFocused = False
         Me.PictureEdit2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
@@ -449,7 +708,7 @@ Partial Class xfrmRegCandidatos
         'PictureEdit1
         '
         Me.PictureEdit1.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Ok
-        Me.PictureEdit1.Location = New System.Drawing.Point(11, 32)
+        Me.PictureEdit1.Location = New System.Drawing.Point(56, 32)
         Me.PictureEdit1.Name = "PictureEdit1"
         Me.PictureEdit1.Properties.AllowFocused = False
         Me.PictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
@@ -470,7 +729,7 @@ Partial Class xfrmRegCandidatos
         Me.GCBusqueda.Location = New System.Drawing.Point(15, 181)
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
-        Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RIChkCoincide, Me.RIChkFima, Me.RPIImgen, Me.RepositoryItemComboBox1, Me.ChkEstado, Me.RepositoryItemTextEdit1, Me.RepositoryItemTextEdit2, Me.RepositoryItemTextEdit3, Me.chkConstancia, Me.PICImagenConstancia})
+        Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RIChkCoincide, Me.RIChkFima, Me.RPIImgen, Me.RepositoryItemComboBox1, Me.ChkEstado, Me.RepositoryItemTextEdit1, Me.RepositoryItemTextEdit2, Me.RepositoryItemTextEdit3, Me.chkConstancia, Me.PICImagenConstancia, Me.RepositoryItemTextEdit4})
         Me.GCBusqueda.Size = New System.Drawing.Size(924, 192)
         Me.GCBusqueda.TabIndex = 30
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
@@ -598,10 +857,46 @@ Partial Class xfrmRegCandidatos
         'Posicion
         '
         Me.Posicion.Caption = "Posicion"
+        Me.Posicion.ColumnEdit = Me.RepositoryItemTextEdit4
         Me.Posicion.FieldName = "POSICION"
         Me.Posicion.Name = "Posicion"
         Me.Posicion.Visible = True
         Me.Posicion.VisibleIndex = 7
+        '
+        'RepositoryItemTextEdit4
+        '
+        Me.RepositoryItemTextEdit4.AutoHeight = False
+        Me.RepositoryItemTextEdit4.Name = "RepositoryItemTextEdit4"
+        '
+        'CONS_VECINDAD
+        '
+        Me.CONS_VECINDAD.Caption = "Constancia de Vecindad"
+        Me.CONS_VECINDAD.ColumnEdit = Me.chkConstancia
+        Me.CONS_VECINDAD.FieldName = "CONS_VECINDAD"
+        Me.CONS_VECINDAD.Name = "CONS_VECINDAD"
+        Me.CONS_VECINDAD.Visible = True
+        Me.CONS_VECINDAD.VisibleIndex = 9
+        Me.CONS_VECINDAD.Width = 150
+        '
+        'chkConstancia
+        '
+        Me.chkConstancia.AutoHeight = False
+        Me.chkConstancia.Name = "chkConstancia"
+        Me.chkConstancia.ValueGrayed = False
+        '
+        'CONS_VECINDAD_IMG
+        '
+        Me.CONS_VECINDAD_IMG.Caption = "Imagen Constancia"
+        Me.CONS_VECINDAD_IMG.ColumnEdit = Me.PICImagenConstancia
+        Me.CONS_VECINDAD_IMG.FieldName = "CONS_VECINDAD_IMG"
+        Me.CONS_VECINDAD_IMG.Name = "CONS_VECINDAD_IMG"
+        Me.CONS_VECINDAD_IMG.Visible = True
+        Me.CONS_VECINDAD_IMG.VisibleIndex = 10
+        Me.CONS_VECINDAD_IMG.Width = 150
+        '
+        'PICImagenConstancia
+        '
+        Me.PICImagenConstancia.Name = "PICImagenConstancia"
         '
         'RIChkCoincide
         '
@@ -692,34 +987,17 @@ Partial Class xfrmRegCandidatos
         '
         Me.IM_REQUISITOS_X_CANDIDATOTableAdapter.ClearBeforeFill = True
         '
-        'CONS_VECINDAD
+        'SimpleButton1
         '
-        Me.CONS_VECINDAD.Caption = "Constancia de Vecindad"
-        Me.CONS_VECINDAD.ColumnEdit = Me.chkConstancia
-        Me.CONS_VECINDAD.FieldName = "CONS_VECINDAD"
-        Me.CONS_VECINDAD.Name = "CONS_VECINDAD"
-        Me.CONS_VECINDAD.Visible = True
-        Me.CONS_VECINDAD.VisibleIndex = 9
-        Me.CONS_VECINDAD.Width = 150
-        '
-        'chkConstancia
-        '
-        Me.chkConstancia.AutoHeight = False
-        Me.chkConstancia.Name = "chkConstancia"
-        '
-        'CONS_VECINDAD_IMG
-        '
-        Me.CONS_VECINDAD_IMG.Caption = "Imagen Constancia"
-        Me.CONS_VECINDAD_IMG.ColumnEdit = Me.PICImagenConstancia
-        Me.CONS_VECINDAD_IMG.FieldName = "CONS_VECINDAD_IMG"
-        Me.CONS_VECINDAD_IMG.Name = "CONS_VECINDAD_IMG"
-        Me.CONS_VECINDAD_IMG.Visible = True
-        Me.CONS_VECINDAD_IMG.VisibleIndex = 10
-        Me.CONS_VECINDAD_IMG.Width = 150
-        '
-        'PICImagenConstancia
-        '
-        Me.PICImagenConstancia.Name = "PICImagenConstancia"
+        Me.SimpleButton1.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.SimpleButton1.Appearance.Options.UseFont = True
+        Me.SimpleButton1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.gridview34
+        Me.SimpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.SimpleButton1.Location = New System.Drawing.Point(638, 117)
+        Me.SimpleButton1.Name = "SimpleButton1"
+        Me.SimpleButton1.Size = New System.Drawing.Size(55, 55)
+        Me.SimpleButton1.TabIndex = 11
+        Me.SimpleButton1.Text = "Filas"
         '
         'xfrmRegCandidatos
         '
@@ -730,6 +1008,7 @@ Partial Class xfrmRegCandidatos
         Me.Controls.Add(Me.lblPartido)
         Me.Controls.Add(Me.GCBusqueda)
         Me.Controls.Add(Me.PanelControl2)
+        Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.LabelControl5)
         Me.Controls.Add(Me.cboCargo)
         Me.Controls.Add(Me.LabelControl2)
@@ -757,6 +1036,9 @@ Partial Class xfrmRegCandidatos
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl3.ResumeLayout(False)
         Me.PanelControl3.PerformLayout()
+        CType(Me.PanelControl4, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl4.ResumeLayout(False)
+        Me.PanelControl4.PerformLayout()
         CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
@@ -765,14 +1047,15 @@ Partial Class xfrmRegCandidatos
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RPIImgen, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemTextEdit2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemTextEdit4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chkConstancia, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PICImagenConstancia, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RIChkCoincide, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RIChkFima, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemComboBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemTextEdit3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMREQUISITOSXCANDIDATOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.chkConstancia, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PICImagenConstancia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -802,13 +1085,8 @@ Partial Class xfrmRegCandidatos
     Friend WithEvents IM_CARGOS_ELECTIVOSTableAdapter As Inscripcion_de_Moviemientos.DSInsCandidatosTableAdapters.IM_CARGOS_ELECTIVOSTableAdapter
     Friend WithEvents PanelControl2 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents PanelControl3 As DevExpress.XtraEditors.PanelControl
-    Friend WithEvents lblfirmasnecesarias As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents LabelControl12 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents lblporcentaje As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl11 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents lblinconsistentes As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents LabelControl10 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents lblconsistentes As DevExpress.XtraEditors.LabelControl
     Friend WithEvents PictureEdit2 As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents LabelControl8 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents PictureEdit1 As DevExpress.XtraEditors.PictureEdit
@@ -844,4 +1122,31 @@ Partial Class xfrmRegCandidatos
     Friend WithEvents chkConstancia As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents CONS_VECINDAD_IMG As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents PICImagenConstancia As DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
+    Friend WithEvents RepositoryItemTextEdit4 As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
+    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LabelControl12 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl13 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl9 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl10 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl7 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents PanelControl4 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents lblcnr2 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl24 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents lblcnr1 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl26 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents lblparlacen2 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl15 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents lblparlacen1 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents labler23455 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents lbldesignados As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents label234 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents lblpresidnete As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl21 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl35 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents lblvice As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl32 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents lblalcalde As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl34 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents lblregidores As DevExpress.XtraEditors.LabelControl
 End Class
