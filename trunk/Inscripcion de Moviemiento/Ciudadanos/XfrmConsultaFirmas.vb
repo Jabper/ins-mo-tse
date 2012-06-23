@@ -420,19 +420,25 @@ Public Class XfrmConsultaFirmas
     End Sub
 
     Private Sub SimpleButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
-        If (XtraMessageBox.Show("¿Desea eliminar el registro seleccionado?", "Confirmar", MessageBoxButtons.YesNo) <> DialogResult.Yes) Then Return
-        Dim view As GridView = CType(sender, GridView)
-        Dim consulta As String
-        consulta = "delete from IM_CIUDADANOS_RESPALDAN where "
-        consulta &= "CODIGO_CUIDADANOS_RESPALDAN=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_CUIDADANOS_RESPALDAN")
-        consulta &= " and CODIGO_PARTIDO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO")
-        consulta &= " and CODIGO_MOVIMIENTO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO")
         Try
-            COracle.ejecutarconsulta(consulta)
-            view.DeleteRow(view.FocusedRowHandle)
-            estadistico()
+
+        
+            If (XtraMessageBox.Show("¿Desea eliminar el registro seleccionado?", "Confirmar", MessageBoxButtons.YesNo) <> DialogResult.Yes) Then Return
+            Dim view As GridView = GridView1
+            Dim consulta As String
+            consulta = "delete from IM_CIUDADANOS_RESPALDAN where "
+            consulta &= "CODIGO_CUIDADANOS_RESPALDAN=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_CUIDADANOS_RESPALDAN")
+            consulta &= " and CODIGO_PARTIDO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO")
+            consulta &= " and CODIGO_MOVIMIENTO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO")
+            Try
+                COracle.ejecutarconsulta(consulta)
+                view.DeleteRow(view.FocusedRowHandle)
+                estadistico()
+            Catch ex As Exception
+                Mensajes.mimensaje("No se pudo eliminar el registro seleccionado")
+            End Try
         Catch ex As Exception
-            Mensajes.mimensaje("No se pudo eliminar el registro seleccionado")
+
         End Try
     End Sub
 
@@ -457,5 +463,17 @@ Public Class XfrmConsultaFirmas
 
     Private Sub SimpleButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton3.Click
         Me.Close()
+    End Sub
+
+    Private Sub CmbPartido_EditValueChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CmbPartido.EditValueChanged
+
+    End Sub
+
+    Private Sub CmbPartido_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CmbPartido.TextChanged
+        Try
+            Me.TA_MOVIMIENTOTableAdapter.Fill(Me.DSPolitico.TA_MOVIMIENTO)
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

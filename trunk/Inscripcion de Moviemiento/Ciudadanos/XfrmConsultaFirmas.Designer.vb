@@ -802,7 +802,7 @@ Partial Class XfrmConsultaFirmas
         Me.colOBSERVACION.OptionsColumn.ReadOnly = True
         Me.colOBSERVACION.Visible = True
         Me.colOBSERVACION.VisibleIndex = 16
-        Me.colOBSERVACION.Width = 93
+        Me.colOBSERVACION.Width = 461
         '
         'RepositoryItemTextEdit3
         '
