@@ -118,7 +118,7 @@ Public Class XFrmMenuPrincipal
 
 
     Private Sub BtnPartidos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnPartidos.ItemClick
-        Padre(XfrmPartidosPoliticos)
+        Padre(XfrmPartidos)
     End Sub
 
     Private Sub BtnMovimeintos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnMovimeintos.ItemClick
