@@ -78,10 +78,10 @@ Partial Class xfrmCiudadanosInha
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
         Me.EmptySpaceItem4 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.EmptySpaceItem3 = New DevExpress.XtraLayout.EmptySpaceItem
+        Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
         Me.IM_CIUDADANOS_INHABILITADOSTableAdapter = New Inscripcion_de_Moviemientos.DS_CIUDADANOS_INHTableAdapters.IM_CIUDADANOS_INHABILITADOSTableAdapter
@@ -133,10 +133,10 @@ Partial Class xfrmCiudadanosInha
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -198,7 +198,7 @@ Partial Class xfrmCiudadanosInha
         'LookUpEdit1
         '
         Me.LookUpEdit1.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMCIUDADANOSINHABILITADOSBindingSource, "CODIGO_MOTIVO", True))
-        Me.LookUpEdit1.Location = New System.Drawing.Point(171, 225)
+        Me.LookUpEdit1.Location = New System.Drawing.Point(171, 201)
         Me.LookUpEdit1.Name = "LookUpEdit1"
         Me.LookUpEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.LookUpEdit1.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MOTIVO", "CODIGO_MOTIVO", 30, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
@@ -328,6 +328,7 @@ Partial Class xfrmCiudadanosInha
         Me.colNUMERO_IDENTIFICACION.Name = "colNUMERO_IDENTIFICACION"
         Me.colNUMERO_IDENTIFICACION.Visible = True
         Me.colNUMERO_IDENTIFICACION.VisibleIndex = 0
+        Me.colNUMERO_IDENTIFICACION.Width = 139
         '
         'colNOMBRES
         '
@@ -336,6 +337,7 @@ Partial Class xfrmCiudadanosInha
         Me.colNOMBRES.Name = "colNOMBRES"
         Me.colNOMBRES.Visible = True
         Me.colNOMBRES.VisibleIndex = 1
+        Me.colNOMBRES.Width = 150
         '
         'colPRIMER_APELLIDO
         '
@@ -344,6 +346,7 @@ Partial Class xfrmCiudadanosInha
         Me.colPRIMER_APELLIDO.Name = "colPRIMER_APELLIDO"
         Me.colPRIMER_APELLIDO.Visible = True
         Me.colPRIMER_APELLIDO.VisibleIndex = 2
+        Me.colPRIMER_APELLIDO.Width = 152
         '
         'colSEGUNDO_APELLIDO
         '
@@ -352,6 +355,7 @@ Partial Class xfrmCiudadanosInha
         Me.colSEGUNDO_APELLIDO.Name = "colSEGUNDO_APELLIDO"
         Me.colSEGUNDO_APELLIDO.Visible = True
         Me.colSEGUNDO_APELLIDO.VisibleIndex = 3
+        Me.colSEGUNDO_APELLIDO.Width = 161
         '
         'colDEPEDENCIA_GUBERNAMENTAL
         '
@@ -360,6 +364,7 @@ Partial Class xfrmCiudadanosInha
         Me.colDEPEDENCIA_GUBERNAMENTAL.Name = "colDEPEDENCIA_GUBERNAMENTAL"
         Me.colDEPEDENCIA_GUBERNAMENTAL.Visible = True
         Me.colDEPEDENCIA_GUBERNAMENTAL.VisibleIndex = 4
+        Me.colDEPEDENCIA_GUBERNAMENTAL.Width = 208
         '
         'colCARGO
         '
@@ -368,6 +373,7 @@ Partial Class xfrmCiudadanosInha
         Me.colCARGO.Name = "colCARGO"
         Me.colCARGO.Visible = True
         Me.colCARGO.VisibleIndex = 5
+        Me.colCARGO.Width = 121
         '
         'colCODIGO_MOTIVO
         '
@@ -376,6 +382,7 @@ Partial Class xfrmCiudadanosInha
         Me.colCODIGO_MOTIVO.Name = "colCODIGO_MOTIVO"
         Me.colCODIGO_MOTIVO.Visible = True
         Me.colCODIGO_MOTIVO.VisibleIndex = 6
+        Me.colCODIGO_MOTIVO.Width = 179
         '
         'colHABILITADO
         '
@@ -384,6 +391,7 @@ Partial Class xfrmCiudadanosInha
         Me.colHABILITADO.Name = "colHABILITADO"
         Me.colHABILITADO.Visible = True
         Me.colHABILITADO.VisibleIndex = 7
+        Me.colHABILITADO.Width = 123
         '
         'colFECHA_HABILITACION
         '
@@ -392,6 +400,7 @@ Partial Class xfrmCiudadanosInha
         Me.colFECHA_HABILITACION.Name = "colFECHA_HABILITACION"
         Me.colFECHA_HABILITACION.Visible = True
         Me.colFECHA_HABILITACION.VisibleIndex = 8
+        Me.colFECHA_HABILITACION.Width = 102
         '
         'colADICIONADO_POR
         '
@@ -439,7 +448,7 @@ Partial Class xfrmCiudadanosInha
         'DEPEDENCIA_GUBERNAMENTALTextEdit
         '
         Me.DEPEDENCIA_GUBERNAMENTALTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMCIUDADANOSINHABILITADOSBindingSource, "DEPEDENCIA_GUBERNAMENTAL", True))
-        Me.DEPEDENCIA_GUBERNAMENTALTextEdit.Location = New System.Drawing.Point(171, 201)
+        Me.DEPEDENCIA_GUBERNAMENTALTextEdit.Location = New System.Drawing.Point(171, 225)
         Me.DEPEDENCIA_GUBERNAMENTALTextEdit.Name = "DEPEDENCIA_GUBERNAMENTALTextEdit"
         Me.DEPEDENCIA_GUBERNAMENTALTextEdit.Size = New System.Drawing.Size(204, 20)
         Me.DEPEDENCIA_GUBERNAMENTALTextEdit.StyleController = Me.DataLayoutControl1
@@ -598,7 +607,7 @@ Partial Class xfrmCiudadanosInha
         Me.LayoutControlGroup2.AllowDrawBackground = False
         Me.LayoutControlGroup2.CustomizationFormText = "autoGeneratedGroup0"
         Me.LayoutControlGroup2.GroupBordersVisible = False
-        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForNUMERO_IDENTIFICACION, Me.ItemForNOMBRES, Me.ItemForPRIMER_APELLIDO, Me.ItemForSEGUNDO_APELLIDO, Me.ItemForDEPEDENCIA_GUBERNAMENTAL, Me.ItemForCARGO, Me.ItemForHABILITADO, Me.LayoutControlItem2, Me.EmptySpaceItem4, Me.LayoutControlItem3, Me.LayoutControlItem5, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.EmptySpaceItem3})
+        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForNUMERO_IDENTIFICACION, Me.ItemForNOMBRES, Me.ItemForPRIMER_APELLIDO, Me.ItemForSEGUNDO_APELLIDO, Me.ItemForDEPEDENCIA_GUBERNAMENTAL, Me.ItemForCARGO, Me.ItemForHABILITADO, Me.LayoutControlItem2, Me.EmptySpaceItem4, Me.LayoutControlItem3, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.EmptySpaceItem3, Me.LayoutControlItem5})
         Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "autoGeneratedGroup0"
         Me.LayoutControlGroup2.Size = New System.Drawing.Size(776, 487)
@@ -648,7 +657,7 @@ Partial Class xfrmCiudadanosInha
         '
         Me.ItemForDEPEDENCIA_GUBERNAMENTAL.Control = Me.DEPEDENCIA_GUBERNAMENTALTextEdit
         Me.ItemForDEPEDENCIA_GUBERNAMENTAL.CustomizationFormText = "DEPEDENCIA_GUBERNAMENTAL"
-        Me.ItemForDEPEDENCIA_GUBERNAMENTAL.Location = New System.Drawing.Point(0, 189)
+        Me.ItemForDEPEDENCIA_GUBERNAMENTAL.Location = New System.Drawing.Point(0, 213)
         Me.ItemForDEPEDENCIA_GUBERNAMENTAL.Name = "ItemForDEPEDENCIA_GUBERNAMENTAL"
         Me.ItemForDEPEDENCIA_GUBERNAMENTAL.Size = New System.Drawing.Size(367, 24)
         Me.ItemForDEPEDENCIA_GUBERNAMENTAL.Text = "DEPEDENCIA_GUBERNAMENTAL"
@@ -718,16 +727,6 @@ Partial Class xfrmCiudadanosInha
         Me.LayoutControlItem3.TextToControlDistance = 0
         Me.LayoutControlItem3.TextVisible = False
         '
-        'LayoutControlItem5
-        '
-        Me.LayoutControlItem5.Control = Me.LookUpEdit1
-        Me.LayoutControlItem5.CustomizationFormText = "MOTIVO INHABILITACION"
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 213)
-        Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(367, 24)
-        Me.LayoutControlItem5.Text = "MOTIVO INHABILITACION"
-        Me.LayoutControlItem5.TextSize = New System.Drawing.Size(155, 13)
-        '
         'EmptySpaceItem1
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
@@ -760,6 +759,16 @@ Partial Class xfrmCiudadanosInha
         Me.EmptySpaceItem3.Size = New System.Drawing.Size(187, 23)
         Me.EmptySpaceItem3.Text = "EmptySpaceItem3"
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'LayoutControlItem5
+        '
+        Me.LayoutControlItem5.Control = Me.LookUpEdit1
+        Me.LayoutControlItem5.CustomizationFormText = "MOTIVO INHABILITACION"
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 189)
+        Me.LayoutControlItem5.Name = "LayoutControlItem5"
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(367, 24)
+        Me.LayoutControlItem5.Text = "MOTIVO INHABILITACION"
+        Me.LayoutControlItem5.TextSize = New System.Drawing.Size(155, 13)
         '
         'LayoutControlGroup1
         '
@@ -853,10 +862,10 @@ Partial Class xfrmCiudadanosInha
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

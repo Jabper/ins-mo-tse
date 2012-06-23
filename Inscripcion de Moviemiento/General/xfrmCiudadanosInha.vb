@@ -181,8 +181,7 @@ Public Class xfrmCiudadanosInha
                 Me.PRIMER_APELLIDOTextEdit.EditValue = ""
                 Me.SEGUNDO_APELLIDOTextEdit.EditValue = ""
 
-
-                'Mensajes.mimensaje("NUMERO DE IDENTIDAD NO EXISTE EN CNE")
+                Mensajes.MensajeError("NUMERO DE IDENTIDAD NO EXISTE EN CENSO NACIONAL ELECTORAL")
             Else
                 Me.NOMBRESTextEdit.EditValue = N
                 Me.PRIMER_APELLIDOTextEdit.EditValue = A
@@ -193,15 +192,19 @@ Public Class xfrmCiudadanosInha
     End Sub
     Private Sub NUMERO_IDENTIFICACIONTextEdit_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles NUMERO_IDENTIFICACIONTextEdit.LostFocus
         Dim consulta As String = "select NUMERO_IDENTIDAD, PRIMER_NOMBRE || ' ' || SEGUNDO_NOMBRE nombre, PRIMER_APELLIDO apellido, SEGUNDO_APELLIDO sapellido "
-        consulta &= "from Im_padron_electoral where NUMERO_IDENTIDAD='" & Me.NUMERO_IDENTIFICACIONTextEdit.EditValue & "'"
+        consulta &= String.Format("from Im_padron_electoral where NUMERO_IDENTIDAD='{0}'", Me.NUMERO_IDENTIFICACIONTextEdit.EditValue)
+
         Dim N As String = COracle.ObtenerDatos(consulta, "NOMBRE")
         Dim A As String = COracle.ObtenerDatos(consulta, "APELLIDO")
         Dim S As String = COracle.ObtenerDatos(consulta, "SAPELLIDO")
+
+       
         If N = "N" Then
+
             Me.NOMBRESTextEdit.EditValue = ""
             Me.PRIMER_APELLIDOTextEdit.EditValue = ""
             Me.SEGUNDO_APELLIDOTextEdit.EditValue = ""
-            'Mensajes.mimensaje("NUMERO DE IDENTIDAD NO EXISTE EN CNE")
+            'MENSAJE()
         Else
             Me.NOMBRESTextEdit.EditValue = N
             Me.PRIMER_APELLIDOTextEdit.EditValue = A
@@ -210,5 +213,15 @@ Public Class xfrmCiudadanosInha
         End If
 
 
+
     End Sub
+    Sub MENSAJE()
+        Dim consulta As String = "select NUMERO_IDENTIDAD"
+        consulta &= String.Format("from Im_padron_electoral where NUMERO_IDENTIDAD='{0}'", Me.NUMERO_IDENTIFICACIONTextEdit.EditValue)
+        nid = COracle.ObtenerDatos(consulta, "NUMERO_IDENTIDAD")
+        Mensajes.mimensaje("NUMERO DE IDENTIDAD NO EXISTE EN CENSO NACIONAL ELECTORAL")
+
+
+    End Sub
+
 End Class
