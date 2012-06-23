@@ -261,6 +261,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="General\XfrmPartidos.Designer.vb">
+      <DependentUpon>XfrmPartidos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="General\XfrmPartidos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\DS_REPORTE_DE_RESUMEN_FDP.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -651,6 +657,9 @@
     <EmbeddedResource Include="General\XfrmParametros.resx">
       <DependentUpon>XfrmParametros.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="General\XfrmPartidos.resx">
+      <DependentUpon>XfrmPartidos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="General\XfrmPartidosPoliticos.resx">
       <DependentUpon>XfrmPartidosPoliticos.vb</DependentUpon>
