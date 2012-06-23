@@ -16,7 +16,7 @@ Public Class xfrmInscripcionCandidato
                 If view2.GetRowCellValue(i, "CODIGO_REQUISITO") = 4 Or view2.GetRowCellValue(i, "CODIGO_REQUISITO") = 5 Or view2.GetRowCellValue(i, "CODIGO_REQUISITO") = 6 Then
 
                     Dim oradb As String = Configuracion.verconfig
-                    Dim opcion As Integer
+
                     Dim conn As New OracleConnection()
                     conn.ConnectionString = oradb
                     conn.Open()
@@ -31,6 +31,8 @@ Public Class xfrmInscripcionCandidato
                     myCMD.ExecuteOracleScalar()
                     vestado = myCMD.Parameters("p_estado").Value
                     view2.SetRowCellValue(i, "ESTADO", vestado)
+
+                    conn.Close()
                 Else
                     vestado = "C"
                     view2.SetRowCellValue(i, "ESTADO", vestado)
@@ -50,7 +52,7 @@ Public Class xfrmInscripcionCandidato
 
             Dim vestado As String
             Dim vCodigo_requisito As Integer
-            Dim vimagen As Byte
+
 
             Dim vcodigo_Candidato As Integer
             Dim consulta As String = "SELECT MAX(CODIGO_CANDIDATOS) maximo FROM IM_CANDIDATOS"
@@ -141,7 +143,7 @@ Public Class xfrmInscripcionCandidato
 
         Try
             Dim oradb As String = Configuracion.verconfig
-            Dim opcion As Integer
+
             Dim conn As New OracleConnection()
             conn.ConnectionString = oradb
             conn.Open()

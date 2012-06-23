@@ -81,6 +81,12 @@ Partial Class xfrmRegCandidatos
         Me.lblMovimiento = New DevExpress.XtraEditors.LabelControl
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl
         Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl
+        Me.IMREQUISITOSXCANDIDATOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IM_REQUISITOS_X_CANDIDATOTableAdapter = New Inscripcion_de_Moviemientos.DSInsCandidatosTableAdapters.IM_REQUISITOS_X_CANDIDATOTableAdapter
+        Me.CONS_VECINDAD = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.chkConstancia = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+        Me.CONS_VECINDAD_IMG = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.PICImagenConstancia = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
@@ -111,6 +117,9 @@ Partial Class xfrmRegCandidatos
         CType(Me.RepositoryItemComboBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTextEdit3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMREQUISITOSXCANDIDATOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chkConstancia, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PICImagenConstancia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelControl1
@@ -286,7 +295,7 @@ Partial Class xfrmRegCandidatos
         Me.cboCargo.Location = New System.Drawing.Point(115, 126)
         Me.cboCargo.Name = "cboCargo"
         Me.cboCargo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cboCargo.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_CARGO_ELECTIVO", "CODIGO_CARGO_ELECTIVO", 35, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 150, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
+        Me.cboCargo.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_CARGO_ELECTIVO", "CODIGO", 35, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "CARGO ELECTIVO", 250, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.cboCargo.Properties.DataSource = Me.IMCARGOSELECTIVOSBindingSource
         Me.cboCargo.Properties.DisplayMember = "DESCRIPCION"
         Me.cboCargo.Properties.NullText = "Seleccione"
@@ -341,6 +350,7 @@ Partial Class xfrmRegCandidatos
         Me.lblfirmasnecesarias.Size = New System.Drawing.Size(64, 25)
         Me.lblfirmasnecesarias.TabIndex = 34
         Me.lblfirmasnecesarias.Text = "100%"
+        Me.lblfirmasnecesarias.Visible = False
         '
         'LabelControl12
         '
@@ -352,6 +362,7 @@ Partial Class xfrmRegCandidatos
         Me.LabelControl12.Size = New System.Drawing.Size(139, 14)
         Me.LabelControl12.TabIndex = 33
         Me.LabelControl12.Text = "Total Firmas Necesarias"
+        Me.LabelControl12.Visible = False
         '
         'lblporcentaje
         '
@@ -363,6 +374,7 @@ Partial Class xfrmRegCandidatos
         Me.lblporcentaje.Size = New System.Drawing.Size(64, 25)
         Me.lblporcentaje.TabIndex = 32
         Me.lblporcentaje.Text = "100%"
+        Me.lblporcentaje.Visible = False
         '
         'LabelControl11
         '
@@ -374,6 +386,7 @@ Partial Class xfrmRegCandidatos
         Me.LabelControl11.Size = New System.Drawing.Size(189, 14)
         Me.LabelControl11.TabIndex = 31
         Me.LabelControl11.Text = "Porcentaje de Firmas Correctas"
+        Me.LabelControl11.Visible = False
         '
         'lblinconsistentes
         '
@@ -384,6 +397,7 @@ Partial Class xfrmRegCandidatos
         Me.lblinconsistentes.Size = New System.Drawing.Size(56, 14)
         Me.lblinconsistentes.TabIndex = 30
         Me.lblinconsistentes.Text = "Registro "
+        Me.lblinconsistentes.Visible = False
         '
         'LabelControl10
         '
@@ -395,6 +409,7 @@ Partial Class xfrmRegCandidatos
         Me.LabelControl10.Size = New System.Drawing.Size(93, 14)
         Me.LabelControl10.TabIndex = 29
         Me.LabelControl10.Text = "Total Registros"
+        Me.LabelControl10.Visible = False
         '
         'lblconsistentes
         '
@@ -405,6 +420,7 @@ Partial Class xfrmRegCandidatos
         Me.lblconsistentes.Size = New System.Drawing.Size(56, 14)
         Me.lblconsistentes.TabIndex = 28
         Me.lblconsistentes.Text = "Registro "
+        Me.lblconsistentes.Visible = False
         '
         'PictureEdit2
         '
@@ -454,14 +470,14 @@ Partial Class xfrmRegCandidatos
         Me.GCBusqueda.Location = New System.Drawing.Point(15, 181)
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
-        Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RIChkCoincide, Me.RIChkFima, Me.RPIImgen, Me.RepositoryItemComboBox1, Me.ChkEstado, Me.RepositoryItemTextEdit1, Me.RepositoryItemTextEdit2, Me.RepositoryItemTextEdit3})
+        Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RIChkCoincide, Me.RIChkFima, Me.RPIImgen, Me.RepositoryItemComboBox1, Me.ChkEstado, Me.RepositoryItemTextEdit1, Me.RepositoryItemTextEdit2, Me.RepositoryItemTextEdit3, Me.chkConstancia, Me.PICImagenConstancia})
         Me.GCBusqueda.Size = New System.Drawing.Size(924, 192)
         Me.GCBusqueda.TabIndex = 30
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
         'GridView1
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.Estado, Me.Fila, Me.colIDENTIDAD, Me.colIMAGEN, Me.colPrimerNombre, Me.colSegundoNombre, Me.colSegundoApellido, Me.colPrimerApellido, Me.Posicion})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.Estado, Me.Fila, Me.colIDENTIDAD, Me.colIMAGEN, Me.colPrimerNombre, Me.colSegundoNombre, Me.colSegundoApellido, Me.colPrimerApellido, Me.Posicion, Me.CONS_VECINDAD, Me.CONS_VECINDAD_IMG})
         Me.GridView1.GridControl = Me.GCBusqueda
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[True]
@@ -582,6 +598,7 @@ Partial Class xfrmRegCandidatos
         'Posicion
         '
         Me.Posicion.Caption = "Posicion"
+        Me.Posicion.FieldName = "POSICION"
         Me.Posicion.Name = "Posicion"
         Me.Posicion.Visible = True
         Me.Posicion.VisibleIndex = 7
@@ -640,9 +657,9 @@ Partial Class xfrmRegCandidatos
         Me.lblMovimiento.Appearance.ForeColor = System.Drawing.Color.Black
         Me.lblMovimiento.Location = New System.Drawing.Point(337, 47)
         Me.lblMovimiento.Name = "lblMovimiento"
-        Me.lblMovimiento.Size = New System.Drawing.Size(123, 25)
+        Me.lblMovimiento.Size = New System.Drawing.Size(271, 25)
         Me.lblMovimiento.TabIndex = 34
-        Me.lblMovimiento.Text = "Movimiento"
+        Me.lblMovimiento.Text = "Inscripcion de Candidatos"
         '
         'LabelControl3
         '
@@ -666,6 +683,44 @@ Partial Class xfrmRegCandidatos
         Me.LabelControl4.TabIndex = 34
         Me.LabelControl4.Text = "Movimiento"
         '
+        'IMREQUISITOSXCANDIDATOBindingSource
+        '
+        Me.IMREQUISITOSXCANDIDATOBindingSource.DataMember = "IM_REQUISITOS_X_CANDIDATO"
+        Me.IMREQUISITOSXCANDIDATOBindingSource.DataSource = Me.DSInsCandidatos
+        '
+        'IM_REQUISITOS_X_CANDIDATOTableAdapter
+        '
+        Me.IM_REQUISITOS_X_CANDIDATOTableAdapter.ClearBeforeFill = True
+        '
+        'CONS_VECINDAD
+        '
+        Me.CONS_VECINDAD.Caption = "Constancia de Vecindad"
+        Me.CONS_VECINDAD.ColumnEdit = Me.chkConstancia
+        Me.CONS_VECINDAD.FieldName = "CONS_VECINDAD"
+        Me.CONS_VECINDAD.Name = "CONS_VECINDAD"
+        Me.CONS_VECINDAD.Visible = True
+        Me.CONS_VECINDAD.VisibleIndex = 9
+        Me.CONS_VECINDAD.Width = 150
+        '
+        'chkConstancia
+        '
+        Me.chkConstancia.AutoHeight = False
+        Me.chkConstancia.Name = "chkConstancia"
+        '
+        'CONS_VECINDAD_IMG
+        '
+        Me.CONS_VECINDAD_IMG.Caption = "Imagen Constancia"
+        Me.CONS_VECINDAD_IMG.ColumnEdit = Me.PICImagenConstancia
+        Me.CONS_VECINDAD_IMG.FieldName = "CONS_VECINDAD_IMG"
+        Me.CONS_VECINDAD_IMG.Name = "CONS_VECINDAD_IMG"
+        Me.CONS_VECINDAD_IMG.Visible = True
+        Me.CONS_VECINDAD_IMG.VisibleIndex = 10
+        Me.CONS_VECINDAD_IMG.Width = 150
+        '
+        'PICImagenConstancia
+        '
+        Me.PICImagenConstancia.Name = "PICImagenConstancia"
+        '
         'xfrmRegCandidatos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -683,7 +738,7 @@ Partial Class xfrmRegCandidatos
         Me.Controls.Add(Me.cboDepartamento)
         Me.Controls.Add(Me.PanelControl1)
         Me.Name = "xfrmRegCandidatos"
-        Me.Text = "MOVIMIENTO"
+        Me.Text = "Inscripción de Candidatos "
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         Me.FlowLayoutPanel1.ResumeLayout(False)
@@ -715,6 +770,9 @@ Partial Class xfrmRegCandidatos
         CType(Me.RepositoryItemComboBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemTextEdit3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMREQUISITOSXCANDIDATOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chkConstancia, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PICImagenConstancia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -780,4 +838,10 @@ Partial Class xfrmRegCandidatos
     Friend WithEvents lblMovimiento As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents IMREQUISITOSXCANDIDATOBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents IM_REQUISITOS_X_CANDIDATOTableAdapter As Inscripcion_de_Moviemientos.DSInsCandidatosTableAdapters.IM_REQUISITOS_X_CANDIDATOTableAdapter
+    Friend WithEvents CONS_VECINDAD As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents chkConstancia As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+    Friend WithEvents CONS_VECINDAD_IMG As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents PICImagenConstancia As DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
 End Class
