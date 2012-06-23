@@ -1,4 +1,8 @@
 ﻿Partial Class DSPolitico
+    Partial Class IM_MOVIMIENTOSDataTable
+
+    End Class
+
     Partial Class TA_CARGOSDataTable
 
         Private Sub TA_CARGOSDataTable_TA_CARGOSRowChanging(ByVal sender As System.Object, ByVal e As TA_CARGOSRowChangeEvent) Handles Me.TA_CARGOSRowChanging

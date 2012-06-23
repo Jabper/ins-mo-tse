@@ -30,7 +30,7 @@ Public Class XFrmMenuPrincipal
             End
 
         Else
-            e.Cancel = False
+            e.Cancel = True
         End If
     End Sub
 
@@ -44,7 +44,7 @@ Public Class XFrmMenuPrincipal
         e.KeyChar = S
     End Sub
     Private Sub XFrmMenuPrincipal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'verificaringreso()
+        verificaringreso()
         'verificar_permisos()
         Me.BtnCerrarSesion.Visibility = BarItemVisibility.Always
         Me.BtnSalir.Visibility = BarItemVisibility.Always
@@ -67,6 +67,8 @@ Public Class XFrmMenuPrincipal
         '    End If
         'Next
 
+        XfrmBack.MdiParent = Me
+        XfrmBack.Show()
 
 
     End Sub
@@ -145,7 +147,12 @@ Public Class XFrmMenuPrincipal
     End Sub
 
     Private Sub BtnMovimeintos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnMovimeintos.ItemClick
-        Padre(XfrmMovimientos)
+        Try
+            Padre(XfrmMovimientos)
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
     Private Sub BtnUsuarios_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnUsuarios.ItemClick
@@ -204,7 +211,10 @@ Public Class XFrmMenuPrincipal
     End Sub
 
     Private Sub BtnCerrarSesion_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCerrarSesion.ItemClick
-        verificar_permisos()
+        ' verificar_permisos()
+        Me.Hide()
+        Dim xfrm As XfrmLogin = New XfrmLogin
+        xfrm.ShowDialog(Me)
     End Sub
 
     Private Sub RibbonControl_ApplicationButtonClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles RibbonControl.ApplicationButtonClick

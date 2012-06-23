@@ -83,6 +83,7 @@ Public Class XfrmConfigurar
 
     Private Sub WizardControl1_FinishClick(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles WizardControl1.FinishClick
         XFrmMenuPrincipal.Show()
+        XFrmMenuPrincipal.verificaringreso()
         Me.Close()
     End Sub
 
@@ -93,7 +94,7 @@ Public Class XfrmConfigurar
     Private Sub WizardControl1_SelectedPageChanging(ByVal sender As Object, ByVal e As DevExpress.XtraWizard.WizardPageChangingEventArgs) Handles WizardControl1.SelectedPageChanging
         If (e.Page.Name = "WizardPage1") Then
             'MsgBox(Configuracion.verconfig)
-            conexion()
+            'conexion()
             'MOSTRAR DATOS
             id = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
             If id = "N" Then
@@ -134,7 +135,8 @@ Public Class XfrmConfigurar
                     cnx.Open()
                     cmd.ExecuteNonQuery()
                     cnx.Close()
-                    COracle.ejecutarconsulta("UPDATE IM_PARAMETROS_GENERALES CODIGO_MOVIMIENTO = " & 40)
+
+                    COracle.ejecutarconsulta("UPDATE IM_PARAMETROS_GENERALES SET CODIGO_MOVIMIENTO =" & 40)
 
                     Dim file As System.IO.FileStream
                     file = System.IO.File.Create(Application.StartupPath.ToString & "\Cnf.ini")

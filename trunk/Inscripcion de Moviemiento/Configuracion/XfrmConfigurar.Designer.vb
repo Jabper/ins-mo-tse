@@ -441,6 +441,7 @@ Partial Class XfrmConfigurar
         'WizardPage1
         '
         Me.WizardPage1.AllowBack = False
+        Me.WizardPage1.AllowCancel = False
         Me.WizardPage1.Controls.Add(Me.PanelControl1)
         Me.WizardPage1.DescriptionText = "Acontinuación Ingrese la información necesaria para inscribir su movimiento"
         Me.WizardPage1.Name = "WizardPage1"
@@ -715,6 +716,7 @@ Partial Class XfrmConfigurar
         'WizardPage2
         '
         Me.WizardPage2.AllowBack = False
+        Me.WizardPage2.AllowCancel = False
         Me.WizardPage2.Controls.Add(Me.PanelControl3)
         Me.WizardPage2.DescriptionText = "Creación de la cuenta de usuario que accederá al sistema"
         Me.WizardPage2.Name = "WizardPage2"
@@ -741,6 +743,7 @@ Partial Class XfrmConfigurar
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        Me.OpenFileDialog1.Filter = "Archivos de Imagen (*.jpg)|*.jpg"
         '
         'XfrmConfigurar
         '
