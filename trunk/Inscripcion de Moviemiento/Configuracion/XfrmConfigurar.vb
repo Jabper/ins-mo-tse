@@ -6,7 +6,17 @@ Public Class XfrmConfigurar
     Dim cadenaActiva As String = ""
     Dim id As String
     Dim idmov As Integer
+    Public Sub New()
 
+        ' Llamada necesaria para el Diseñador de Windows Forms.
+
+        InitializeComponent()
+
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+
+        Me.KeyPreview = True
+
+    End Sub
     Sub conexion()
         'ORCL.DSoruce = SystemInformation.ComputerName
         'ORCL.pass = "tse"
@@ -48,6 +58,16 @@ Public Class XfrmConfigurar
 
             End If
         End If
+    End Sub
+
+    Private Sub XfrmConfigurar_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Me.KeyPress
+        Dim S As String
+
+        S = UCase(e.KeyChar)
+
+        S = ChrW(Asc(S))
+
+        e.KeyChar = S
     End Sub
     Private Sub XfrmConfigurar_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
@@ -227,4 +247,7 @@ Public Class XfrmConfigurar
     End Sub
 
 
+    Private Sub WizardControl1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles WizardControl1.Click
+
+    End Sub
 End Class

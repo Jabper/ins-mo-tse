@@ -1,6 +1,8 @@
 ﻿Imports Oracle.DataAccess.Client
 Imports DevExpress.XtraBars
 Imports DevExpress.XtraBars.InternalItems
+Imports System.IO
+Imports DevExpress.XtraEditors
 
 Public Class XFrmMenuPrincipal
     Public Sub New()
@@ -22,6 +24,16 @@ Public Class XFrmMenuPrincipal
         conn.Open()
     End Sub
 
+    Private Sub XFrmMenuPrincipal_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        If (XtraMessageBox.Show("¿Desea salir del sistema?", "Confirmar", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes) Then
+
+            End
+
+        Else
+            e.Cancel = False
+        End If
+    End Sub
+
     Private Sub XFrmMenuPrincipal_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Me.KeyPress
         Dim S As String
 
@@ -32,6 +44,7 @@ Public Class XFrmMenuPrincipal
         e.KeyChar = S
     End Sub
     Private Sub XFrmMenuPrincipal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'verificaringreso()
         'verificar_permisos()
         Me.BtnCerrarSesion.Visibility = BarItemVisibility.Always
         Me.BtnSalir.Visibility = BarItemVisibility.Always
@@ -54,9 +67,19 @@ Public Class XFrmMenuPrincipal
         '    End If
         'Next
 
-        Me.Hide()
-        XfrmLogin.ShowDialog(Me)
 
+
+    End Sub
+
+    Sub verificaringreso()
+        If File.Exists(Application.StartupPath.ToString & "\Cnf.ini") Then
+            Me.Hide()
+            XfrmLogin.ShowDialog(Me)
+
+        Else
+            Me.Hide()
+            XfrmConfigurar.ShowDialog(Me)
+        End If
     End Sub
 
     Private Sub verificar_permisos()
@@ -163,8 +186,8 @@ Public Class XFrmMenuPrincipal
         Padre(xfrmCiudadanosInha)
     End Sub
 
-    Private Sub BtnHacerRespaldo_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnHacerRespaldo.ItemClick    
-        Padre(XfrmCrearRespaldo)    
+    Private Sub BtnHacerRespaldo_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnHacerRespaldo.ItemClick
+        Padre(XfrmCrearRespaldo)
     End Sub
 
     Private Sub BtnFirmas_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnFirmas.ItemClick
@@ -172,7 +195,7 @@ Public Class XFrmMenuPrincipal
         filas.ShowDialog(Me)
     End Sub
 
-    Private Sub BtnImportar_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnImportar.ItemClick    
+    Private Sub BtnImportar_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnImportar.ItemClick
         Padre(XfrmImportar)
     End Sub
 
@@ -188,7 +211,7 @@ Public Class XFrmMenuPrincipal
 
     End Sub
 
-    
+
     Private Sub RibbonControl_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RibbonControl.Click
 
     End Sub
@@ -263,5 +286,13 @@ Public Class XFrmMenuPrincipal
     Private Sub BarButtonItem7_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem7.ItemClick
         Dim reporte7 As Reporte_de_Resumen_Firmas_DP = New Reporte_de_Resumen_Firmas_DP
         reporte7.ShowPreview()
+    End Sub
+
+    Private Sub BtnSalir_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnSalir.ItemClick
+        If (XtraMessageBox.Show("¿Desea salir del sistema?", "Confirmar", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes) Then
+
+            End
+
+        End If
     End Sub
 End Class

@@ -435,8 +435,8 @@ Partial Class XfrmConfigurar
             "on la configuración del sistema" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.WelcomeWizardPage1.Name = "WelcomeWizardPage1"
         Me.WelcomeWizardPage1.ProceedText = "Presione Siguiente para continuar"
-        Me.WelcomeWizardPage1.Size = New System.Drawing.Size(388, 272)
-        Me.WelcomeWizardPage1.Text = "Configuracion Final de Acceso al Sistema e Información de su Movimiento"
+        Me.WelcomeWizardPage1.Size = New System.Drawing.Size(388, 295)
+        Me.WelcomeWizardPage1.Text = "Configuracion Final de Acceso al Sistema "
         '
         'WizardPage1
         '
@@ -521,6 +521,7 @@ Partial Class XfrmConfigurar
         Me.INSIGNIAPictureEdit.Name = "INSIGNIAPictureEdit"
         Me.INSIGNIAPictureEdit.Properties.PictureStoreMode = DevExpress.XtraEditors.Controls.PictureStoreMode.ByteArray
         Me.INSIGNIAPictureEdit.Properties.ShowMenu = False
+        Me.INSIGNIAPictureEdit.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
         Me.INSIGNIAPictureEdit.Size = New System.Drawing.Size(215, 107)
         Me.INSIGNIAPictureEdit.StyleController = Me.DataLayoutControl1
         Me.INSIGNIAPictureEdit.TabIndex = 7
@@ -531,6 +532,7 @@ Partial Class XfrmConfigurar
         Me.EMBLEMAPictureEdit.Name = "EMBLEMAPictureEdit"
         Me.EMBLEMAPictureEdit.Properties.PictureStoreMode = DevExpress.XtraEditors.Controls.PictureStoreMode.ByteArray
         Me.EMBLEMAPictureEdit.Properties.ShowMenu = False
+        Me.EMBLEMAPictureEdit.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
         Me.EMBLEMAPictureEdit.Size = New System.Drawing.Size(227, 107)
         Me.EMBLEMAPictureEdit.StyleController = Me.DataLayoutControl1
         Me.EMBLEMAPictureEdit.TabIndex = 8

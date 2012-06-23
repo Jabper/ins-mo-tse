@@ -91,6 +91,7 @@
     <Reference Include="DevExpress.XtraPivotGrid.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraWizard.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -218,6 +219,18 @@
     <Compile Include="Clases\ORCL.vb" />
     <Compile Include="Clases\VControles.vb" />
     <Compile Include="Clases\VGlobales.vb" />
+    <Compile Include="Configuracion\XfrmConfigurar.Designer.vb">
+      <DependentUpon>XfrmConfigurar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\XfrmConfigurar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\XtraForm1.Designer.vb">
+      <DependentUpon>XtraForm1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\XtraForm1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Consultas\DSConsultas.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -602,6 +615,14 @@
       <DependentUpon>XfrmFilas.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\XfrmConfigurar.resx">
+      <DependentUpon>XfrmConfigurar.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\XtraForm1.resx">
+      <DependentUpon>XtraForm1.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consultas\XfrmConCandidatos.resx">
       <DependentUpon>XfrmConCandidatos.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -660,6 +681,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="General\XfrmPartidos.resx">
       <DependentUpon>XfrmPartidos.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="General\XfrmPartidosPoliticos.resx">
       <DependentUpon>XfrmPartidosPoliticos.vb</DependentUpon>
@@ -1127,6 +1149,7 @@
     <Content Include="Resources\Filtro.png" />
     <Content Include="Resources\FIRMAS1.png" />
     <None Include="Resources\FIRMAS11.png" />
+    <None Include="Resources\gridview34.png" />
     <Content Include="Resources\motivo.png" />
     <Content Include="tse.ico" />
     <None Include="Resources\Restadisticos.png" />
