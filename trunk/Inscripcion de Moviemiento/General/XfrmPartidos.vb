@@ -133,16 +133,9 @@ Public Class XfrmPartidos
             Me.IM_PARTIDOS_POLITICOSTableAdapter.FillBy(Me.DSPolitico.IM_PARTIDOS_POLITICOS, CType(cellValue, Integer))
 
             'OBTENEMOS LA INFORMACION PARA LA BUSQUEDA DE LA IMAGEN
-            'UrlImagen = Application.StartupPath.ToString & "\Img\" & CODIGO_PARTIDOSpinEdit.EditValue.ToString & NOMBRETextEdit.EditValue.ToString & ".jpg"
             Dim consulta As String = "SELECT IMAGEN FROM IM_PARTIDOS_POLITICOS WHERE CODIGO_PARTIDO=" & CODIGO_PARTIDOSpinEdit.EditValue
             Me.IMAGENPictureEdit.Image = COracle.ObtenerImagen(consulta, "IMAGEN")
-            'If File.Exists(UrlImagen) Then
-            '    'SI EL ARCHIVO EXISTE MOSTRAMOS LA IMAGEN
-            '    cargarimagen()
-            'Else
-            '    'SI NO SE ENCUENTRA LIMPIAMOS EL PICTURE EDIT
-            '    IMAGENPictureEdit.EditValue = Nothing
-            'End If
+           
             actualizar = True
             id = cellValue
             BtnEliminar.Enabled = True
@@ -172,6 +165,7 @@ Public Class XfrmPartidos
                 ActualizarGrid()
                 Mensajes.MensajeEliminar()
                 Me.IMPARTIDOSPOLITICOSBindingSource.AddNew()
+                Me.IMAGENPictureEdit.Image = Nothing
                 Me.BtnEliminar.Enabled = False
                 actualizar = False
             Catch ex As Exception
