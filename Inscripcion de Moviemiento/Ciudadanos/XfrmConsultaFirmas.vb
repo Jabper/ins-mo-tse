@@ -96,17 +96,17 @@ Public Class XfrmConsultaFirmas
         'TODO: This line of code loads data into the 'DSCiudadanos.IM_CIUDADANOS_RESPALDAN1' table. You can move, or remove it, as needed.
         'Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Fill(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
         'TODO: This line of code loads data into the 'DSCiudadanos.MOSTRAR_FIRMAS' table. You can move, or remove it, as needed.
-
+        idmovimiento = COracle.ObtenerDatos("SELECT * FROM IM_PARAMETROS_GENERALES", "CODIGO_MOVIMIENTO")
         '******************Ventana de espera
         Dim waitDialog As New WaitDialogForm("Obteniendo Información", "Por favor espere..")
         'Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Fill(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
         Me.MOSTRAR_FIRMASTableAdapter.Fill(Me.DSCiudadanos.MOSTRAR_FIRMAS)
         waitDialog.Caption = "finalizando..."
         waitDialog.Close()
-        Dim ipartido As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
-        Dim imov As String = COracle.ObtenerDatos("SELECT CODIGO_MOVIMIENTO FROM IM_PARAMETROS_GENERALES", "CODIGO_MOVIMIENTO")
-        Me.CODIGO_PARTIDO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo(ipartido)
-        Me.CODIGO_MOVIMIENTO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo(imov)
+        Dim ip As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
+
+        Me.CODIGO_PARTIDO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_PARTIDO=" & ip)
+        Me.CODIGO_MOVIMIENTO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_MOVIMIENTO=" & idmovimiento)
 
 
         Me.TA_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.TA_DEPARTAMENTOS)
@@ -390,13 +390,10 @@ Public Class XfrmConsultaFirmas
 
         End If
 
-        'If ChkMovimientos.CheckState = CheckState.Checked Then
+        Dim ip As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
 
-        Dim ipartido As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
-        Dim imov As String = COracle.ObtenerDatos("SELECT CODIGO_MOVIMIENTO FROM IM_PARAMETROS_GENERALES", "CODIGO_MOVIMIENTO")
-        Me.CODIGO_PARTIDO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo(ipartido)
-        Me.CODIGO_MOVIMIENTO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo(imov)
-        'End If
+        Me.CODIGO_PARTIDO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_PARTIDO=" & ip)
+        Me.CODIGO_MOVIMIENTO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_MOVIMIENTO=" & idmovimiento)
 
 
         If ChkDepto.CheckState = CheckState.Checked Then
@@ -426,10 +423,10 @@ Public Class XfrmConsultaFirmas
         Me.ChkMovimientos.CheckState = CheckState.Unchecked
         Me.ChkDepto.CheckState = CheckState.Unchecked
         Me.ChkMovimientos.CheckState = CheckState.Unchecked
-        Dim ipartido As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
-        Dim imov As String = COracle.ObtenerDatos("SELECT * FROM IM_PARAMETROS_GENERALES", "CODIGO_MOVIMIENTO")
-        Me.CODIGO_PARTIDO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_PARTIDO=" & ipartido)
-        'Me.CODIGO_MOVIMIENTO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo(imov)
+        Dim ip As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
+
+        Me.CODIGO_PARTIDO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_PARTIDO=" & ip)
+        Me.CODIGO_MOVIMIENTO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_MOVIMIENTO=" & idmovimiento)
     End Sub
 
     Private Sub SimpleButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click

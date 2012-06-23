@@ -128,7 +128,7 @@ Public Class COracle
     Public Shared Function ObtenerDatos(ByVal consulta As String, ByVal campo As String) As String
         Try
             Dim cnx As New OracleConnection(Configuracion.verconfig)
-
+            cnx.Close()
             cnx.Open()
 
 
@@ -139,10 +139,13 @@ Public Class COracle
 
             If dataread.Read = True Then
                 With dataread
-                    Return (.Item(campo)).ToString.Trim
+                    Dim A As String = (.Item(campo)).ToString.Trim
+                    cnx.Close()
+                    Return A
 
                 End With
             Else
+                cnx.Close()
                 Return "N"
             End If
         Catch ex As Exception

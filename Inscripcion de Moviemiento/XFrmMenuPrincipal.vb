@@ -172,7 +172,7 @@ Public Class XFrmMenuPrincipal
     End Sub
 
     Private Sub BtnCandidatos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCandidatos.ItemClick
-        Dim Candidatos As Object = New xfrmBusquedaCandidatos
+        Dim Candidatos As Object = New xfrmSeleccionarPartidoMovimiento
         Candidatos.ShowDialog(Me)
     End Sub
 
