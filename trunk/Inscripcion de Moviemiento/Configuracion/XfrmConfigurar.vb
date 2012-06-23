@@ -94,7 +94,7 @@ Public Class XfrmConfigurar
     Private Sub WizardControl1_SelectedPageChanging(ByVal sender As Object, ByVal e As DevExpress.XtraWizard.WizardPageChangingEventArgs) Handles WizardControl1.SelectedPageChanging
         If (e.Page.Name = "WizardPage1") Then
             'MsgBox(Configuracion.verconfig)
-            'conexion()
+            conexion()
             'MOSTRAR DATOS
             id = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
             If id = "N" Then
