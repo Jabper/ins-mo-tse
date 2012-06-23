@@ -27,6 +27,7 @@ Public Class XfrmLogin
                 'XFrmMenuPrincipal.showuser(NombreUsuario)
                 Me.TxtUsuario.Text = Nothing
                 Me.TxtUsuario.Text = Nothing
+                XFrmMenuPrincipal.TxtUser.Caption = NombreUsuario
                 XFrmMenuPrincipal.Show()
                 Me.Close()
             Else
