@@ -406,7 +406,7 @@ Partial Class XfrmConsultaFirmas
         '
         'txtidentidad
         '
-        Me.txtidentidad.Location = New System.Drawing.Point(396, 118)
+        Me.txtidentidad.Location = New System.Drawing.Point(396, 114)
         Me.txtidentidad.Name = "txtidentidad"
         Me.txtidentidad.Properties.MaxLength = 15
         Me.txtidentidad.Size = New System.Drawing.Size(152, 20)
@@ -415,7 +415,7 @@ Partial Class XfrmConsultaFirmas
         'LabelControl9
         '
         Me.LabelControl9.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl9.Location = New System.Drawing.Point(322, 118)
+        Me.LabelControl9.Location = New System.Drawing.Point(322, 114)
         Me.LabelControl9.Name = "LabelControl9"
         Me.LabelControl9.Size = New System.Drawing.Size(50, 13)
         Me.LabelControl9.TabIndex = 42
@@ -423,7 +423,7 @@ Partial Class XfrmConsultaFirmas
         '
         'ChkMuni
         '
-        Me.ChkMuni.Location = New System.Drawing.Point(299, 81)
+        Me.ChkMuni.Location = New System.Drawing.Point(299, 77)
         Me.ChkMuni.Name = "ChkMuni"
         Me.ChkMuni.Properties.Caption = ""
         Me.ChkMuni.Size = New System.Drawing.Size(16, 19)
@@ -431,7 +431,7 @@ Partial Class XfrmConsultaFirmas
         '
         'ChkDepto
         '
-        Me.ChkDepto.Location = New System.Drawing.Point(19, 81)
+        Me.ChkDepto.Location = New System.Drawing.Point(19, 77)
         Me.ChkDepto.Name = "ChkDepto"
         Me.ChkDepto.Properties.Caption = ""
         Me.ChkDepto.Size = New System.Drawing.Size(16, 19)
@@ -447,7 +447,7 @@ Partial Class XfrmConsultaFirmas
         '
         'LabelControl5
         '
-        Me.LabelControl5.Location = New System.Drawing.Point(41, 83)
+        Me.LabelControl5.Location = New System.Drawing.Point(41, 79)
         Me.LabelControl5.Name = "LabelControl5"
         Me.LabelControl5.Size = New System.Drawing.Size(69, 13)
         Me.LabelControl5.TabIndex = 39
@@ -464,7 +464,7 @@ Partial Class XfrmConsultaFirmas
         'CmbFiltro
         '
         Me.CmbFiltro.EditValue = "Ninguno"
-        Me.CmbFiltro.Location = New System.Drawing.Point(133, 115)
+        Me.CmbFiltro.Location = New System.Drawing.Point(133, 111)
         Me.CmbFiltro.Name = "CmbFiltro"
         Me.CmbFiltro.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CmbFiltro.Properties.Items.AddRange(New Object() {"Ninguno", "Consistentes", "Inconsistentes"})
@@ -474,7 +474,7 @@ Partial Class XfrmConsultaFirmas
         'LabelControl1
         '
         Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl1.Location = New System.Drawing.Point(41, 118)
+        Me.LabelControl1.Location = New System.Drawing.Point(41, 114)
         Me.LabelControl1.Name = "LabelControl1"
         Me.LabelControl1.Size = New System.Drawing.Size(37, 13)
         Me.LabelControl1.TabIndex = 32
@@ -482,7 +482,7 @@ Partial Class XfrmConsultaFirmas
         '
         'LabelControl4
         '
-        Me.LabelControl4.Location = New System.Drawing.Point(322, 83)
+        Me.LabelControl4.Location = New System.Drawing.Point(322, 79)
         Me.LabelControl4.Name = "LabelControl4"
         Me.LabelControl4.Size = New System.Drawing.Size(43, 13)
         Me.LabelControl4.TabIndex = 38
@@ -490,35 +490,38 @@ Partial Class XfrmConsultaFirmas
         '
         'LabelControl3
         '
-        Me.LabelControl3.Location = New System.Drawing.Point(322, 47)
+        Me.LabelControl3.Location = New System.Drawing.Point(322, 40)
         Me.LabelControl3.Name = "LabelControl3"
         Me.LabelControl3.Size = New System.Drawing.Size(54, 13)
         Me.LabelControl3.TabIndex = 37
         Me.LabelControl3.Text = "Movimiento"
+        Me.LabelControl3.Visible = False
         '
         'LabelControl2
         '
-        Me.LabelControl2.Location = New System.Drawing.Point(41, 47)
+        Me.LabelControl2.Location = New System.Drawing.Point(41, 43)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(34, 13)
         Me.LabelControl2.TabIndex = 36
         Me.LabelControl2.Text = "Partido"
+        Me.LabelControl2.Visible = False
         '
         'ChkMovimientos
         '
-        Me.ChkMovimientos.Location = New System.Drawing.Point(19, 22)
+        Me.ChkMovimientos.Location = New System.Drawing.Point(19, 18)
         Me.ChkMovimientos.Name = "ChkMovimientos"
         Me.ChkMovimientos.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChkMovimientos.Properties.Appearance.Options.UseFont = True
         Me.ChkMovimientos.Properties.Caption = "Filtrar por Movimiento"
         Me.ChkMovimientos.Size = New System.Drawing.Size(380, 19)
         Me.ChkMovimientos.TabIndex = 33
+        Me.ChkMovimientos.Visible = False
         '
         'CmbPartido
         '
         Me.CmbPartido.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TAPARTIDOSPOLITICOSBindingSource, "CODIGO_PARTIDO", True))
         Me.CmbPartido.Enabled = False
-        Me.CmbPartido.Location = New System.Drawing.Point(133, 44)
+        Me.CmbPartido.Location = New System.Drawing.Point(133, 40)
         Me.CmbPartido.Name = "CmbPartido"
         Me.CmbPartido.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CmbPartido.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_PARTIDO", "Código", 30, DevExpress.Utils.FormatType.Numeric, "", False, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE", "Partido", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.Ascending)})
@@ -528,6 +531,7 @@ Partial Class XfrmConsultaFirmas
         Me.CmbPartido.Properties.ValueMember = "CODIGO_PARTIDO"
         Me.CmbPartido.Size = New System.Drawing.Size(157, 20)
         Me.CmbPartido.TabIndex = 26
+        Me.CmbPartido.Visible = False
         '
         'TAPARTIDOSPOLITICOSBindingSource
         '
@@ -543,7 +547,7 @@ Partial Class XfrmConsultaFirmas
         '
         Me.CmbMovimiento.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TAMOVIMIENTOBindingSource, "CODIGO_MOVIMIENTO", True))
         Me.CmbMovimiento.Enabled = False
-        Me.CmbMovimiento.Location = New System.Drawing.Point(396, 47)
+        Me.CmbMovimiento.Location = New System.Drawing.Point(396, 40)
         Me.CmbMovimiento.Name = "CmbMovimiento"
         Me.CmbMovimiento.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CmbMovimiento.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MOVIMIENTO", "CODIGO_MOVIMIENTO", 135, DevExpress.Utils.FormatType.Numeric, "", False, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE_MOVIMIENTO", "Movimiento", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.Ascending)})
@@ -553,6 +557,7 @@ Partial Class XfrmConsultaFirmas
         Me.CmbMovimiento.Properties.ValueMember = "CODIGO_MOVIMIENTO"
         Me.CmbMovimiento.Size = New System.Drawing.Size(152, 20)
         Me.CmbMovimiento.TabIndex = 27
+        Me.CmbMovimiento.Visible = False
         '
         'TAMOVIMIENTOBindingSource
         '
@@ -562,7 +567,7 @@ Partial Class XfrmConsultaFirmas
         'CmbMunicipio
         '
         Me.CmbMunicipio.Enabled = False
-        Me.CmbMunicipio.Location = New System.Drawing.Point(396, 84)
+        Me.CmbMunicipio.Location = New System.Drawing.Point(396, 80)
         Me.CmbMunicipio.Name = "CmbMunicipio"
         Me.CmbMunicipio.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CmbMunicipio.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MUNICIPIO", "Código", 30, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.Ascending), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Departamento", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
@@ -586,7 +591,7 @@ Partial Class XfrmConsultaFirmas
         'CmbDepartamento
         '
         Me.CmbDepartamento.Enabled = False
-        Me.CmbDepartamento.Location = New System.Drawing.Point(133, 80)
+        Me.CmbDepartamento.Location = New System.Drawing.Point(133, 76)
         Me.CmbDepartamento.Name = "CmbDepartamento"
         Me.CmbDepartamento.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CmbDepartamento.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_DEPARTAMENTO", "Código", 30, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.Ascending), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Departamento", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
@@ -639,7 +644,6 @@ Partial Class XfrmConsultaFirmas
         Me.GridView1.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridView1.OptionsView.ColumnAutoWidth = False
         Me.GridView1.OptionsView.ShowDetailButtons = False
-        Me.GridView1.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never
         Me.GridView1.OptionsView.ShowGroupPanel = False
         Me.GridView1.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.colNOMBRE_IGUAL, DevExpress.Data.ColumnSortOrder.Ascending)})
         '

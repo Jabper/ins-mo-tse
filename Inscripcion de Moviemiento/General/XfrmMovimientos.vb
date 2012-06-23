@@ -14,6 +14,8 @@ Public Class XfrmMovimientos
     End Sub
 
     Private Sub XfrmMovimientos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DSPolitico.IM_MOVIMIENTOS' table. You can move, or remove it, as needed.
+        'Me.IM_MOVIMIENTOSTableAdapter.Fill(Me.DSPolitico.IM_MOVIMIENTOS)
         'TODO: This line of code loads data into the 'DSPolitico.TA_PARTIDOS_POLITICOS' table. You can move, or remove it, as needed.
 
         'Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
@@ -42,8 +44,10 @@ Public Class XfrmMovimientos
                 If _datar.RowState = DataRowState.Added Then
                     _datar.ADICIONADO_POR = usuario
                     _datar.FECHA_ADICION = DateTime.Now
-                    _datar.INSIGNIA = Data.ConvertImageToByteArray(Me.INSIGNIAPictureEdit.Image)
-                    _datar.EMBLEMA = Data.ConvertImageToByteArray(Me.EMBLEMAPictureEdit.Image)
+                    Dim consultaim As String = "SELECT IMAGEN FROM IM_PARTIDOS_POLITICOS WHERE CODIGO_PARTIDO=" & CODIGO_PARTIDOSpinEdit.EditValue
+                    _datar.INSIGNIA = Data.ConvertImageToByteArray(COracle.ObtenerImagen(consultaim, "IMAGEN"))
+
+                    _datar.EMBLEMA = Data.ConvertImageToByteArray(Me.EMBLEMAPictureEdit.Image)  'Data.ConvertImageToByteArray(Me.EMBLEMAPictureEdit.Image)
 
                     'SI EL REGISTRO SE MODIFICA
                 ElseIf _datar.RowState = DataRowState.Modified Then
@@ -116,8 +120,13 @@ Public Class XfrmMovimientos
             EMBLEMAPictureEdit.EditValue = Nothing
             INSIGNIAPictureEdit.EditValue = Nothing
             'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
-            Me.IM_MOVIMIENTOSTableAdapter.FillBy1(Me.DSPolitico.IM_MOVIMIENTOS, CType(idmov, Integer), CType(idpart, Integer))
+            Try
+                Me.IM_MOVIMIENTOSTableAdapter.FillBy1(Me.DSPolitico.IM_MOVIMIENTOS, CType(idmov, Integer), CType(idpart, Integer))
 
+            Catch ex As Exception
+
+            End Try
+            
             Dim consulta As String = "SELECT INSIGNIA FROM IM_MOVIMIENTOS WHERE CODIGO_MOVIMIENTO=" & CODIGO_MOVIMIENTOSpinEdit.EditValue
             Me.INSIGNIAPictureEdit.Image = COracle.ObtenerImagen(consulta, "INSIGNIA")
             Dim consulta2 As String = "SELECT EMBLEMA FROM IM_MOVIMIENTOS WHERE CODIGO_MOVIMIENTO=" & CODIGO_MOVIMIENTOSpinEdit.EditValue
@@ -170,7 +179,7 @@ Public Class XfrmMovimientos
         End Try
     End Sub
 
-    Private Sub BtnInsignia_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnInsignia.Click
+    Private Sub BtnInsignia_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         'ABRE EL EXPLORADOR PARA CAPTURAR LA DIRECCION DE LA IMAGEN
         OFDInsignia.ShowDialog()
         'LA VARIABLE URLIMAGEN CAPTURA LA DIRECCION DE LA IMAGEN
@@ -276,13 +285,5 @@ Public Class XfrmMovimientos
         End If
     End Sub
 
-    Private Sub CODIGO_PARTIDOSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_PARTIDOSpinEdit.EditValueChanged
-
-    End Sub
-
-    Private Sub CODIGO_PARTIDOSpinEdit_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CODIGO_PARTIDOSpinEdit.TextChanged
-        Dim consulta As String = "SELECT IMAGEN FROM IM_PARTIDOS_POLITICOS WHERE CODIGO_PARTIDO=" & CODIGO_PARTIDOSpinEdit.EditValue
-        Me.INSIGNIAPictureEdit.Image = COracle.ObtenerImagen(consulta, "IMAGEN")
-
-    End Sub
+    
 End Class
