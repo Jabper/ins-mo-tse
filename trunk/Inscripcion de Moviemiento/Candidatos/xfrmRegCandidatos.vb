@@ -13,9 +13,8 @@ Public Class xfrmRegCandidatos
     Dim enviarguardar As Integer = 0
 
 
-
     Sub AgregarFilasGrid(ByVal NumeroCeldas As Integer)
-        Me.DSInsCandidatos.DUAL.Rows.Clear()
+        Me.DSInsCandidatos.IM_CANDIDATOS.Rows.Clear()
 
         For i = 1 To CType(NumeroCeldas, Integer)
             GridView1.AddNewRow()
@@ -25,8 +24,8 @@ Public Class xfrmRegCandidatos
     End Sub
 
     Private Sub GridView1_CustomColumnDisplayText(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs) Handles GridView1.CustomColumnDisplayText
-        'vi = 0
-        If (e.Column.FieldName = "Fila") Then
+        'vi = 5
+        If (e.Column.FieldName = "POSICION") Then
 
             If e.RowHandle < 0 Then
                 e.DisplayText = vi + 1
@@ -37,17 +36,6 @@ Public Class xfrmRegCandidatos
             End If
 
         End If
-
-
-        'Dim view As GridView = GridView1
-        'Dim I As Integer = e.RowHandle
-
-        'If (e.Column.FieldName = "CONS_VECINDAD") Then
-        '    If view.GetRowCellValue(I, "CONSTANCIA DE VECINDAD") Then
-        '        view.SetRowCellValue(I, "CONS_VECINDAD", False)
-        '    End If
-        'End If
-
 
     End Sub
 
@@ -61,22 +49,14 @@ Public Class xfrmRegCandidatos
         End If
     End Sub
     Private Sub xfrmRegCandidatos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        
+        'TryCast(Me.GCBusqueda.ViewCollection(0), DevExpress.XtraGrid.Views.Grid.GridView).Columns("CONS_VECINDAD_IMG").AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        'TryCast(Me.GCBusqueda.ViewCollection(0), DevExpress.XtraGrid.Views.Grid.GridView).Columns("CONS_VECINDAD").AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
 
-        lblpresidnete.Text = ""
-        lbldesignados.Text = ""
-        lblparlacen1.Text = ""
-        lblparlacen2.Text = ""
-        lblcnr1.Text = ""
-        lblcnr2.Text = ""
-        lblalcalde.Text = ""
-        lblvice.Text = ""
-        lblregidores.Text = ""
+        limpiar()
 
         Me.MdiParent = XFrmMenuPrincipal
-        'TODO: This line of code loads data into the 'DSInsCandidatos.DUAL' table. You can move, or remove it, as needed.
-        'Me.DUALTableAdapter.Fill(Me.DSInsCandidatos.DUAL)
-        'TODO: This line of code loads data into the 'DSInsCandidatos.IM_CANDIDATOS' table. You can move, or remove it, as needed.
-        ' Me.IM_CANDIDATOSTableAdapter.Fill(Me.DSInsCandidatos.IM_CANDIDATOS)
+        '
         'TODO: This line of code loads data into the 'DSInsCandidatos.IM_CARGOS_ELECTIVOS' table. You can move, or remove it, as needed.
         Me.IM_CARGOS_ELECTIVOSTableAdapter.Fill(Me.DSInsCandidatos.IM_CARGOS_ELECTIVOS)
 
@@ -196,7 +176,7 @@ Public Class xfrmRegCandidatos
             Next i
             If enviarguardar = 1 Then
                 Mensajes.MensajeGuardar()
-                Me.DSInsCandidatos.DUAL.Rows.Clear()
+                Me.DSInsCandidatos.IM_CANDIDATOS.Rows.Clear()
             End If
             enviarguardar = 0
         Catch ex As Exception
@@ -209,16 +189,8 @@ Public Class xfrmRegCandidatos
     Private Sub cboMunicipio_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboMunicipio.TextChanged
         Try
 
-            Me.DSInsCandidatos.DUAL.Rows.Clear()
-            'If Me.cboCargo.EditValue = 8 Then
-
-
-
-            '    Dim numFila As Integer
-            '    Dim consulta As String = "SELECT CANTIDAD_REGIDORES   FROM IM_MUNICIPIOS WHERE CODIGO_DEPARTAMENTO = " & Me.cboDepartamento.EditValue & " AND CODIGO_MUNICIPIO  = " & Me.cboMunicipio.EditValue
-            '    numFila = COracle.ObtenerDatos(consulta, "CANTIDAD_REGIDORES")
-            '    'AgregarFilasGrid(numFila)
-            'End If
+            Me.DSInsCandidatos.IM_CANDIDATOS.Rows.Clear()
+            Validarleyendas()
 
             'Me.IM_MUNICIPIOSTableAdapter.FillBy(Me.DSInsCandidatos.IM_MUNICIPIOS, Me.cboDepartamento.EditValue)
         Catch ex As Exception
@@ -229,13 +201,9 @@ Public Class xfrmRegCandidatos
     Private Sub cboDepartamento_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboDepartamento.TextChanged
         Try
 
-            Me.DSInsCandidatos.DUAL.Rows.Clear()
-            'If Me.cboCargo.EditValue = 4 Or Me.cboCargo.EditValue = 5 Then
-            '    Dim numFila As Integer
-            '    Dim consulta As String = "select cantidad_diputados from im_departamentos where codigo_departamento = " & Me.cboDepartamento.EditValue
-            '    numFila = COracle.ObtenerDatos(consulta, "cantidad_diputados")
-            '    ' AgregarFilasGrid(numFila)
-            'End If
+            Me.DSInsCandidatos.IM_CANDIDATOS.Rows.Clear()
+
+            Validarleyendas()
 
             Me.IM_MUNICIPIOSTableAdapter.Fill(Me.DSInsCandidatos.IM_MUNICIPIOS, Me.cboDepartamento.EditValue)
         Catch ex As Exception
@@ -277,8 +245,8 @@ Public Class xfrmRegCandidatos
 
     Private Sub cboCargo_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboCargo.EditValueChanged
         Val_MUN_DEP()
-        Me.DSInsCandidatos.DUAL.Rows.Clear()
-
+        Me.DSInsCandidatos.IM_CANDIDATOS.Rows.Clear()
+        Validarleyendas()
         'If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7 Then
         '    ' AgregarFilasGrid(1)
 
@@ -292,7 +260,7 @@ Public Class xfrmRegCandidatos
         End If
     End Sub
 
-    Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnguardarold.Click
+    Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         guardar()
     End Sub
 
@@ -490,7 +458,7 @@ Public Class xfrmRegCandidatos
         lblregidores.Text = ""
     End Sub
 
-    Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton1.Click
+    Sub Validarleyendas()
         Dim dip_CNS As String = 0
         Dim dip_CN As String = 0
         Dim dip_pp As String = 0
@@ -510,7 +478,7 @@ Public Class xfrmRegCandidatos
 
 
 
-        Me.DSInsCandidatos.DUAL.Rows.Clear()
+        Me.DSInsCandidatos.IM_CANDIDATOS.Rows.Clear()
         Val_MUN_DEP()
 
         presidente = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 1 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
@@ -541,6 +509,10 @@ Public Class xfrmRegCandidatos
         lblvice.Text = vice
         lblregidores.Text = String.Format("{0} / {1}", regidores, cregidores)
 
+
+        'TODO: This line of code loads data into the 'DSInsCandidatos.IM_CANDIDATOS' table. You can move, or remove it, as needed.
+        'Me.IM_CANDIDATOSTableAdapter.FillBY(Me.DSInsCandidatos.IM_CANDIDATOS, Me.cboCargo.EditValue, id_partido, id_movimiento, depto, muni)
+
         If Me.cboCargo.EditValue = 1 Then
             AgregarFilasGrid(1 - CInt(presidente))
         ElseIf Me.cboCargo.EditValue = 6 Then
@@ -563,11 +535,10 @@ Public Class xfrmRegCandidatos
         End If
 
 
-
     End Sub
 
 
-    Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalirold.Click
+    Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.Close()
     End Sub
 End Class

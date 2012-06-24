@@ -139,6 +139,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSInsCandidatos.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Candidatos\DSInsCandidatos.vb">
+      <DependentUpon>DSInsCandidatos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Candidatos\DSInscripcionCandidatos.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
