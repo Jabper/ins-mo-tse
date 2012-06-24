@@ -412,7 +412,7 @@ Public Class XfrmSubirSistExterno
                         'CoWaitForMultipleHandles(
                         i = i + 1
                         If i Mod 5000 = 0 Then
-                            MsgBox("Se ha procesado " & i & " registros. Procesando por favor espere...")
+                            MsgBox("Se han procesado " & i & " registros. Procesando por favor espere...")
                         End If
                     Next
                 Catch ex As Exception

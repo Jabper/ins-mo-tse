@@ -557,4 +557,8 @@ Public Class xfrmInscripcionCandidato
 
 
     End Sub
+
+    Private Sub CODIGO_PARTIDOLookUpEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_PARTIDOLookUpEdit.EditValueChanged
+
+    End Sub
 End Class
