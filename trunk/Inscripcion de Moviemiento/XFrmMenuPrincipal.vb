@@ -72,16 +72,17 @@ Public Class XFrmMenuPrincipal
 
 
     End Sub
+   
 
     Sub verificaringreso()
-        If File.Exists(Application.StartupPath.ToString & "\Cnf.ini") Then
-            Me.Hide()
-            XfrmLogin.ShowDialog(Me)
+        'If File.Exists(Application.StartupPath.ToString & "\Cnf.ini") Then
+        Me.Visible = False
+        XfrmLogin.ShowDialog(Me)
 
-        Else
-            Me.Hide()
-            XfrmConfigurar.ShowDialog(Me)
-        End If
+        'Else
+        '    Me.Visible = False
+        '    XfrmConfigurar.ShowDialog(Me)
+        'End If
     End Sub
 
     Private Sub verificar_permisos()
@@ -212,9 +213,14 @@ Public Class XFrmMenuPrincipal
 
     Private Sub BtnCerrarSesion_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCerrarSesion.ItemClick
         ' verificar_permisos()
-        Me.Hide()
-        Dim xfrm As XfrmLogin = New XfrmLogin
-        xfrm.ShowDialog(Me)
+        If XtraMessageBox.Show("Desea Cerrar la Sesión Actual", "Confirmar Acción", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+            For Each ChildForm As Form In Me.MdiChildren
+                ChildForm.Close()
+            Next
+            Me.Visible = False
+            Dim xfrm As XfrmLogin = New XfrmLogin
+            xfrm.ShowDialog(Me)
+        End If
     End Sub
 
     Private Sub RibbonControl_ApplicationButtonClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles RibbonControl.ApplicationButtonClick
