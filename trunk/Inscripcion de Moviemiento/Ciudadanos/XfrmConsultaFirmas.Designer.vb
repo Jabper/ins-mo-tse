@@ -173,7 +173,7 @@ Partial Class XfrmConsultaFirmas
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(451, 406, 250, 350)
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(828, 786)
+        Me.LayoutControl1.Size = New System.Drawing.Size(828, 750)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
@@ -194,7 +194,7 @@ Partial Class XfrmConsultaFirmas
         Me.PanelControl2.Controls.Add(Me.LabelControl7)
         Me.PanelControl2.Controls.Add(Me.LabelControl8)
         Me.PanelControl2.Controls.Add(Me.PictureEdit1)
-        Me.PanelControl2.Location = New System.Drawing.Point(12, 676)
+        Me.PanelControl2.Location = New System.Drawing.Point(12, 640)
         Me.PanelControl2.Name = "PanelControl2"
         Me.PanelControl2.Size = New System.Drawing.Size(775, 98)
         Me.PanelControl2.TabIndex = 15
@@ -615,7 +615,7 @@ Partial Class XfrmConsultaFirmas
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
         Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RIChkCoincide, Me.RIChkFima, Me.RPIImgfirma, Me.RepositoryItemComboBox1, Me.ChkEstado, Me.RepositoryItemMemoExEdit1, Me.RepositoryItemTextEdit1, Me.RepositoryItemTextEdit2, Me.RepositoryItemMemoEdit1, Me.RepositoryItemTextEdit3, Me.RepositoryItemPictureEdit1})
-        Me.GCBusqueda.Size = New System.Drawing.Size(804, 415)
+        Me.GCBusqueda.Size = New System.Drawing.Size(804, 379)
         Me.GCBusqueda.TabIndex = 8
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -950,7 +950,7 @@ Partial Class XfrmConsultaFirmas
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.EmptySpaceItem3, Me.LayoutControlItem2, Me.LayoutControlItem10, Me.EmptySpaceItem1, Me.LayoutControlItem3})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(828, 786)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(828, 750)
         Me.LayoutControlGroup1.Text = "Root"
         Me.LayoutControlGroup1.TextVisible = False
         '
@@ -958,7 +958,7 @@ Partial Class XfrmConsultaFirmas
         '
         Me.EmptySpaceItem3.AllowHotTrack = False
         Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Location = New System.Drawing.Point(779, 664)
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(779, 628)
         Me.EmptySpaceItem3.MaxSize = New System.Drawing.Size(29, 102)
         Me.EmptySpaceItem3.MinSize = New System.Drawing.Size(29, 102)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
@@ -973,7 +973,7 @@ Partial Class XfrmConsultaFirmas
         Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
         Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 245)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(808, 419)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(808, 383)
         Me.LayoutControlItem2.Text = "LayoutControlItem2"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextToControlDistance = 0
@@ -1008,7 +1008,7 @@ Partial Class XfrmConsultaFirmas
         '
         Me.LayoutControlItem3.Control = Me.PanelControl2
         Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 664)
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 628)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
         Me.LayoutControlItem3.Size = New System.Drawing.Size(779, 102)
         Me.LayoutControlItem3.Text = "LayoutControlItem3"
@@ -1044,7 +1044,7 @@ Partial Class XfrmConsultaFirmas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(828, 786)
+        Me.ClientSize = New System.Drawing.Size(828, 750)
         Me.Controls.Add(Me.LayoutControl1)
         Me.LookAndFeel.SkinName = "Office 2010 Silver"
         Me.Name = "XfrmConsultaFirmas"

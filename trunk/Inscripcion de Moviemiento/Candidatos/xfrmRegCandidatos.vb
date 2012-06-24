@@ -168,7 +168,7 @@ Public Class xfrmRegCandidatos
                     If myCMD.Parameters("PVO_MENSAJE").Value = "OK" Then
                         'Edicion
                         'GuardarRequisitos()
-                        BtnEliminar.Enabled = False
+                        BtnEliminariold.Enabled = False
 
                         For a = 1 To 7
                             ValidarCandidatos(i, a, identidad1, nombre1, nombre2, apellido1, apellido2)
@@ -292,7 +292,7 @@ Public Class xfrmRegCandidatos
         End If
     End Sub
 
-    Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
+    Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnguardarold.Click
         guardar()
     End Sub
 
@@ -567,7 +567,7 @@ Public Class xfrmRegCandidatos
     End Sub
 
 
-    Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
+    Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalirold.Click
         Me.Close()
     End Sub
 End Class
