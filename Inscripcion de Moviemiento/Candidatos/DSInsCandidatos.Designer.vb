@@ -3107,6 +3107,8 @@ Partial Public Class DSInsCandidatos
         
         Private columnCONS_VECINDAD_IMAGEN As Global.System.Data.DataColumn
         
+        Private columnESTADO As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -3321,6 +3323,13 @@ Partial Public Class DSInsCandidatos
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ESTADOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnESTADO
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3376,9 +3385,10 @@ Partial Public Class DSInsCandidatos
                     ByVal SEGUNDO_APELLIDO As String,  _
                     ByVal IMAGEN() As Byte,  _
                     ByVal CONS_VECINDAD As String,  _
-                    ByVal CONS_VECINDAD_IMAGEN() As Byte) As IM_V_MOSTRAR_CANDIDATOS2Row
+                    ByVal CONS_VECINDAD_IMAGEN() As Byte,  _
+                    ByVal ESTADO As String) As IM_V_MOSTRAR_CANDIDATOS2Row
             Dim rowIM_V_MOSTRAR_CANDIDATOS2Row As IM_V_MOSTRAR_CANDIDATOS2Row = CType(Me.NewRow,IM_V_MOSTRAR_CANDIDATOS2Row)
-            Dim columnValuesArray() As Object = New Object() {CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO, CODIGO_PARTIDO, PARTIDO, CODIGO_CANDIDATOS, NOMBRE, POSICION, CODIGO_CARGO_ELECTIVO, CARGO, APELLIDO, CODIGO_DEPARTAMENTO, DEPARTAMENTO, CODIGO_MUNICIPIO, MUNICIPIO, IDENTIDAD, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, PRIMER_NOMBRE, SEGUNDO_NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO, IMAGEN, CONS_VECINDAD, CONS_VECINDAD_IMAGEN}
+            Dim columnValuesArray() As Object = New Object() {CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO, CODIGO_PARTIDO, PARTIDO, CODIGO_CANDIDATOS, NOMBRE, POSICION, CODIGO_CARGO_ELECTIVO, CARGO, APELLIDO, CODIGO_DEPARTAMENTO, DEPARTAMENTO, CODIGO_MUNICIPIO, MUNICIPIO, IDENTIDAD, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, PRIMER_NOMBRE, SEGUNDO_NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO, IMAGEN, CONS_VECINDAD, CONS_VECINDAD_IMAGEN, ESTADO}
             rowIM_V_MOSTRAR_CANDIDATOS2Row.ItemArray = columnValuesArray
             Me.Rows.Add(rowIM_V_MOSTRAR_CANDIDATOS2Row)
             Return rowIM_V_MOSTRAR_CANDIDATOS2Row
@@ -3424,6 +3434,7 @@ Partial Public Class DSInsCandidatos
             Me.columnIMAGEN = MyBase.Columns("IMAGEN")
             Me.columnCONS_VECINDAD = MyBase.Columns("CONS_VECINDAD")
             Me.columnCONS_VECINDAD_IMAGEN = MyBase.Columns("CONS_VECINDAD_IMAGEN")
+            Me.columnESTADO = MyBase.Columns("ESTADO")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -3480,6 +3491,8 @@ Partial Public Class DSInsCandidatos
             MyBase.Columns.Add(Me.columnCONS_VECINDAD)
             Me.columnCONS_VECINDAD_IMAGEN = New Global.System.Data.DataColumn("CONS_VECINDAD_IMAGEN", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCONS_VECINDAD_IMAGEN)
+            Me.columnESTADO = New Global.System.Data.DataColumn("ESTADO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnESTADO)
             Me.columnNOMBRE_MOVIMIENTO.MaxLength = 200
             Me.columnPARTIDO.MaxLength = 100
             Me.columnNOMBRE.MaxLength = 100
@@ -5537,6 +5550,20 @@ Partial Public Class DSInsCandidatos
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ESTADO() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_MOSTRAR_CANDIDATOS2.ESTADOColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ESTADO' in table 'IM_V_MOSTRAR_CANDIDATOS2' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_MOSTRAR_CANDIDATOS2.ESTADOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsCODIGO_MOVIMIENTONull() As Boolean
             Return Me.IsNull(Me.tableIM_V_MOSTRAR_CANDIDATOS2.CODIGO_MOVIMIENTOColumn)
         End Function
@@ -5794,6 +5821,16 @@ Partial Public Class DSInsCandidatos
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetCONS_VECINDAD_IMAGENNull()
             Me(Me.tableIM_V_MOSTRAR_CANDIDATOS2.CONS_VECINDAD_IMAGENColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsESTADONull() As Boolean
+            Return Me.IsNull(Me.tableIM_V_MOSTRAR_CANDIDATOS2.ESTADOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetESTADONull()
+            Me(Me.tableIM_V_MOSTRAR_CANDIDATOS2.ESTADOColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
