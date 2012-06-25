@@ -56,6 +56,9 @@ Public Class xfrmRegCandidatos
         limpiar()
 
         Me.MdiParent = XFrmMenuPrincipal
+
+        'TODO: This line of code loads data into the 'DSInsCandidatos.IM_CANDIDATOS' table. You can move, or remove it, as needed.
+        Me.IM_V_MOSTRAR_CANDIDATOS2TableAdapter.FillBY(Me.DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2, Me.cboCargo.EditValue, id_partido, id_movimiento, depto, muni)
         '
         'TODO: This line of code loads data into the 'DSInsCandidatos.IM_CARGOS_ELECTIVOS' table. You can move, or remove it, as needed.
         Me.IM_CARGOS_ELECTIVOSTableAdapter.Fill(Me.DSInsCandidatos.IM_CARGOS_ELECTIVOS)
@@ -176,7 +179,7 @@ Public Class xfrmRegCandidatos
             Next i
             If enviarguardar = 1 Then
                 Mensajes.MensajeGuardar()
-                'Me.DSInsCandidatos.IM_CANDIDATOS.Rows.Clear()
+                Me.DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2.Rows.Clear()
             End If
             enviarguardar = 0
         Catch ex As Exception
@@ -189,7 +192,7 @@ Public Class xfrmRegCandidatos
     Private Sub cboMunicipio_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboMunicipio.TextChanged
         Try
 
-            ' Me.DSInsCandidatos.IM_CANDIDATOS.Rows.Clear()
+            Me.DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2.Rows.Clear()
             Validarleyendas()
 
             'Me.IM_MUNICIPIOSTableAdapter.FillBy(Me.DSInsCandidatos.IM_MUNICIPIOS, Me.cboDepartamento.EditValue)
@@ -201,7 +204,7 @@ Public Class xfrmRegCandidatos
     Private Sub cboDepartamento_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboDepartamento.TextChanged
         Try
 
-            'Me.DSInsCandidatos.IM_CANDIDATOS.Rows.Clear()
+            Me.DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2.Rows.Clear()
 
             Validarleyendas()
 
@@ -245,7 +248,7 @@ Public Class xfrmRegCandidatos
 
     Private Sub cboCargo_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboCargo.EditValueChanged
         Val_MUN_DEP()
-        'Me.DSInsCandidatos.IM_CANDIDATOS.Rows.Clear()
+        Me.DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2.Rows.Clear()
         Validarleyendas()
         'If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7 Then
         '    ' AgregarFilasGrid(1)
@@ -478,7 +481,7 @@ Public Class xfrmRegCandidatos
 
 
 
-        'Me.DSInsCandidatos.IM_CANDIDATOS.Rows.Clear()
+        Me.DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2.Rows.Clear()
         Val_MUN_DEP()
 
         presidente = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 1 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
@@ -511,7 +514,7 @@ Public Class xfrmRegCandidatos
 
 
         'TODO: This line of code loads data into the 'DSInsCandidatos.IM_CANDIDATOS' table. You can move, or remove it, as needed.
-        'Me.IM_CANDIDATOSTableAdapter.FillBY(Me.DSInsCandidatos.IM_CANDIDATOS, Me.cboCargo.EditValue, id_partido, id_movimiento, depto, muni)
+        Me.IM_V_MOSTRAR_CANDIDATOS2TableAdapter.FillBY(Me.DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2, Me.cboCargo.EditValue, id_partido, id_movimiento, depto, muni)
 
         If Me.cboCargo.EditValue = 1 Then
             AgregarFilasGrid(1 - CInt(presidente))
