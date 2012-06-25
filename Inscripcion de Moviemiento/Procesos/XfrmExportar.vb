@@ -37,7 +37,7 @@ Public Class XfrmExportar
                 Try
                     Dim startInfo As ProcessStartInfo
                     Dim pStart As New Process
-                    startInfo = New ProcessStartInfo("cmd.exe", "/C exp TSE/oracle@TSEDB2 Buffer=5000000 File=" & TxtRuta.Text & "\Firmas_y_Planilla.dmp direct=Y Consistent=Y Rows=Y compress=N TABLES=tmp_im_candidatos, tmp_im_candidatos_repetidos, TMP_IM_MOVIMIENTOS, TMP_IM_REQUISITOS_X_CANDIDATO, tmp_im_ciudadanos_respaldan")
+                    startInfo = New ProcessStartInfo("cmd.exe", "/C exp TSE/oracle@TSEDB2 Buffer=5000000 File=" & TxtRuta.Text & "\Firmas_y_Planilla.dmp direct=Y Consistent=Y Rows=Y compress=N TABLES=tmp_im_candidatos, TMP_IM_MOVIMIENTOS, TMP_IM_REQUISITOS_X_CANDIDATO, tmp_im_ciudadanos_respaldan")
                     pStart.StartInfo = startInfo
                     pStart.Start()
                     pStart.WaitForExit()
@@ -51,6 +51,26 @@ Public Class XfrmExportar
                     Mensajes.MensajeError(ex.Message)
                     Exit Sub
                 End Try
+
+                Dim oradb1 As String = Configuracion.verconfig
+                Dim conn1 As New OracleConnection()
+                Dim myCMD1 As New OracleCommand()
+                Dim mensaje1 As String
+                conn1.ConnectionString = oradb1
+                conn1.Open()
+                Try
+                    myCMD1.Connection = conn1
+                    myCMD1.CommandText = "IM_P_BORRAR_TABLAS_EXPORTADAS"
+                    myCMD1.CommandType = CommandType.StoredProcedure
+                    myCMD1.Parameters.Add(New OracleParameter("pvo_mensaje", OracleType.Char, 100)).Direction = ParameterDirection.Output
+                    myCMD1.ExecuteOracleScalar()
+                    mensaje1 = myCMD1.Parameters("pvo_mensaje").Value
+                Catch ex As Exception
+                    conn.Close()
+                    Mensajes.MensajeError(ex.Message)
+                    Exit Sub
+                End Try
+                conn.Close()
             Else                
                 Mensajes.MensajeError(mensaje)
                 Exit Sub
