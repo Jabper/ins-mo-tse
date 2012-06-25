@@ -1163,6 +1163,7 @@
     <Content Include="Resources\FIRMAS1.png" />
     <None Include="Resources\FIRMAS11.png" />
     <None Include="Resources\gridview34.png" />
+    <None Include="Resources\imagenes.png" />
     <Content Include="Resources\motivo.png" />
     <Content Include="tse.ico" />
     <None Include="Resources\Restadisticos.png" />

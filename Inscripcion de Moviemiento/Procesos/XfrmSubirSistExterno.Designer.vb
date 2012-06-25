@@ -20,24 +20,28 @@ Partial Class XfrmSubirSistExterno
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel
+        Me.Label2 = New System.Windows.Forms.Label
+        Me.BtnEjecutar = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnExplorar = New DevExpress.XtraEditors.SimpleButton
+        Me.TxtRuta = New DevExpress.XtraEditors.TextEdit
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
+        Me.BtnImagenes = New DevExpress.XtraEditors.SimpleButton
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox
         Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.BtnCandidatosRepetidos = New DevExpress.XtraEditors.SimpleButton
         Me.BtnFirmas = New DevExpress.XtraEditors.SimpleButton
         Me.BtnCandidatos = New DevExpress.XtraEditors.SimpleButton
         Me.BtnRequisitos = New DevExpress.XtraEditors.SimpleButton
         Me.BtnMovimiento = New DevExpress.XtraEditors.SimpleButton
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.BtnEjecutar = New DevExpress.XtraEditors.SimpleButton
-        Me.BtnExplorar = New DevExpress.XtraEditors.SimpleButton
-        Me.TxtRuta = New DevExpress.XtraEditors.TextEdit
         Me.Label1 = New System.Windows.Forms.Label
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.PictureBox2 = New System.Windows.Forms.PictureBox
         Me.PictureBox3 = New System.Windows.Forms.PictureBox
         Me.PictureBox4 = New System.Windows.Forms.PictureBox
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
+        Me.FbUbicacion = New System.Windows.Forms.FolderBrowserDialog
         Me.Panel1.SuspendLayout()
         CType(Me.TxtRuta.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,6 +51,8 @@ Partial Class XfrmSubirSistExterno
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.BtnImagenes)
+        Me.Panel1.Controls.Add(Me.PictureBox5)
         Me.Panel1.Controls.Add(Me.BtnSalir)
         Me.Panel1.Controls.Add(Me.BtnCandidatosRepetidos)
         Me.Panel1.Controls.Add(Me.BtnFirmas)
@@ -64,8 +70,69 @@ Partial Class XfrmSubirSistExterno
         Me.Panel1.Controls.Add(Me.PictureBox4)
         Me.Panel1.Location = New System.Drawing.Point(12, 12)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(559, 238)
+        Me.Panel1.Size = New System.Drawing.Size(674, 238)
         Me.Panel1.TabIndex = 24
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(172, 111)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(165, 13)
+        Me.Label2.TabIndex = 32
+        Me.Label2.Text = "Seleccione el Archivo a Importar:"
+        '
+        'BtnEjecutar
+        '
+        Me.BtnEjecutar.Location = New System.Drawing.Point(274, 179)
+        Me.BtnEjecutar.Name = "BtnEjecutar"
+        Me.BtnEjecutar.Size = New System.Drawing.Size(98, 23)
+        Me.BtnEjecutar.TabIndex = 31
+        Me.BtnEjecutar.Text = "Subir Respaldo"
+        '
+        'BtnExplorar
+        '
+        Me.BtnExplorar.Location = New System.Drawing.Point(401, 135)
+        Me.BtnExplorar.Name = "BtnExplorar"
+        Me.BtnExplorar.Size = New System.Drawing.Size(75, 23)
+        Me.BtnExplorar.TabIndex = 30
+        Me.BtnExplorar.Text = "Explorar"
+        '
+        'TxtRuta
+        '
+        Me.TxtRuta.Enabled = False
+        Me.TxtRuta.Location = New System.Drawing.Point(176, 136)
+        Me.TxtRuta.Name = "TxtRuta"
+        Me.TxtRuta.Size = New System.Drawing.Size(219, 20)
+        Me.TxtRuta.TabIndex = 29
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'BtnImagenes
+        '
+        Me.BtnImagenes.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnImagenes.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.BtnImagenes.Appearance.Options.UseFont = True
+        Me.BtnImagenes.Appearance.Options.UseForeColor = True
+        Me.BtnImagenes.Enabled = False
+        Me.BtnImagenes.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.imagenes
+        Me.BtnImagenes.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnImagenes.Location = New System.Drawing.Point(574, 15)
+        Me.BtnImagenes.Name = "BtnImagenes"
+        Me.BtnImagenes.Size = New System.Drawing.Size(74, 66)
+        Me.BtnImagenes.TabIndex = 35
+        Me.BtnImagenes.Text = "Imágenes"
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.flecha
+        Me.PictureBox5.Location = New System.Drawing.Point(537, 33)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(34, 34)
+        Me.PictureBox5.TabIndex = 34
+        Me.PictureBox5.TabStop = False
         '
         'BtnSalir
         '
@@ -75,7 +142,7 @@ Partial Class XfrmSubirSistExterno
         Me.BtnSalir.Appearance.Options.UseForeColor = True
         Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
         Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnSalir.Location = New System.Drawing.Point(467, 157)
+        Me.BtnSalir.Location = New System.Drawing.Point(574, 141)
         Me.BtnSalir.Name = "BtnSalir"
         Me.BtnSalir.Size = New System.Drawing.Size(67, 66)
         Me.BtnSalir.TabIndex = 33
@@ -156,44 +223,11 @@ Partial Class XfrmSubirSistExterno
         Me.BtnMovimiento.TabIndex = 21
         Me.BtnMovimiento.Text = "Movimiento"
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(79, 111)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(165, 13)
-        Me.Label2.TabIndex = 32
-        Me.Label2.Text = "Seleccione el Archivo a Importar:"
-        '
-        'BtnEjecutar
-        '
-        Me.BtnEjecutar.Location = New System.Drawing.Point(181, 179)
-        Me.BtnEjecutar.Name = "BtnEjecutar"
-        Me.BtnEjecutar.Size = New System.Drawing.Size(98, 23)
-        Me.BtnEjecutar.TabIndex = 31
-        Me.BtnEjecutar.Text = "Subir Respaldo"
-        '
-        'BtnExplorar
-        '
-        Me.BtnExplorar.Location = New System.Drawing.Point(308, 135)
-        Me.BtnExplorar.Name = "BtnExplorar"
-        Me.BtnExplorar.Size = New System.Drawing.Size(75, 23)
-        Me.BtnExplorar.TabIndex = 30
-        Me.BtnExplorar.Text = "Explorar"
-        '
-        'TxtRuta
-        '
-        Me.TxtRuta.Enabled = False
-        Me.TxtRuta.Location = New System.Drawing.Point(83, 136)
-        Me.TxtRuta.Name = "TxtRuta"
-        Me.TxtRuta.Size = New System.Drawing.Size(219, 20)
-        Me.TxtRuta.TabIndex = 29
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.flecha
-        Me.Label1.Location = New System.Drawing.Point(93, 141)
+        Me.Label1.Location = New System.Drawing.Point(186, 141)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(0, 13)
         Me.Label1.TabIndex = 24
@@ -234,21 +268,18 @@ Partial Class XfrmSubirSistExterno
         Me.PictureBox4.TabIndex = 28
         Me.PictureBox4.TabStop = False
         '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
         'XfrmSubirSistExterno
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(587, 262)
+        Me.ClientSize = New System.Drawing.Size(698, 262)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "XfrmSubirSistExterno"
         Me.Text = "Importar de Otros Sistemas"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.TxtRuta.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -273,4 +304,7 @@ Partial Class XfrmSubirSistExterno
     Friend WithEvents TxtRuta As DevExpress.XtraEditors.TextEdit
     Friend WithEvents BtnSalir As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
+    Friend WithEvents BtnImagenes As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents FbUbicacion As System.Windows.Forms.FolderBrowserDialog
 End Class
