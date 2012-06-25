@@ -100,14 +100,10 @@
     End Sub
     Sub mostrar()
 
-
-
         If VControles.ComprobarFormAbierto(XfrmCiudadanos) Then
 
             XfrmCiudadanos.Close()
         End If
-
-
 
         XfrmCiudadanos.Show()
         With XfrmCiudadanos

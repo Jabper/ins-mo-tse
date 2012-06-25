@@ -5,6 +5,7 @@ Public Class xfrmCiudadanosInha
     Dim actualizar As Boolean = False
     Dim id As String
     Dim nid As String
+    Dim IDEN As String
     Dim cellValue2 As Integer
 
 
@@ -180,8 +181,9 @@ Public Class xfrmCiudadanosInha
                 Me.NOMBRESTextEdit.EditValue = ""
                 Me.PRIMER_APELLIDOTextEdit.EditValue = ""
                 Me.SEGUNDO_APELLIDOTextEdit.EditValue = ""
+                '  Mensajes.MensajeError("ID no existe")
 
-                Mensajes.MensajeError("NUMERO DE IDENTIDAD NO EXISTE EN CENSO NACIONAL ELECTORAL")
+
             Else
                 Me.NOMBRESTextEdit.EditValue = N
                 Me.PRIMER_APELLIDOTextEdit.EditValue = A
@@ -198,28 +200,19 @@ Public Class xfrmCiudadanosInha
         Dim A As String = COracle.ObtenerDatos(consulta, "APELLIDO")
         Dim S As String = COracle.ObtenerDatos(consulta, "SAPELLIDO")
 
-       
+
         If N = "N" Then
 
             Me.NOMBRESTextEdit.EditValue = ""
             Me.PRIMER_APELLIDOTextEdit.EditValue = ""
             Me.SEGUNDO_APELLIDOTextEdit.EditValue = ""
-            'MENSAJE()
+
         Else
             Me.NOMBRESTextEdit.EditValue = N
             Me.PRIMER_APELLIDOTextEdit.EditValue = A
             Me.SEGUNDO_APELLIDOTextEdit.EditValue = S
             Return
         End If
-
-
-
-    End Sub
-    Sub MENSAJE()
-        Dim consulta As String = "select NUMERO_IDENTIDAD"
-        consulta &= String.Format("from Im_padron_electoral where NUMERO_IDENTIDAD='{0}'", Me.NUMERO_IDENTIFICACIONTextEdit.EditValue)
-        nid = COracle.ObtenerDatos(consulta, "NUMERO_IDENTIDAD")
-        Mensajes.mimensaje("NUMERO DE IDENTIDAD NO EXISTE EN CENSO NACIONAL ELECTORAL")
 
 
     End Sub

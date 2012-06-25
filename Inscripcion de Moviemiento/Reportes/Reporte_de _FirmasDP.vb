@@ -58,6 +58,13 @@ Public Class Reporte_de__FirmasDP
         '    End If
         'Next
 
+    End Sub
 
+    Private Sub Reporte_de__FirmasDP_ParametersRequestSubmit(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestEventArgs) Handles Me.ParametersRequestSubmit
+        If Me.NombrePartido.Value = "TODOS" Then
+            Me.IM_V_FIRMAS_DIVISION_POLITICAAdapter1.FillBy(Me.DS_REPORTE_DE_FDP1.IM_V_FIRMAS_DIVISION_POLITICA)
+        Else
+            Me.IM_V_FIRMAS_DIVISION_POLITICAAdapter1.Fill(Me.DS_REPORTE_DE_FDP1.IM_V_FIRMAS_DIVISION_POLITICA, Me.NombrePartido.Value.ToString)
+        End If
     End Sub
 End Class

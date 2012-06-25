@@ -2331,20 +2331,33 @@ Namespace DS_REPORTE_DE_FDPTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        IDENTIDAD, NOMBRE, APELLIDOS, PARTIDO AS ""NOMBRE PARTIDO"", MOVIMIEN"& _ 
                 "TO AS ""NOMBRE MOVIMIENTO"", DEPARTAMENTO AS ""NOMBRE DEPARTAMENTO"","&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
-                "             MUNICIPIO, ESTADO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_FIRMAS_DIVISION_POLITICA"
+                "             MUNICIPIO, ESTADO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_FIRMAS_DIVISION_POLITICA"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"W"& _ 
+                "HERE        (PARTIDO = :NombrePartido)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NombrePartido", Global.System.Data.OracleClient.OracleType.VarChar, 100, Global.System.Data.ParameterDirection.Input, "NOMBRE PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        IDENTIDAD, NOMBRE, APELLIDOS, PARTIDO AS ""NOMBRE PARTIDO"", MOVIMIEN"& _ 
+                "TO AS ""NOMBRE MOVIMIENTO"", DEPARTAMENTO AS ""NOMBRE DEPARTAMENTO"","&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
+                "             MUNICIPIO, ESTADO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_FIRMAS_DIVISION_POLITICA"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DS_REPORTE_DE_FDP.IM_V_FIRMAS_DIVISION_POLITICADataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_REPORTE_DE_FDP.IM_V_FIRMAS_DIVISION_POLITICADataTable, ByVal NombrePartido As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (NombrePartido Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("NombrePartido")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(NombrePartido,String)
+            End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -2355,8 +2368,35 @@ Namespace DS_REPORTE_DE_FDPTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DS_REPORTE_DE_FDP.IM_V_FIRMAS_DIVISION_POLITICADataTable
+        Public Overloads Overridable Function GetData(ByVal NombrePartido As String) As DS_REPORTE_DE_FDP.IM_V_FIRMAS_DIVISION_POLITICADataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (NombrePartido Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("NombrePartido")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(NombrePartido,String)
+            End If
+            Dim dataTable As DS_REPORTE_DE_FDP.IM_V_FIRMAS_DIVISION_POLITICADataTable = New DS_REPORTE_DE_FDP.IM_V_FIRMAS_DIVISION_POLITICADataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DS_REPORTE_DE_FDP.IM_V_FIRMAS_DIVISION_POLITICADataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy() As DS_REPORTE_DE_FDP.IM_V_FIRMAS_DIVISION_POLITICADataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
             Dim dataTable As DS_REPORTE_DE_FDP.IM_V_FIRMAS_DIVISION_POLITICADataTable = New DS_REPORTE_DE_FDP.IM_V_FIRMAS_DIVISION_POLITICADataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable

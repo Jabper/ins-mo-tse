@@ -389,7 +389,7 @@ Partial Public Class Reporte_de_Firmas_In
         Me.DataAdapter = Me.IM_V_FIRMAS_INCONSISTENTESAdapter1
         Me.DataMember = "IM_V_FIRMAS_INCONSISTENTES"
         Me.DataSource = Me.DS_REPORTE_DE_FI1
-        Me.FilterString = "[NOMBRE PARTIDO] = ?NombrePartido Or [NOMBRE MOVIMIENTO] = ?NombreMovimiento"
+        Me.FilterString = "[NOMBRE PARTIDO] = ?NombrePartido And [NOMBRE MOVIMIENTO] = ?NombreMovimiento"
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(45, 16, 25, 100)
         Me.PageHeight = 850
