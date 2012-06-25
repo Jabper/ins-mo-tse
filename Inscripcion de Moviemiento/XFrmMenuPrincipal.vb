@@ -315,4 +315,8 @@ Public Class XFrmMenuPrincipal
     Private Sub btnConsultarPlanilla_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnConsultarPlanilla.ItemClick
         Padre(XfrmConPlanilla)
     End Sub
+
+    Private Sub BarButtonItem8_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem8.ItemClick
+
+    End Sub
 End Class
