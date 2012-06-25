@@ -35,6 +35,9 @@ Partial Class XfrmConsultaFirmas
         Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl
+        Me.CmbPartido = New DevExpress.XtraEditors.LookUpEdit
+        Me.TAPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DSPolitico = New Inscripcion_de_Moviemientos.DSPolitico
         Me.SimpleButton3 = New DevExpress.XtraEditors.SimpleButton
         Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
         Me.BtnUpdate = New DevExpress.XtraEditors.SimpleButton
@@ -52,9 +55,6 @@ Partial Class XfrmConsultaFirmas
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl
         Me.ChkMovimientos = New DevExpress.XtraEditors.CheckEdit
-        Me.CmbPartido = New DevExpress.XtraEditors.LookUpEdit
-        Me.TAPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DSPolitico = New Inscripcion_de_Moviemientos.DSPolitico
         Me.CmbMovimiento = New DevExpress.XtraEditors.LookUpEdit
         Me.TAMOVIMIENTOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CmbMunicipio = New DevExpress.XtraEditors.LookUpEdit
@@ -84,10 +84,9 @@ Partial Class XfrmConsultaFirmas
         Me.colNOMBRE_IGUAL = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RIChkCoincide = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
         Me.colOBSERVACION = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.RepositoryItemTextEdit3 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
+        Me.RepositoryItemMemoEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit
         Me.colMAQUINA = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colPAGINA = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colIMAGEN_FIRMA = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RPIImgfirma = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
         Me.CODIGO_PARTIDO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.CODIGO_MOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
@@ -101,6 +100,7 @@ Partial Class XfrmConsultaFirmas
         Me.RepositoryItemComboBox1 = New DevExpress.XtraEditors.Repository.RepositoryItemComboBox
         Me.RepositoryItemMemoExEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit
         Me.RepositoryItemMemoEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit
+        Me.RepositoryItemTextEdit3 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
         Me.RepositoryItemPictureEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
@@ -123,14 +123,14 @@ Partial Class XfrmConsultaFirmas
         CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl3.SuspendLayout()
+        CType(Me.CmbPartido.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TAPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtidentidad.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ChkMuni.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ChkDepto.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CmbFiltro.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ChkMovimientos.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CmbPartido.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TAPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CmbMovimiento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TAMOVIMIENTOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CmbMunicipio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -147,11 +147,12 @@ Partial Class XfrmConsultaFirmas
         CType(Me.RepositoryItemTextEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RIChkFima, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RIChkCoincide, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemTextEdit3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemMemoEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RPIImgfirma, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemComboBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemMemoExEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemMemoEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemTextEdit3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -337,6 +338,7 @@ Partial Class XfrmConsultaFirmas
         Me.PanelControl3.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.PanelControl3.Appearance.Options.UseBackColor = True
         Me.PanelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl3.Controls.Add(Me.CmbPartido)
         Me.PanelControl3.Controls.Add(Me.SimpleButton3)
         Me.PanelControl3.Controls.Add(Me.BtnEliminar)
         Me.PanelControl3.Controls.Add(Me.BtnUpdate)
@@ -354,7 +356,6 @@ Partial Class XfrmConsultaFirmas
         Me.PanelControl3.Controls.Add(Me.LabelControl3)
         Me.PanelControl3.Controls.Add(Me.LabelControl2)
         Me.PanelControl3.Controls.Add(Me.ChkMovimientos)
-        Me.PanelControl3.Controls.Add(Me.CmbPartido)
         Me.PanelControl3.Controls.Add(Me.CmbMovimiento)
         Me.PanelControl3.Controls.Add(Me.CmbMunicipio)
         Me.PanelControl3.Controls.Add(Me.CmbDepartamento)
@@ -362,6 +363,30 @@ Partial Class XfrmConsultaFirmas
         Me.PanelControl3.Name = "PanelControl3"
         Me.PanelControl3.Size = New System.Drawing.Size(759, 241)
         Me.PanelControl3.TabIndex = 17
+        '
+        'CmbPartido
+        '
+        Me.CmbPartido.Enabled = False
+        Me.CmbPartido.Location = New System.Drawing.Point(133, 35)
+        Me.CmbPartido.Name = "CmbPartido"
+        Me.CmbPartido.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CmbPartido.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_PARTIDO", "CODIGO_PARTIDO", 115, DevExpress.Utils.FormatType.Numeric, "", False, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE", "Partido Político", 52, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.Ascending)})
+        Me.CmbPartido.Properties.DataSource = Me.TAPARTIDOSPOLITICOSBindingSource
+        Me.CmbPartido.Properties.DisplayMember = "NOMBRE"
+        Me.CmbPartido.Properties.NullText = "Seleccione"
+        Me.CmbPartido.Properties.ValueMember = "CODIGO_PARTIDO"
+        Me.CmbPartido.Size = New System.Drawing.Size(157, 20)
+        Me.CmbPartido.TabIndex = 48
+        '
+        'TAPARTIDOSPOLITICOSBindingSource
+        '
+        Me.TAPARTIDOSPOLITICOSBindingSource.DataMember = "TA_PARTIDOS_POLITICOS"
+        Me.TAPARTIDOSPOLITICOSBindingSource.DataSource = Me.DSPolitico
+        '
+        'DSPolitico
+        '
+        Me.DSPolitico.DataSetName = "DSPolitico"
+        Me.DSPolitico.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'SimpleButton3
         '
@@ -423,7 +448,7 @@ Partial Class XfrmConsultaFirmas
         '
         'ChkMuni
         '
-        Me.ChkMuni.Location = New System.Drawing.Point(299, 77)
+        Me.ChkMuni.Location = New System.Drawing.Point(311, 80)
         Me.ChkMuni.Name = "ChkMuni"
         Me.ChkMuni.Properties.Caption = ""
         Me.ChkMuni.Size = New System.Drawing.Size(16, 19)
@@ -482,7 +507,7 @@ Partial Class XfrmConsultaFirmas
         '
         'LabelControl4
         '
-        Me.LabelControl4.Location = New System.Drawing.Point(322, 79)
+        Me.LabelControl4.Location = New System.Drawing.Point(333, 82)
         Me.LabelControl4.Name = "LabelControl4"
         Me.LabelControl4.Size = New System.Drawing.Size(43, 13)
         Me.LabelControl4.TabIndex = 38
@@ -495,7 +520,6 @@ Partial Class XfrmConsultaFirmas
         Me.LabelControl3.Size = New System.Drawing.Size(54, 13)
         Me.LabelControl3.TabIndex = 37
         Me.LabelControl3.Text = "Movimiento"
-        Me.LabelControl3.Visible = False
         '
         'LabelControl2
         '
@@ -504,44 +528,16 @@ Partial Class XfrmConsultaFirmas
         Me.LabelControl2.Size = New System.Drawing.Size(34, 13)
         Me.LabelControl2.TabIndex = 36
         Me.LabelControl2.Text = "Partido"
-        Me.LabelControl2.Visible = False
         '
         'ChkMovimientos
         '
-        Me.ChkMovimientos.Location = New System.Drawing.Point(19, 18)
+        Me.ChkMovimientos.Location = New System.Drawing.Point(19, 12)
         Me.ChkMovimientos.Name = "ChkMovimientos"
         Me.ChkMovimientos.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChkMovimientos.Properties.Appearance.Options.UseFont = True
         Me.ChkMovimientos.Properties.Caption = "Filtrar por Movimiento"
         Me.ChkMovimientos.Size = New System.Drawing.Size(380, 19)
         Me.ChkMovimientos.TabIndex = 33
-        Me.ChkMovimientos.Visible = False
-        '
-        'CmbPartido
-        '
-        Me.CmbPartido.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TAPARTIDOSPOLITICOSBindingSource, "CODIGO_PARTIDO", True))
-        Me.CmbPartido.Enabled = False
-        Me.CmbPartido.Location = New System.Drawing.Point(133, 40)
-        Me.CmbPartido.Name = "CmbPartido"
-        Me.CmbPartido.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.CmbPartido.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_PARTIDO", "Código", 30, DevExpress.Utils.FormatType.Numeric, "", False, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE", "Partido", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.Ascending)})
-        Me.CmbPartido.Properties.DataSource = Me.TAPARTIDOSPOLITICOSBindingSource
-        Me.CmbPartido.Properties.DisplayMember = "NOMBRE"
-        Me.CmbPartido.Properties.NullText = "Seleccione"
-        Me.CmbPartido.Properties.ValueMember = "CODIGO_PARTIDO"
-        Me.CmbPartido.Size = New System.Drawing.Size(157, 20)
-        Me.CmbPartido.TabIndex = 26
-        Me.CmbPartido.Visible = False
-        '
-        'TAPARTIDOSPOLITICOSBindingSource
-        '
-        Me.TAPARTIDOSPOLITICOSBindingSource.DataMember = "TA_PARTIDOS_POLITICOS"
-        Me.TAPARTIDOSPOLITICOSBindingSource.DataSource = Me.DSPolitico
-        '
-        'DSPolitico
-        '
-        Me.DSPolitico.DataSetName = "DSPolitico"
-        Me.DSPolitico.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'CmbMovimiento
         '
@@ -557,7 +553,6 @@ Partial Class XfrmConsultaFirmas
         Me.CmbMovimiento.Properties.ValueMember = "CODIGO_MOVIMIENTO"
         Me.CmbMovimiento.Size = New System.Drawing.Size(152, 20)
         Me.CmbMovimiento.TabIndex = 27
-        Me.CmbMovimiento.Visible = False
         '
         'TAMOVIMIENTOBindingSource
         '
@@ -614,7 +609,7 @@ Partial Class XfrmConsultaFirmas
         Me.GCBusqueda.Location = New System.Drawing.Point(12, 257)
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
-        Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RIChkCoincide, Me.RIChkFima, Me.RPIImgfirma, Me.RepositoryItemComboBox1, Me.ChkEstado, Me.RepositoryItemMemoExEdit1, Me.RepositoryItemTextEdit1, Me.RepositoryItemTextEdit2, Me.RepositoryItemMemoEdit1, Me.RepositoryItemTextEdit3, Me.RepositoryItemPictureEdit1})
+        Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RIChkCoincide, Me.RIChkFima, Me.RPIImgfirma, Me.RepositoryItemComboBox1, Me.ChkEstado, Me.RepositoryItemMemoExEdit1, Me.RepositoryItemTextEdit1, Me.RepositoryItemTextEdit2, Me.RepositoryItemMemoEdit1, Me.RepositoryItemTextEdit3, Me.RepositoryItemPictureEdit1, Me.RepositoryItemMemoEdit2})
         Me.GCBusqueda.Size = New System.Drawing.Size(804, 379)
         Me.GCBusqueda.TabIndex = 8
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
@@ -636,15 +631,17 @@ Partial Class XfrmConsultaFirmas
         '
         'GridView1
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_CUIDADANOS_RESPALDAN, Me.colCONSISTENTE, Me.colIDENTIDAD, Me.colPRIMER_NOMBRE_PAPELETA, Me.colSEGUNDO_NOMBRE_PAPELETA, Me.colPRIMER_APELLIDO_PAPELETA, Me.colSEGUNDO_APELLIDO_PAPELETA, Me.colFIRMA, Me.colHUELLA, Me.colDIRECCION, Me.colNOMBRE_IGUAL, Me.colOBSERVACION, Me.colMAQUINA, Me.colPAGINA, Me.colIMAGEN_FIRMA, Me.CODIGO_PARTIDO, Me.CODIGO_MOVIMIENTO, Me.colCODIGO_DEPARTAMENTO, Me.colCODIGO_MUNICIPIO, Me.colFOLIO, Me.colDEPARTAMENTO, Me.colMUNICIPIO, Me.colNOMBRE, Me.colNOMBRE_MOVIMIENTO})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_CUIDADANOS_RESPALDAN, Me.colCONSISTENTE, Me.colIDENTIDAD, Me.colPRIMER_NOMBRE_PAPELETA, Me.colSEGUNDO_NOMBRE_PAPELETA, Me.colPRIMER_APELLIDO_PAPELETA, Me.colSEGUNDO_APELLIDO_PAPELETA, Me.colFIRMA, Me.colHUELLA, Me.colDIRECCION, Me.colNOMBRE_IGUAL, Me.colOBSERVACION, Me.colMAQUINA, Me.colPAGINA, Me.CODIGO_PARTIDO, Me.CODIGO_MOVIMIENTO, Me.colCODIGO_DEPARTAMENTO, Me.colCODIGO_MUNICIPIO, Me.colFOLIO, Me.colDEPARTAMENTO, Me.colMUNICIPIO, Me.colNOMBRE, Me.colNOMBRE_MOVIMIENTO})
         Me.GridView1.GridControl = Me.GCBusqueda
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.[True]
         Me.GridView1.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridView1.OptionsView.ColumnAutoWidth = False
+        Me.GridView1.OptionsView.RowAutoHeight = True
         Me.GridView1.OptionsView.ShowDetailButtons = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
+        Me.GridView1.RowHeight = 50
         Me.GridView1.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.colNOMBRE_IGUAL, DevExpress.Data.ColumnSortOrder.Ascending)})
         '
         'colCODIGO_CUIDADANOS_RESPALDAN
@@ -683,13 +680,13 @@ Partial Class XfrmConsultaFirmas
         Me.colIDENTIDAD.Name = "colIDENTIDAD"
         Me.colIDENTIDAD.Visible = True
         Me.colIDENTIDAD.VisibleIndex = 1
-        Me.colIDENTIDAD.Width = 88
+        Me.colIDENTIDAD.Width = 87
         '
         'RepositoryItemTextEdit1
         '
         Me.RepositoryItemTextEdit1.AutoHeight = False
         Me.RepositoryItemTextEdit1.ContextMenuStrip = Me.ContextMenuStrip1
-        Me.RepositoryItemTextEdit1.MaxLength = 15
+        Me.RepositoryItemTextEdit1.MaxLength = 13
         Me.RepositoryItemTextEdit1.Name = "RepositoryItemTextEdit1"
         '
         'colPRIMER_NOMBRE_PAPELETA
@@ -700,7 +697,7 @@ Partial Class XfrmConsultaFirmas
         Me.colPRIMER_NOMBRE_PAPELETA.Name = "colPRIMER_NOMBRE_PAPELETA"
         Me.colPRIMER_NOMBRE_PAPELETA.Visible = True
         Me.colPRIMER_NOMBRE_PAPELETA.VisibleIndex = 2
-        Me.colPRIMER_NOMBRE_PAPELETA.Width = 124
+        Me.colPRIMER_NOMBRE_PAPELETA.Width = 100
         '
         'RepositoryItemTextEdit2
         '
@@ -765,7 +762,7 @@ Partial Class XfrmConsultaFirmas
         Me.colHUELLA.Name = "colHUELLA"
         Me.colHUELLA.Visible = True
         Me.colHUELLA.VisibleIndex = 7
-        Me.colHUELLA.Width = 48
+        Me.colHUELLA.Width = 40
         '
         'colDIRECCION
         '
@@ -775,7 +772,7 @@ Partial Class XfrmConsultaFirmas
         Me.colDIRECCION.Name = "colDIRECCION"
         Me.colDIRECCION.Visible = True
         Me.colDIRECCION.VisibleIndex = 8
-        Me.colDIRECCION.Width = 92
+        Me.colDIRECCION.Width = 51
         '
         'colNOMBRE_IGUAL
         '
@@ -800,17 +797,17 @@ Partial Class XfrmConsultaFirmas
         Me.colOBSERVACION.AppearanceCell.Options.UseFont = True
         Me.colOBSERVACION.AppearanceCell.Options.UseForeColor = True
         Me.colOBSERVACION.Caption = "Observación"
-        Me.colOBSERVACION.ColumnEdit = Me.RepositoryItemTextEdit3
+        Me.colOBSERVACION.ColumnEdit = Me.RepositoryItemMemoEdit2
         Me.colOBSERVACION.FieldName = "OBSERVACION"
         Me.colOBSERVACION.Name = "colOBSERVACION"
         Me.colOBSERVACION.OptionsColumn.ReadOnly = True
         Me.colOBSERVACION.Visible = True
-        Me.colOBSERVACION.VisibleIndex = 16
-        Me.colOBSERVACION.Width = 461
+        Me.colOBSERVACION.VisibleIndex = 15
+        Me.colOBSERVACION.Width = 245
         '
-        'RepositoryItemTextEdit3
+        'RepositoryItemMemoEdit2
         '
-        Me.RepositoryItemTextEdit3.Name = "RepositoryItemTextEdit3"
+        Me.RepositoryItemMemoEdit2.Name = "RepositoryItemMemoEdit2"
         '
         'colMAQUINA
         '
@@ -824,17 +821,8 @@ Partial Class XfrmConsultaFirmas
         Me.colPAGINA.Name = "colPAGINA"
         Me.colPAGINA.OptionsColumn.AllowEdit = False
         Me.colPAGINA.Visible = True
-        Me.colPAGINA.VisibleIndex = 11
-        '
-        'colIMAGEN_FIRMA
-        '
-        Me.colIMAGEN_FIRMA.Caption = "Imágen Firma"
-        Me.colIMAGEN_FIRMA.ColumnEdit = Me.RPIImgfirma
-        Me.colIMAGEN_FIRMA.FieldName = "IMAGEN_FIRMA"
-        Me.colIMAGEN_FIRMA.Name = "colIMAGEN_FIRMA"
-        Me.colIMAGEN_FIRMA.Visible = True
-        Me.colIMAGEN_FIRMA.VisibleIndex = 9
-        Me.colIMAGEN_FIRMA.Width = 83
+        Me.colPAGINA.VisibleIndex = 10
+        Me.colPAGINA.Width = 44
         '
         'RPIImgfirma
         '
@@ -872,8 +860,8 @@ Partial Class XfrmConsultaFirmas
         Me.colFOLIO.FieldName = "FOLIO"
         Me.colFOLIO.Name = "colFOLIO"
         Me.colFOLIO.Visible = True
-        Me.colFOLIO.VisibleIndex = 10
-        Me.colFOLIO.Width = 53
+        Me.colFOLIO.VisibleIndex = 9
+        Me.colFOLIO.Width = 30
         '
         'colDEPARTAMENTO
         '
@@ -882,7 +870,8 @@ Partial Class XfrmConsultaFirmas
         Me.colDEPARTAMENTO.Name = "colDEPARTAMENTO"
         Me.colDEPARTAMENTO.OptionsColumn.AllowEdit = False
         Me.colDEPARTAMENTO.Visible = True
-        Me.colDEPARTAMENTO.VisibleIndex = 12
+        Me.colDEPARTAMENTO.VisibleIndex = 11
+        Me.colDEPARTAMENTO.Width = 80
         '
         'colMUNICIPIO
         '
@@ -891,7 +880,8 @@ Partial Class XfrmConsultaFirmas
         Me.colMUNICIPIO.Name = "colMUNICIPIO"
         Me.colMUNICIPIO.OptionsColumn.AllowEdit = False
         Me.colMUNICIPIO.Visible = True
-        Me.colMUNICIPIO.VisibleIndex = 13
+        Me.colMUNICIPIO.VisibleIndex = 12
+        Me.colMUNICIPIO.Width = 71
         '
         'colNOMBRE
         '
@@ -900,7 +890,7 @@ Partial Class XfrmConsultaFirmas
         Me.colNOMBRE.Name = "colNOMBRE"
         Me.colNOMBRE.OptionsColumn.AllowEdit = False
         Me.colNOMBRE.Visible = True
-        Me.colNOMBRE.VisibleIndex = 14
+        Me.colNOMBRE.VisibleIndex = 13
         Me.colNOMBRE.Width = 97
         '
         'colNOMBRE_MOVIMIENTO
@@ -910,7 +900,7 @@ Partial Class XfrmConsultaFirmas
         Me.colNOMBRE_MOVIMIENTO.Name = "colNOMBRE_MOVIMIENTO"
         Me.colNOMBRE_MOVIMIENTO.OptionsColumn.AllowEdit = False
         Me.colNOMBRE_MOVIMIENTO.Visible = True
-        Me.colNOMBRE_MOVIMIENTO.VisibleIndex = 15
+        Me.colNOMBRE_MOVIMIENTO.VisibleIndex = 14
         '
         'RepositoryItemComboBox1
         '
@@ -929,6 +919,10 @@ Partial Class XfrmConsultaFirmas
         'RepositoryItemMemoEdit1
         '
         Me.RepositoryItemMemoEdit1.Name = "RepositoryItemMemoEdit1"
+        '
+        'RepositoryItemTextEdit3
+        '
+        Me.RepositoryItemTextEdit3.Name = "RepositoryItemTextEdit3"
         '
         'RepositoryItemPictureEdit1
         '
@@ -1059,14 +1053,14 @@ Partial Class XfrmConsultaFirmas
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl3.ResumeLayout(False)
         Me.PanelControl3.PerformLayout()
+        CType(Me.CmbPartido.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TAPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtidentidad.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ChkMuni.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ChkDepto.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CmbFiltro.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ChkMovimientos.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CmbPartido.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TAPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CmbMovimiento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TAMOVIMIENTOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CmbMunicipio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1083,11 +1077,12 @@ Partial Class XfrmConsultaFirmas
         CType(Me.RepositoryItemTextEdit2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RIChkFima, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RIChkCoincide, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemTextEdit3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemMemoEdit2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RPIImgfirma, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemComboBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemMemoExEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemMemoEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemTextEdit3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1131,7 +1126,6 @@ Partial Class XfrmConsultaFirmas
     Friend WithEvents colSEGUNDO_NOMBRE_PAPELETA As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colNOMBRE_IGUAL As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colPRIMER_NOMBRE_PAPELETA As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colIMAGEN_FIRMA As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colCONSISTENTE As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colOBSERVACION As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colMAQUINA As DevExpress.XtraGrid.Columns.GridColumn
@@ -1187,7 +1181,6 @@ Partial Class XfrmConsultaFirmas
     Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents ChkMovimientos As DevExpress.XtraEditors.CheckEdit
-    Friend WithEvents CmbPartido As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents CmbMovimiento As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents CmbMunicipio As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents CmbDepartamento As DevExpress.XtraEditors.LookUpEdit
@@ -1195,4 +1188,6 @@ Partial Class XfrmConsultaFirmas
     Friend WithEvents BtnEliminar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnUpdate As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents SimpleButton3 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents CmbPartido As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents RepositoryItemMemoEdit2 As DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit
 End Class

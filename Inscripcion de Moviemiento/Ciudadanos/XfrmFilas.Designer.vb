@@ -20,10 +20,10 @@ Partial Class XfrmFilas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
+        Dim ConditionValidationRule1 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
+        Dim ConditionValidationRule2 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Dim ConditionValidationRule3 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Dim ConditionValidationRule4 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
-        Dim ConditionValidationRule5 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
-        Dim ConditionValidationRule1 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Me.TxtFilas = New DevExpress.XtraEditors.TextEdit
         Me.Label2 = New System.Windows.Forms.Label
         Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
@@ -46,12 +46,15 @@ Partial Class XfrmFilas
         Me.CmbPartido = New DevExpress.XtraEditors.LookUpEdit
         Me.TAPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupControl2 = New DevExpress.XtraEditors.GroupControl
+        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton
+        Me.Label1 = New System.Windows.Forms.Label
+        Me.PictureEdit2 = New DevExpress.XtraEditors.PictureEdit
         Me.TA_MUNICIPIOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_MUNICIPIOSTableAdapter
         Me.TA_MOVIMIENTOTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_MOVIMIENTOTableAdapter
         Me.TA_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_PARTIDOS_POLITICOSTableAdapter
         Me.BtnCrear = New DevExpress.XtraEditors.SimpleButton
         Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
-        Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
         CType(Me.TxtFilas.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CmbDepartamento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -69,29 +72,29 @@ Partial Class XfrmFilas
         CType(Me.TAPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl2.SuspendLayout()
-        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TxtFilas
         '
-        Me.TxtFilas.Location = New System.Drawing.Point(121, 28)
+        Me.TxtFilas.Location = New System.Drawing.Point(197, 49)
         Me.TxtFilas.Name = "TxtFilas"
         Me.TxtFilas.Properties.MaxLength = 3
         Me.TxtFilas.Size = New System.Drawing.Size(37, 20)
         Me.TxtFilas.TabIndex = 0
-        ConditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule3.ErrorText = "Valor Inválido"
-        Me.DxValidationProvider1.SetValidationRule(Me.TxtFilas, ConditionValidationRule3)
+        ConditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule1.ErrorText = "Valor Inválido"
+        Me.DxValidationProvider1.SetValidationRule(Me.TxtFilas, ConditionValidationRule1)
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(19, 30)
+        Me.Label2.Location = New System.Drawing.Point(11, 52)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(93, 14)
+        Me.Label2.Size = New System.Drawing.Size(180, 14)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Número de Filas"
+        Me.Label2.Text = "Cantidad de firmas en la pagina:"
         '
         'CmbDepartamento
         '
@@ -106,9 +109,9 @@ Partial Class XfrmFilas
         Me.CmbDepartamento.Properties.ValueMember = "CODIGO_DEPARTAMENTO"
         Me.CmbDepartamento.Size = New System.Drawing.Size(135, 20)
         Me.CmbDepartamento.TabIndex = 5
-        ConditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule4.ErrorText = "Valor Inválido"
-        Me.DxValidationProvider1.SetValidationRule(Me.CmbDepartamento, ConditionValidationRule4)
+        ConditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule2.ErrorText = "Valor Inválido"
+        Me.DxValidationProvider1.SetValidationRule(Me.CmbDepartamento, ConditionValidationRule2)
         '
         'TADEPARTAMENTOSBindingSource
         '
@@ -133,9 +136,9 @@ Partial Class XfrmFilas
         Me.CmbMunicipio.Properties.ValueMember = "CODIGO_MUNICIPIO"
         Me.CmbMunicipio.Size = New System.Drawing.Size(144, 20)
         Me.CmbMunicipio.TabIndex = 6
-        ConditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule5.ErrorText = "Valor Inválido"
-        Me.DxValidationProvider1.SetValidationRule(Me.CmbMunicipio, ConditionValidationRule5)
+        ConditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule3.ErrorText = "Valor Inválido"
+        Me.DxValidationProvider1.SetValidationRule(Me.CmbMunicipio, ConditionValidationRule3)
         '
         'TAMUNICIPIOSBindingSource
         '
@@ -155,9 +158,9 @@ Partial Class XfrmFilas
         Me.CmbMovimiento.Properties.ValueMember = "CODIGO_MOVIMIENTO"
         Me.CmbMovimiento.Size = New System.Drawing.Size(144, 20)
         Me.CmbMovimiento.TabIndex = 4
-        ConditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule1.ErrorText = "Valor Inválido"
-        Me.DxValidationProvider1.SetValidationRule(Me.CmbMovimiento, ConditionValidationRule1)
+        ConditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule4.ErrorText = "Valor Inválido"
+        Me.DxValidationProvider1.SetValidationRule(Me.CmbMovimiento, ConditionValidationRule4)
         '
         'TAMOVIMIENTOBindingSource
         '
@@ -171,7 +174,7 @@ Partial Class XfrmFilas
         '
         'TxtFolio
         '
-        Me.TxtFolio.Location = New System.Drawing.Point(121, 57)
+        Me.TxtFolio.Location = New System.Drawing.Point(197, 89)
         Me.TxtFolio.Name = "TxtFolio"
         Me.TxtFolio.Properties.MaxLength = 3
         Me.TxtFolio.Size = New System.Drawing.Size(37, 20)
@@ -181,11 +184,11 @@ Partial Class XfrmFilas
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(19, 59)
+        Me.Label3.Location = New System.Drawing.Point(11, 91)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(96, 14)
+        Me.Label3.Size = New System.Drawing.Size(162, 14)
         Me.Label3.TabIndex = 3
-        Me.Label3.Text = "Número de Folio"
+        Me.Label3.Text = "Número de Folio (opcional) :"
         '
         'TA_DEPARTAMENTOSTableAdapter
         '
@@ -237,7 +240,7 @@ Partial Class XfrmFilas
         Me.GroupControl1.Controls.Add(Me.CmbMunicipio)
         Me.GroupControl1.Controls.Add(Me.Label5)
         Me.GroupControl1.Controls.Add(Me.CmbMovimiento)
-        Me.GroupControl1.Location = New System.Drawing.Point(9, 113)
+        Me.GroupControl1.Location = New System.Drawing.Point(12, 177)
         Me.GroupControl1.Name = "GroupControl1"
         Me.GroupControl1.Size = New System.Drawing.Size(476, 117)
         Me.GroupControl1.TabIndex = 2
@@ -263,14 +266,45 @@ Partial Class XfrmFilas
         '
         'GroupControl2
         '
-        Me.GroupControl2.Controls.Add(Me.Label2)
-        Me.GroupControl2.Controls.Add(Me.TxtFilas)
+        Me.GroupControl2.Controls.Add(Me.SimpleButton1)
+        Me.GroupControl2.Controls.Add(Me.Label1)
+        Me.GroupControl2.Controls.Add(Me.PictureEdit2)
         Me.GroupControl2.Controls.Add(Me.TxtFolio)
         Me.GroupControl2.Controls.Add(Me.Label3)
-        Me.GroupControl2.Location = New System.Drawing.Point(12, 7)
+        Me.GroupControl2.Controls.Add(Me.Label2)
+        Me.GroupControl2.Controls.Add(Me.TxtFilas)
+        Me.GroupControl2.Location = New System.Drawing.Point(12, 8)
         Me.GroupControl2.Name = "GroupControl2"
-        Me.GroupControl2.Size = New System.Drawing.Size(200, 100)
+        Me.GroupControl2.Size = New System.Drawing.Size(481, 163)
         Me.GroupControl2.TabIndex = 21
+        Me.GroupControl2.Text = "Información de la Pagina de Firmas"
+        '
+        'SimpleButton1
+        '
+        Me.SimpleButton1.Location = New System.Drawing.Point(331, 135)
+        Me.SimpleButton1.Name = "SimpleButton1"
+        Me.SimpleButton1.Size = New System.Drawing.Size(90, 23)
+        Me.SimpleButton1.TabIndex = 6
+        Me.SimpleButton1.Text = "Cargar Imágen"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(278, 21)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(177, 14)
+        Me.Label1.TabIndex = 5
+        Me.Label1.Text = "Imágen de la Pagina (Opcional)"
+        '
+        'PictureEdit2
+        '
+        Me.PictureEdit2.Location = New System.Drawing.Point(324, 40)
+        Me.PictureEdit2.Name = "PictureEdit2"
+        Me.PictureEdit2.Properties.ShowMenu = False
+        Me.PictureEdit2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
+        Me.PictureEdit2.Size = New System.Drawing.Size(100, 89)
+        Me.PictureEdit2.TabIndex = 4
         '
         'TA_MUNICIPIOSTableAdapter
         '
@@ -290,7 +324,7 @@ Partial Class XfrmFilas
         Me.BtnCrear.Appearance.Options.UseFont = True
         Me.BtnCrear.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.agregar
         Me.BtnCrear.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnCrear.Location = New System.Drawing.Point(177, 236)
+        Me.BtnCrear.Location = New System.Drawing.Point(180, 300)
         Me.BtnCrear.Name = "BtnCrear"
         Me.BtnCrear.Size = New System.Drawing.Size(55, 55)
         Me.BtnCrear.TabIndex = 26
@@ -302,35 +336,24 @@ Partial Class XfrmFilas
         Me.BtnSalir.Appearance.Options.UseFont = True
         Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
         Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnSalir.Location = New System.Drawing.Point(283, 236)
+        Me.BtnSalir.Location = New System.Drawing.Point(290, 300)
         Me.BtnSalir.Name = "BtnSalir"
         Me.BtnSalir.Size = New System.Drawing.Size(55, 55)
         Me.BtnSalir.TabIndex = 25
         Me.BtnSalir.Text = "Salir"
         '
-        'PictureEdit1
+        'OpenFileDialog1
         '
-        Me.PictureEdit1.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.officespreadsheet
-        Me.PictureEdit1.Location = New System.Drawing.Point(318, 7)
-        Me.PictureEdit1.Name = "PictureEdit1"
-        Me.PictureEdit1.Properties.AllowFocused = False
-        Me.PictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.PictureEdit1.Properties.Appearance.Options.UseBackColor = True
-        Me.PictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PictureEdit1.Properties.ShowMenu = False
-        Me.PictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
-        Me.PictureEdit1.Size = New System.Drawing.Size(100, 96)
-        Me.PictureEdit1.TabIndex = 22
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
         'XfrmFilas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(504, 300)
+        Me.ClientSize = New System.Drawing.Size(505, 358)
         Me.ControlBox = False
         Me.Controls.Add(Me.BtnCrear)
         Me.Controls.Add(Me.BtnSalir)
-        Me.Controls.Add(Me.PictureEdit1)
         Me.Controls.Add(Me.GroupControl2)
         Me.Controls.Add(Me.GroupControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -356,7 +379,7 @@ Partial Class XfrmFilas
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl2.ResumeLayout(False)
         Me.GroupControl2.PerformLayout()
-        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -382,10 +405,13 @@ Partial Class XfrmFilas
     Friend WithEvents DSPolitico As Inscripcion_de_Moviemientos.DSPolitico
     Friend WithEvents TAMOVIMIENTOBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents TA_MOVIMIENTOTableAdapter As Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_MOVIMIENTOTableAdapter
-    Friend WithEvents PictureEdit1 As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents BtnSalir As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnCrear As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents CmbPartido As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents TAPARTIDOSPOLITICOSBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents TA_PARTIDOS_POLITICOSTableAdapter As Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_PARTIDOS_POLITICOSTableAdapter
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents PictureEdit2 As DevExpress.XtraEditors.PictureEdit
+    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
 End Class
