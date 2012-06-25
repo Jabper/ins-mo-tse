@@ -16,6 +16,9 @@ Public Class XfrmCiudadanos
     Public ArregloDeErrores As Integer = 0
     Public noinconsistentes As Integer = 0
     Public pagina As Integer = 0
+    Dim mensajeerror As String
+    Dim vinicio As Boolean = False
+    Dim guardados As Integer = 0
     Public Sub New()
 
         ' Llamada necesaria para el Diseñador de Windows Forms.
@@ -29,6 +32,10 @@ Public Class XfrmCiudadanos
     End Sub
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
         Me.Close()
+    End Sub
+
+    Private Sub GridView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.Click
+        MsgBox(GridView1.FocusedRowHandle)
     End Sub
 
     Private Sub GridView1_CustomColumnDisplayText(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs) Handles GridView1.CustomColumnDisplayText
@@ -49,73 +56,44 @@ Public Class XfrmCiudadanos
 
     End Sub
 
-    Private Sub GridView1_InvalidRowException(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs) Handles GridView1.InvalidRowException
-
-    End Sub
-
     Private Sub GridView1_InvalidValueException(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs) Handles GridView1.InvalidValueException
         e.ExceptionMode = ExceptionMode.DisplayError
-        e.WindowCaption = "Valor Inválido"
-        e.ErrorText = "Error"
+        e.WindowCaption = "Error"
+        e.ErrorText = mensajeerror
         GridView1.HideEditor()
     End Sub
 
-    Private Sub GridView1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles GridView1.KeyPress
-      
-    End Sub
-
-
-
-
-
 
     Private Sub GridView1_ValidatingEditor(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs) Handles GridView1.ValidatingEditor
+        Dim view As GridView = TryCast(sender, GridView)
 
-        'Dim view As GridView = TryCast(sender, GridView)
-        'If view.FocusedColumn.FieldName = "IDENTIDAD" Then
+        If view.FocusedColumn.FieldName = "IDENTIDAD" Then
 
+            If e.Value.ToString.Length <> 13 Then
+                mensajeerror = "El número de digitos en el campo Identidad es incorrecto debe de ser igual a 13 digitos"
+                e.Valid = False
 
-        '    Dim a As String = e.Value
-        '    'If IsDBNull(a) Or a = Nothing Then
-        '    '    e.Valid = IsDBNull(e.Value) AndAlso e.Value IsNot Nothing AndAlso Not e.Value.Equals(String.Empty)
-        '    '    Return
-        '    'End If
-        '    Dim consulta As String = "select NUMERO_IDENTIDAD, PRIMER_NOMBRE || ' ' || SEGUNDO_NOMBRE || ' ' || PRIMER_APELLIDO || ' ' || SEGUNDO_APELLIDO AS NOMBRE "
-        '    consulta &= "from Im_padron_electoral where NUMERO_IDENTIDAD='" & a & "'"
-        '    If COracle.ObtenerDatos(consulta, "NOMBRE") <> "N" Then
+            End If
 
-        '        view.SetRowCellValue(view.FocusedRowHandle, "NOMBRE", COracle.ObtenerDatos(consulta, "NOMBRE"))
-        '        view.SetRowCellValue(view.FocusedRowHandle, "Estado", True)
-        '    Else
-        '        view.SetRowCellValue(view.FocusedRowHandle, "NOMBRE", "")
+            If IsNumeric(e.Value) = False Then
+                mensajeerror = "El valor del número de indentidad debe de ser un valor numérico"
+                e.Valid = False
+            End If
 
-        '        view.SetRowCellValue(view.FocusedRowHandle, "Estado", False)
+            If (e.Value IsNot Nothing AndAlso Not e.Value.Equals(String.Empty)) = False Then
+                mensajeerror = "Valor inválido"
+                e.Valid = False
 
-        '        'view.SetRowCellValue(view.FocusedRowHandle, "NOMBRE_IGUAL", "N")
-
-        '        'view.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        '        'gv.OptionsBehavior.Editable = False
-        '        'gv.OptionsSelection.EnableAppearanceFocusedCell = False
-        '        'e.Valid = e.Value IsNot Nothing AndAlso Not e.Value.Equals(String.Empty)
-        '    End If
-
-        'ElseIf view.FocusedColumn.FieldName = "NOMBRE_IGUAL" Then
-        '    If e.Value = "S" Then
-
-        '        'colNOMBRE_PAPELETA.OptionsColumn.AllowEdit = False
-        '    Else
-        '        'colNOMBRE_PAPELETA.OptionsColumn.AllowEdit = True
-        '    End If
-
-        'End If
-
+            End If
+        End If
+       
     End Sub
-
-
 
     Sub salir()
         Me.Close()
     End Sub
+
+    
 
     Private Sub XfrmCiudadanos_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Me.KeyPress
         Dim view As GridView = GridView1
@@ -131,9 +109,7 @@ Public Class XfrmCiudadanos
         Me.lblinconsistentes.Text = Math.Round(CREstadistico.FirmasInconsistentes, 0)
     End Sub
     Private Sub XfrmCiudadanos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        'TODO: This line of code loads data into the 'DSCiudadanos.IM_CIUDADANOS_RESPALDAN1' table. You can move, or remove it, as needed.
-        'Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Fill(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
-        Me.MdiParent = XFrmMenuPrincipal
+       Me.MdiParent = XFrmMenuPrincipal
         Me.TA_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.TA_DEPARTAMENTOS)
         Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
         Estado.OptionsColumn.AllowEdit = False
@@ -169,6 +145,7 @@ Public Class XfrmCiudadanos
         Estado.Visible = False
         lblfolio.Text = folio
         pagina = COracle.FUN_EJECUTAR_SEQ("IM_SQ2_CIUDADANOS_RESPALDAN")
+       
     End Sub
     Private Sub CmbPartido_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CmbPartido.EditValueChanged
         Try
@@ -178,7 +155,7 @@ Public Class XfrmCiudadanos
 
         End Try
     End Sub
-
+    
 
 
     Sub AgregarFilasGrid(ByVal NumeroCeldas As Integer)
@@ -186,15 +163,91 @@ Public Class XfrmCiudadanos
             GridView1.AddNewRow()
 
         Next
-        Me.GCBusqueda.Focus()
+        vinicio = True
+        GCBusqueda.ForceInitialize()
+        Dim view As GridView = GridView1
+        view.FocusedRowHandle = DevExpress.XtraGrid.GridControl.NewItemRowHandle
+
+        view.FocusedColumn = colIDENTIDAD
+        view.ShowEditor()
+       
     End Sub
 
+    Sub eliminarvacios()
+        Dim view As GridView = GridView1
+        'RECORRER EL GRID
+        Estado.Visible = True
+        For i = 0 To view.DataRowCount - 1
+            'SI CUMLE CON TODAS LAS CONDICIONES
+            '****************************************
+            If Not IsDBNull(view.GetRowCellValue(i, "IDENTIDAD")) And Not IsDBNull(view.GetRowCellValue(i, "PrimerNombre")) And Not IsDBNull(view.GetRowCellValue(i, "PrimerApellido")) Then
+                view.SetRowCellValue(i, "Estado", True)
+                guardar(i)
 
+
+
+                estadistico()
+            Else
+                view.SetRowCellValue(i, "Estado", False)
+
+
+                'view.DeleteRow(i)
+            End If
+
+        Next
+
+        'SI GUARDO TODO LOS DATOS
+
+        If guardados = view.DataRowCount Then
+            Dim consis As Integer = guardados - noinconsistentes
+            Dim mensaje As String = "Registros consistentes: " & consis & vbCrLf & "Registros con inconsistencia:" & noinconsistentes & vbCrLf & "Total de Registros Guardados: " & guardados & vbCrLf & "Presione Aceptar para cerrar la pantalla actual"
+            If XtraMessageBox.Show(mensaje, "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information) = Windows.Forms.DialogResult.OK Then
+
+                Me.Close()
+            End If
+        ElseIf ArregloDeErrores > 1 Or guardados <> view.DataRowCount Then
+            'SI NO GUARDO TODOS LOS DATOS
+            Dim consis As Integer = guardados - noinconsistentes
+            Dim mensaje As String = "Registros consistentes: " & consis & vbCrLf & "Registros con inconsistencia:" & noinconsistentes & vbCrLf & "Total de Registros Guardados: " & guardados & "¿Desea terminar de editar los registros vacíos e incompletos ?" & vbCrLf & "Presione No para Salir"
+            If XtraMessageBox.Show(mensaje, "Mensaje de Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+
+                Me.Estado.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("Estado= 'False'")
+            Else
+                Me.Close()
+            End If
+        End If
+    End Sub
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
         'Me.GridView1.ExportToXls("E:\test.xls")
-        validarFilas()
-    End Sub
+        guardados = 0
+        ArregloDeErrores = 0
+        If ContarNoNulos() = 0 Then
+            Mensajes.mimensaje("Los campos estan vacíos o estan ingresados incorrectamente, Debe de guardar almenos un registro que contenga los campos requeridos")
+        Else
+            eliminarvacios()
+        End If
 
+
+        'Dim view As GridView = GridView1
+        ''RECORRER EL GRID
+        'If view.DataRowCount = 0 Then
+        '    Mensajes.mimensaje("Todos los campos estan vacíos,Debe de guardar almenos un registro")
+        'Else
+        '    validarFilas()
+        'End If
+
+    End Sub
+    Function ContarNoNulos() As Integer
+        Dim coint As Integer = 0
+        Dim view As GridView = GridView1
+        'RECORRER EL GRID
+        For i = 0 To view.DataRowCount - 1
+            If Not IsDBNull(view.GetRowCellValue(i, "IDENTIDAD")) And Not IsDBNull(view.GetRowCellValue(i, "PrimerNombre")) And Not IsDBNull(view.GetRowCellValue(i, "PrimerApellido")) Then
+                coint += 1
+            End If
+        Next
+        Return coint
+    End Function
 
     Sub validarFilas()
         errores = 0
@@ -229,8 +282,13 @@ Public Class XfrmCiudadanos
                     If (identidad = Nothing Or identidad = "") Or (nombre = Nothing Or nombre = "") Or (apellido = Nothing Or apellido = "") Then
                         errores += 1
                         view.SetRowCellValue(i, "Estado", False)
+
+
+
                     Else
                         view.SetRowCellValue(i, "Estado", True)
+                        guardar(i)
+
                     End If
 
 
@@ -239,16 +297,7 @@ Public Class XfrmCiudadanos
 
 
             Next i
-            If errores = 0 Then
-                errores = 0
-                guardar()
-                'vbCrLf
-            Else
-                Dim mensaje As String = "Errores encontrados: " & errores
-                mensaje &= vbCrLf & "Para poder guardar los registros verifique:" & vbCrLf & "1.Que el número de identidad no se encuentre en blanco"
-                mensaje &= vbCrLf & "2. El primer nombre y primer apellido no estén en blanco"
-                Mensajes.mimensaje(mensaje)
-            End If
+          
 
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -268,7 +317,7 @@ Public Class XfrmCiudadanos
         End Try
     End Sub
 
-    Sub guardar()
+    Sub guardar(ByVal i As Integer)
 
         'proceso de validacion con la base de datos
         Dim NombreIgual As String = "S"
@@ -279,79 +328,80 @@ Public Class XfrmCiudadanos
 
             Dim view As GridView = GridView1
             'RECORRER EL GRID
-            For i = 0 To view.DataRowCount - 1
-                'COMPROBAR  SI LA IDENTIDAD EXISTE
-                Dim a As String = view.GetRowCellValue(i, "IDENTIDAD").ToString.Trim
-                Dim consulta As String = "select NUMERO_IDENTIDAD, PRIMER_NOMBRE, SEGUNDO_NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO "
-                consulta &= "from Im_padron_electoral where NUMERO_IDENTIDAD='" & a & "'"
-                'VERIFICAR IDENTIDAD
-                If COracle.ObtenerDatos(consulta, "NUMERO_IDENTIDAD") <> "N" Then
-                    'SI LA IDENTIDAD EXISTE SE PREOCEDE A COMPROBAR LOS NOMBRES
+            'For i = 0 To view.DataRowCount - 1
+            'COMPROBAR  SI LA IDENTIDAD EXISTE
+            Dim a As String = view.GetRowCellValue(i, "IDENTIDAD").ToString.Trim
+            Dim consulta As String = "select NUMERO_IDENTIDAD, PRIMER_NOMBRE, SEGUNDO_NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO "
+            consulta &= "from Im_padron_electoral where NUMERO_IDENTIDAD='" & a & "'"
+            'VERIFICAR IDENTIDAD
+            If COracle.ObtenerDatos(consulta, "NUMERO_IDENTIDAD") <> "N" Then
+                'SI LA IDENTIDAD EXISTE SE PREOCEDE A COMPROBAR LOS NOMBRES
 
-                    'COMPROBANDO EL PRIMER NOMBRE
-                    Dim pnombre As String = view.GetRowCellValue(i, "PrimerNombre").ToString.Trim
-                    Dim papellido As String = view.GetRowCellValue(i, "PrimerApellido").ToString.Trim
+                'COMPROBANDO EL PRIMER NOMBRE
+                Dim pnombre As String = view.GetRowCellValue(i, "PrimerNombre").ToString.Trim
+                Dim papellido As String = view.GetRowCellValue(i, "PrimerApellido").ToString.Trim
 
-                    If pnombre <> COracle.ObtenerDatos(consulta, "PRIMER_NOMBRE") Then
-                        inconsistente = "N"
-                        NombreIgual = "N"
-                        Observacion &= "El primer nombre no coincide con el del padrón electoral "
-                        'COMPROBANDO EL SEGUNDO NOMBRE
+                If pnombre <> COracle.ObtenerDatos(consulta, "PRIMER_NOMBRE") Then
+                    inconsistente = "N"
+                    NombreIgual = "N"
+                    Observacion &= "El primer nombre no coincide con el del padrón electoral "
+                    'COMPROBANDO EL SEGUNDO NOMBRE
 
-                    ElseIf papellido <> COracle.ObtenerDatos(consulta, "PRIMER_APELLIDO") Then
-                        inconsistente = "N"
-                        NombreIgual = "N"
-                        Observacion &= "El primer apellido no coincide con el del padrón electoral "
-                        'COMPROBANDO EL SEGUNDO NOMBRE
+                ElseIf papellido <> COracle.ObtenerDatos(consulta, "PRIMER_APELLIDO") Then
+                    inconsistente = "N"
+                    NombreIgual = "N"
+                    Observacion &= "El primer apellido no coincide con el del padrón electoral "
+                    'COMPROBANDO EL SEGUNDO NOMBRE
 
-                    End If
+                End If
 
-                    'COMPROBANDO INGRESO NULO DE SEGUNDO NOMBRE Y APELLIDO
-                    Dim SNOMBRE As String = view.GetRowCellValue(i, "SegundoNombre").ToString.Trim
-                    Dim SAPELLIDO As String = view.GetRowCellValue(i, "SegundoApellido").ToString.Trim
+                'COMPROBANDO INGRESO NULO DE SEGUNDO NOMBRE Y APELLIDO
+                Dim SNOMBRE As String = view.GetRowCellValue(i, "SegundoNombre").ToString.Trim
+                Dim SAPELLIDO As String = view.GetRowCellValue(i, "SegundoApellido").ToString.Trim
 
-                    If COracle.ObtenerDatos(consulta, "SEGUNDO_NOMBRE") = SNOMBRE Then
-                    Else
-                        inconsistente = "N"
-                        NombreIgual = "N"
-                        Observacion &= "El segundo nombre no coincide con el del padrón electoral "
-                    End If
-
-                    If COracle.ObtenerDatos(consulta, "SEGUNDO_APELLIDO") = SAPELLIDO Then
-                    Else
-                        inconsistente = "N"
-                        NombreIgual = "N"
-                        Observacion &= "El segundo apellido no coincide con el del padrón electoral "
-                    End If
+                If COracle.ObtenerDatos(consulta, "SEGUNDO_NOMBRE") = SNOMBRE Then
                 Else
                     inconsistente = "N"
-                    Observacion = "Identidad no encontrada en el padrón electoral"
-                    NombreIgual = ""
-
+                    NombreIgual = "N"
+                    Observacion &= "El segundo nombre no coincide con el del padrón electoral "
                 End If
-                GuardarEnBase(i, NombreIgual, inconsistente, Observacion)
-            Next i
 
-            If capturarerrores() = 0 Then
-                Me.BtnGuardar.Visible = False
-                Mensajes.MensajeGuardar()
-                estadistico()
-                If XtraMessageBox.Show("Registros almacenados correctamente," & vbCrLf & noinconsistentes & " registros presentan inconsistencia" & vbCrLf & "presione Ok para cerrar la pantalla", "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
-                    Me.Close()
-                End If
-            Else
-
-                If XtraMessageBox.Show(capturarerrores.ToString & " registros no se pudieron guardar ¿Desea intentar guardarlos manualmente?", "Mensaje de Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-                    Me.Estado.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("Estado= 'False'")
-                    ArregloDeErrores = 0
-
-
+                If COracle.ObtenerDatos(consulta, "SEGUNDO_APELLIDO") = SAPELLIDO Then
                 Else
-                    If XtraMessageBox.Show("presione Ok para cerrar la pantalla", "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Question) = Windows.Forms.DialogResult.OK Then
-                        Me.Close()
-                    End If
+                    inconsistente = "N"
+                    NombreIgual = "N"
+                    Observacion &= "El segundo apellido no coincide con el del padrón electoral "
                 End If
+
+                If view.GetRowCellValue(i, "FIRMA").ToString = "N" Then
+                    inconsistente = "N"
+
+                    Observacion &= "No presenta firma"
+                End If
+
+                If view.GetRowCellValue(i, "HUELLA").ToString = "N" Then
+                    inconsistente = "N"
+
+                    Observacion &= "No presenta huella"
+                End If
+
+                If view.GetRowCellValue(i, "DIRECCION").ToString = "N" Then
+                    inconsistente = "N"
+
+                    Observacion &= "No presenta dirección"
+                End If
+
+                GuardarEnBase(i, NombreIgual, inconsistente, Observacion)
+            Else
+                inconsistente = "N"
+                Observacion = "Identidad no encontrada en el padrón electoral"
+                NombreIgual = ""
+                GuardarEnBase(i, NombreIgual, inconsistente, Observacion)
             End If
+
+            'Next i
+
+            
 
 
         Catch ex As Exception
@@ -388,11 +438,7 @@ Public Class XfrmCiudadanos
                 Else
                     .FOLIO = CType(folio, Integer)
                 End If
-                If IsDBNull(GridView1.GetRowCellValue(i, "IMAGEN_FIRMA")) Then
-
-                Else
-                    .IMAGEN_FIRMA = GridView1.GetRowCellValue(i, "IMAGEN_FIRMA")
-                End If
+               
 
                 .ADICIONADO_POR = usuario
                 .FECHA_ADICION = DateTime.Now
@@ -405,10 +451,11 @@ Public Class XfrmCiudadanos
             Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1.Rows.Add(ciudadanos)
 
             Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Update(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
-            'GridView1.SetRowCellValue(i, "Estado", False)
+            GridView1.SetRowCellValue(i, "Estado", True)
             If inconsistente = "N" Then
                 noinconsistentes += 1
             End If
+            guardados += 1
         Catch ex As Exception
             MsgBox(ex.Message)
             GridView1.SetRowCellValue(i, "Estado", False)
@@ -428,4 +475,9 @@ Public Class XfrmCiudadanos
         End Try
 
     End Sub
+
+   
+
+
+
 End Class

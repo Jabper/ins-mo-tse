@@ -27,7 +27,7 @@
         Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
 
         Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
-        Me.TA_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.TA_DEPARTAMENTOS)
+        Me.TA_DEPARTAMENTOSTableAdapter.NoCeros(Me.DSDeptoMuni.TA_DEPARTAMENTOS)
         limpiar()
     End Sub
 
@@ -69,6 +69,7 @@
             .AgregarFilasGrid(CType(Me.TxtFilas.Text, Integer))
             .folio = Me.TxtFolio.Text
             .establecer()
+
         End With
         Me.Close()
 
@@ -79,7 +80,7 @@
 
     Private Sub CmbDepartamento_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CmbDepartamento.TextChanged
         Try
-            Me.TA_MUNICIPIOSTableAdapter.FillBy1(Me.DSDeptoMuni.TA_MUNICIPIOS, CmbDepartamento.EditValue)
+            Me.TA_MUNICIPIOSTableAdapter.DeptoNoCero(Me.DSDeptoMuni.TA_MUNICIPIOS, CmbDepartamento.EditValue)
 
         Catch ex As Exception
 

@@ -261,32 +261,32 @@ Public Class XfrmConsultaFirmas
                 consulta &= ", FOLIO=" & GridView1.GetRowCellValue(i, "FOLIO")
 
             End If
-            If Not IsDBNull(GridView1.GetRowCellValue(i, "IMAGEN_FIRMA")) Then
+            'If Not IsDBNull(GridView1.GetRowCellValue(i, "IMAGEN_FIRMA")) Then
 
-                Try
+            '    Try
 
-                    Dim cnx As New OracleConnection(Configuracion.verconfig)
-                    '
-                    Dim bo As Byte() = view.GetRowCellValue(view.FocusedRowHandle, "IMAGEN_FIRMA") 'Data.ConvertImageToByteArray(Me.Imgimagen.image)
-                    Dim idc As Integer = CType(GridView1.GetRowCellValue(i, "CODIGO_CUIDADANOS_RESPALDAN"), Integer)
-                    Dim sqlstring As String
-                    sqlstring = "UPDATE IM_CIUDADANOS_RESPALDAN SET IMAGEN_FIRMA=:ft WHERE CODIGO_CUIDADANOS_RESPALDAN=:cod AND CODIGO_PARTIDO=:cp AND CODIGO_MOVIMIENTO=:cm"
-                    Dim cmd As New OracleCommand(sqlstring, cnx)
-                    cmd.Parameters.Add(":ft", OracleType.Blob).Value = bo
-                    cmd.Parameters.Add(":cod", OracleType.Number, 8).Value = idc
-                    cmd.Parameters.Add(":cp", OracleType.Number, 2).Value = CType((GridView1.GetRowCellValue(i, "CODIGO_PARTIDO")), Integer)
-                    cmd.Parameters.Add(":cm", OracleType.Number, 3).Value = CType(GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO"), Integer)
-                    cnx.Open()
-                    cmd.ExecuteNonQuery()
-                    cnx.Close()
+            '        Dim cnx As New OracleConnection(Configuracion.verconfig)
+            '        '
+            '        Dim bo As Byte() = view.GetRowCellValue(view.FocusedRowHandle, "IMAGEN_FIRMA") 'Data.ConvertImageToByteArray(Me.Imgimagen.EditValue)
+            '        Dim idc As Integer = CType(GridView1.GetRowCellValue(i, "CODIGO_CUIDADANOS_RESPALDAN"), Integer)
+            '        Dim sqlstring As String
+            '        sqlstring = "UPDATE IM_CIUDADANOS_RESPALDAN SET IMAGEN_FIRMA=:ft WHERE CODIGO_CUIDADANOS_RESPALDAN=:cod AND CODIGO_PARTIDO=:cp AND CODIGO_MOVIMIENTO=:cm"
+            '        Dim cmd As New OracleCommand(sqlstring, cnx)
+            '        cmd.Parameters.Add(":ft", OracleType.Blob).Value = bo
+            '        cmd.Parameters.Add(":cod", OracleType.Number, 8).Value = idc
+            '        cmd.Parameters.Add(":cp", OracleType.Number, 2).Value = CType((GridView1.GetRowCellValue(i, "CODIGO_PARTIDO")), Integer)
+            '        cmd.Parameters.Add(":cm", OracleType.Number, 3).Value = CType(GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO"), Integer)
+            '        cnx.Open()
+            '        cmd.ExecuteNonQuery()
+            '        cnx.Close()
 
-                Catch ex As Exception
-                    Mensajes.mimensaje(ex.Message)
-                End Try
+            '    Catch ex As Exception
+            '        Mensajes.mimensaje(ex.Message)
+            '    End Try
 
-            Else
-                consulta &= ", IMAGEN_FIRMA=NULL "
-            End If
+            'Else
+            '    consulta &= ", IMAGEN_FIRMA=NULL "
+            'End If
 
             consulta &= " WHERE CODIGO_CUIDADANOS_RESPALDAN=" & GridView1.GetRowCellValue(i, "CODIGO_CUIDADANOS_RESPALDAN")
             consulta &= " AND CODIGO_PARTIDO=" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO") & " AND CODIGO_MOVIMIENTO=" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO")
@@ -467,12 +467,24 @@ Public Class XfrmConsultaFirmas
         End Try
     End Sub
 
-    Private Sub GCBusqueda_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GCBusqueda.Click
-
-    End Sub
+  
 
     Private Sub SimpleButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton3.Click
         Me.Close()
     End Sub
 
+ 
+
+   
+    Private Sub CmbPartido_EditValueChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CmbPartido.EditValueChanged
+
+    End Sub
+
+    Private Sub CmbPartido_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CmbPartido.TextChanged
+        Try
+            TA_MOVIMIENTOTableAdapter.FillBy1(Me.DSPolitico.TA_MOVIMIENTO, Me.CmbPartido.EditValue)
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class
