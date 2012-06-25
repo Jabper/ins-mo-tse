@@ -16,29 +16,39 @@ Public Class XfrmImportar
         Else
             Dim oradb As String = Configuracion.verconfig
             Dim conn As New OracleConnection()
-            Dim myCMD As New OracleCommand()
-            Dim mensaje As String
+            'Dim myCMD As New OracleCommand()
+            'Dim mensaje As String
             conn.ConnectionString = oradb
             conn.Open()
-            Try
-                myCMD.Connection = conn
-                myCMD.CommandText = "IM_P_IMPORTAR_SIM"
-                myCMD.CommandType = CommandType.StoredProcedure
-                myCMD.Parameters.Add(New OracleParameter("pvo_mensaje", OracleType.Char, 100)).Direction = ParameterDirection.Output
-                myCMD.ExecuteOracleScalar()
-                mensaje = myCMD.Parameters("pvo_mensaje").Value
-            Catch ex As Exception
-                conn.Close()
-                Mensajes.MensajeError(ex.Message)
-                Exit Sub
-            End Try
+
+            Dim sql As String = "select proceso_en_ejecucion from im_parametros_generales"
+            Dim cmd As New OracleCommand(sql, conn)
+            cmd.CommandType = CommandType.Text
+            Dim chek As OracleDataReader = cmd.ExecuteReader()
+            Dim proceso_corriendo As String
+            If chek.Read Then
+                proceso_corriendo = chek.Item("proceso_en_ejecucion")
+            End If           
             conn.Close()
 
-            If Trim(mensaje) = "OK" Then
+            If proceso_corriendo = "N" Then
                 Try
+                    Dim oradb1 As String = Configuracion.verconfig
+                    Dim conn1 As New OracleConnection()
+                    'Dim myCMD As New OracleCommand()
+                    'Dim mensaje As String
+                    conn1.ConnectionString = oradb1
+                    conn1.Open()
+
+                    Dim sql1 As String = "Update im_parametros_generales set proceso_en_ejecucion = 'S'"
+                    Dim cmd1 As New OracleCommand(sql1, conn1)
+                    cmd1.CommandType = CommandType.Text
+                    cmd1.ExecuteScalar()
+                    conn.Close()
+
                     Dim startInfo As ProcessStartInfo
                     Dim pStart As New Process
-                    startInfo = New ProcessStartInfo("cmd.exe", "/C imp TSE/oracle@TSEDB2 Buffer=5000000 File=" & TxtRuta.Text & " FROMUSER=TSE TOUSER=TSE ignore=Y TABLES=tmp_im_candidatos, tmp_im_candidatos_repetidos, TMP_IM_MOVIMIENTOS, TMP_IM_REQUISITOS_X_CANDIDATO, tmp_im_ciudadanos_respaldan")
+                    startInfo = New ProcessStartInfo("cmd.exe", "/C imp TSE/oracle@TSEDB2 Buffer=5000000 File=" & TxtRuta.Text & " FROMUSER=TSE TOUSER=TSE ignore=Y TABLES=tmp_im_candidatos, TMP_IM_MOVIMIENTOS, TMP_IM_REQUISITOS_X_CANDIDATO, tmp_im_ciudadanos_respaldan")
                     pStart.StartInfo = startInfo
                     pStart.Start()
                     pStart.WaitForExit()
@@ -48,12 +58,23 @@ Public Class XfrmImportar
                     Else
                         MsgBox("La Importación No se ha realizado Correctamente verifique el archivo de origen de los datos", MsgBoxStyle.Exclamation)
                     End If
+
+                    Dim oradb2 As String = Configuracion.verconfig
+                    Dim conn2 As New OracleConnection()                    
+                    conn2.ConnectionString = oradb2
+                    conn2.Open()
+
+                    Dim sql2 As String = "Update im_parametros_generales set proceso_en_ejecucion = 'N'"
+                    Dim cmd2 As New OracleCommand(sql2, conn2)
+                    cmd2.CommandType = CommandType.Text
+                    cmd2.ExecuteScalar()
+                    conn.Close()
                 Catch ex As Exception
                     Mensajes.MensajeError(ex.Message)
                     Exit Sub
                 End Try
-            Else                
-                Mensajes.MensajeError(mensaje)
+            Else
+                Mensajes.MensajeError("Actualmente se encuentra corriendo un proceso... Favor esperar a que el proceso actual Termine")
                 Exit Sub
             End If
         End If
