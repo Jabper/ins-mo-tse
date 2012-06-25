@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -294,6 +294,18 @@
       <DependentUpon>XfrmPartidos.vb</DependentUpon>
     </Compile>
     <Compile Include="General\XfrmPartidos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procesos\Dialog1.Designer.vb">
+      <DependentUpon>Dialog1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\Dialog1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procesos\XfrmMensajes.Designer.vb">
+      <DependentUpon>XfrmMensajes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\XfrmMensajes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\DS_REPORTE_DE_FDP.vb">
@@ -668,6 +680,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\XfrmJerarquico.resx">
       <DependentUpon>XfrmJerarquico.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\Dialog1.resx">
+      <DependentUpon>Dialog1.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\XfrmMensajes.resx">
+      <DependentUpon>XfrmMensajes.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="XfrmBack.resx">
