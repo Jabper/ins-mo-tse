@@ -87,7 +87,6 @@ Partial Class XfrmConsultaFirmas
         Me.RepositoryItemMemoEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit
         Me.colMAQUINA = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colPAGINA = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.RPIImgfirma = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
         Me.CODIGO_PARTIDO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.CODIGO_MOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCODIGO_DEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn
@@ -97,6 +96,7 @@ Partial Class XfrmConsultaFirmas
         Me.colMUNICIPIO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colNOMBRE = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colNOMBRE_MOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.RPIImgfirma = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
         Me.RepositoryItemComboBox1 = New DevExpress.XtraEditors.Repository.RepositoryItemComboBox
         Me.RepositoryItemMemoExEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit
         Me.RepositoryItemMemoEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit
@@ -315,9 +315,9 @@ Partial Class XfrmConsultaFirmas
         Me.LabelControl8.Appearance.ForeColor = System.Drawing.Color.OrangeRed
         Me.LabelControl8.Location = New System.Drawing.Point(11, 12)
         Me.LabelControl8.Name = "LabelControl8"
-        Me.LabelControl8.Size = New System.Drawing.Size(167, 14)
+        Me.LabelControl8.Size = New System.Drawing.Size(75, 14)
         Me.LabelControl8.TabIndex = 24
-        Me.LabelControl8.Text = "Indicadores de Verificación:"
+        Me.LabelControl8.Text = "Indicadores:"
         '
         'PictureEdit1
         '
@@ -824,12 +824,6 @@ Partial Class XfrmConsultaFirmas
         Me.colPAGINA.VisibleIndex = 10
         Me.colPAGINA.Width = 44
         '
-        'RPIImgfirma
-        '
-        Me.RPIImgfirma.Name = "RPIImgfirma"
-        Me.RPIImgfirma.PictureStoreMode = DevExpress.XtraEditors.Controls.PictureStoreMode.ByteArray
-        Me.RPIImgfirma.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
-        '
         'CODIGO_PARTIDO
         '
         Me.CODIGO_PARTIDO.Caption = "CODIGO_PARTIDO"
@@ -901,6 +895,12 @@ Partial Class XfrmConsultaFirmas
         Me.colNOMBRE_MOVIMIENTO.OptionsColumn.AllowEdit = False
         Me.colNOMBRE_MOVIMIENTO.Visible = True
         Me.colNOMBRE_MOVIMIENTO.VisibleIndex = 14
+        '
+        'RPIImgfirma
+        '
+        Me.RPIImgfirma.Name = "RPIImgfirma"
+        Me.RPIImgfirma.PictureStoreMode = DevExpress.XtraEditors.Controls.PictureStoreMode.ByteArray
+        Me.RPIImgfirma.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
         '
         'RepositoryItemComboBox1
         '

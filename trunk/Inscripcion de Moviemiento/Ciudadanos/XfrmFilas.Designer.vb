@@ -28,16 +28,12 @@ Partial Class XfrmFilas
         Me.Label2 = New System.Windows.Forms.Label
         Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
         Me.CmbDepartamento = New DevExpress.XtraEditors.LookUpEdit
-        Me.TADEPARTAMENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DSDeptoMuni = New Inscripcion_de_Moviemientos.DSDeptoMuni
         Me.CmbMunicipio = New DevExpress.XtraEditors.LookUpEdit
-        Me.TAMUNICIPIOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CmbMovimiento = New DevExpress.XtraEditors.LookUpEdit
         Me.TAMOVIMIENTOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DSPolitico = New Inscripcion_de_Moviemientos.DSPolitico
         Me.TxtFolio = New DevExpress.XtraEditors.TextEdit
         Me.Label3 = New System.Windows.Forms.Label
-        Me.TA_DEPARTAMENTOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_DEPARTAMENTOSTableAdapter
         Me.Label4 = New System.Windows.Forms.Label
         Me.Label5 = New System.Windows.Forms.Label
         Me.Label6 = New System.Windows.Forms.Label
@@ -49,19 +45,20 @@ Partial Class XfrmFilas
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton
         Me.Label1 = New System.Windows.Forms.Label
         Me.PictureEdit2 = New DevExpress.XtraEditors.PictureEdit
-        Me.TA_MUNICIPIOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_MUNICIPIOSTableAdapter
         Me.TA_MOVIMIENTOTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_MOVIMIENTOTableAdapter
         Me.TA_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_PARTIDOS_POLITICOSTableAdapter
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
+        Me.TADEPARTAMENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DSDeptoMuni = New Inscripcion_de_Moviemientos.DSDeptoMuni
+        Me.TAMUNICIPIOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TA_DEPARTAMENTOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_DEPARTAMENTOSTableAdapter
+        Me.TA_MUNICIPIOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_MUNICIPIOSTableAdapter
         Me.BtnCrear = New DevExpress.XtraEditors.SimpleButton
         Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
         CType(Me.TxtFilas.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CmbDepartamento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TADEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CmbMunicipio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TAMUNICIPIOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CmbMovimiento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TAMOVIMIENTOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -73,11 +70,14 @@ Partial Class XfrmFilas
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl2.SuspendLayout()
         CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TADEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TAMUNICIPIOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TxtFilas
         '
-        Me.TxtFilas.Location = New System.Drawing.Point(197, 49)
+        Me.TxtFilas.Location = New System.Drawing.Point(203, 39)
         Me.TxtFilas.Name = "TxtFilas"
         Me.TxtFilas.Properties.MaxLength = 3
         Me.TxtFilas.Size = New System.Drawing.Size(37, 20)
@@ -90,7 +90,7 @@ Partial Class XfrmFilas
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(11, 52)
+        Me.Label2.Location = New System.Drawing.Point(17, 42)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(180, 14)
         Me.Label2.TabIndex = 2
@@ -113,16 +113,6 @@ Partial Class XfrmFilas
         ConditionValidationRule2.ErrorText = "Valor Inválido"
         Me.DxValidationProvider1.SetValidationRule(Me.CmbDepartamento, ConditionValidationRule2)
         '
-        'TADEPARTAMENTOSBindingSource
-        '
-        Me.TADEPARTAMENTOSBindingSource.DataMember = "TA_DEPARTAMENTOS"
-        Me.TADEPARTAMENTOSBindingSource.DataSource = Me.DSDeptoMuni
-        '
-        'DSDeptoMuni
-        '
-        Me.DSDeptoMuni.DataSetName = "DSDeptoMuni"
-        Me.DSDeptoMuni.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'CmbMunicipio
         '
         Me.CmbMunicipio.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TAMUNICIPIOSBindingSource, "CODIGO_MUNICIPIO", True))
@@ -140,18 +130,13 @@ Partial Class XfrmFilas
         ConditionValidationRule3.ErrorText = "Valor Inválido"
         Me.DxValidationProvider1.SetValidationRule(Me.CmbMunicipio, ConditionValidationRule3)
         '
-        'TAMUNICIPIOSBindingSource
-        '
-        Me.TAMUNICIPIOSBindingSource.DataMember = "TA_MUNICIPIOS"
-        Me.TAMUNICIPIOSBindingSource.DataSource = Me.DSDeptoMuni
-        '
         'CmbMovimiento
         '
         Me.CmbMovimiento.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TAMOVIMIENTOBindingSource, "CODIGO_MOVIMIENTO", True))
         Me.CmbMovimiento.Location = New System.Drawing.Point(309, 29)
         Me.CmbMovimiento.Name = "CmbMovimiento"
         Me.CmbMovimiento.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.CmbMovimiento.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE_MOVIMIENTO", "Movimiento", 123, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.Ascending)})
+        Me.CmbMovimiento.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MOVIMIENTO", "CODIGO_MOVIMIENTO", 30, DevExpress.Utils.FormatType.Numeric, "", False, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE_MOVIMIENTO", "Movimiento", 123, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.CmbMovimiento.Properties.DataSource = Me.TAMOVIMIENTOBindingSource
         Me.CmbMovimiento.Properties.DisplayMember = "NOMBRE_MOVIMIENTO"
         Me.CmbMovimiento.Properties.NullText = "Seleccione"
@@ -174,7 +159,7 @@ Partial Class XfrmFilas
         '
         'TxtFolio
         '
-        Me.TxtFolio.Location = New System.Drawing.Point(197, 89)
+        Me.TxtFolio.Location = New System.Drawing.Point(203, 79)
         Me.TxtFolio.Name = "TxtFolio"
         Me.TxtFolio.Properties.MaxLength = 3
         Me.TxtFolio.Size = New System.Drawing.Size(37, 20)
@@ -184,15 +169,11 @@ Partial Class XfrmFilas
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(11, 91)
+        Me.Label3.Location = New System.Drawing.Point(17, 81)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(162, 14)
+        Me.Label3.Size = New System.Drawing.Size(160, 14)
         Me.Label3.TabIndex = 3
-        Me.Label3.Text = "Número de Folio (opcional) :"
-        '
-        'TA_DEPARTAMENTOSTableAdapter
-        '
-        Me.TA_DEPARTAMENTOSTableAdapter.ClearBeforeFill = True
+        Me.Label3.Text = "Número de folio (opcional) :"
         '
         'Label4
         '
@@ -240,9 +221,9 @@ Partial Class XfrmFilas
         Me.GroupControl1.Controls.Add(Me.CmbMunicipio)
         Me.GroupControl1.Controls.Add(Me.Label5)
         Me.GroupControl1.Controls.Add(Me.CmbMovimiento)
-        Me.GroupControl1.Location = New System.Drawing.Point(12, 177)
+        Me.GroupControl1.Location = New System.Drawing.Point(12, 211)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(476, 117)
+        Me.GroupControl1.Size = New System.Drawing.Size(481, 117)
         Me.GroupControl1.TabIndex = 2
         Me.GroupControl1.Text = "Información General"
         '
@@ -273,7 +254,7 @@ Partial Class XfrmFilas
         Me.GroupControl2.Controls.Add(Me.Label3)
         Me.GroupControl2.Controls.Add(Me.Label2)
         Me.GroupControl2.Controls.Add(Me.TxtFilas)
-        Me.GroupControl2.Location = New System.Drawing.Point(12, 8)
+        Me.GroupControl2.Location = New System.Drawing.Point(12, 12)
         Me.GroupControl2.Name = "GroupControl2"
         Me.GroupControl2.Size = New System.Drawing.Size(481, 163)
         Me.GroupControl2.TabIndex = 21
@@ -293,9 +274,9 @@ Partial Class XfrmFilas
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(278, 21)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(177, 14)
+        Me.Label1.Size = New System.Drawing.Size(175, 14)
         Me.Label1.TabIndex = 5
-        Me.Label1.Text = "Imágen de la Pagina (Opcional)"
+        Me.Label1.Text = "Imágen de la Pagina (opcional)"
         '
         'PictureEdit2
         '
@@ -306,10 +287,6 @@ Partial Class XfrmFilas
         Me.PictureEdit2.Size = New System.Drawing.Size(100, 89)
         Me.PictureEdit2.TabIndex = 4
         '
-        'TA_MUNICIPIOSTableAdapter
-        '
-        Me.TA_MUNICIPIOSTableAdapter.ClearBeforeFill = True
-        '
         'TA_MOVIMIENTOTableAdapter
         '
         Me.TA_MOVIMIENTOTableAdapter.ClearBeforeFill = True
@@ -318,13 +295,40 @@ Partial Class XfrmFilas
         '
         Me.TA_PARTIDOS_POLITICOSTableAdapter.ClearBeforeFill = True
         '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'TADEPARTAMENTOSBindingSource
+        '
+        Me.TADEPARTAMENTOSBindingSource.DataMember = "TA_DEPARTAMENTOS"
+        Me.TADEPARTAMENTOSBindingSource.DataSource = Me.DSDeptoMuni
+        '
+        'DSDeptoMuni
+        '
+        Me.DSDeptoMuni.DataSetName = "DSDeptoMuni"
+        Me.DSDeptoMuni.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'TAMUNICIPIOSBindingSource
+        '
+        Me.TAMUNICIPIOSBindingSource.DataMember = "TA_MUNICIPIOS"
+        Me.TAMUNICIPIOSBindingSource.DataSource = Me.DSDeptoMuni
+        '
+        'TA_DEPARTAMENTOSTableAdapter
+        '
+        Me.TA_DEPARTAMENTOSTableAdapter.ClearBeforeFill = True
+        '
+        'TA_MUNICIPIOSTableAdapter
+        '
+        Me.TA_MUNICIPIOSTableAdapter.ClearBeforeFill = True
+        '
         'BtnCrear
         '
         Me.BtnCrear.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
         Me.BtnCrear.Appearance.Options.UseFont = True
         Me.BtnCrear.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.agregar
         Me.BtnCrear.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnCrear.Location = New System.Drawing.Point(180, 300)
+        Me.BtnCrear.Location = New System.Drawing.Point(180, 334)
         Me.BtnCrear.Name = "BtnCrear"
         Me.BtnCrear.Size = New System.Drawing.Size(55, 55)
         Me.BtnCrear.TabIndex = 26
@@ -336,21 +340,17 @@ Partial Class XfrmFilas
         Me.BtnSalir.Appearance.Options.UseFont = True
         Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
         Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnSalir.Location = New System.Drawing.Point(290, 300)
+        Me.BtnSalir.Location = New System.Drawing.Point(290, 334)
         Me.BtnSalir.Name = "BtnSalir"
         Me.BtnSalir.Size = New System.Drawing.Size(55, 55)
         Me.BtnSalir.TabIndex = 25
         Me.BtnSalir.Text = "Salir"
         '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
         'XfrmFilas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(505, 358)
+        Me.ClientSize = New System.Drawing.Size(505, 401)
         Me.ControlBox = False
         Me.Controls.Add(Me.BtnCrear)
         Me.Controls.Add(Me.BtnSalir)
@@ -363,10 +363,7 @@ Partial Class XfrmFilas
         CType(Me.TxtFilas.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CmbDepartamento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TADEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CmbMunicipio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TAMUNICIPIOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CmbMovimiento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TAMOVIMIENTOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).EndInit()
@@ -380,6 +377,9 @@ Partial Class XfrmFilas
         Me.GroupControl2.ResumeLayout(False)
         Me.GroupControl2.PerformLayout()
         CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TADEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TAMUNICIPIOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
