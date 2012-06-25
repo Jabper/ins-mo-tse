@@ -32,11 +32,13 @@ Public Class XfrmCiudadanos
     End Sub
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
         Me.Close()
+        
+
+
+
     End Sub
 
-    Private Sub GridView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.Click
-        MsgBox(GridView1.FocusedRowHandle)
-    End Sub
+ 
 
     Private Sub GridView1_CustomColumnDisplayText(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs) Handles GridView1.CustomColumnDisplayText
 
@@ -85,8 +87,12 @@ Public Class XfrmCiudadanos
                 e.Valid = False
 
             End If
+            Dim a As String = "select IDENTIDAD from IM_CIUDADANOS_RESPALDAN where IDENTIDAD='" & e.Value.ToString & "' and CODIGO_PARTIDO=" & idpartido & " and CODIGO_MOVIMIENTO=" & idmovimiento
+            If COracle.ObtenerDatos(a, "IDENTIDAD") <> "N" Then
+                mensajeerror = "Este firmante ya existe en su lista"
+                e.Valid = False
+            End If
         End If
-       
     End Sub
 
     Sub salir()
@@ -102,11 +108,13 @@ Public Class XfrmCiudadanos
         End If
     End Sub
     Sub estadistico()
+        CREstadistico.AsignarVariables(idpartido, idmovimiento)
         CREstadistico.calcular()
         Me.lblconsistentes.Text = Math.Round(CREstadistico.Firmasmovimiento, 0)
         Me.lblporcentaje.Text = Math.Round(CREstadistico.porcentaje, 2) & "%"
         Me.lblfirmasnecesarias.Text = Math.Round(CREstadistico.TotalFirmas, 0)
         Me.lblinconsistentes.Text = Math.Round(CREstadistico.FirmasInconsistentes, 0)
+        lbltodos.Text = Math.Round((CREstadistico.Firmasmovimiento + CREstadistico.FirmasInconsistentes), 0)
     End Sub
     Private Sub XfrmCiudadanos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
        Me.MdiParent = XFrmMenuPrincipal
@@ -144,8 +152,9 @@ Public Class XfrmCiudadanos
 
         Estado.Visible = False
         lblfolio.Text = folio
-        pagina = COracle.FUN_EJECUTAR_SEQ("IM_SQ2_CIUDADANOS_RESPALDAN")
-       
+        Dim sqlc As String = "select nvl((max(PAGINA) +1 ),1) as PAGINA  from IM_CIUDADANOS_RESPALDAN where CODIGO_PARTIDO=" & idpartido & " and CODIGO_MOVIMIENTO=" & idmovimiento
+        pagina = COracle.ObtenerDatos(sqlc, "PAGINA")
+        lblpagina.Text = pagina
     End Sub
     Private Sub CmbPartido_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CmbPartido.EditValueChanged
         Try
@@ -208,7 +217,7 @@ Public Class XfrmCiudadanos
         ElseIf ArregloDeErrores > 1 Or guardados <> view.DataRowCount Then
             'SI NO GUARDO TODOS LOS DATOS
             Dim consis As Integer = guardados - noinconsistentes
-            Dim mensaje As String = "Registros consistentes: " & consis & vbCrLf & "Registros con inconsistencia:" & noinconsistentes & vbCrLf & "Total de Registros Guardados: " & guardados & "¿Desea terminar de editar los registros vacíos e incompletos ?" & vbCrLf & "Presione No para Salir"
+            Dim mensaje As String = "Registros consistentes: " & consis & vbCrLf & "Registros con inconsistencia:" & noinconsistentes & vbCrLf & "Total de Registros Guardados: " & guardados & vbCrLf & "¿Desea terminar de editar los registros vacíos e incompletos ?" & vbCrLf & "Presione No para Salir"
             If XtraMessageBox.Show(mensaje, "Mensaje de Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
 
                 Me.Estado.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("Estado= 'False'")
@@ -373,19 +382,19 @@ Public Class XfrmCiudadanos
                     Observacion &= "El segundo apellido no coincide con el del padrón electoral "
                 End If
 
-                If view.GetRowCellValue(i, "FIRMA").ToString = "N" Then
+                If view.GetRowCellValue(view.FocusedRowHandle, "FIRMA") Is Nothing Or IsDBNull(view.GetRowCellValue(view.FocusedRowHandle, "FIRMA")) Or view.GetRowCellValue(view.FocusedRowHandle, "FIRMA").ToString = "N" Then
                     inconsistente = "N"
 
                     Observacion &= "No presenta firma"
                 End If
 
-                If view.GetRowCellValue(i, "HUELLA").ToString = "N" Then
+                If view.GetRowCellValue(view.FocusedRowHandle, "HUELLA") Is Nothing Or IsDBNull(view.GetRowCellValue(view.FocusedRowHandle, "HUELLA")) Or view.GetRowCellValue(view.FocusedRowHandle, "HUELLA").ToString = "N" Then
                     inconsistente = "N"
 
                     Observacion &= "No presenta huella"
                 End If
 
-                If view.GetRowCellValue(i, "DIRECCION").ToString = "N" Then
+                If view.GetRowCellValue(view.FocusedRowHandle, "DIRECCION") Is Nothing Or IsDBNull(view.GetRowCellValue(view.FocusedRowHandle, "DIRECCION")) Or view.GetRowCellValue(view.FocusedRowHandle, "DIRECCION").ToString = "N" Then
                     inconsistente = "N"
 
                     Observacion &= "No presenta dirección"
@@ -480,4 +489,7 @@ Public Class XfrmCiudadanos
 
 
 
+    Private Sub PanelControl2_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles PanelControl2.Paint
+
+    End Sub
 End Class

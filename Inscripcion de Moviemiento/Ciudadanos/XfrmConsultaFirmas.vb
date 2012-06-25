@@ -19,6 +19,7 @@ Public Class XfrmConsultaFirmas
     Public idmovimiento As Integer
     Public folio As String
     Dim booleanerror As Boolean = False
+    Dim mensajeerror As String
     Public Sub New()
 
         ' Llamada necesaria para el Diseñador de Windows Forms.
@@ -51,8 +52,8 @@ Public Class XfrmConsultaFirmas
 
     Private Sub GridView1_InvalidValueException(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs) Handles GridView1.InvalidValueException
         e.ExceptionMode = ExceptionMode.DisplayError
-        e.WindowCaption = "Valor Inválido"
-        e.ErrorText = "El campo no puede estar vacío"
+        e.WindowCaption = "error"
+        e.ErrorText = mensajeerror
         GridView1.HideEditor()
 
     End Sub
@@ -228,6 +229,25 @@ Public Class XfrmConsultaFirmas
                     NombreIgual = "N"
                     Observacion &= "El segundo apellido no coincide con el del padrón electoral "
                 End If
+
+
+                If view.GetRowCellValue(view.FocusedRowHandle, "FIRMA") Is Nothing Or IsDBNull(view.GetRowCellValue(view.FocusedRowHandle, "FIRMA")) Or view.GetRowCellValue(view.FocusedRowHandle, "FIRMA").ToString = "N" Then
+                    inconsistente = "N"
+
+                    Observacion &= "No presenta firma"
+                End If
+
+                If view.GetRowCellValue(view.FocusedRowHandle, "HUELLA") Is Nothing Or IsDBNull(view.GetRowCellValue(view.FocusedRowHandle, "HUELLA")) Or view.GetRowCellValue(view.FocusedRowHandle, "HUELLA").ToString = "N" Then
+                    inconsistente = "N"
+
+                    Observacion &= "No presenta huella"
+                End If
+
+                If view.GetRowCellValue(view.FocusedRowHandle, "DIRECCION") Is Nothing Or IsDBNull(view.GetRowCellValue(view.FocusedRowHandle, "DIRECCION")) Or view.GetRowCellValue(view.FocusedRowHandle, "DIRECCION").ToString = "N" Then
+                    inconsistente = "N"
+
+                    Observacion &= "No presenta dirección"
+                End If
             Else
                 inconsistente = "N"
                 Observacion = "Identidad no encontrada en el padrón electoral"
@@ -325,6 +345,27 @@ Public Class XfrmConsultaFirmas
         If view.FocusedColumn.FieldName = "PRIMER_NOMBRE_PAPELETA" Or view.FocusedColumn.FieldName = "PRIMER_APELLIDO_PAPELETA" Or view.FocusedColumn.FieldName = "IDENTIDAD" Then
             e.Valid = e.Value IsNot Nothing AndAlso Not e.Value.Equals(String.Empty)
 
+        End If
+
+        If view.FocusedColumn.FieldName = "IDENTIDAD" Then
+
+            If e.Value.ToString.Length <> 13 Then
+                mensajeerror = "El número de digitos en el campo Identidad es incorrecto debe de ser igual a 13 digitos"
+                e.Valid = False
+
+            End If
+
+            If IsNumeric(e.Value) = False Then
+                mensajeerror = "El valor del número de indentidad debe de ser un valor numérico"
+                e.Valid = False
+            End If
+
+            Dim a As String = "select IDENTIDAD from IM_CIUDADANOS_RESPALDAN where IDENTIDAD='" & e.Value.ToString & "' and CODIGO_PARTIDO=" & idpartido & " and CODIGO_MOVIMIENTO=" & idmovimiento
+            If COracle.ObtenerDatos(a, "IDENTIDAD") <> "N" Then
+                mensajeerror = "Este firmante ya existe en su lista"
+                e.Valid = False
+            End If
+           
         End If
 
     End Sub

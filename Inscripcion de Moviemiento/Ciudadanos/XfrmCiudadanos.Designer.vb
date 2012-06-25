@@ -23,6 +23,10 @@ Partial Class XfrmCiudadanos
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
         Me.Label1 = New System.Windows.Forms.Label
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl
+        Me.lbltodos = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl
         Me.lblfirmasnecesarias = New DevExpress.XtraEditors.LabelControl
         Me.LabelControl12 = New DevExpress.XtraEditors.LabelControl
         Me.lblporcentaje = New DevExpress.XtraEditors.LabelControl
@@ -46,6 +50,8 @@ Partial Class XfrmCiudadanos
         Me.CmbPartido = New DevExpress.XtraEditors.LookUpEdit
         Me.TAPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
+        Me.lblpagina = New System.Windows.Forms.Label
+        Me.Label3 = New System.Windows.Forms.Label
         Me.lblfolio = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
@@ -96,7 +102,6 @@ Partial Class XfrmCiudadanos
         Me.TA_MUNICIPIOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_MUNICIPIOSTableAdapter
         Me.IM_CIUDADANOS_RESPALDAN1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_CIUDADANOS_RESPALDAN1TableAdapter = New Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.IM_CIUDADANOS_RESPALDAN1TableAdapter
-        Me.Label3 = New System.Windows.Forms.Label
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -181,6 +186,10 @@ Partial Class XfrmCiudadanos
         Me.PanelControl2.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.PanelControl2.Appearance.Options.UseBackColor = True
         Me.PanelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl2.Controls.Add(Me.lbltodos)
+        Me.PanelControl2.Controls.Add(Me.LabelControl3)
+        Me.PanelControl2.Controls.Add(Me.LabelControl2)
+        Me.PanelControl2.Controls.Add(Me.LabelControl1)
         Me.PanelControl2.Controls.Add(Me.lblfirmasnecesarias)
         Me.PanelControl2.Controls.Add(Me.LabelControl12)
         Me.PanelControl2.Controls.Add(Me.lblporcentaje)
@@ -198,12 +207,55 @@ Partial Class XfrmCiudadanos
         Me.PanelControl2.Size = New System.Drawing.Size(712, 93)
         Me.PanelControl2.TabIndex = 16
         '
+        'lbltodos
+        '
+        Me.lbltodos.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.lbltodos.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbltodos.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lbltodos.Location = New System.Drawing.Point(330, 19)
+        Me.lbltodos.Name = "lbltodos"
+        Me.lbltodos.Size = New System.Drawing.Size(56, 14)
+        Me.lbltodos.TabIndex = 37
+        Me.lbltodos.Text = "Registro "
+        '
+        'LabelControl3
+        '
+        Me.LabelControl3.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl3.Appearance.ForeColor = System.Drawing.Color.Gray
+        Me.LabelControl3.Location = New System.Drawing.Point(228, 60)
+        Me.LabelControl3.Name = "LabelControl3"
+        Me.LabelControl3.Size = New System.Drawing.Size(94, 14)
+        Me.LabelControl3.TabIndex = 36
+        Me.LabelControl3.Text = "Inconsistentes:"
+        '
+        'LabelControl2
+        '
+        Me.LabelControl2.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl2.Appearance.ForeColor = System.Drawing.Color.Gray
+        Me.LabelControl2.Location = New System.Drawing.Point(228, 40)
+        Me.LabelControl2.Name = "LabelControl2"
+        Me.LabelControl2.Size = New System.Drawing.Size(83, 14)
+        Me.LabelControl2.TabIndex = 35
+        Me.LabelControl2.Text = "Consistentes:"
+        '
+        'LabelControl1
+        '
+        Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl1.Appearance.ForeColor = System.Drawing.Color.OrangeRed
+        Me.LabelControl1.Location = New System.Drawing.Point(24, 12)
+        Me.LabelControl1.Name = "LabelControl1"
+        Me.LabelControl1.Size = New System.Drawing.Size(167, 14)
+        Me.LabelControl1.TabIndex = 25
+        Me.LabelControl1.Text = "Indicadores de Verificación:"
+        '
         'lblfirmasnecesarias
         '
         Me.lblfirmasnecesarias.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblfirmasnecesarias.Appearance.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblfirmasnecesarias.Appearance.ForeColor = System.Drawing.Color.DarkCyan
-        Me.lblfirmasnecesarias.Location = New System.Drawing.Point(384, 47)
+        Me.lblfirmasnecesarias.Location = New System.Drawing.Point(434, 43)
         Me.lblfirmasnecesarias.Name = "lblfirmasnecesarias"
         Me.lblfirmasnecesarias.Size = New System.Drawing.Size(64, 25)
         Me.lblfirmasnecesarias.TabIndex = 34
@@ -214,9 +266,10 @@ Partial Class XfrmCiudadanos
         Me.LabelControl12.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.LabelControl12.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl12.Appearance.ForeColor = System.Drawing.Color.DarkCyan
-        Me.LabelControl12.Location = New System.Drawing.Point(348, 12)
+        Me.LabelControl12.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical
+        Me.LabelControl12.Location = New System.Drawing.Point(428, 12)
         Me.LabelControl12.Name = "LabelControl12"
-        Me.LabelControl12.Size = New System.Drawing.Size(139, 14)
+        Me.LabelControl12.Size = New System.Drawing.Size(87, 28)
         Me.LabelControl12.TabIndex = 33
         Me.LabelControl12.Text = "Total Firmas Necesarias"
         '
@@ -225,7 +278,7 @@ Partial Class XfrmCiudadanos
         Me.lblporcentaje.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblporcentaje.Appearance.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblporcentaje.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.lblporcentaje.Location = New System.Drawing.Point(572, 47)
+        Me.lblporcentaje.Location = New System.Drawing.Point(570, 46)
         Me.lblporcentaje.Name = "lblporcentaje"
         Me.lblporcentaje.Size = New System.Drawing.Size(64, 25)
         Me.lblporcentaje.TabIndex = 32
@@ -236,9 +289,10 @@ Partial Class XfrmCiudadanos
         Me.LabelControl11.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.LabelControl11.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl11.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.LabelControl11.Location = New System.Drawing.Point(516, 12)
+        Me.LabelControl11.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical
+        Me.LabelControl11.Location = New System.Drawing.Point(548, 12)
         Me.LabelControl11.Name = "LabelControl11"
-        Me.LabelControl11.Size = New System.Drawing.Size(189, 14)
+        Me.LabelControl11.Size = New System.Drawing.Size(124, 28)
         Me.LabelControl11.TabIndex = 31
         Me.LabelControl11.Text = "Porcentaje de Firmas Correctas"
         '
@@ -246,7 +300,7 @@ Partial Class XfrmCiudadanos
         '
         Me.lblinconsistentes.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblinconsistentes.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblinconsistentes.Location = New System.Drawing.Point(240, 70)
+        Me.lblinconsistentes.Location = New System.Drawing.Point(328, 60)
         Me.lblinconsistentes.Name = "lblinconsistentes"
         Me.lblinconsistentes.Size = New System.Drawing.Size(56, 14)
         Me.lblinconsistentes.TabIndex = 30
@@ -257,17 +311,17 @@ Partial Class XfrmCiudadanos
         Me.LabelControl10.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.LabelControl10.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl10.Appearance.ForeColor = System.Drawing.Color.Orange
-        Me.LabelControl10.Location = New System.Drawing.Point(222, 12)
+        Me.LabelControl10.Location = New System.Drawing.Point(227, 20)
         Me.LabelControl10.Name = "LabelControl10"
-        Me.LabelControl10.Size = New System.Drawing.Size(93, 14)
+        Me.LabelControl10.Size = New System.Drawing.Size(97, 14)
         Me.LabelControl10.TabIndex = 29
-        Me.LabelControl10.Text = "Total Registros"
+        Me.LabelControl10.Text = "Total Registros:"
         '
         'lblconsistentes
         '
         Me.lblconsistentes.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblconsistentes.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblconsistentes.Location = New System.Drawing.Point(240, 32)
+        Me.lblconsistentes.Location = New System.Drawing.Point(328, 40)
         Me.lblconsistentes.Name = "lblconsistentes"
         Me.lblconsistentes.Size = New System.Drawing.Size(56, 14)
         Me.lblconsistentes.TabIndex = 28
@@ -277,16 +331,16 @@ Partial Class XfrmCiudadanos
         '
         Me.LabelControl6.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl6.Location = New System.Drawing.Point(41, 70)
+        Me.LabelControl6.Location = New System.Drawing.Point(41, 63)
         Me.LabelControl6.Name = "LabelControl6"
-        Me.LabelControl6.Size = New System.Drawing.Size(150, 14)
+        Me.LabelControl6.Size = New System.Drawing.Size(160, 14)
         Me.LabelControl6.TabIndex = 25
-        Me.LabelControl6.Text = "Registros inconsistentes"
+        Me.LabelControl6.Text = "Registros no almacenados"
         '
         'PictureEdit3
         '
         Me.PictureEdit3.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.errorIcon
-        Me.PictureEdit3.Location = New System.Drawing.Point(11, 66)
+        Me.PictureEdit3.Location = New System.Drawing.Point(11, 59)
         Me.PictureEdit3.Name = "PictureEdit3"
         Me.PictureEdit3.Properties.AllowFocused = False
         Me.PictureEdit3.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
@@ -303,15 +357,15 @@ Partial Class XfrmCiudadanos
         Me.LabelControl7.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl7.Location = New System.Drawing.Point(41, 36)
         Me.LabelControl7.Name = "LabelControl7"
-        Me.LabelControl7.Size = New System.Drawing.Size(141, 14)
+        Me.LabelControl7.Size = New System.Drawing.Size(134, 14)
         Me.LabelControl7.TabIndex = 27
-        Me.LabelControl7.Text = "Registros Consistentes"
+        Me.LabelControl7.Text = "Registros almacenado"
         '
         'LabelControl8
         '
         Me.LabelControl8.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl8.Appearance.ForeColor = System.Drawing.Color.OrangeRed
-        Me.LabelControl8.Location = New System.Drawing.Point(11, 12)
+        Me.LabelControl8.Location = New System.Drawing.Point(12, 192)
         Me.LabelControl8.Name = "LabelControl8"
         Me.LabelControl8.Size = New System.Drawing.Size(167, 14)
         Me.LabelControl8.TabIndex = 24
@@ -334,7 +388,7 @@ Partial Class XfrmCiudadanos
         'CmbMunicipio
         '
         Me.CmbMunicipio.Enabled = False
-        Me.CmbMunicipio.Location = New System.Drawing.Point(337, 126)
+        Me.CmbMunicipio.Location = New System.Drawing.Point(391, 126)
         Me.CmbMunicipio.Name = "CmbMunicipio"
         Me.CmbMunicipio.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CmbMunicipio.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MUNICIPIO", "Código", 30, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.Ascending), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Departamento", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
@@ -342,7 +396,7 @@ Partial Class XfrmCiudadanos
         Me.CmbMunicipio.Properties.DisplayMember = "DESCRIPCION"
         Me.CmbMunicipio.Properties.NullText = "Seleccione"
         Me.CmbMunicipio.Properties.ValueMember = "CODIGO_MUNICIPIO"
-        Me.CmbMunicipio.Size = New System.Drawing.Size(184, 20)
+        Me.CmbMunicipio.Size = New System.Drawing.Size(260, 20)
         Me.CmbMunicipio.StyleController = Me.LayoutControl1
         Me.CmbMunicipio.TabIndex = 12
         '
@@ -367,7 +421,7 @@ Partial Class XfrmCiudadanos
         Me.CmbDepartamento.Properties.DisplayMember = "DESCRIPCION"
         Me.CmbDepartamento.Properties.NullText = "Seleccione"
         Me.CmbDepartamento.Properties.ValueMember = "CODIGO_DEPARTAMENTO"
-        Me.CmbDepartamento.Size = New System.Drawing.Size(175, 20)
+        Me.CmbDepartamento.Size = New System.Drawing.Size(229, 20)
         Me.CmbDepartamento.StyleController = Me.LayoutControl1
         Me.CmbDepartamento.TabIndex = 11
         '
@@ -380,7 +434,7 @@ Partial Class XfrmCiudadanos
         '
         Me.CmbMovimiento.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TAMOVIMIENTOBindingSource, "CODIGO_MOVIMIENTO", True))
         Me.CmbMovimiento.Enabled = False
-        Me.CmbMovimiento.Location = New System.Drawing.Point(337, 102)
+        Me.CmbMovimiento.Location = New System.Drawing.Point(392, 102)
         Me.CmbMovimiento.Name = "CmbMovimiento"
         Me.CmbMovimiento.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CmbMovimiento.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MOVIMIENTO", "CODIGO_MOVIMIENTO", 135, DevExpress.Utils.FormatType.Numeric, "", False, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE_MOVIMIENTO", "Movimiento", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.Ascending)})
@@ -388,7 +442,7 @@ Partial Class XfrmCiudadanos
         Me.CmbMovimiento.Properties.DisplayMember = "NOMBRE_MOVIMIENTO"
         Me.CmbMovimiento.Properties.NullText = "Seleccione"
         Me.CmbMovimiento.Properties.ValueMember = "CODIGO_MOVIMIENTO"
-        Me.CmbMovimiento.Size = New System.Drawing.Size(184, 20)
+        Me.CmbMovimiento.Size = New System.Drawing.Size(258, 20)
         Me.CmbMovimiento.StyleController = Me.LayoutControl1
         Me.CmbMovimiento.TabIndex = 10
         '
@@ -414,7 +468,7 @@ Partial Class XfrmCiudadanos
         Me.CmbPartido.Properties.DisplayMember = "NOMBRE"
         Me.CmbPartido.Properties.NullText = "Seleccione"
         Me.CmbPartido.Properties.ValueMember = "CODIGO_PARTIDO"
-        Me.CmbPartido.Size = New System.Drawing.Size(175, 20)
+        Me.CmbPartido.Size = New System.Drawing.Size(230, 20)
         Me.CmbPartido.StyleController = Me.LayoutControl1
         Me.CmbPartido.TabIndex = 9
         '
@@ -428,6 +482,7 @@ Partial Class XfrmCiudadanos
         Me.PanelControl1.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.PanelControl1.Appearance.Options.UseBackColor = True
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl1.Controls.Add(Me.lblpagina)
         Me.PanelControl1.Controls.Add(Me.Label3)
         Me.PanelControl1.Controls.Add(Me.lblfolio)
         Me.PanelControl1.Controls.Add(Me.Label2)
@@ -437,21 +492,40 @@ Partial Class XfrmCiudadanos
         Me.PanelControl1.Size = New System.Drawing.Size(640, 86)
         Me.PanelControl1.TabIndex = 4
         '
+        'lblpagina
+        '
+        Me.lblpagina.AutoSize = True
+        Me.lblpagina.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblpagina.Location = New System.Drawing.Point(268, 67)
+        Me.lblpagina.Name = "lblpagina"
+        Me.lblpagina.Size = New System.Drawing.Size(59, 14)
+        Me.lblpagina.TabIndex = 13
+        Me.lblpagina.Text = "asdfasdf"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(143, 67)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(122, 14)
+        Me.Label3.TabIndex = 12
+        Me.Label3.Text = "Número de Página:"
+        '
         'lblfolio
         '
         Me.lblfolio.AutoSize = True
         Me.lblfolio.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblfolio.Location = New System.Drawing.Point(361, 53)
+        Me.lblfolio.Location = New System.Drawing.Point(453, 67)
         Me.lblfolio.Name = "lblfolio"
-        Me.lblfolio.Size = New System.Drawing.Size(59, 14)
+        Me.lblfolio.Size = New System.Drawing.Size(0, 14)
         Me.lblfolio.TabIndex = 11
-        Me.lblfolio.Text = "asdfasdf"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(259, 53)
+        Me.Label2.Location = New System.Drawing.Point(345, 67)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(109, 14)
         Me.Label2.TabIndex = 3
@@ -711,8 +785,11 @@ Partial Class XfrmCiudadanos
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
         Me.EmptySpaceItem2.Location = New System.Drawing.Point(644, 0)
+        Me.EmptySpaceItem2.MaxSize = New System.Drawing.Size(82, 90)
+        Me.EmptySpaceItem2.MinSize = New System.Drawing.Size(82, 90)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
         Me.EmptySpaceItem2.Size = New System.Drawing.Size(82, 90)
+        Me.EmptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -744,9 +821,9 @@ Partial Class XfrmCiudadanos
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(513, 90)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(642, 90)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(213, 24)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(84, 24)
         Me.EmptySpaceItem1.Text = "EmptySpaceItem1"
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -756,7 +833,7 @@ Partial Class XfrmCiudadanos
         Me.LayoutControlItem3.CustomizationFormText = "Partido"
         Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 90)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(252, 24)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(307, 24)
         Me.LayoutControlItem3.Text = "Partido"
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(69, 13)
         '
@@ -764,9 +841,9 @@ Partial Class XfrmCiudadanos
         '
         Me.LayoutControlItem4.Control = Me.CmbMovimiento
         Me.LayoutControlItem4.CustomizationFormText = "Movimiento"
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(252, 90)
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(307, 90)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(261, 24)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(335, 24)
         Me.LayoutControlItem4.Text = "Movimiento"
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(69, 13)
         '
@@ -776,7 +853,7 @@ Partial Class XfrmCiudadanos
         Me.LayoutControlItem5.CustomizationFormText = "Departamento"
         Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 114)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(252, 24)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(306, 24)
         Me.LayoutControlItem5.Text = "Departamento"
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(69, 13)
         '
@@ -784,9 +861,9 @@ Partial Class XfrmCiudadanos
         '
         Me.LayoutControlItem6.Control = Me.CmbMunicipio
         Me.LayoutControlItem6.CustomizationFormText = "Municipio"
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(252, 114)
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(306, 114)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(261, 24)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(337, 24)
         Me.LayoutControlItem6.Text = "Municipio"
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(69, 13)
         '
@@ -794,9 +871,9 @@ Partial Class XfrmCiudadanos
         '
         Me.EmptySpaceItem4.AllowHotTrack = False
         Me.EmptySpaceItem4.CustomizationFormText = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Location = New System.Drawing.Point(513, 114)
+        Me.EmptySpaceItem4.Location = New System.Drawing.Point(643, 114)
         Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Size = New System.Drawing.Size(213, 24)
+        Me.EmptySpaceItem4.Size = New System.Drawing.Size(83, 24)
         Me.EmptySpaceItem4.Text = "EmptySpaceItem4"
         Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -878,16 +955,6 @@ Partial Class XfrmCiudadanos
         'IM_CIUDADANOS_RESPALDAN1TableAdapter
         '
         Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.ClearBeforeFill = True
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(260, 34)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(122, 14)
-        Me.Label3.TabIndex = 12
-        Me.Label3.Text = "Número de Página:"
         '
         'XfrmCiudadanos
         '
@@ -1026,4 +1093,9 @@ Partial Class XfrmCiudadanos
     Friend WithEvents EmptySpaceItem5 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents LayoutControlItem8 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents lblpagina As System.Windows.Forms.Label
+    Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents lbltodos As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
 End Class
