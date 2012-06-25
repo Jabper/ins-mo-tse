@@ -390,8 +390,8 @@ Partial Public Class Reporte_de_PlanillaNEM
         Me.DataAdapter = Me.IM_V_PLANILLAS_X_NIVELAdapter1
         Me.DataMember = "IM_V_PLANILLAS_X_NIVEL"
         Me.DataSource = Me.DS_REPORTE_DE_PNEM1
-        Me.FilterString = "[NOMBRE PARTIDO] = ?NombrePartido Or [NOMBRE MOVIMIENTO ] = ?NombreMovimiento Or " & _
-            "[NIVEL ELECTIVO] = ?NivelElectivo"
+        Me.FilterString = "[NOMBRE PARTIDO] = ?NombrePartido And [NOMBRE MOVIMIENTO ] = ?NombreMovimiento An" & _
+            "d [NIVEL ELECTIVO] = ?NivelElectivo"
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(25, 26, 44, 100)
         Me.PageHeight = 850
