@@ -311,4 +311,8 @@ Public Class XFrmMenuPrincipal
 
         End If
     End Sub
+
+    Private Sub btnConsultarPlanilla_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnConsultarPlanilla.ItemClick
+        Padre(XfrmConPlanilla)
+    End Sub
 End Class
