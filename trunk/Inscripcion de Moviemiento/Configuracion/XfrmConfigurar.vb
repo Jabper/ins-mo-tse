@@ -82,7 +82,8 @@ Public Class XfrmConfigurar
     End Sub
 
     Private Sub WizardControl1_FinishClick(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles WizardControl1.FinishClick
-        XFrmMenuPrincipal.Show()
+        XFrmMenuPrincipal.Visible = True
+        XFrmMenuPrincipal.Focus()
         XFrmMenuPrincipal.verificaringreso()
         Me.Close()
     End Sub

@@ -245,7 +245,7 @@ Partial Class XfrmConfigurar
         Me.IDENTIDADTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMUSUARIOSBindingSource, "IDENTIDAD", True))
         Me.IDENTIDADTextEdit.Location = New System.Drawing.Point(126, 60)
         Me.IDENTIDADTextEdit.Name = "IDENTIDADTextEdit"
-        Me.IDENTIDADTextEdit.Properties.MaxLength = 15
+        Me.IDENTIDADTextEdit.Properties.MaxLength = 13
         Me.IDENTIDADTextEdit.Size = New System.Drawing.Size(229, 20)
         Me.IDENTIDADTextEdit.StyleController = Me.DataLayoutControl2
         Me.IDENTIDADTextEdit.TabIndex = 7
