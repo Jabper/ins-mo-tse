@@ -5,7 +5,8 @@ Public Class xfrmInscripcionCandidato
     Dim actualizar As Boolean = False
     Dim id As Integer
     Dim rEstado As String
-
+    Dim IdPartidoPolitico As Integer
+    Dim IdMovimientoPolitico As Integer
     Sub VerificarRequisitos()
         Try
 
