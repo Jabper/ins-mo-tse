@@ -110,6 +110,8 @@ Partial Class xfrmRegCandidatos
         Me.IM_REQUISITOS_X_CANDIDATOTableAdapter = New Inscripcion_de_Moviemientos.DSInsCandidatosTableAdapters.IM_REQUISITOS_X_CANDIDATOTableAdapter
         Me.pctPartido = New DevExpress.XtraEditors.PictureEdit
         Me.PicMovimiento = New DevExpress.XtraEditors.PictureEdit
+        Me.IMVMOSTRARCANDIDATOS2BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IM_V_MOSTRAR_CANDIDATOS2TableAdapter = New Inscripcion_de_Moviemientos.DSInsCandidatosTableAdapters.IM_V_MOSTRAR_CANDIDATOS2TableAdapter
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
@@ -147,6 +149,7 @@ Partial Class xfrmRegCandidatos
         CType(Me.IMREQUISITOSXCANDIDATOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pctPartido.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PicMovimiento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMVMOSTRARCANDIDATOS2BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelControl1
@@ -762,6 +765,7 @@ Partial Class xfrmRegCandidatos
         '
         'GCBusqueda
         '
+        Me.GCBusqueda.DataSource = Me.IMVMOSTRARCANDIDATOS2BindingSource
         Me.GCBusqueda.Location = New System.Drawing.Point(15, 146)
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
@@ -791,7 +795,7 @@ Partial Class xfrmRegCandidatos
         '
         Me.Estado.Caption = "Verificación"
         Me.Estado.ColumnEdit = Me.ChkEstado
-        Me.Estado.FieldName = "NOMBRE_MOVIMIENTO"
+        Me.Estado.FieldName = "POSICION"
         Me.Estado.Name = "Estado"
         Me.Estado.OptionsColumn.AllowEdit = False
         Me.Estado.ToolTip = "Verificar si la Información está correcta"
@@ -1036,6 +1040,15 @@ Partial Class xfrmRegCandidatos
         Me.PicMovimiento.Size = New System.Drawing.Size(53, 42)
         Me.PicMovimiento.TabIndex = 36
         '
+        'IMVMOSTRARCANDIDATOS2BindingSource
+        '
+        Me.IMVMOSTRARCANDIDATOS2BindingSource.DataMember = "IM_V_MOSTRAR_CANDIDATOS2"
+        Me.IMVMOSTRARCANDIDATOS2BindingSource.DataSource = Me.DSInsCandidatos
+        '
+        'IM_V_MOSTRAR_CANDIDATOS2TableAdapter
+        '
+        Me.IM_V_MOSTRAR_CANDIDATOS2TableAdapter.ClearBeforeFill = True
+        '
         'xfrmRegCandidatos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1095,6 +1108,7 @@ Partial Class xfrmRegCandidatos
         CType(Me.IMREQUISITOSXCANDIDATOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pctPartido.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PicMovimiento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMVMOSTRARCANDIDATOS2BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1189,4 +1203,6 @@ Partial Class xfrmRegCandidatos
     Friend WithEvents BtnSalirold As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnEliminariold As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents btnguardarold As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents IMVMOSTRARCANDIDATOS2BindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents IM_V_MOSTRAR_CANDIDATOS2TableAdapter As Inscripcion_de_Moviemientos.DSInsCandidatosTableAdapters.IM_V_MOSTRAR_CANDIDATOS2TableAdapter
 End Class

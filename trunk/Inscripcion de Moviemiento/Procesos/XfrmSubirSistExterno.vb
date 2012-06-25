@@ -1,6 +1,7 @@
 ﻿Imports System.Data.OleDb
 Imports System.Data.OracleClient
 Imports DevExpress.Utils
+Imports System.IO
 
 Public Class XfrmSubirSistExterno
 
@@ -36,7 +37,7 @@ Public Class XfrmSubirSistExterno
                 punto = New Point(Me.BtnCandidatosRepetidos.Location.X - 7.5, Me.BtnCandidatosRepetidos.Location.Y - 7.5)
                 Me.BtnCandidatosRepetidos.Location = punto
                 Exit Sub
-            End If        
+            End If
         End If
         If Me.BtnCandidatosRepetidos.Enabled = True Then
             retorno = subir_candidatos_repetidos(Me.TxtRuta.Text)
@@ -103,6 +104,27 @@ Public Class XfrmSubirSistExterno
         End If
         If Me.BtnMovimiento.Enabled = True Then
             retorno = subir_movimientos(Me.TxtRuta.Text)
+            If retorno = True Then
+                Me.TxtRuta.Text = Nothing
+
+                Me.BtnMovimiento.Height = Me.BtnMovimiento.Height - 15
+                Me.BtnMovimiento.Width = Me.BtnMovimiento.Width - 15
+                Dim punto As Point = New Point(Me.BtnMovimiento.Location.X + 7.5, Me.BtnMovimiento.Location.Y + 7.5)
+                Me.BtnMovimiento.Location = punto
+                Me.BtnMovimiento.ForeColor = Color.Black
+                Me.BtnMovimiento.Enabled = False
+
+                Me.BtnImagenes.Enabled = True
+                Me.BtnImagenes.ForeColor = Color.LimeGreen
+                Me.BtnImagenes.Height = Me.BtnImagenes.Height + 15
+                Me.BtnImagenes.Width = Me.BtnImagenes.Width + 15
+                punto = New Point(Me.BtnImagenes.Location.X - 7.5, Me.BtnImagenes.Location.Y - 7.5)
+                Me.BtnImagenes.Location = punto
+                Exit Sub
+            End If
+        End If
+        If Me.BtnImagenes.Enabled = True Then
+            retorno = subir_imagenes(Me.TxtRuta.Text)
         End If
     End Sub
 
@@ -150,7 +172,7 @@ Public Class XfrmSubirSistExterno
 
                 Dim oradb As String = Configuracion.verconfig
                 Dim conn As New OracleConnection()
-                Dim myCMD As New OracleCommand()               
+                Dim myCMD As New OracleCommand()
                 conn.ConnectionString = oradb
                 conn.Open()
                 For Each row As System.Data.DataRow In dt.Rows
@@ -165,14 +187,14 @@ Public Class XfrmSubirSistExterno
                         & "', '" & row.Item(8).ToString & "', '" & row.Item(9).ToString & "', 'TSE', to_date('" & DateTime.Now & "','dd/mm/yyyy hh:mi:ss p.m.')" _
                         & ", null, null, '" & row.Item(10).ToString & "')"
                         myCMD.CommandType = CommandType.Text
-                        myCMD.ExecuteOracleScalar()                        
+                        myCMD.ExecuteOracleScalar()
                     Catch ex As Exception
                         conn.Close()
                         waitDialog.Caption = "finalizando..."
                         waitDialog.Close()
                         Mensajes.MensajeError(ex.Message)
                         Return False
-                    End Try                   
+                    End Try
                 Next
                 conn.Close()
             End Using
@@ -182,7 +204,7 @@ Public Class XfrmSubirSistExterno
             Return True
         Catch ex As Exception
             waitDialog.Caption = "finalizando..."
-            waitDialog.Close()            
+            waitDialog.Close()
             Mensajes.MensajeError(ex.Message)
             Return False
         End Try
@@ -320,7 +342,7 @@ Public Class XfrmSubirSistExterno
                         & "CODIGO_REQUISITO, CANTIDAD, IMAGEN, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, ESTADO) " _
                         & "VALUES ('" & row.Item(0).ToString & "', '" & row.Item(1).ToString & "', '" & row.Item(2).ToString & "', '" & row.Item(3).ToString _
                         & "', '" & row.Item(4).ToString & "', null, 'TSE', to_date('" & DateTime.Now & "','dd/mm/yyyy hh:mi:ss p.m.'), null, null, '" & row.Item(5).ToString & "')"
-                        myCMD.CommandType = CommandType.Text                        
+                        myCMD.CommandType = CommandType.Text
                         myCMD.ExecuteOracleScalar()
                     Catch ex As Exception
                         conn.Close()
@@ -490,7 +512,7 @@ Public Class XfrmSubirSistExterno
                         & "ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION) " _
                         & "VALUES ('" & row.Item(0).ToString & "', '" & row.Item(1).ToString & "', '" & row.Item(2).ToString & "', null, null," _
                         & "'TSE', to_date('" & DateTime.Now & "','dd/mm/yyyy hh:mi:ss p.m.'), null, null)"
-                        myCMD.CommandType = CommandType.Text                        
+                        myCMD.CommandType = CommandType.Text
                         myCMD.ExecuteOracleScalar()
                     Catch ex As Exception
                         conn.Close()
@@ -514,8 +536,73 @@ Public Class XfrmSubirSistExterno
         End Try
     End Function
 
+    Private Function subir_imagenes(ByVal FolderPath As String) As Boolean
+        Dim Archivo As FileInfo
+        Dim campos() As String
+        Dim identidad As String
+        Dim requisito As String
+        For Each sFichero As String In Directory.GetFiles(FolderPath, "*.jpg", SearchOption.TopDirectoryOnly)
+            Archivo = New FileInfo(sFichero)
+
+            campos = Split(Archivo.Name, "_")            
+            For i = LBound(campos) To UBound(campos)
+                If i = 0 Then
+                    identidad = campos(i)
+                ElseIf i = 1 Then
+                    requisito = campos(i)
+                End If                
+            Next
+            If Not IsDBNull(requisito) Then
+                campos = Split(requisito, ".")
+                requisito = campos(0)
+            End If            
+
+            Dim oradb As String = Configuracion.verconfig
+            Dim conn As New OracleConnection()
+            conn.ConnectionString = oradb
+            conn.Open()
+            Dim sql As String = "select codigo_candidatos, codigo_partido, codigo_movimiento from tmp_im_candidatos where identidad = " & identidad
+            Dim cmd As New OracleCommand(sql, conn)
+            cmd.CommandType = CommandType.Text
+            Dim oa As OracleDataAdapter = New OracleDataAdapter(sql, conn)
+            Dim ds As DataSet = New DataSet()
+            oa.Fill(ds)
+            For Each row As System.Data.DataRow In ds.Tables(0).Rows
+                MsgBox("a")
+            Next
+            'Try
+            '    Dim oradb As String = Configuracion.verconfig
+            '    Dim conn As New OracleConnection()
+            '    conn.ConnectionString = oradb
+            '    conn.Open()
+
+            '    Dim myCMD As New OracleCommand()
+            '    myCMD.Connection = conn
+            '    myCMD.CommandText = "IM_P_IMPORTAR_IMAGENES"
+            '    myCMD.CommandType = CommandType.StoredProcedure
+            '    myCMD.Parameters.Add(New OracleParameter("pbi_imagen", OracleType.Blob, ParameterDirection.Input)).Value = Data.ConvertImageToByteArray(Image.FromFile(Archivo.FullName))
+            '    myCMD.Parameters.Add(New OracleParameter("pvi_identidad", OracleType.Char, 13, ParameterDirection.Input)).Value = identidad
+            '    myCMD.Parameters.Add(New OracleParameter("pvi_requisito", OracleType.Char, 2, ParameterDirection.Input)).Value = requisito
+            '    myCMD.Parameters.Add(New OracleParameter("pvo_mensaje", OracleType.Char, 200)).Direction = ParameterDirection.Output
+            '    myCMD.ExecuteOracleScalar()
+
+            '    conn.Close()
+            '    'myCMD.Parameters("pvi_acceso").Value
+            'Catch ex As Exception
+            '    Mensajes.MensajeError(ex.Message)
+            '    Return False
+            'End Try
+        Next
+        Return True
+    End Function
+
     Private Sub BtnExplorar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnExplorar.Click
-        Me.OpenFileDialog1.ShowDialog()
+        If Me.BtnImagenes.Enabled = True Then
+            Me.FbUbicacion.ShowDialog()
+            Me.TxtRuta.EditValue = FbUbicacion.SelectedPath
+        Else
+            Me.OpenFileDialog1.ShowDialog()
+        End If
     End Sub
 
     Private Sub OpenFileDialog1_FileOk(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles OpenFileDialog1.FileOk

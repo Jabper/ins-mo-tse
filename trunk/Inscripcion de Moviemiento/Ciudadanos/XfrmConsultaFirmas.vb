@@ -267,7 +267,7 @@ Public Class XfrmConsultaFirmas
 
                     Dim cnx As New OracleConnection(Configuracion.verconfig)
                     '
-                    Dim bo As Byte() = view.GetRowCellValue(view.FocusedRowHandle, "IMAGEN_FIRMA") 'Data.ConvertImageToByteArray(Me.Imgimagen.EditValue)
+                    Dim bo As Byte() = view.GetRowCellValue(view.FocusedRowHandle, "IMAGEN_FIRMA") 'Data.ConvertImageToByteArray(Me.Imgimagen.image)
                     Dim idc As Integer = CType(GridView1.GetRowCellValue(i, "CODIGO_CUIDADANOS_RESPALDAN"), Integer)
                     Dim sqlstring As String
                     sqlstring = "UPDATE IM_CIUDADANOS_RESPALDAN SET IMAGEN_FIRMA=:ft WHERE CODIGO_CUIDADANOS_RESPALDAN=:cod AND CODIGO_PARTIDO=:cp AND CODIGO_MOVIMIENTO=:cm"
