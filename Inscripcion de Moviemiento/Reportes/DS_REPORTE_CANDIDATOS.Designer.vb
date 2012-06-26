@@ -2406,8 +2406,7 @@ Namespace DS_REPORTE_CANDIDATOSTableAdapters
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        IMAGEN, CONSTANCIA, IDENTIDAD, NOMBRE, APELLIDO, POSICION, PARTIDO,"& _ 
-                " DEPARTAMENTO, ""NIVEL ELECTIVO"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_PLANILLA_CANDIDATOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"& _ 
-                "        (IDENTIDAD = '1701198001625')"
+                " DEPARTAMENTO, ""NIVEL ELECTIVO"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_PLANILLA_CANDIDATOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
