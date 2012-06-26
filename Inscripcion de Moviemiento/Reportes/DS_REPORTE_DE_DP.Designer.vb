@@ -1300,6 +1300,11 @@ Partial Public Class DS_REPORTE_DE_DP
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function FindByCODIGO_NIVEL_ELECTIVO(ByVal CODIGO_NIVEL_ELECTIVO As Decimal) As DT_NIVELE_DPRow
+            Return CType(Me.Rows.Find(New Object() {CODIGO_NIVEL_ELECTIVO}),DT_NIVELE_DPRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
             Dim cln As DT_NIVELE_DPDataTable = CType(MyBase.Clone,DT_NIVELE_DPDataTable)
             cln.InitVars
@@ -1323,6 +1328,10 @@ Partial Public Class DS_REPORTE_DE_DP
             MyBase.Columns.Add(Me.columnCODIGO_NIVEL_ELECTIVO)
             Me.columnNIVEL_ELECTIVO = New Global.System.Data.DataColumn("NIVEL ELECTIVO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNIVEL_ELECTIVO)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_NIVEL_ELECTIVO}, true))
+            Me.columnCODIGO_NIVEL_ELECTIVO.AllowDBNull = false
+            Me.columnCODIGO_NIVEL_ELECTIVO.Unique = true
+            Me.columnNIVEL_ELECTIVO.AllowDBNull = false
             Me.columnNIVEL_ELECTIVO.MaxLength = 100
         End Sub
         
@@ -1823,11 +1832,7 @@ Partial Public Class DS_REPORTE_DE_DP
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property CODIGO_NIVEL_ELECTIVO() As Decimal
             Get
-                Try 
-                    Return CType(Me(Me.tableDT_NIVELE_DP.CODIGO_NIVEL_ELECTIVOColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CODIGO_NIVEL_ELECTIVO' in table 'DT_NIVELE_DP' is DBNull.", e)
-                End Try
+                Return CType(Me(Me.tableDT_NIVELE_DP.CODIGO_NIVEL_ELECTIVOColumn),Decimal)
             End Get
             Set
                 Me(Me.tableDT_NIVELE_DP.CODIGO_NIVEL_ELECTIVOColumn) = value
@@ -1837,36 +1842,12 @@ Partial Public Class DS_REPORTE_DE_DP
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property NIVEL_ELECTIVO() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableDT_NIVELE_DP.NIVEL_ELECTIVOColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'NIVEL ELECTIVO' in table 'DT_NIVELE_DP' is DBNull.", e)
-                End Try
+                Return CType(Me(Me.tableDT_NIVELE_DP.NIVEL_ELECTIVOColumn),String)
             End Get
             Set
                 Me(Me.tableDT_NIVELE_DP.NIVEL_ELECTIVOColumn) = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsCODIGO_NIVEL_ELECTIVONull() As Boolean
-            Return Me.IsNull(Me.tableDT_NIVELE_DP.CODIGO_NIVEL_ELECTIVOColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetCODIGO_NIVEL_ELECTIVONull()
-            Me(Me.tableDT_NIVELE_DP.CODIGO_NIVEL_ELECTIVOColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsNIVEL_ELECTIVONull() As Boolean
-            Return Me.IsNull(Me.tableDT_NIVELE_DP.NIVEL_ELECTIVOColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetNIVEL_ELECTIVONull()
-            Me(Me.tableDT_NIVELE_DP.NIVEL_ELECTIVOColumn) = Global.System.Convert.DBNull
-        End Sub
     End Class
     
     '''<summary>
@@ -2530,9 +2511,8 @@ Namespace DS_REPORTE_DE_DPTableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT 99 CODIGO_NIVEL_ELECTIVO, 'TODOS' ""NIVEL ELECTIVO"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM IM_NIVEL_ELECTIVO"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CODIGO_NIVEL_ELECTIVO, DESCRIPCION ""NIVEL ELECTIVO"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM IM_NIV"& _ 
-                "EL_ELECTIVO"
+            Me._commandCollection(0).CommandText = "SELECT CODIGO_NIVEL_ELECTIVO, DESCRIPCION ""NIVEL ELECTIVO"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM IM_NIVEL_ELECTIV"& _ 
+                "O"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY CODIGO_NIVEL_ELECTIVO"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

@@ -67,6 +67,8 @@ Partial Class XFrmMenuPrincipal
         Me.btnJerarquico = New DevExpress.XtraBars.BarButtonItem
         Me.TxtUser = New DevExpress.XtraBars.BarStaticItem
         Me.btnConsultarPlanilla = New DevExpress.XtraBars.BarButtonItem
+        Me.BarSubItem2 = New DevExpress.XtraBars.BarSubItem
+        Me.BarButtonItem9 = New DevExpress.XtraBars.BarButtonItem
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage
@@ -80,6 +82,7 @@ Partial Class XFrmMenuPrincipal
         Me.RPG = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPageGroup8 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RPGE = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
+        Me.RibbonPageGroup11 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage6 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup2 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonStatusBar = New DevExpress.XtraBars.Ribbon.RibbonStatusBar
@@ -93,9 +96,7 @@ Partial Class XFrmMenuPrincipal
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.BarSubItem1 = New DevExpress.XtraBars.BarSubItem
         Me.RibbonPageGroup10 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
-        Me.RibbonPageGroup11 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
-        Me.BarSubItem2 = New DevExpress.XtraBars.BarSubItem
-        Me.BarButtonItem9 = New DevExpress.XtraBars.BarButtonItem
+        Me.BarButtonItem10 = New DevExpress.XtraBars.BarButtonItem
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -110,9 +111,9 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonControl.ApplicationButtonDropDownControl = Me.ApplicationMenu2
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ExpandCollapseItem.Name = ""
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion, Me.BtnMotivo, Me.btnCInhabilitados, Me.btnConsultarCenso, Me.BtnSubirOtroSistema, Me.BtnRPlanilla, Me.BarButtonItem2, Me.BarButtonItem3, Me.btnConsultarFirmas, Me.BtnRFirmas, Me.BtnFDP, Me.BtnREstadistico, Me.btnConsultarCandidatos, Me.BarButtonItem4, Me.btnJerarquico, Me.BarButtonItem5, Me.BarButtonItem6, Me.BarButtonItem7, Me.TxtUser, Me.btnConsultarPlanilla, Me.BarButtonItem8, Me.BarSubItem2, Me.BarButtonItem9})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion, Me.BtnMotivo, Me.btnCInhabilitados, Me.btnConsultarCenso, Me.BtnSubirOtroSistema, Me.BtnRPlanilla, Me.BarButtonItem2, Me.BarButtonItem3, Me.btnConsultarFirmas, Me.BtnRFirmas, Me.BtnFDP, Me.BtnREstadistico, Me.btnConsultarCandidatos, Me.BarButtonItem4, Me.btnJerarquico, Me.BarButtonItem5, Me.BarButtonItem6, Me.BarButtonItem7, Me.TxtUser, Me.btnConsultarPlanilla, Me.BarButtonItem8, Me.BarSubItem2, Me.BarButtonItem9, Me.BarButtonItem10})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 53
+        Me.RibbonControl.MaxItemId = 54
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5, Me.RibbonPage6})
         Me.RibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010
@@ -336,7 +337,7 @@ Partial Class XFrmMenuPrincipal
         Me.BtnRPlanilla.Caption = "Reportes de Planilla"
         Me.BtnRPlanilla.Id = 31
         Me.BtnRPlanilla.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Reporte
-        Me.BtnRPlanilla.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem2), New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem3)})
+        Me.BtnRPlanilla.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem2), New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem3), New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem10)})
         Me.BtnRPlanilla.Name = "BtnRPlanilla"
         '
         'BarButtonItem2
@@ -442,6 +443,20 @@ Partial Class XFrmMenuPrincipal
         Me.btnConsultarPlanilla.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Consulta
         Me.btnConsultarPlanilla.Name = "btnConsultarPlanilla"
         '
+        'BarSubItem2
+        '
+        Me.BarSubItem2.Caption = "Reportes de Auditoria"
+        Me.BarSubItem2.Id = 51
+        Me.BarSubItem2.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.logprocess
+        Me.BarSubItem2.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem9)})
+        Me.BarSubItem2.Name = "BarSubItem2"
+        '
+        'BarButtonItem9
+        '
+        Me.BarButtonItem9.Caption = "Reporte de Log Procesos"
+        Me.BarButtonItem9.Id = 52
+        Me.BarButtonItem9.Name = "BarButtonItem9"
+        '
         'RibbonPage1
         '
         Me.RibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1})
@@ -534,6 +549,11 @@ Partial Class XFrmMenuPrincipal
         '
         Me.RPGE.ItemLinks.Add(Me.BtnREstadistico)
         Me.RPGE.Name = "RPGE"
+        '
+        'RibbonPageGroup11
+        '
+        Me.RibbonPageGroup11.ItemLinks.Add(Me.BarSubItem2)
+        Me.RibbonPageGroup11.Name = "RibbonPageGroup11"
         '
         'RibbonPage6
         '
@@ -645,24 +665,11 @@ Partial Class XFrmMenuPrincipal
         '
         Me.RibbonPageGroup10.Name = "RibbonPageGroup10"
         '
-        'RibbonPageGroup11
+        'BarButtonItem10
         '
-        Me.RibbonPageGroup11.ItemLinks.Add(Me.BarSubItem2)
-        Me.RibbonPageGroup11.Name = "RibbonPageGroup11"
-        '
-        'BarSubItem2
-        '
-        Me.BarSubItem2.Caption = "Reportes de Auditoria"
-        Me.BarSubItem2.Id = 51
-        Me.BarSubItem2.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.logprocess
-        Me.BarSubItem2.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem9)})
-        Me.BarSubItem2.Name = "BarSubItem2"
-        '
-        'BarButtonItem9
-        '
-        Me.BarButtonItem9.Caption = "Reporte de Log Procesos"
-        Me.BarButtonItem9.Id = 52
-        Me.BarButtonItem9.Name = "BarButtonItem9"
+        Me.BarButtonItem10.Caption = "Reporte de Planilla de Candidatos"
+        Me.BarButtonItem10.Id = 53
+        Me.BarButtonItem10.Name = "BarButtonItem10"
         '
         'XFrmMenuPrincipal
         '
@@ -766,6 +773,7 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents BarSubItem2 As DevExpress.XtraBars.BarSubItem
     Friend WithEvents BarButtonItem9 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RibbonPageGroup11 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents BarButtonItem10 As DevExpress.XtraBars.BarButtonItem
 
 
 End Class
