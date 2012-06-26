@@ -10425,7 +10425,7 @@ Namespace DSInsCandidatosTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO, CODIGO_PARTIDO, PARTIDO, CODI"& _ 
@@ -10444,6 +10444,16 @@ Namespace DSInsCandidatosTableAdapters
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ID_MUNICIPIO", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ID_DEPTO", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ID_CARGO", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_CARGO_ELECTIVO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO, CODIGO_PARTIDO, PARTIDO, CODI"& _ 
+                "GO_CANDIDATOS, NOMBRE, POSICION, CODIGO_CARGO_ELECTIVO, CARGO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"               "& _ 
+                "          APELLIDO, CODIGO_DEPARTAMENTO, DEPARTAMENTO, CODIGO_MUNICIPIO, MUNICIP"& _ 
+                "IO, IDENTIDAD, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
+                "         FECHA_MODIFICACION, PRIMER_NOMBRE, SEGUNDO_NOMBRE, PRIMER_APELLIDO, SEG"& _ 
+                "UNDO_APELLIDO, IMAGEN, CONS_VECINDAD, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONS_VECINDAD_I"& _ 
+                "MAGEN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_MOSTRAR_CANDIDATOS2"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10513,6 +10523,28 @@ Namespace DSInsCandidatosTableAdapters
             Else
                 Me.Adapter.SelectCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
+            Dim dataTable As DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2DataTable = New DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2DataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2DataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy() As DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2DataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
             Dim dataTable As DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2DataTable = New DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2DataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
