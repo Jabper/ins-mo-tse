@@ -313,6 +313,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_ESTADISTICO_GENERAL_FIRMAS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\DS_LOG.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_LOG.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DS_REPORTE_DE_FDP.vb">
       <DependentUpon>DS_REPORTE_DE_FDP.xsd</DependentUpon>
     </Compile>
@@ -353,6 +358,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_REPORTE_DE_PNEM.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\REPORTE_DE_LOG.Designer.vb">
+      <DependentUpon>REPORTE_DE_LOG.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\REPORTE_DE_LOG.vb">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\Reporte_Estadistico_general_firmas.Designer.vb">
       <DependentUpon>Reporte_Estadistico_general_firmas.vb</DependentUpon>
@@ -700,6 +711,9 @@
     <EmbeddedResource Include="Procesos\XfrmMensajes.resx">
       <DependentUpon>XfrmMensajes.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\REPORTE_DE_LOG.resx">
+      <DependentUpon>REPORTE_DE_LOG.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Reporte_Estadistico_general_firmas.resx">
       <DependentUpon>Reporte_Estadistico_general_firmas.vb</DependentUpon>
@@ -1134,6 +1148,17 @@
     <None Include="Reportes\DS_ESTADISTICO_GENERAL_FIRMAS.xss">
       <DependentUpon>DS_ESTADISTICO_GENERAL_FIRMAS.xsd</DependentUpon>
     </None>
+    <None Include="Reportes\DS_LOG.xsc">
+      <DependentUpon>DS_LOG.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_LOG.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_LOG.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DS_LOG.xss">
+      <DependentUpon>DS_LOG.xsd</DependentUpon>
+    </None>
     <None Include="Reportes\DS_REPORTE_DE_RESUMEN_FDP.xsc">
       <DependentUpon>DS_REPORTE_DE_RESUMEN_FDP.xsd</DependentUpon>
     </None>
@@ -1226,6 +1251,7 @@
     <None Include="Resources\imagenes.png" />
     <None Include="Resources\logoelecciones.png" />
     <None Include="Resources\logoeleccionesp.png" />
+    <None Include="Resources\log.png" />
     <Content Include="Resources\motivo.png" />
     <None Include="Resources\tse_logo.gif" />
     <None Include="Resources\TSE LOGO.png" />
