@@ -331,4 +331,8 @@ Public Class XFrmMenuPrincipal
         Dim reporte10 As REPORTE_DE__PLANILLA_DE_CANDIDATOS = New REPORTE_DE__PLANILLA_DE_CANDIDATOS
         reporte10.ShowPreview()
     End Sub
+
+    Private Sub BtnDiscoPartido_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnDiscoPartido.ItemClick
+        Padre(XfrmDiscoPartido)
+    End Sub
 End Class
