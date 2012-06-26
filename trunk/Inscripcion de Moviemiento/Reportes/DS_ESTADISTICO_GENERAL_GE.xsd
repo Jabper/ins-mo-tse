@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_ESTADISTICO_GENERAL_GE" targetNamespace="http://tempuri.org/DS_ESTADISTICO_GENERAL_GE.xsd" xmlns:mstns="http://tempuri.org/DS_ESTADISTICO_GENERAL_GE.xsd" xmlns="http://tempuri.org/DS_ESTADISTICO_GENERAL_GE.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (MySettings)" PropertyReference="ApplicationSettings.Inscripcion_de_Moviemientos.My.MySettings.GlobalReference.Default.ConnectionString" Provider="System.Data.OracleClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="IM_V_PARTICIPACION_FETableAdapter" GeneratorDataComponentClassName="IM_V_PARTICIPACION_FETableAdapter" Name="IM_V_PARTICIPACION_FE" UserDataComponentName="IM_V_PARTICIPACION_FETableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="TSE.IM_V_PARTICIPACION_FE" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * 
+FROM IM_V_PARTICIPACION_FE</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="TOTAL" DataSetColumn="TOTAL" />
+              <Mapping SourceColumn="NIVELPRE" DataSetColumn="NIVELPRE" />
+              <Mapping SourceColumn="TP" DataSetColumn="TP" />
+              <Mapping SourceColumn="NIVELCN" DataSetColumn="NIVELCN" />
+              <Mapping SourceColumn="TCN" DataSetColumn="TCN" />
+              <Mapping SourceColumn="NIVELCM" DataSetColumn="NIVELCM" />
+              <Mapping SourceColumn="TCM" DataSetColumn="TCM" />
+              <Mapping SourceColumn="NIVELPAR" DataSetColumn="NIVELPAR" />
+              <Mapping SourceColumn="TPAR" DataSetColumn="TPAR" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_ESTADISTICO_GENERAL_GE" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="DS_ESTADISTICO_GENERAL_GE" msprop:Generator_UserDSName="DS_ESTADISTICO_GENERAL_GE" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="IM_V_PARTICIPACION_FE" msprop:Generator_UserTableName="IM_V_PARTICIPACION_FE" msprop:Generator_RowDeletedName="IM_V_PARTICIPACION_FERowDeleted" msprop:Generator_TableClassName="IM_V_PARTICIPACION_FEDataTable" msprop:Generator_RowChangedName="IM_V_PARTICIPACION_FERowChanged" msprop:Generator_RowClassName="IM_V_PARTICIPACION_FERow" msprop:Generator_RowChangingName="IM_V_PARTICIPACION_FERowChanging" msprop:Generator_RowEvArgName="IM_V_PARTICIPACION_FERowChangeEvent" msprop:Generator_RowEvHandlerName="IM_V_PARTICIPACION_FERowChangeEventHandler" msprop:Generator_TablePropName="IM_V_PARTICIPACION_FE" msprop:Generator_TableVarName="tableIM_V_PARTICIPACION_FE" msprop:Generator_RowDeletingName="IM_V_PARTICIPACION_FERowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TOTAL" msprop:Generator_UserColumnName="TOTAL" msprop:Generator_ColumnPropNameInRow="TOTAL" msprop:Generator_ColumnVarNameInTable="columnTOTAL" msprop:Generator_ColumnPropNameInTable="TOTALColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NIVELPRE" msprop:Generator_UserColumnName="NIVELPRE" msprop:Generator_ColumnPropNameInRow="NIVELPRE" msprop:Generator_ColumnVarNameInTable="columnNIVELPRE" msprop:Generator_ColumnPropNameInTable="NIVELPREColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="41" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TP" msprop:Generator_UserColumnName="TP" msprop:Generator_ColumnPropNameInRow="TP" msprop:Generator_ColumnVarNameInTable="columnTP" msprop:Generator_ColumnPropNameInTable="TPColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NIVELCN" msprop:Generator_UserColumnName="NIVELCN" msprop:Generator_ColumnPropNameInRow="NIVELCN" msprop:Generator_ColumnVarNameInTable="columnNIVELCN" msprop:Generator_ColumnPropNameInTable="NIVELCNColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="41" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TCN" msprop:Generator_UserColumnName="TCN" msprop:Generator_ColumnPropNameInRow="TCN" msprop:Generator_ColumnVarNameInTable="columnTCN" msprop:Generator_ColumnPropNameInTable="TCNColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NIVELCM" msprop:Generator_UserColumnName="NIVELCM" msprop:Generator_ColumnPropNameInRow="NIVELCM" msprop:Generator_ColumnVarNameInTable="columnNIVELCM" msprop:Generator_ColumnPropNameInTable="NIVELCMColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="41" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TCM" msprop:Generator_UserColumnName="TCM" msprop:Generator_ColumnPropNameInRow="TCM" msprop:Generator_ColumnVarNameInTable="columnTCM" msprop:Generator_ColumnPropNameInTable="TCMColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NIVELPAR" msprop:Generator_UserColumnName="NIVELPAR" msprop:Generator_ColumnPropNameInRow="NIVELPAR" msprop:Generator_ColumnVarNameInTable="columnNIVELPAR" msprop:Generator_ColumnPropNameInTable="NIVELPARColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="41" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TPAR" msprop:Generator_UserColumnName="TPAR" msprop:Generator_ColumnPropNameInRow="TPAR" msprop:Generator_ColumnVarNameInTable="columnTPAR" msprop:Generator_ColumnPropNameInTable="TPARColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
