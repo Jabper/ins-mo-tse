@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_LOG" targetNamespace="http://tempuri.org/DS_LOG.xsd" xmlns:mstns="http://tempuri.org/DS_LOG.xsd" xmlns="http://tempuri.org/DS_LOG.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (MySettings)" PropertyReference="ApplicationSettings.Inscripcion_de_Moviemientos.My.MySettings.GlobalReference.Default.ConnectionString" Provider="System.Data.OracleClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DT_TABLE_LOGTableAdapter" GeneratorDataComponentClassName="DT_TABLE_LOGTableAdapter" Name="DT_TABLE_LOG" UserDataComponentName="DT_TABLE_LOGTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT LP.CODIGO_LOG "CODIGO", LP.DESCRIPCION_ERROR "DESCRIPCION", OP.DESCRIPCION  "OPERACION", P.NOMBRE "PARTIDO", M.NOMBRE_MOVIMIENTO  "MOVIMIENTO", LP.PROCESO "PROCESO"
+FROM IM_LOG_PROCESOS LP,
+IM_PARTIDOS_POLITICOS P,
+IM_MOVIMIENTOS M,
+IM_OPCIONES OP
+WHERE LP.CODIGO_PARTIDO = P.CODIGO_PARTIDO  
+AND LP.CODIGO_PARTIDO  = M.CODIGO_PARTIDO
+AND LP.CODIGO_MOVIMIENTO  = M.CODIGO_MOVIMIENTO  
+AND LP.CODIGO_OPERACION = OP.CODIGO_OPCION </CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CODIGO" DataSetColumn="CODIGO" />
+              <Mapping SourceColumn="DESCRIPCION" DataSetColumn="DESCRIPCION" />
+              <Mapping SourceColumn="OPERACION" DataSetColumn="OPERACION" />
+              <Mapping SourceColumn="PARTIDO" DataSetColumn="PARTIDO" />
+              <Mapping SourceColumn="MOVIMIENTO" DataSetColumn="MOVIMIENTO" />
+              <Mapping SourceColumn="PROCESO" DataSetColumn="PROCESO" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="IM_LOG_PROCESOSTableAdapter" GeneratorDataComponentClassName="IM_LOG_PROCESOSTableAdapter" Name="IM_LOG_PROCESOS" UserDataComponentName="IM_LOG_PROCESOSTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="TSE.IM_LOG_PROCESOS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT LP.PROCESO "PROCESO"
+FROM IM_LOG_PROCESOS LP</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PROCESO" DataSetColumn="PROCESO" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="IM_OPCIONESTableAdapter" GeneratorDataComponentClassName="IM_OPCIONESTableAdapter" Name="IM_OPCIONES" UserDataComponentName="IM_OPCIONESTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="TSE.IM_OPCIONES" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM "IM_OPCIONES" WHERE (("CODIGO_OPCION" = :Original_CODIGO) AND ("DESCRIPCION" = :Original_DESCRIPCION_))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="VarNumeric" Direction="Input" ParameterName="Original_CODIGO" Precision="0" ProviderType="Number" Scale="0" Size="0" SourceColumn="CODIGO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="Original_DESCRIPCION_" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DESCRIPCION " SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  OP.CODIGO_OPCION  "CODIGO", OP.DESCRIPCION  "DESCRIPCION "
+FROM IM_OPCIONES OP
+ORDER BY OP.CODIGO_OPCION</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE "IM_OPCIONES" SET "CODIGO_OPCION" = :CODIGO, "DESCRIPCION" = :DESCRIPCION_ WHERE (("CODIGO_OPCION" = :Original_CODIGO) AND ("DESCRIPCION" = :Original_DESCRIPCION_))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="VarNumeric" Direction="Input" ParameterName="CODIGO" Precision="0" ProviderType="Number" Scale="0" Size="0" SourceColumn="CODIGO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="DESCRIPCION_" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DESCRIPCION " SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="VarNumeric" Direction="Input" ParameterName="Original_CODIGO" Precision="0" ProviderType="Number" Scale="0" Size="0" SourceColumn="CODIGO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="Original_DESCRIPCION_" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="DESCRIPCION " SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CODIGO" DataSetColumn="CODIGO" />
+              <Mapping SourceColumn="DESCRIPCION " DataSetColumn="DESCRIPCION " />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_LOG" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="DS_LOG" msprop:Generator_UserDSName="DS_LOG" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DT_TABLE_LOG" msprop:Generator_UserTableName="DT_TABLE_LOG" msprop:Generator_RowDeletedName="DT_TABLE_LOGRowDeleted" msprop:Generator_TableClassName="DT_TABLE_LOGDataTable" msprop:Generator_RowChangedName="DT_TABLE_LOGRowChanged" msprop:Generator_RowClassName="DT_TABLE_LOGRow" msprop:Generator_RowChangingName="DT_TABLE_LOGRowChanging" msprop:Generator_RowEvArgName="DT_TABLE_LOGRowChangeEvent" msprop:Generator_RowEvHandlerName="DT_TABLE_LOGRowChangeEventHandler" msprop:Generator_TablePropName="DT_TABLE_LOG" msprop:Generator_TableVarName="tableDT_TABLE_LOG" msprop:Generator_RowDeletingName="DT_TABLE_LOGRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CODIGO" msprop:Generator_UserColumnName="CODIGO" msprop:Generator_ColumnPropNameInRow="CODIGO" msprop:Generator_ColumnVarNameInTable="columnCODIGO" msprop:Generator_ColumnPropNameInTable="CODIGOColumn" type="xs:decimal" />
+              <xs:element name="DESCRIPCION" msprop:Generator_UserColumnName="DESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="300" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OPERACION" msprop:Generator_UserColumnName="OPERACION" msprop:Generator_ColumnPropNameInRow="OPERACION" msprop:Generator_ColumnVarNameInTable="columnOPERACION" msprop:Generator_ColumnPropNameInTable="OPERACIONColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="300" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PARTIDO" msprop:Generator_UserColumnName="PARTIDO" msprop:Generator_ColumnPropNameInRow="PARTIDO" msprop:Generator_ColumnVarNameInTable="columnPARTIDO" msprop:Generator_ColumnPropNameInTable="PARTIDOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MOVIMIENTO" msprop:Generator_UserColumnName="MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnMOVIMIENTO" msprop:Generator_ColumnPropNameInTable="MOVIMIENTOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PROCESO" msprop:Generator_UserColumnName="PROCESO" msprop:Generator_ColumnPropNameInRow="PROCESO" msprop:Generator_ColumnVarNameInTable="columnPROCESO" msprop:Generator_ColumnPropNameInTable="PROCESOColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="IM_LOG_PROCESOS" msprop:Generator_UserTableName="IM_LOG_PROCESOS" msprop:Generator_RowDeletedName="IM_LOG_PROCESOSRowDeleted" msprop:Generator_TableClassName="IM_LOG_PROCESOSDataTable" msprop:Generator_RowChangedName="IM_LOG_PROCESOSRowChanged" msprop:Generator_RowClassName="IM_LOG_PROCESOSRow" msprop:Generator_RowChangingName="IM_LOG_PROCESOSRowChanging" msprop:Generator_RowEvArgName="IM_LOG_PROCESOSRowChangeEvent" msprop:Generator_RowEvHandlerName="IM_LOG_PROCESOSRowChangeEventHandler" msprop:Generator_TablePropName="IM_LOG_PROCESOS" msprop:Generator_TableVarName="tableIM_LOG_PROCESOS" msprop:Generator_RowDeletingName="IM_LOG_PROCESOSRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PROCESO" msprop:Generator_UserColumnName="PROCESO" msprop:Generator_ColumnPropNameInRow="PROCESO" msprop:Generator_ColumnVarNameInTable="columnPROCESO" msprop:Generator_ColumnPropNameInTable="PROCESOColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="IM_OPCIONES" msprop:Generator_UserTableName="IM_OPCIONES" msprop:Generator_RowDeletedName="IM_OPCIONESRowDeleted" msprop:Generator_TableClassName="IM_OPCIONESDataTable" msprop:Generator_RowChangedName="IM_OPCIONESRowChanged" msprop:Generator_RowClassName="IM_OPCIONESRow" msprop:Generator_RowChangingName="IM_OPCIONESRowChanging" msprop:Generator_RowEvArgName="IM_OPCIONESRowChangeEvent" msprop:Generator_RowEvHandlerName="IM_OPCIONESRowChangeEventHandler" msprop:Generator_TablePropName="IM_OPCIONES" msprop:Generator_TableVarName="tableIM_OPCIONES" msprop:Generator_RowDeletingName="IM_OPCIONESRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CODIGO" msprop:Generator_UserColumnName="CODIGO" msprop:Generator_ColumnPropNameInRow="CODIGO" msprop:Generator_ColumnVarNameInTable="columnCODIGO" msprop:Generator_ColumnPropNameInTable="CODIGOColumn" type="xs:decimal" />
+              <xs:element name="DESCRIPCION_x0020_" msprop:Generator_UserColumnName="DESCRIPCION " msprop:Generator_ColumnPropNameInRow="DESCRIPCION_" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION_" msprop:Generator_ColumnPropNameInTable="DESCRIPCION_Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="300" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DT_TABLE_LOG" />
+      <xs:field xpath="mstns:CODIGO" />
+    </xs:unique>
+    <xs:unique name="IM_OPCIONES_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:IM_OPCIONES" />
+      <xs:field xpath="mstns:CODIGO" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
