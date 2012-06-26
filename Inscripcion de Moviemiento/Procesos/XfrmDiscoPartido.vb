@@ -15,6 +15,7 @@ Public Class XfrmDiscoPartido
     End Sub
 
     Private Sub BtnEjecutar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEjecutar.Click
+        'MsgBox("expdp tse/oracle@TSEDB2 directory=data_pump_dir dumpfile=exp_tse.dmp logfile=exp_movimiento.log schemas=tse include=table:\""like 'IM_%'\"",VIEW,PROCEDURE,TRIGGER,PACKAGE, SEQUENCE,FUNCTION version=10 query=im_partidos_politicos:\""WHERE codigo_partido = (SELECT codigo_partido FROM im_parametros_generales)\"" query=im_usuarios:\""where codigo_usuario = 'TSE'\"" query=im_roles:\""where codigo_rol <> 1\"" query=IM_OPERACIONES_POR_ROL:\""where  1 = 2\"" query=im_log_procesos:\""where 1 =2\"" query=im_candidatos:\""where codigo_candidatos = 0\"" query=im_requisitos_x_candidato:\""where codigo_candidato = 0\"" query=im_ciudadanos_respaldan:\""where 1 > 2\"" query=im_ciudadanos_inhabilitados:\""where 1 = 2\"" query=im_movimientos:\""where 1 = 2\"" query=im_candidatos_repetidos:\""where 1 = 2\"" query=im_imagenes_candidato:\""where 1 = 2 \"" query=im_imagenes_firmas:\""where 1 = 2\""")
         If Not (TxtRuta.Text = Nothing) Then
             If Not (LovPartido.EditValue Is Nothing) Then
                 Dim oradb As String = Configuracion.verconfig
@@ -37,6 +38,30 @@ Public Class XfrmDiscoPartido
                 My.Computer.FileSystem.CopyDirectory(Application.StartupPath.ToString & "\CSIM", TxtRuta.Text, True)
                 If comprobararchivos() Then
                     'ejecutar(datapump)
+                    Try
+                        Dim startInfo As ProcessStartInfo
+                        Dim pStart As New Process
+                        startInfo = New ProcessStartInfo("cmd.exe", "expdp tse/oracle@TSEDB2 directory=data_pump_dir dumpfile=exp_tse.dmp logfile=exp_movimiento.log schemas=tse include=table:\""like 'IM_%'\"",VIEW,PROCEDURE,TRIGGER,PACKAGE, SEQUENCE,FUNCTION version=10 query=im_partidos_politicos:\""WHERE codigo_partido = (SELECT codigo_partido FROM im_parametros_generales)\"" query=im_usuarios:\""where codigo_usuario = 'TSE'\"" query=im_roles:\""where codigo_rol <> 1\"" query=IM_OPERACIONES_POR_ROL:\""where  1 = 2\"" query=im_log_procesos:\""where 1 =2\"" query=im_candidatos:\""where codigo_candidatos = 0\"" query=im_requisitos_x_candidato:\""where codigo_candidato = 0\"" query=im_ciudadanos_respaldan:\""where 1 > 2\"" query=im_ciudadanos_inhabilitados:\""where 1 = 2\"" query=im_movimientos:\""where 1 = 2\"" query=im_candidatos_repetidos:\""where 1 = 2\"" query=im_imagenes_candidato:\""where 1 = 2 \"" query=im_imagenes_firmas:\""where 1 = 2\""")
+                        pStart.StartInfo = startInfo
+                        pStart.Start()
+                        pStart.WaitForExit()
+                        If pStart.ExitCode = 3 Then
+                            MsgBox("La Exportación ha Terminado Satisfactoriamente", MsgBoxStyle.Information)
+                        Else
+                            MsgBox("La Exportación No se ha realizado Correctamente", MsgBoxStyle.Exclamation)
+                        End If
+                    Catch ex As Exception
+                        conn.Close()
+                        Mensajes.MensajeError(ex.Message)
+                        Exit Sub
+                    End Try
+
+
+                    If File.Exists("C:\oraclexe\app\oracle\admin\XE\dpdump\exp_tse.dmp") Then
+                        System.IO.File.Copy("C:\oraclexe\app\oracle\admin\XE\dpdump\exp_tse.dmp", TxtRuta.Text & "\CSIM\Componentes\exp_tse.dmp", True)
+                        ' Else
+                        'My.Computer.FileSystem.DeleteFile("C:\oraclexe\app\oracle\admin\XE\dpdump\exp_tse.dmp")                        
+                    End If
 
                     Dim oradb1 As String = Configuracion.verconfig
                     Dim conn1 As New OracleConnection()
