@@ -567,7 +567,7 @@ Partial Class XfrmMovimientos
         Me.ItemForEMBLEMA.Location = New System.Drawing.Point(146, 72)
         Me.ItemForEMBLEMA.Name = "ItemForEMBLEMA"
         Me.ItemForEMBLEMA.Size = New System.Drawing.Size(224, 108)
-        Me.ItemForEMBLEMA.Text = "Emblema"
+        Me.ItemForEMBLEMA.Text = "Insignia"
         Me.ItemForEMBLEMA.TextLocation = DevExpress.Utils.Locations.Top
         Me.ItemForEMBLEMA.TextSize = New System.Drawing.Size(111, 13)
         '

@@ -44,10 +44,10 @@ Public Class XfrmMovimientos
                 If _datar.RowState = DataRowState.Added Then
                     _datar.ADICIONADO_POR = usuario
                     _datar.FECHA_ADICION = DateTime.Now
-                    Dim consultaim As String = "SELECT IMAGEN FROM IM_PARTIDOS_POLITICOS WHERE CODIGO_PARTIDO=" & CODIGO_PARTIDOSpinEdit.EditValue
-                    _datar.INSIGNIA = Data.ConvertImageToByteArray(COracle.ObtenerImagen(consultaim, "IMAGEN"))
+                    'Dim consultaim As String = "SELECT IMAGEN FROM IM_PARTIDOS_POLITICOS WHERE CODIGO_PARTIDO=" & CODIGO_PARTIDOSpinEdit.EditValue
+                    _datar.INSIGNIA = Data.ConvertImageToByteArray(Me.EMBLEMAPictureEdit.Image) 'Data.ConvertImageToByteArray(COracle.ObtenerImagen(consultaim, "IMAGEN"))
 
-                    _datar.EMBLEMA = Data.ConvertImageToByteArray(Me.EMBLEMAPictureEdit.Image)  'Data.ConvertImageToByteArray(Me.EMBLEMAPictureEdit.Image)
+                    '_datar.EMBLEMA = Data.ConvertImageToByteArray(Me.EMBLEMAPictureEdit.Image)  'Data.ConvertImageToByteArray(Me.EMBLEMAPictureEdit.Image)
 
                     'SI EL REGISTRO SE MODIFICA
                 ElseIf _datar.RowState = DataRowState.Modified Then
@@ -128,9 +128,9 @@ Public Class XfrmMovimientos
             End Try
             
             Dim consulta As String = "SELECT INSIGNIA FROM IM_MOVIMIENTOS WHERE CODIGO_MOVIMIENTO=" & CODIGO_MOVIMIENTOSpinEdit.EditValue
-            Me.INSIGNIAPictureEdit.Image = COracle.ObtenerImagen(consulta, "INSIGNIA")
-            Dim consulta2 As String = "SELECT EMBLEMA FROM IM_MOVIMIENTOS WHERE CODIGO_MOVIMIENTO=" & CODIGO_MOVIMIENTOSpinEdit.EditValue
-            Me.EMBLEMAPictureEdit.Image = COracle.ObtenerImagen(consulta2, "EMBLEMA")
+            EMBLEMAPictureEdit.Image = COracle.ObtenerImagen(consulta, "INSIGNIA")
+            'Dim consulta2 As String = "SELECT EMBLEMA FROM IM_MOVIMIENTOS WHERE CODIGO_MOVIMIENTO=" & CODIGO_MOVIMIENTOSpinEdit.EditValue
+            'Me.EMBLEMAPictureEdit.Image = COracle.ObtenerImagen(consulta2, "EMBLEMA")
             'OBTENEMOS LA INFORMACION PARA LA BUSQUEDA DE LA IMAGEN
             'UrlInsignia = Application.StartupPath.ToString & "\Img\In" & CODIGO_MOVIMIENTOSpinEdit.EditValue.ToString & NOMBRE_MOVIMIENTOTextEdit.EditValue.ToString & ".jpg"
             'UrlEmblema = Application.StartupPath.ToString & "\Img\Em" & CODIGO_MOVIMIENTOSpinEdit.EditValue.ToString & NOMBRE_MOVIMIENTOTextEdit.EditValue.ToString & ".jpg"
@@ -165,10 +165,10 @@ Public Class XfrmMovimientos
 
             Dim cnx As New OracleConnection(Configuracion.verconfig)
             Dim sqlstring As String
-            sqlstring = "UPDATE IM_MOVIMIENTOS SET INSIGNIA=:ft, EMBLEMA=:em WHERE CODIGO_MOVIMIENTO=:cod"
+            sqlstring = "UPDATE IM_MOVIMIENTOS SET INSIGNIA=:ft WHERE CODIGO_MOVIMIENTO=:cod"
             Dim cmd As New OracleCommand(sqlstring, cnx)
-            cmd.Parameters.Add(":ft", OracleType.Blob).Value = Data.ConvertImageToByteArray(Me.INSIGNIAPictureEdit.Image)
-            cmd.Parameters.Add(":em", OracleType.Blob).Value = Data.ConvertImageToByteArray(Me.EMBLEMAPictureEdit.Image)
+            cmd.Parameters.Add(":ft", OracleType.Blob).Value = Data.ConvertImageToByteArray(Me.EMBLEMAPictureEdit.Image)
+            'cmd.Parameters.Add(":em", OracleType.Blob).Value = Data.ConvertImageToByteArray(Me.EMBLEMAPictureEdit.Image)
             cmd.Parameters.Add(":cod", OracleType.Number, 8).Value = Me.CODIGO_MOVIMIENTOSpinEdit.EditValue
             cnx.Open()
             cmd.ExecuteNonQuery()
