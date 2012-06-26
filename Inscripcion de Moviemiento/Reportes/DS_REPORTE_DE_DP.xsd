@@ -35,14 +35,12 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DT_PARTIDOS_DPTableAdapter" GeneratorDataComponentClassName="DT_PARTIDOS_DPTableAdapter" Name="DT_PARTIDOS_DP" UserDataComponentName="DT_PARTIDOS_DPTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Connection" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="Connection" DbObjectName="TSE.IM_PARTIDOS_POLITICOS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT 0 CODIGO_PARTIDO, 'TODOS' "NOMBRE PARTIDO"
-FROM IM_PARTIDOS_POLITICOS
-UNION
-SELECT  CODIGO_PARTIDO, NOMBRE "NOMBRE PARTIDO"
-FROM IM_PARTIDOS_POLITICOS</CommandText>
+                    <CommandText>SELECT        CODIGO_PARTIDO, NOMBRE AS "NOMBRE PARTIDO"
+FROM            IM_PARTIDOS_POLITICOS
+ORDER BY CODIGO_PARTIDO</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -56,14 +54,12 @@ FROM IM_PARTIDOS_POLITICOS</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DT_MOVIMIENTO_DPTableAdapter" GeneratorDataComponentClassName="DT_MOVIMIENTO_DPTableAdapter" Name="DT_MOVIMIENTO_DP" UserDataComponentName="DT_MOVIMIENTO_DPTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Connection" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="Connection" DbObjectName="TSE.IM_MOVIMIENTOS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT 0 CODIGO_MOVIMIENTO, 'TODOS' "NOMBRE MOVIMIENTO"
-FROM IM_MOVIMIENTOS
-UNION
-SELECT CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO "NOMBRE MOVIMIENTO"
-FROM IM_MOVIMIENTOS</CommandText>
+                    <CommandText>SELECT        CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO AS "NOMBRE MOVIMIENTO"
+FROM            IM_MOVIMIENTOS
+ORDER BY CODIGO_MOVIMIENTO</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -104,7 +100,7 @@ FROM IM_NIVEL_ELECTIVO</CommandText>
   <xs:element name="DS_REPORTE_DE_DP" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DS_REPORTE_DE_DP" msprop:Generator_DataSetName="DS_REPORTE_DE_DP">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="IM_V_PLANILLAS_X_DPOLITICA" msprop:Generator_UserTableName="IM_V_PLANILLAS_X_DPOLITICA" msprop:Generator_RowDeletedName="IM_V_PLANILLAS_X_DPOLITICARowDeleted" msprop:Generator_TableClassName="IM_V_PLANILLAS_X_DPOLITICADataTable" msprop:Generator_RowChangedName="IM_V_PLANILLAS_X_DPOLITICARowChanged" msprop:Generator_RowClassName="IM_V_PLANILLAS_X_DPOLITICARow" msprop:Generator_RowChangingName="IM_V_PLANILLAS_X_DPOLITICARowChanging" msprop:Generator_RowEvArgName="IM_V_PLANILLAS_X_DPOLITICARowChangeEvent" msprop:Generator_RowEvHandlerName="IM_V_PLANILLAS_X_DPOLITICARowChangeEventHandler" msprop:Generator_TablePropName="IM_V_PLANILLAS_X_DPOLITICA" msprop:Generator_TableVarName="tableIM_V_PLANILLAS_X_DPOLITICA" msprop:Generator_RowDeletingName="IM_V_PLANILLAS_X_DPOLITICARowDeleting">
+        <xs:element name="IM_V_PLANILLAS_X_DPOLITICA" msprop:Generator_UserTableName="IM_V_PLANILLAS_X_DPOLITICA" msprop:Generator_RowDeletedName="IM_V_PLANILLAS_X_DPOLITICARowDeleted" msprop:Generator_RowChangedName="IM_V_PLANILLAS_X_DPOLITICARowChanged" msprop:Generator_RowClassName="IM_V_PLANILLAS_X_DPOLITICARow" msprop:Generator_RowChangingName="IM_V_PLANILLAS_X_DPOLITICARowChanging" msprop:Generator_RowEvArgName="IM_V_PLANILLAS_X_DPOLITICARowChangeEvent" msprop:Generator_RowEvHandlerName="IM_V_PLANILLAS_X_DPOLITICARowChangeEventHandler" msprop:Generator_TableClassName="IM_V_PLANILLAS_X_DPOLITICADataTable" msprop:Generator_TableVarName="tableIM_V_PLANILLAS_X_DPOLITICA" msprop:Generator_RowDeletingName="IM_V_PLANILLAS_X_DPOLITICARowDeleting" msprop:Generator_TablePropName="IM_V_PLANILLAS_X_DPOLITICA">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CODIGO_x0020_CANDIDATO" msprop:Generator_UserColumnName="CODIGO CANDIDATO" msprop:Generator_ColumnPropNameInRow="CODIGO_CANDIDATO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_CANDIDATO" msprop:Generator_ColumnPropNameInTable="CODIGO_CANDIDATOColumn" type="xs:decimal" minOccurs="0" />
@@ -181,11 +177,11 @@ FROM IM_NIVEL_ELECTIVO</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DT_PARTIDOS_DP" msprop:Generator_UserTableName="DT_PARTIDOS_DP" msprop:Generator_RowDeletedName="DT_PARTIDOS_DPRowDeleted" msprop:Generator_TableClassName="DT_PARTIDOS_DPDataTable" msprop:Generator_RowChangedName="DT_PARTIDOS_DPRowChanged" msprop:Generator_RowClassName="DT_PARTIDOS_DPRow" msprop:Generator_RowChangingName="DT_PARTIDOS_DPRowChanging" msprop:Generator_RowEvArgName="DT_PARTIDOS_DPRowChangeEvent" msprop:Generator_RowEvHandlerName="DT_PARTIDOS_DPRowChangeEventHandler" msprop:Generator_TablePropName="DT_PARTIDOS_DP" msprop:Generator_TableVarName="tableDT_PARTIDOS_DP" msprop:Generator_RowDeletingName="DT_PARTIDOS_DPRowDeleting">
+        <xs:element name="DT_PARTIDOS_DP" msprop:Generator_UserTableName="DT_PARTIDOS_DP" msprop:Generator_RowDeletedName="DT_PARTIDOS_DPRowDeleted" msprop:Generator_RowChangedName="DT_PARTIDOS_DPRowChanged" msprop:Generator_RowClassName="DT_PARTIDOS_DPRow" msprop:Generator_RowChangingName="DT_PARTIDOS_DPRowChanging" msprop:Generator_RowEvArgName="DT_PARTIDOS_DPRowChangeEvent" msprop:Generator_RowEvHandlerName="DT_PARTIDOS_DPRowChangeEventHandler" msprop:Generator_TableClassName="DT_PARTIDOS_DPDataTable" msprop:Generator_TableVarName="tableDT_PARTIDOS_DP" msprop:Generator_RowDeletingName="DT_PARTIDOS_DPRowDeleting" msprop:Generator_TablePropName="DT_PARTIDOS_DP">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="NOMBRE_x0020_PARTIDO" msprop:Generator_UserColumnName="NOMBRE PARTIDO" msprop:Generator_ColumnPropNameInRow="NOMBRE_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_PARTIDO" msprop:Generator_ColumnPropNameInTable="NOMBRE_PARTIDOColumn" minOccurs="0">
+              <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" type="xs:decimal" />
+              <xs:element name="NOMBRE_x0020_PARTIDO" msprop:Generator_UserColumnName="NOMBRE PARTIDO" msprop:Generator_ColumnPropNameInRow="NOMBRE_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_PARTIDO" msprop:Generator_ColumnPropNameInTable="NOMBRE_PARTIDOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
@@ -195,11 +191,11 @@ FROM IM_NIVEL_ELECTIVO</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DT_MOVIMIENTO_DP" msprop:Generator_UserTableName="DT_MOVIMIENTO_DP" msprop:Generator_RowDeletedName="DT_MOVIMIENTO_DPRowDeleted" msprop:Generator_TableClassName="DT_MOVIMIENTO_DPDataTable" msprop:Generator_RowChangedName="DT_MOVIMIENTO_DPRowChanged" msprop:Generator_RowClassName="DT_MOVIMIENTO_DPRow" msprop:Generator_RowChangingName="DT_MOVIMIENTO_DPRowChanging" msprop:Generator_RowEvArgName="DT_MOVIMIENTO_DPRowChangeEvent" msprop:Generator_RowEvHandlerName="DT_MOVIMIENTO_DPRowChangeEventHandler" msprop:Generator_TablePropName="DT_MOVIMIENTO_DP" msprop:Generator_TableVarName="tableDT_MOVIMIENTO_DP" msprop:Generator_RowDeletingName="DT_MOVIMIENTO_DPRowDeleting">
+        <xs:element name="DT_MOVIMIENTO_DP" msprop:Generator_UserTableName="DT_MOVIMIENTO_DP" msprop:Generator_RowDeletedName="DT_MOVIMIENTO_DPRowDeleted" msprop:Generator_RowChangedName="DT_MOVIMIENTO_DPRowChanged" msprop:Generator_RowClassName="DT_MOVIMIENTO_DPRow" msprop:Generator_RowChangingName="DT_MOVIMIENTO_DPRowChanging" msprop:Generator_RowEvArgName="DT_MOVIMIENTO_DPRowChangeEvent" msprop:Generator_RowEvHandlerName="DT_MOVIMIENTO_DPRowChangeEventHandler" msprop:Generator_TableClassName="DT_MOVIMIENTO_DPDataTable" msprop:Generator_TableVarName="tableDT_MOVIMIENTO_DP" msprop:Generator_RowDeletingName="DT_MOVIMIENTO_DPRowDeleting" msprop:Generator_TablePropName="DT_MOVIMIENTO_DP">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CODIGO_MOVIMIENTO" msprop:Generator_UserColumnName="CODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOVIMIENTOColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="NOMBRE_x0020_MOVIMIENTO" msprop:Generator_UserColumnName="NOMBRE MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="NOMBRE_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="NOMBRE_MOVIMIENTOColumn" minOccurs="0">
+              <xs:element name="CODIGO_MOVIMIENTO" msprop:Generator_UserColumnName="CODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOVIMIENTOColumn" type="xs:decimal" />
+              <xs:element name="NOMBRE_x0020_MOVIMIENTO" msprop:Generator_UserColumnName="NOMBRE MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="NOMBRE_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="NOMBRE_MOVIMIENTOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
@@ -209,7 +205,7 @@ FROM IM_NIVEL_ELECTIVO</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DT_NIVELE_DP" msprop:Generator_UserTableName="DT_NIVELE_DP" msprop:Generator_RowDeletedName="DT_NIVELE_DPRowDeleted" msprop:Generator_TableClassName="DT_NIVELE_DPDataTable" msprop:Generator_RowChangedName="DT_NIVELE_DPRowChanged" msprop:Generator_RowClassName="DT_NIVELE_DPRow" msprop:Generator_RowChangingName="DT_NIVELE_DPRowChanging" msprop:Generator_RowEvArgName="DT_NIVELE_DPRowChangeEvent" msprop:Generator_RowEvHandlerName="DT_NIVELE_DPRowChangeEventHandler" msprop:Generator_TablePropName="DT_NIVELE_DP" msprop:Generator_TableVarName="tableDT_NIVELE_DP" msprop:Generator_RowDeletingName="DT_NIVELE_DPRowDeleting">
+        <xs:element name="DT_NIVELE_DP" msprop:Generator_UserTableName="DT_NIVELE_DP" msprop:Generator_RowDeletedName="DT_NIVELE_DPRowDeleted" msprop:Generator_RowChangedName="DT_NIVELE_DPRowChanged" msprop:Generator_RowClassName="DT_NIVELE_DPRow" msprop:Generator_RowChangingName="DT_NIVELE_DPRowChanging" msprop:Generator_RowEvArgName="DT_NIVELE_DPRowChangeEvent" msprop:Generator_RowEvHandlerName="DT_NIVELE_DPRowChangeEventHandler" msprop:Generator_TableClassName="DT_NIVELE_DPDataTable" msprop:Generator_TableVarName="tableDT_NIVELE_DP" msprop:Generator_RowDeletingName="DT_NIVELE_DPRowDeleting" msprop:Generator_TablePropName="DT_NIVELE_DP">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CODIGO_NIVEL_ELECTIVO" msprop:Generator_UserColumnName="CODIGO_NIVEL_ELECTIVO" msprop:Generator_ColumnPropNameInRow="CODIGO_NIVEL_ELECTIVO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_NIVEL_ELECTIVO" msprop:Generator_ColumnPropNameInTable="CODIGO_NIVEL_ELECTIVOColumn" type="xs:decimal" minOccurs="0" />
@@ -225,5 +221,9 @@ FROM IM_NIVEL_ELECTIVO</CommandText>
         </xs:element>
       </xs:choice>
     </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//DT_PARTIDOS_DP" />
+      <xs:field xpath="CODIGO_PARTIDO" />
+    </xs:unique>
   </xs:element>
 </xs:schema>

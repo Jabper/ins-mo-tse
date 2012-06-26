@@ -195,7 +195,7 @@ Partial Public Class Reporte_de_PlanillaNEM
         '
         'XrLabel3
         '
-        Me.XrLabel3.LocationFloat = New DevExpress.Utils.PointFloat(8.379872!, 70.83334!)
+        Me.XrLabel3.LocationFloat = New DevExpress.Utils.PointFloat(4.379845!, 70.83334!)
         Me.XrLabel3.Name = "XrLabel3"
         Me.XrLabel3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel3.SizeF = New System.Drawing.SizeF(191.4737!, 17.25!)
