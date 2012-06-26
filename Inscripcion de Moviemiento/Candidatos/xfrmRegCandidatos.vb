@@ -492,7 +492,6 @@ Public Class xfrmRegCandidatos
                 myCMD.Parameters.Add(New OracleParameter("p_municipio", OracleType.Number, 3, ParameterDirection.Input)).Value = depto
                 myCMD.Parameters.Add(New OracleParameter("p_cargo", OracleType.Number, 3, ParameterDirection.Input)).Value = depto
                 myCMD.Parameters.Add(New OracleParameter("p_requisito", OracleType.Number, 3, ParameterDirection.Input)).Value = requisito
-                myCMD.Parameters.Add(New OracleParameter("p_requisito", OracleType.Number, 3, ParameterDirection.Input)).Value = requisito
                 myCMD.Parameters.Add(New OracleParameter("p_estado", OracleType.Char, 1)).Direction = ParameterDirection.InputOutput
                 myCMD.Parameters.Add(New OracleParameter("P_Error", OracleType.NVarChar, 500)).Direction = ParameterDirection.InputOutput
                 myCMD.ExecuteOracleScalar()
