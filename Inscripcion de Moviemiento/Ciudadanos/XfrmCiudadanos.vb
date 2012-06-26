@@ -2,10 +2,12 @@
 Imports DevExpress.XtraEditors.Controls
 Imports DevExpress.XtraGrid.Columns
 Imports DevExpress.XtraEditors
+Imports System.Data.OracleClient
 
 Public Class XfrmCiudadanos
-    
 
+    Public img As Image
+    Dim imagesave As Boolean = False
     Dim vi As Integer = 0
     Dim errores As Integer = 0
     Public iddepto As Integer
@@ -32,13 +34,40 @@ Public Class XfrmCiudadanos
     End Sub
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
         Me.Close()
-        
-
-
 
     End Sub
 
- 
+    Sub guardarimagen()
+        Try
+            If img Is Nothing Then
+            Else
+                Dim cnx As New OracleConnection(Configuracion.verconfig)
+                '
+                'Data.ConvertImageToByteArray(Me.Imgimagen.EditValue)
+
+                Dim sqlstring As String
+                sqlstring = "INSERT INTO IM_IMAGENES_FIRMAS ( CODIGO_PARTIDO,CODIGO_MOVIMIENTO,PAGINA,FOLIO,IMAGEN) VALUES(:idp,:idmov,:pag,:folio,:imagen)"
+                Dim cmd As New OracleCommand(sqlstring, cnx)
+                cmd.Parameters.Add(":idp", OracleType.Number, 2).Value = idpartido
+                cmd.Parameters.Add(":idmov", OracleType.Number, 3).Value = idmovimiento
+                cmd.Parameters.Add(":pag", OracleType.Number).Value = pagina
+                If folio = "" Or folio Is Nothing Then
+                    cmd.Parameters.Add(":folio", OracleType.Number).Value = DBNull.Value
+                Else
+                    cmd.Parameters.Add(":folio", OracleType.Number).Value = folio
+                End If
+                cmd.Parameters.Add(":imagen", OracleType.Blob).Value = Data.ConvertImageToByteArray(img)
+                cnx.Open()
+                cmd.ExecuteNonQuery()
+                cnx.Close()
+                imagesave = True
+            End If
+        Catch ex As Exception
+            Mensajes.mimensaje(ex.Message)
+        End Try
+
+        
+    End Sub
 
     Private Sub GridView1_CustomColumnDisplayText(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs) Handles GridView1.CustomColumnDisplayText
 
@@ -99,7 +128,7 @@ Public Class XfrmCiudadanos
         Me.Close()
     End Sub
 
-    
+
 
     Private Sub XfrmCiudadanos_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Me.KeyPress
         Dim view As GridView = GridView1
@@ -118,7 +147,7 @@ Public Class XfrmCiudadanos
         lbltodos.Text = Math.Round((CREstadistico.Firmasmovimiento + CREstadistico.FirmasInconsistentes), 0)
     End Sub
     Private Sub XfrmCiudadanos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-       Me.MdiParent = XFrmMenuPrincipal
+        Me.MdiParent = XFrmMenuPrincipal
         Me.TA_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.TA_DEPARTAMENTOS)
         Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
         Estado.OptionsColumn.AllowEdit = False
@@ -165,7 +194,7 @@ Public Class XfrmCiudadanos
 
         End Try
     End Sub
-    
+
 
 
     Sub AgregarFilasGrid(ByVal NumeroCeldas As Integer)
@@ -180,7 +209,7 @@ Public Class XfrmCiudadanos
 
         view.FocusedColumn = colIDENTIDAD
         view.ShowEditor()
-       
+
     End Sub
 
     Sub eliminarvacios()
@@ -307,7 +336,7 @@ Public Class XfrmCiudadanos
 
 
             Next i
-          
+
 
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -411,7 +440,7 @@ Public Class XfrmCiudadanos
 
             'Next i
 
-            
+
 
 
         Catch ex As Exception
@@ -423,7 +452,7 @@ Public Class XfrmCiudadanos
         'Guardar Informacion
         Try
 
-        
+
             Dim ciudadanos As DSCiudadanos.IM_CIUDADANOS_RESPALDAN1Row
             ciudadanos = Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1.NewIM_CIUDADANOS_RESPALDAN1Row
             With ciudadanos
@@ -448,7 +477,7 @@ Public Class XfrmCiudadanos
                 Else
                     .FOLIO = CType(folio, Integer)
                 End If
-               
+
 
                 .ADICIONADO_POR = usuario
                 .FECHA_ADICION = DateTime.Now
@@ -466,6 +495,9 @@ Public Class XfrmCiudadanos
                 noinconsistentes += 1
             End If
             guardados += 1
+            If imagesave = False Then
+                guardarimagen()
+            End If
         Catch ex As Exception
             MsgBox(ex.Message)
             GridView1.SetRowCellValue(i, "Estado", False)
@@ -486,8 +518,13 @@ Public Class XfrmCiudadanos
 
     End Sub
 
-   
 
+    Sub mostrarimg()
+        Dim consulta As String = "SELECT IMAGEN FROM IM_PARTIDOS_POLITICOS WHERE CODIGO_PARTIDO=" & idpartido
+        Me.imgpartido.Image = COracle.ObtenerImagen(consulta, "IMAGEN")
+        Dim consulta2 As String = "SELECT * FROM IM_MOVIMIENTOS WHERE CODIGO_MOVIMIENTO=" & idmovimiento
+        Me.imgmov.Image = COracle.ObtenerImagen(consulta2, "INSIGNIA")
+    End Sub
 
 
     Private Sub PanelControl2_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles PanelControl2.Paint

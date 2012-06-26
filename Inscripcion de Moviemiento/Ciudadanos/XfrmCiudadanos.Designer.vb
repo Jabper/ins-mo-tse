@@ -103,6 +103,8 @@ Partial Class XfrmCiudadanos
         Me.TA_MUNICIPIOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_MUNICIPIOSTableAdapter
         Me.IM_CIUDADANOS_RESPALDAN1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_CIUDADANOS_RESPALDAN1TableAdapter = New Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.IM_CIUDADANOS_RESPALDAN1TableAdapter
+        Me.imgpartido = New DevExpress.XtraEditors.PictureEdit
+        Me.imgmov = New DevExpress.XtraEditors.PictureEdit
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -150,6 +152,8 @@ Partial Class XfrmCiudadanos
         CType(Me.EmptySpaceItem5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IM_CIUDADANOS_RESPALDAN1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.imgpartido.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.imgmov.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -482,6 +486,8 @@ Partial Class XfrmCiudadanos
         Me.PanelControl1.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.PanelControl1.Appearance.Options.UseBackColor = True
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl1.Controls.Add(Me.imgmov)
+        Me.PanelControl1.Controls.Add(Me.imgpartido)
         Me.PanelControl1.Controls.Add(Me.lblpagina)
         Me.PanelControl1.Controls.Add(Me.Label3)
         Me.PanelControl1.Controls.Add(Me.lblfolio)
@@ -956,6 +962,30 @@ Partial Class XfrmCiudadanos
         '
         Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.ClearBeforeFill = True
         '
+        'imgpartido
+        '
+        Me.imgpartido.Location = New System.Drawing.Point(168, 5)
+        Me.imgpartido.Name = "imgpartido"
+        Me.imgpartido.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.imgpartido.Properties.Appearance.Options.UseBackColor = True
+        Me.imgpartido.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.imgpartido.Properties.ShowMenu = False
+        Me.imgpartido.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
+        Me.imgpartido.Size = New System.Drawing.Size(68, 55)
+        Me.imgpartido.TabIndex = 14
+        '
+        'imgmov
+        '
+        Me.imgmov.Location = New System.Drawing.Point(256, 5)
+        Me.imgmov.Name = "imgmov"
+        Me.imgmov.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.imgmov.Properties.Appearance.Options.UseBackColor = True
+        Me.imgmov.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.imgmov.Properties.ShowMenu = False
+        Me.imgmov.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
+        Me.imgmov.Size = New System.Drawing.Size(68, 55)
+        Me.imgmov.TabIndex = 15
+        '
         'XfrmCiudadanos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1013,6 +1043,8 @@ Partial Class XfrmCiudadanos
         CType(Me.EmptySpaceItem5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IM_CIUDADANOS_RESPALDAN1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.imgpartido.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.imgmov.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1098,4 +1130,6 @@ Partial Class XfrmCiudadanos
     Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents lbltodos As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents imgpartido As DevExpress.XtraEditors.PictureEdit
+    Friend WithEvents imgmov As DevExpress.XtraEditors.PictureEdit
 End Class

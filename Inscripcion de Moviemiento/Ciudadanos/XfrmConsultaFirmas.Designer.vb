@@ -36,6 +36,9 @@ Partial Class XfrmConsultaFirmas
         Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl
+        Me.SimpleButton5 = New DevExpress.XtraEditors.SimpleButton
+        Me.SimpleButton4 = New DevExpress.XtraEditors.SimpleButton
+        Me.img = New DevExpress.XtraEditors.PictureEdit
         Me.txtpagina = New DevExpress.XtraEditors.TextEdit
         Me.txtfolio = New DevExpress.XtraEditors.TextEdit
         Me.LabelControl14 = New DevExpress.XtraEditors.LabelControl
@@ -119,6 +122,8 @@ Partial Class XfrmConsultaFirmas
         Me.TA_MUNICIPIOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_MUNICIPIOSTableAdapter
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.MOSTRAR_FIRMASTableAdapter = New Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.MOSTRAR_FIRMASTableAdapter
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
+        Me.LabelControl15 = New DevExpress.XtraEditors.LabelControl
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -127,6 +132,7 @@ Partial Class XfrmConsultaFirmas
         CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl3.SuspendLayout()
+        CType(Me.img.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtpagina.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtfolio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CmbPartido.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -355,6 +361,10 @@ Partial Class XfrmConsultaFirmas
         Me.PanelControl3.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.PanelControl3.Appearance.Options.UseBackColor = True
         Me.PanelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl3.Controls.Add(Me.LabelControl15)
+        Me.PanelControl3.Controls.Add(Me.SimpleButton5)
+        Me.PanelControl3.Controls.Add(Me.SimpleButton4)
+        Me.PanelControl3.Controls.Add(Me.img)
         Me.PanelControl3.Controls.Add(Me.txtpagina)
         Me.PanelControl3.Controls.Add(Me.txtfolio)
         Me.PanelControl3.Controls.Add(Me.LabelControl14)
@@ -383,6 +393,31 @@ Partial Class XfrmConsultaFirmas
         Me.PanelControl3.Name = "PanelControl3"
         Me.PanelControl3.Size = New System.Drawing.Size(759, 219)
         Me.PanelControl3.TabIndex = 17
+        '
+        'SimpleButton5
+        '
+        Me.SimpleButton5.Location = New System.Drawing.Point(642, 176)
+        Me.SimpleButton5.Name = "SimpleButton5"
+        Me.SimpleButton5.Size = New System.Drawing.Size(84, 23)
+        Me.SimpleButton5.TabIndex = 55
+        Me.SimpleButton5.Text = "Guardar"
+        '
+        'SimpleButton4
+        '
+        Me.SimpleButton4.Location = New System.Drawing.Point(552, 176)
+        Me.SimpleButton4.Name = "SimpleButton4"
+        Me.SimpleButton4.Size = New System.Drawing.Size(84, 23)
+        Me.SimpleButton4.TabIndex = 54
+        Me.SimpleButton4.Text = "Cargar Imágen"
+        '
+        'img
+        '
+        Me.img.Location = New System.Drawing.Point(572, 47)
+        Me.img.Name = "img"
+        Me.img.Properties.ShowMenu = False
+        Me.img.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
+        Me.img.Size = New System.Drawing.Size(139, 123)
+        Me.img.TabIndex = 53
         '
         'txtpagina
         '
@@ -1076,6 +1111,18 @@ Partial Class XfrmConsultaFirmas
         '
         Me.MOSTRAR_FIRMASTableAdapter.ClearBeforeFill = True
         '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'LabelControl15
+        '
+        Me.LabelControl15.Location = New System.Drawing.Point(572, 28)
+        Me.LabelControl15.Name = "LabelControl15"
+        Me.LabelControl15.Size = New System.Drawing.Size(97, 13)
+        Me.LabelControl15.TabIndex = 56
+        Me.LabelControl15.Text = "Imágen de la Página"
+        '
         'XfrmConsultaFirmas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1095,6 +1142,7 @@ Partial Class XfrmConsultaFirmas
         CType(Me.PanelControl3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl3.ResumeLayout(False)
         Me.PanelControl3.PerformLayout()
+        CType(Me.img.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtpagina.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtfolio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CmbPartido.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1237,4 +1285,9 @@ Partial Class XfrmConsultaFirmas
     Friend WithEvents LabelControl14 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl13 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents lbltodos As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents img As DevExpress.XtraEditors.PictureEdit
+    Friend WithEvents SimpleButton4 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents SimpleButton5 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LabelControl15 As DevExpress.XtraEditors.LabelControl
 End Class
