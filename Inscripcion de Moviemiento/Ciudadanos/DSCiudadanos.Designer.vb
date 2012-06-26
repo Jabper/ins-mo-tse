@@ -1316,7 +1316,7 @@ Partial Public Class DSCiudadanos
             Me.columnFECHA_ADICION.AllowDBNull = false
             Me.columnMODIFICADO_POR.MaxLength = 10
             Me.columnCONSISTENTE.MaxLength = 1
-            Me.columnOBSERVACION.MaxLength = 200
+            Me.columnOBSERVACION.MaxLength = 500
             Me.columnMAQUINA.MaxLength = 50
             Me.columnSEGUNDO_NOMBRE_PAPELETA.MaxLength = 50
             Me.columnPRIMER_APELLIDO_PAPELETA.AllowDBNull = false
@@ -1869,7 +1869,7 @@ Partial Public Class DSCiudadanos
             Me.columnFECHA_ADICION.AllowDBNull = false
             Me.columnMODIFICADO_POR.MaxLength = 10
             Me.columnCONSISTENTE.MaxLength = 1
-            Me.columnOBSERVACION.MaxLength = 200
+            Me.columnOBSERVACION.MaxLength = 500
             Me.columnMAQUINA.MaxLength = 50
             Me.columnSEGUNDO_NOMBRE_PAPELETA.MaxLength = 50
             Me.columnPRIMER_APELLIDO_PAPELETA.AllowDBNull = false
