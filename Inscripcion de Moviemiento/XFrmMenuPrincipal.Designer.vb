@@ -97,6 +97,7 @@ Partial Class XFrmMenuPrincipal
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.BarSubItem1 = New DevExpress.XtraBars.BarSubItem
         Me.RibbonPageGroup10 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
+        Me.RibbonPageGroup12 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -510,6 +511,7 @@ Partial Class XFrmMenuPrincipal
         '
         'RibbonPage3
         '
+        Me.RibbonPage3.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup12})
         Me.RibbonPage3.Name = "RibbonPage3"
         Me.RibbonPage3.Text = "Procesos"
         '
@@ -525,7 +527,6 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonPageGroup7.ItemLinks.Add(Me.btnConsultarCenso)
         Me.RibbonPageGroup7.ItemLinks.Add(Me.btnConsultarFirmas)
         Me.RibbonPageGroup7.ItemLinks.Add(Me.btnConsultarCandidatos)
-        Me.RibbonPageGroup7.ItemLinks.Add(Me.btnConsultarPlanilla)
         Me.RibbonPageGroup7.Name = "RibbonPageGroup7"
         Me.RibbonPageGroup7.Text = "Generales"
         '
@@ -671,6 +672,12 @@ Partial Class XFrmMenuPrincipal
         '
         Me.RibbonPageGroup10.Name = "RibbonPageGroup10"
         '
+        'RibbonPageGroup12
+        '
+        Me.RibbonPageGroup12.ItemLinks.Add(Me.btnConsultarPlanilla)
+        Me.RibbonPageGroup12.Name = "RibbonPageGroup12"
+        Me.RibbonPageGroup12.Text = "Procesos"
+        '
         'XFrmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -774,6 +781,7 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents BarButtonItem9 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RibbonPageGroup11 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents BarButtonItem10 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonPageGroup12 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
 
 
 End Class

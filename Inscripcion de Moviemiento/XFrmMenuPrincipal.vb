@@ -96,7 +96,7 @@ Public Class XFrmMenuPrincipal
             End If
         Next
         For Each item As BarItem In Me.RibbonControl.Items
-            If TypeOf item Is BarButtonItem Then
+            If TypeOf item Is BarButtonItem Or TypeOf item Is BarSubItem Then
                 Dim insertar As String = COracle.credenciales(item.Name.ToString, "INSERTAR")
                 If insertar = "E" Then
                     item.Visibility = BarItemVisibility.Never
