@@ -45,7 +45,7 @@ Public Class XFrmMenuPrincipal
     End Sub
     Private Sub XFrmMenuPrincipal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'verificaringreso()
-        'verificar_permisos()
+        verificar_permisos()
         'Me.BtnCerrarSesion.Visibility = BarItemVisibility.Always
         'Me.BtnSalir.Visibility = BarItemVisibility.Always
         'Call conexion()
