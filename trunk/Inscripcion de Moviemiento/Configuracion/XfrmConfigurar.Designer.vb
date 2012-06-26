@@ -403,7 +403,7 @@ Partial Class XfrmConfigurar
         '
         'PictureEdit1
         '
-        Me.PictureEdit1.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.tselogop1
+        Me.PictureEdit1.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.tselogop
         Me.PictureEdit1.Location = New System.Drawing.Point(235, 184)
         Me.PictureEdit1.Name = "PictureEdit1"
         Me.PictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
