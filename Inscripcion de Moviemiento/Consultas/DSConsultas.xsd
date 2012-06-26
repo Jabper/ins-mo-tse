@@ -93,7 +93,7 @@ SELECT 2 AS COD, 'FEMENINO' AS DES FROM DUAL</CommandText>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        CODIGO_DEPARTAMENTO, DESCRIPCION
-FROM            IM_DEPARTAMENTOS</CommandText>
+FROM            IM_DEPARTAMENTOS ORDER BY CODIGO_DEPARTAMENTO</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -132,7 +132,7 @@ FROM            IM_DEPARTAMENTOS</CommandText>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        CODIGO_MUNICIPIO, CODIGO_DEPARTAMENTO, DESCRIPCION
-FROM            IM_MUNICIPIOS</CommandText>
+FROM            IM_MUNICIPIOS ORDER BY CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -205,7 +205,7 @@ WHERE        (CODIGO_CUIDADANOS_RESPALDAN = :codCiuRes) AND (CODIGO_PARTIDO = :c
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        CODIGO_PARTIDO, NOMBRE
-FROM            IM_PARTIDOS_POLITICOS</CommandText>
+FROM            IM_PARTIDOS_POLITICOS ORDER BY CODIGO_PARTIDO</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -244,7 +244,7 @@ FROM            IM_PARTIDOS_POLITICOS</CommandText>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        CODIGO_MOVIMIENTO, CODIGO_PARTIDO, NOMBRE_MOVIMIENTO
-FROM            IM_MOVIMIENTOS</CommandText>
+FROM            IM_MOVIMIENTOS ORDER BY CODIGO_PARTIDO, CODIGO_MOVIMIENTO</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -285,7 +285,7 @@ FROM            IM_MOVIMIENTOS</CommandText>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        CODIGO_NIVEL_ELECTIVO, DESCRIPCION
-FROM            IM_NIVEL_ELECTIVO</CommandText>
+FROM            IM_NIVEL_ELECTIVO ORDER BY CODIGO_NIVEL_ELECTIVO</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -324,7 +324,7 @@ FROM            IM_NIVEL_ELECTIVO</CommandText>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        CODIGO_CARGO_ELECTIVO, CODIGO_NIVEL_ELECTIVO, DESCRIPCION
-FROM            IM_CARGOS_ELECTIVOS</CommandText>
+FROM            IM_CARGOS_ELECTIVOS ORDER BY CODIGO_NIVEL_ELECTIVO, CODIGO_CARGO_ELECTIVO</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -597,12 +597,22 @@ FROM            IM_V_JR_CANDIDATOS</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="IM_V_PLANILLA_REQUISITOTableAdapter" GeneratorDataComponentClassName="IM_V_PLANILLA_REQUISITOTableAdapter" Name="IM_V_PLANILLA_REQUISITO" UserDataComponentName="IM_V_PLANILLA_REQUISITOTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="TSE.IM_V_PLANILLA_REQUISITO" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="TSE.IM_V_PLANILLA_REQUISITO" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        IM_V_PLANILLA_REQUISITO.*
-FROM            IM_V_PLANILLA_REQUISITO</CommandText>
-                    <Parameters />
+                    <CommandText>SELECT        FOTOGRAFIA, CONSTANCIA, POSICION, IDENTIDAD, PRIMER_NOMBRE, SEGUNDO_NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO, CARGO, REC1, 
+                         REC2, REC3, REC4, REC5, REC6, REC7, REC8, REC9, VALIDADO, CODIGO_PARTIDO, CODIGO_MOVIMIENTO, CODIGO_NIVEL_ELECTIVO, 
+                         CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, CODIGO_CANDIDATOS, ESTADO
+FROM            IM_V_PLANILLA_REQUISITO
+WHERE        (CODIGO_PARTIDO = :partido) AND (CODIGO_MOVIMIENTO = :movimiento) AND (CODIGO_NIVEL_ELECTIVO = :nivel) AND 
+                         (CODIGO_DEPARTAMENTO = :departamento) AND (CODIGO_MUNICIPIO = :municipio)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="partido" ColumnName="CODIGO_PARTIDO" DataSourceName="TSE.IM_V_PLANILLA_REQUISITO" DataTypeServer="NUMBER(22)" DbType="Decimal" Direction="Input" ParameterName="partido" Precision="2" ProviderType="Number" Scale="0" Size="22" SourceColumn="CODIGO_PARTIDO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="movimiento" ColumnName="CODIGO_MOVIMIENTO" DataSourceName="TSE.IM_V_PLANILLA_REQUISITO" DataTypeServer="NUMBER(22)" DbType="Decimal" Direction="Input" ParameterName="movimiento" Precision="3" ProviderType="Number" Scale="0" Size="22" SourceColumn="CODIGO_MOVIMIENTO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="nivel" ColumnName="CODIGO_NIVEL_ELECTIVO" DataSourceName="TSE.IM_V_PLANILLA_REQUISITO" DataTypeServer="NUMBER(22)" DbType="Decimal" Direction="Input" ParameterName="nivel" Precision="2" ProviderType="Number" Scale="0" Size="22" SourceColumn="CODIGO_NIVEL_ELECTIVO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="departamento" ColumnName="CODIGO_DEPARTAMENTO" DataSourceName="TSE.IM_V_PLANILLA_REQUISITO" DataTypeServer="NUMBER(22)" DbType="Decimal" Direction="Input" ParameterName="departamento" Precision="2" ProviderType="Number" Scale="0" Size="22" SourceColumn="CODIGO_DEPARTAMENTO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="municipio" ColumnName="CODIGO_MUNICIPIO" DataSourceName="TSE.IM_V_PLANILLA_REQUISITO" DataTypeServer="NUMBER(22)" DbType="Decimal" Direction="Input" ParameterName="municipio" Precision="2" ProviderType="Number" Scale="0" Size="22" SourceColumn="CODIGO_MUNICIPIO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
@@ -635,7 +645,19 @@ FROM            IM_V_PLANILLA_REQUISITO</CommandText>
               <Mapping SourceColumn="CODIGO_CANDIDATOS" DataSetColumn="CODIGO_CANDIDATOS" />
               <Mapping SourceColumn="ESTADO" DataSetColumn="ESTADO" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="TSE.IM_V_PLANILLA_REQUISITO" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillAll" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataAll" GeneratorSourceName="FillAll" GetMethodModifier="Public" GetMethodName="GetDataAll" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataAll" UserSourceName="FillAll">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        FOTOGRAFIA, CONSTANCIA, POSICION, IDENTIDAD, PRIMER_NOMBRE, SEGUNDO_NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO, CARGO, REC1, 
+                         REC2, REC3, REC4, REC5, REC6, REC7, REC8, REC9, VALIDADO, CODIGO_PARTIDO, CODIGO_MOVIMIENTO, CODIGO_NIVEL_ELECTIVO, 
+                         CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, CODIGO_CANDIDATOS, ESTADO
+FROM            IM_V_PLANILLA_REQUISITO</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="imagenRequisitoTableAdapter" GeneratorDataComponentClassName="imagenRequisitoTableAdapter" Name="imagenRequisito" UserDataComponentName="imagenRequisitoTableAdapter">
             <MainSource>
@@ -1122,16 +1144,16 @@ AND codigo_requisito = :requisito</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="REC1" msprop:Generator_UserColumnName="REC1" msprop:Generator_ColumnPropNameInRow="REC1" msprop:Generator_ColumnVarNameInTable="columnREC1" msprop:Generator_ColumnPropNameInTable="REC1Column" type="xs:decimal" minOccurs="0" />
-              <xs:element name="REC2" msprop:Generator_UserColumnName="REC2" msprop:Generator_ColumnPropNameInRow="REC2" msprop:Generator_ColumnVarNameInTable="columnREC2" msprop:Generator_ColumnPropNameInTable="REC2Column" type="xs:decimal" minOccurs="0" />
-              <xs:element name="REC3" msprop:Generator_UserColumnName="REC3" msprop:Generator_ColumnPropNameInRow="REC3" msprop:Generator_ColumnVarNameInTable="columnREC3" msprop:Generator_ColumnPropNameInTable="REC3Column" type="xs:decimal" minOccurs="0" />
-              <xs:element name="REC4" msprop:Generator_UserColumnName="REC4" msprop:Generator_ColumnPropNameInRow="REC4" msprop:Generator_ColumnVarNameInTable="columnREC4" msprop:Generator_ColumnPropNameInTable="REC4Column" type="xs:decimal" minOccurs="0" />
-              <xs:element name="REC5" msprop:Generator_UserColumnName="REC5" msprop:Generator_ColumnPropNameInRow="REC5" msprop:Generator_ColumnVarNameInTable="columnREC5" msprop:Generator_ColumnPropNameInTable="REC5Column" type="xs:decimal" minOccurs="0" />
-              <xs:element name="REC6" msprop:Generator_UserColumnName="REC6" msprop:Generator_ColumnPropNameInRow="REC6" msprop:Generator_ColumnVarNameInTable="columnREC6" msprop:Generator_ColumnPropNameInTable="REC6Column" type="xs:decimal" minOccurs="0" />
-              <xs:element name="REC7" msprop:Generator_UserColumnName="REC7" msprop:Generator_ColumnPropNameInRow="REC7" msprop:Generator_ColumnVarNameInTable="columnREC7" msprop:Generator_ColumnPropNameInTable="REC7Column" type="xs:decimal" minOccurs="0" />
-              <xs:element name="REC8" msprop:Generator_UserColumnName="REC8" msprop:Generator_ColumnPropNameInRow="REC8" msprop:Generator_ColumnVarNameInTable="columnREC8" msprop:Generator_ColumnPropNameInTable="REC8Column" type="xs:decimal" minOccurs="0" />
-              <xs:element name="REC9" msprop:Generator_UserColumnName="REC9" msprop:Generator_ColumnPropNameInRow="REC9" msprop:Generator_ColumnVarNameInTable="columnREC9" msprop:Generator_ColumnPropNameInTable="REC9Column" type="xs:decimal" minOccurs="0" />
-              <xs:element name="VALIDADO" msprop:Generator_UserColumnName="VALIDADO" msprop:Generator_ColumnPropNameInRow="VALIDADO" msprop:Generator_ColumnVarNameInTable="columnVALIDADO" msprop:Generator_ColumnPropNameInTable="VALIDADOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="REC1" msprop:Generator_UserColumnName="REC1" msprop:Generator_ColumnPropNameInRow="REC1" msprop:Generator_ColumnVarNameInTable="columnREC1" msprop:Generator_ColumnPropNameInTable="REC1Column" type="xs:string" minOccurs="0" />
+              <xs:element name="REC2" msprop:Generator_UserColumnName="REC2" msprop:Generator_ColumnPropNameInRow="REC2" msprop:Generator_ColumnVarNameInTable="columnREC2" msprop:Generator_ColumnPropNameInTable="REC2Column" type="xs:string" minOccurs="0" />
+              <xs:element name="REC3" msprop:Generator_UserColumnName="REC3" msprop:Generator_ColumnPropNameInRow="REC3" msprop:Generator_ColumnVarNameInTable="columnREC3" msprop:Generator_ColumnPropNameInTable="REC3Column" type="xs:string" minOccurs="0" />
+              <xs:element name="REC4" msprop:Generator_UserColumnName="REC4" msprop:Generator_ColumnPropNameInRow="REC4" msprop:Generator_ColumnVarNameInTable="columnREC4" msprop:Generator_ColumnPropNameInTable="REC4Column" type="xs:string" minOccurs="0" />
+              <xs:element name="REC5" msprop:Generator_UserColumnName="REC5" msprop:Generator_ColumnPropNameInRow="REC5" msprop:Generator_ColumnVarNameInTable="columnREC5" msprop:Generator_ColumnPropNameInTable="REC5Column" type="xs:string" minOccurs="0" />
+              <xs:element name="REC6" msprop:Generator_UserColumnName="REC6" msprop:Generator_ColumnPropNameInRow="REC6" msprop:Generator_ColumnVarNameInTable="columnREC6" msprop:Generator_ColumnPropNameInTable="REC6Column" type="xs:string" minOccurs="0" />
+              <xs:element name="REC7" msprop:Generator_UserColumnName="REC7" msprop:Generator_ColumnPropNameInRow="REC7" msprop:Generator_ColumnVarNameInTable="columnREC7" msprop:Generator_ColumnPropNameInTable="REC7Column" type="xs:string" minOccurs="0" />
+              <xs:element name="REC8" msprop:Generator_UserColumnName="REC8" msprop:Generator_ColumnPropNameInRow="REC8" msprop:Generator_ColumnVarNameInTable="columnREC8" msprop:Generator_ColumnPropNameInTable="REC8Column" type="xs:string" minOccurs="0" />
+              <xs:element name="REC9" msprop:Generator_UserColumnName="REC9" msprop:Generator_ColumnPropNameInRow="REC9" msprop:Generator_ColumnVarNameInTable="columnREC9" msprop:Generator_ColumnPropNameInTable="REC9Column" type="xs:string" minOccurs="0" />
+              <xs:element name="VALIDADO" msprop:Generator_UserColumnName="VALIDADO" msprop:Generator_ColumnPropNameInRow="VALIDADO" msprop:Generator_ColumnVarNameInTable="columnVALIDADO" msprop:Generator_ColumnPropNameInTable="VALIDADOColumn" type="xs:string" minOccurs="0" />
               <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" type="xs:decimal" />
               <xs:element name="CODIGO_MOVIMIENTO" msprop:Generator_UserColumnName="CODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOVIMIENTOColumn" type="xs:decimal" />
               <xs:element name="CODIGO_NIVEL_ELECTIVO" msprop:Generator_UserColumnName="CODIGO_NIVEL_ELECTIVO" msprop:Generator_ColumnPropNameInRow="CODIGO_NIVEL_ELECTIVO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_NIVEL_ELECTIVO" msprop:Generator_ColumnPropNameInTable="CODIGO_NIVEL_ELECTIVOColumn" type="xs:decimal" />
