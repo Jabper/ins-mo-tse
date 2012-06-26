@@ -70,6 +70,8 @@ Partial Class XFrmMenuPrincipal
         Me.btnConsultarPlanilla = New DevExpress.XtraBars.BarButtonItem
         Me.BtnRLog = New DevExpress.XtraBars.BarSubItem
         Me.Btnlogproce = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnDiscoPartido = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnDiscoMovimiento = New DevExpress.XtraBars.BarButtonItem
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage
@@ -112,9 +114,9 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonControl.ApplicationButtonDropDownControl = Me.ApplicationMenu2
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ExpandCollapseItem.Name = ""
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion, Me.BtnMotivo, Me.btnCInhabilitados, Me.btnConsultarCenso, Me.BtnSubirOtroSistema, Me.BtnRPlanilla, Me.BtnPlanillanivel, Me.BtnPlanilladivision, Me.btnConsultarFirmas, Me.BtnRFirmas, Me.BtnFDP, Me.BtnREstadistico, Me.btnConsultarCandidatos, Me.BtnFirmasinc, Me.btnJerarquico, Me.BtnCrucemov, Me.BtnCrucepar, Me.BtnResumenFir, Me.TxtUser, Me.btnConsultarPlanilla, Me.BtnEstadisticoFI, Me.BtnRLog, Me.Btnlogproce, Me.BtnPlanillacandidatos})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion, Me.BtnMotivo, Me.btnCInhabilitados, Me.btnConsultarCenso, Me.BtnSubirOtroSistema, Me.BtnRPlanilla, Me.BtnPlanillanivel, Me.BtnPlanilladivision, Me.btnConsultarFirmas, Me.BtnRFirmas, Me.BtnFDP, Me.BtnREstadistico, Me.btnConsultarCandidatos, Me.BtnFirmasinc, Me.btnJerarquico, Me.BtnCrucemov, Me.BtnCrucepar, Me.BtnResumenFir, Me.TxtUser, Me.btnConsultarPlanilla, Me.BtnEstadisticoFI, Me.BtnRLog, Me.Btnlogproce, Me.BtnPlanillacandidatos, Me.BtnDiscoPartido, Me.BtnDiscoMovimiento})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 54
+        Me.RibbonControl.MaxItemId = 56
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5, Me.RibbonPage6})
         Me.RibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010
@@ -464,6 +466,20 @@ Partial Class XFrmMenuPrincipal
         Me.Btnlogproce.Id = 52
         Me.Btnlogproce.Name = "Btnlogproce"
         '
+        'BtnDiscoPartido
+        '
+        Me.BtnDiscoPartido.Caption = "Generar Instalador para Partidos"
+        Me.BtnDiscoPartido.Id = 54
+        Me.BtnDiscoPartido.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.instalador
+        Me.BtnDiscoPartido.Name = "BtnDiscoPartido"
+        '
+        'BtnDiscoMovimiento
+        '
+        Me.BtnDiscoMovimiento.Caption = "Generar Instalador para Movimientos"
+        Me.BtnDiscoMovimiento.Id = 55
+        Me.BtnDiscoMovimiento.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.instalador1
+        Me.BtnDiscoMovimiento.Name = "BtnDiscoMovimiento"
+        '
         'RibbonPage1
         '
         Me.RibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1})
@@ -518,6 +534,8 @@ Partial Class XFrmMenuPrincipal
         'RibbonPageGroup12
         '
         Me.RibbonPageGroup12.ItemLinks.Add(Me.btnConsultarPlanilla)
+        Me.RibbonPageGroup12.ItemLinks.Add(Me.BtnDiscoPartido)
+        Me.RibbonPageGroup12.ItemLinks.Add(Me.BtnDiscoMovimiento)
         Me.RibbonPageGroup12.Name = "RibbonPageGroup12"
         Me.RibbonPageGroup12.Text = "Procesos"
         '
@@ -782,6 +800,8 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents RibbonPageGroup11 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents BtnPlanillacandidatos As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RibbonPageGroup12 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents BtnDiscoPartido As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnDiscoMovimiento As DevExpress.XtraBars.BarButtonItem
 
 
 End Class
