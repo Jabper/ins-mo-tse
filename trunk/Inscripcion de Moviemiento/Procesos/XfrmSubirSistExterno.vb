@@ -5,6 +5,22 @@ Imports System.IO
 
 Public Class XfrmSubirSistExterno
 
+    Private Sub XfrmSubirSistExterno_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        Dim oradb3 As String = Configuracion.verconfig
+        Dim conn3 As New OracleConnection()
+        'Dim myCMD As New OracleCommand()
+        'Dim mensaje As String
+        conn3.ConnectionString = oradb3
+        conn3.Open()
+
+        Dim sql3 As String = "Update im_parametros_generales set proceso_en_ejecucion = 'N'"
+        Dim cmd3 As New OracleCommand(sql3, conn3)
+        cmd3.CommandType = CommandType.Text
+        cmd3.ExecuteScalar()
+        conn3.Close()
+        'Me.Close()
+    End Sub
+
     Private Sub XfrmSubirSistExterno_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.BtnCandidatos.Height = Me.BtnCandidatos.Height + 15
         Me.BtnCandidatos.Width = Me.BtnCandidatos.Width + 15
@@ -51,7 +67,7 @@ Public Class XfrmSubirSistExterno
                     proceso_corriendo = chek.Item("proceso_en_ejecucion")
                 End If
                 conn.Close()
-            End If            
+            End If
 
             If proceso_corriendo = "N" Then
 
@@ -190,7 +206,7 @@ Public Class XfrmSubirSistExterno
     End Sub
 
     Private Function subir_candidatos(ByVal Filename As String) As Boolean
-        Dim waitDialog As New WaitDialogForm("Procesando Información", "Por favor espere..")
+        'Dim waitDialog As New WaitDialogForm("Procesando Información", "Por favor espere..")
         Try
             Dim extension As String = IO.Path.GetExtension(Filename)
             Dim connString As String = "Data Source=" & Filename
@@ -200,8 +216,8 @@ Public Class XfrmSubirSistExterno
             ElseIf (extension = ".xlsx") Then
                 connString &= ";Provider=Microsoft.ACE.OLEDB.12.0; Extended Properties='Excel 12.0 Xml;HDR=YES;IMEX=1'"
             Else
-                waitDialog.Caption = "finalizando..."
-                waitDialog.Close()
+                'waitDialog.Caption = "finalizando..."
+                'waitDialog.Close()
                 Mensajes.MensajeError("El tipo de archivo seleccionado no esta permitido")
                 Return False
             End If
@@ -217,6 +233,7 @@ Public Class XfrmSubirSistExterno
                 Dim myCMD As New OracleCommand()
                 conn1.ConnectionString = oradb1
                 conn1.Open()
+                Dim i As Integer = 0
                 For Each row As System.Data.DataRow In dt.Rows
                     Try
                         myCMD.Connection = conn1
@@ -230,23 +247,30 @@ Public Class XfrmSubirSistExterno
                         & ", null, null, '" & row.Item(10).ToString & "')"
                         myCMD.CommandType = CommandType.Text
                         myCMD.ExecuteOracleScalar()
+                        i = i + 1
+                        If i Mod 1000 = 0 Then
+                            Dialog1.LabelControl1.Text = "Se han procesado " & i & " registros. Procesando por favor espere..."
+                            If Dialog1.Visible = False Then
+                                Dialog1.ShowDialog()
+                            End If
+                        End If
                     Catch ex As Exception
                         conn1.Close()
-                        waitDialog.Caption = "finalizando..."
-                        waitDialog.Close()
+                        'waitDialog.Caption = "finalizando..."
+                        'waitDialog.Close()
                         Mensajes.MensajeError(ex.Message)
                         Return False
                     End Try
                 Next
-                conn1.Close()              
+                conn1.Close()
             End Using
-            waitDialog.Caption = "finalizando..."
-            waitDialog.Close()
+            'waitDialog.Caption = "finalizando..."
+            'waitDialog.Close()
             MsgBox("La Importación de Candidatos ha terminado exitosamente", MsgBoxStyle.Information)
             Return True
         Catch ex As Exception
-            waitDialog.Caption = "finalizando..."
-            waitDialog.Close()
+            'waitDialog.Caption = "finalizando..."
+            'waitDialog.Close()
             Mensajes.MensajeError(ex.Message)
             Return False
         End Try
@@ -331,7 +355,7 @@ Public Class XfrmSubirSistExterno
     'End Function
 
     Private Function subir_requisitos_x_candidato(ByVal Filename As String) As Boolean
-        Dim waitDialog As New WaitDialogForm("Procesando Información", "Por favor espere..")
+        ' Dim waitDialog As New WaitDialogForm("Procesando Información", "Por favor espere..")
         Try
             Dim extension As String = IO.Path.GetExtension(Filename)
             Dim connString As String = "Data Source=" & Filename
@@ -342,8 +366,8 @@ Public Class XfrmSubirSistExterno
                 connString &= ";Provider=Microsoft.ACE.OLEDB.12.0; Extended Properties='Excel 12.0 Xml;HDR=YES;IMEX=1'"
             Else
                 Mensajes.MensajeError("El tipo de archivo seleccionado no esta permitido")
-                waitDialog.Caption = "finalizando..."
-                waitDialog.Close()
+                'waitDialog.Caption = "finalizando..."
+                'waitDialog.Close()
                 Return False
             End If
 
@@ -377,32 +401,41 @@ Public Class XfrmSubirSistExterno
                 Dim myCMD As New OracleCommand()
                 conn.ConnectionString = oradb
                 conn.Open()
+                Dim i As Integer = 0
                 For Each row As System.Data.DataRow In dt.Rows
                     Try
                         myCMD.Connection = conn
                         myCMD.CommandText = "Insert into tmp_im_requisitos_x_candidato (CODIGO_CANDIDATO, CODIGO_PARTIDO, CODIGO_MOVIMIENTO, " _
-                        & "CODIGO_REQUISITO, CANTIDAD, IMAGEN, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, ESTADO) " _
+                        & "CODIGO_REQUISITO, CANTIDAD, IMAGEN, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, ESTADO, tipo_sistema) " _
                         & "VALUES ('" & row.Item(0).ToString & "', '" & row.Item(1).ToString & "', '" & row.Item(2).ToString & "', '" & row.Item(3).ToString _
-                        & "', '" & row.Item(4).ToString & "', null, 'TSE', to_date('" & DateTime.Now & "','dd/mm/yyyy hh:mi:ss p.m.'), null, null, '" & row.Item(5).ToString & "')"
+                        & "', '" & row.Item(4).ToString & "', null, 'TSE', to_date('" & DateTime.Now & "','dd/mm/yyyy hh:mi:ss p.m.'), null, null, '" & row.Item(5).ToString & "','E')"
                         myCMD.CommandType = CommandType.Text
                         myCMD.ExecuteOracleScalar()
+
+                        i = i + 1
+                        If i Mod 1000 = 0 Then
+                            Dialog1.LabelControl1.Text = "Se han procesado " & i & " registros. Procesando por favor espere..."
+                            If Dialog1.Visible = False Then
+                                Dialog1.ShowDialog()
+                            End If
+                        End If
                     Catch ex As Exception
                         conn.Close()
-                        waitDialog.Caption = "finalizando..."
-                        waitDialog.Close()
+                        'waitDialog.Caption = "finalizando..."
+                        'waitDialog.Close()
                         Mensajes.MensajeError(ex.Message)
                         Return False
                     End Try
                 Next
                 conn.Close()
             End Using
-            waitDialog.Caption = "finalizando..."
-            waitDialog.Close()
+            'waitDialog.Caption = "finalizando..."
+            'waitDialog.Close()
             MsgBox("La Importación de Requisitos por Candidato ha terminado exitosamente", MsgBoxStyle.Information)
             Return True
         Catch ex As Exception
-            waitDialog.Caption = "finalizando..."
-            waitDialog.Close()
+            'waitDialog.Caption = "finalizando..."
+            'waitDialog.Close()
             Mensajes.MensajeError(ex.Message)
             Return False
         End Try
@@ -479,7 +512,7 @@ Public Class XfrmSubirSistExterno
                             Dialog1.LabelControl1.Text = "Se han procesado " & i & " registros. Procesando por favor espere..."
                             If Dialog1.Visible = False Then
                                 Dialog1.ShowDialog()
-                            End If                            
+                            End If
                         End If
                     Next
                 Catch ex As Exception
@@ -505,7 +538,7 @@ Public Class XfrmSubirSistExterno
     End Function
 
     Private Function subir_movimientos(ByVal Filename As String) As Boolean
-        Dim waitDialog As New WaitDialogForm("Procesando Información", "Por favor espere..")
+        'Dim waitDialog As New WaitDialogForm("Procesando Información", "Por favor espere..")
         Try
             Dim extension As String = IO.Path.GetExtension(Filename)
             Dim connString As String = "Data Source=" & Filename
@@ -516,8 +549,8 @@ Public Class XfrmSubirSistExterno
                 connString &= ";Provider=Microsoft.ACE.OLEDB.12.0; Extended Properties='Excel 12.0 Xml;HDR=YES;IMEX=1'"
             Else
                 Mensajes.MensajeError("El tipo de archivo seleccionado no esta permitido")
-                waitDialog.Caption = "finalizando..."
-                waitDialog.Close()
+                'waitDialog.Caption = "finalizando..."
+                'waitDialog.Close()
                 Return False
             End If
 
@@ -551,6 +584,7 @@ Public Class XfrmSubirSistExterno
                 Dim myCMD As New OracleCommand()
                 conn.ConnectionString = oradb
                 conn.Open()
+                Dim i As Integer = 0
                 For Each row As System.Data.DataRow In dt.Rows
                     Try
                         myCMD.Connection = conn
@@ -560,23 +594,31 @@ Public Class XfrmSubirSistExterno
                         & "'TSE', to_date('" & DateTime.Now & "','dd/mm/yyyy hh:mi:ss p.m.'), null, null)"
                         myCMD.CommandType = CommandType.Text
                         myCMD.ExecuteOracleScalar()
+
+                        i = i + 1
+                        If i Mod 1000 = 0 Then
+                            Dialog1.LabelControl1.Text = "Se han procesado " & i & " registros. Procesando por favor espere..."
+                            If Dialog1.Visible = False Then
+                                Dialog1.ShowDialog()
+                            End If
+                        End If
                     Catch ex As Exception
                         conn.Close()
-                        waitDialog.Caption = "finalizando..."
-                        waitDialog.Close()
+                        'waitDialog.Caption = "finalizando..."
+                        'waitDialog.Close()
                         Mensajes.MensajeError(ex.Message)
                         Return False
                     End Try
                 Next
                 conn.Close()
             End Using
-            waitDialog.Caption = "finalizando..."
-            waitDialog.Close()
+            'waitDialog.Caption = "finalizando..."
+            'waitDialog.Close()
             MsgBox("La Importación de Movimientos ha terminado exitosamente", MsgBoxStyle.Information)
             Return True
         Catch ex As Exception
-            waitDialog.Caption = "finalizando..."
-            waitDialog.Close()
+            'waitDialog.Caption = "finalizando..."
+            'waitDialog.Close()
             Mensajes.MensajeError(ex.Message)
             Return False
         End Try
@@ -592,54 +634,78 @@ Public Class XfrmSubirSistExterno
             For Each sFichero As String In Directory.GetFiles(FolderPath, "*.jpg", SearchOption.TopDirectoryOnly)
                 Archivo = New FileInfo(sFichero)
 
-                campos = Split(Archivo.Name, "_")
-                For i = LBound(campos) To UBound(campos)
-                    If i = 0 Then
-                        identidad = campos(i)
-                    ElseIf i = 1 Then
-                        requisito = campos(i)
-                    End If
-                Next
-                If Not IsDBNull(requisito) Then
-                    campos = Split(requisito, ".")
-                    requisito = campos(0)
-                End If
-
-                Dim oradb As String = Configuracion.verconfig
-                Dim conn As New OracleConnection()
-                conn.ConnectionString = oradb
-                conn.Open()
-
-
-                Dim sql As String = "select codigo_candidatos, codigo_partido, codigo_movimiento from tmp_im_candidatos where identidad = '" & identidad & "'"
-                Dim cmd As New OracleCommand(sql, conn)
-                cmd.CommandType = CommandType.Text
-                Dim chek As OracleDataReader = cmd.ExecuteReader()
-                If chek.Read And (requisito = "7" Or requisito = "8") Then
-                    Dim oa As OracleDataAdapter = New OracleDataAdapter(sql, conn)
-                    Dim ds As DataSet = New DataSet()
-                    oa.Fill(ds)
-                    For Each row As System.Data.DataRow In ds.Tables(0).Rows
-                        Try
-                            Dim oradb1 As String = Configuracion.verconfig
-                            Dim conn1 As New OracleConnection()
-                            conn1.ConnectionString = oradb1
-                            conn1.Open()
-
-                            Dim sql1 As String = "update tmp_im_requisitos_x_candidato set imagen = :pbi_imagen " _
-                            & "where codigo_candidato = '" & row.Item("codigo_candidatos") & "' " _
-                            & "And codigo_partido = '" & row.Item("codigo_partido") & "' " _
-                            & "And codigo_movimiento = '" & row.Item("codigo_movimiento") & "' " _
-                            & "and codigo_requisito = '" & requisito & "'"
-                            Dim cmd1 As OracleCommand = New OracleCommand(sql1, conn1)
-                            cmd1.Parameters.Add(":pbi_imagen", OracleType.Blob).Value = Data.ConvertImageToByteArray(Image.FromFile(Archivo.FullName))
-                            cmd1.ExecuteOracleScalar()
-                        Catch ex As Exception
-                            Mensajes.MensajeError(ex.Message)
-                        End Try
+                campos = Split(Archivo.Name, ".")
+                If campos(0) <> "EMBLEMA" Then
+                    campos = Nothing
+                    campos = Split(Archivo.Name, "_")
+                    For i = LBound(campos) To UBound(campos)
+                        If i = 0 Then
+                            identidad = campos(i)
+                        ElseIf i = 1 Then
+                            requisito = campos(i)
+                        End If
                     Next
+                    If Not IsDBNull(requisito) Then
+                        campos = Split(requisito, ".")
+                        requisito = campos(0)
+                    End If
+
+                    Dim oradb As String = Configuracion.verconfig
+                    Dim conn As New OracleConnection()
+                    conn.ConnectionString = oradb
+                    conn.Open()
+
+
+                    Dim sql As String = "select codigo_candidatos, codigo_partido, codigo_movimiento from tmp_im_candidatos where identidad = '" & identidad & "'"
+                    Dim cmd As New OracleCommand(sql, conn)
+                    cmd.CommandType = CommandType.Text
+                    Dim chek As OracleDataReader = cmd.ExecuteReader()
+                    If chek.Read And (requisito = "7" Or requisito = "8") Then
+                        Dim oa As OracleDataAdapter = New OracleDataAdapter(sql, conn)
+                        Dim ds As DataSet = New DataSet()
+                        oa.Fill(ds)
+                        Dim i As Integer = 0
+                        For Each row As System.Data.DataRow In ds.Tables(0).Rows
+                            Try
+                                Dim oradb1 As String = Configuracion.verconfig
+                                Dim conn1 As New OracleConnection()
+                                conn1.ConnectionString = oradb1
+                                conn1.Open()
+
+                                Dim sql1 As String = "update tmp_im_requisitos_x_candidato set imagen = :pbi_imagen " _
+                                & "where codigo_candidato = '" & row.Item("codigo_candidatos") & "' " _
+                                & "And codigo_partido = '" & row.Item("codigo_partido") & "' " _
+                                & "And codigo_movimiento = '" & row.Item("codigo_movimiento") & "' " _
+                                & "and codigo_requisito = '" & requisito & "'"
+                                Dim cmd1 As OracleCommand = New OracleCommand(sql1, conn1)
+                                cmd1.Parameters.Add(":pbi_imagen", OracleType.Blob).Value = Data.ConvertImageToByteArray(Image.FromFile(Archivo.FullName))
+                                cmd1.ExecuteOracleScalar()
+
+                                i = i + 1
+                                If i Mod 1000 = 0 Then
+                                    Dialog1.LabelControl1.Text = "Se han procesado " & i & " registros. Procesando por favor espere..."
+                                    If Dialog1.Visible = False Then
+                                        Dialog1.ShowDialog()
+                                    End If
+                                End If
+                            Catch ex As Exception
+                                Mensajes.MensajeError(ex.Message)
+                            End Try
+                        Next
+                    End If
+                    conn.Close()
+                Else
+                    Dim oradb1 As String = Configuracion.verconfig
+                    Dim conn1 As New OracleConnection()
+                    conn1.ConnectionString = oradb1
+                    conn1.Open()
+
+                    Dim sql1 As String = "update tmp_im_movimientos set insignia = :pbi_imagen "
+                    Dim cmd1 As OracleCommand = New OracleCommand(sql1, conn1)
+                    cmd1.Parameters.Add(":pbi_imagen", OracleType.Blob).Value = Data.ConvertImageToByteArray(Image.FromFile(Archivo.FullName))
+                    cmd1.ExecuteOracleScalar()
                 End If
-                conn.Close()
+
             Next
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)

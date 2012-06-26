@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -306,12 +306,6 @@
       <DependentUpon>Dialog1.vb</DependentUpon>
     </Compile>
     <Compile Include="Procesos\Dialog1.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Procesos\XfrmMensajes.Designer.vb">
-      <DependentUpon>XfrmMensajes.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Procesos\XfrmMensajes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\DS_ESTADISTICO_GENERAL_FIRMAS.Designer.vb">
@@ -725,12 +719,9 @@
       <DependentUpon>Dialog1.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Procesos\XfrmMensajes.resx">
-      <DependentUpon>XfrmMensajes.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_DE _PLANILLA_DE_CANDIDATOS.resx">
       <DependentUpon>REPORTE_DE _PLANILLA_DE_CANDIDATOS.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_DE_LOG.resx">
       <DependentUpon>REPORTE_DE_LOG.vb</DependentUpon>

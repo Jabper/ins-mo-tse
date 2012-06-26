@@ -44,7 +44,7 @@ Public Class XfrmImportar
                     Dim cmd1 As New OracleCommand(sql1, conn1)
                     cmd1.CommandType = CommandType.Text
                     cmd1.ExecuteScalar()
-                    conn.Close()
+                    conn1.Close()
 
                     Dim startInfo As ProcessStartInfo
                     Dim pStart As New Process
@@ -68,7 +68,7 @@ Public Class XfrmImportar
                     Dim cmd2 As New OracleCommand(sql2, conn2)
                     cmd2.CommandType = CommandType.Text
                     cmd2.ExecuteScalar()
-                    conn.Close()
+                    conn2.Close()
                 Catch ex As Exception
                     Mensajes.MensajeError(ex.Message)
                     Exit Sub
@@ -86,5 +86,21 @@ Public Class XfrmImportar
 
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
         Me.Close()
+    End Sub
+
+    Private Sub XfrmImportar_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        Dim oradb2 As String = Configuracion.verconfig
+        Dim conn2 As New OracleConnection()
+        conn2.ConnectionString = oradb2
+        conn2.Open()
+
+        Dim sql2 As String = "Update im_parametros_generales set proceso_en_ejecucion = 'N'"
+        Dim cmd2 As New OracleCommand(sql2, conn2)
+        cmd2.CommandType = CommandType.Text
+        cmd2.ExecuteScalar()
+        conn2.Close()
+    End Sub
+
+    Private Sub XfrmImportar_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load        
     End Sub
 End Class

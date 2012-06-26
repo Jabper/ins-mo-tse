@@ -159,7 +159,7 @@ Partial Class XfrmSubirSistExterno
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(78, 111)
+        Me.Label2.Location = New System.Drawing.Point(90, 111)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(165, 13)
         Me.Label2.TabIndex = 32
@@ -167,7 +167,7 @@ Partial Class XfrmSubirSistExterno
         '
         'BtnEjecutar
         '
-        Me.BtnEjecutar.Location = New System.Drawing.Point(180, 179)
+        Me.BtnEjecutar.Location = New System.Drawing.Point(192, 179)
         Me.BtnEjecutar.Name = "BtnEjecutar"
         Me.BtnEjecutar.Size = New System.Drawing.Size(98, 23)
         Me.BtnEjecutar.TabIndex = 31
@@ -175,7 +175,7 @@ Partial Class XfrmSubirSistExterno
         '
         'BtnExplorar
         '
-        Me.BtnExplorar.Location = New System.Drawing.Point(307, 135)
+        Me.BtnExplorar.Location = New System.Drawing.Point(319, 135)
         Me.BtnExplorar.Name = "BtnExplorar"
         Me.BtnExplorar.Size = New System.Drawing.Size(75, 23)
         Me.BtnExplorar.TabIndex = 30
@@ -184,7 +184,7 @@ Partial Class XfrmSubirSistExterno
         'TxtRuta
         '
         Me.TxtRuta.Enabled = False
-        Me.TxtRuta.Location = New System.Drawing.Point(82, 136)
+        Me.TxtRuta.Location = New System.Drawing.Point(94, 136)
         Me.TxtRuta.Name = "TxtRuta"
         Me.TxtRuta.Size = New System.Drawing.Size(219, 20)
         Me.TxtRuta.TabIndex = 29
@@ -193,7 +193,7 @@ Partial Class XfrmSubirSistExterno
         '
         Me.Label1.AutoSize = True
         Me.Label1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.flecha
-        Me.Label1.Location = New System.Drawing.Point(92, 141)
+        Me.Label1.Location = New System.Drawing.Point(104, 141)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(0, 13)
         Me.Label1.TabIndex = 24
