@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -324,6 +324,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_ESTADISTICO_GENERAL_FIRMAS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\DS_ESTADISTICO_GENERAL_GE.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_ESTADISTICO_GENERAL_GE.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DS_LOG.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -391,6 +396,12 @@
       <DependentUpon>Reporte_Estadistico_general_firmas.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\Reporte_Estadistico_general_firmas.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\Reporte_estadistico_general_ge.Designer.vb">
+      <DependentUpon>Reporte_estadistico_general_ge.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Reporte_estadistico_general_ge.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="XfrmBack.vb">
@@ -749,6 +760,9 @@
     <EmbeddedResource Include="Reportes\Reporte_Estadistico_general_firmas.resx">
       <DependentUpon>Reporte_Estadistico_general_firmas.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Reporte_estadistico_general_ge.resx">
+      <DependentUpon>Reporte_estadistico_general_ge.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XfrmBack.resx">
       <DependentUpon>XfrmBack.vb</DependentUpon>
@@ -1190,6 +1204,17 @@
     </None>
     <None Include="Reportes\DS_ESTADISTICO_GENERAL_FIRMAS.xss">
       <DependentUpon>DS_ESTADISTICO_GENERAL_FIRMAS.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_ESTADISTICO_GENERAL_GE.xsc">
+      <DependentUpon>DS_ESTADISTICO_GENERAL_GE.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_ESTADISTICO_GENERAL_GE.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_ESTADISTICO_GENERAL_GE.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DS_ESTADISTICO_GENERAL_GE.xss">
+      <DependentUpon>DS_ESTADISTICO_GENERAL_GE.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DS_LOG.xsc">
       <DependentUpon>DS_LOG.xsd</DependentUpon>

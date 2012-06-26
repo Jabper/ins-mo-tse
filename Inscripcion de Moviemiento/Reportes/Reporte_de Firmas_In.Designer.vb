@@ -124,6 +124,7 @@ Partial Public Class Reporte_de_Firmas_In
         'DS_REPORTE_DE_FI1
         '
         Me.DS_REPORTE_DE_FI1.DataSetName = "DS_REPORTE_DE_FI"
+        Me.DS_REPORTE_DE_FI1.EnforceConstraints = False
         Me.DS_REPORTE_DE_FI1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupHeaderBand1

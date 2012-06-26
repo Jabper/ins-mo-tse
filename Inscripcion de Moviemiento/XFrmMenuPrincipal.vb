@@ -335,4 +335,9 @@ Public Class XFrmMenuPrincipal
     Private Sub BtnDiscoPartido_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnDiscoPartido.ItemClick
         Padre(XfrmDiscoPartido)
     End Sub
+
+    Private Sub BarButtonItem2_ItemClick_1(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnEstadisticopar.ItemClick
+        Dim reporte11 As Reporte_estadistico_general_ge = New Reporte_estadistico_general_ge
+        reporte11.ShowPreview()
+    End Sub
 End Class
