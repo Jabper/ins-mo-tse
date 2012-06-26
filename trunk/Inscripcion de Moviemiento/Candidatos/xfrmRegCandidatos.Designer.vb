@@ -1047,9 +1047,11 @@ Partial Class xfrmRegCandidatos
         Me.lblPartido.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblPartido.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPartido.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.lblPartido.Location = New System.Drawing.Point(256, 65)
+        Me.lblPartido.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.lblPartido.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.lblPartido.Location = New System.Drawing.Point(222, 58)
         Me.lblPartido.Name = "lblPartido"
-        Me.lblPartido.Size = New System.Drawing.Size(94, 14)
+        Me.lblPartido.Size = New System.Drawing.Size(346, 21)
         Me.lblPartido.TabIndex = 33
         Me.lblPartido.Text = "Partido Politico"
         '
@@ -1058,9 +1060,11 @@ Partial Class xfrmRegCandidatos
         Me.lblMovimiento.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblMovimiento.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMovimiento.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.lblMovimiento.Location = New System.Drawing.Point(526, 65)
+        Me.lblMovimiento.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.lblMovimiento.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.lblMovimiento.Location = New System.Drawing.Point(574, 58)
         Me.lblMovimiento.Name = "lblMovimiento"
-        Me.lblMovimiento.Size = New System.Drawing.Size(158, 14)
+        Me.lblMovimiento.Size = New System.Drawing.Size(344, 21)
         Me.lblMovimiento.TabIndex = 34
         Me.lblMovimiento.Text = "Inscripcion de Candidatos"
         '
@@ -1101,7 +1105,7 @@ Partial Class xfrmRegCandidatos
         '
         'imgmov
         '
-        Me.imgmov.Location = New System.Drawing.Point(588, 4)
+        Me.imgmov.Location = New System.Drawing.Point(729, 6)
         Me.imgmov.Name = "imgmov"
         Me.imgmov.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.imgmov.Properties.Appearance.Options.UseBackColor = True
@@ -1113,7 +1117,7 @@ Partial Class xfrmRegCandidatos
         '
         'imgpartido
         '
-        Me.imgpartido.Location = New System.Drawing.Point(297, 4)
+        Me.imgpartido.Location = New System.Drawing.Point(356, 4)
         Me.imgpartido.Name = "imgpartido"
         Me.imgpartido.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.imgpartido.Properties.Appearance.Options.UseBackColor = True

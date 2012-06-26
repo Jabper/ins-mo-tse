@@ -238,7 +238,7 @@ Partial Class XFrmMenuPrincipal
         '
         'BtnCandidatos
         '
-        Me.BtnCandidatos.Caption = "Candidatos"
+        Me.BtnCandidatos.Caption = "Inscripcion de Planilla"
         Me.BtnCandidatos.Id = 16
         Me.BtnCandidatos.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.candidato
         Me.BtnCandidatos.Name = "BtnCandidatos"
@@ -287,7 +287,7 @@ Partial Class XFrmMenuPrincipal
         '
         'BtnFirmas
         '
-        Me.BtnFirmas.Caption = "Inscripción de Firmas"
+        Me.BtnFirmas.Caption = "Transcripción de Firmas"
         Me.BtnFirmas.Glyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.officespreadsheet
         Me.BtnFirmas.Id = 23
         Me.BtnFirmas.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.officespreadsheet
@@ -295,7 +295,7 @@ Partial Class XFrmMenuPrincipal
         '
         'BtnModificarFirmas
         '
-        Me.BtnModificarFirmas.Caption = "Modificación de Firmas"
+        Me.BtnModificarFirmas.Caption = "Corrección de Firmas"
         Me.BtnModificarFirmas.Glyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.modificarfirmas
         Me.BtnModificarFirmas.Id = 24
         Me.BtnModificarFirmas.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.modificarfirmas
