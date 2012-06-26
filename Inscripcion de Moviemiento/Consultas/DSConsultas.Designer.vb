@@ -62,6 +62,10 @@ Partial Public Class DSConsultas
     
     Private tablejrCandidatos As jrCandidatosDataTable
     
+    Private tableIM_V_PLANILLA_REQUISITO As IM_V_PLANILLA_REQUISITODataTable
+    
+    Private tableimagenRequisito As imagenRequisitoDataTable
+    
     Private relationIM_FK1_MUNICIPIO As Global.System.Data.DataRelation
     
     Private relationIM_FK1_MOVIMIENTOS As Global.System.Data.DataRelation
@@ -160,6 +164,12 @@ Partial Public Class DSConsultas
             End If
             If (Not (ds.Tables("jrCandidatos")) Is Nothing) Then
                 MyBase.Tables.Add(New jrCandidatosDataTable(ds.Tables("jrCandidatos")))
+            End If
+            If (Not (ds.Tables("IM_V_PLANILLA_REQUISITO")) Is Nothing) Then
+                MyBase.Tables.Add(New IM_V_PLANILLA_REQUISITODataTable(ds.Tables("IM_V_PLANILLA_REQUISITO")))
+            End If
+            If (Not (ds.Tables("imagenRequisito")) Is Nothing) Then
+                MyBase.Tables.Add(New imagenRequisitoDataTable(ds.Tables("imagenRequisito")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -341,6 +351,24 @@ Partial Public Class DSConsultas
     End Property
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property IM_V_PLANILLA_REQUISITO() As IM_V_PLANILLA_REQUISITODataTable
+        Get
+            Return Me.tableIM_V_PLANILLA_REQUISITO
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property imagenRequisito() As imagenRequisitoDataTable
+        Get
+            Return Me.tableimagenRequisito
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.ComponentModel.BrowsableAttribute(true),  _
      Global.System.ComponentModel.DesignerSerializationVisibilityAttribute(Global.System.ComponentModel.DesignerSerializationVisibility.Visible)>  _
     Public Overrides Property SchemaSerializationMode() As Global.System.Data.SchemaSerializationMode
@@ -452,6 +480,12 @@ Partial Public Class DSConsultas
             End If
             If (Not (ds.Tables("jrCandidatos")) Is Nothing) Then
                 MyBase.Tables.Add(New jrCandidatosDataTable(ds.Tables("jrCandidatos")))
+            End If
+            If (Not (ds.Tables("IM_V_PLANILLA_REQUISITO")) Is Nothing) Then
+                MyBase.Tables.Add(New IM_V_PLANILLA_REQUISITODataTable(ds.Tables("IM_V_PLANILLA_REQUISITO")))
+            End If
+            If (Not (ds.Tables("imagenRequisito")) Is Nothing) Then
+                MyBase.Tables.Add(New imagenRequisitoDataTable(ds.Tables("imagenRequisito")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -590,6 +624,18 @@ Partial Public Class DSConsultas
                 Me.tablejrCandidatos.InitVars
             End If
         End If
+        Me.tableIM_V_PLANILLA_REQUISITO = CType(MyBase.Tables("IM_V_PLANILLA_REQUISITO"),IM_V_PLANILLA_REQUISITODataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableIM_V_PLANILLA_REQUISITO) Is Nothing) Then
+                Me.tableIM_V_PLANILLA_REQUISITO.InitVars
+            End If
+        End If
+        Me.tableimagenRequisito = CType(MyBase.Tables("imagenRequisito"),imagenRequisitoDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableimagenRequisito) Is Nothing) Then
+                Me.tableimagenRequisito.InitVars
+            End If
+        End If
         Me.relationIM_FK1_MUNICIPIO = Me.Relations("IM_FK1_MUNICIPIO")
         Me.relationIM_FK1_MOVIMIENTOS = Me.Relations("IM_FK1_MOVIMIENTOS")
         Me.relationIM_FK1_CARGOS_ELECTIVOS = Me.Relations("IM_FK1_CARGOS_ELECTIVOS")
@@ -644,6 +690,10 @@ Partial Public Class DSConsultas
         MyBase.Tables.Add(Me.tablejrMunicipios)
         Me.tablejrCandidatos = New jrCandidatosDataTable
         MyBase.Tables.Add(Me.tablejrCandidatos)
+        Me.tableIM_V_PLANILLA_REQUISITO = New IM_V_PLANILLA_REQUISITODataTable
+        MyBase.Tables.Add(Me.tableIM_V_PLANILLA_REQUISITO)
+        Me.tableimagenRequisito = New imagenRequisitoDataTable
+        MyBase.Tables.Add(Me.tableimagenRequisito)
         Me.relationIM_FK1_MUNICIPIO = New Global.System.Data.DataRelation("IM_FK1_MUNICIPIO", New Global.System.Data.DataColumn() {Me.tableDepartamentos.CODIGO_DEPARTAMENTOColumn}, New Global.System.Data.DataColumn() {Me.tableMunicipios.CODIGO_DEPARTAMENTOColumn}, false)
         Me.Relations.Add(Me.relationIM_FK1_MUNICIPIO)
         Me.relationIM_FK1_MOVIMIENTOS = New Global.System.Data.DataRelation("IM_FK1_MOVIMIENTOS", New Global.System.Data.DataColumn() {Me.tablePartidos.CODIGO_PARTIDOColumn}, New Global.System.Data.DataColumn() {Me.tableMovimientos.CODIGO_PARTIDOColumn}, false)
@@ -755,6 +805,16 @@ Partial Public Class DSConsultas
     End Function
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+    Private Function ShouldSerializeIM_V_PLANILLA_REQUISITO() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+    Private Function ShouldSerializeimagenRequisito() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Private Sub SchemaChanged(ByVal sender As Object, ByVal e As Global.System.ComponentModel.CollectionChangeEventArgs)
         If (e.Action = Global.System.ComponentModel.CollectionChangeAction.Remove) Then
             Me.InitVars
@@ -845,6 +905,10 @@ Partial Public Class DSConsultas
     Public Delegate Sub jrMunicipiosRowChangeEventHandler(ByVal sender As Object, ByVal e As jrMunicipiosRowChangeEvent)
     
     Public Delegate Sub jrCandidatosRowChangeEventHandler(ByVal sender As Object, ByVal e As jrCandidatosRowChangeEvent)
+    
+    Public Delegate Sub IM_V_PLANILLA_REQUISITORowChangeEventHandler(ByVal sender As Object, ByVal e As IM_V_PLANILLA_REQUISITORowChangeEvent)
+    
+    Public Delegate Sub imagenRequisitoRowChangeEventHandler(ByVal sender As Object, ByVal e As imagenRequisitoRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -5986,6 +6050,803 @@ Partial Public Class DSConsultas
     End Class
     
     '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class IM_V_PLANILLA_REQUISITODataTable
+        Inherits Global.System.Data.TypedTableBase(Of IM_V_PLANILLA_REQUISITORow)
+        
+        Private columnFOTOGRAFIA As Global.System.Data.DataColumn
+        
+        Private columnCONSTANCIA As Global.System.Data.DataColumn
+        
+        Private columnPOSICION As Global.System.Data.DataColumn
+        
+        Private columnIDENTIDAD As Global.System.Data.DataColumn
+        
+        Private columnPRIMER_NOMBRE As Global.System.Data.DataColumn
+        
+        Private columnSEGUNDO_NOMBRE As Global.System.Data.DataColumn
+        
+        Private columnPRIMER_APELLIDO As Global.System.Data.DataColumn
+        
+        Private columnSEGUNDO_APELLIDO As Global.System.Data.DataColumn
+        
+        Private columnCARGO As Global.System.Data.DataColumn
+        
+        Private columnREC1 As Global.System.Data.DataColumn
+        
+        Private columnREC2 As Global.System.Data.DataColumn
+        
+        Private columnREC3 As Global.System.Data.DataColumn
+        
+        Private columnREC4 As Global.System.Data.DataColumn
+        
+        Private columnREC5 As Global.System.Data.DataColumn
+        
+        Private columnREC6 As Global.System.Data.DataColumn
+        
+        Private columnREC7 As Global.System.Data.DataColumn
+        
+        Private columnREC8 As Global.System.Data.DataColumn
+        
+        Private columnREC9 As Global.System.Data.DataColumn
+        
+        Private columnVALIDADO As Global.System.Data.DataColumn
+        
+        Private columnCODIGO_PARTIDO As Global.System.Data.DataColumn
+        
+        Private columnCODIGO_MOVIMIENTO As Global.System.Data.DataColumn
+        
+        Private columnCODIGO_NIVEL_ELECTIVO As Global.System.Data.DataColumn
+        
+        Private columnCODIGO_DEPARTAMENTO As Global.System.Data.DataColumn
+        
+        Private columnCODIGO_MUNICIPIO As Global.System.Data.DataColumn
+        
+        Private columnCODIGO_CANDIDATOS As Global.System.Data.DataColumn
+        
+        Private columnESTADO As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "IM_V_PLANILLA_REQUISITO"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property FOTOGRAFIAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFOTOGRAFIA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CONSTANCIAColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCONSTANCIA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property POSICIONColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPOSICION
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property IDENTIDADColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIDENTIDAD
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property PRIMER_NOMBREColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPRIMER_NOMBRE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property SEGUNDO_NOMBREColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSEGUNDO_NOMBRE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property PRIMER_APELLIDOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPRIMER_APELLIDO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property SEGUNDO_APELLIDOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSEGUNDO_APELLIDO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CARGOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCARGO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property REC1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnREC1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property REC2Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnREC2
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property REC3Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnREC3
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property REC4Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnREC4
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property REC5Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnREC5
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property REC6Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnREC6
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property REC7Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnREC7
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property REC8Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnREC8
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property REC9Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnREC9
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property VALIDADOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnVALIDADO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CODIGO_PARTIDOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCODIGO_PARTIDO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CODIGO_MOVIMIENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCODIGO_MOVIMIENTO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CODIGO_NIVEL_ELECTIVOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCODIGO_NIVEL_ELECTIVO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CODIGO_DEPARTAMENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCODIGO_DEPARTAMENTO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CODIGO_MUNICIPIOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCODIGO_MUNICIPIO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CODIGO_CANDIDATOSColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCODIGO_CANDIDATOS
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ESTADOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnESTADO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As IM_V_PLANILLA_REQUISITORow
+            Get
+                Return CType(Me.Rows(index),IM_V_PLANILLA_REQUISITORow)
+            End Get
+        End Property
+        
+        Public Event IM_V_PLANILLA_REQUISITORowChanging As IM_V_PLANILLA_REQUISITORowChangeEventHandler
+        
+        Public Event IM_V_PLANILLA_REQUISITORowChanged As IM_V_PLANILLA_REQUISITORowChangeEventHandler
+        
+        Public Event IM_V_PLANILLA_REQUISITORowDeleting As IM_V_PLANILLA_REQUISITORowChangeEventHandler
+        
+        Public Event IM_V_PLANILLA_REQUISITORowDeleted As IM_V_PLANILLA_REQUISITORowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Sub AddIM_V_PLANILLA_REQUISITORow(ByVal row As IM_V_PLANILLA_REQUISITORow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Function AddIM_V_PLANILLA_REQUISITORow( _
+                    ByVal FOTOGRAFIA() As Byte,  _
+                    ByVal CONSTANCIA() As Byte,  _
+                    ByVal POSICION As Decimal,  _
+                    ByVal IDENTIDAD As String,  _
+                    ByVal PRIMER_NOMBRE As String,  _
+                    ByVal SEGUNDO_NOMBRE As String,  _
+                    ByVal PRIMER_APELLIDO As String,  _
+                    ByVal SEGUNDO_APELLIDO As String,  _
+                    ByVal CARGO As String,  _
+                    ByVal REC1 As Decimal,  _
+                    ByVal REC2 As Decimal,  _
+                    ByVal REC3 As Decimal,  _
+                    ByVal REC4 As Decimal,  _
+                    ByVal REC5 As Decimal,  _
+                    ByVal REC6 As Decimal,  _
+                    ByVal REC7 As Decimal,  _
+                    ByVal REC8 As Decimal,  _
+                    ByVal REC9 As Decimal,  _
+                    ByVal VALIDADO As Decimal,  _
+                    ByVal CODIGO_PARTIDO As Decimal,  _
+                    ByVal CODIGO_MOVIMIENTO As Decimal,  _
+                    ByVal CODIGO_NIVEL_ELECTIVO As Decimal,  _
+                    ByVal CODIGO_DEPARTAMENTO As Decimal,  _
+                    ByVal CODIGO_MUNICIPIO As Decimal,  _
+                    ByVal CODIGO_CANDIDATOS As Decimal,  _
+                    ByVal ESTADO As String) As IM_V_PLANILLA_REQUISITORow
+            Dim rowIM_V_PLANILLA_REQUISITORow As IM_V_PLANILLA_REQUISITORow = CType(Me.NewRow,IM_V_PLANILLA_REQUISITORow)
+            Dim columnValuesArray() As Object = New Object() {FOTOGRAFIA, CONSTANCIA, POSICION, IDENTIDAD, PRIMER_NOMBRE, SEGUNDO_NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO, CARGO, REC1, REC2, REC3, REC4, REC5, REC6, REC7, REC8, REC9, VALIDADO, CODIGO_PARTIDO, CODIGO_MOVIMIENTO, CODIGO_NIVEL_ELECTIVO, CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, CODIGO_CANDIDATOS, ESTADO}
+            rowIM_V_PLANILLA_REQUISITORow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowIM_V_PLANILLA_REQUISITORow)
+            Return rowIM_V_PLANILLA_REQUISITORow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As IM_V_PLANILLA_REQUISITODataTable = CType(MyBase.Clone,IM_V_PLANILLA_REQUISITODataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New IM_V_PLANILLA_REQUISITODataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub InitVars()
+            Me.columnFOTOGRAFIA = MyBase.Columns("FOTOGRAFIA")
+            Me.columnCONSTANCIA = MyBase.Columns("CONSTANCIA")
+            Me.columnPOSICION = MyBase.Columns("POSICION")
+            Me.columnIDENTIDAD = MyBase.Columns("IDENTIDAD")
+            Me.columnPRIMER_NOMBRE = MyBase.Columns("PRIMER_NOMBRE")
+            Me.columnSEGUNDO_NOMBRE = MyBase.Columns("SEGUNDO_NOMBRE")
+            Me.columnPRIMER_APELLIDO = MyBase.Columns("PRIMER_APELLIDO")
+            Me.columnSEGUNDO_APELLIDO = MyBase.Columns("SEGUNDO_APELLIDO")
+            Me.columnCARGO = MyBase.Columns("CARGO")
+            Me.columnREC1 = MyBase.Columns("REC1")
+            Me.columnREC2 = MyBase.Columns("REC2")
+            Me.columnREC3 = MyBase.Columns("REC3")
+            Me.columnREC4 = MyBase.Columns("REC4")
+            Me.columnREC5 = MyBase.Columns("REC5")
+            Me.columnREC6 = MyBase.Columns("REC6")
+            Me.columnREC7 = MyBase.Columns("REC7")
+            Me.columnREC8 = MyBase.Columns("REC8")
+            Me.columnREC9 = MyBase.Columns("REC9")
+            Me.columnVALIDADO = MyBase.Columns("VALIDADO")
+            Me.columnCODIGO_PARTIDO = MyBase.Columns("CODIGO_PARTIDO")
+            Me.columnCODIGO_MOVIMIENTO = MyBase.Columns("CODIGO_MOVIMIENTO")
+            Me.columnCODIGO_NIVEL_ELECTIVO = MyBase.Columns("CODIGO_NIVEL_ELECTIVO")
+            Me.columnCODIGO_DEPARTAMENTO = MyBase.Columns("CODIGO_DEPARTAMENTO")
+            Me.columnCODIGO_MUNICIPIO = MyBase.Columns("CODIGO_MUNICIPIO")
+            Me.columnCODIGO_CANDIDATOS = MyBase.Columns("CODIGO_CANDIDATOS")
+            Me.columnESTADO = MyBase.Columns("ESTADO")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitClass()
+            Me.columnFOTOGRAFIA = New Global.System.Data.DataColumn("FOTOGRAFIA", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFOTOGRAFIA)
+            Me.columnCONSTANCIA = New Global.System.Data.DataColumn("CONSTANCIA", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCONSTANCIA)
+            Me.columnPOSICION = New Global.System.Data.DataColumn("POSICION", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPOSICION)
+            Me.columnIDENTIDAD = New Global.System.Data.DataColumn("IDENTIDAD", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIDENTIDAD)
+            Me.columnPRIMER_NOMBRE = New Global.System.Data.DataColumn("PRIMER_NOMBRE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPRIMER_NOMBRE)
+            Me.columnSEGUNDO_NOMBRE = New Global.System.Data.DataColumn("SEGUNDO_NOMBRE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSEGUNDO_NOMBRE)
+            Me.columnPRIMER_APELLIDO = New Global.System.Data.DataColumn("PRIMER_APELLIDO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPRIMER_APELLIDO)
+            Me.columnSEGUNDO_APELLIDO = New Global.System.Data.DataColumn("SEGUNDO_APELLIDO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSEGUNDO_APELLIDO)
+            Me.columnCARGO = New Global.System.Data.DataColumn("CARGO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCARGO)
+            Me.columnREC1 = New Global.System.Data.DataColumn("REC1", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnREC1)
+            Me.columnREC2 = New Global.System.Data.DataColumn("REC2", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnREC2)
+            Me.columnREC3 = New Global.System.Data.DataColumn("REC3", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnREC3)
+            Me.columnREC4 = New Global.System.Data.DataColumn("REC4", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnREC4)
+            Me.columnREC5 = New Global.System.Data.DataColumn("REC5", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnREC5)
+            Me.columnREC6 = New Global.System.Data.DataColumn("REC6", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnREC6)
+            Me.columnREC7 = New Global.System.Data.DataColumn("REC7", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnREC7)
+            Me.columnREC8 = New Global.System.Data.DataColumn("REC8", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnREC8)
+            Me.columnREC9 = New Global.System.Data.DataColumn("REC9", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnREC9)
+            Me.columnVALIDADO = New Global.System.Data.DataColumn("VALIDADO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnVALIDADO)
+            Me.columnCODIGO_PARTIDO = New Global.System.Data.DataColumn("CODIGO_PARTIDO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_PARTIDO)
+            Me.columnCODIGO_MOVIMIENTO = New Global.System.Data.DataColumn("CODIGO_MOVIMIENTO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_MOVIMIENTO)
+            Me.columnCODIGO_NIVEL_ELECTIVO = New Global.System.Data.DataColumn("CODIGO_NIVEL_ELECTIVO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_NIVEL_ELECTIVO)
+            Me.columnCODIGO_DEPARTAMENTO = New Global.System.Data.DataColumn("CODIGO_DEPARTAMENTO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_DEPARTAMENTO)
+            Me.columnCODIGO_MUNICIPIO = New Global.System.Data.DataColumn("CODIGO_MUNICIPIO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_MUNICIPIO)
+            Me.columnCODIGO_CANDIDATOS = New Global.System.Data.DataColumn("CODIGO_CANDIDATOS", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_CANDIDATOS)
+            Me.columnESTADO = New Global.System.Data.DataColumn("ESTADO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnESTADO)
+            Me.columnIDENTIDAD.AllowDBNull = false
+            Me.columnIDENTIDAD.MaxLength = 15
+            Me.columnPRIMER_NOMBRE.MaxLength = 100
+            Me.columnSEGUNDO_NOMBRE.MaxLength = 100
+            Me.columnPRIMER_APELLIDO.MaxLength = 100
+            Me.columnSEGUNDO_APELLIDO.MaxLength = 100
+            Me.columnCARGO.AllowDBNull = false
+            Me.columnCARGO.MaxLength = 100
+            Me.columnCODIGO_PARTIDO.AllowDBNull = false
+            Me.columnCODIGO_MOVIMIENTO.AllowDBNull = false
+            Me.columnCODIGO_NIVEL_ELECTIVO.AllowDBNull = false
+            Me.columnCODIGO_DEPARTAMENTO.AllowDBNull = false
+            Me.columnCODIGO_MUNICIPIO.AllowDBNull = false
+            Me.columnCODIGO_CANDIDATOS.AllowDBNull = false
+            Me.columnESTADO.MaxLength = 1
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function NewIM_V_PLANILLA_REQUISITORow() As IM_V_PLANILLA_REQUISITORow
+            Return CType(Me.NewRow,IM_V_PLANILLA_REQUISITORow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New IM_V_PLANILLA_REQUISITORow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(IM_V_PLANILLA_REQUISITORow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.IM_V_PLANILLA_REQUISITORowChangedEvent) Is Nothing) Then
+                RaiseEvent IM_V_PLANILLA_REQUISITORowChanged(Me, New IM_V_PLANILLA_REQUISITORowChangeEvent(CType(e.Row,IM_V_PLANILLA_REQUISITORow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.IM_V_PLANILLA_REQUISITORowChangingEvent) Is Nothing) Then
+                RaiseEvent IM_V_PLANILLA_REQUISITORowChanging(Me, New IM_V_PLANILLA_REQUISITORowChangeEvent(CType(e.Row,IM_V_PLANILLA_REQUISITORow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.IM_V_PLANILLA_REQUISITORowDeletedEvent) Is Nothing) Then
+                RaiseEvent IM_V_PLANILLA_REQUISITORowDeleted(Me, New IM_V_PLANILLA_REQUISITORowChangeEvent(CType(e.Row,IM_V_PLANILLA_REQUISITORow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.IM_V_PLANILLA_REQUISITORowDeletingEvent) Is Nothing) Then
+                RaiseEvent IM_V_PLANILLA_REQUISITORowDeleting(Me, New IM_V_PLANILLA_REQUISITORowChangeEvent(CType(e.Row,IM_V_PLANILLA_REQUISITORow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub RemoveIM_V_PLANILLA_REQUISITORow(ByVal row As IM_V_PLANILLA_REQUISITORow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence
+            Dim ds As DSConsultas = New DSConsultas
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "IM_V_PLANILLA_REQUISITODataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class imagenRequisitoDataTable
+        Inherits Global.System.Data.TypedTableBase(Of imagenRequisitoRow)
+        
+        Private columnIMAGEN As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "imagenRequisito"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property IMAGENColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIMAGEN
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As imagenRequisitoRow
+            Get
+                Return CType(Me.Rows(index),imagenRequisitoRow)
+            End Get
+        End Property
+        
+        Public Event imagenRequisitoRowChanging As imagenRequisitoRowChangeEventHandler
+        
+        Public Event imagenRequisitoRowChanged As imagenRequisitoRowChangeEventHandler
+        
+        Public Event imagenRequisitoRowDeleting As imagenRequisitoRowChangeEventHandler
+        
+        Public Event imagenRequisitoRowDeleted As imagenRequisitoRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Sub AddimagenRequisitoRow(ByVal row As imagenRequisitoRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Function AddimagenRequisitoRow(ByVal IMAGEN() As Byte) As imagenRequisitoRow
+            Dim rowimagenRequisitoRow As imagenRequisitoRow = CType(Me.NewRow,imagenRequisitoRow)
+            Dim columnValuesArray() As Object = New Object() {IMAGEN}
+            rowimagenRequisitoRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowimagenRequisitoRow)
+            Return rowimagenRequisitoRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As imagenRequisitoDataTable = CType(MyBase.Clone,imagenRequisitoDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New imagenRequisitoDataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub InitVars()
+            Me.columnIMAGEN = MyBase.Columns("IMAGEN")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitClass()
+            Me.columnIMAGEN = New Global.System.Data.DataColumn("IMAGEN", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIMAGEN)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function NewimagenRequisitoRow() As imagenRequisitoRow
+            Return CType(Me.NewRow,imagenRequisitoRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New imagenRequisitoRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(imagenRequisitoRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.imagenRequisitoRowChangedEvent) Is Nothing) Then
+                RaiseEvent imagenRequisitoRowChanged(Me, New imagenRequisitoRowChangeEvent(CType(e.Row,imagenRequisitoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.imagenRequisitoRowChangingEvent) Is Nothing) Then
+                RaiseEvent imagenRequisitoRowChanging(Me, New imagenRequisitoRowChangeEvent(CType(e.Row,imagenRequisitoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.imagenRequisitoRowDeletedEvent) Is Nothing) Then
+                RaiseEvent imagenRequisitoRowDeleted(Me, New imagenRequisitoRowChangeEvent(CType(e.Row,imagenRequisitoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.imagenRequisitoRowDeletingEvent) Is Nothing) Then
+                RaiseEvent imagenRequisitoRowDeleting(Me, New imagenRequisitoRowChangeEvent(CType(e.Row,imagenRequisitoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub RemoveimagenRequisitoRow(ByVal row As imagenRequisitoRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence
+            Dim ds As DSConsultas = New DSConsultas
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "imagenRequisitoDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
@@ -7781,6 +8642,578 @@ Partial Public Class DSConsultas
     End Class
     
     '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Partial Public Class IM_V_PLANILLA_REQUISITORow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableIM_V_PLANILLA_REQUISITO As IM_V_PLANILLA_REQUISITODataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableIM_V_PLANILLA_REQUISITO = CType(Me.Table,IM_V_PLANILLA_REQUISITODataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property FOTOGRAFIA() As Byte()
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.FOTOGRAFIAColumn),Byte())
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FOTOGRAFIA' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.FOTOGRAFIAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CONSTANCIA() As Byte()
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.CONSTANCIAColumn),Byte())
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CONSTANCIA' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.CONSTANCIAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property POSICION() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.POSICIONColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'POSICION' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.POSICIONColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property IDENTIDAD() As String
+            Get
+                Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.IDENTIDADColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.IDENTIDADColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property PRIMER_NOMBRE() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.PRIMER_NOMBREColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PRIMER_NOMBRE' in table 'IM_V_PLANILLA_REQUISITO' is DBNull"& _ 
+                            ".", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.PRIMER_NOMBREColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property SEGUNDO_NOMBRE() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.SEGUNDO_NOMBREColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SEGUNDO_NOMBRE' in table 'IM_V_PLANILLA_REQUISITO' is DBNul"& _ 
+                            "l.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.SEGUNDO_NOMBREColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property PRIMER_APELLIDO() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.PRIMER_APELLIDOColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PRIMER_APELLIDO' in table 'IM_V_PLANILLA_REQUISITO' is DBNu"& _ 
+                            "ll.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.PRIMER_APELLIDOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property SEGUNDO_APELLIDO() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.SEGUNDO_APELLIDOColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SEGUNDO_APELLIDO' in table 'IM_V_PLANILLA_REQUISITO' is DBN"& _ 
+                            "ull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.SEGUNDO_APELLIDOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CARGO() As String
+            Get
+                Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.CARGOColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.CARGOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property REC1() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC1Column),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'REC1' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.REC1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property REC2() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC2Column),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'REC2' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.REC2Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property REC3() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC3Column),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'REC3' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.REC3Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property REC4() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC4Column),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'REC4' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.REC4Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property REC5() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC5Column),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'REC5' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.REC5Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property REC6() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC6Column),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'REC6' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.REC6Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property REC7() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC7Column),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'REC7' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.REC7Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property REC8() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC8Column),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'REC8' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.REC8Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property REC9() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC9Column),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'REC9' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.REC9Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property VALIDADO() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.VALIDADOColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'VALIDADO' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.VALIDADOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CODIGO_PARTIDO() As Decimal
+            Get
+                Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.CODIGO_PARTIDOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.CODIGO_PARTIDOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CODIGO_MOVIMIENTO() As Decimal
+            Get
+                Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.CODIGO_MOVIMIENTOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.CODIGO_MOVIMIENTOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CODIGO_NIVEL_ELECTIVO() As Decimal
+            Get
+                Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.CODIGO_NIVEL_ELECTIVOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.CODIGO_NIVEL_ELECTIVOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CODIGO_DEPARTAMENTO() As Decimal
+            Get
+                Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.CODIGO_DEPARTAMENTOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.CODIGO_DEPARTAMENTOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CODIGO_MUNICIPIO() As Decimal
+            Get
+                Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.CODIGO_MUNICIPIOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.CODIGO_MUNICIPIOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CODIGO_CANDIDATOS() As Decimal
+            Get
+                Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.CODIGO_CANDIDATOSColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.CODIGO_CANDIDATOSColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ESTADO() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.ESTADOColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ESTADO' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLA_REQUISITO.ESTADOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsFOTOGRAFIANull() As Boolean
+            Return Me.IsNull(Me.tableIM_V_PLANILLA_REQUISITO.FOTOGRAFIAColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetFOTOGRAFIANull()
+            Me(Me.tableIM_V_PLANILLA_REQUISITO.FOTOGRAFIAColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsCONSTANCIANull() As Boolean
+            Return Me.IsNull(Me.tableIM_V_PLANILLA_REQUISITO.CONSTANCIAColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetCONSTANCIANull()
+            Me(Me.tableIM_V_PLANILLA_REQUISITO.CONSTANCIAColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsPOSICIONNull() As Boolean
+            Return Me.IsNull(Me.tableIM_V_PLANILLA_REQUISITO.POSICIONColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetPOSICIONNull()
+            Me(Me.tableIM_V_PLANILLA_REQUISITO.POSICIONColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsPRIMER_NOMBRENull() As Boolean
+            Return Me.IsNull(Me.tableIM_V_PLANILLA_REQUISITO.PRIMER_NOMBREColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetPRIMER_NOMBRENull()
+            Me(Me.tableIM_V_PLANILLA_REQUISITO.PRIMER_NOMBREColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsSEGUNDO_NOMBRENull() As Boolean
+            Return Me.IsNull(Me.tableIM_V_PLANILLA_REQUISITO.SEGUNDO_NOMBREColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetSEGUNDO_NOMBRENull()
+            Me(Me.tableIM_V_PLANILLA_REQUISITO.SEGUNDO_NOMBREColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsPRIMER_APELLIDONull() As Boolean
+            Return Me.IsNull(Me.tableIM_V_PLANILLA_REQUISITO.PRIMER_APELLIDOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetPRIMER_APELLIDONull()
+            Me(Me.tableIM_V_PLANILLA_REQUISITO.PRIMER_APELLIDOColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsSEGUNDO_APELLIDONull() As Boolean
+            Return Me.IsNull(Me.tableIM_V_PLANILLA_REQUISITO.SEGUNDO_APELLIDOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetSEGUNDO_APELLIDONull()
+            Me(Me.tableIM_V_PLANILLA_REQUISITO.SEGUNDO_APELLIDOColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsREC1Null() As Boolean
+            Return Me.IsNull(Me.tableIM_V_PLANILLA_REQUISITO.REC1Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetREC1Null()
+            Me(Me.tableIM_V_PLANILLA_REQUISITO.REC1Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsREC2Null() As Boolean
+            Return Me.IsNull(Me.tableIM_V_PLANILLA_REQUISITO.REC2Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetREC2Null()
+            Me(Me.tableIM_V_PLANILLA_REQUISITO.REC2Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsREC3Null() As Boolean
+            Return Me.IsNull(Me.tableIM_V_PLANILLA_REQUISITO.REC3Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetREC3Null()
+            Me(Me.tableIM_V_PLANILLA_REQUISITO.REC3Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsREC4Null() As Boolean
+            Return Me.IsNull(Me.tableIM_V_PLANILLA_REQUISITO.REC4Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetREC4Null()
+            Me(Me.tableIM_V_PLANILLA_REQUISITO.REC4Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsREC5Null() As Boolean
+            Return Me.IsNull(Me.tableIM_V_PLANILLA_REQUISITO.REC5Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetREC5Null()
+            Me(Me.tableIM_V_PLANILLA_REQUISITO.REC5Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsREC6Null() As Boolean
+            Return Me.IsNull(Me.tableIM_V_PLANILLA_REQUISITO.REC6Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetREC6Null()
+            Me(Me.tableIM_V_PLANILLA_REQUISITO.REC6Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsREC7Null() As Boolean
+            Return Me.IsNull(Me.tableIM_V_PLANILLA_REQUISITO.REC7Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetREC7Null()
+            Me(Me.tableIM_V_PLANILLA_REQUISITO.REC7Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsREC8Null() As Boolean
+            Return Me.IsNull(Me.tableIM_V_PLANILLA_REQUISITO.REC8Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetREC8Null()
+            Me(Me.tableIM_V_PLANILLA_REQUISITO.REC8Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsREC9Null() As Boolean
+            Return Me.IsNull(Me.tableIM_V_PLANILLA_REQUISITO.REC9Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetREC9Null()
+            Me(Me.tableIM_V_PLANILLA_REQUISITO.REC9Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsVALIDADONull() As Boolean
+            Return Me.IsNull(Me.tableIM_V_PLANILLA_REQUISITO.VALIDADOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetVALIDADONull()
+            Me(Me.tableIM_V_PLANILLA_REQUISITO.VALIDADOColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsESTADONull() As Boolean
+            Return Me.IsNull(Me.tableIM_V_PLANILLA_REQUISITO.ESTADOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetESTADONull()
+            Me(Me.tableIM_V_PLANILLA_REQUISITO.ESTADOColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Partial Public Class imagenRequisitoRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableimagenRequisito As imagenRequisitoDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableimagenRequisito = CType(Me.Table,imagenRequisitoDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property IMAGEN() As Byte()
+            Get
+                Try 
+                    Return CType(Me(Me.tableimagenRequisito.IMAGENColumn),Byte())
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'IMAGEN' in table 'imagenRequisito' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableimagenRequisito.IMAGENColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsIMAGENNull() As Boolean
+            Return Me.IsNull(Me.tableimagenRequisito.IMAGENColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetIMAGENNull()
+            Me(Me.tableimagenRequisito.IMAGENColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
@@ -8361,6 +9794,72 @@ Partial Public Class DSConsultas
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public ReadOnly Property Row() As jrCandidatosRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Public Class IM_V_PLANILLA_REQUISITORowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As IM_V_PLANILLA_REQUISITORow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New(ByVal row As IM_V_PLANILLA_REQUISITORow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Row() As IM_V_PLANILLA_REQUISITORow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Public Class imagenRequisitoRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As imagenRequisitoRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New(ByVal row As imagenRequisitoRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Row() As imagenRequisitoRow
             Get
                 Return Me.eventRow
             End Get
@@ -12318,6 +13817,368 @@ Namespace DSConsultasTableAdapters
     End Class
     
     '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class IM_V_PLANILLA_REQUISITOTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.OracleClient.OracleDataAdapter
+        
+        Private _connection As Global.System.Data.OracleClient.OracleConnection
+        
+        Private _transaction As Global.System.Data.OracleClient.OracleTransaction
+        
+        Private _commandCollection() As Global.System.Data.OracleClient.OracleCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.OracleClient.OracleDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Connection() As Global.System.Data.OracleClient.OracleConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.OracleClient.OracleCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Transaction() As Global.System.Data.OracleClient.OracleTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.OracleClient.OracleCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.OracleClient.OracleDataAdapter
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "IM_V_PLANILLA_REQUISITO"
+            tableMapping.ColumnMappings.Add("FOTOGRAFIA", "FOTOGRAFIA")
+            tableMapping.ColumnMappings.Add("CONSTANCIA", "CONSTANCIA")
+            tableMapping.ColumnMappings.Add("POSICION", "POSICION")
+            tableMapping.ColumnMappings.Add("IDENTIDAD", "IDENTIDAD")
+            tableMapping.ColumnMappings.Add("PRIMER_NOMBRE", "PRIMER_NOMBRE")
+            tableMapping.ColumnMappings.Add("SEGUNDO_NOMBRE", "SEGUNDO_NOMBRE")
+            tableMapping.ColumnMappings.Add("PRIMER_APELLIDO", "PRIMER_APELLIDO")
+            tableMapping.ColumnMappings.Add("SEGUNDO_APELLIDO", "SEGUNDO_APELLIDO")
+            tableMapping.ColumnMappings.Add("CARGO", "CARGO")
+            tableMapping.ColumnMappings.Add("REC1", "REC1")
+            tableMapping.ColumnMappings.Add("REC2", "REC2")
+            tableMapping.ColumnMappings.Add("REC3", "REC3")
+            tableMapping.ColumnMappings.Add("REC4", "REC4")
+            tableMapping.ColumnMappings.Add("REC5", "REC5")
+            tableMapping.ColumnMappings.Add("REC6", "REC6")
+            tableMapping.ColumnMappings.Add("REC7", "REC7")
+            tableMapping.ColumnMappings.Add("REC8", "REC8")
+            tableMapping.ColumnMappings.Add("REC9", "REC9")
+            tableMapping.ColumnMappings.Add("VALIDADO", "VALIDADO")
+            tableMapping.ColumnMappings.Add("CODIGO_PARTIDO", "CODIGO_PARTIDO")
+            tableMapping.ColumnMappings.Add("CODIGO_MOVIMIENTO", "CODIGO_MOVIMIENTO")
+            tableMapping.ColumnMappings.Add("CODIGO_NIVEL_ELECTIVO", "CODIGO_NIVEL_ELECTIVO")
+            tableMapping.ColumnMappings.Add("CODIGO_DEPARTAMENTO", "CODIGO_DEPARTAMENTO")
+            tableMapping.ColumnMappings.Add("CODIGO_MUNICIPIO", "CODIGO_MUNICIPIO")
+            tableMapping.ColumnMappings.Add("CODIGO_CANDIDATOS", "CODIGO_CANDIDATOS")
+            tableMapping.ColumnMappings.Add("ESTADO", "ESTADO")
+            Me._adapter.TableMappings.Add(tableMapping)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.OracleClient.OracleConnection
+            Me._connection.ConnectionString = Global.Inscripcion_de_Moviemientos.My.MySettings.Default.ConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT        IM_V_PLANILLA_REQUISITO.*"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_PLANILLA_REQUISITO"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DSConsultas.IM_V_PLANILLA_REQUISITODataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As DSConsultas.IM_V_PLANILLA_REQUISITODataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As DSConsultas.IM_V_PLANILLA_REQUISITODataTable = New DSConsultas.IM_V_PLANILLA_REQUISITODataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class imagenRequisitoTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.OracleClient.OracleDataAdapter
+        
+        Private _connection As Global.System.Data.OracleClient.OracleConnection
+        
+        Private _transaction As Global.System.Data.OracleClient.OracleTransaction
+        
+        Private _commandCollection() As Global.System.Data.OracleClient.OracleCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.OracleClient.OracleDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Connection() As Global.System.Data.OracleClient.OracleConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.OracleClient.OracleCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Transaction() As Global.System.Data.OracleClient.OracleTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.OracleClient.OracleCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.OracleClient.OracleDataAdapter
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "imagenRequisito"
+            tableMapping.ColumnMappings.Add("IMAGEN", "IMAGEN")
+            Me._adapter.TableMappings.Add(tableMapping)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.OracleClient.OracleConnection
+            Me._connection.ConnectionString = Global.Inscripcion_de_Moviemientos.My.MySettings.Default.ConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT imagen"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  FROM tse.im_requisitos_x_candidato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" WHERE codigo_candidato = :c"& _ 
+                "andidato AND codigo_partido = :partido AND codigo_movimiento = :movimiento"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND "& _ 
+                "codigo_requisito = 7"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("candidato", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_CANDIDATO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("partido", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("movimiento", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DSConsultas.imagenRequisitoDataTable, ByVal candidato As Decimal, ByVal partido As Decimal, ByVal movimiento As Decimal) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(candidato,Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(partido,Decimal)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(movimiento,Decimal)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetDataBy(ByVal candidato As Decimal, ByVal partido As Decimal, ByVal movimiento As Decimal) As DSConsultas.imagenRequisitoDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(candidato,Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(partido,Decimal)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(movimiento,Decimal)
+            Dim dataTable As DSConsultas.imagenRequisitoDataTable = New DSConsultas.imagenRequisitoDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+    End Class
+    
+    '''<summary>
     '''TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
@@ -12578,21 +14439,21 @@ Namespace DSConsultasTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._nivelesTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Niveles.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._nivelesTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             If (Not (Me._departamentosTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.Departamentos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._departamentosTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._nivelesTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Niveles.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._nivelesTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -12657,19 +14518,19 @@ Namespace DSConsultasTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._nivelesTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.Niveles.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._nivelesTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._departamentosTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.Departamentos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._departamentosTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._nivelesTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Niveles.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._nivelesTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -12746,19 +14607,19 @@ Namespace DSConsultasTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._departamentosTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Departamentos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._departamentosTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
             If (Not (Me._nivelesTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.Niveles.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._nivelesTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._departamentosTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Departamentos.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._departamentosTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
