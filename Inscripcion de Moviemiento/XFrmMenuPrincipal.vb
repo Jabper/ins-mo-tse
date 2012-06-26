@@ -257,12 +257,12 @@ Public Class XFrmMenuPrincipal
         Padre(XfrmSubirSistExterno)
     End Sub
 
-    Private Sub BarButtonItem2_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem2.ItemClick
+    Private Sub BarButtonItem2_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnPlanillanivel.ItemClick
         Dim reporte As Reporte_de_PlanillaNEM = New Reporte_de_PlanillaNEM
         reporte.ShowPreview()
     End Sub
 
-    Private Sub BarButtonItem3_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem3.ItemClick
+    Private Sub BarButtonItem3_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnPlanilladivision.ItemClick
         Dim reporte2 As Reporte_de_PlanillaDP = New Reporte_de_PlanillaDP
         reporte2.ShowPreview()
     End Sub
@@ -280,7 +280,7 @@ Public Class XFrmMenuPrincipal
         Padre(XfrmConCandidatos)
     End Sub
 
-    Private Sub BarButtonItem4_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem4.ItemClick
+    Private Sub BarButtonItem4_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnFirmasinc.ItemClick
         Dim reporte4 As Reporte_de_Firmas_In = New Reporte_de_Firmas_In
         reporte4.ShowPreview()
     End Sub
@@ -289,17 +289,17 @@ Public Class XFrmMenuPrincipal
         Padre(XfrmJerarquico)
     End Sub
 
-    Private Sub BarButtonItem5_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem5.ItemClick
+    Private Sub BarButtonItem5_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCrucemov.ItemClick
         Dim reporte5 As Reporte_de_cruce_FMOV = New Reporte_de_cruce_FMOV
         reporte5.ShowPreview()
     End Sub
 
-    Private Sub BarButtonItem6_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem6.ItemClick
+    Private Sub BarButtonItem6_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCrucepar.ItemClick
         Dim reporte6 As Reporte_de_cruce_FPA = New Reporte_de_cruce_FPA
         reporte6.ShowPreview()
     End Sub
 
-    Private Sub BarButtonItem7_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem7.ItemClick
+    Private Sub BarButtonItem7_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnResumenFir.ItemClick
         Dim reporte7 As Reporte_de_Resumen_Firmas_DP = New Reporte_de_Resumen_Firmas_DP
         reporte7.ShowPreview()
     End Sub
@@ -316,18 +316,18 @@ Public Class XFrmMenuPrincipal
         Padre(XfrmConPlanilla)
     End Sub
 
-    Private Sub BarButtonItem8_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem8.ItemClick
+    Private Sub BarButtonItem8_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnEstadisticoFI.ItemClick
         Dim reporte8 As Reporte_Estadistico_general_firmas = New Reporte_Estadistico_general_firmas
         reporte8.ShowPreview()
     End Sub
 
-    Private Sub BarButtonItem9_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem9.ItemClick
+    Private Sub BarButtonItem9_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles Btnlogproce.ItemClick
         Dim reporte9 As REPORTE_DE_LOG = New REPORTE_DE_LOG
         reporte9.ShowPreview()
 
     End Sub
 
-    Private Sub BarButtonItem10_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem10.ItemClick
+    Private Sub BarButtonItem10_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnPlanillacandidatos.ItemClick
         Dim reporte10 As REPORTE_DE__PLANILLA_DE_CANDIDATOS = New REPORTE_DE__PLANILLA_DE_CANDIDATOS
         reporte10.ShowPreview()
     End Sub
