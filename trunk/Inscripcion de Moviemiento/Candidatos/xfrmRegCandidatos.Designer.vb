@@ -357,7 +357,7 @@ Partial Class xfrmRegCandidatos
         'PanelControl2
         '
         Me.PanelControl2.Controls.Add(Me.PanelControl3)
-        Me.PanelControl2.Location = New System.Drawing.Point(15, 379)
+        Me.PanelControl2.Location = New System.Drawing.Point(19, 358)
         Me.PanelControl2.Name = "PanelControl2"
         Me.PanelControl2.Size = New System.Drawing.Size(924, 110)
         Me.PanelControl2.TabIndex = 27
@@ -412,7 +412,7 @@ Partial Class xfrmRegCandidatos
         Me.PanelControl4.Controls.Add(Me.label234)
         Me.PanelControl4.Controls.Add(Me.lblpresidnete)
         Me.PanelControl4.Controls.Add(Me.LabelControl21)
-        Me.PanelControl4.Location = New System.Drawing.Point(0, -1)
+        Me.PanelControl4.Location = New System.Drawing.Point(0, -14)
         Me.PanelControl4.Name = "PanelControl4"
         Me.PanelControl4.Size = New System.Drawing.Size(914, 98)
         Me.PanelControl4.TabIndex = 39
@@ -811,7 +811,7 @@ Partial Class xfrmRegCandidatos
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
         Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RIChkCoincide, Me.RIChkFima, Me.RPIImgen, Me.RepositoryItemComboBox1, Me.ChkEstado, Me.RepositoryItemTextEdit1, Me.RepositoryItemTextEdit2, Me.RepositoryItemTextEdit3, Me.chkConstancia, Me.PICImagenConstancia, Me.RepositoryItemTextEdit4, Me.RepositoryItemTextEdit5, Me.RepositoryItemTextEdit6, Me.txtIdentidad, Me.RepositoryItemTextEdit8})
-        Me.GCBusqueda.Size = New System.Drawing.Size(932, 227)
+        Me.GCBusqueda.Size = New System.Drawing.Size(932, 209)
         Me.GCBusqueda.TabIndex = 30
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -1159,7 +1159,7 @@ Partial Class xfrmRegCandidatos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(969, 501)
+        Me.ClientSize = New System.Drawing.Size(969, 456)
         Me.Controls.Add(Me.lblmujeres)
         Me.Controls.Add(Me.imgmov)
         Me.Controls.Add(Me.LabelControl16)

@@ -18,6 +18,7 @@ Public Class xfrmRegCandidatos
     Dim EJECUTAR As Boolean
     Dim load As Boolean
     Dim id As String
+    Dim permitir_up As Integer = 0
 
 
     Public Sub New()
@@ -85,28 +86,31 @@ Public Class xfrmRegCandidatos
 
     End Sub
     Private Sub xfrmRegCandidatos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Try
 
-        Me.MdiParent = XFrmMenuPrincipal
-        'TryCast(Me.GCBusqueda.ViewCollection(0), DevExpress.XtraGrid.Views.Grid.GridView).Columns("CONS_VECINDAD_IMG").AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        'TryCast(Me.GCBusqueda.ViewCollection(0), DevExpress.XtraGrid.Views.Grid.GridView).Columns("CONS_VECINDAD").AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+            Me.MdiParent = XFrmMenuPrincipal
+            'TryCast(Me.GCBusqueda.ViewCollection(0), DevExpress.XtraGrid.Views.Grid.GridView).Columns("CONS_VECINDAD_IMG").AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+            'TryCast(Me.GCBusqueda.ViewCollection(0), DevExpress.XtraGrid.Views.Grid.GridView).Columns("CONS_VECINDAD").AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
 
-        limpiar()
-
-
-        ' Me.IM_V_MOSTRAR_CANDIDATOS2TableAdapter.Fill(Me.DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2)
-        'TODO: This line of code loads data into the 'DSInsCandidatos.IM_CARGOS_ELECTIVOS' table. You can move, or remove it, as needed.
-        Me.IM_CARGOS_ELECTIVOSTableAdapter.Fill(Me.DSInsCandidatos.IM_CARGOS_ELECTIVOS)
+            limpiar()
 
 
-        'TODO: This line of code loads data into the 'DSInsCandidatos.IM_PARTIDOS_POLITICOS' table. You can move, or remove it, as needed.
-        'Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSInsCandidatos.IM_PARTIDOS_POLITICOS)
+            ' Me.IM_V_MOSTRAR_CANDIDATOS2TableAdapter.Fill(Me.DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2)
+            'TODO: This line of code loads data into the 'DSInsCandidatos.IM_CARGOS_ELECTIVOS' table. You can move, or remove it, as needed.
+            Me.IM_CARGOS_ELECTIVOSTableAdapter.Fill(Me.DSInsCandidatos.IM_CARGOS_ELECTIVOS)
 
-        Me.IM_MUNICIPIOSTableAdapter.Fill(Me.DSInsCandidatos.IM_MUNICIPIOS, 0)
-        'TODO: This line of code loads data into the 'DSInsCandidatos.IM_DEPARTAMENTOS' table. You can move, or remove it, as needed.
-        Me.IM_DEPARTAMENTOSTableAdapter.Fill(Me.DSInsCandidatos.IM_DEPARTAMENTOS)
-        ' AgregarFilasGrid(5)
-        Load = True
 
+            'TODO: This line of code loads data into the 'DSInsCandidatos.IM_PARTIDOS_POLITICOS' table. You can move, or remove it, as needed.
+            'Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSInsCandidatos.IM_PARTIDOS_POLITICOS)
+
+            Me.IM_MUNICIPIOSTableAdapter.Fill(Me.DSInsCandidatos.IM_MUNICIPIOS, 0)
+            'TODO: This line of code loads data into the 'DSInsCandidatos.IM_DEPARTAMENTOS' table. You can move, or remove it, as needed.
+            Me.IM_DEPARTAMENTOSTableAdapter.Fill(Me.DSInsCandidatos.IM_DEPARTAMENTOS)
+            ' AgregarFilasGrid(5)
+            load = True
+        Catch ex As Exception
+
+        End Try
     End Sub
     Private Sub GridView1_InvalidValueException(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs) Handles GridView1.InvalidValueException
         e.ExceptionMode = ExceptionMode.DisplayError
@@ -148,6 +152,24 @@ Public Class xfrmRegCandidatos
                 view.FocusedColumn.FieldName = "IDENTIDAD"
             End If
         End If
+
+        If view.FocusedColumn.FieldName = "POSICION" Then
+            If (e.Value IsNot Nothing AndAlso Not e.Value.Equals(String.Empty)) = False Then
+                mensajeerror = "Valor inválido"
+                e.Valid = False
+                view.FocusedColumn.FieldName = "POSICION"
+                Exit Sub
+
+            End If
+            If IsNumeric(e.Value) = False Then
+                mensajeerror = "El valor de la posicion debe de ser un valor numérico"
+                e.Valid = False
+                view.FocusedColumn.FieldName = "POSICION"
+                Exit Sub
+            End If
+
+        End If
+
 
     End Sub
 
@@ -218,6 +240,18 @@ Public Class xfrmRegCandidatos
                     Dim estado_requisito As String
                     If permitido = 1 Then
 
+                        COracle.ejecutarconsulta(String.Format("DELETE FROM IM_REQUISITOS_X_CANDIDATO WHERE CODIGO_CANDIDATO = {0} AND CODIGO_MOVIMIENTO= {1}AND CODIGO_PARTIDO = {2} AND CODIGO_REQUISITO ={3} ", view.GetRowCellValue(i, "CODIGO_CANDIDATOS"), id_movimiento, id_partido, a))
+
+                        '***************************************************************************************************
+                        'Dim requisitorow As DSInsCandidatos.IM_REQUISITOS_X_CANDIDATORow
+
+                        'requisitorow = DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO.FindByCODIGO_CANDIDATOCODIGO_PARTIDOCODIGO_MOVIMIENTOCODIGO_REQUISITO(view.GetRowCellValue(i, "CODIGO_CANDIDATOS"), id_partido, id_movimiento, a)
+
+                        'requisitorow.Delete()
+
+                        'Me.IM_REQUISITOS_X_CANDIDATOTableAdapter.Update(Me.DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO)
+                        ''***************************************************************************************************
+
                         Dim CANDIDATOS As DSInsCandidatos.IM_REQUISITOS_X_CANDIDATORow
                         CANDIDATOS = DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO.NewIM_REQUISITOS_X_CANDIDATORow
 
@@ -229,7 +263,11 @@ Public Class xfrmRegCandidatos
                             If a = 8 Then
                                 estado_requisito = view.GetRowCellValue(i, "CONS_VECINDAD")
                                 If estado_requisito = "C" Then
-                                    .IMAGEN = view.GetRowCellValue(i, "CONS_VECINDAD_IMG")
+                                    If IsDBNull(view.GetRowCellValue(i, "CONS_VECINDAD_IMG")) Or view.GetRowCellValue(i, "CONS_VECINDAD_IMG") Is Nothing Then
+                                    Else
+                                        .IMAGEN = view.GetRowCellValue(i, "CONS_VECINDAD_IMG")
+                                    End If
+
                                 Else
                                     estado_requisito = "I"
                                 End If
@@ -241,9 +279,6 @@ Public Class xfrmRegCandidatos
                                     estado_requisito = "C"
                                 End If
                             End If
-
-
-                            COracle.ejecutarconsulta(String.Format("DELETE FROM IM_REQUISITOS_X_CANDIDATO WHERE CODIGO_CANDIDATO = {0} AND CODIGO_MOVIMIENTO= {1}AND CODIGO_PARTIDO = {2} AND CODIGO_REQUISITO ={3} ", view.GetRowCellValue(i, "CODIGO_CANDIDATOS"), id_movimiento, id_partido, a))
 
 
                             .ADICIONADO_POR = usuario
@@ -392,7 +427,7 @@ Public Class xfrmRegCandidatos
 
             'Me.IM_MUNICIPIOSTableAdapter.FillBy(Me.DSInsCandidatos.IM_MUNICIPIOS, Me.cboDepartamento.EditValue)
         Catch ex As Exception
-            Mensajes.MensajeError(ex.Message)
+
         End Try
     End Sub
 
@@ -405,7 +440,7 @@ Public Class xfrmRegCandidatos
 
             Me.IM_MUNICIPIOSTableAdapter.Fill(Me.DSInsCandidatos.IM_MUNICIPIOS, Me.cboDepartamento.EditValue)
         Catch ex As Exception
-            Mensajes.MensajeError(ex.Message)
+
         End Try
     End Sub
     Sub Val_MUN_DEP()
@@ -701,11 +736,53 @@ Public Class xfrmRegCandidatos
         Dim cregidores As String = 0
         Dim cdesignados As String = 0
 
+        Dim mujeres_ingresadas As String
+        Dim mujeres_necesarias As String
         id_partido = CInt(Me.lblidpartido.Text)
         id_movimiento = CInt(Me.lblidmovimiento.Text)
 
         Me.DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2.Rows.Clear()
         Val_MUN_DEP()
+
+        If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 9 Then
+            mujeres_ingresadas = COracle.ObtenerDatos(String.Format("SELECT NVL(COUNT(*),  0) MUJERES FROM    im_candidatos ic, im_padron_electoral IP WHERE  ic.codigo_cargo_electivo IN (1,9)  AND  IC.CODIGO_PARTIDO = {0} AND IC.CODIGO_MOVIMIENTO = {1} AND  ic.identidad = ip.numero_identidad AND ip.sexo  = 2", id_partido, id_movimiento), "MUJERES")
+            mujeres_necesarias = COracle.ObtenerDatos("SELECT CANTIDAD_MUJERES FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO =9", "CANTIDAD_MUJERES")
+
+            Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (mujeres_necesarias - mujeres_ingresadas))
+        ElseIf Me.cboCargo.EditValue = 2 Then
+            Dim S As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
+                               "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
+                                "WHERE  iC.codigo_departamento = " & depto & _
+                                " AND      iC.codigo_municipio = " & muni & _
+                                " AND      im.codigo_departamento = ic.codigo_departamento " & _
+                                " AND      im.codigo_municipio       = ic.codigo_municipio " & _
+                                " AND      ic.codigo_cargo_electivo = 2" & _
+                                " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
+                                " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
+                                " AND      ic.identidad = ip.numero_identidad " & _
+                                " AND      ip.sexo= 2"
+
+            mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
+            mujeres_necesarias = COracle.ObtenerDatos("SELECT CANTIDAD_MUJERES FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO =2", "CANTIDAD_MUJERES")
+            Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (mujeres_necesarias - mujeres_ingresadas))
+
+        ElseIf Me.cboCargo.EditValue = 3 Then
+            Dim S As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
+                              "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
+                               "WHERE  iC.codigo_departamento = " & depto & _
+                               " AND      iC.codigo_municipio = " & muni & _
+                               " AND      im.codigo_departamento = ic.codigo_departamento " & _
+                               " AND      im.codigo_municipio       = ic.codigo_municipio " & _
+                               " AND      ic.codigo_cargo_electivo = 3" & _
+                               " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
+                               " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
+                               " AND      ic.identidad = ip.numero_identidad " & _
+                               " AND      ip.sexo= 2"
+
+            mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
+            mujeres_necesarias = COracle.ObtenerDatos("SELECT CANTIDAD_MUJERES FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO =3", "CANTIDAD_MUJERES")
+            Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (mujeres_necesarias - mujeres_ingresadas))
+        End If
 
         presidente = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 1 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
         designados = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 9 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
@@ -725,6 +802,8 @@ Public Class xfrmRegCandidatos
         cdip_CNS = COracle.ObtenerDatos(String.Format("SELECT CANTIDAD_DIPUTADOS FROM IM_DEPARTAMENTOS WHERE   CODIGO_DEPARTAMENTO =  {0}", depto), "CANTIDAD_DIPUTADOS")
         cregidores = COracle.ObtenerDatos(String.Format("SELECT CANTIDAD_REGIDORES FROM IM_MUNICIPIOS WHERE   CODIGO_DEPARTAMENTO= {0} AND CODIGO_MUNICIPIO= {1} ", depto, muni), "CANTIDAD_REGIDORES")
 
+
+
         lblpresidnete.Text = presidente
         lbldesignados.Text = String.Format("{0} / {1}", designados, cdesignados)
         lblparlacen1.Text = String.Format("{0} / {1}", dip_pp, cdip_pp)
@@ -740,10 +819,13 @@ Public Class xfrmRegCandidatos
         Me.IM_V_MOSTRAR_CANDIDATOS2TableAdapter.FillBY(Me.DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2, id_movimiento, id_partido, muni, depto, Me.cboCargo.EditValue)
 
         If Me.cboCargo.EditValue = 1 Then
+            permitir_up = 1
             AgregarFilasGrid(CInt(1 - presidente))
         ElseIf Me.cboCargo.EditValue = 6 Then
+            permitir_up = 1
             AgregarFilasGrid(CInt(1 - alcalde))
         ElseIf Me.cboCargo.EditValue = 7 Then
+            permitir_up = 1
             AgregarFilasGrid(CInt(1 - vice))
         ElseIf Me.cboCargo.EditValue = 2 Then
             AgregarFilasGrid(CInt(cdip_pp) - CInt(dip_pp))
@@ -796,16 +878,28 @@ Public Class xfrmRegCandidatos
             Return
         Else
 
+            If Me.cboCargo.EditValue = 1 And Not IsDBNull(view.GetRowCellValue(e.RowHandle, "IDENTIDAD")) Then
+                permitir_up = 1
+
+            ElseIf Me.cboCargo.EditValue = 6 And Not IsDBNull(view.GetRowCellValue(e.RowHandle, "IDENTIDAD")) Then
+                permitir_up = 1
+
+            ElseIf Me.cboCargo.EditValue = 7 And Not IsDBNull(view.GetRowCellValue(e.RowHandle, "IDENTIDAD")) Then
+                permitir_up = 1
+            Else
+                permitir_up = 0
+            End If
+
             Dim _row = CType(DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2.Rows(IMVMOSTRARCANDIDATOS2BindingSource.Position), DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2Row)
 
-            If _row.RowState = DataRowState.Added Then
+            If _row.RowState = DataRowState.Added And permitir_up = 0 Then
                 guardar(e.RowHandle)
-            ElseIf _row.RowState = DataRowState.Unchanged Then
+            ElseIf _row.RowState = DataRowState.Unchanged Or permitir_up = 0 Then
                 Actualizar(e.RowHandle)
 
             End If
 
-        End If
+            End If
 
 
     End Sub
@@ -831,58 +925,6 @@ Public Class xfrmRegCandidatos
             End If
         End If
         load = False
-        'Dim view As GridView = GridView1
-
-        'If e.PrevFocusedRowHandle < 0 Then
-
-        '    Return
-        'ElseIf (IsDBNull(view.GetRowCellValue(e.PrevFocusedRowHandle, "IDENTIDAD")) Or view.GetRowCellValue(e.PrevFocusedRowHandle, "IDENTIDAD") Is Nothing) _
-        '    And (IsDBNull(view.GetRowCellValue(e.PrevFocusedRowHandle, "PRIMER_NOMBRE")) Or view.GetRowCellValue(e.PrevFocusedRowHandle, "PRIMER_NOMBRE") Is Nothing) _
-        '    And (IsDBNull(view.GetRowCellValue(e.PrevFocusedRowHandle, "PRIMER_APELLIDO")) Or view.GetRowCellValue(e.PrevFocusedRowHandle, "PRIMER_APELLIDO") Is Nothing) _
-        '    And (IsDBNull(view.GetRowCellValue(e.PrevFocusedRowHandle, "Posicion")) Or view.GetRowCellValue(e.PrevFocusedRowHandle, "Posicion")) Is Nothing Then
-        '    view.FocusedRowHandle = e.PrevFocusedRowHandle
-        '    view.FocusedColumn = colPOSICION
-        '    Return
-
-        'ElseIf IsDBNull(view.GetRowCellValue(e.PrevFocusedRowHandle, "IDENTIDAD")) Or view.GetRowCellValue(e.PrevFocusedRowHandle, "IDENTIDAD") Is Nothing Then
-        '    Mensajes.MensajeError("Ingrese el Número de Identidad")
-        '    view.FocusedRowHandle = e.PrevFocusedRowHandle
-        '    view.FocusedColumn = colIDENTIDAD
-
-        '    Return
-        'ElseIf IsDBNull(view.GetRowCellValue(e.PrevFocusedRowHandle, "PRIMER_NOMBRE")) Or view.GetRowCellValue(e.PrevFocusedRowHandle, "PRIMER_NOMBRE") Is Nothing Then
-        '    Mensajes.MensajeError("Ingrese el Primer Nombre")
-        '    view.FocusedRowHandle = e.PrevFocusedRowHandle
-        '    view.FocusedColumn = colPRIMER_NOMBRE
-
-        '    Return
-        'ElseIf IsDBNull(view.GetRowCellValue(e.PrevFocusedRowHandle, "PRIMER_APELLIDO")) Or view.GetRowCellValue(e.PrevFocusedRowHandle, "PRIMER_APELLIDO") Is Nothing Then
-        '    Mensajes.MensajeError("Ingrese el Primer Apellido")
-        '    view.FocusedRowHandle = e.PrevFocusedRowHandle
-        '    view.FocusedColumn = colPRIMER_APELLIDO
-
-        '    Return
-        'ElseIf IsDBNull(view.GetRowCellValue(e.PrevFocusedRowHandle, "POSICION")) Or view.GetRowCellValue(e.PrevFocusedRowHandle, "POSICION") Is Nothing Then
-        '    Mensajes.MensajeError("Ingrese La posicion del Candidato")
-        '    view.FocusedRowHandle = e.PrevFocusedRowHandle
-        '    view.FocusedColumn = colPOSICION
-
-        '    Return
-        'ElseIf (Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 4 Or Me.cboCargo.EditValue = 7) And (IsDBNull(view.GetRowCellValue(e.PrevFocusedRowHandle, "POSICION")) Or view.GetRowCellValue(e.PrevFocusedRowHandle, "POSICION") Is Nothing) Then
-        '    Mensajes.MensajeError("Cargue la Fotografia del Candidato")
-        '    view.FocusedRowHandle = e.PrevFocusedRowHandle
-        '    view.FocusedColumn = colIMAGEN
-
-        '    Return
-        'Else
-
-        '    EJECUTAR = True
-
-
-        'End If
-
-
-
     End Sub
 
     Sub Eliminar()
