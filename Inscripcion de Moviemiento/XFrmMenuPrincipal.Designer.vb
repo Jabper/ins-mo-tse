@@ -54,6 +54,7 @@ Partial Class XFrmMenuPrincipal
         Me.BtnRPlanilla = New DevExpress.XtraBars.BarSubItem
         Me.BarButtonItem2 = New DevExpress.XtraBars.BarButtonItem
         Me.BarButtonItem3 = New DevExpress.XtraBars.BarButtonItem
+        Me.BarButtonItem10 = New DevExpress.XtraBars.BarButtonItem
         Me.btnConsultarFirmas = New DevExpress.XtraBars.BarButtonItem
         Me.BtnRFirmas = New DevExpress.XtraBars.BarSubItem
         Me.BtnFDP = New DevExpress.XtraBars.BarButtonItem
@@ -96,7 +97,6 @@ Partial Class XFrmMenuPrincipal
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.BarSubItem1 = New DevExpress.XtraBars.BarSubItem
         Me.RibbonPageGroup10 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
-        Me.BarButtonItem10 = New DevExpress.XtraBars.BarButtonItem
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -352,6 +352,12 @@ Partial Class XFrmMenuPrincipal
         Me.BarButtonItem3.Id = 33
         Me.BarButtonItem3.Name = "BarButtonItem3"
         '
+        'BarButtonItem10
+        '
+        Me.BarButtonItem10.Caption = "Reporte de Planilla de Candidatos"
+        Me.BarButtonItem10.Id = 53
+        Me.BarButtonItem10.Name = "BarButtonItem10"
+        '
         'btnConsultarFirmas
         '
         Me.btnConsultarFirmas.Caption = "Consultar Firmas"
@@ -438,7 +444,7 @@ Partial Class XFrmMenuPrincipal
         '
         'btnConsultarPlanilla
         '
-        Me.btnConsultarPlanilla.Caption = "Consultar Planilla"
+        Me.btnConsultarPlanilla.Caption = "Validar Planilla"
         Me.btnConsultarPlanilla.Id = 46
         Me.btnConsultarPlanilla.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Consulta
         Me.btnConsultarPlanilla.Name = "btnConsultarPlanilla"
@@ -664,12 +670,6 @@ Partial Class XFrmMenuPrincipal
         'RibbonPageGroup10
         '
         Me.RibbonPageGroup10.Name = "RibbonPageGroup10"
-        '
-        'BarButtonItem10
-        '
-        Me.BarButtonItem10.Caption = "Reporte de Planilla de Candidatos"
-        Me.BarButtonItem10.Id = 53
-        Me.BarButtonItem10.Name = "BarButtonItem10"
         '
         'XFrmMenuPrincipal
         '
