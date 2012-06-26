@@ -37,6 +37,7 @@
             Catch ex As Exception
 
             End Try
+            Me.CmbMovimiento.Enabled = True
 
         ElseIf activaropciones.PEstado = "MOV" Then
             Dim idp As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
@@ -114,6 +115,7 @@
             .AgregarFilasGrid(CType(Me.TxtFilas.Text, Integer))
             .folio = Me.TxtFolio.Text
             .establecer()
+            .estadistico()
 
         End With
         Me.Close()

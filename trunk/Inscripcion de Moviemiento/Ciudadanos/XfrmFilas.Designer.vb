@@ -24,14 +24,20 @@ Partial Class XfrmFilas
         Dim ConditionValidationRule2 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Dim ConditionValidationRule3 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Dim ConditionValidationRule4 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
+        Dim ConditionValidationRule5 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Me.TxtFilas = New DevExpress.XtraEditors.TextEdit
         Me.Label2 = New System.Windows.Forms.Label
         Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
         Me.CmbDepartamento = New DevExpress.XtraEditors.LookUpEdit
+        Me.TADEPARTAMENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DSDeptoMuni = New Inscripcion_de_Moviemientos.DSDeptoMuni
         Me.CmbMunicipio = New DevExpress.XtraEditors.LookUpEdit
+        Me.TAMUNICIPIOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CmbMovimiento = New DevExpress.XtraEditors.LookUpEdit
         Me.TAMOVIMIENTOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DSPolitico = New Inscripcion_de_Moviemientos.DSPolitico
+        Me.CmbPartido = New DevExpress.XtraEditors.LookUpEdit
+        Me.TAPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TxtFolio = New DevExpress.XtraEditors.TextEdit
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label4 = New System.Windows.Forms.Label
@@ -39,8 +45,6 @@ Partial Class XfrmFilas
         Me.Label6 = New System.Windows.Forms.Label
         Me.Label7 = New System.Windows.Forms.Label
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl
-        Me.CmbPartido = New DevExpress.XtraEditors.LookUpEdit
-        Me.TAPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupControl2 = New DevExpress.XtraEditors.GroupControl
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton
         Me.Label1 = New System.Windows.Forms.Label
@@ -48,9 +52,6 @@ Partial Class XfrmFilas
         Me.TA_MOVIMIENTOTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_MOVIMIENTOTableAdapter
         Me.TA_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_PARTIDOS_POLITICOSTableAdapter
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
-        Me.TADEPARTAMENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DSDeptoMuni = New Inscripcion_de_Moviemientos.DSDeptoMuni
-        Me.TAMUNICIPIOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TA_DEPARTAMENTOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_DEPARTAMENTOSTableAdapter
         Me.TA_MUNICIPIOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_MUNICIPIOSTableAdapter
         Me.BtnCrear = New DevExpress.XtraEditors.SimpleButton
@@ -58,21 +59,21 @@ Partial Class XfrmFilas
         CType(Me.TxtFilas.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CmbDepartamento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TADEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CmbMunicipio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TAMUNICIPIOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CmbMovimiento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TAMOVIMIENTOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CmbPartido.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TAPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtFolio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
-        CType(Me.CmbPartido.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TAPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl2.SuspendLayout()
         CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TADEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TAMUNICIPIOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TxtFilas
@@ -113,6 +114,16 @@ Partial Class XfrmFilas
         ConditionValidationRule2.ErrorText = "Valor Inválido"
         Me.DxValidationProvider1.SetValidationRule(Me.CmbDepartamento, ConditionValidationRule2)
         '
+        'TADEPARTAMENTOSBindingSource
+        '
+        Me.TADEPARTAMENTOSBindingSource.DataMember = "TA_DEPARTAMENTOS"
+        Me.TADEPARTAMENTOSBindingSource.DataSource = Me.DSDeptoMuni
+        '
+        'DSDeptoMuni
+        '
+        Me.DSDeptoMuni.DataSetName = "DSDeptoMuni"
+        Me.DSDeptoMuni.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'CmbMunicipio
         '
         Me.CmbMunicipio.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.TAMUNICIPIOSBindingSource, "CODIGO_MUNICIPIO", True))
@@ -129,6 +140,11 @@ Partial Class XfrmFilas
         ConditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
         ConditionValidationRule3.ErrorText = "Valor Inválido"
         Me.DxValidationProvider1.SetValidationRule(Me.CmbMunicipio, ConditionValidationRule3)
+        '
+        'TAMUNICIPIOSBindingSource
+        '
+        Me.TAMUNICIPIOSBindingSource.DataMember = "TA_MUNICIPIOS"
+        Me.TAMUNICIPIOSBindingSource.DataSource = Me.DSDeptoMuni
         '
         'CmbMovimiento
         '
@@ -156,6 +172,27 @@ Partial Class XfrmFilas
         '
         Me.DSPolitico.DataSetName = "DSPolitico"
         Me.DSPolitico.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'CmbPartido
+        '
+        Me.CmbPartido.Location = New System.Drawing.Point(88, 29)
+        Me.CmbPartido.Name = "CmbPartido"
+        Me.CmbPartido.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CmbPartido.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_PARTIDO", "Código", 40, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.Ascending), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE", "Partido", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
+        Me.CmbPartido.Properties.DataSource = Me.TAPARTIDOSPOLITICOSBindingSource
+        Me.CmbPartido.Properties.DisplayMember = "NOMBRE"
+        Me.CmbPartido.Properties.NullText = "Seleccione"
+        Me.CmbPartido.Properties.ValueMember = "CODIGO_PARTIDO"
+        Me.CmbPartido.Size = New System.Drawing.Size(135, 20)
+        Me.CmbPartido.TabIndex = 20
+        ConditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule5.ErrorText = "Valor Inválido"
+        Me.DxValidationProvider1.SetValidationRule(Me.CmbPartido, ConditionValidationRule5)
+        '
+        'TAPARTIDOSPOLITICOSBindingSource
+        '
+        Me.TAPARTIDOSPOLITICOSBindingSource.DataMember = "TA_PARTIDOS_POLITICOS"
+        Me.TAPARTIDOSPOLITICOSBindingSource.DataSource = Me.DSPolitico
         '
         'TxtFolio
         '
@@ -227,24 +264,6 @@ Partial Class XfrmFilas
         Me.GroupControl1.TabIndex = 2
         Me.GroupControl1.Text = "Información General"
         '
-        'CmbPartido
-        '
-        Me.CmbPartido.Location = New System.Drawing.Point(88, 29)
-        Me.CmbPartido.Name = "CmbPartido"
-        Me.CmbPartido.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.CmbPartido.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_PARTIDO", "Código", 40, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.Ascending), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE", "Partido", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
-        Me.CmbPartido.Properties.DataSource = Me.TAPARTIDOSPOLITICOSBindingSource
-        Me.CmbPartido.Properties.DisplayMember = "NOMBRE"
-        Me.CmbPartido.Properties.NullText = "Seleccione"
-        Me.CmbPartido.Properties.ValueMember = "CODIGO_PARTIDO"
-        Me.CmbPartido.Size = New System.Drawing.Size(135, 20)
-        Me.CmbPartido.TabIndex = 20
-        '
-        'TAPARTIDOSPOLITICOSBindingSource
-        '
-        Me.TAPARTIDOSPOLITICOSBindingSource.DataMember = "TA_PARTIDOS_POLITICOS"
-        Me.TAPARTIDOSPOLITICOSBindingSource.DataSource = Me.DSPolitico
-        '
         'GroupControl2
         '
         Me.GroupControl2.Controls.Add(Me.SimpleButton1)
@@ -299,21 +318,6 @@ Partial Class XfrmFilas
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'TADEPARTAMENTOSBindingSource
-        '
-        Me.TADEPARTAMENTOSBindingSource.DataMember = "TA_DEPARTAMENTOS"
-        Me.TADEPARTAMENTOSBindingSource.DataSource = Me.DSDeptoMuni
-        '
-        'DSDeptoMuni
-        '
-        Me.DSDeptoMuni.DataSetName = "DSDeptoMuni"
-        Me.DSDeptoMuni.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'TAMUNICIPIOSBindingSource
-        '
-        Me.TAMUNICIPIOSBindingSource.DataMember = "TA_MUNICIPIOS"
-        Me.TAMUNICIPIOSBindingSource.DataSource = Me.DSDeptoMuni
-        '
         'TA_DEPARTAMENTOSTableAdapter
         '
         Me.TA_DEPARTAMENTOSTableAdapter.ClearBeforeFill = True
@@ -363,23 +367,23 @@ Partial Class XfrmFilas
         CType(Me.TxtFilas.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CmbDepartamento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TADEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CmbMunicipio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TAMUNICIPIOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CmbMovimiento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TAMOVIMIENTOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DSPolitico, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CmbPartido.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TAPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TxtFolio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl1.ResumeLayout(False)
         Me.GroupControl1.PerformLayout()
-        CType(Me.CmbPartido.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TAPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl2.ResumeLayout(False)
         Me.GroupControl2.PerformLayout()
         CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TADEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TAMUNICIPIOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

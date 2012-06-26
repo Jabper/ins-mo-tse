@@ -28,7 +28,8 @@ Public Class XfrmLogin
                 Me.TxtUsuario.Text = Nothing
                 Me.TxtUsuario.Text = Nothing
                 XFrmMenuPrincipal.TxtUser.Caption = NombreUsuario
-                XFrmMenuPrincipal.Show()
+                XFrmMenuPrincipal.Visible = True
+                XFrmMenuPrincipal.Focus()
                 Me.Close()
             Else
                 Mensajes.MensajeError("Usuario o Contraseña Inválidos")

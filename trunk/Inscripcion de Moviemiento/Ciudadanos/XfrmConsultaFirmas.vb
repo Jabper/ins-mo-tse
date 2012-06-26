@@ -36,18 +36,6 @@ Public Class XfrmConsultaFirmas
 
     End Sub
 
-    Private Sub GridView1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.Click
-        'Try
-        '    Dim view As GridView = GridView1
-        '    'MsgBox(view.GetRowCellValue(view.FocusedRowHandle, "IDENTIDAD"))
-        '    'Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.FillBy(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1, GridView1.GetRowCellValue(view.FocusedRowHandle, "CODIGO_CUIDADANOS_RESPALDAN"), GridView1.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO"), GridView1.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO"))
-
-        'Catch ex As Exception
-        '    MsgBox(ex.Message)
-        'End Try
-        
-    End Sub
-
 
 
     Private Sub GridView1_InvalidValueException(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs) Handles GridView1.InvalidValueException
@@ -59,26 +47,22 @@ Public Class XfrmConsultaFirmas
     End Sub
 
 
-
-    Private Sub GridView1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles GridView1.KeyDown
-       
-
-
-
-    End Sub
-
-    Sub estadistico()
+    Sub estadistico(ByVal idp As Integer, ByVal idmov As Integer)
+        CREstadistico.AsignarVariables(idp, idmov)
         CREstadistico.calcular()
         Me.lblconsistentes.Text = Math.Round(CREstadistico.Firmasmovimiento, 0)
         Me.lblporcentaje.Text = Math.Round(CREstadistico.porcentaje, 2) & "%"
         Me.lblfirmasnecesarias.Text = Math.Round(CREstadistico.TotalFirmas, 0)
         Me.lblinconsistentes.Text = Math.Round(CREstadistico.FirmasInconsistentes, 0)
+        lbltodos.Text = Math.Round((CREstadistico.Firmasmovimiento + CREstadistico.FirmasInconsistentes), 0)
     End Sub
 
 
     Sub salir()
         Me.Close()
     End Sub
+
+   
 
     Private Sub XfrmCiudadanos_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Me.KeyPress
         '   PERMITIR EL INGRESO DE SOLO CARACTERES NUMERALES
@@ -92,58 +76,76 @@ Public Class XfrmConsultaFirmas
         CmbDepartamento.EditValue = DBNull.Value
         CmbMunicipio.EditValue = DBNull.Value
         CmbMovimiento.EditValue = DBNull.Value
+
     End Sub
+
+    Sub ActivarFiltros()
+        If activaropciones.PEstado = "PDO" Then
+            Dim idp As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
+            Me.CmbPartido.Enabled = False
+
+
+            'Partido
+            Dim p As Integer = Me.CmbPartido.Properties.GetDataSourceRowIndex(Me.CmbPartido.Properties.Columns("CODIGO_PARTIDO"), idp)
+            CmbPartido.EditValue = Me.CmbPartido.Properties.GetDataSourceValue(CmbPartido.Properties.ValueMember, p)
+            Try
+                Me.TA_MOVIMIENTOTableAdapter.FillBy1(Me.DSPolitico.TA_MOVIMIENTO, idp)
+                CmbMovimiento.EditValue = DBNull.Value
+            Catch ex As Exception
+
+            End Try
+
+        ElseIf activaropciones.PEstado = "MOV" Then
+            Dim idp As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
+            Dim idmov As String = COracle.ObtenerDatos("SELECT CODIGO_MOVIMIENTO FROM IM_PARAMETROS_GENERALES", "CODIGO_MOVIMIENTO")
+
+            Me.CmbPartido.Enabled = False
+            Me.CmbMovimiento.Enabled = False
+
+            'Partido
+            Dim p As Integer = Me.CmbPartido.Properties.GetDataSourceRowIndex(Me.CmbPartido.Properties.Columns("CODIGO_PARTIDO"), idp)
+            CmbPartido.EditValue = Me.CmbPartido.Properties.GetDataSourceValue(CmbPartido.Properties.ValueMember, p)
+            Try
+                Me.TA_MOVIMIENTOTableAdapter.FillBy1(Me.DSPolitico.TA_MOVIMIENTO, idp)
+
+            Catch ex As Exception
+
+            End Try
+
+            'Movimiento
+            Dim m As Integer = Me.CmbMovimiento.Properties.GetDataSourceRowIndex(Me.CmbMovimiento.Properties.Columns("CODIGO_MOVIMIENTO"), idmov)
+            Me.CmbMovimiento.EditValue = Me.CmbMovimiento.Properties.GetDataSourceValue(Me.CmbMovimiento.Properties.ValueMember, m)
+            '******************Ventana de espera
+            Dim waitDialog As New WaitDialogForm("Obteniendo Información", "Por favor espere..")
+
+            Me.MOSTRAR_FIRMASTableAdapter.FillBy(Me.DSCiudadanos.MOSTRAR_FIRMAS, idp, idmov)
+            waitDialog.Caption = "finalizando..."
+            waitDialog.Close()
+            estadistico(idp, idmov)
+        Else
+            limpiar()
+        End If
+    End Sub
+
+
+    
+
+
     Private Sub XfrmCiudadanos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        'TODO: This line of code loads data into the 'DSCiudadanos.IM_CIUDADANOS_RESPALDAN1' table. You can move, or remove it, as needed.
-        'Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Fill(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
-        'TODO: This line of code loads data into the 'DSCiudadanos.MOSTRAR_FIRMAS' table. You can move, or remove it, as needed.
-        idmovimiento = COracle.ObtenerDatos("SELECT * FROM IM_PARAMETROS_GENERALES", "CODIGO_MOVIMIENTO")
-        '******************Ventana de espera
-        Dim waitDialog As New WaitDialogForm("Obteniendo Información", "Por favor espere..")
-        'Me.IM_CIUDADANOS_RESPALDAN1TableAdapter.Fill(Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1)
-        Me.MOSTRAR_FIRMASTableAdapter.Fill(Me.DSCiudadanos.MOSTRAR_FIRMAS)
-        waitDialog.Caption = "finalizando..."
-        waitDialog.Close()
-        Dim ip As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
+        'idmovimiento = COracle.ObtenerDatos("SELECT * FROM IM_PARAMETROS_GENERALES", "CODIGO_MOVIMIENTO")
+     
+        'Dim ip As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
 
-        Me.CODIGO_PARTIDO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_PARTIDO=" & ip)
-        Me.CODIGO_MOVIMIENTO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_MOVIMIENTO=" & idmovimiento)
-
-
-        Me.TA_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.TA_DEPARTAMENTOS)
+        'Me.CODIGO_PARTIDO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_PARTIDO=" & ip)
+        'Me.CODIGO_MOVIMIENTO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_MOVIMIENTO=" & idmovimiento)
         Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
-        estadistico()
-        limpiar()
-    End Sub
-
-    Sub establecer()
-        'Partido
-        Dim p As Integer = Me.CmbPartido.Properties.GetDataSourceRowIndex(Me.CmbPartido.Properties.Columns("CODIGO_PARTIDO"), idpartido)
-        CmbPartido.EditValue = Me.CmbPartido.Properties.GetDataSourceValue(CmbPartido.Properties.ValueMember, p)
-        Try
-            Me.TA_MOVIMIENTOTableAdapter.FillBy1(Me.DSPolitico.TA_MOVIMIENTO, idpartido)
-
-        Catch ex As Exception
-
-        End Try
-        'Movimiento
-        Dim m As Integer = Me.CmbMovimiento.Properties.GetDataSourceRowIndex(Me.CmbMovimiento.Properties.Columns("CODIGO_MOVIMIENTO"), idmovimiento)
-        Me.CmbMovimiento.EditValue = Me.CmbMovimiento.Properties.GetDataSourceValue(Me.CmbMovimiento.Properties.ValueMember, m)
-        'Departamento
-        Dim d As Integer = Me.CmbDepartamento.Properties.GetDataSourceRowIndex(Me.CmbDepartamento.Properties.Columns("CODIGO_DEPARTAMENTO"), iddepto)
-        Me.CmbDepartamento.EditValue = Me.CmbDepartamento.Properties.GetDataSourceValue(Me.CmbDepartamento.Properties.ValueMember, d)
-        Try
-            Me.TA_MUNICIPIOSTableAdapter.FillBy1(Me.DSDeptoMuni.TA_MUNICIPIOS, CmbDepartamento.EditValue)
-
-        Catch ex As Exception
-
-        End Try
-        'Municipio
-        Dim mn As Integer = Me.CmbMunicipio.Properties.GetDataSourceRowIndex(Me.CmbMunicipio.Properties.Columns("CODIGO_MUNICIPIO"), idmuni)
-        Me.CmbMunicipio.EditValue = Me.CmbMunicipio.Properties.GetDataSourceValue(Me.CmbMunicipio.Properties.ValueMember, mn)
+        ActivarFiltros()
+        Me.TA_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.TA_DEPARTAMENTOS)
 
 
     End Sub
+
+    
     Private Sub CmbPartido_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Try
             Me.TA_MOVIMIENTOTableAdapter.FillBy1(Me.DSPolitico.TA_MOVIMIENTO, CmbPartido.EditValue)
@@ -154,24 +156,6 @@ Public Class XfrmConsultaFirmas
     End Sub
 
 
-
-    Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        'Me.GridView1.ExportToXls("E:\test.xls")
-        'validarFilas()
-    End Sub
-
-
-
-
-
-    Private Sub CmbDepartamento_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Try
-            Me.TA_MUNICIPIOSTableAdapter.FillBy1(Me.DSDeptoMuni.TA_MUNICIPIOS, CmbDepartamento.EditValue)
-
-        Catch ex As Exception
-
-        End Try
-    End Sub
 
     Sub guardar(ByVal i As Integer)
         Dim NombreIgual As String = "S"
@@ -201,13 +185,13 @@ Public Class XfrmConsultaFirmas
                 If pnombre <> COracle.ObtenerDatos(consulta, "PRIMER_NOMBRE") Then
                     inconsistente = "N"
                     NombreIgual = "N"
-                    Observacion &= "El primer nombre no coincide con el del padrón electoral "
+                    Observacion &= " El primer nombre no coincide con el del padrón electoral "
                     'COMPROBANDO EL SEGUNDO NOMBRE
 
                 ElseIf papellido <> COracle.ObtenerDatos(consulta, "PRIMER_APELLIDO") Then
                     inconsistente = "N"
                     NombreIgual = "N"
-                    Observacion &= "El primer apellido no coincide con el del padrón electoral "
+                    Observacion &= " El primer apellido no coincide con el del padrón electoral "
                     'COMPROBANDO EL SEGUNDO NOMBRE
 
                 End If
@@ -220,43 +204,42 @@ Public Class XfrmConsultaFirmas
                 Else
                     inconsistente = "N"
                     NombreIgual = "N"
-                    Observacion &= "El segundo nombre no coincide con el del padrón electoral "
+                    Observacion &= " El segundo nombre no coincide con el del padrón electoral "
                 End If
 
                 If COracle.ObtenerDatos(consulta, "SEGUNDO_APELLIDO") = SAPELLIDO Then
                 Else
                     inconsistente = "N"
                     NombreIgual = "N"
-                    Observacion &= "El segundo apellido no coincide con el del padrón electoral "
+                    Observacion &= " El segundo apellido no coincide con el del padrón electoral "
                 End If
 
 
                 If view.GetRowCellValue(view.FocusedRowHandle, "FIRMA") Is Nothing Or IsDBNull(view.GetRowCellValue(view.FocusedRowHandle, "FIRMA")) Or view.GetRowCellValue(view.FocusedRowHandle, "FIRMA").ToString = "N" Then
                     inconsistente = "N"
 
-                    Observacion &= "No presenta firma"
+                    Observacion &= " No presenta firma"
                 End If
 
                 If view.GetRowCellValue(view.FocusedRowHandle, "HUELLA") Is Nothing Or IsDBNull(view.GetRowCellValue(view.FocusedRowHandle, "HUELLA")) Or view.GetRowCellValue(view.FocusedRowHandle, "HUELLA").ToString = "N" Then
                     inconsistente = "N"
 
-                    Observacion &= "No presenta huella"
+                    Observacion &= " No presenta huella"
                 End If
 
                 If view.GetRowCellValue(view.FocusedRowHandle, "DIRECCION") Is Nothing Or IsDBNull(view.GetRowCellValue(view.FocusedRowHandle, "DIRECCION")) Or view.GetRowCellValue(view.FocusedRowHandle, "DIRECCION").ToString = "N" Then
                     inconsistente = "N"
 
-                    Observacion &= "No presenta dirección"
+                    Observacion &= " No presenta dirección"
                 End If
             Else
                 inconsistente = "N"
-                Observacion = "Identidad no encontrada en el padrón electoral"
+                Observacion = " Identidad no encontrada en el padrón electoral"
                 NombreIgual = ""
 
             End If
             GuardarEnBase(i, NombreIgual, inconsistente, Observacion)
-            estadistico()
-
+            estadistico(Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
         Catch ex As Exception
             Mensajes.mimensaje(ex.Message)
         End Try
@@ -360,11 +343,11 @@ Public Class XfrmConsultaFirmas
                 e.Valid = False
             End If
 
-            Dim a As String = "select IDENTIDAD from IM_CIUDADANOS_RESPALDAN where IDENTIDAD='" & e.Value.ToString & "' and CODIGO_PARTIDO=" & idpartido & " and CODIGO_MOVIMIENTO=" & idmovimiento
-            If COracle.ObtenerDatos(a, "IDENTIDAD") <> "N" Then
-                mensajeerror = "Este firmante ya existe en su lista"
-                e.Valid = False
-            End If
+            'Dim a As String = "select IDENTIDAD from IM_CIUDADANOS_RESPALDAN where IDENTIDAD='" & e.Value.ToString & "' and CODIGO_PARTIDO=" & idpartido & " and CODIGO_MOVIMIENTO=" & idmovimiento
+            'If COracle.ObtenerDatos(a, "IDENTIDAD") <> "N" Then
+            '    mensajeerror = "Este firmante ya existe en su lista"
+            '    e.Valid = False
+            'End If
            
         End If
 
@@ -410,19 +393,45 @@ Public Class XfrmConsultaFirmas
     '    End If
     'End Sub
 
-    Private Sub ChkMovimientos_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChkMovimientos.CheckedChanged
-        If ChkMovimientos.CheckState = CheckState.Checked Then
-            Me.CmbPartido.Enabled = True
-            Me.CmbMovimiento.Enabled = True
-        Else
-            Me.CmbPartido.Enabled = False
-            Me.CmbMovimiento.Enabled = False
-        End If
-    End Sub
+  
 
    
     Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton1.Click
+
+        If ActivarOpciones.PEstado = "PDO" Then
+
+            If Me.CmbMovimiento.EditValue Is Nothing Or IsDBNull(Me.CmbMovimiento.EditValue) Or Me.CmbMovimiento.Text = "Seleccione" Then
+                Mensajes.mimensaje("Para filtrar la información primero seleccione un movimiento")
+            Else
+                
+                filtroGrid()
+            End If
+
+        ElseIf ActivarOpciones.PEstado = "MOV" Then
+            filtroGrid()
+
+        ElseIf ActivarOpciones.PEstado = "TSE" Then
+            If Me.CmbPartido.EditValue Is Nothing Or IsDBNull(Me.CmbPartido.EditValue) Or Me.CmbPartido.Text = "Seleccione" Then
+                Mensajes.mimensaje("Para filtrar la información primero seleccione un Partido Político")
+
+            ElseIf Me.CmbMovimiento.EditValue Is Nothing Or IsDBNull(Me.CmbMovimiento.EditValue) Or Me.CmbMovimiento.Text = "Seleccione" Then
+                Mensajes.mimensaje("Para filtrar la información primero seleccione un movimiento")
+            Else
+                 filtroGrid()
+
+            End If
+
+        End If
+
+
+
+
+        
+    End Sub
+
+    Sub filtroGrid()
         GridView1.ActiveFilter.Clear()
+
 
         If txtidentidad.Text = Nothing Or txtidentidad.Text = "" Then
         Else
@@ -431,10 +440,10 @@ Public Class XfrmConsultaFirmas
 
         End If
 
-        Dim ip As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
+        'Dim ip As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
 
-        Me.CODIGO_PARTIDO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_PARTIDO=" & ip)
-        Me.CODIGO_MOVIMIENTO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_MOVIMIENTO=" & idmovimiento)
+        'Me.CODIGO_PARTIDO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_PARTIDO=" & ip)
+        'Me.CODIGO_MOVIMIENTO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_MOVIMIENTO=" & idmovimiento)
 
 
         If ChkDepto.CheckState = CheckState.Checked Then
@@ -447,6 +456,19 @@ Public Class XfrmConsultaFirmas
 
         End If
 
+        If Me.txtfolio.Text = Nothing Or Me.txtfolio.Text = "" Then
+
+        Else
+            Me.colFOLIO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("FOLIO=" & Me.txtfolio.Text)
+
+        End If
+
+        If Me.txtpagina.Text = Nothing Or Me.txtpagina.Text = "" Then
+
+        Else
+            Me.colPAGINA.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("PAGINA=" & Me.txtpagina.Text)
+
+        End If
 
         If Me.CmbFiltro.SelectedIndex = 0 Then
             ' Me.colCONSISTENTE.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CONSISTENTE= 'N' or CONSISTENTE= 'S'")
@@ -457,17 +479,17 @@ Public Class XfrmConsultaFirmas
             Me.colCONSISTENTE.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CONSISTENTE= 'N'")
 
         End If
+
+
     End Sub
+
 
     Private Sub BtnReestablecer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnReestablecer.Click
         GridView1.ActiveFilter.Clear()
-        Me.ChkMovimientos.CheckState = CheckState.Unchecked
-        Me.ChkDepto.CheckState = CheckState.Unchecked
-        Me.ChkMovimientos.CheckState = CheckState.Unchecked
-        Dim ip As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
 
-        Me.CODIGO_PARTIDO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_PARTIDO=" & ip)
-        Me.CODIGO_MOVIMIENTO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_MOVIMIENTO=" & idmovimiento)
+        Me.ChkDepto.CheckState = CheckState.Unchecked
+
+      
     End Sub
 
     Private Sub SimpleButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
@@ -484,7 +506,7 @@ Public Class XfrmConsultaFirmas
             Try
                 COracle.ejecutarconsulta(consulta)
                 view.DeleteRow(view.FocusedRowHandle)
-                estadistico()
+                estadistico(Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
             Catch ex As Exception
                 Mensajes.mimensaje("No se pudo eliminar el registro seleccionado")
             End Try
@@ -517,9 +539,7 @@ Public Class XfrmConsultaFirmas
  
 
    
-    Private Sub CmbPartido_EditValueChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CmbPartido.EditValueChanged
-
-    End Sub
+ 
 
     Private Sub CmbPartido_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CmbPartido.TextChanged
         Try
@@ -528,4 +548,39 @@ Public Class XfrmConsultaFirmas
 
         End Try
     End Sub
+
+   
+  
+    Private Sub CmbDepartamento_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CmbDepartamento.EditValueChanged
+
+    End Sub
+
+    Private Sub CmbDepartamento_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CmbDepartamento.TextChanged
+        Try
+            TA_MUNICIPIOSTableAdapter.FillBy1(Me.DSDeptoMuni.TA_MUNICIPIOS, Me.CmbDepartamento.EditValue)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub CmbMovimiento_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CmbMovimiento.EditValueChanged
+        Try
+            If CmbMovimiento.Text = "Seleccione" Or CmbMovimiento.EditValue Is Nothing Then
+
+            Else
+                If ActivarOpciones.PEstado = "PDO" Or ActivarOpciones.PEstado = "TSE" Then
+                    Dim waitDialog As New WaitDialogForm("Obteniendo Información", "Por favor espere..")
+
+                    Me.MOSTRAR_FIRMASTableAdapter.FillBy(Me.DSCiudadanos.MOSTRAR_FIRMAS, Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
+                    waitDialog.Caption = "finalizando..."
+                    waitDialog.Close()
+                    estadistico(Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
+                End If
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+
 End Class

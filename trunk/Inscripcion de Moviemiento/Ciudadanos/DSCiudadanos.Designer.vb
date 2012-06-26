@@ -4612,7 +4612,7 @@ Namespace DSCiudadanosTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        IM_CIUDADANOS_RESPALDAN.CODIGO_CUIDADANOS_RESPALDAN, IM_CIUDADANOS_"& _ 
@@ -4641,6 +4641,38 @@ Namespace DSCiudadanosTableAdapters
                 "ODIGO_MUNICIPIO = IM_MUNICIPIOS.CODIGO_MUNICIPIO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         "& _ 
                 "IM_CIUDADANOS_RESPALDAN.CODIGO_DEPARTAMENTO = IM_MUNICIPIOS.CODIGO_DEPARTAMENTO"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        IM_CIUDADANOS_RESPALDAN.CODIGO_CUIDADANOS_RESPALDAN, IM_CIUDADANOS_"& _ 
+                "RESPALDAN.CODIGO_PARTIDO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_CIUDADANOS_RESPALDAN.COD"& _ 
+                "IGO_MOVIMIENTO, IM_CIUDADANOS_RESPALDAN.CODIGO_DEPARTAMENTO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                 "& _ 
+                "        IM_CIUDADANOS_RESPALDAN.CODIGO_MUNICIPIO, IM_CIUDADANOS_RESPALDAN.FIRMA,"& _ 
+                " IM_CIUDADANOS_RESPALDAN.HUELLA, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_CIUDADANOS_RESPAL"& _ 
+                "DAN.DIRECCION, IM_CIUDADANOS_RESPALDAN.IDENTIDAD, IM_CIUDADANOS_RESPALDAN.NOMBRE"& _ 
+                "_IGUAL, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_CIUDADANOS_RESPALDAN.FOLIO, IM_CIUDADANOS_"& _ 
+                "RESPALDAN.PRIMER_NOMBRE_PAPELETA, IM_CIUDADANOS_RESPALDAN.ADICIONADO_POR, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
+                "                     IM_CIUDADANOS_RESPALDAN.FECHA_ADICION, IM_CIUDADANOS_RESPAL"& _ 
+                "DAN.MODIFICADO_POR, IM_CIUDADANOS_RESPALDAN.FECHA_MODIFICACION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"              "& _ 
+                "           IM_CIUDADANOS_RESPALDAN.CONSISTENTE, IM_CIUDADANOS_RESPALDAN.OBSERVAC"& _ 
+                "ION, IM_CIUDADANOS_RESPALDAN.MAQUINA, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_CIUDADANOS_R"& _ 
+                "ESPALDAN.PAGINA, IM_CIUDADANOS_RESPALDAN.SEGUNDO_NOMBRE_PAPELETA, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "             IM_CIUDADANOS_RESPALDAN.PRIMER_APELLIDO_PAPELETA, IM_CIUDADANOS_RES"& _ 
+                "PALDAN.SEGUNDO_APELLIDO_PAPELETA, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_PARTIDOS_POLITIC"& _ 
+                "OS.NOMBRE, IM_MOVIMIENTOS.NOMBRE_MOVIMIENTO, IM_DEPARTAMENTOS.DESCRIPCION AS DEP"& _ 
+                "ARTAMENTO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_MUNICIPIOS.DESCRIPCION AS MUNICIPIO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FR"& _ 
+                "OM            IM_CIUDADANOS_RESPALDAN, IM_PARTIDOS_POLITICOS, IM_MOVIMIENTOS, IM"& _ 
+                "_DEPARTAMENTOS, IM_MUNICIPIOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        IM_CIUDADANOS_RESPALDAN.CODIGO_PARTI"& _ 
+                "DO = IM_PARTIDOS_POLITICOS.CODIGO_PARTIDO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_CIUD"& _ 
+                "ADANOS_RESPALDAN.CODIGO_MOVIMIENTO = IM_MOVIMIENTOS.CODIGO_MOVIMIENTO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
+                "                     IM_CIUDADANOS_RESPALDAN.CODIGO_DEPARTAMENTO = IM_DEPARTAMEN"& _ 
+                "TOS.CODIGO_DEPARTAMENTO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_CIUDADANOS_RESPALDAN.C"& _ 
+                "ODIGO_MUNICIPIO = IM_MUNICIPIOS.CODIGO_MUNICIPIO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         "& _ 
+                "IM_CIUDADANOS_RESPALDAN.CODIGO_DEPARTAMENTO = IM_MUNICIPIOS.CODIGO_DEPARTAMENTO "& _ 
+                "AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (IM_CIUDADANOS_RESPALDAN.CODIGO_PARTIDO = :idp) A"& _ 
+                "ND (IM_CIUDADANOS_RESPALDAN.CODIGO_MOVIMIENTO = :id)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("idp", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4660,6 +4692,32 @@ Namespace DSCiudadanosTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As DSCiudadanos.MOSTRAR_FIRMASDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As DSCiudadanos.MOSTRAR_FIRMASDataTable = New DSCiudadanos.MOSTRAR_FIRMASDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DSCiudadanos.MOSTRAR_FIRMASDataTable, ByVal idp As Decimal, ByVal id As Decimal) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(idp,Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(id,Decimal)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy(ByVal idp As Decimal, ByVal id As Decimal) As DSCiudadanos.MOSTRAR_FIRMASDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(idp,Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(id,Decimal)
             Dim dataTable As DSCiudadanos.MOSTRAR_FIRMASDataTable = New DSCiudadanos.MOSTRAR_FIRMASDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
