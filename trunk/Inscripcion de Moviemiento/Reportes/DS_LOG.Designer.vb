@@ -866,7 +866,7 @@ Partial Public Class DS_LOG
         
         Private columnCODIGO As Global.System.Data.DataColumn
         
-        Private columnDESCRIPCION_ As Global.System.Data.DataColumn
+        Private columnDESCRIPCION As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
@@ -908,9 +908,9 @@ Partial Public Class DS_LOG
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property DESCRIPCION_Column() As Global.System.Data.DataColumn
+        Public ReadOnly Property DESCRIPCIONColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnDESCRIPCION_
+                Return Me.columnDESCRIPCION
             End Get
         End Property
         
@@ -943,9 +943,9 @@ Partial Public Class DS_LOG
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddIM_OPCIONESRow(ByVal CODIGO As Decimal, ByVal DESCRIPCION_ As String) As IM_OPCIONESRow
+        Public Overloads Function AddIM_OPCIONESRow(ByVal CODIGO As Decimal, ByVal DESCRIPCION As String) As IM_OPCIONESRow
             Dim rowIM_OPCIONESRow As IM_OPCIONESRow = CType(Me.NewRow,IM_OPCIONESRow)
-            Dim columnValuesArray() As Object = New Object() {CODIGO, DESCRIPCION_}
+            Dim columnValuesArray() As Object = New Object() {CODIGO, DESCRIPCION}
             rowIM_OPCIONESRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowIM_OPCIONESRow)
             Return rowIM_OPCIONESRow
@@ -971,20 +971,20 @@ Partial Public Class DS_LOG
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Sub InitVars()
             Me.columnCODIGO = MyBase.Columns("CODIGO")
-            Me.columnDESCRIPCION_ = MyBase.Columns("DESCRIPCION ")
+            Me.columnDESCRIPCION = MyBase.Columns("DESCRIPCION")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitClass()
             Me.columnCODIGO = New Global.System.Data.DataColumn("CODIGO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCODIGO)
-            Me.columnDESCRIPCION_ = New Global.System.Data.DataColumn("DESCRIPCION ", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnDESCRIPCION_)
+            Me.columnDESCRIPCION = New Global.System.Data.DataColumn("DESCRIPCION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDESCRIPCION)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO}, true))
             Me.columnCODIGO.AllowDBNull = false
             Me.columnCODIGO.Unique = true
-            Me.columnDESCRIPCION_.AllowDBNull = false
-            Me.columnDESCRIPCION_.MaxLength = 300
+            Me.columnDESCRIPCION.AllowDBNull = false
+            Me.columnDESCRIPCION.MaxLength = 300
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1261,12 +1261,12 @@ Partial Public Class DS_LOG
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property DESCRIPCION_() As String
+        Public Property DESCRIPCION() As String
             Get
-                Return CType(Me(Me.tableIM_OPCIONES.DESCRIPCION_Column),String)
+                Return CType(Me(Me.tableIM_OPCIONES.DESCRIPCIONColumn),String)
             End Get
             Set
-                Me(Me.tableIM_OPCIONES.DESCRIPCION_Column) = value
+                Me(Me.tableIM_OPCIONES.DESCRIPCIONColumn) = value
             End Set
         End Property
     End Class
@@ -1519,7 +1519,7 @@ Namespace DS_LOGTableAdapters
                 " ""PROCESO"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM IM_LOG_PROCESOS LP,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"IM_PARTIDOS_POLITICOS P,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"IM_MOVIMIENTOS M"& _ 
                 ","&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"IM_OPCIONES OP"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE LP.CODIGO_PARTIDO = P.CODIGO_PARTIDO  "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND LP.CODIGO_P"& _ 
                 "ARTIDO  = M.CODIGO_PARTIDO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND LP.CODIGO_MOVIMIENTO  = M.CODIGO_MOVIMIENTO  "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"A"& _ 
-                "ND LP.CODIGO_OPERACION = OP.CODIGO_OPCION "
+                "ND LP.CODIGO_OPERACION = OP.CODIGO_OPCION "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"order by lp.codigo_log"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -1831,25 +1831,25 @@ Namespace DS_LOGTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "IM_OPCIONES"
             tableMapping.ColumnMappings.Add("CODIGO", "CODIGO")
-            tableMapping.ColumnMappings.Add("DESCRIPCION ", "DESCRIPCION ")
+            tableMapping.ColumnMappings.Add("DESCRIPCION", "DESCRIPCION")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OracleClient.OracleCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM ""IM_OPCIONES"" WHERE ((""CODIGO_OPCION"" = :Original_CODIGO) AND (""DESCR"& _ 
-                "IPCION"" = :Original_DESCRIPCION_))"
+                "IPCION"" = :Original_DESCRIPCION))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_DESCRIPCION_", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DESCRIPCION ", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_DESCRIPCION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OracleClient.OracleCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE ""IM_OPCIONES"" SET ""CODIGO_OPCION"" = :CODIGO, ""DESCRIPCION"" = :DESCRIPCION_"& _ 
-                " WHERE ((""CODIGO_OPCION"" = :Original_CODIGO) AND (""DESCRIPCION"" = :Original_DESC"& _ 
-                "RIPCION_))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE ""IM_OPCIONES"" SET ""CODIGO_OPCION"" = :CODIGO, ""DESCRIPCION"" = :DESCRIPCION "& _ 
+                "WHERE ((""CODIGO_OPCION"" = :Original_CODIGO) AND (""DESCRIPCION"" = :Original_DESCR"& _ 
+                "IPCION))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("DESCRIPCION_", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DESCRIPCION ", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("DESCRIPCION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_DESCRIPCION_", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DESCRIPCION ", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_DESCRIPCION", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1863,8 +1863,8 @@ Namespace DS_LOGTableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT  OP.CODIGO_OPCION  ""CODIGO"", OP.DESCRIPCION  ""DESCRIPCION """&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM IM_OPCIO"& _ 
-                "NES OP"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY OP.CODIGO_OPCION"
+            Me._commandCollection(0).CommandText = "SELECT        CODIGO_OPCION AS CODIGO, DESCRIPCION "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_OPCIONES "& _ 
+                "OP"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY CODIGO"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -1917,12 +1917,12 @@ Namespace DS_LOGTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_CODIGO As Decimal, ByVal Original_DESCRIPCION_ As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_CODIGO As Decimal, ByVal Original_DESCRIPCION As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CODIGO,Decimal)
-            If (Original_DESCRIPCION_ Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_DESCRIPCION_")
+            If (Original_DESCRIPCION Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_DESCRIPCION")
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_DESCRIPCION_,String)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_DESCRIPCION,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -1942,18 +1942,18 @@ Namespace DS_LOGTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal CODIGO As Decimal, ByVal DESCRIPCION_ As String, ByVal Original_CODIGO As Decimal, ByVal Original_DESCRIPCION_ As String) As Integer
+        Public Overloads Overridable Function Update(ByVal CODIGO As Decimal, ByVal DESCRIPCION As String, ByVal Original_CODIGO As Decimal, ByVal Original_DESCRIPCION As String) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CODIGO,Decimal)
-            If (DESCRIPCION_ Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("DESCRIPCION_")
+            If (DESCRIPCION Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("DESCRIPCION")
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(DESCRIPCION_,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(DESCRIPCION,String)
             End If
             Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_CODIGO,Decimal)
-            If (Original_DESCRIPCION_ Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_DESCRIPCION_")
+            If (Original_DESCRIPCION Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_DESCRIPCION")
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_DESCRIPCION_,String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_DESCRIPCION,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -1973,8 +1973,8 @@ Namespace DS_LOGTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal DESCRIPCION_ As String, ByVal Original_CODIGO As Decimal, ByVal Original_DESCRIPCION_ As String) As Integer
-            Return Me.Update(Original_CODIGO, DESCRIPCION_, Original_CODIGO, Original_DESCRIPCION_)
+        Public Overloads Overridable Function Update(ByVal DESCRIPCION As String, ByVal Original_CODIGO As Decimal, ByVal Original_DESCRIPCION As String) As Integer
+            Return Me.Update(Original_CODIGO, DESCRIPCION, Original_CODIGO, Original_DESCRIPCION)
         End Function
     End Class
     

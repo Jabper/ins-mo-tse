@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -324,6 +324,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_LOG.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\DS_REPORTE_CANDIDATOS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_REPORTE_CANDIDATOS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DS_REPORTE_DE_FDP.vb">
       <DependentUpon>DS_REPORTE_DE_FDP.xsd</DependentUpon>
     </Compile>
@@ -364,6 +369,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_REPORTE_DE_PNEM.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\REPORTE_DE _PLANILLA_DE_CANDIDATOS.Designer.vb">
+      <DependentUpon>REPORTE_DE _PLANILLA_DE_CANDIDATOS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\REPORTE_DE _PLANILLA_DE_CANDIDATOS.vb">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\REPORTE_DE_LOG.Designer.vb">
       <DependentUpon>REPORTE_DE_LOG.vb</DependentUpon>
@@ -717,6 +728,9 @@
     <EmbeddedResource Include="Procesos\XfrmMensajes.resx">
       <DependentUpon>XfrmMensajes.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\REPORTE_DE _PLANILLA_DE_CANDIDATOS.resx">
+      <DependentUpon>REPORTE_DE _PLANILLA_DE_CANDIDATOS.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_DE_LOG.resx">
       <DependentUpon>REPORTE_DE_LOG.vb</DependentUpon>
@@ -1166,6 +1180,17 @@
     </None>
     <None Include="Reportes\DS_LOG.xss">
       <DependentUpon>DS_LOG.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORTE_CANDIDATOS.xsc">
+      <DependentUpon>DS_REPORTE_CANDIDATOS.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORTE_CANDIDATOS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_REPORTE_CANDIDATOS.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DS_REPORTE_CANDIDATOS.xss">
+      <DependentUpon>DS_REPORTE_CANDIDATOS.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DS_REPORTE_DE_RESUMEN_FDP.xsc">
       <DependentUpon>DS_REPORTE_DE_RESUMEN_FDP.xsd</DependentUpon>

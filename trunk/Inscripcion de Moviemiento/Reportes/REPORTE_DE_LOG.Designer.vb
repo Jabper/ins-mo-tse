@@ -42,8 +42,10 @@ Partial Public Class REPORTE_DE_LOG
         Me.XrLabel13 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel12 = New DevExpress.XtraReports.UI.XRLabel
         Me.ReportFooter = New DevExpress.XtraReports.UI.ReportFooterBand
-        Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo
         Me.XrPageInfo2 = New DevExpress.XtraReports.UI.XRPageInfo
+        Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo
+        Me.NombreOperacion = New DevExpress.XtraReports.Parameters.Parameter
+        Me.NombreProceso = New DevExpress.XtraReports.Parameters.Parameter
         CType(Me.DS_LOG1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
@@ -64,7 +66,7 @@ Partial Public Class REPORTE_DE_LOG
         Me.XrLabel11.SizeF = New System.Drawing.SizeF(207.1251!, 22.99998!)
         Me.XrLabel11.StylePriority.UseTextAlignment = False
         Me.XrLabel11.Text = "XrLabel11"
-        Me.XrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        Me.XrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
         '
         'XrLabel10
         '
@@ -105,11 +107,11 @@ Partial Public Class REPORTE_DE_LOG
         '
         'XrLabel1
         '
-        Me.XrLabel1.Font = New System.Drawing.Font("Times New Roman", 18.0!, System.Drawing.FontStyle.Italic)
+        Me.XrLabel1.Font = New System.Drawing.Font("Times New Roman", 20.0!, System.Drawing.FontStyle.Italic)
         Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 24.95834!)
         Me.XrLabel1.Name = "XrLabel1"
         Me.XrLabel1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel1.SizeF = New System.Drawing.SizeF(1044.0!, 31.33334!)
+        Me.XrLabel1.SizeF = New System.Drawing.SizeF(1044.0!, 36.54167!)
         Me.XrLabel1.StylePriority.UseFont = False
         Me.XrLabel1.StylePriority.UseTextAlignment = False
         Me.XrLabel1.Text = "Reporte de Log Procesos"
@@ -142,7 +144,7 @@ Partial Public Class REPORTE_DE_LOG
         'XrLabel6
         '
         Me.XrLabel6.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel6.LocationFloat = New DevExpress.Utils.PointFloat(913.5417!, 10.00001!)
+        Me.XrLabel6.LocationFloat = New DevExpress.Utils.PointFloat(886.4583!, 10.00001!)
         Me.XrLabel6.Name = "XrLabel6"
         Me.XrLabel6.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel6.SizeF = New System.Drawing.SizeF(100.0!, 18.83334!)
@@ -238,14 +240,6 @@ Partial Public Class REPORTE_DE_LOG
         Me.ReportFooter.HeightF = 60.83336!
         Me.ReportFooter.Name = "ReportFooter"
         '
-        'XrPageInfo1
-        '
-        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 27.41667!)
-        Me.XrPageInfo1.Name = "XrPageInfo1"
-        Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
-        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(313.0!, 23.0!)
-        '
         'XrPageInfo2
         '
         Me.XrPageInfo2.Format = "Page {0} of {1}"
@@ -255,16 +249,36 @@ Partial Public Class REPORTE_DE_LOG
         Me.XrPageInfo2.SizeF = New System.Drawing.SizeF(313.0!, 23.0!)
         Me.XrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
         '
+        'XrPageInfo1
+        '
+        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 27.41667!)
+        Me.XrPageInfo1.Name = "XrPageInfo1"
+        Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
+        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(313.0!, 23.0!)
+        '
+        'NombreOperacion
+        '
+        Me.NombreOperacion.Description = "Operacion"
+        Me.NombreOperacion.Name = "NombreOperacion"
+        '
+        'NombreProceso
+        '
+        Me.NombreProceso.Description = "Proceso"
+        Me.NombreProceso.Name = "NombreProceso"
+        '
         'REPORTE_DE_LOG
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.GroupHeader1, Me.GroupHeader2, Me.ReportFooter})
         Me.DataAdapter = Me.DT_TABLE_LOGTableAdapter
         Me.DataMember = "DT_TABLE_LOG"
         Me.DataSource = Me.DS_LOG1
+        Me.FilterString = "[OPERACION] = ?NombreOperacion And [PROCESO] = ?NombreProceso"
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(14, 22, 102, 100)
         Me.PageHeight = 850
         Me.PageWidth = 1100
+        Me.Parameters.AddRange(New DevExpress.XtraReports.Parameters.Parameter() {Me.NombreOperacion, Me.NombreProceso})
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.Version = "11.2"
         CType(Me.DS_LOG1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -296,4 +310,6 @@ Partial Public Class REPORTE_DE_LOG
     Friend WithEvents ReportFooter As DevExpress.XtraReports.UI.ReportFooterBand
     Friend WithEvents XrPageInfo1 As DevExpress.XtraReports.UI.XRPageInfo
     Friend WithEvents XrPageInfo2 As DevExpress.XtraReports.UI.XRPageInfo
+    Friend WithEvents NombreOperacion As DevExpress.XtraReports.Parameters.Parameter
+    Friend WithEvents NombreProceso As DevExpress.XtraReports.Parameters.Parameter
 End Class

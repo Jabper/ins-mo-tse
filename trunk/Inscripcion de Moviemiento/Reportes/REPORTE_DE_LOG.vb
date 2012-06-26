@@ -25,8 +25,8 @@ Public Class REPORTE_DE_LOG
         Next
 
         'CODIGO NECESARIO PARA AGREGAR LA LISTA DE VALORES DEL MOVIMIENTO
-        Using adapter As New DS_LOGTableAdapters.IM_LOG_PROCESOSTableAdapter
-            adapter.Fill(dataset.IM_LOG_PROCESOS)
+        Using adapter1 As New DS_LOGTableAdapters.IM_LOG_PROCESOSTableAdapter
+            adapter1.Fill(dataset.IM_LOG_PROCESOS)
         End Using
 
         For Each info In e.ParametersInformation
