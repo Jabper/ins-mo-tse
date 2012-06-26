@@ -36,7 +36,29 @@ Public Class XfrmConsultaFirmas
 
     End Sub
 
+    Sub actualizarimagen()
+        Try
 
+            Dim cnx As New OracleConnection(Configuracion.verconfig)
+            Dim view As GridView = GridView1
+            'Data.ConvertImageToByteArray(Me.Imgimagen.EditValue)
+
+            Dim sqlstring As String
+            sqlstring = "UPDATE IM_IMAGENES_FIRMAS set  IMAGEN=:ft where CODIGO_PARTIDO=:idp and CODIGO_MOVIMIENTO=:idmov and PAGINA=:pagina"
+            Dim cmd As New OracleCommand(sqlstring, cnx)
+            cmd.Parameters.Add(":ft", OracleType.Blob).Value = Data.ConvertImageToByteArray(Me.img.Image)
+            cmd.Parameters.Add(":idp", OracleType.Number).Value = CType((view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO")), Integer)
+            cmd.Parameters.Add(":idmov", OracleType.Number).Value = CType(view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO"), Integer)
+            cmd.Parameters.Add(":pagina", OracleType.Number).Value = CType(view.GetRowCellValue(view.FocusedRowHandle, "PAGINA"), Integer)
+            cnx.Open()
+            cmd.ExecuteNonQuery()
+            cnx.Close()
+            Mensajes.mimensaje("Imágen Actualizada Correctamente")
+        Catch ex As Exception
+            Mensajes.mimensaje(ex.Message)
+        End Try
+
+    End Sub
 
     Private Sub GridView1_InvalidValueException(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs) Handles GridView1.InvalidValueException
         e.ExceptionMode = ExceptionMode.DisplayError
@@ -62,7 +84,7 @@ Public Class XfrmConsultaFirmas
         Me.Close()
     End Sub
 
-   
+
 
     Private Sub XfrmCiudadanos_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Me.KeyPress
         '   PERMITIR EL INGRESO DE SOLO CARACTERES NUMERALES
@@ -80,7 +102,7 @@ Public Class XfrmConsultaFirmas
     End Sub
 
     Sub ActivarFiltros()
-        If activaropciones.PEstado = "PDO" Then
+        If ActivarOpciones.PEstado = "PDO" Then
             Dim idp As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
             Me.CmbPartido.Enabled = False
 
@@ -95,7 +117,7 @@ Public Class XfrmConsultaFirmas
 
             End Try
 
-        ElseIf activaropciones.PEstado = "MOV" Then
+        ElseIf ActivarOpciones.PEstado = "MOV" Then
             Dim idp As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
             Dim idmov As String = COracle.ObtenerDatos("SELECT CODIGO_MOVIMIENTO FROM IM_PARAMETROS_GENERALES", "CODIGO_MOVIMIENTO")
 
@@ -128,12 +150,12 @@ Public Class XfrmConsultaFirmas
     End Sub
 
 
-    
+
 
 
     Private Sub XfrmCiudadanos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'idmovimiento = COracle.ObtenerDatos("SELECT * FROM IM_PARAMETROS_GENERALES", "CODIGO_MOVIMIENTO")
-     
+
         'Dim ip As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
 
         'Me.CODIGO_PARTIDO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_PARTIDO=" & ip)
@@ -145,7 +167,7 @@ Public Class XfrmConsultaFirmas
 
     End Sub
 
-    
+
     Private Sub CmbPartido_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Try
             Me.TA_MOVIMIENTOTableAdapter.FillBy1(Me.DSPolitico.TA_MOVIMIENTO, CmbPartido.EditValue)
@@ -316,10 +338,21 @@ Public Class XfrmConsultaFirmas
 
     End Sub
 
-   
+    Private Sub GridView1_RowClick(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Grid.RowClickEventArgs) Handles GridView1.RowClick
+        Dim view As GridView = GridView1
+        Dim sq As String = "SELECT IMAGEN FROM IM_IMAGENES_FIRMAS where  CODIGO_PARTIDO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO") & " and CODIGO_MOVIMIENTO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO") & " and PAGINA=" & view.GetRowCellValue(view.FocusedRowHandle, "PAGINA")
+        If COracle.ObtenerImagen(sq, "IMAGEN") Is Nothing Then
+            Me.img.Image = Nothing
+        Else
+            Me.img.Image = COracle.ObtenerImagen(sq, "IMAGEN")
+        End If
+
+    End Sub
 
 
-  
+
+
+
 
 
     Private Sub GridView1_ValidatingEditor(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs) Handles GridView1.ValidatingEditor
@@ -348,16 +381,16 @@ Public Class XfrmConsultaFirmas
             '    mensajeerror = "Este firmante ya existe en su lista"
             '    e.Valid = False
             'End If
-           
+
         End If
 
     End Sub
 
-  
 
-   
 
- 
+
+
+
     Private Sub ChkMuni_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChkMuni.CheckedChanged
         If ChkDepto.CheckState = CheckState.Checked Then
             Me.CmbMunicipio.Enabled = True
@@ -393,9 +426,9 @@ Public Class XfrmConsultaFirmas
     '    End If
     'End Sub
 
-  
 
-   
+
+
     Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton1.Click
 
         If ActivarOpciones.PEstado = "PDO" Then
@@ -403,7 +436,7 @@ Public Class XfrmConsultaFirmas
             If Me.CmbMovimiento.EditValue Is Nothing Or IsDBNull(Me.CmbMovimiento.EditValue) Or Me.CmbMovimiento.Text = "Seleccione" Then
                 Mensajes.mimensaje("Para filtrar la información primero seleccione un movimiento")
             Else
-                
+
                 filtroGrid()
             End If
 
@@ -417,7 +450,7 @@ Public Class XfrmConsultaFirmas
             ElseIf Me.CmbMovimiento.EditValue Is Nothing Or IsDBNull(Me.CmbMovimiento.EditValue) Or Me.CmbMovimiento.Text = "Seleccione" Then
                 Mensajes.mimensaje("Para filtrar la información primero seleccione un movimiento")
             Else
-                 filtroGrid()
+                filtroGrid()
 
             End If
 
@@ -426,7 +459,7 @@ Public Class XfrmConsultaFirmas
 
 
 
-        
+
     End Sub
 
     Sub filtroGrid()
@@ -489,13 +522,13 @@ Public Class XfrmConsultaFirmas
 
         Me.ChkDepto.CheckState = CheckState.Unchecked
 
-      
+
     End Sub
 
     Private Sub SimpleButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
         Try
 
-        
+
             If (XtraMessageBox.Show("¿Desea eliminar el registro seleccionado?", "Confirmar", MessageBoxButtons.YesNo) <> DialogResult.Yes) Then Return
             Dim view As GridView = GridView1
             Dim consulta As String
@@ -524,22 +557,22 @@ Public Class XfrmConsultaFirmas
             Else
                 Dim view As GridView = CType(sender, GridView)
                 view.CancelUpdateCurrentRow()
-           End If
+            End If
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
     End Sub
 
-  
+
 
     Private Sub SimpleButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton3.Click
         Me.Close()
     End Sub
 
- 
 
-   
- 
+
+
+
 
     Private Sub CmbPartido_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CmbPartido.TextChanged
         Try
@@ -549,8 +582,8 @@ Public Class XfrmConsultaFirmas
         End Try
     End Sub
 
-   
-  
+
+
     Private Sub CmbDepartamento_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CmbDepartamento.EditValueChanged
 
     End Sub
@@ -583,4 +616,62 @@ Public Class XfrmConsultaFirmas
     End Sub
 
 
+    Private Sub SimpleButton4_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton4.Click
+        Try
+            'ABRE EL EXPLORADOR PARA CAPTURAR LA DIRECCION DE LA IMAGEN
+            OpenFileDialog1.ShowDialog()
+            'LA VARIABLE URLIMAGEN CAPTURA LA DIRECCION DE LA IMAGEN
+            Dim UrlImagen As String = OpenFileDialog1.FileName
+            Me.img.Image = Image.FromFile(UrlImagen)
+        Catch ex As Exception
+            Me.img.Image = Nothing
+        End Try
+    End Sub
+
+    Private Sub SimpleButton5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton5.Click
+        If Me.img.Image Is Nothing Then
+            Mensajes.mimensaje("Seleccione una imagen")
+        Else
+            Dim view As GridView = GridView1
+            Dim sq As String = "SELECT PAGINA FROM IM_IMAGENES_FIRMAS where  CODIGO_PARTIDO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO") & " and CODIGO_MOVIMIENTO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO") & " and PAGINA=" & view.GetRowCellValue(view.FocusedRowHandle, "PAGINA")
+            If COracle.ObtenerDatos(sq, "PAGINA") <> "N" Then
+                actualizarimagen()
+            Else
+                guardarimagen()
+            End If
+
+        End If
+    End Sub
+
+    Sub guardarimagen()
+        Try
+            If img Is Nothing Then
+            Else
+                Dim cnx As New OracleConnection(Configuracion.verconfig)
+                '
+                'Data.ConvertImageToByteArray(Me.Imgimagen.EditValue)
+                Dim view As GridView = GridView1
+                Dim sqlstring As String
+                sqlstring = "INSERT INTO IM_IMAGENES_FIRMAS ( CODIGO_PARTIDO,CODIGO_MOVIMIENTO,PAGINA,FOLIO,IMAGEN) VALUES(:idp,:idmov,:pag,:folio,:imagen)"
+                Dim cmd As New OracleCommand(sqlstring, cnx)
+                cmd.Parameters.Add(":idp", OracleType.Number, 2).Value = view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO")
+                cmd.Parameters.Add(":idmov", OracleType.Number, 3).Value = view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO")
+                cmd.Parameters.Add(":pag", OracleType.Number).Value = view.GetRowCellValue(view.FocusedRowHandle, "PAGINA")
+                If IsDBNull(view.GetRowCellValue(view.FocusedRowHandle, "folio")) Or view.GetRowCellValue(view.FocusedRowHandle, "FOLIO") Is Nothing Or view.GetRowCellValue(view.FocusedRowHandle, "FOLIO").ToString = "" Then
+                    cmd.Parameters.Add(":folio", OracleType.Number).Value = DBNull.Value
+                Else
+                    cmd.Parameters.Add(":folio", OracleType.Number).Value = view.GetRowCellValue(view.FocusedRowHandle, "FOLIO")
+                End If
+                cmd.Parameters.Add(":imagen", OracleType.Blob).Value = Data.ConvertImageToByteArray(Me.img.Image)
+                cnx.Open()
+                cmd.ExecuteNonQuery()
+                cnx.Close()
+                Mensajes.mimensaje("Imágen Almacenada Correctamente")
+            End If
+        Catch ex As Exception
+            Mensajes.mimensaje(ex.Message)
+        End Try
+
+
+    End Sub
 End Class

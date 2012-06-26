@@ -116,7 +116,8 @@
             .folio = Me.TxtFolio.Text
             .establecer()
             .estadistico()
-
+            .img = Me.PictureEdit2.Image
+            .mostrarimg()
         End With
         Me.Close()
 
@@ -140,6 +141,18 @@
         Try
             Me.TA_MOVIMIENTOTableAdapter.FillBy1(Me.DSPolitico.TA_MOVIMIENTO, CmbPartido.EditValue)
 
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton1.Click
+        Try
+            'ABRE EL EXPLORADOR PARA CAPTURAR LA DIRECCION DE LA IMAGEN
+            OpenFileDialog1.ShowDialog()
+            'LA VARIABLE URLIMAGEN CAPTURA LA DIRECCION DE LA IMAGEN
+            Dim UrlImagen As String = OpenFileDialog1.FileName
+            Me.PictureEdit2.Image = Image.FromFile(UrlImagen)
         Catch ex As Exception
 
         End Try
