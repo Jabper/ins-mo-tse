@@ -322,8 +322,8 @@ Public Class XFrmMenuPrincipal
     End Sub
 
     Private Sub BarButtonItem9_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem9.ItemClick
-        Dim reporte9 As REPORTE_DE_LOG = New REPORTE_DE_LOG
-        reporte9.ShowPreview()
+       
+
     End Sub
 
     Private Sub BarButtonItem10_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem10.ItemClick
