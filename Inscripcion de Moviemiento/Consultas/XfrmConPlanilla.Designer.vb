@@ -112,7 +112,7 @@ Partial Class XfrmConPlanilla
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 82)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1150, 115)
+        Me.GroupBox1.Size = New System.Drawing.Size(1034, 115)
         Me.GroupBox1.TabIndex = 20
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filtros"
@@ -319,7 +319,7 @@ Partial Class XfrmConPlanilla
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
         Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit, Me.RepositoryItemPictureEdit, Me.RepositoryItemCheckEdit1})
-        Me.GCBusqueda.Size = New System.Drawing.Size(1150, 460)
+        Me.GCBusqueda.Size = New System.Drawing.Size(1034, 460)
         Me.GCBusqueda.TabIndex = 21
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -725,7 +725,7 @@ Partial Class XfrmConPlanilla
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1174, 675)
+        Me.ClientSize = New System.Drawing.Size(1058, 675)
         Me.Controls.Add(Me.GCBusqueda)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.FlowLayoutPanel1)
