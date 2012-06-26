@@ -152,114 +152,121 @@ Public Class xfrmRegCandidatos
     End Sub
 
     Sub Actualizar(ByVal i As Integer)
-        Dim view As GridView = GridView1
-        Dim oradb As String = Configuracion.verconfig
 
-        Dim conn As New OracleConnection()
-        conn.ConnectionString = oradb
-        conn.Open()
-        Dim identidad1 As String = view.GetRowCellValue(i, "IDENTIDAD")
-        Dim nombre1 As String = view.GetRowCellValue(i, "PRIMER_NOMBRE")
-        Dim nombre2 As String
-        Dim apellido1 As String = view.GetRowCellValue(i, "PRIMER_APELLIDO")
-        Dim apellido2 As String
+        Try
 
-        If view.GetRowCellValue(i, "SEGUNDO_NOMBRE") Is Nothing Or IsDBNull(view.GetRowCellValue(i, "SEGUNDO_NOMBRE")) Then
-            nombre2 = ""
-        Else
-            nombre2 = view.GetRowCellValue(i, "SEGUNDO_NOMBRE")
-        End If
+        
+            Dim view As GridView = GridView1
+            Dim oradb As String = Configuracion.verconfig
 
-        If view.GetRowCellValue(i, "SEGUNDO_APELLIDO") Is Nothing Or IsDBNull(view.GetRowCellValue(i, "SEGUNDO_APELLIDO")) Then
-            apellido2 = ""
-        Else
-            apellido2 = view.GetRowCellValue(i, "SEGUNDO_APELLIDO")
-        End If
+            Dim conn As New OracleConnection()
+            conn.ConnectionString = oradb
+            conn.Open()
+            Dim identidad1 As String = view.GetRowCellValue(i, "IDENTIDAD")
+            Dim nombre1 As String = view.GetRowCellValue(i, "PRIMER_NOMBRE")
+            Dim nombre2 As String
+            Dim apellido1 As String = view.GetRowCellValue(i, "PRIMER_APELLIDO")
+            Dim apellido2 As String
 
-        Dim myCMD As New OracleCommand()
-        myCMD.Connection = conn
-        myCMD.CommandText = "IM_P_UPDATE_CANDIDATOS"
-        myCMD.CommandType = CommandType.StoredProcedure
-        myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_CANDIDATO", OracleType.Number, 6, ParameterDirection.Input)).Value = view.GetRowCellValue(i, "CODIGO_CANDIDATOS")
-        myCMD.Parameters.Add(New OracleParameter("PNI_POSICION", OracleType.Number, 2, ParameterDirection.Input)).Value = view.GetRowCellValue(i, "POSICION")
-        myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_CARGO_ELECTIVO", OracleType.Number, 3, ParameterDirection.Input)).Value = Me.cboCargo.EditValue
-        myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_DEPARTAMENTO", OracleType.Number, 2, ParameterDirection.Input)).Value = depto
-        myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_MUNICIPIO", OracleType.Number, 2, ParameterDirection.Input)).Value = muni
-        myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_MOVIMIENTO", OracleType.Number, 3, ParameterDirection.Input)).Value = id_movimiento
-        myCMD.Parameters.Add(New OracleParameter("PVI_IDENTIDAD", OracleType.NVarChar, 13, ParameterDirection.Input)).Value = view.GetRowCellValue(i, "IDENTIDAD")
-        myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_PARTIDO", OracleType.Number, 2, ParameterDirection.Input)).Value = id_partido
-        myCMD.Parameters.Add(New OracleParameter("PVI_MODIFICADO_POR", OracleType.NVarChar, 10, ParameterDirection.Input)).Value = view.GetRowCellValue(i, "POSICION")
-        myCMD.Parameters.Add(New OracleParameter("PDI_FECHA_MODIFICACION", OracleType.DateTime, ParameterDirection.Input)).Value = DateTime.Now
-        myCMD.Parameters.Add(New OracleParameter("PVI_PRIMER_NOMBRE", OracleType.NVarChar, 100, ParameterDirection.Input)).Value = nombre1
-        myCMD.Parameters.Add(New OracleParameter("PVI_SEGUNDO_NOMBRE", OracleType.NVarChar, 100, ParameterDirection.Input)).Value = nombre2
-        myCMD.Parameters.Add(New OracleParameter("PVI_PRIMER_APELLIDO", OracleType.NVarChar, 100, ParameterDirection.Input)).Value = apellido1
-        myCMD.Parameters.Add(New OracleParameter("PVI_SEGUNDO_APELLIDO", OracleType.NVarChar, 100, ParameterDirection.Input)).Value = apellido2
-        myCMD.Parameters.Add(New OracleParameter("PVI_ESTADO", OracleType.NVarChar, 2, ParameterDirection.Input)).Value = "H"
-        myCMD.Parameters.Add(New OracleParameter("PVO_MENSAJE", OracleType.NVarChar, 32767)).Direction = ParameterDirection.Output
-        myCMD.ExecuteOracleScalar()
+            If view.GetRowCellValue(i, "SEGUNDO_NOMBRE") Is Nothing Or IsDBNull(view.GetRowCellValue(i, "SEGUNDO_NOMBRE")) Then
+                nombre2 = ""
+            Else
+                nombre2 = view.GetRowCellValue(i, "SEGUNDO_NOMBRE")
+            End If
 
-        If myCMD.Parameters("PVO_MENSAJE").Value = "N" Then
+            If view.GetRowCellValue(i, "SEGUNDO_APELLIDO") Is Nothing Or IsDBNull(view.GetRowCellValue(i, "SEGUNDO_APELLIDO")) Then
+                apellido2 = ""
+            Else
+                apellido2 = view.GetRowCellValue(i, "SEGUNDO_APELLIDO")
+            End If
+
+            Dim myCMD As New OracleCommand()
+            myCMD.Connection = conn
+            myCMD.CommandText = "IM_P_UPDATE_CANDIDATOS"
+            myCMD.CommandType = CommandType.StoredProcedure
+            myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_CANDIDATO", OracleType.Number, 6, ParameterDirection.Input)).Value = view.GetRowCellValue(i, "CODIGO_CANDIDATOS")
+            myCMD.Parameters.Add(New OracleParameter("PNI_POSICION", OracleType.Number, 2, ParameterDirection.Input)).Value = view.GetRowCellValue(i, "POSICION")
+            myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_CARGO_ELECTIVO", OracleType.Number, 3, ParameterDirection.Input)).Value = Me.cboCargo.EditValue
+            myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_DEPARTAMENTO", OracleType.Number, 2, ParameterDirection.Input)).Value = depto
+            myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_MUNICIPIO", OracleType.Number, 2, ParameterDirection.Input)).Value = muni
+            myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_MOVIMIENTO", OracleType.Number, 3, ParameterDirection.Input)).Value = id_movimiento
+            myCMD.Parameters.Add(New OracleParameter("PVI_IDENTIDAD", OracleType.NVarChar, 13, ParameterDirection.Input)).Value = view.GetRowCellValue(i, "IDENTIDAD")
+            myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_PARTIDO", OracleType.Number, 2, ParameterDirection.Input)).Value = id_partido
+            myCMD.Parameters.Add(New OracleParameter("PVI_MODIFICADO_POR", OracleType.NVarChar, 10, ParameterDirection.Input)).Value = view.GetRowCellValue(i, "POSICION")
+            myCMD.Parameters.Add(New OracleParameter("PDI_FECHA_MODIFICACION", OracleType.DateTime, ParameterDirection.Input)).Value = DateTime.Now
+            myCMD.Parameters.Add(New OracleParameter("PVI_PRIMER_NOMBRE", OracleType.NVarChar, 100, ParameterDirection.Input)).Value = nombre1
+            myCMD.Parameters.Add(New OracleParameter("PVI_SEGUNDO_NOMBRE", OracleType.NVarChar, 100, ParameterDirection.Input)).Value = nombre2
+            myCMD.Parameters.Add(New OracleParameter("PVI_PRIMER_APELLIDO", OracleType.NVarChar, 100, ParameterDirection.Input)).Value = apellido1
+            myCMD.Parameters.Add(New OracleParameter("PVI_SEGUNDO_APELLIDO", OracleType.NVarChar, 100, ParameterDirection.Input)).Value = apellido2
+            myCMD.Parameters.Add(New OracleParameter("PVI_ESTADO", OracleType.NVarChar, 2, ParameterDirection.Input)).Value = "H"
+            myCMD.Parameters.Add(New OracleParameter("PVO_MENSAJE", OracleType.NVarChar, 32767)).Direction = ParameterDirection.Output
+            myCMD.ExecuteOracleScalar()
+
+            If myCMD.Parameters("PVO_MENSAJE").Value = "N" Then
 
 
-            For a = 7 To 8
-                Dim permitido As Integer
-                If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 4 Then
-                    permitido = 1
-                ElseIf a = 8 And (Me.cboCargo.EditValue = 4 Or Me.cboCargo.EditValue = 5 Or Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7 Or Me.cboCargo.EditValue = 8) Then
-                    permitido = 1
-                End If
+                For a = 7 To 8
+                    Dim permitido As Integer
+                    If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 4 Then
+                        permitido = 1
+                    ElseIf a = 8 And (Me.cboCargo.EditValue = 4 Or Me.cboCargo.EditValue = 5 Or Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7 Or Me.cboCargo.EditValue = 8) Then
+                        permitido = 1
+                    End If
 
-                'Dim view As GridView = GridView1
-                'RECORRER EL GRID
-                Dim estado_requisito As String
-                If permitido = 1 Then
+                    'Dim view As GridView = GridView1
+                    'RECORRER EL GRID
+                    Dim estado_requisito As String
+                    If permitido = 1 Then
 
-                    Dim CANDIDATOS As DSInsCandidatos.IM_REQUISITOS_X_CANDIDATORow
-                    CANDIDATOS = DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO.NewIM_REQUISITOS_X_CANDIDATORow
+                        Dim CANDIDATOS As DSInsCandidatos.IM_REQUISITOS_X_CANDIDATORow
+                        CANDIDATOS = DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO.NewIM_REQUISITOS_X_CANDIDATORow
 
-                    With CANDIDATOS
-                        .CODIGO_REQUISITO = a
-                        .CODIGO_CANDIDATO = view.GetRowCellValue(i, "CODIGO_CANDIDATOS")
-                        .CODIGO_PARTIDO = id_partido
-                        .CODIGO_MOVIMIENTO = id_movimiento
-                        If a = 8 Then
-                            estado_requisito = view.GetRowCellValue(i, "CONS_VECINDAD")
-                            If estado_requisito = "C" Then
-                                .IMAGEN = view.GetRowCellValue(i, "CONS_VECINDAD_IMG")
-                            Else
-                                estado_requisito = "I"
+                        With CANDIDATOS
+                            .CODIGO_REQUISITO = a
+                            .CODIGO_CANDIDATO = view.GetRowCellValue(i, "CODIGO_CANDIDATOS")
+                            .CODIGO_PARTIDO = id_partido
+                            .CODIGO_MOVIMIENTO = id_movimiento
+                            If a = 8 Then
+                                estado_requisito = view.GetRowCellValue(i, "CONS_VECINDAD")
+                                If estado_requisito = "C" Then
+                                    .IMAGEN = view.GetRowCellValue(i, "CONS_VECINDAD_IMG")
+                                Else
+                                    estado_requisito = "I"
+                                End If
+                            ElseIf a = 7 Then
+                                If IsDBNull(view.GetRowCellValue(i, "IMAGEN")) Or view.GetRowCellValue(i, "IMAGEN") Is Nothing Then
+                                    estado_requisito = "I"
+                                Else
+                                    .IMAGEN = view.GetRowCellValue(i, "IMAGEN")
+                                    estado_requisito = "C"
+                                End If
                             End If
-                        ElseIf a = 7 Then
-                            If IsDBNull(view.GetRowCellValue(i, "IMAGEN")) Or view.GetRowCellValue(i, "IMAGEN") Is Nothing Then
-                                estado_requisito = "I"
-                            Else
-                                .IMAGEN = view.GetRowCellValue(i, "IMAGEN")
-                                estado_requisito = "C"
-                            End If
-                        End If
 
 
-                        COracle.ejecutarconsulta(String.Format("DELETE FROM IM_REQUISITOS_X_CANDIDATO WHERE CODIGO_CANDIDATO = {0} AND CODIGO_MOVIMIENTO= {1}AND CODIGO_PARTIDO = {2} AND CODIGO_REQUISITO ={3} ", view.GetRowCellValue(i, "CODIGO_CANDIDATOS"), id_movimiento, id_partido, a))
+                            COracle.ejecutarconsulta(String.Format("DELETE FROM IM_REQUISITOS_X_CANDIDATO WHERE CODIGO_CANDIDATO = {0} AND CODIGO_MOVIMIENTO= {1}AND CODIGO_PARTIDO = {2} AND CODIGO_REQUISITO ={3} ", view.GetRowCellValue(i, "CODIGO_CANDIDATOS"), id_movimiento, id_partido, a))
 
 
-                        .ADICIONADO_POR = usuario
-                        .FECHA_ADICION = DateTime.Now
-                        .ESTADO = estado_requisito
+                            .ADICIONADO_POR = usuario
+                            .FECHA_ADICION = DateTime.Now
+                            .ESTADO = estado_requisito
 
-                    End With
+                        End With
 
-                    Me.DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO.Rows.Add(CANDIDATOS)
-                    Me.IM_REQUISITOS_X_CANDIDATOTableAdapter.Update(Me.DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO)
+                        Me.DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO.Rows.Add(CANDIDATOS)
+                        Me.IM_REQUISITOS_X_CANDIDATOTableAdapter.Update(Me.DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO)
 
-                End If
-                permitido = 0
-            Next a
+                    End If
+                    permitido = 0
+                Next a
 
-            Mensajes.MensajeActualizar()
-        Else
-            Mensajes.MensajeError(myCMD.Parameters("PVO_MENSAJE").Value)
-        End If
-
+                Mensajes.MensajeActualizar()
+                Validarleyendas()
+            Else
+                Mensajes.MensajeError(myCMD.Parameters("PVO_MENSAJE").Value)
+            End If
+        Catch ex As Exception
+            Mensajes.MensajeError(ex.Message)
+        End Try
     End Sub
 
     Sub guardar(ByVal I As Integer)
@@ -355,6 +362,8 @@ Public Class xfrmRegCandidatos
                         COracle.ejecutarconsulta("UPDATE IM_CANDIDATOS SET ESTADO = 'H' WHERE CODIGO_CANDIDATOS = " & vcodigo)
                     End If
 
+                    'Mensajes.MensajeGuardar()
+                    Validarleyendas()
 
                 Else
                     Mensajes.MensajeError(myCMD.Parameters("PVO_MENSAJE").Value)
@@ -364,7 +373,7 @@ Public Class xfrmRegCandidatos
             End If
 
             If enviarguardar = 1 Then
-                Mensajes.MensajeGuardar()
+
                 Me.DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2.Rows.Clear()
             End If
             enviarguardar = 0
@@ -897,10 +906,7 @@ Public Class xfrmRegCandidatos
                 conn.ConnectionString = oradb
                 conn.Open()
                 Dim identidad1 As String = view.GetRowCellValue(view.FocusedRowHandle, "IDENTIDAD")
-                Dim nombre1 As String = view.GetRowCellValue(view.FocusedRowHandle, "PRIMER_NOMBRE")
-                Dim nombre2 As String
-                Dim apellido1 As String = view.GetRowCellValue(view.FocusedRowHandle, "PRIMER_APELLIDO")
-                Dim apellido2 As String
+                
 
                 Dim myCMD As New OracleCommand()
                 myCMD.Connection = conn
