@@ -221,7 +221,7 @@ Partial Public Class REPORTE_DE__PLANILLA_DE_CANDIDATOS
         Me.XrLabel2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel2.SizeF = New System.Drawing.SizeF(119.1667!, 23.0!)
         Me.XrLabel2.StylePriority.UseFont = False
-        Me.XrLabel2.Text = "Nivel Electivo:"
+        Me.XrLabel2.Text = "Cargo Electivo:"
         '
         'GroupHeader2
         '
@@ -310,7 +310,7 @@ Partial Public Class REPORTE_DE__PLANILLA_DE_CANDIDATOS
         '
         'NombreNivel
         '
-        Me.NombreNivel.Description = "Nivel Electivo"
+        Me.NombreNivel.Description = "Cargo Electivo"
         Me.NombreNivel.Name = "NombreNivel"
         '
         'NombreDepartamento
@@ -324,6 +324,8 @@ Partial Public Class REPORTE_DE__PLANILLA_DE_CANDIDATOS
         Me.DataAdapter = Me.IM_V_MOSTRAR_CANDIDATOS2TableAdapter
         Me.DataMember = "IM_V_MOSTRAR_CANDIDATOS2"
         Me.DataSource = Me.DS_REPORTE_CANDIDATOS1
+        Me.FilterString = "[PARTIDO] = ?NombrePartido And [NIVEL ELECTIVO] = ?NombreNivel And [DEPARTAMENTO]" & _
+            " = ?NombreDepartamento"
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(19, 20, 24, 100)
         Me.PageHeight = 850

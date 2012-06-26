@@ -24,5 +24,38 @@ Public Class REPORTE_DE__PLANILLA_DE_CANDIDATOS
             End If
         Next
 
+        Using Adapter1 As New DS_REPORTE_CANDIDATOSTableAdapters.IM_CARGO_ELECTIVOTableAdapter
+            Adapter1.Fill(dataset.IM_CARGO_ELECTIVO)
+        End Using
+
+        For Each info In e.ParametersInformation
+            If info.Parameter.Name = "NombreNivel" Then
+                Dim LookUpEdit As New LookUpEdit()
+                LookUpEdit.Properties.DataSource = dataset.IM_CARGO_ELECTIVO
+                LookUpEdit.Properties.DisplayMember = "DESCRIPCION" 'COLOCA EL CAMPO SELECCIONADO EN EL TEXTBOX
+                LookUpEdit.Properties.ValueMember = "DESCRIPCION"
+                LookUpEdit.Properties.Columns.Add(New  _
+                    LookUpColumnInfo("DESCRIPCION", 0, "DESCRIPCION")) 'AGREGA EL NOMBRE DEL PARTIDO A LA LISTA 
+                info.Editor = LookUpEdit
+            End If
+        Next
+
+        Using Adapter2 As New DS_REPORTE_CANDIDATOSTableAdapters.IM_DEP_CANDIDATOSTableAdapter
+            Adapter2.Fill(dataset.IM_DEP_CANDIDATOS)
+        End Using
+
+        For Each info In e.ParametersInformation
+            If info.Parameter.Name = "NombreDepartamento" Then
+                Dim LookUpEdit As New LookUpEdit()
+                LookUpEdit.Properties.DataSource = dataset.IM_DEP_CANDIDATOS
+                LookUpEdit.Properties.DisplayMember = "DEPARTAMENTO" 'COLOCA EL CAMPO SELECCIONADO EN EL TEXTBOX
+                LookUpEdit.Properties.ValueMember = "DEPARTAMENTO"
+                LookUpEdit.Properties.Columns.Add(New  _
+                    LookUpColumnInfo("DEPARTAMENTO", 0, "DEPARTAMENTO")) 'AGREGA EL NOMBRE DEL PARTIDO A LA LISTA 
+                info.Editor = LookUpEdit
+            End If
+        Next
+
+
     End Sub
 End Class
