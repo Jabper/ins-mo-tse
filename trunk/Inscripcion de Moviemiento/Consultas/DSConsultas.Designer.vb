@@ -6363,16 +6363,16 @@ Partial Public Class DSConsultas
                     ByVal PRIMER_APELLIDO As String,  _
                     ByVal SEGUNDO_APELLIDO As String,  _
                     ByVal CARGO As String,  _
-                    ByVal REC1 As Decimal,  _
-                    ByVal REC2 As Decimal,  _
-                    ByVal REC3 As Decimal,  _
-                    ByVal REC4 As Decimal,  _
-                    ByVal REC5 As Decimal,  _
-                    ByVal REC6 As Decimal,  _
-                    ByVal REC7 As Decimal,  _
-                    ByVal REC8 As Decimal,  _
-                    ByVal REC9 As Decimal,  _
-                    ByVal VALIDADO As Decimal,  _
+                    ByVal REC1 As String,  _
+                    ByVal REC2 As String,  _
+                    ByVal REC3 As String,  _
+                    ByVal REC4 As String,  _
+                    ByVal REC5 As String,  _
+                    ByVal REC6 As String,  _
+                    ByVal REC7 As String,  _
+                    ByVal REC8 As String,  _
+                    ByVal REC9 As String,  _
+                    ByVal VALIDADO As String,  _
                     ByVal CODIGO_PARTIDO As Decimal,  _
                     ByVal CODIGO_MOVIMIENTO As Decimal,  _
                     ByVal CODIGO_NIVEL_ELECTIVO As Decimal,  _
@@ -6449,25 +6449,25 @@ Partial Public Class DSConsultas
             MyBase.Columns.Add(Me.columnSEGUNDO_APELLIDO)
             Me.columnCARGO = New Global.System.Data.DataColumn("CARGO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCARGO)
-            Me.columnREC1 = New Global.System.Data.DataColumn("REC1", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnREC1 = New Global.System.Data.DataColumn("REC1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnREC1)
-            Me.columnREC2 = New Global.System.Data.DataColumn("REC2", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnREC2 = New Global.System.Data.DataColumn("REC2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnREC2)
-            Me.columnREC3 = New Global.System.Data.DataColumn("REC3", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnREC3 = New Global.System.Data.DataColumn("REC3", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnREC3)
-            Me.columnREC4 = New Global.System.Data.DataColumn("REC4", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnREC4 = New Global.System.Data.DataColumn("REC4", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnREC4)
-            Me.columnREC5 = New Global.System.Data.DataColumn("REC5", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnREC5 = New Global.System.Data.DataColumn("REC5", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnREC5)
-            Me.columnREC6 = New Global.System.Data.DataColumn("REC6", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnREC6 = New Global.System.Data.DataColumn("REC6", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnREC6)
-            Me.columnREC7 = New Global.System.Data.DataColumn("REC7", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnREC7 = New Global.System.Data.DataColumn("REC7", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnREC7)
-            Me.columnREC8 = New Global.System.Data.DataColumn("REC8", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnREC8 = New Global.System.Data.DataColumn("REC8", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnREC8)
-            Me.columnREC9 = New Global.System.Data.DataColumn("REC9", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnREC9 = New Global.System.Data.DataColumn("REC9", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnREC9)
-            Me.columnVALIDADO = New Global.System.Data.DataColumn("VALIDADO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnVALIDADO = New Global.System.Data.DataColumn("VALIDADO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnVALIDADO)
             Me.columnCODIGO_PARTIDO = New Global.System.Data.DataColumn("CODIGO_PARTIDO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCODIGO_PARTIDO)
@@ -8779,10 +8779,10 @@ Partial Public Class DSConsultas
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property REC1() As Decimal
+        Public Property REC1() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC1Column),Decimal)
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC1Column),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'REC1' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
                 End Try
@@ -8793,10 +8793,10 @@ Partial Public Class DSConsultas
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property REC2() As Decimal
+        Public Property REC2() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC2Column),Decimal)
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC2Column),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'REC2' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
                 End Try
@@ -8807,10 +8807,10 @@ Partial Public Class DSConsultas
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property REC3() As Decimal
+        Public Property REC3() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC3Column),Decimal)
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC3Column),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'REC3' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
                 End Try
@@ -8821,10 +8821,10 @@ Partial Public Class DSConsultas
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property REC4() As Decimal
+        Public Property REC4() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC4Column),Decimal)
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC4Column),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'REC4' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
                 End Try
@@ -8835,10 +8835,10 @@ Partial Public Class DSConsultas
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property REC5() As Decimal
+        Public Property REC5() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC5Column),Decimal)
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC5Column),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'REC5' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
                 End Try
@@ -8849,10 +8849,10 @@ Partial Public Class DSConsultas
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property REC6() As Decimal
+        Public Property REC6() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC6Column),Decimal)
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC6Column),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'REC6' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
                 End Try
@@ -8863,10 +8863,10 @@ Partial Public Class DSConsultas
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property REC7() As Decimal
+        Public Property REC7() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC7Column),Decimal)
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC7Column),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'REC7' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
                 End Try
@@ -8877,10 +8877,10 @@ Partial Public Class DSConsultas
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property REC8() As Decimal
+        Public Property REC8() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC8Column),Decimal)
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC8Column),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'REC8' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
                 End Try
@@ -8891,10 +8891,10 @@ Partial Public Class DSConsultas
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property REC9() As Decimal
+        Public Property REC9() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC9Column),Decimal)
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.REC9Column),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'REC9' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
                 End Try
@@ -8905,10 +8905,10 @@ Partial Public Class DSConsultas
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property VALIDADO() As Decimal
+        Public Property VALIDADO() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.VALIDADOColumn),Decimal)
+                    Return CType(Me(Me.tableIM_V_PLANILLA_REQUISITO.VALIDADOColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'VALIDADO' in table 'IM_V_PLANILLA_REQUISITO' is DBNull.", e)
                 End Try
@@ -10540,7 +10540,8 @@ Namespace DSConsultasTableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        CODIGO_DEPARTAMENTO, DESCRIPCION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_DEPARTAMENTOS"
+            Me._commandCollection(0).CommandText = "SELECT        CODIGO_DEPARTAMENTO, DESCRIPCION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_DEPARTAMENTOS "& _ 
+                "ORDER BY CODIGO_DEPARTAMENTO"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -10815,7 +10816,7 @@ Namespace DSConsultasTableAdapters
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        CODIGO_MUNICIPIO, CODIGO_DEPARTAMENTO, DESCRIPCION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM           "& _ 
-                " IM_MUNICIPIOS"
+                " IM_MUNICIPIOS ORDER BY CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -11286,7 +11287,8 @@ Namespace DSConsultasTableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        CODIGO_PARTIDO, NOMBRE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_PARTIDOS_POLITICOS"
+            Me._commandCollection(0).CommandText = "SELECT        CODIGO_PARTIDO, NOMBRE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_PARTIDOS_POLITICOS ORDER"& _ 
+                " BY CODIGO_PARTIDO"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -11561,7 +11563,7 @@ Namespace DSConsultasTableAdapters
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        CODIGO_MOVIMIENTO, CODIGO_PARTIDO, NOMBRE_MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         "& _ 
-                "   IM_MOVIMIENTOS"
+                "   IM_MOVIMIENTOS ORDER BY CODIGO_PARTIDO, CODIGO_MOVIMIENTO"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -11833,7 +11835,7 @@ Namespace DSConsultasTableAdapters
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        CODIGO_NIVEL_ELECTIVO, DESCRIPCION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_NIVEL_ELECTI"& _ 
-                "VO"
+                "VO ORDER BY CODIGO_NIVEL_ELECTIVO"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -12109,7 +12111,8 @@ Namespace DSConsultasTableAdapters
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        CODIGO_CARGO_ELECTIVO, CODIGO_NIVEL_ELECTIVO, DESCRIPCION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM    "& _ 
-                "        IM_CARGOS_ELECTIVOS"
+                "        IM_CARGOS_ELECTIVOS ORDER BY CODIGO_NIVEL_ELECTIVO, CODIGO_CARGO_ELECTIV"& _ 
+                "O"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -13974,18 +13977,44 @@ Namespace DSConsultasTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        IM_V_PLANILLA_REQUISITO.*"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_PLANILLA_REQUISITO"
+            Me._commandCollection(0).CommandText = "SELECT        FOTOGRAFIA, CONSTANCIA, POSICION, IDENTIDAD, PRIMER_NOMBRE, SEGUNDO"& _ 
+                "_NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO, CARGO, REC1, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
+                "    REC2, REC3, REC4, REC5, REC6, REC7, REC8, REC9, VALIDADO, CODIGO_PARTIDO, CO"& _ 
+                "DIGO_MOVIMIENTO, CODIGO_NIVEL_ELECTIVO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CODIGO_DEPART"& _ 
+                "AMENTO, CODIGO_MUNICIPIO, CODIGO_CANDIDATOS, ESTADO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_PLANIL"& _ 
+                "LA_REQUISITO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CODIGO_PARTIDO = :partido) AND (CODIGO_MOVIMIENTO = "& _ 
+                ":movimiento) AND (CODIGO_NIVEL_ELECTIVO = :nivel) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                        "& _ 
+                " (CODIGO_DEPARTAMENTO = :departamento) AND (CODIGO_MUNICIPIO = :municipio)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("partido", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("movimiento", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("nivel", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_NIVEL_ELECTIVO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("departamento", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("municipio", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        FOTOGRAFIA, CONSTANCIA, POSICION, IDENTIDAD, PRIMER_NOMBRE, SEGUNDO"& _ 
+                "_NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO, CARGO, REC1, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
+                "    REC2, REC3, REC4, REC5, REC6, REC7, REC8, REC9, VALIDADO, CODIGO_PARTIDO, CO"& _ 
+                "DIGO_MOVIMIENTO, CODIGO_NIVEL_ELECTIVO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CODIGO_DEPART"& _ 
+                "AMENTO, CODIGO_MUNICIPIO, CODIGO_CANDIDATOS, ESTADO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_PLANIL"& _ 
+                "LA_REQUISITO"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSConsultas.IM_V_PLANILLA_REQUISITODataTable) As Integer
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DSConsultas.IM_V_PLANILLA_REQUISITODataTable, ByVal partido As Decimal, ByVal movimiento As Decimal, ByVal nivel As Decimal, ByVal departamento As Decimal, ByVal municipio As Decimal) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(partido,Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(movimiento,Decimal)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(nivel,Decimal)
+            Me.Adapter.SelectCommand.Parameters(3).Value = CType(departamento,Decimal)
+            Me.Adapter.SelectCommand.Parameters(4).Value = CType(municipio,Decimal)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -13996,8 +14025,35 @@ Namespace DSConsultasTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DSConsultas.IM_V_PLANILLA_REQUISITODataTable
+        Public Overloads Overridable Function GetData(ByVal partido As Decimal, ByVal movimiento As Decimal, ByVal nivel As Decimal, ByVal departamento As Decimal, ByVal municipio As Decimal) As DSConsultas.IM_V_PLANILLA_REQUISITODataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(partido,Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(movimiento,Decimal)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(nivel,Decimal)
+            Me.Adapter.SelectCommand.Parameters(3).Value = CType(departamento,Decimal)
+            Me.Adapter.SelectCommand.Parameters(4).Value = CType(municipio,Decimal)
+            Dim dataTable As DSConsultas.IM_V_PLANILLA_REQUISITODataTable = New DSConsultas.IM_V_PLANILLA_REQUISITODataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillAll(ByVal dataTable As DSConsultas.IM_V_PLANILLA_REQUISITODataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataAll() As DSConsultas.IM_V_PLANILLA_REQUISITODataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
             Dim dataTable As DSConsultas.IM_V_PLANILLA_REQUISITODataTable = New DSConsultas.IM_V_PLANILLA_REQUISITODataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
