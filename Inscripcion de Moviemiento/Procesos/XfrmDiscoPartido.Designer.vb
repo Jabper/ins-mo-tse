@@ -21,23 +21,23 @@ Partial Class XfrmDiscoPartido
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Me.Panel1 = New System.Windows.Forms.Panel
+        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl
+        Me.LovPartido = New DevExpress.XtraEditors.LookUpEdit
+        Me.IMPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Ds_procesos = New Inscripcion_de_Moviemientos.Ds_procesos
         Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.Label1 = New System.Windows.Forms.Label
         Me.BtnEjecutar = New DevExpress.XtraEditors.SimpleButton
         Me.BtnExplorar = New DevExpress.XtraEditors.SimpleButton
         Me.TxtRuta = New DevExpress.XtraEditors.TextEdit
         Me.FbUbicacion = New System.Windows.Forms.FolderBrowserDialog
-        Me.LovPartido = New DevExpress.XtraEditors.LookUpEdit
-        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl
-        Me.IMPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Ds_procesos = New Inscripcion_de_Moviemientos.Ds_procesos
         Me.DsprocesosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.Ds_procesosTableAdapters.IM_PARTIDOS_POLITICOSTableAdapter
         Me.Panel1.SuspendLayout()
-        CType(Me.TxtRuta.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LovPartido.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Ds_procesos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TxtRuta.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DsprocesosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -55,6 +55,36 @@ Partial Class XfrmDiscoPartido
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(336, 223)
         Me.Panel1.TabIndex = 11
+        '
+        'LabelControl1
+        '
+        Me.LabelControl1.Location = New System.Drawing.Point(13, 80)
+        Me.LabelControl1.Name = "LabelControl1"
+        Me.LabelControl1.Size = New System.Drawing.Size(267, 13)
+        Me.LabelControl1.TabIndex = 18
+        Me.LabelControl1.Text = "Seleccione el partido al que se le generará el instalador:"
+        '
+        'LovPartido
+        '
+        Me.LovPartido.Location = New System.Drawing.Point(13, 100)
+        Me.LovPartido.Name = "LovPartido"
+        Me.LovPartido.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.LovPartido.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_PARTIDO", "CODIGO_PARTIDO", 30, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE", "NOMBRE", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
+        Me.LovPartido.Properties.DataSource = Me.IMPARTIDOSPOLITICOSBindingSource
+        Me.LovPartido.Properties.DisplayMember = "NOMBRE"
+        Me.LovPartido.Properties.ValueMember = "CODIGO_PARTIDO"
+        Me.LovPartido.Size = New System.Drawing.Size(302, 20)
+        Me.LovPartido.TabIndex = 17
+        '
+        'IMPARTIDOSPOLITICOSBindingSource
+        '
+        Me.IMPARTIDOSPOLITICOSBindingSource.DataMember = "IM_PARTIDOS_POLITICOS"
+        Me.IMPARTIDOSPOLITICOSBindingSource.DataSource = Me.Ds_procesos
+        '
+        'Ds_procesos
+        '
+        Me.Ds_procesos.DataSetName = "Ds_procesos"
+        Me.Ds_procesos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BtnSalir
         '
@@ -101,36 +131,6 @@ Partial Class XfrmDiscoPartido
         Me.TxtRuta.Size = New System.Drawing.Size(219, 20)
         Me.TxtRuta.TabIndex = 12
         '
-        'LovPartido
-        '
-        Me.LovPartido.Location = New System.Drawing.Point(13, 100)
-        Me.LovPartido.Name = "LovPartido"
-        Me.LovPartido.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.LovPartido.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_PARTIDO", "CODIGO_PARTIDO", 30, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE", "NOMBRE", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
-        Me.LovPartido.Properties.DataSource = Me.IMPARTIDOSPOLITICOSBindingSource
-        Me.LovPartido.Properties.DisplayMember = "NOMBRE"
-        Me.LovPartido.Properties.ValueMember = "CODIGO_PARTIDO"
-        Me.LovPartido.Size = New System.Drawing.Size(302, 20)
-        Me.LovPartido.TabIndex = 17
-        '
-        'LabelControl1
-        '
-        Me.LabelControl1.Location = New System.Drawing.Point(13, 80)
-        Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(267, 13)
-        Me.LabelControl1.TabIndex = 18
-        Me.LabelControl1.Text = "Seleccione el partido al que se le generará el instalador:"
-        '
-        'IMPARTIDOSPOLITICOSBindingSource
-        '
-        Me.IMPARTIDOSPOLITICOSBindingSource.DataMember = "IM_PARTIDOS_POLITICOS"
-        Me.IMPARTIDOSPOLITICOSBindingSource.DataSource = Me.Ds_procesos
-        '
-        'Ds_procesos
-        '
-        Me.Ds_procesos.DataSetName = "Ds_procesos"
-        Me.Ds_procesos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'DsprocesosBindingSource
         '
         Me.DsprocesosBindingSource.DataSource = Me.Ds_procesos
@@ -150,10 +150,10 @@ Partial Class XfrmDiscoPartido
         Me.Text = "XfrmDiscoPartido"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.TxtRuta.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LovPartido.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Ds_procesos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TxtRuta.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DsprocesosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
