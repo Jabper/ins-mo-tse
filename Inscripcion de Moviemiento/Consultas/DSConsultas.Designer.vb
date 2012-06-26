@@ -14142,21 +14142,23 @@ Namespace DSConsultasTableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT imagen"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  FROM tse.im_requisitos_x_candidato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" WHERE codigo_candidato = :c"& _ 
                 "andidato AND codigo_partido = :partido AND codigo_movimiento = :movimiento"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND "& _ 
-                "codigo_requisito = 7"
+                "codigo_requisito = :requisito"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("candidato", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_CANDIDATO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("partido", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("movimiento", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("requisito", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_REQUISITO", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSConsultas.imagenRequisitoDataTable, ByVal candidato As Decimal, ByVal partido As Decimal, ByVal movimiento As Decimal) As Integer
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DSConsultas.imagenRequisitoDataTable, ByVal candidato As Decimal, ByVal partido As Decimal, ByVal movimiento As Decimal, ByVal requisito As Decimal) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(candidato,Decimal)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(partido,Decimal)
             Me.Adapter.SelectCommand.Parameters(2).Value = CType(movimiento,Decimal)
+            Me.Adapter.SelectCommand.Parameters(3).Value = CType(requisito,Decimal)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -14167,11 +14169,12 @@ Namespace DSConsultasTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetDataBy(ByVal candidato As Decimal, ByVal partido As Decimal, ByVal movimiento As Decimal) As DSConsultas.imagenRequisitoDataTable
+        Public Overloads Overridable Function GetData(ByVal candidato As Decimal, ByVal partido As Decimal, ByVal movimiento As Decimal, ByVal requisito As Decimal) As DSConsultas.imagenRequisitoDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(candidato,Decimal)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(partido,Decimal)
             Me.Adapter.SelectCommand.Parameters(2).Value = CType(movimiento,Decimal)
+            Me.Adapter.SelectCommand.Parameters(3).Value = CType(requisito,Decimal)
             Dim dataTable As DSConsultas.imagenRequisitoDataTable = New DSConsultas.imagenRequisitoDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
