@@ -119,6 +119,8 @@ Partial Class xfrmRegCandidatos
         Me.IM_V_MOSTRAR_CANDIDATOS2TableAdapter = New Inscripcion_de_Moviemientos.DSInsCandidatosTableAdapters.IM_V_MOSTRAR_CANDIDATOS2TableAdapter
         Me.imgmov = New DevExpress.XtraEditors.PictureEdit
         Me.imgpartido = New DevExpress.XtraEditors.PictureEdit
+        Me.lblmujeres = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl16 = New DevExpress.XtraEditors.LabelControl
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
@@ -438,6 +440,7 @@ Partial Class xfrmRegCandidatos
         Me.BtnSalirold.Size = New System.Drawing.Size(55, 55)
         Me.BtnSalirold.TabIndex = 55
         Me.BtnSalirold.Text = "Salir"
+        Me.BtnSalirold.Visible = False
         '
         'lblidpartido
         '
@@ -457,11 +460,12 @@ Partial Class xfrmRegCandidatos
         Me.BtnEliminariold.Enabled = False
         Me.BtnEliminariold.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.eliminar
         Me.BtnEliminariold.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnEliminariold.Location = New System.Drawing.Point(709, 48)
+        Me.BtnEliminariold.Location = New System.Drawing.Point(766, 56)
         Me.BtnEliminariold.Name = "BtnEliminariold"
         Me.BtnEliminariold.Size = New System.Drawing.Size(51, 39)
         Me.BtnEliminariold.TabIndex = 54
         Me.BtnEliminariold.Text = "Eliminar"
+        Me.BtnEliminariold.Visible = False
         '
         'btnguardarold
         '
@@ -474,6 +478,7 @@ Partial Class xfrmRegCandidatos
         Me.btnguardarold.Size = New System.Drawing.Size(55, 39)
         Me.btnguardarold.TabIndex = 53
         Me.btnguardarold.Text = "Guardar"
+        Me.btnguardarold.Visible = False
         '
         'lblregidores
         '
@@ -970,6 +975,7 @@ Partial Class xfrmRegCandidatos
         '
         Me.PICImagenConstancia.Name = "PICImagenConstancia"
         Me.PICImagenConstancia.PictureStoreMode = DevExpress.XtraEditors.Controls.PictureStoreMode.ByteArray
+        Me.PICImagenConstancia.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
         '
         'colESTADO
         '
@@ -1127,12 +1133,36 @@ Partial Class xfrmRegCandidatos
         Me.imgpartido.Size = New System.Drawing.Size(68, 55)
         Me.imgpartido.TabIndex = 35
         '
+        'lblmujeres
+        '
+        Me.lblmujeres.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.lblmujeres.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblmujeres.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.lblmujeres.Location = New System.Drawing.Point(672, 110)
+        Me.lblmujeres.Name = "lblmujeres"
+        Me.lblmujeres.Size = New System.Drawing.Size(38, 14)
+        Me.lblmujeres.TabIndex = 57
+        Me.lblmujeres.Text = "100%"
+        '
+        'LabelControl16
+        '
+        Me.LabelControl16.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.LabelControl16.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl16.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.LabelControl16.Location = New System.Drawing.Point(672, 91)
+        Me.LabelControl16.Name = "LabelControl16"
+        Me.LabelControl16.Size = New System.Drawing.Size(139, 14)
+        Me.LabelControl16.TabIndex = 56
+        Me.LabelControl16.Text = "Participación Femenina"
+        '
         'xfrmRegCandidatos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(969, 501)
+        Me.Controls.Add(Me.lblmujeres)
         Me.Controls.Add(Me.imgmov)
+        Me.Controls.Add(Me.LabelControl16)
         Me.Controls.Add(Me.imgpartido)
         Me.Controls.Add(Me.lblMovimiento)
         Me.Controls.Add(Me.lblPartido)
@@ -1146,7 +1176,7 @@ Partial Class xfrmRegCandidatos
         Me.Controls.Add(Me.cboDepartamento)
         Me.Controls.Add(Me.PanelControl1)
         Me.Name = "xfrmRegCandidatos"
-        Me.Text = "Inscripción de Candidatos "
+        Me.Text = "Inscripción de Planilla"
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         Me.FlowLayoutPanel1.ResumeLayout(False)
@@ -1294,4 +1324,6 @@ Partial Class xfrmRegCandidatos
     Friend WithEvents CODIGO_CANDIDATOS As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents imgmov As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents imgpartido As DevExpress.XtraEditors.PictureEdit
+    Friend WithEvents lblmujeres As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl16 As DevExpress.XtraEditors.LabelControl
 End Class
