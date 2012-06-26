@@ -27,8 +27,10 @@ Partial Public Class Reporte_Estadistico_general_firmas
         Dim SideBySideBarSeriesLabel2 As DevExpress.XtraCharts.SideBySideBarSeriesLabel = New DevExpress.XtraCharts.SideBySideBarSeriesLabel
         Dim SideBySideBarSeriesLabel3 As DevExpress.XtraCharts.SideBySideBarSeriesLabel = New DevExpress.XtraCharts.SideBySideBarSeriesLabel
         Dim ChartTitle1 As DevExpress.XtraCharts.ChartTitle = New DevExpress.XtraCharts.ChartTitle
+        Me.IMVESTADISTICOGENERALFBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DS_ESTADISTICO_GENERAL_FIRMAS1 = New Inscripcion_de_Moviemientos.DS_ESTADISTICO_GENERAL_FIRMAS
         Me.Detail = New DevExpress.XtraReports.UI.DetailBand
+        Me.XrChart1 = New DevExpress.XtraReports.UI.XRChart
         Me.IM_V_ESTADISTICO_GENERAL_FTableAdapter = New Inscripcion_de_Moviemientos.DS_ESTADISTICO_GENERAL_FIRMASTableAdapters.IM_V_ESTADISTICO_GENERAL_FTableAdapter
         Me.XrLabel13 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel12 = New DevExpress.XtraReports.UI.XRLabel
@@ -46,10 +48,8 @@ Partial Public Class Reporte_Estadistico_general_firmas
         Me.XrLabel6 = New DevExpress.XtraReports.UI.XRLabel
         Me.BottomMargin = New DevExpress.XtraReports.UI.BottomMarginBand
         Me.FormattingRule1 = New DevExpress.XtraReports.UI.FormattingRule
-        Me.IMVESTADISTICOGENERALFBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.XrChart1 = New DevExpress.XtraReports.UI.XRChart
-        CType(Me.DS_ESTADISTICO_GENERAL_FIRMAS1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMVESTADISTICOGENERALFBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DS_ESTADISTICO_GENERAL_FIRMAS1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrChart1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(XyDiagram1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Series1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -58,6 +58,12 @@ Partial Public Class Reporte_Estadistico_general_firmas
         CType(SideBySideBarSeriesLabel2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(SideBySideBarSeriesLabel3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
+        '
+        'IMVESTADISTICOGENERALFBindingSource
+        '
+        Me.IMVESTADISTICOGENERALFBindingSource.DataMember = "IM_V_ESTADISTICO_GENERAL_F"
+        Me.IMVESTADISTICOGENERALFBindingSource.DataSource = Me.DS_ESTADISTICO_GENERAL_FIRMAS1
+        Me.IMVESTADISTICOGENERALFBindingSource.Position = 0
         '
         'DS_ESTADISTICO_GENERAL_FIRMAS1
         '
@@ -71,6 +77,46 @@ Partial Public Class Reporte_Estadistico_general_firmas
         Me.Detail.Name = "Detail"
         Me.Detail.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
+        '
+        'XrChart1
+        '
+        Me.XrChart1.AppearanceNameSerializable = "The Trees"
+        Me.XrChart1.BorderColor = System.Drawing.Color.Black
+        Me.XrChart1.Borders = DevExpress.XtraPrinting.BorderSide.None
+        Me.XrChart1.DataAdapter = Me.IM_V_ESTADISTICO_GENERAL_FTableAdapter
+        Me.XrChart1.DataMember = "IM_V_ESTADISTICO_GENERAL_F"
+        Me.XrChart1.DataSource = Me.DS_ESTADISTICO_GENERAL_FIRMAS1
+        XyDiagram1.AxisX.Range.SideMarginsEnabled = True
+        XyDiagram1.AxisX.VisibleInPanesSerializable = "-1"
+        XyDiagram1.AxisY.Range.SideMarginsEnabled = True
+        XyDiagram1.AxisY.VisibleInPanesSerializable = "-1"
+        XyDiagram1.DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.[False]
+        XyDiagram1.DefaultPane.EnableAxisXZooming = DevExpress.Utils.DefaultBoolean.[False]
+        XyDiagram1.DefaultPane.EnableAxisYScrolling = DevExpress.Utils.DefaultBoolean.[False]
+        XyDiagram1.DefaultPane.EnableAxisYZooming = DevExpress.Utils.DefaultBoolean.[False]
+        Me.XrChart1.Diagram = XyDiagram1
+        Me.XrChart1.LocationFloat = New DevExpress.Utils.PointFloat(23.54164!, 191.6667!)
+        Me.XrChart1.Name = "XrChart1"
+        Series1.ArgumentDataMember = "CONSISTENTE%"
+        Series1.DataSource = Me.IMVESTADISTICOGENERALFBindingSource
+        SideBySideBarSeriesLabel1.LineVisible = True
+        SideBySideBarSeriesLabel1.Visible = False
+        Series1.Label = SideBySideBarSeriesLabel1
+        Series1.Name = "porcentaje de firmas Consistentes"
+        Series1.ValueDataMembersSerializable = "CONSISTENTE%"
+        Series2.ArgumentDataMember = "INCONSISTENTE%"
+        Series2.DataSource = Me.IMVESTADISTICOGENERALFBindingSource
+        SideBySideBarSeriesLabel2.LineVisible = True
+        SideBySideBarSeriesLabel2.Visible = False
+        Series2.Label = SideBySideBarSeriesLabel2
+        Series2.Name = "Porcentaje de Firmas Inconsistentes"
+        Series2.ValueDataMembersSerializable = "INCONSISTENTE%"
+        Me.XrChart1.SeriesSerializable = New DevExpress.XtraCharts.Series() {Series1, Series2}
+        SideBySideBarSeriesLabel3.LineVisible = True
+        Me.XrChart1.SeriesTemplate.Label = SideBySideBarSeriesLabel3
+        Me.XrChart1.SizeF = New System.Drawing.SizeF(728.125!, 377.0833!)
+        ChartTitle1.Text = "GRAFICO DE ESTADOS DE FIRMAS DE RESPALDO"
+        Me.XrChart1.Titles.AddRange(New DevExpress.XtraCharts.ChartTitle() {ChartTitle1})
         '
         'IM_V_ESTADISTICO_GENERAL_FTableAdapter
         '
@@ -168,10 +214,10 @@ Partial Public Class Reporte_Estadistico_general_firmas
         Me.XrLabel4.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_ESTADISTICO_GENERAL_F.CONSISTENTE%", "{0}")})
         Me.XrLabel4.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
         Me.XrLabel4.ForeColor = System.Drawing.Color.Green
-        Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(337.5!, 61.04164!)
+        Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(313.5417!, 61.04164!)
         Me.XrLabel4.Name = "XrLabel4"
         Me.XrLabel4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel4.SizeF = New System.Drawing.SizeF(29.16663!, 22.99999!)
+        Me.XrLabel4.SizeF = New System.Drawing.SizeF(47.50003!, 22.99998!)
         Me.XrLabel4.StylePriority.UseFont = False
         Me.XrLabel4.StylePriority.UseForeColor = False
         Me.XrLabel4.Text = "XrLabel4"
@@ -197,7 +243,7 @@ Partial Public Class Reporte_Estadistico_general_firmas
         Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(722.9167!, 61.04164!)
         Me.XrLabel2.Name = "XrLabel2"
         Me.XrLabel2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel2.SizeF = New System.Drawing.SizeF(47.91663!, 22.99998!)
+        Me.XrLabel2.SizeF = New System.Drawing.SizeF(56.95819!, 22.99998!)
         Me.XrLabel2.StylePriority.UseFont = False
         Me.XrLabel2.StylePriority.UseForeColor = False
         Me.XrLabel2.Text = "XrLabel2"
@@ -245,52 +291,6 @@ Partial Public Class Reporte_Estadistico_general_firmas
         '
         Me.FormattingRule1.Name = "FormattingRule1"
         '
-        'IMVESTADISTICOGENERALFBindingSource
-        '
-        Me.IMVESTADISTICOGENERALFBindingSource.DataMember = "IM_V_ESTADISTICO_GENERAL_F"
-        Me.IMVESTADISTICOGENERALFBindingSource.DataSource = Me.DS_ESTADISTICO_GENERAL_FIRMAS1
-        Me.IMVESTADISTICOGENERALFBindingSource.Position = 0
-        '
-        'XrChart1
-        '
-        Me.XrChart1.AppearanceNameSerializable = "The Trees"
-        Me.XrChart1.BorderColor = System.Drawing.Color.Black
-        Me.XrChart1.Borders = DevExpress.XtraPrinting.BorderSide.None
-        Me.XrChart1.DataAdapter = Me.IM_V_ESTADISTICO_GENERAL_FTableAdapter
-        Me.XrChart1.DataMember = "IM_V_ESTADISTICO_GENERAL_F"
-        Me.XrChart1.DataSource = Me.DS_ESTADISTICO_GENERAL_FIRMAS1
-        XyDiagram1.AxisX.Range.SideMarginsEnabled = True
-        XyDiagram1.AxisX.VisibleInPanesSerializable = "-1"
-        XyDiagram1.AxisY.Range.SideMarginsEnabled = True
-        XyDiagram1.AxisY.VisibleInPanesSerializable = "-1"
-        XyDiagram1.DefaultPane.EnableAxisXScrolling = DevExpress.Utils.DefaultBoolean.[False]
-        XyDiagram1.DefaultPane.EnableAxisXZooming = DevExpress.Utils.DefaultBoolean.[False]
-        XyDiagram1.DefaultPane.EnableAxisYScrolling = DevExpress.Utils.DefaultBoolean.[False]
-        XyDiagram1.DefaultPane.EnableAxisYZooming = DevExpress.Utils.DefaultBoolean.[False]
-        Me.XrChart1.Diagram = XyDiagram1
-        Me.XrChart1.LocationFloat = New DevExpress.Utils.PointFloat(23.54164!, 191.6667!)
-        Me.XrChart1.Name = "XrChart1"
-        Series1.ArgumentDataMember = "CONSISTENTE%"
-        Series1.DataSource = Me.IMVESTADISTICOGENERALFBindingSource
-        SideBySideBarSeriesLabel1.LineVisible = True
-        SideBySideBarSeriesLabel1.Visible = False
-        Series1.Label = SideBySideBarSeriesLabel1
-        Series1.Name = "porcentaje de firmas Consistentes"
-        Series1.ValueDataMembersSerializable = "CONSISTENTE%"
-        Series2.ArgumentDataMember = "INCONSISTENTE%"
-        Series2.DataSource = Me.IMVESTADISTICOGENERALFBindingSource
-        SideBySideBarSeriesLabel2.LineVisible = True
-        SideBySideBarSeriesLabel2.Visible = False
-        Series2.Label = SideBySideBarSeriesLabel2
-        Series2.Name = "Porcentaje de Firmas Inconsistentes"
-        Series2.ValueDataMembersSerializable = "INCONSISTENTE%"
-        Me.XrChart1.SeriesSerializable = New DevExpress.XtraCharts.Series() {Series1, Series2}
-        SideBySideBarSeriesLabel3.LineVisible = True
-        Me.XrChart1.SeriesTemplate.Label = SideBySideBarSeriesLabel3
-        Me.XrChart1.SizeF = New System.Drawing.SizeF(728.125!, 377.0833!)
-        ChartTitle1.Text = "GRAFICO DE ESTADOS DE FIRMAS DE RESPALDO"
-        Me.XrChart1.Titles.AddRange(New DevExpress.XtraCharts.ChartTitle() {ChartTitle1})
-        '
         'Reporte_Estadistico_general_firmas
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin})
@@ -301,8 +301,8 @@ Partial Public Class Reporte_Estadistico_general_firmas
         Me.Margins = New System.Drawing.Printing.Margins(15, 17, 107, 100)
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.Version = "11.2"
-        CType(Me.DS_ESTADISTICO_GENERAL_FIRMAS1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMVESTADISTICOGENERALFBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DS_ESTADISTICO_GENERAL_FIRMAS1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(XyDiagram1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(SideBySideBarSeriesLabel1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Series1, System.ComponentModel.ISupportInitialize).EndInit()
