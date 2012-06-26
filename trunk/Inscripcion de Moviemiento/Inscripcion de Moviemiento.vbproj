@@ -691,6 +691,10 @@
       <DependentUpon>XtraForm1.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\frmImagenModal.resx">
+      <DependentUpon>frmImagenModal.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consultas\XfrmConCandidatos.resx">
       <DependentUpon>XfrmConCandidatos.vb</DependentUpon>
       <SubType>Designer</SubType>
