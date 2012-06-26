@@ -774,6 +774,11 @@ Partial Public Class DS_REPORTE_DE_FMOV
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function FindByCODIGO_PARTIDO(ByVal CODIGO_PARTIDO As Decimal) As DT_PARTIDO_CRUCEMRow
+            Return CType(Me.Rows.Find(New Object() {CODIGO_PARTIDO}),DT_PARTIDO_CRUCEMRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
             Dim cln As DT_PARTIDO_CRUCEMDataTable = CType(MyBase.Clone,DT_PARTIDO_CRUCEMDataTable)
             cln.InitVars
@@ -797,6 +802,10 @@ Partial Public Class DS_REPORTE_DE_FMOV
             MyBase.Columns.Add(Me.columnCODIGO_PARTIDO)
             Me.columnNOMBRE_PARTIDO = New Global.System.Data.DataColumn("NOMBRE PARTIDO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNOMBRE_PARTIDO)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_PARTIDO}, true))
+            Me.columnCODIGO_PARTIDO.AllowDBNull = false
+            Me.columnCODIGO_PARTIDO.Unique = true
+            Me.columnNOMBRE_PARTIDO.AllowDBNull = false
             Me.columnNOMBRE_PARTIDO.MaxLength = 100
         End Sub
         
@@ -1038,6 +1047,8 @@ Partial Public Class DS_REPORTE_DE_FMOV
             MyBase.Columns.Add(Me.columnCODIGO_MOVIMIENTO)
             Me.columnNOMBRE_MOVIMIENTO = New Global.System.Data.DataColumn("NOMBRE MOVIMIENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNOMBRE_MOVIMIENTO)
+            Me.columnCODIGO_MOVIMIENTO.AllowDBNull = false
+            Me.columnNOMBRE_MOVIMIENTO.AllowDBNull = false
             Me.columnNOMBRE_MOVIMIENTO.MaxLength = 200
         End Sub
         
@@ -1565,11 +1576,7 @@ Partial Public Class DS_REPORTE_DE_FMOV
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property CODIGO_PARTIDO() As Decimal
             Get
-                Try 
-                    Return CType(Me(Me.tableDT_PARTIDO_CRUCEM.CODIGO_PARTIDOColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CODIGO_PARTIDO' in table 'DT_PARTIDO_CRUCEM' is DBNull.", e)
-                End Try
+                Return CType(Me(Me.tableDT_PARTIDO_CRUCEM.CODIGO_PARTIDOColumn),Decimal)
             End Get
             Set
                 Me(Me.tableDT_PARTIDO_CRUCEM.CODIGO_PARTIDOColumn) = value
@@ -1579,36 +1586,12 @@ Partial Public Class DS_REPORTE_DE_FMOV
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property NOMBRE_PARTIDO() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableDT_PARTIDO_CRUCEM.NOMBRE_PARTIDOColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'NOMBRE PARTIDO' in table 'DT_PARTIDO_CRUCEM' is DBNull.", e)
-                End Try
+                Return CType(Me(Me.tableDT_PARTIDO_CRUCEM.NOMBRE_PARTIDOColumn),String)
             End Get
             Set
                 Me(Me.tableDT_PARTIDO_CRUCEM.NOMBRE_PARTIDOColumn) = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsCODIGO_PARTIDONull() As Boolean
-            Return Me.IsNull(Me.tableDT_PARTIDO_CRUCEM.CODIGO_PARTIDOColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetCODIGO_PARTIDONull()
-            Me(Me.tableDT_PARTIDO_CRUCEM.CODIGO_PARTIDOColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsNOMBRE_PARTIDONull() As Boolean
-            Return Me.IsNull(Me.tableDT_PARTIDO_CRUCEM.NOMBRE_PARTIDOColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetNOMBRE_PARTIDONull()
-            Me(Me.tableDT_PARTIDO_CRUCEM.NOMBRE_PARTIDOColumn) = Global.System.Convert.DBNull
-        End Sub
     End Class
     
     '''<summary>
@@ -1629,12 +1612,7 @@ Partial Public Class DS_REPORTE_DE_FMOV
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property CODIGO_MOVIMIENTO() As Decimal
             Get
-                Try 
-                    Return CType(Me(Me.tableDT_MOVIMIENTO_CRUCEM.CODIGO_MOVIMIENTOColumn),Decimal)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CODIGO_MOVIMIENTO' in table 'DT_MOVIMIENTO_CRUCEM' is DBNul"& _ 
-                            "l.", e)
-                End Try
+                Return CType(Me(Me.tableDT_MOVIMIENTO_CRUCEM.CODIGO_MOVIMIENTOColumn),Decimal)
             End Get
             Set
                 Me(Me.tableDT_MOVIMIENTO_CRUCEM.CODIGO_MOVIMIENTOColumn) = value
@@ -1644,37 +1622,12 @@ Partial Public Class DS_REPORTE_DE_FMOV
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property NOMBRE_MOVIMIENTO() As String
             Get
-                Try 
-                    Return CType(Me(Me.tableDT_MOVIMIENTO_CRUCEM.NOMBRE_MOVIMIENTOColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'NOMBRE MOVIMIENTO' in table 'DT_MOVIMIENTO_CRUCEM' is DBNul"& _ 
-                            "l.", e)
-                End Try
+                Return CType(Me(Me.tableDT_MOVIMIENTO_CRUCEM.NOMBRE_MOVIMIENTOColumn),String)
             End Get
             Set
                 Me(Me.tableDT_MOVIMIENTO_CRUCEM.NOMBRE_MOVIMIENTOColumn) = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsCODIGO_MOVIMIENTONull() As Boolean
-            Return Me.IsNull(Me.tableDT_MOVIMIENTO_CRUCEM.CODIGO_MOVIMIENTOColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetCODIGO_MOVIMIENTONull()
-            Me(Me.tableDT_MOVIMIENTO_CRUCEM.CODIGO_MOVIMIENTOColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsNOMBRE_MOVIMIENTONull() As Boolean
-            Return Me.IsNull(Me.tableDT_MOVIMIENTO_CRUCEM.NOMBRE_MOVIMIENTOColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetNOMBRE_MOVIMIENTONull()
-            Me(Me.tableDT_MOVIMIENTO_CRUCEM.NOMBRE_MOVIMIENTOColumn) = Global.System.Convert.DBNull
-        End Sub
     End Class
     
     '''<summary>
@@ -2098,9 +2051,8 @@ Namespace DS_REPORTE_DE_FMOVTableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT 0 CODIGO_PARTIDO, 'TODOS' ""NOMBRE PARTIDO"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM IM_PARTIDOS_POLITICOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UN"& _ 
-                "ION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT  CODIGO_PARTIDO, NOMBRE ""NOMBRE PARTIDO"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM IM_PARTIDOS_POLITICOS"& _ 
-                ""
+            Me._commandCollection(0).CommandText = "SELECT  CODIGO_PARTIDO, NOMBRE ""NOMBRE PARTIDO"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM IM_PARTIDOS_POLITICOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDE"& _ 
+                "R BY CODIGO_PARTIDO"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -2235,9 +2187,8 @@ Namespace DS_REPORTE_DE_FMOVTableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT 0 CODIGO_MOVIMIENTO, 'TODOS' ""NOMBRE MOVIMIENTO"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM IM_MOVIMIENTOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"UNI"& _ 
-                "ON"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO ""NOMBRE MOVIMIENTO"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM IM_MOV"& _ 
-                "IMIENTOS"
+            Me._commandCollection(0).CommandText = "SELECT        CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO AS ""NOMBRE MOVIMIENTO"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM  "& _ 
+                "          IM_MOVIMIENTOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY CODIGO_MOVIMIENTO"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

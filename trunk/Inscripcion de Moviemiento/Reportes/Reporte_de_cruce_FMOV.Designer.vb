@@ -53,6 +53,8 @@ Partial Public Class Reporte_de_cruce_FMOV
         Me.DataField = New DevExpress.XtraReports.UI.XRControlStyle
         Me.TopMarginBand1 = New DevExpress.XtraReports.UI.TopMarginBand
         Me.BottomMarginBand1 = New DevExpress.XtraReports.UI.BottomMarginBand
+        Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
+        Me.NombreDepartamento = New DevExpress.XtraReports.Parameters.Parameter
         CType(Me.DS_REPORTE_DE_FMOV1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
@@ -341,16 +343,28 @@ Partial Public Class Reporte_de_cruce_FMOV
         '
         Me.BottomMarginBand1.Name = "BottomMarginBand1"
         '
+        'NombrePartido
+        '
+        Me.NombrePartido.Description = "Nombre de Partido Político"
+        Me.NombrePartido.Name = "NombrePartido"
+        '
+        'NombreDepartamento
+        '
+        Me.NombreDepartamento.Description = "Nombre Departamento"
+        Me.NombreDepartamento.Name = "NombreDepartamento"
+        '
         'Reporte_de_cruce_FMOV
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.GroupHeaderBand1, Me.GroupHeaderBand2, Me.PageFooterBand1, Me.ReportHeaderBand1, Me.TopMarginBand1, Me.BottomMarginBand1})
         Me.DataAdapter = Me.IM_V_CRUZE_FIRMAS_MOVAdapter1
         Me.DataMember = "IM_V_CRUZE_FIRMAS_MOV"
         Me.DataSource = Me.DS_REPORTE_DE_FMOV1
+        Me.FilterString = "[PARTIDO] = ?NombrePartido And [DEPARTAMENTO] = ?NombreDepartamento"
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(22, 31, 26, 100)
         Me.PageHeight = 850
         Me.PageWidth = 1100
+        Me.Parameters.AddRange(New DevExpress.XtraReports.Parameters.Parameter() {Me.NombrePartido, Me.NombreDepartamento})
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.StyleSheet.AddRange(New DevExpress.XtraReports.UI.XRControlStyle() {Me.Title, Me.FieldCaption, Me.PageInfo, Me.DataField})
         Me.Version = "11.2"
@@ -392,4 +406,6 @@ Partial Public Class Reporte_de_cruce_FMOV
     Friend WithEvents DataField As DevExpress.XtraReports.UI.XRControlStyle
     Friend WithEvents TopMarginBand1 As DevExpress.XtraReports.UI.TopMarginBand
     Friend WithEvents BottomMarginBand1 As DevExpress.XtraReports.UI.BottomMarginBand
+    Friend WithEvents NombrePartido As DevExpress.XtraReports.Parameters.Parameter
+    Friend WithEvents NombreDepartamento As DevExpress.XtraReports.Parameters.Parameter
 End Class

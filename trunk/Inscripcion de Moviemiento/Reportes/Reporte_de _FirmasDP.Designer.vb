@@ -27,7 +27,6 @@ Partial Public Class Reporte_de__FirmasDP
         Me.IM_V_FIRMAS_DIVISION_POLITICAAdapter1 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FDPTableAdapters.IM_V_FIRMAS_DIVISION_POLITICAAdapter
         Me.DS_REPORTE_DE_FDP1 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FDP
         Me.GroupHeaderBand1 = New DevExpress.XtraReports.UI.GroupHeaderBand
-        Me.filtro = New DevExpress.XtraReports.UI.XRLabel
         Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
         Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel
@@ -118,20 +117,11 @@ Partial Public Class Reporte_de__FirmasDP
         '
         'GroupHeaderBand1
         '
-        Me.GroupHeaderBand1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.filtro, Me.XrLabel3, Me.XrLabel4, Me.XrLabel1, Me.XrLabel2})
+        Me.GroupHeaderBand1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel3, Me.XrLabel4, Me.XrLabel1, Me.XrLabel2})
         Me.GroupHeaderBand1.GroupFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("PARTIDO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending), New DevExpress.XtraReports.UI.GroupField("MOVIMIENTO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
         Me.GroupHeaderBand1.HeightF = 70.375!
         Me.GroupHeaderBand1.Level = 2
         Me.GroupHeaderBand1.Name = "GroupHeaderBand1"
-        '
-        'filtro
-        '
-        Me.filtro.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding(Me.NombrePartido, "Text", "")})
-        Me.filtro.LocationFloat = New DevExpress.Utils.PointFloat(593.2416!, 10.00001!)
-        Me.filtro.Name = "filtro"
-        Me.filtro.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.filtro.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.filtro.Text = "filtro"
         '
         'NombrePartido
         '
@@ -382,6 +372,7 @@ Partial Public Class Reporte_de__FirmasDP
         Me.DataAdapter = Me.IM_V_FIRMAS_DIVISION_POLITICAAdapter1
         Me.DataMember = "IM_V_FIRMAS_DIVISION_POLITICA"
         Me.DataSource = Me.DS_REPORTE_DE_FDP1
+        Me.FilterString = "[NOMBRE PARTIDO] = ?NombrePartido And [NOMBRE MOVIMIENTO] = ?NombreMovimiento"
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(23, 41, 31, 100)
         Me.PageHeight = 850
@@ -431,5 +422,4 @@ Partial Public Class Reporte_de__FirmasDP
     Friend WithEvents BottomMarginBand1 As DevExpress.XtraReports.UI.BottomMarginBand
     Friend WithEvents NombrePartido As DevExpress.XtraReports.Parameters.Parameter
     Friend WithEvents NombreMovimiento As DevExpress.XtraReports.Parameters.Parameter
-    Friend WithEvents filtro As DevExpress.XtraReports.UI.XRLabel
 End Class
