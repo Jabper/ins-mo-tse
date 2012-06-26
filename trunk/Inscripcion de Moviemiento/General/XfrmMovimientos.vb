@@ -169,7 +169,7 @@ Public Class XfrmMovimientos
             Dim cmd As New OracleCommand(sqlstring, cnx)
             cmd.Parameters.Add(":ft", OracleType.Blob).Value = Data.ConvertImageToByteArray(Me.EMBLEMAPictureEdit.Image)
             'cmd.Parameters.Add(":em", OracleType.Blob).Value = Data.ConvertImageToByteArray(Me.EMBLEMAPictureEdit.Image)
-            cmd.Parameters.Add(":cod", OracleType.Number, 8).Value = Me.CODIGO_MOVIMIENTOSpinEdit.EditValue
+            cmd.Parameters.Add(":cod", OracleType.Number).Value = Me.CODIGO_MOVIMIENTOSpinEdit.EditValue
             cnx.Open()
             cmd.ExecuteNonQuery()
             cnx.Close()
