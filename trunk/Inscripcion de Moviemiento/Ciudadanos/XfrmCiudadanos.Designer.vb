@@ -51,6 +51,8 @@ Partial Class XfrmCiudadanos
         Me.CmbPartido = New DevExpress.XtraEditors.LookUpEdit
         Me.TAPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
+        Me.lblmovimiento = New DevExpress.XtraEditors.LabelControl
+        Me.lblpartido = New DevExpress.XtraEditors.LabelControl
         Me.imgmov = New DevExpress.XtraEditors.PictureEdit
         Me.imgpartido = New DevExpress.XtraEditors.PictureEdit
         Me.lblpagina = New System.Windows.Forms.Label
@@ -392,7 +394,7 @@ Partial Class XfrmCiudadanos
         'CmbMunicipio
         '
         Me.CmbMunicipio.Enabled = False
-        Me.CmbMunicipio.Location = New System.Drawing.Point(391, 126)
+        Me.CmbMunicipio.Location = New System.Drawing.Point(392, 126)
         Me.CmbMunicipio.Name = "CmbMunicipio"
         Me.CmbMunicipio.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CmbMunicipio.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MUNICIPIO", "Código", 30, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.Ascending), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Departamento", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
@@ -400,7 +402,7 @@ Partial Class XfrmCiudadanos
         Me.CmbMunicipio.Properties.DisplayMember = "DESCRIPCION"
         Me.CmbMunicipio.Properties.NullText = "Seleccione"
         Me.CmbMunicipio.Properties.ValueMember = "CODIGO_MUNICIPIO"
-        Me.CmbMunicipio.Size = New System.Drawing.Size(260, 20)
+        Me.CmbMunicipio.Size = New System.Drawing.Size(257, 20)
         Me.CmbMunicipio.StyleController = Me.LayoutControl1
         Me.CmbMunicipio.TabIndex = 12
         '
@@ -425,7 +427,7 @@ Partial Class XfrmCiudadanos
         Me.CmbDepartamento.Properties.DisplayMember = "DESCRIPCION"
         Me.CmbDepartamento.Properties.NullText = "Seleccione"
         Me.CmbDepartamento.Properties.ValueMember = "CODIGO_DEPARTAMENTO"
-        Me.CmbDepartamento.Size = New System.Drawing.Size(229, 20)
+        Me.CmbDepartamento.Size = New System.Drawing.Size(230, 20)
         Me.CmbDepartamento.StyleController = Me.LayoutControl1
         Me.CmbDepartamento.TabIndex = 11
         '
@@ -446,7 +448,7 @@ Partial Class XfrmCiudadanos
         Me.CmbMovimiento.Properties.DisplayMember = "NOMBRE_MOVIMIENTO"
         Me.CmbMovimiento.Properties.NullText = "Seleccione"
         Me.CmbMovimiento.Properties.ValueMember = "CODIGO_MOVIMIENTO"
-        Me.CmbMovimiento.Size = New System.Drawing.Size(258, 20)
+        Me.CmbMovimiento.Size = New System.Drawing.Size(256, 20)
         Me.CmbMovimiento.StyleController = Me.LayoutControl1
         Me.CmbMovimiento.TabIndex = 10
         '
@@ -486,6 +488,8 @@ Partial Class XfrmCiudadanos
         Me.PanelControl1.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.PanelControl1.Appearance.Options.UseBackColor = True
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl1.Controls.Add(Me.lblmovimiento)
+        Me.PanelControl1.Controls.Add(Me.lblpartido)
         Me.PanelControl1.Controls.Add(Me.imgmov)
         Me.PanelControl1.Controls.Add(Me.imgpartido)
         Me.PanelControl1.Controls.Add(Me.lblpagina)
@@ -498,9 +502,29 @@ Partial Class XfrmCiudadanos
         Me.PanelControl1.Size = New System.Drawing.Size(640, 86)
         Me.PanelControl1.TabIndex = 4
         '
+        'lblmovimiento
+        '
+        Me.lblmovimiento.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblmovimiento.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical
+        Me.lblmovimiento.Location = New System.Drawing.Point(460, 17)
+        Me.lblmovimiento.Name = "lblmovimiento"
+        Me.lblmovimiento.Size = New System.Drawing.Size(114, 13)
+        Me.lblmovimiento.TabIndex = 17
+        Me.lblmovimiento.Text = "Movimiento"
+        '
+        'lblpartido
+        '
+        Me.lblpartido.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblpartido.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical
+        Me.lblpartido.Location = New System.Drawing.Point(224, 17)
+        Me.lblpartido.Name = "lblpartido"
+        Me.lblpartido.Size = New System.Drawing.Size(132, 13)
+        Me.lblpartido.TabIndex = 15
+        Me.lblpartido.Text = "Partido"
+        '
         'imgmov
         '
-        Me.imgmov.Location = New System.Drawing.Point(256, 5)
+        Me.imgmov.Location = New System.Drawing.Point(386, 5)
         Me.imgmov.Name = "imgmov"
         Me.imgmov.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.imgmov.Properties.Appearance.Options.UseBackColor = True
@@ -512,7 +536,7 @@ Partial Class XfrmCiudadanos
         '
         'imgpartido
         '
-        Me.imgpartido.Location = New System.Drawing.Point(168, 5)
+        Me.imgpartido.Location = New System.Drawing.Point(150, 5)
         Me.imgpartido.Name = "imgpartido"
         Me.imgpartido.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.imgpartido.Properties.Appearance.Options.UseBackColor = True
@@ -851,9 +875,12 @@ Partial Class XfrmCiudadanos
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(642, 90)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(640, 90)
+        Me.EmptySpaceItem1.MaxSize = New System.Drawing.Size(86, 24)
+        Me.EmptySpaceItem1.MinSize = New System.Drawing.Size(86, 24)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(84, 24)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(86, 24)
+        Me.EmptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem1.Text = "EmptySpaceItem1"
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -873,7 +900,7 @@ Partial Class XfrmCiudadanos
         Me.LayoutControlItem4.CustomizationFormText = "Movimiento"
         Me.LayoutControlItem4.Location = New System.Drawing.Point(307, 90)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(335, 24)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(333, 24)
         Me.LayoutControlItem4.Text = "Movimiento"
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(69, 13)
         '
@@ -883,7 +910,7 @@ Partial Class XfrmCiudadanos
         Me.LayoutControlItem5.CustomizationFormText = "Departamento"
         Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 114)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(306, 24)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(307, 24)
         Me.LayoutControlItem5.Text = "Departamento"
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(69, 13)
         '
@@ -891,9 +918,9 @@ Partial Class XfrmCiudadanos
         '
         Me.LayoutControlItem6.Control = Me.CmbMunicipio
         Me.LayoutControlItem6.CustomizationFormText = "Municipio"
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(306, 114)
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(307, 114)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(337, 24)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(334, 24)
         Me.LayoutControlItem6.Text = "Municipio"
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(69, 13)
         '
@@ -901,9 +928,12 @@ Partial Class XfrmCiudadanos
         '
         Me.EmptySpaceItem4.AllowHotTrack = False
         Me.EmptySpaceItem4.CustomizationFormText = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Location = New System.Drawing.Point(643, 114)
+        Me.EmptySpaceItem4.Location = New System.Drawing.Point(641, 114)
+        Me.EmptySpaceItem4.MaxSize = New System.Drawing.Size(85, 24)
+        Me.EmptySpaceItem4.MinSize = New System.Drawing.Size(85, 24)
         Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Size = New System.Drawing.Size(83, 24)
+        Me.EmptySpaceItem4.Size = New System.Drawing.Size(85, 24)
+        Me.EmptySpaceItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem4.Text = "EmptySpaceItem4"
         Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -1132,4 +1162,6 @@ Partial Class XfrmCiudadanos
     Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents imgpartido As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents imgmov As DevExpress.XtraEditors.PictureEdit
+    Friend WithEvents lblpartido As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents lblmovimiento As DevExpress.XtraEditors.LabelControl
 End Class
