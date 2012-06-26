@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -308,6 +308,11 @@
     <Compile Include="Procesos\XfrmMensajes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\DS_ESTADISTICO_GENERAL_FIRMAS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_ESTADISTICO_GENERAL_FIRMAS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DS_REPORTE_DE_FDP.vb">
       <DependentUpon>DS_REPORTE_DE_FDP.xsd</DependentUpon>
     </Compile>
@@ -348,6 +353,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_REPORTE_DE_PNEM.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Reporte_Estadistico_general_firmas.Designer.vb">
+      <DependentUpon>Reporte_Estadistico_general_firmas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Reporte_Estadistico_general_firmas.vb">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="XfrmBack.vb">
       <SubType>Form</SubType>
@@ -689,6 +700,9 @@
     <EmbeddedResource Include="Procesos\XfrmMensajes.resx">
       <DependentUpon>XfrmMensajes.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Reporte_Estadistico_general_firmas.resx">
+      <DependentUpon>Reporte_Estadistico_general_firmas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XfrmBack.resx">
       <DependentUpon>XfrmBack.vb</DependentUpon>
@@ -1108,6 +1122,17 @@
     </None>
     <None Include="Candidatos\DSInsCandidatos.xss">
       <DependentUpon>DSInsCandidatos.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_ESTADISTICO_GENERAL_FIRMAS.xsc">
+      <DependentUpon>DS_ESTADISTICO_GENERAL_FIRMAS.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_ESTADISTICO_GENERAL_FIRMAS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_ESTADISTICO_GENERAL_FIRMAS.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DS_ESTADISTICO_GENERAL_FIRMAS.xss">
+      <DependentUpon>DS_ESTADISTICO_GENERAL_FIRMAS.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DS_REPORTE_DE_RESUMEN_FDP.xsc">
       <DependentUpon>DS_REPORTE_DE_RESUMEN_FDP.xsd</DependentUpon>
