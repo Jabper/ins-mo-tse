@@ -1191,6 +1191,7 @@
     <None Include="Resources\flecha.png" />
     <None Include="Resources\importar otros sistemas.png" />
     <None Include="Resources\1340376772_accept.png" />
+    <None Include="Resources\bannerLogospartidos.jpg" />
     <Content Include="Resources\Consulta.png" />
     <None Include="Resources\Captura.JPG" />
     <Content Include="Resources\Filtro.png" />
@@ -1198,7 +1199,13 @@
     <None Include="Resources\FIRMAS11.png" />
     <None Include="Resources\gridview34.png" />
     <None Include="Resources\imagenes.png" />
+    <None Include="Resources\logoelecciones.png" />
+    <None Include="Resources\logoeleccionesp.png" />
     <Content Include="Resources\motivo.png" />
+    <None Include="Resources\tse_logo.gif" />
+    <None Include="Resources\TSE LOGO.png" />
+    <None Include="Resources\tselogo.png" />
+    <None Include="Resources\tselogop.png" />
     <Content Include="tse.ico" />
     <None Include="Resources\Restadisticos.png" />
     <None Include="Resources\Reporte.png" />

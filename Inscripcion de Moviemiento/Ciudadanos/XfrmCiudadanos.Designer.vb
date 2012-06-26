@@ -20,6 +20,7 @@ Partial Class XfrmCiudadanos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(XfrmCiudadanos))
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
         Me.Label1 = New System.Windows.Forms.Label
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl
@@ -176,10 +177,9 @@ Partial Class XfrmCiudadanos
         Me.Label1.ForeColor = System.Drawing.Color.Red
         Me.Label1.Location = New System.Drawing.Point(12, 150)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(672, 30)
+        Me.Label1.Size = New System.Drawing.Size(618, 39)
         Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Los campos marcados con (*)  son requeridos" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Solo se guardarán los registros en l" & _
-            "os cuales los campos requeridos estén ingresados correctamente" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Label1.Text = resources.GetString("Label1.Text")
         '
         'PanelControl2
         '
@@ -300,7 +300,7 @@ Partial Class XfrmCiudadanos
         '
         Me.lblinconsistentes.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblinconsistentes.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblinconsistentes.Location = New System.Drawing.Point(328, 60)
+        Me.lblinconsistentes.Location = New System.Drawing.Point(330, 60)
         Me.lblinconsistentes.Name = "lblinconsistentes"
         Me.lblinconsistentes.Size = New System.Drawing.Size(56, 14)
         Me.lblinconsistentes.TabIndex = 30
@@ -321,7 +321,7 @@ Partial Class XfrmCiudadanos
         '
         Me.lblconsistentes.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblconsistentes.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblconsistentes.Location = New System.Drawing.Point(328, 40)
+        Me.lblconsistentes.Location = New System.Drawing.Point(330, 40)
         Me.lblconsistentes.Name = "lblconsistentes"
         Me.lblconsistentes.Size = New System.Drawing.Size(56, 14)
         Me.lblconsistentes.TabIndex = 28
@@ -357,9 +357,9 @@ Partial Class XfrmCiudadanos
         Me.LabelControl7.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl7.Location = New System.Drawing.Point(41, 36)
         Me.LabelControl7.Name = "LabelControl7"
-        Me.LabelControl7.Size = New System.Drawing.Size(134, 14)
+        Me.LabelControl7.Size = New System.Drawing.Size(140, 14)
         Me.LabelControl7.TabIndex = 27
-        Me.LabelControl7.Text = "Registros almacenado"
+        Me.LabelControl7.Text = "Registros almacenados"
         '
         'LabelControl8
         '
@@ -498,9 +498,9 @@ Partial Class XfrmCiudadanos
         Me.lblpagina.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblpagina.Location = New System.Drawing.Point(268, 67)
         Me.lblpagina.Name = "lblpagina"
-        Me.lblpagina.Size = New System.Drawing.Size(59, 14)
+        Me.lblpagina.Size = New System.Drawing.Size(15, 14)
         Me.lblpagina.TabIndex = 13
-        Me.lblpagina.Text = "asdfasdf"
+        Me.lblpagina.Text = "0"
         '
         'Label3
         '
@@ -569,11 +569,11 @@ Partial Class XfrmCiudadanos
         '
         Me.GCBusqueda.ContextMenuStrip = Me.ContextMenuStrip1
         Me.GCBusqueda.DataSource = Me.IMCIUDADANOSRESPALDANBindingSource
-        Me.GCBusqueda.Location = New System.Drawing.Point(12, 184)
+        Me.GCBusqueda.Location = New System.Drawing.Point(12, 193)
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
         Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RIChkCoincide, Me.RIChkFima, Me.RPIImgfirma, Me.RepositoryItemComboBox1, Me.ChkEstado, Me.RepositoryItemTextEdit1, Me.RepositoryItemTextEdit2, Me.RepositoryItemTextEdit3})
-        Me.GCBusqueda.Size = New System.Drawing.Size(722, 270)
+        Me.GCBusqueda.Size = New System.Drawing.Size(722, 261)
         Me.GCBusqueda.TabIndex = 8
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -809,9 +809,9 @@ Partial Class XfrmCiudadanos
         '
         Me.LayoutControlItem2.Control = Me.GCBusqueda
         Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 172)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 181)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(726, 274)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(726, 265)
         Me.LayoutControlItem2.Text = "LayoutControlItem2"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextToControlDistance = 0
@@ -906,11 +906,11 @@ Partial Class XfrmCiudadanos
         '
         Me.EmptySpaceItem5.AllowHotTrack = False
         Me.EmptySpaceItem5.CustomizationFormText = "EmptySpaceItem5"
-        Me.EmptySpaceItem5.Location = New System.Drawing.Point(676, 138)
-        Me.EmptySpaceItem5.MaxSize = New System.Drawing.Size(50, 34)
-        Me.EmptySpaceItem5.MinSize = New System.Drawing.Size(50, 34)
+        Me.EmptySpaceItem5.Location = New System.Drawing.Point(622, 138)
+        Me.EmptySpaceItem5.MaxSize = New System.Drawing.Size(104, 43)
+        Me.EmptySpaceItem5.MinSize = New System.Drawing.Size(104, 43)
         Me.EmptySpaceItem5.Name = "EmptySpaceItem5"
-        Me.EmptySpaceItem5.Size = New System.Drawing.Size(50, 34)
+        Me.EmptySpaceItem5.Size = New System.Drawing.Size(104, 43)
         Me.EmptySpaceItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem5.Text = "EmptySpaceItem5"
         Me.EmptySpaceItem5.TextSize = New System.Drawing.Size(0, 0)
@@ -921,7 +921,7 @@ Partial Class XfrmCiudadanos
         Me.LayoutControlItem8.CustomizationFormText = "LayoutControlItem8"
         Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 138)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(676, 34)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(622, 43)
         Me.LayoutControlItem8.Text = "LayoutControlItem8"
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem8.TextToControlDistance = 0

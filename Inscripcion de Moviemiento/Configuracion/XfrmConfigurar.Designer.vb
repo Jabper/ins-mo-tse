@@ -54,6 +54,7 @@ Partial Class XfrmConfigurar
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem
         Me.WizardControl1 = New DevExpress.XtraWizard.WizardControl
+        Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.WelcomeWizardPage1 = New DevExpress.XtraWizard.WelcomeWizardPage
         Me.WizardPage1 = New DevExpress.XtraWizard.WizardPage
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
@@ -115,6 +116,7 @@ Partial Class XfrmConfigurar
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.WizardControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.WizardControl1.SuspendLayout()
+        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.WizardPage1.SuspendLayout()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
@@ -418,6 +420,7 @@ Partial Class XfrmConfigurar
         '
         'WizardControl1
         '
+        Me.WizardControl1.Controls.Add(Me.PictureEdit1)
         Me.WizardControl1.Controls.Add(Me.WelcomeWizardPage1)
         Me.WizardControl1.Controls.Add(Me.WizardPage1)
         Me.WizardControl1.Controls.Add(Me.CompletionWizardPage1)
@@ -428,6 +431,13 @@ Partial Class XfrmConfigurar
         Me.WizardControl1.Pages.AddRange(New DevExpress.XtraWizard.BaseWizardPage() {Me.WelcomeWizardPage1, Me.WizardPage1, Me.WizardPage2, Me.CompletionWizardPage1})
         Me.WizardControl1.Size = New System.Drawing.Size(605, 451)
         Me.WizardControl1.Text = ""
+        '
+        'PictureEdit1
+        '
+        Me.PictureEdit1.Location = New System.Drawing.Point(68, 100)
+        Me.PictureEdit1.Name = "PictureEdit1"
+        Me.PictureEdit1.Size = New System.Drawing.Size(100, 96)
+        Me.PictureEdit1.TabIndex = 10
         '
         'WelcomeWizardPage1
         '
@@ -783,6 +793,7 @@ Partial Class XfrmConfigurar
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.WizardControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.WizardControl1.ResumeLayout(False)
+        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.WizardPage1.ResumeLayout(False)
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
@@ -878,4 +889,5 @@ Partial Class XfrmConfigurar
     Friend WithEvents DxValidationProvider3 As DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider
     Friend WithEvents txtusuario As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents PictureEdit1 As DevExpress.XtraEditors.PictureEdit
 End Class

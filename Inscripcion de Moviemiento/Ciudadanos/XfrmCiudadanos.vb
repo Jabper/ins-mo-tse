@@ -110,6 +110,7 @@ Public Class XfrmCiudadanos
     Sub estadistico()
         CREstadistico.AsignarVariables(idpartido, idmovimiento)
         CREstadistico.calcular()
+
         Me.lblconsistentes.Text = Math.Round(CREstadistico.Firmasmovimiento, 0)
         Me.lblporcentaje.Text = Math.Round(CREstadistico.porcentaje, 2) & "%"
         Me.lblfirmasnecesarias.Text = Math.Round(CREstadistico.TotalFirmas, 0)
@@ -121,7 +122,7 @@ Public Class XfrmCiudadanos
         Me.TA_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.TA_DEPARTAMENTOS)
         Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
         Estado.OptionsColumn.AllowEdit = False
-        estadistico()
+
     End Sub
 
     Sub establecer()
@@ -175,7 +176,7 @@ Public Class XfrmCiudadanos
         vinicio = True
         GCBusqueda.ForceInitialize()
         Dim view As GridView = GridView1
-        view.FocusedRowHandle = DevExpress.XtraGrid.GridControl.NewItemRowHandle
+        view.FocusedRowHandle = 0
 
         view.FocusedColumn = colIDENTIDAD
         view.ShowEditor()
@@ -353,13 +354,13 @@ Public Class XfrmCiudadanos
                 If pnombre <> COracle.ObtenerDatos(consulta, "PRIMER_NOMBRE") Then
                     inconsistente = "N"
                     NombreIgual = "N"
-                    Observacion &= "El primer nombre no coincide con el del padrón electoral "
+                    Observacion &= " El primer nombre no coincide con el del padrón electoral "
                     'COMPROBANDO EL SEGUNDO NOMBRE
 
                 ElseIf papellido <> COracle.ObtenerDatos(consulta, "PRIMER_APELLIDO") Then
                     inconsistente = "N"
                     NombreIgual = "N"
-                    Observacion &= "El primer apellido no coincide con el del padrón electoral "
+                    Observacion &= " El primer apellido no coincide con el del padrón electoral "
                     'COMPROBANDO EL SEGUNDO NOMBRE
 
                 End If
@@ -372,38 +373,38 @@ Public Class XfrmCiudadanos
                 Else
                     inconsistente = "N"
                     NombreIgual = "N"
-                    Observacion &= "El segundo nombre no coincide con el del padrón electoral "
+                    Observacion &= " El segundo nombre no coincide con el del padrón electoral "
                 End If
 
                 If COracle.ObtenerDatos(consulta, "SEGUNDO_APELLIDO") = SAPELLIDO Then
                 Else
                     inconsistente = "N"
                     NombreIgual = "N"
-                    Observacion &= "El segundo apellido no coincide con el del padrón electoral "
+                    Observacion &= " El segundo apellido no coincide con el del padrón electoral "
                 End If
 
                 If view.GetRowCellValue(view.FocusedRowHandle, "FIRMA") Is Nothing Or IsDBNull(view.GetRowCellValue(view.FocusedRowHandle, "FIRMA")) Or view.GetRowCellValue(view.FocusedRowHandle, "FIRMA").ToString = "N" Then
                     inconsistente = "N"
 
-                    Observacion &= "No presenta firma"
+                    Observacion &= " No presenta firma "
                 End If
 
                 If view.GetRowCellValue(view.FocusedRowHandle, "HUELLA") Is Nothing Or IsDBNull(view.GetRowCellValue(view.FocusedRowHandle, "HUELLA")) Or view.GetRowCellValue(view.FocusedRowHandle, "HUELLA").ToString = "N" Then
                     inconsistente = "N"
 
-                    Observacion &= "No presenta huella"
+                    Observacion &= " No presenta huella "
                 End If
 
                 If view.GetRowCellValue(view.FocusedRowHandle, "DIRECCION") Is Nothing Or IsDBNull(view.GetRowCellValue(view.FocusedRowHandle, "DIRECCION")) Or view.GetRowCellValue(view.FocusedRowHandle, "DIRECCION").ToString = "N" Then
                     inconsistente = "N"
 
-                    Observacion &= "No presenta dirección"
+                    Observacion &= " No presenta dirección "
                 End If
 
                 GuardarEnBase(i, NombreIgual, inconsistente, Observacion)
             Else
                 inconsistente = "N"
-                Observacion = "Identidad no encontrada en el padrón electoral"
+                Observacion = " Identidad no encontrada en el padrón electoral "
                 NombreIgual = ""
                 GuardarEnBase(i, NombreIgual, inconsistente, Observacion)
             End If

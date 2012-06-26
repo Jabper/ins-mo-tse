@@ -62,6 +62,7 @@ Partial Class XFrmMenuPrincipal
         Me.BarButtonItem6 = New DevExpress.XtraBars.BarButtonItem
         Me.BarButtonItem7 = New DevExpress.XtraBars.BarButtonItem
         Me.BtnREstadistico = New DevExpress.XtraBars.BarSubItem
+        Me.BarButtonItem8 = New DevExpress.XtraBars.BarButtonItem
         Me.btnConsultarCandidatos = New DevExpress.XtraBars.BarButtonItem
         Me.btnJerarquico = New DevExpress.XtraBars.BarButtonItem
         Me.TxtUser = New DevExpress.XtraBars.BarStaticItem
@@ -87,10 +88,16 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonPageGroup4 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPageGroup6 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem
-        Me.BarButtonItem8 = New DevExpress.XtraBars.BarButtonItem
+        Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
+        Me.PictureEdit2 = New DevExpress.XtraEditors.PictureEdit
+        Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl1.SuspendLayout()
+        CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'RibbonControl
@@ -393,6 +400,12 @@ Partial Class XFrmMenuPrincipal
         Me.BtnREstadistico.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem8)})
         Me.BtnREstadistico.Name = "BtnREstadistico"
         '
+        'BarButtonItem8
+        '
+        Me.BarButtonItem8.Caption = "Reporte Estadistico de Firmas Inconsistentes"
+        Me.BarButtonItem8.Id = 47
+        Me.BarButtonItem8.Name = "BarButtonItem8"
+        '
         'btnConsultarCandidatos
         '
         Me.btnConsultarCandidatos.Caption = "Consultar Candidatos"
@@ -572,17 +585,57 @@ Partial Class XFrmMenuPrincipal
         Me.BarButtonItem1.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.exportar
         Me.BarButtonItem1.Name = "BarButtonItem1"
         '
-        'BarButtonItem8
+        'PanelControl1
         '
-        Me.BarButtonItem8.Caption = "Reporte Estadistico de Firmas Inconsistentes"
-        Me.BarButtonItem8.Id = 47
-        Me.BarButtonItem8.Name = "BarButtonItem8"
+        Me.PanelControl1.Controls.Add(Me.PictureEdit2)
+        Me.PanelControl1.Controls.Add(Me.PictureEdit1)
+        Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanelControl1.Location = New System.Drawing.Point(0, 145)
+        Me.PanelControl1.Name = "PanelControl1"
+        Me.PanelControl1.Size = New System.Drawing.Size(815, 56)
+        Me.PanelControl1.TabIndex = 3
+        '
+        'PictureEdit2
+        '
+        Me.PictureEdit2.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.PictureEdit2.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.logoeleccionesp
+        Me.PictureEdit2.Location = New System.Drawing.Point(673, -6)
+        Me.PictureEdit2.MenuManager = Me.RibbonControl
+        Me.PictureEdit2.Name = "PictureEdit2"
+        Me.PictureEdit2.Properties.AllowFocused = False
+        Me.PictureEdit2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.PictureEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.PictureEdit2.Properties.Appearance.Options.UseBackColor = True
+        Me.PictureEdit2.Properties.Appearance.Options.UseForeColor = True
+        Me.PictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PictureEdit2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
+        Me.PictureEdit2.Size = New System.Drawing.Size(130, 58)
+        Me.PictureEdit2.TabIndex = 1
+        '
+        'PictureEdit1
+        '
+        Me.PictureEdit1.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.PictureEdit1.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.tselogop
+        Me.PictureEdit1.Location = New System.Drawing.Point(12, 0)
+        Me.PictureEdit1.MenuManager = Me.RibbonControl
+        Me.PictureEdit1.Name = "PictureEdit1"
+        Me.PictureEdit1.Properties.AllowFocused = False
+        Me.PictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.PictureEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.PictureEdit1.Properties.Appearance.Options.UseBackColor = True
+        Me.PictureEdit1.Properties.Appearance.Options.UseForeColor = True
+        Me.PictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PictureEdit1.Properties.ShowMenu = False
+        Me.PictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
+        Me.PictureEdit1.Size = New System.Drawing.Size(82, 52)
+        Me.PictureEdit1.TabIndex = 0
         '
         'XFrmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(815, 524)
+        Me.Controls.Add(Me.PanelControl1)
         Me.Controls.Add(Me.RibbonStatusBar)
         Me.Controls.Add(Me.RibbonControl)
         Me.IsMdiContainer = True
@@ -596,6 +649,10 @@ Partial Class XFrmMenuPrincipal
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ApplicationMenu2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl1.ResumeLayout(False)
+        CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -667,6 +724,9 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents TxtUser As DevExpress.XtraBars.BarStaticItem
     Friend WithEvents btnConsultarPlanilla As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem8 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents PictureEdit1 As DevExpress.XtraEditors.PictureEdit
+    Friend WithEvents PictureEdit2 As DevExpress.XtraEditors.PictureEdit
 
 
 End Class
