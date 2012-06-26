@@ -22,22 +22,22 @@ Partial Class xfrmSeleccionarPartidoMovimiento
         Me.components = New System.ComponentModel.Container
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl
         Me.CmbPartido = New DevExpress.XtraEditors.LookUpEdit
+        Me.IMPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DSInsCandidatos = New Inscripcion_de_Moviemientos.DSInsCandidatos
         Me.Label4 = New System.Windows.Forms.Label
         Me.Label5 = New System.Windows.Forms.Label
         Me.CmbMovimiento = New DevExpress.XtraEditors.LookUpEdit
+        Me.IMMOVIMIENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BtnCrear = New DevExpress.XtraEditors.SimpleButton
         Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
-        Me.IMPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DSInsCandidatos = New Inscripcion_de_Moviemientos.DSInsCandidatos
-        Me.IMMOVIMIENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DSInsCandidatosTableAdapters.IM_PARTIDOS_POLITICOSTableAdapter
         Me.IM_MOVIMIENTOSTableAdapter = New Inscripcion_de_Moviemientos.DSInsCandidatosTableAdapters.IM_MOVIMIENTOSTableAdapter
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
         CType(Me.CmbPartido.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CmbMovimiento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSInsCandidatos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CmbMovimiento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMMOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -65,6 +65,16 @@ Partial Class xfrmSeleccionarPartidoMovimiento
         Me.CmbPartido.Properties.ValueMember = "CODIGO_PARTIDO"
         Me.CmbPartido.Size = New System.Drawing.Size(135, 20)
         Me.CmbPartido.TabIndex = 20
+        '
+        'IMPARTIDOSPOLITICOSBindingSource
+        '
+        Me.IMPARTIDOSPOLITICOSBindingSource.DataMember = "IM_PARTIDOS_POLITICOS"
+        Me.IMPARTIDOSPOLITICOSBindingSource.DataSource = Me.DSInsCandidatos
+        '
+        'DSInsCandidatos
+        '
+        Me.DSInsCandidatos.DataSetName = "DSInsCandidatos"
+        Me.DSInsCandidatos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label4
         '
@@ -97,6 +107,11 @@ Partial Class xfrmSeleccionarPartidoMovimiento
         Me.CmbMovimiento.Size = New System.Drawing.Size(144, 20)
         Me.CmbMovimiento.TabIndex = 4
         '
+        'IMMOVIMIENTOSBindingSource
+        '
+        Me.IMMOVIMIENTOSBindingSource.DataMember = "IM_MOVIMIENTOS"
+        Me.IMMOVIMIENTOSBindingSource.DataSource = Me.DSInsCandidatos
+        '
         'BtnCrear
         '
         Me.BtnCrear.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
@@ -120,21 +135,6 @@ Partial Class xfrmSeleccionarPartidoMovimiento
         Me.BtnSalir.Size = New System.Drawing.Size(55, 55)
         Me.BtnSalir.TabIndex = 28
         Me.BtnSalir.Text = "Salir"
-        '
-        'IMPARTIDOSPOLITICOSBindingSource
-        '
-        Me.IMPARTIDOSPOLITICOSBindingSource.DataMember = "IM_PARTIDOS_POLITICOS"
-        Me.IMPARTIDOSPOLITICOSBindingSource.DataSource = Me.DSInsCandidatos
-        '
-        'DSInsCandidatos
-        '
-        Me.DSInsCandidatos.DataSetName = "DSInsCandidatos"
-        Me.DSInsCandidatos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'IMMOVIMIENTOSBindingSource
-        '
-        Me.IMMOVIMIENTOSBindingSource.DataMember = "IM_MOVIMIENTOS"
-        Me.IMMOVIMIENTOSBindingSource.DataSource = Me.DSInsCandidatos
         '
         'IM_PARTIDOS_POLITICOSTableAdapter
         '
@@ -160,9 +160,9 @@ Partial Class xfrmSeleccionarPartidoMovimiento
         Me.GroupControl1.ResumeLayout(False)
         Me.GroupControl1.PerformLayout()
         CType(Me.CmbPartido.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CmbMovimiento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DSInsCandidatos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CmbMovimiento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMMOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
