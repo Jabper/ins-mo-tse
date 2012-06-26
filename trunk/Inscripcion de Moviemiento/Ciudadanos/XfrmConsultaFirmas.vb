@@ -565,6 +565,7 @@ Public Class XfrmConsultaFirmas
                 COracle.ejecutarconsulta(consulta)
                 view.DeleteRow(view.FocusedRowHandle)
                 estadistico(Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
+                Me.img.Image = Nothing
             Catch ex As Exception
                 Mensajes.mimensaje("No se pudo eliminar el registro seleccionado")
             End Try
