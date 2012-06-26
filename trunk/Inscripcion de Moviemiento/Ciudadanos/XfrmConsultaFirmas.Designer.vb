@@ -36,6 +36,7 @@ Partial Class XfrmConsultaFirmas
         Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl
+        Me.LabelControl15 = New DevExpress.XtraEditors.LabelControl
         Me.SimpleButton5 = New DevExpress.XtraEditors.SimpleButton
         Me.SimpleButton4 = New DevExpress.XtraEditors.SimpleButton
         Me.img = New DevExpress.XtraEditors.PictureEdit
@@ -123,7 +124,6 @@ Partial Class XfrmConsultaFirmas
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.MOSTRAR_FIRMASTableAdapter = New Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.MOSTRAR_FIRMASTableAdapter
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
-        Me.LabelControl15 = New DevExpress.XtraEditors.LabelControl
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -393,6 +393,14 @@ Partial Class XfrmConsultaFirmas
         Me.PanelControl3.Name = "PanelControl3"
         Me.PanelControl3.Size = New System.Drawing.Size(759, 219)
         Me.PanelControl3.TabIndex = 17
+        '
+        'LabelControl15
+        '
+        Me.LabelControl15.Location = New System.Drawing.Point(572, 28)
+        Me.LabelControl15.Name = "LabelControl15"
+        Me.LabelControl15.Size = New System.Drawing.Size(97, 13)
+        Me.LabelControl15.TabIndex = 56
+        Me.LabelControl15.Text = "Imágen de la Página"
         '
         'SimpleButton5
         '
@@ -884,6 +892,7 @@ Partial Class XfrmConsultaFirmas
         '
         'RepositoryItemMemoEdit2
         '
+        Me.RepositoryItemMemoEdit2.MaxLength = 500
         Me.RepositoryItemMemoEdit2.Name = "RepositoryItemMemoEdit2"
         '
         'colMAQUINA
@@ -1114,14 +1123,6 @@ Partial Class XfrmConsultaFirmas
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'LabelControl15
-        '
-        Me.LabelControl15.Location = New System.Drawing.Point(572, 28)
-        Me.LabelControl15.Name = "LabelControl15"
-        Me.LabelControl15.Size = New System.Drawing.Size(97, 13)
-        Me.LabelControl15.TabIndex = 56
-        Me.LabelControl15.Text = "Imágen de la Página"
         '
         'XfrmConsultaFirmas
         '
