@@ -112,7 +112,7 @@ Partial Class XfrmConPlanilla
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 82)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1034, 115)
+        Me.GroupBox1.Size = New System.Drawing.Size(872, 114)
         Me.GroupBox1.TabIndex = 20
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filtros"
@@ -315,11 +315,12 @@ Partial Class XfrmConPlanilla
         'GCBusqueda
         '
         Me.GCBusqueda.DataSource = Me.IMVPLANILLAREQUISITOBindingSource1
-        Me.GCBusqueda.Location = New System.Drawing.Point(12, 203)
+        Me.GCBusqueda.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.GCBusqueda.Location = New System.Drawing.Point(0, 202)
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
         Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit, Me.RepositoryItemPictureEdit, Me.RepositoryItemCheckEdit1})
-        Me.GCBusqueda.Size = New System.Drawing.Size(1034, 460)
+        Me.GCBusqueda.Size = New System.Drawing.Size(1058, 473)
         Me.GCBusqueda.TabIndex = 21
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
