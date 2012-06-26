@@ -853,8 +853,8 @@ Namespace DS_ESTADISTICO_GENERAL_FIRMASTableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT INCONSISTENTE,CONSISTENTE,VALOR,""INCONSISTENTE%"",""CONSISTENTE%"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM IM_V"& _ 
-                "_ESTADISTICO_GENERAL_F"
+            Me._commandCollection(0).CommandText = "SELECT        INCONSISTENTE, CONSISTENTE, VALOR, ""INCONSISTENTE%"", ""CONSISTENTE%"""& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_ESTADISTICO_GENERAL_F"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
