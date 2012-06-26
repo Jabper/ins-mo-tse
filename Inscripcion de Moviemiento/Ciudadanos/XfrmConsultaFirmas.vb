@@ -60,6 +60,16 @@ Public Class XfrmConsultaFirmas
 
     End Sub
 
+    Private Sub GridView1_FocusedRowChanged(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles GridView1.FocusedRowChanged
+        Dim view As GridView = GridView1
+        Dim sq As String = "SELECT IMAGEN FROM IM_IMAGENES_FIRMAS where  CODIGO_PARTIDO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO") & " and CODIGO_MOVIMIENTO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO") & " and PAGINA=" & view.GetRowCellValue(view.FocusedRowHandle, "PAGINA")
+        If COracle.ObtenerImagen(sq, "IMAGEN") Is Nothing Then
+            Me.img.Image = Nothing
+        Else
+            Me.img.Image = COracle.ObtenerImagen(sq, "IMAGEN")
+        End If
+    End Sub
+
     Private Sub GridView1_InvalidValueException(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs) Handles GridView1.InvalidValueException
         e.ExceptionMode = ExceptionMode.DisplayError
         e.WindowCaption = "error"
@@ -338,7 +348,7 @@ Public Class XfrmConsultaFirmas
 
     End Sub
 
-    Private Sub GridView1_RowClick(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Grid.RowClickEventArgs) Handles GridView1.RowClick
+    Private Sub GridView1_RowCellClick(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs) Handles GridView1.RowCellClick
         Dim view As GridView = GridView1
         Dim sq As String = "SELECT IMAGEN FROM IM_IMAGENES_FIRMAS where  CODIGO_PARTIDO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO") & " and CODIGO_MOVIMIENTO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO") & " and PAGINA=" & view.GetRowCellValue(view.FocusedRowHandle, "PAGINA")
         If COracle.ObtenerImagen(sq, "IMAGEN") Is Nothing Then
@@ -346,6 +356,21 @@ Public Class XfrmConsultaFirmas
         Else
             Me.img.Image = COracle.ObtenerImagen(sq, "IMAGEN")
         End If
+    End Sub
+
+    Private Sub GridView1_RowClick(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Grid.RowClickEventArgs) Handles GridView1.RowClick
+        Try
+            Dim view As GridView = GridView1
+            Dim sq As String = "SELECT IMAGEN FROM IM_IMAGENES_FIRMAS where  CODIGO_PARTIDO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO") & " and CODIGO_MOVIMIENTO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO") & " and PAGINA=" & view.GetRowCellValue(view.FocusedRowHandle, "PAGINA")
+            If COracle.ObtenerImagen(sq, "IMAGEN") Is Nothing Then
+                Me.img.Image = Nothing
+            Else
+                Me.img.Image = COracle.ObtenerImagen(sq, "IMAGEN")
+            End If
+        Catch ex As Exception
+
+        End Try
+      
 
     End Sub
 
@@ -672,6 +697,10 @@ Public Class XfrmConsultaFirmas
             Mensajes.mimensaje(ex.Message)
         End Try
 
+
+    End Sub
+
+    Private Sub GCBusqueda_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GCBusqueda.Click
 
     End Sub
 End Class
