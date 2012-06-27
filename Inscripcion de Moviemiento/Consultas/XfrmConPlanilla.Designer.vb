@@ -44,7 +44,6 @@ Partial Class XfrmConPlanilla
         Me.colSEGUNDO_NOMBRE = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colPRIMER_APELLIDO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colSEGUNDO_APELLIDO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colCODIGO_CARGO_ELECTIVO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colREC1 = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RepositoryItemCheckEdit = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
         Me.colREC2 = New DevExpress.XtraGrid.Columns.GridColumn
@@ -60,6 +59,7 @@ Partial Class XfrmConPlanilla
         Me.colCODIGO_PARTIDO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCODIGO_MOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCODIGO_NIVEL_ELECTIVO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCODIGO_CARGO_ELECTIVO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCODIGO_DEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCODIGO_MUNICIPIO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCODIGO_CANDIDATOS = New DevExpress.XtraGrid.Columns.GridColumn
@@ -73,6 +73,7 @@ Partial Class XfrmConPlanilla
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.cbxCargo = New System.Windows.Forms.ComboBox
+        Me.IMFK1CARGOSELECTIVOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label8 = New System.Windows.Forms.Label
         Me.cbxNivel = New System.Windows.Forms.ComboBox
         Me.Label4 = New System.Windows.Forms.Label
@@ -83,7 +84,6 @@ Partial Class XfrmConPlanilla
         Me.Label7 = New System.Windows.Forms.Label
         Me.Label6 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
-        Me.IMFK1CARGOSELECTIVOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CargosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.CargosTableAdapter
         CType(Me.NivelesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -329,11 +329,6 @@ Partial Class XfrmConPlanilla
         Me.colSEGUNDO_APELLIDO.Visible = True
         Me.colSEGUNDO_APELLIDO.VisibleIndex = 7
         '
-        'colCODIGO_CARGO_ELECTIVO
-        '
-        Me.colCODIGO_CARGO_ELECTIVO.FieldName = "CODIGO_CARGO_ELECTIVO"
-        Me.colCODIGO_CARGO_ELECTIVO.Name = "colCODIGO_CARGO_ELECTIVO"
-        '
         'colREC1
         '
         Me.colREC1.AppearanceHeader.Options.UseTextOptions = True
@@ -534,6 +529,11 @@ Partial Class XfrmConPlanilla
         Me.colCODIGO_NIVEL_ELECTIVO.FieldName = "CODIGO_NIVEL_ELECTIVO"
         Me.colCODIGO_NIVEL_ELECTIVO.Name = "colCODIGO_NIVEL_ELECTIVO"
         '
+        'colCODIGO_CARGO_ELECTIVO
+        '
+        Me.colCODIGO_CARGO_ELECTIVO.FieldName = "CODIGO_CARGO_ELECTIVO"
+        Me.colCODIGO_CARGO_ELECTIVO.Name = "colCODIGO_CARGO_ELECTIVO"
+        '
         'colCODIGO_DEPARTAMENTO
         '
         Me.colCODIGO_DEPARTAMENTO.FieldName = "CODIGO_DEPARTAMENTO"
@@ -659,6 +659,11 @@ Partial Class XfrmConPlanilla
         Me.cbxCargo.TabIndex = 35
         Me.cbxCargo.ValueMember = "CODIGO_CARGO_ELECTIVO"
         '
+        'IMFK1CARGOSELECTIVOSBindingSource
+        '
+        Me.IMFK1CARGOSELECTIVOSBindingSource.DataMember = "IM_FK1_CARGOS_ELECTIVOS"
+        Me.IMFK1CARGOSELECTIVOSBindingSource.DataSource = Me.NivelesBindingSource
+        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -758,11 +763,6 @@ Partial Class XfrmConPlanilla
         Me.Label2.Size = New System.Drawing.Size(76, 13)
         Me.Label2.TabIndex = 16
         Me.Label2.Text = "Departamento"
-        '
-        'IMFK1CARGOSELECTIVOSBindingSource
-        '
-        Me.IMFK1CARGOSELECTIVOSBindingSource.DataMember = "IM_FK1_CARGOS_ELECTIVOS"
-        Me.IMFK1CARGOSELECTIVOSBindingSource.DataSource = Me.NivelesBindingSource
         '
         'CargosTableAdapter
         '
