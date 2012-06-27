@@ -50,6 +50,19 @@ Public Class XfrmConPlanilla
         Me.IM_V_PLANILLA_REQUISITOTableAdapter.FillBy(Me.DSConsultas.IM_V_PLANILLA_REQUISITO, Me.cbxPartido.SelectedValue, _
                                                           Me.cbxMovimiento.SelectedValue, Me.cbxNivel.SelectedValue, _
                                                           Me.cbxCargo.SelectedValue)
+
+        Dim filtro As String = String.Empty
+
+        If Me.cbxDepartamento.Text <> "TODOS" AndAlso Me.cbxDepartamento.Text <> String.Empty Then
+            filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("CODIGO_DEPARTAMENTO = {0}", Me.cbxDepartamento.SelectedValue)
+        End If
+
+        If Me.cbxMunicipio.Text <> "TODOS" AndAlso Me.cbxMunicipio.Text <> String.Empty Then
+            filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("CODIGO_MUNICIPIO = {0}", Me.cbxMunicipio.SelectedValue)
+        End If
+
+        Me.IMVPLANILLAREQUISITOBindingSource.Filter = filtro
+
     End Sub
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
