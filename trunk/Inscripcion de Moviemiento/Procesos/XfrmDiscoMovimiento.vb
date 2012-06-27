@@ -1,21 +1,8 @@
 ﻿Imports System.Data.OracleClient
 Imports System.IO
 
-Public Class XfrmDiscoPartido
-
-    Private Sub XfrmDiscoPartido_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'Ds_procesos.IM_PARTIDOS_POLITICOS' table. You can move, or remove it, as needed.
-        Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.Ds_procesos.IM_PARTIDOS_POLITICOS)
-
-    End Sub
-
-    Private Sub BtnExplorar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnExplorar.Click
-        FbUbicacion.ShowDialog()
-        TxtRuta.Text = FbUbicacion.SelectedPath
-    End Sub
-
+Public Class XfrmDiscoMovimiento
     Private Sub BtnEjecutar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEjecutar.Click
-        'MsgBox("expdp tse/oracle@TSEDB2 directory=data_pump_dir dumpfile=exp_tse.dmp logfile=exp_movimiento.log schemas=tse include=table:\""like 'IM_%'\"",VIEW,PROCEDURE,TRIGGER,PACKAGE, SEQUENCE,FUNCTION version=10 query=im_partidos_politicos:\""WHERE codigo_partido = (SELECT codigo_partido FROM im_parametros_generales)\"" query=im_usuarios:\""where codigo_usuario = 'TSE'\"" query=im_roles:\""where codigo_rol <> 1\"" query=IM_OPERACIONES_POR_ROL:\""where  1 = 2\"" query=im_log_procesos:\""where 1 =2\"" query=im_candidatos:\""where codigo_candidatos = 0\"" query=im_requisitos_x_candidato:\""where codigo_candidato = 0\"" query=im_ciudadanos_respaldan:\""where 1 > 2\"" query=im_ciudadanos_inhabilitados:\""where 1 = 2\"" query=im_movimientos:\""where 1 = 2\"" query=im_candidatos_repetidos:\""where 1 = 2\"" query=im_imagenes_candidato:\""where 1 = 2 \"" query=im_imagenes_firmas:\""where 1 = 2\""")
         If Not (TxtRuta.Text = Nothing) Then
             If Not (LovPartido.EditValue Is Nothing) Then
                 Dim oradb As String = Configuracion.verconfig
@@ -58,9 +45,7 @@ Public Class XfrmDiscoPartido
 
 
                     If File.Exists("C:\oraclexe\app\oracle\admin\XE\dpdump\exp_tse.dmp") Then
-                        System.IO.File.Copy("C:\oraclexe\app\oracle\admin\XE\dpdump\exp_tse.dmp", TxtRuta.Text & "\CSIM\Componentes\exp_tse.dmp", True)
-                        ' Else
-                        'My.Computer.FileSystem.DeleteFile("C:\oraclexe\app\oracle\admin\XE\dpdump\exp_tse.dmp")                        
+                        System.IO.File.Copy("C:\oraclexe\app\oracle\admin\XE\dpdump\exp_tse.dmp", TxtRuta.Text & "\CSIM\Componentes\exp_tse.dmp", True)                                           
                     End If
 
                     Dim oradb1 As String = Configuracion.verconfig
@@ -92,6 +77,11 @@ Public Class XfrmDiscoPartido
         End If
     End Sub
 
+    Private Sub BtnExplorar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnExplorar.Click
+        FbUbicacion.ShowDialog()
+        TxtRuta.Text = FbUbicacion.SelectedPath
+    End Sub
+
     Function comprobararchivos() As Boolean
         Dim poracle As String = TxtRuta.Text & "\CSIM\Componentes\OracleXEUniv.exe"
         Dim psetup As String = TxtRuta.Text & "\CSIM\Componentes\setup.exe"
@@ -110,6 +100,16 @@ Public Class XfrmDiscoPartido
             Return False
         End If
     End Function
+
+    Private Sub XfrmDiscoMovimiento_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'Ds_procesos.IM_PARTIDOS_POLITICOS' table. You can move, or remove it, as needed.
+        Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.Ds_procesos.IM_PARTIDOS_POLITICOS)
+
+    End Sub
+
+    Private Sub LovPartido_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles LovPartido.TextChanged
+        Me.IM_MOVIMIENTOSTableAdapter.Fill(Me.Ds_procesos.IM_MOVIMIENTOS, LovPartido.EditValue)
+    End Sub
 
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
         Me.Close()

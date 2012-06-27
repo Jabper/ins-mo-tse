@@ -64,6 +64,7 @@ Partial Class XFrmMenuPrincipal
         Me.BtnResumenFir = New DevExpress.XtraBars.BarButtonItem
         Me.BtnREstadistico = New DevExpress.XtraBars.BarSubItem
         Me.BtnEstadisticoFI = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnEstadisticopar = New DevExpress.XtraBars.BarButtonItem
         Me.btnConsultarCandidatos = New DevExpress.XtraBars.BarButtonItem
         Me.btnJerarquico = New DevExpress.XtraBars.BarButtonItem
         Me.TxtUser = New DevExpress.XtraBars.BarStaticItem
@@ -100,7 +101,6 @@ Partial Class XFrmMenuPrincipal
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.BarSubItem1 = New DevExpress.XtraBars.BarSubItem
         Me.RibbonPageGroup10 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
-        Me.BtnEstadisticopar = New DevExpress.XtraBars.BarButtonItem
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -422,6 +422,12 @@ Partial Class XFrmMenuPrincipal
         Me.BtnEstadisticoFI.Id = 47
         Me.BtnEstadisticoFI.Name = "BtnEstadisticoFI"
         '
+        'BtnEstadisticopar
+        '
+        Me.BtnEstadisticopar.Caption = "Reporte Estadistico General de Participación Efectiva de la Mujer"
+        Me.BtnEstadisticopar.Id = 56
+        Me.BtnEstadisticopar.Name = "BtnEstadisticopar"
+        '
         'btnConsultarCandidatos
         '
         Me.btnConsultarCandidatos.Caption = "Consultar Candidatos"
@@ -696,12 +702,6 @@ Partial Class XFrmMenuPrincipal
         'RibbonPageGroup10
         '
         Me.RibbonPageGroup10.Name = "RibbonPageGroup10"
-        '
-        'BtnEstadisticopar
-        '
-        Me.BtnEstadisticopar.Caption = "Reporte Estadistico General de Participación Efectiva de la Mujer"
-        Me.BtnEstadisticopar.Id = 56
-        Me.BtnEstadisticopar.Name = "BtnEstadisticopar"
         '
         'XFrmMenuPrincipal
         '

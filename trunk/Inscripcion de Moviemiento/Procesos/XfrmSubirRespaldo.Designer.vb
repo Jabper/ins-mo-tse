@@ -20,12 +20,12 @@ Partial Class XfrmSubirRespaldo
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel
+        Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.Label1 = New System.Windows.Forms.Label
         Me.BtnEjecutar = New DevExpress.XtraEditors.SimpleButton
         Me.BtnExplorar = New DevExpress.XtraEditors.SimpleButton
         Me.TxtRuta = New DevExpress.XtraEditors.TextEdit
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
-        Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.Panel1.SuspendLayout()
         CType(Me.TxtRuta.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -42,6 +42,18 @@ Partial Class XfrmSubirRespaldo
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(336, 207)
         Me.Panel1.TabIndex = 12
+        '
+        'BtnSalir
+        '
+        Me.BtnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnSalir.Appearance.Options.UseFont = True
+        Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
+        Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnSalir.Location = New System.Drawing.Point(15, 10)
+        Me.BtnSalir.Name = "BtnSalir"
+        Me.BtnSalir.Size = New System.Drawing.Size(55, 55)
+        Me.BtnSalir.TabIndex = 19
+        Me.BtnSalir.Text = "Salir"
         '
         'Label1
         '
@@ -80,18 +92,6 @@ Partial Class XfrmSubirRespaldo
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'BtnSalir
-        '
-        Me.BtnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnSalir.Appearance.Options.UseFont = True
-        Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
-        Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnSalir.Location = New System.Drawing.Point(15, 10)
-        Me.BtnSalir.Name = "BtnSalir"
-        Me.BtnSalir.Size = New System.Drawing.Size(55, 55)
-        Me.BtnSalir.TabIndex = 19
-        Me.BtnSalir.Text = "Salir"
-        '
         'XfrmSubirRespaldo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -99,7 +99,7 @@ Partial Class XfrmSubirRespaldo
         Me.ClientSize = New System.Drawing.Size(357, 231)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "XfrmSubirRespaldo"
-        Me.Text = "XfrmSubirRespaldo"
+        Me.Text = "Subir Respaldo"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.TxtRuta.Properties, System.ComponentModel.ISupportInitialize).EndInit()
