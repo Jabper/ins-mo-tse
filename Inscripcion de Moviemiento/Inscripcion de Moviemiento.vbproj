@@ -1344,11 +1344,13 @@
     <None Include="Resources\log.png" />
     <None Include="Resources\instalador.png" />
     <None Include="Resources\instalador1.png" />
+    <Content Include="Resources\logprocess1.png" />
     <Content Include="Resources\motivo.png" />
     <None Include="Resources\tse_logo.gif" />
     <None Include="Resources\TSE LOGO.png" />
     <None Include="Resources\tselogo.png" />
     <None Include="Resources\tselogop.png" />
+    <Content Include="Resources\tselogop1.png" />
     <Content Include="tse.ico" />
     <None Include="Resources\Restadisticos.png" />
     <None Include="Resources\Reporte.png" />

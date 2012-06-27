@@ -138,9 +138,10 @@ Public Class xfrmRegCandidatos
 
                 If ingreso_hombre = 0 Then
                     Dim SEXO As String = COracle.ObtenerDatos(a, "SEXO")
+                    mensajeerror = "NO PUEDE POSTULAR MAS HOMBRES A ESTA PLANILLA"
                     If SEXO = "1" Then
                         e.Valid = False
-                        view.FocusedColumn.FieldName = "Debe Ingresar Mujeres a Este Cargo de Eleccion Popular"
+                        view.FocusedColumn.FieldName = "IDENTIDAD"
                     End If
                 End If
             End If
@@ -738,6 +739,63 @@ Public Class xfrmRegCandidatos
         Me.DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2.Rows.Clear()
         Val_MUN_DEP()
 
+
+        presidente = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 1 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
+        designados = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 9 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
+        dip_pp = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 2 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
+        dip_ps = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 3 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
+        dip_CN = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 4 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2}", id_partido, id_movimiento, depto), "TOTAL")
+        dip_CNS = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 5 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2}", id_partido, id_movimiento, depto), "TOTAL")
+        alcalde = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 6 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2} AND CODIGO_MUNICIPIO= {3} ", id_partido, id_movimiento, depto, muni), "TOTAL")
+        vice = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 6 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2} AND CODIGO_MUNICIPIO= {3} ", id_partido, id_movimiento, depto, muni), "TOTAL")
+        regidores = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 8 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2} AND CODIGO_MUNICIPIO= {3} ", id_partido, id_movimiento, depto, muni), "TOTAL")
+
+
+        cdesignados = COracle.ObtenerDatos("SELECT CANTIDAD_CARGO  FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO = 9", "CANTIDAD_CARGO")
+        cdip_pp = COracle.ObtenerDatos("SELECT CANTIDAD_CARGO  FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO = 2", "CANTIDAD_CARGO")
+        cdip_ps = COracle.ObtenerDatos("SELECT CANTIDAD_CARGO  FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO = 3", "CANTIDAD_CARGO")
+        cdip_CN = COracle.ObtenerDatos(String.Format("SELECT CANTIDAD_DIPUTADOS FROM IM_DEPARTAMENTOS WHERE   CODIGO_DEPARTAMENTO =  {0}", depto), "CANTIDAD_DIPUTADOS")
+        cdip_CNS = COracle.ObtenerDatos(String.Format("SELECT CANTIDAD_DIPUTADOS FROM IM_DEPARTAMENTOS WHERE   CODIGO_DEPARTAMENTO =  {0}", depto), "CANTIDAD_DIPUTADOS")
+        cregidores = COracle.ObtenerDatos(String.Format("SELECT CANTIDAD_REGIDORES FROM IM_MUNICIPIOS WHERE   CODIGO_DEPARTAMENTO= {0} AND CODIGO_MUNICIPIO= {1} ", depto, muni), "CANTIDAD_REGIDORES")
+
+        lblpresidnete.Text = presidente
+        lbldesignados.Text = String.Format("{0} / {1}", designados, cdesignados)
+        lblparlacen1.Text = String.Format("{0} / {1}", dip_pp, cdip_pp)
+        lblparlacen2.Text = String.Format("{0} / {1}", dip_ps, cdip_ps)
+        lblcnr1.Text = String.Format("{0} / {1}", dip_CN, cdip_CN)
+        lblcnr2.Text = String.Format("{0} / {1}", dip_CNS, cdip_CNS)
+        lblalcalde.Text = alcalde
+        lblvice.Text = vice
+        lblregidores.Text = String.Format("{0} / {1}", regidores, cregidores)
+
+        load = True
+        'TODO: This line of code loads data into the 'DSInsCandidatos.IM_CANDIDATOS' table. You can move, or remove it, as needed.
+        Me.IM_V_MOSTRAR_CANDIDATOS2TableAdapter.FillBY(Me.DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2, id_movimiento, id_partido, muni, depto, Me.cboCargo.EditValue)
+
+        If Me.cboCargo.EditValue = 1 Then
+            permitir_up = 1
+            AgregarFilasGrid(CInt(1 - presidente))
+        ElseIf Me.cboCargo.EditValue = 6 Then
+            permitir_up = 1
+            AgregarFilasGrid(CInt(1 - alcalde))
+        ElseIf Me.cboCargo.EditValue = 7 Then
+            permitir_up = 1
+            AgregarFilasGrid(CInt(1 - vice))
+        ElseIf Me.cboCargo.EditValue = 2 Then
+            AgregarFilasGrid(CInt(cdip_pp) - CInt(dip_pp))
+        ElseIf Me.cboCargo.EditValue = 3 Then
+            AgregarFilasGrid(CInt(cdip_ps) - CInt(dip_ps))
+        ElseIf Me.cboCargo.EditValue = 4 Then
+            AgregarFilasGrid(CInt(cdip_CN) - CInt(dip_CN))
+        ElseIf Me.cboCargo.EditValue = 5 Then
+            AgregarFilasGrid(CInt(cdip_CNS) - CInt(dip_CNS))
+        ElseIf Me.cboCargo.EditValue = 8 Then
+            AgregarFilasGrid(CInt(cregidores) - CInt(regidores))
+        ElseIf Me.cboCargo.EditValue = 9 Then
+            AgregarFilasGrid(CInt(cdesignados) - CInt(designados))
+
+        End If
+
         'VAlIDACIONES PARTICIPACION FEMENINA 
         If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 9 Then
             mujeres_ingresadas = COracle.ObtenerDatos(String.Format("SELECT NVL(COUNT(*),  0) MUJERES FROM    im_candidatos ic, im_padron_electoral IP WHERE  ic.codigo_cargo_electivo IN (1,9)  AND  IC.CODIGO_PARTIDO = {0} AND IC.CODIGO_MOVIMIENTO = {1} AND  ic.identidad = ip.numero_identidad AND ip.sexo  = 2", id_partido, id_movimiento), "MUJERES")
@@ -829,29 +887,10 @@ Public Class xfrmRegCandidatos
 
         End If
 
-
-        presidente = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 1 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
-        designados = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 9 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
-        dip_pp = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 2 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
-        dip_ps = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 3 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
-        dip_CN = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 4 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2}", id_partido, id_movimiento, depto), "TOTAL")
-        dip_CNS = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 5 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2}", id_partido, id_movimiento, depto), "TOTAL")
-        alcalde = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 6 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2} AND CODIGO_MUNICIPIO= {3} ", id_partido, id_movimiento, depto, muni), "TOTAL")
-        vice = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 6 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2} AND CODIGO_MUNICIPIO= {3} ", id_partido, id_movimiento, depto, muni), "TOTAL")
-        regidores = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 8 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2} AND CODIGO_MUNICIPIO= {3} ", id_partido, id_movimiento, depto, muni), "TOTAL")
-
-
-        cdesignados = COracle.ObtenerDatos("SELECT CANTIDAD_CARGO  FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO = 9", "CANTIDAD_CARGO")
-        cdip_pp = COracle.ObtenerDatos("SELECT CANTIDAD_CARGO  FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO = 2", "CANTIDAD_CARGO")
-        cdip_ps = COracle.ObtenerDatos("SELECT CANTIDAD_CARGO  FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO = 3", "CANTIDAD_CARGO")
-        cdip_CN = COracle.ObtenerDatos(String.Format("SELECT CANTIDAD_DIPUTADOS FROM IM_DEPARTAMENTOS WHERE   CODIGO_DEPARTAMENTO =  {0}", depto), "CANTIDAD_DIPUTADOS")
-        cdip_CNS = COracle.ObtenerDatos(String.Format("SELECT CANTIDAD_DIPUTADOS FROM IM_DEPARTAMENTOS WHERE   CODIGO_DEPARTAMENTO =  {0}", depto), "CANTIDAD_DIPUTADOS")
-        cregidores = COracle.ObtenerDatos(String.Format("SELECT CANTIDAD_REGIDORES FROM IM_MUNICIPIOS WHERE   CODIGO_DEPARTAMENTO= {0} AND CODIGO_MUNICIPIO= {1} ", depto, muni), "CANTIDAD_REGIDORES")
-
         If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 9 Then
 
             Dim total As Double = ((cdesignados + 1) - (designados - presidente)) - (mujeres_necesarias - mujeres_ingresadas)
-            If total >= 1 Then
+            If total > mujeres_necesarias Then
                 ingreso_hombre = 1
             Else
                 ingreso_hombre = 0
@@ -859,7 +898,7 @@ Public Class xfrmRegCandidatos
 
         ElseIf Me.cboCargo.EditValue = 2 Then
             Dim total As Double = (cdip_pp - dip_pp) - (mujeres_necesarias - mujeres_ingresadas)
-            If total >= 1 Then
+            If total > mujeres_necesarias Then
                 ingreso_hombre = 1
             Else
                 ingreso_hombre = 0
@@ -868,7 +907,7 @@ Public Class xfrmRegCandidatos
         ElseIf Me.cboCargo.EditValue = 3 Then
 
             Dim total As Double = (cdip_ps - dip_ps) - (mujeres_necesarias - mujeres_ingresadas)
-            If total >= 1 Then
+            If total > mujeres_necesarias Then
                 ingreso_hombre = 1
             Else
                 ingreso_hombre = 0
@@ -877,14 +916,14 @@ Public Class xfrmRegCandidatos
         ElseIf Me.cboCargo.EditValue = 4 Then
 
             Dim total As Double = (cdip_CN - dip_CN) - (mujeres_necesarias - mujeres_ingresadas)
-            If total >= 1 Then
+            If total > mujeres_necesarias Then
                 ingreso_hombre = 1
             Else
                 ingreso_hombre = 0
             End If
         ElseIf Me.cboCargo.EditValue = 5 Then
             Dim total As Double = (cdip_CNS - dip_CNS) - (mujeres_necesarias - mujeres_ingresadas)
-            If total >= 1 Then
+            If total > mujeres_necesarias Then
                 ingreso_hombre = 1
             Else
                 ingreso_hombre = 0
@@ -892,50 +931,11 @@ Public Class xfrmRegCandidatos
         ElseIf Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7 Or Me.cboCargo.EditValue = 8 Then
 
             Dim total As Double = ((2 + cregidores) - (alcalde + vice + regidores)) - (mujeres_necesarias - mujeres_ingresadas)
-            If total >= 1 Then
+            If total > mujeres_necesarias Then
                 ingreso_hombre = 1
             Else
                 ingreso_hombre = 0
             End If
-        End If
-
-
-        lblpresidnete.Text = presidente
-        lbldesignados.Text = String.Format("{0} / {1}", designados, cdesignados)
-        lblparlacen1.Text = String.Format("{0} / {1}", dip_pp, cdip_pp)
-        lblparlacen2.Text = String.Format("{0} / {1}", dip_ps, cdip_ps)
-        lblcnr1.Text = String.Format("{0} / {1}", dip_CN, cdip_CN)
-        lblcnr2.Text = String.Format("{0} / {1}", dip_CNS, cdip_CNS)
-        lblalcalde.Text = alcalde
-        lblvice.Text = vice
-        lblregidores.Text = String.Format("{0} / {1}", regidores, cregidores)
-
-        load = True
-        'TODO: This line of code loads data into the 'DSInsCandidatos.IM_CANDIDATOS' table. You can move, or remove it, as needed.
-        Me.IM_V_MOSTRAR_CANDIDATOS2TableAdapter.FillBY(Me.DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2, id_movimiento, id_partido, muni, depto, Me.cboCargo.EditValue)
-
-        If Me.cboCargo.EditValue = 1 Then
-            permitir_up = 1
-            AgregarFilasGrid(CInt(1 - presidente))
-        ElseIf Me.cboCargo.EditValue = 6 Then
-            permitir_up = 1
-            AgregarFilasGrid(CInt(1 - alcalde))
-        ElseIf Me.cboCargo.EditValue = 7 Then
-            permitir_up = 1
-            AgregarFilasGrid(CInt(1 - vice))
-        ElseIf Me.cboCargo.EditValue = 2 Then
-            AgregarFilasGrid(CInt(cdip_pp) - CInt(dip_pp))
-        ElseIf Me.cboCargo.EditValue = 3 Then
-            AgregarFilasGrid(CInt(cdip_ps) - CInt(dip_ps))
-        ElseIf Me.cboCargo.EditValue = 4 Then
-            AgregarFilasGrid(CInt(cdip_CN) - CInt(dip_CN))
-        ElseIf Me.cboCargo.EditValue = 5 Then
-            AgregarFilasGrid(CInt(cdip_CNS) - CInt(dip_CNS))
-        ElseIf Me.cboCargo.EditValue = 8 Then
-            AgregarFilasGrid(CInt(cregidores) - CInt(regidores))
-        ElseIf Me.cboCargo.EditValue = 9 Then
-            AgregarFilasGrid(CInt(cdesignados) - CInt(designados))
-
         End If
 
 
@@ -988,12 +988,19 @@ Public Class xfrmRegCandidatos
 
             Dim _row = CType(DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2.Rows(IMVMOSTRARCANDIDATOS2BindingSource.Position), DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2Row)
 
-            If _row.RowState = DataRowState.Added And permitir_up = 0 Then
+            If _row.RowState = DataRowState.Added Then
                 guardar(e.RowHandle)
             ElseIf _row.RowState = DataRowState.Unchanged Or permitir_up = 1 Then
                 Actualizar(e.RowHandle)
 
             End If
+
+            'If _row.RowState = DataRowState.Added And permitir_up = 0 Then
+            '    guardar(e.RowHandle)
+            'ElseIf _row.RowState = DataRowState.Unchanged Or permitir_up = 1 Then
+            '    Actualizar(e.RowHandle)
+
+            'End If
 
             End If
 
