@@ -44,7 +44,7 @@ Partial Class XfrmConPlanilla
         Me.colSEGUNDO_NOMBRE = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colPRIMER_APELLIDO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colSEGUNDO_APELLIDO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colCARGO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCODIGO_CARGO_ELECTIVO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colREC1 = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RepositoryItemCheckEdit = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
         Me.colREC2 = New DevExpress.XtraGrid.Columns.GridColumn
@@ -71,6 +71,8 @@ Partial Class XfrmConPlanilla
         Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
         Me.btnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.Label1 = New System.Windows.Forms.Label
+        Me.cbxCargo = New System.Windows.Forms.ComboBox
         Me.Label8 = New System.Windows.Forms.Label
         Me.cbxNivel = New System.Windows.Forms.ComboBox
         Me.Label4 = New System.Windows.Forms.Label
@@ -81,6 +83,8 @@ Partial Class XfrmConPlanilla
         Me.Label7 = New System.Windows.Forms.Label
         Me.Label6 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
+        Me.IMFK1CARGOSELECTIVOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CargosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.CargosTableAdapter
         CType(Me.NivelesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -97,6 +101,7 @@ Partial Class XfrmConPlanilla
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.IMFK1CARGOSELECTIVOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'NivelesBindingSource
@@ -173,7 +178,7 @@ Partial Class XfrmConPlanilla
         'GridView1
         '
         Me.GridView1.ColumnPanelRowHeight = 50
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colFOTOGRAFIA, Me.colCONSTANCIA, Me.colPOSICION, Me.colIDENTIDAD, Me.colPRIMER_NOMBRE, Me.colSEGUNDO_NOMBRE, Me.colPRIMER_APELLIDO, Me.colSEGUNDO_APELLIDO, Me.colCARGO, Me.colREC1, Me.colREC2, Me.colREC3, Me.colREC4, Me.colREC5, Me.colREC6, Me.colREC7, Me.colREC8, Me.colREC9, Me.colVALIDADO, Me.colCODIGO_PARTIDO, Me.colCODIGO_MOVIMIENTO, Me.colCODIGO_NIVEL_ELECTIVO, Me.colCODIGO_DEPARTAMENTO, Me.colCODIGO_MUNICIPIO, Me.colCODIGO_CANDIDATOS, Me.colESTADO})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colFOTOGRAFIA, Me.colCONSTANCIA, Me.colPOSICION, Me.colIDENTIDAD, Me.colPRIMER_NOMBRE, Me.colSEGUNDO_NOMBRE, Me.colPRIMER_APELLIDO, Me.colSEGUNDO_APELLIDO, Me.colREC1, Me.colREC2, Me.colREC3, Me.colREC4, Me.colREC5, Me.colREC6, Me.colREC7, Me.colREC8, Me.colREC9, Me.colVALIDADO, Me.colCODIGO_PARTIDO, Me.colCODIGO_MOVIMIENTO, Me.colCODIGO_NIVEL_ELECTIVO, Me.colCODIGO_CARGO_ELECTIVO, Me.colCODIGO_DEPARTAMENTO, Me.colCODIGO_MUNICIPIO, Me.colCODIGO_CANDIDATOS, Me.colESTADO})
         Me.GridView1.GridControl = Me.GCBusqueda
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[False]
@@ -324,22 +329,10 @@ Partial Class XfrmConPlanilla
         Me.colSEGUNDO_APELLIDO.Visible = True
         Me.colSEGUNDO_APELLIDO.VisibleIndex = 7
         '
-        'colCARGO
+        'colCODIGO_CARGO_ELECTIVO
         '
-        Me.colCARGO.AppearanceCell.Options.UseTextOptions = True
-        Me.colCARGO.AppearanceCell.TextOptions.Trimming = DevExpress.Utils.Trimming.Word
-        Me.colCARGO.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colCARGO.Caption = "Cargo"
-        Me.colCARGO.FieldName = "CARGO"
-        Me.colCARGO.Name = "colCARGO"
-        Me.colCARGO.OptionsColumn.AllowEdit = False
-        Me.colCARGO.OptionsColumn.AllowFocus = False
-        Me.colCARGO.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
-        Me.colCARGO.OptionsColumn.ReadOnly = True
-        Me.colCARGO.OptionsColumn.TabStop = False
-        Me.colCARGO.Visible = True
-        Me.colCARGO.VisibleIndex = 8
-        Me.colCARGO.Width = 100
+        Me.colCODIGO_CARGO_ELECTIVO.FieldName = "CODIGO_CARGO_ELECTIVO"
+        Me.colCODIGO_CARGO_ELECTIVO.Name = "colCODIGO_CARGO_ELECTIVO"
         '
         'colREC1
         '
@@ -355,7 +348,7 @@ Partial Class XfrmConPlanilla
         Me.colREC1.OptionsColumn.ReadOnly = True
         Me.colREC1.OptionsColumn.TabStop = False
         Me.colREC1.Visible = True
-        Me.colREC1.VisibleIndex = 9
+        Me.colREC1.VisibleIndex = 8
         Me.colREC1.Width = 30
         '
         'RepositoryItemCheckEdit
@@ -385,7 +378,7 @@ Partial Class XfrmConPlanilla
         Me.colREC2.OptionsColumn.ReadOnly = True
         Me.colREC2.OptionsColumn.TabStop = False
         Me.colREC2.Visible = True
-        Me.colREC2.VisibleIndex = 10
+        Me.colREC2.VisibleIndex = 9
         Me.colREC2.Width = 30
         '
         'colREC3
@@ -402,7 +395,7 @@ Partial Class XfrmConPlanilla
         Me.colREC3.OptionsColumn.ReadOnly = True
         Me.colREC3.OptionsColumn.TabStop = False
         Me.colREC3.Visible = True
-        Me.colREC3.VisibleIndex = 11
+        Me.colREC3.VisibleIndex = 10
         Me.colREC3.Width = 30
         '
         'colREC4
@@ -419,7 +412,7 @@ Partial Class XfrmConPlanilla
         Me.colREC4.OptionsColumn.ReadOnly = True
         Me.colREC4.OptionsColumn.TabStop = False
         Me.colREC4.Visible = True
-        Me.colREC4.VisibleIndex = 12
+        Me.colREC4.VisibleIndex = 11
         Me.colREC4.Width = 30
         '
         'colREC5
@@ -436,7 +429,7 @@ Partial Class XfrmConPlanilla
         Me.colREC5.OptionsColumn.ReadOnly = True
         Me.colREC5.OptionsColumn.TabStop = False
         Me.colREC5.Visible = True
-        Me.colREC5.VisibleIndex = 13
+        Me.colREC5.VisibleIndex = 12
         Me.colREC5.Width = 30
         '
         'colREC6
@@ -453,7 +446,7 @@ Partial Class XfrmConPlanilla
         Me.colREC6.OptionsColumn.ReadOnly = True
         Me.colREC6.OptionsColumn.TabStop = False
         Me.colREC6.Visible = True
-        Me.colREC6.VisibleIndex = 14
+        Me.colREC6.VisibleIndex = 13
         Me.colREC6.Width = 30
         '
         'colREC7
@@ -470,7 +463,7 @@ Partial Class XfrmConPlanilla
         Me.colREC7.OptionsColumn.ReadOnly = True
         Me.colREC7.OptionsColumn.TabStop = False
         Me.colREC7.Visible = True
-        Me.colREC7.VisibleIndex = 15
+        Me.colREC7.VisibleIndex = 14
         Me.colREC7.Width = 30
         '
         'colREC8
@@ -487,7 +480,7 @@ Partial Class XfrmConPlanilla
         Me.colREC8.OptionsColumn.ReadOnly = True
         Me.colREC8.OptionsColumn.TabStop = False
         Me.colREC8.Visible = True
-        Me.colREC8.VisibleIndex = 16
+        Me.colREC8.VisibleIndex = 15
         Me.colREC8.Width = 30
         '
         'colREC9
@@ -504,7 +497,7 @@ Partial Class XfrmConPlanilla
         Me.colREC9.OptionsColumn.ReadOnly = True
         Me.colREC9.OptionsColumn.TabStop = False
         Me.colREC9.Visible = True
-        Me.colREC9.VisibleIndex = 17
+        Me.colREC9.VisibleIndex = 16
         Me.colREC9.Width = 30
         '
         'colVALIDADO
@@ -514,7 +507,7 @@ Partial Class XfrmConPlanilla
         Me.colVALIDADO.FieldName = "VALIDADO"
         Me.colVALIDADO.Name = "colVALIDADO"
         Me.colVALIDADO.Visible = True
-        Me.colVALIDADO.VisibleIndex = 18
+        Me.colVALIDADO.VisibleIndex = 17
         Me.colVALIDADO.Width = 58
         '
         'RepositoryItemCheckEdit1
@@ -627,6 +620,8 @@ Partial Class XfrmConPlanilla
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.cbxCargo)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.cbxNivel)
         Me.GroupBox1.Controls.Add(Me.Label4)
@@ -643,6 +638,26 @@ Partial Class XfrmConPlanilla
         Me.GroupBox1.TabIndex = 21
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filtros"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(523, 26)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(36, 13)
+        Me.Label1.TabIndex = 36
+        Me.Label1.Text = "Cargo"
+        '
+        'cbxCargo
+        '
+        Me.cbxCargo.DataSource = Me.IMFK1CARGOSELECTIVOSBindingSource
+        Me.cbxCargo.DisplayMember = "DESCRIPCION"
+        Me.cbxCargo.FormattingEnabled = True
+        Me.cbxCargo.Location = New System.Drawing.Point(565, 23)
+        Me.cbxCargo.Name = "cbxCargo"
+        Me.cbxCargo.Size = New System.Drawing.Size(275, 21)
+        Me.cbxCargo.TabIndex = 35
+        Me.cbxCargo.ValueMember = "CODIGO_CARGO_ELECTIVO"
         '
         'Label8
         '
@@ -744,6 +759,15 @@ Partial Class XfrmConPlanilla
         Me.Label2.TabIndex = 16
         Me.Label2.Text = "Departamento"
         '
+        'IMFK1CARGOSELECTIVOSBindingSource
+        '
+        Me.IMFK1CARGOSELECTIVOSBindingSource.DataMember = "IM_FK1_CARGOS_ELECTIVOS"
+        Me.IMFK1CARGOSELECTIVOSBindingSource.DataSource = Me.NivelesBindingSource
+        '
+        'CargosTableAdapter
+        '
+        Me.CargosTableAdapter.ClearBeforeFill = True
+        '
         'XfrmConPlanilla
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -770,6 +794,7 @@ Partial Class XfrmConPlanilla
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.IMFK1CARGOSELECTIVOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -796,7 +821,7 @@ Partial Class XfrmConPlanilla
     Friend WithEvents colSEGUNDO_NOMBRE As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colPRIMER_APELLIDO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colSEGUNDO_APELLIDO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colCARGO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colCODIGO_CARGO_ELECTIVO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colREC1 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCheckEdit As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents colREC2 As DevExpress.XtraGrid.Columns.GridColumn
@@ -834,4 +859,8 @@ Partial Class XfrmConPlanilla
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents BtnGuardar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents btnSalir As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents cbxCargo As System.Windows.Forms.ComboBox
+    Friend WithEvents IMFK1CARGOSELECTIVOSBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents CargosTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.CargosTableAdapter
 End Class
