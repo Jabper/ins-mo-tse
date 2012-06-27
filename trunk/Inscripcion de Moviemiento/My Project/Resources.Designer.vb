@@ -144,6 +144,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property check_list() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("check_list", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property Consulta() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Consulta", resourceCulture)

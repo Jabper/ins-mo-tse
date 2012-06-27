@@ -1342,6 +1342,7 @@
     <None Include="Resources\importar otros sistemas.png" />
     <None Include="Resources\1340376772_accept.png" />
     <None Include="Resources\bannerLogospartidos.jpg" />
+    <None Include="Resources\check list.png" />
     <Content Include="Resources\Consulta.png" />
     <None Include="Resources\Captura.JPG" />
     <Content Include="Resources\Filtro.png" />
