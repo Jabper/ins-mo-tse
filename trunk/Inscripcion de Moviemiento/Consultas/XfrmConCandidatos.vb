@@ -54,7 +54,7 @@
             filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("CODIGO_CARGO_ELECTIVO = {0}", Me.cbxCargo.SelectedValue)
         End If
 
-        If Me.cbxEstado.SelectedIndex < 1 Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("ESTADO = '{0}'", Me.cbxEstado.Text)
+        If Me.cbxEstado.SelectedIndex > 0 Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("ESTADO = '{0}'", Me.cbxEstado.Text)
 
         Me.IMVCANDIDATOSBindingSource.Filter = filtro
     End Sub
