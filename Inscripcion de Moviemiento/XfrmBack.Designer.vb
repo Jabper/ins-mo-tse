@@ -48,7 +48,7 @@ Partial Class XfrmBack
         '
         'PictureEdit1
         '
-        Me.PictureEdit1.BackgroundImage = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.bannerLogospartidos1
+        Me.PictureEdit1.BackgroundImage = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.bannerLogospartidos
         Me.PictureEdit1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureEdit1.Location = New System.Drawing.Point(2, 2)
         Me.PictureEdit1.Name = "PictureEdit1"

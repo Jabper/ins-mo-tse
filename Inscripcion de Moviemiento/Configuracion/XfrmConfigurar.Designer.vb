@@ -382,7 +382,7 @@ Partial Class XfrmConfigurar
         Me.WizardControl1.Controls.Add(Me.CompletionWizardPage1)
         Me.WizardControl1.Controls.Add(Me.WizardPage2)
         Me.WizardControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.WizardControl1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.banner2
+        Me.WizardControl1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.bannerLogospartidos
         Me.WizardControl1.ImageLayout = System.Windows.Forms.ImageLayout.Tile
         Me.WizardControl1.ImageWidth = 150
         Me.WizardControl1.Location = New System.Drawing.Point(0, 0)
