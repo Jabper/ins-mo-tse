@@ -23,13 +23,13 @@ Partial Class XfrmBack
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
-        Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
+        Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
-        CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -46,22 +46,9 @@ Partial Class XfrmBack
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
-        'LayoutControlGroup1
-        '
-        Me.LayoutControlGroup1.CustomizationFormText = "Root"
-        Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
-        Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Padding = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(736, 510)
-        Me.LayoutControlGroup1.Text = "Root"
-        Me.LayoutControlGroup1.TextVisible = False
-        '
         'PictureEdit1
         '
-        Me.PictureEdit1.BackgroundImage = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.tselogo
+        Me.PictureEdit1.BackgroundImage = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.bannerLogospartidos1
         Me.PictureEdit1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureEdit1.Location = New System.Drawing.Point(2, 2)
         Me.PictureEdit1.Name = "PictureEdit1"
@@ -76,6 +63,19 @@ Partial Class XfrmBack
         Me.PictureEdit1.Size = New System.Drawing.Size(732, 506)
         Me.PictureEdit1.StyleController = Me.LayoutControl1
         Me.PictureEdit1.TabIndex = 4
+        '
+        'LayoutControlGroup1
+        '
+        Me.LayoutControlGroup1.CustomizationFormText = "Root"
+        Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
+        Me.LayoutControlGroup1.GroupBordersVisible = False
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1})
+        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlGroup1.Name = "Root"
+        Me.LayoutControlGroup1.Padding = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(736, 510)
+        Me.LayoutControlGroup1.Text = "Root"
+        Me.LayoutControlGroup1.TextVisible = False
         '
         'LayoutControlItem1
         '
@@ -101,8 +101,8 @@ Partial Class XfrmBack
         Me.Text = "Inicio"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
-        CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

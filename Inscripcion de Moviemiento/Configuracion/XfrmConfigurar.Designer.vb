@@ -20,15 +20,15 @@ Partial Class XfrmConfigurar
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim ConditionValidationRule5 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
-        Dim ConditionValidationRule8 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
-        Dim CompareAgainstControlValidationRule1 As DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule = New DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule
-        Dim ConditionValidationRule9 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
+        Dim ConditionValidationRule7 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Dim ConditionValidationRule1 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
+        Dim CompareAgainstControlValidationRule1 As DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule = New DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule
         Dim ConditionValidationRule2 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Dim ConditionValidationRule3 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Dim ConditionValidationRule4 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
+        Dim ConditionValidationRule5 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Dim ConditionValidationRule6 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
+        Dim ConditionValidationRule8 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Me.CONTRASENATextEdit = New DevExpress.XtraEditors.TextEdit
         Me.IMUSUARIOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DTUsers = New Inscripcion_de_Moviemientos.DTUsers
@@ -54,8 +54,9 @@ Partial Class XfrmConfigurar
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem
         Me.WizardControl1 = New DevExpress.XtraWizard.WizardControl
         Me.WelcomeWizardPage1 = New DevExpress.XtraWizard.WelcomeWizardPage
-        Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.WizardPage1 = New DevExpress.XtraWizard.WizardPage
+        Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl
         Me.lblmovimiento = New DevExpress.XtraEditors.LabelControl
         Me.INSIGNIAPictureEdit = New DevExpress.XtraEditors.PictureEdit
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton
@@ -70,8 +71,6 @@ Partial Class XfrmConfigurar
         Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
         Me.DxValidationProvider2 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
         Me.DxValidationProvider3 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
-        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl
-        Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl
         CType(Me.CONTRASENATextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMUSUARIOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DTUsers, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -99,8 +98,6 @@ Partial Class XfrmConfigurar
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.WizardControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.WizardControl1.SuspendLayout()
-        Me.WelcomeWizardPage1.SuspendLayout()
-        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.WizardPage1.SuspendLayout()
         CType(Me.INSIGNIAPictureEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EMBLEMAPictureEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -123,9 +120,9 @@ Partial Class XfrmConfigurar
         Me.CONTRASENATextEdit.Size = New System.Drawing.Size(229, 20)
         Me.CONTRASENATextEdit.StyleController = Me.DataLayoutControl2
         Me.CONTRASENATextEdit.TabIndex = 8
-        ConditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule5.ErrorText = "Valor Inválido"
-        Me.DxValidationProvider3.SetValidationRule(Me.CONTRASENATextEdit, ConditionValidationRule5)
+        ConditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule7.ErrorText = "Valor Inválido"
+        Me.DxValidationProvider3.SetValidationRule(Me.CONTRASENATextEdit, ConditionValidationRule7)
         '
         'IMUSUARIOSBindingSource
         '
@@ -167,9 +164,9 @@ Partial Class XfrmConfigurar
         Me.txtusuario.Size = New System.Drawing.Size(229, 20)
         Me.txtusuario.StyleController = Me.DataLayoutControl2
         Me.txtusuario.TabIndex = 20
-        ConditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule8.ErrorText = "Valor Inválido"
-        Me.DxValidationProvider3.SetValidationRule(Me.txtusuario, ConditionValidationRule8)
+        ConditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule1.ErrorText = "Valor Inválido"
+        Me.DxValidationProvider3.SetValidationRule(Me.txtusuario, ConditionValidationRule1)
         '
         'txtconfirm
         '
@@ -185,9 +182,9 @@ Partial Class XfrmConfigurar
         CompareAgainstControlValidationRule1.Control = Me.CONTRASENATextEdit
         CompareAgainstControlValidationRule1.ErrorText = "La contraseña no concuerda"
         Me.DxValidationProvider2.SetValidationRule(Me.txtconfirm, CompareAgainstControlValidationRule1)
-        ConditionValidationRule9.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule9.ErrorText = "Valor Inválido"
-        Me.DxValidationProvider3.SetValidationRule(Me.txtconfirm, ConditionValidationRule9)
+        ConditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule2.ErrorText = "Valor Inválido"
+        Me.DxValidationProvider3.SetValidationRule(Me.txtconfirm, ConditionValidationRule2)
         '
         'NOMBRETextEdit
         '
@@ -198,9 +195,9 @@ Partial Class XfrmConfigurar
         Me.NOMBRETextEdit.Size = New System.Drawing.Size(229, 20)
         Me.NOMBRETextEdit.StyleController = Me.DataLayoutControl2
         Me.NOMBRETextEdit.TabIndex = 6
-        ConditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule1.ErrorText = "Valor Inválido"
-        Me.DxValidationProvider3.SetValidationRule(Me.NOMBRETextEdit, ConditionValidationRule1)
+        ConditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule3.ErrorText = "Valor Inválido"
+        Me.DxValidationProvider3.SetValidationRule(Me.NOMBRETextEdit, ConditionValidationRule3)
         '
         'IDENTIDADTextEdit
         '
@@ -211,9 +208,9 @@ Partial Class XfrmConfigurar
         Me.IDENTIDADTextEdit.Size = New System.Drawing.Size(229, 20)
         Me.IDENTIDADTextEdit.StyleController = Me.DataLayoutControl2
         Me.IDENTIDADTextEdit.TabIndex = 7
-        ConditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule2.ErrorText = "Valor Inválido"
-        Me.DxValidationProvider3.SetValidationRule(Me.IDENTIDADTextEdit, ConditionValidationRule2)
+        ConditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule4.ErrorText = "Valor Inválido"
+        Me.DxValidationProvider3.SetValidationRule(Me.IDENTIDADTextEdit, ConditionValidationRule4)
         '
         'RESPUESTA_SEGURIDADTextEdit
         '
@@ -224,9 +221,9 @@ Partial Class XfrmConfigurar
         Me.RESPUESTA_SEGURIDADTextEdit.Size = New System.Drawing.Size(229, 20)
         Me.RESPUESTA_SEGURIDADTextEdit.StyleController = Me.DataLayoutControl2
         Me.RESPUESTA_SEGURIDADTextEdit.TabIndex = 12
-        ConditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule3.ErrorText = "Valor Inválido"
-        Me.DxValidationProvider3.SetValidationRule(Me.RESPUESTA_SEGURIDADTextEdit, ConditionValidationRule3)
+        ConditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule5.ErrorText = "Valor Inválido"
+        Me.DxValidationProvider3.SetValidationRule(Me.RESPUESTA_SEGURIDADTextEdit, ConditionValidationRule5)
         '
         'TextEdit2
         '
@@ -259,9 +256,9 @@ Partial Class XfrmConfigurar
         Me.PREGUNTA_SEGURIDADTextEdit.Size = New System.Drawing.Size(229, 20)
         Me.PREGUNTA_SEGURIDADTextEdit.StyleController = Me.DataLayoutControl2
         Me.PREGUNTA_SEGURIDADTextEdit.TabIndex = 11
-        ConditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule4.ErrorText = "Valor Inválido"
-        Me.DxValidationProvider3.SetValidationRule(Me.PREGUNTA_SEGURIDADTextEdit, ConditionValidationRule4)
+        ConditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule6.ErrorText = "Valor Inválido"
+        Me.DxValidationProvider3.SetValidationRule(Me.PREGUNTA_SEGURIDADTextEdit, ConditionValidationRule6)
         '
         'LayoutControlItem5
         '
@@ -385,6 +382,9 @@ Partial Class XfrmConfigurar
         Me.WizardControl1.Controls.Add(Me.CompletionWizardPage1)
         Me.WizardControl1.Controls.Add(Me.WizardPage2)
         Me.WizardControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.WizardControl1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.banner2
+        Me.WizardControl1.ImageLayout = System.Windows.Forms.ImageLayout.Tile
+        Me.WizardControl1.ImageWidth = 150
         Me.WizardControl1.Location = New System.Drawing.Point(0, 0)
         Me.WizardControl1.Name = "WizardControl1"
         Me.WizardControl1.Pages.AddRange(New DevExpress.XtraWizard.BaseWizardPage() {Me.WelcomeWizardPage1, Me.WizardPage1, Me.WizardPage2, Me.CompletionWizardPage1})
@@ -393,24 +393,12 @@ Partial Class XfrmConfigurar
         '
         'WelcomeWizardPage1
         '
-        Me.WelcomeWizardPage1.Controls.Add(Me.PictureEdit1)
         Me.WelcomeWizardPage1.IntroductionText = "Ingrese la información que a continuación se le presentará para poder finalizar c" & _
             "on la configuración del sistema" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.WelcomeWizardPage1.Name = "WelcomeWizardPage1"
         Me.WelcomeWizardPage1.ProceedText = "Presione Siguiente para continuar"
-        Me.WelcomeWizardPage1.Size = New System.Drawing.Size(388, 295)
-        Me.WelcomeWizardPage1.Text = "Configuracion Final de Acceso al Sistema "
-        '
-        'PictureEdit1
-        '
-        Me.PictureEdit1.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.tselogop
-        Me.PictureEdit1.Location = New System.Drawing.Point(235, 184)
-        Me.PictureEdit1.Name = "PictureEdit1"
-        Me.PictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PictureEdit1.Properties.ShowMenu = False
-        Me.PictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
-        Me.PictureEdit1.Size = New System.Drawing.Size(137, 96)
-        Me.PictureEdit1.TabIndex = 11
+        Me.WelcomeWizardPage1.Size = New System.Drawing.Size(423, 318)
+        Me.WelcomeWizardPage1.Text = "Configuración Final de Acceso al Sistema "
         '
         'WizardPage1
         '
@@ -426,6 +414,26 @@ Partial Class XfrmConfigurar
         Me.WizardPage1.Name = "WizardPage1"
         Me.WizardPage1.Size = New System.Drawing.Size(573, 306)
         Me.WizardPage1.Text = "Inscripción de Movimiento:"
+        '
+        'LabelControl2
+        '
+        Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical
+        Me.LabelControl2.Location = New System.Drawing.Point(302, 35)
+        Me.LabelControl2.Name = "LabelControl2"
+        Me.LabelControl2.Size = New System.Drawing.Size(192, 13)
+        Me.LabelControl2.TabIndex = 18
+        Me.LabelControl2.Text = "Movimiento"
+        '
+        'LabelControl1
+        '
+        Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical
+        Me.LabelControl1.Location = New System.Drawing.Point(35, 35)
+        Me.LabelControl1.Name = "LabelControl1"
+        Me.LabelControl1.Size = New System.Drawing.Size(192, 13)
+        Me.LabelControl1.TabIndex = 17
+        Me.LabelControl1.Text = "Partido"
         '
         'lblmovimiento
         '
@@ -469,9 +477,9 @@ Partial Class XfrmConfigurar
         Me.EMBLEMAPictureEdit.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
         Me.EMBLEMAPictureEdit.Size = New System.Drawing.Size(195, 114)
         Me.EMBLEMAPictureEdit.TabIndex = 8
-        ConditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule6.ErrorText = "Valor Inválido"
-        Me.DxValidationProvider1.SetValidationRule(Me.EMBLEMAPictureEdit, ConditionValidationRule6)
+        ConditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule8.ErrorText = "Valor Inválido"
+        Me.DxValidationProvider1.SetValidationRule(Me.EMBLEMAPictureEdit, ConditionValidationRule8)
         '
         'lblpartido
         '
@@ -491,7 +499,7 @@ Partial Class XfrmConfigurar
         Me.CompletionWizardPage1.FinishText = "Ha completado correctamente la configuración final del sistema"
         Me.CompletionWizardPage1.Name = "CompletionWizardPage1"
         Me.CompletionWizardPage1.ProceedText = "Para Terminar Presione Finalizar"
-        Me.CompletionWizardPage1.Size = New System.Drawing.Size(388, 295)
+        Me.CompletionWizardPage1.Size = New System.Drawing.Size(423, 295)
         Me.CompletionWizardPage1.Text = "Configuración Realizada Satisfactoriamente"
         '
         'WizardPage2
@@ -524,26 +532,6 @@ Partial Class XfrmConfigurar
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         Me.OpenFileDialog1.Filter = "Archivos de Imagen (*.jpg)|*.jpg"
-        '
-        'LabelControl1
-        '
-        Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical
-        Me.LabelControl1.Location = New System.Drawing.Point(35, 35)
-        Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(192, 13)
-        Me.LabelControl1.TabIndex = 17
-        Me.LabelControl1.Text = "Partido"
-        '
-        'LabelControl2
-        '
-        Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical
-        Me.LabelControl2.Location = New System.Drawing.Point(302, 35)
-        Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(192, 13)
-        Me.LabelControl2.TabIndex = 18
-        Me.LabelControl2.Text = "Movimiento"
         '
         'XfrmConfigurar
         '
@@ -583,8 +571,6 @@ Partial Class XfrmConfigurar
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.WizardControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.WizardControl1.ResumeLayout(False)
-        Me.WelcomeWizardPage1.ResumeLayout(False)
-        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.WizardPage1.ResumeLayout(False)
         CType(Me.INSIGNIAPictureEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EMBLEMAPictureEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -636,7 +622,6 @@ Partial Class XfrmConfigurar
     Friend WithEvents DxValidationProvider3 As DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider
     Friend WithEvents txtusuario As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents PictureEdit1 As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents lblmovimiento As DevExpress.XtraEditors.LabelControl
     Friend WithEvents INSIGNIAPictureEdit As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
