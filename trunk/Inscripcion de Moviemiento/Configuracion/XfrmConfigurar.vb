@@ -87,7 +87,7 @@ Public Class XfrmConfigurar
     Private Sub WizardControl1_SelectedPageChanging(ByVal sender As Object, ByVal e As DevExpress.XtraWizard.WizardPageChangingEventArgs) Handles WizardControl1.SelectedPageChanging
         If (e.Page.Name = "WizardPage1") Then
             'MsgBox(Configuracion.verconfig)
-            'If conexion() = True Then
+            If conexion() = True Then
             If ActivarOpciones.PEstado = "MOV" Then
 
 
@@ -112,10 +112,10 @@ Public Class XfrmConfigurar
                 'WizardControl1.SelectedPage = WizardPage2
                 'WizardPage2.Focus()
             End If
-            'Else
-            '    e.Cancel = True
+        Else
+            e.Cancel = True
 
-            'End If
+        End If
         End If
 
 
@@ -151,9 +151,7 @@ Public Class XfrmConfigurar
 
 
 
-                        Dim file As System.IO.FileStream
-                        file = System.IO.File.Create(Application.StartupPath.ToString & "\Cnf.ini")
-
+                        
                     Catch ex As Exception
                         e.Cancel = True
                         Mensajes.mimensaje(ex.Message)
@@ -177,6 +175,8 @@ Public Class XfrmConfigurar
                     If creousuario = False Then
                         If crearusuario() = True Then
                             If asignarroles() = True Then
+                                Dim file As System.IO.FileStream
+                                file = System.IO.File.Create(Application.StartupPath.ToString & "\Cnf.ini")
                             Else
                                 e.Cancel = True
                             End If
@@ -291,6 +291,8 @@ Public Class XfrmConfigurar
             Me.DTUsers.IM_USUARIOS.Rows.Add(Cusuario)
 
             Me.IM_USUARIOSTableAdapter.Update(Me.DTUsers.IM_USUARIOS)
+            
+
             creousuario = True
             Return True
         Catch ex As Exception
