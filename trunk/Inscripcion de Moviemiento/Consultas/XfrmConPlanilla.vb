@@ -17,7 +17,6 @@ Public Class XfrmConPlanilla
         Me.MovimientosTableAdapter.Fill(Me.DSConsultas.Movimientos)
         'TODO: This line of code loads data into the 'DSConsultas.Partidos' table. You can move, or remove it, as needed.
         Me.PartidosTableAdapter.Fill(Me.DSConsultas.Partidos)
-        Me.cbxDepartamento.SelectedValue = 0
         Dim fTodos2 As Integer = Me.cbxPartido.FindStringExact("TODOS")
         If fTodos2 > 0 Then Me.cbxPartido.SelectedIndex = fTodos2
         Dim fTodos3 As Integer = Me.cbxNivel.FindStringExact("NINGUNO")
@@ -95,15 +94,25 @@ Public Class XfrmConPlanilla
             Case 0, 1 'Ninguno, Presidente
                 Me.cbxDepartamento.Enabled = False
                 Me.cbxMunicipio.Enabled = False
+                Me.MunicipiosTableAdapter.Fill(Me.DSConsultas.Municipios)
+                Me.DepartamentosTableAdapter.Fill(Me.DSConsultas.Departamentos)
+                Me.cbxDepartamento.SelectedValue = 0
+                Me.cbxMunicipio.SelectedValue = 0
             Case 2
                 Me.cbxDepartamento.Enabled = True
                 Me.cbxMunicipio.Enabled = False
+                Me.MunicipiosTableAdapter.FillBySinTodos(Me.DSConsultas.Municipios)
+                Me.DepartamentosTableAdapter.Fill(Me.DSConsultas.Departamentos)
+                Me.cbxDepartamento.SelectedValue = 1
+                Me.cbxMunicipio.SelectedValue = 0
             Case 3
                 Me.cbxDepartamento.Enabled = True
                 Me.cbxMunicipio.Enabled = True
+                Me.MunicipiosTableAdapter.FillBySinTodos(Me.DSConsultas.Municipios)
+                Me.DepartamentosTableAdapter.FillBySinTodos(Me.DSConsultas.Departamentos)
+                Me.cbxDepartamento.SelectedValue = 1
+                Me.cbxMunicipio.SelectedValue = 1
         End Select
 
-        Me.cbxDepartamento.SelectedValue = 0
-        Me.cbxMunicipio.SelectedValue = 0
     End Sub
 End Class
