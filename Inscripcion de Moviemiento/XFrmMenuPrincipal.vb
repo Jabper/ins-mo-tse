@@ -338,4 +338,9 @@ Public Class XFrmMenuPrincipal
     Private Sub BtnDiscoMovimiento_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnDiscoMovimiento.ItemClick
         Padre(XfrmDiscoMovimiento)
     End Sub
+
+    Private Sub BtnValidaciones_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnValidaciones.ItemClick
+        Padre(xfrmValidaciones)
+    End Sub
+
 End Class
