@@ -46,8 +46,8 @@ Public Class XFrmMenuPrincipal
     Private Sub XFrmMenuPrincipal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'verificaringreso()
         verificar_permisos()
-        'Me.BtnCerrarSesion.Visibility = BarItemVisibility.Always
-        'Me.BtnSalir.Visibility = BarItemVisibility.Always
+        Me.BtnCerrarSesion.Visibility = BarItemVisibility.Always
+        Me.BtnSalir.Visibility = BarItemVisibility.Always
         'Call conexion()
 
         'For i = 0 To Me.RibbonControl.Pages.Count - 1
@@ -140,8 +140,6 @@ Public Class XFrmMenuPrincipal
     Private Sub BtnNivelesElectivos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnNivelesElectivos.ItemClick
         Padre(XfrmNivelElectivo)
     End Sub
-
-
 
     Private Sub BtnPartidos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnPartidos.ItemClick
         Padre(XfrmPartidos)
