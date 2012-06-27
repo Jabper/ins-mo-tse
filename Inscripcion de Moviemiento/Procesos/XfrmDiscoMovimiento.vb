@@ -12,7 +12,7 @@ Public Class XfrmDiscoMovimiento
                 conn.Open()
                 Try
                     myCMD.Connection = conn
-                    myCMD.CommandText = "Update im_parametros_generales set codigo_partido = " & LovPartido.EditValue
+                    myCMD.CommandText = "Update im_parametros_generales set codigo_partido = " & LovPartido.EditValue & " and codigo_movimiento = " & LovMovimiento.EditValue
                     myCMD.CommandType = CommandType.Text
                     myCMD.ExecuteOracleScalar()
                 Catch ex As Exception
@@ -28,14 +28,14 @@ Public Class XfrmDiscoMovimiento
                     Try
                         Dim startInfo As ProcessStartInfo
                         Dim pStart As New Process
-                        startInfo = New ProcessStartInfo("cmd.exe", "expdp TSE/TSEORACLE2012@XE directory=data_pump_dir dumpfile=exp_tse.dmp logfile=exp_movimiento.log schemas=tse include=table:\""like 'IM_%'\"",VIEW,PROCEDURE,TRIGGER,PACKAGE, SEQUENCE,FUNCTION version=10 query=im_partidos_politicos:\""WHERE codigo_partido = (SELECT codigo_partido FROM im_parametros_generales)\"" query=im_usuarios:\""where codigo_usuario = 'TSE'\"" query=im_roles:\""where codigo_rol <> 1\"" query=IM_OPERACIONES_POR_ROL:\""where  1 = 2\"" query=im_log_procesos:\""where 1 =2\"" query=im_candidatos:\""where codigo_candidatos = 0\"" query=im_requisitos_x_candidato:\""where codigo_candidato = 0\"" query=im_ciudadanos_respaldan:\""where 1 > 2\"" query=im_ciudadanos_inhabilitados:\""where 1 = 2\"" query=im_movimientos:\""where 1 = 2\"" query=im_candidatos_repetidos:\""where 1 = 2\"" query=im_imagenes_candidato:\""where 1 = 2 \"" query=im_imagenes_firmas:\""where 1 = 2\""")
+                        startInfo = New ProcessStartInfo("cmd.exe", "expdp TSE/TSEORACLE2012@XE directory=data_pump_dir dumpfile=exp_tse.dmp logfile=exp_movimiento.log schemas=tse include=table:\""like 'IM_%'\"",VIEW,PROCEDURE,TRIGGER,PACKAGE, SEQUENCE,FUNCTION version=10 query=im_partidos_politicos:\""WHERE codigo_partido = (SELECT codigo_partido FROM im_parametros_generales)\"" query=im_usuarios:\""where codigo_usuario = 'TSE'\"" query=im_roles:\""where codigo_rol in (2,3)\"" query=IM_OPERACIONES_POR_ROL:\""where  codigo_rol in (2,3)\"" query=im_log_procesos:\""where 1 =2\"" query=im_candidatos:\""where codigo_candidatos = 0\"" query=im_requisitos_x_candidato:\""where codigo_candidato = 0\"" query=im_ciudadanos_respaldan:\""where 1 > 2\"" query=im_ciudadanos_inhabilitados:\""where 1 = 2\"" query=im_movimientos:\""where 1 = 2\"" query=im_candidatos_repetidos:\""where 1 = 2\"" query=im_imagenes_candidato:\""where 1 = 2 \"" query=im_imagenes_firmas:\""where 1 = 2\""")
                         pStart.StartInfo = startInfo
                         pStart.Start()
                         pStart.WaitForExit()
                         If pStart.ExitCode = 3 Then
-                            MsgBox("La Exportación ha Terminado Satisfactoriamente", MsgBoxStyle.Information)
+                            'MsgBox("La Exportación ha Terminado Satisfactoriamente", MsgBoxStyle.Information)
                         Else
-                            MsgBox("La Exportación No se ha realizado Correctamente", MsgBoxStyle.Exclamation)
+                            MsgBox("La Generación No se ha realizado Correctamente", MsgBoxStyle.Exclamation)
                         End If
                     Catch ex As Exception
                         conn.Close()
@@ -55,7 +55,7 @@ Public Class XfrmDiscoMovimiento
                     conn1.Open()
                     Try
                         myCMD1.Connection = conn1
-                        myCMD1.CommandText = "Update im_parametros_generales set codigo_partido = null"
+                        myCMD1.CommandText = "Update im_parametros_generales set codigo_partido = null and codigo_movimiento = null"
                         myCMD1.CommandType = CommandType.Text
                         myCMD1.ExecuteOracleScalar()
                     Catch ex As Exception
