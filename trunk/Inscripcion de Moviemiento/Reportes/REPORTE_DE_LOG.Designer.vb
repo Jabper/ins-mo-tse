@@ -61,10 +61,10 @@ Partial Public Class REPORTE_DE_LOG
         'XrLabel9
         '
         Me.XrLabel9.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "DT_TABLE_LOG.DESCRIPCION")})
-        Me.XrLabel9.LocationFloat = New DevExpress.Utils.PointFloat(100.0!, 10.00001!)
+        Me.XrLabel9.LocationFloat = New DevExpress.Utils.PointFloat(100.0!, 9.999974!)
         Me.XrLabel9.Name = "XrLabel9"
         Me.XrLabel9.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel9.SizeF = New System.Drawing.SizeF(456.25!, 23.0!)
+        Me.XrLabel9.SizeF = New System.Drawing.SizeF(941.6666!, 23.0!)
         Me.XrLabel9.Text = "XrLabel9"
         '
         'XrLabel8
