@@ -144,7 +144,7 @@ Public Class XFrmMenuPrincipal
 
 
     Private Sub BtnPartidos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnPartidos.ItemClick
-        'Padre(XfrmPartidos)
+        Padre(XfrmPartidos)
     End Sub
 
     Private Sub BtnMovimeintos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnMovimeintos.ItemClick
@@ -339,5 +339,9 @@ Public Class XFrmMenuPrincipal
     Private Sub BarButtonItem2_ItemClick_1(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnEstadisticopar.ItemClick
         Dim reporte11 As Reporte_estadistico_general_ge = New Reporte_estadistico_general_ge
         reporte11.ShowPreview()
+    End Sub
+
+    Private Sub BtnDiscoMovimiento_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnDiscoMovimiento.ItemClick
+        Padre(XfrmDiscoMovimiento)
     End Sub
 End Class
