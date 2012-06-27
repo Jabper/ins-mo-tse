@@ -123,7 +123,7 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010
         Me.RibbonControl.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.[False]
         Me.RibbonControl.ShowToolbarCustomizeItem = False
-        Me.RibbonControl.Size = New System.Drawing.Size(815, 145)
+        Me.RibbonControl.Size = New System.Drawing.Size(826, 145)
         Me.RibbonControl.StatusBar = Me.RibbonStatusBar
         Me.RibbonControl.Toolbar.ShowCustomizeItem = False
         '
@@ -615,7 +615,7 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonStatusBar.Location = New System.Drawing.Point(0, 492)
         Me.RibbonStatusBar.Name = "RibbonStatusBar"
         Me.RibbonStatusBar.Ribbon = Me.RibbonControl
-        Me.RibbonStatusBar.Size = New System.Drawing.Size(815, 32)
+        Me.RibbonStatusBar.Size = New System.Drawing.Size(826, 32)
         '
         'DefaultLookAndFeel1
         '
@@ -655,14 +655,14 @@ Partial Class XFrmMenuPrincipal
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelControl1.Location = New System.Drawing.Point(0, 145)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(815, 56)
+        Me.PanelControl1.Size = New System.Drawing.Size(826, 56)
         Me.PanelControl1.TabIndex = 3
         '
         'PictureEdit2
         '
         Me.PictureEdit2.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.PictureEdit2.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.logoeleccionesp
-        Me.PictureEdit2.Location = New System.Drawing.Point(673, -6)
+        Me.PictureEdit2.Location = New System.Drawing.Point(684, -6)
         Me.PictureEdit2.MenuManager = Me.RibbonControl
         Me.PictureEdit2.Name = "PictureEdit2"
         Me.PictureEdit2.Properties.AllowFocused = False
@@ -707,7 +707,7 @@ Partial Class XFrmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(815, 524)
+        Me.ClientSize = New System.Drawing.Size(826, 524)
         Me.Controls.Add(Me.PanelControl1)
         Me.Controls.Add(Me.RibbonStatusBar)
         Me.Controls.Add(Me.RibbonControl)
