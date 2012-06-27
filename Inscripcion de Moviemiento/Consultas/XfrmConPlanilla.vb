@@ -49,7 +49,7 @@ Public Class XfrmConPlanilla
     Private Sub btnFiltro_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFiltro.Click
         Me.IM_V_PLANILLA_REQUISITOTableAdapter.FillBy(Me.DSConsultas.IM_V_PLANILLA_REQUISITO, Me.cbxPartido.SelectedValue, _
                                                           Me.cbxMovimiento.SelectedValue, Me.cbxNivel.SelectedValue, _
-                                                          Me.cbxCargo.SelectedValue, Me.cbxDepartamento.SelectedValue, Me.cbxMunicipio.SelectedValue)
+                                                          Me.cbxCargo.SelectedValue)
     End Sub
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
