@@ -325,6 +325,12 @@
     <Compile Include="Procesos\XfrmDiscoPartido.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Procesos\xfrmValidaciones.Designer.vb">
+      <DependentUpon>xfrmValidaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\xfrmValidaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\DS_ESTADISTICO_GENERAL_FIRMAS.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -757,6 +763,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Procesos\XfrmDiscoPartido.resx">
       <DependentUpon>XfrmDiscoPartido.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\xfrmValidaciones.resx">
+      <DependentUpon>xfrmValidaciones.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_DE _PLANILLA_DE_CANDIDATOS.resx">
