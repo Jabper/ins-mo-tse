@@ -32,56 +32,65 @@ Public Class XfrmConFirmas
     End Sub
 
     Private Sub fillGrid()
-
-        Dim Ds As New DataSet()
-        Dim Oraclecon As New OracleConnection(Configuracion.verconfig)
-        Oraclecon.Open()
-
-        Dim myCMD As New OracleCommand() With {.Connection = Oraclecon, .CommandText = "im_k_consultas.im_p_buscar_crespaldan", .CommandType = CommandType.StoredProcedure}
-
-        myCMD.Parameters.Add(New OracleParameter("pvi_partido", OracleType.VarChar, 100, ParameterDirection.Input)).Value = _
-            If(Me.cbxPartido.SelectedValue IsNot Nothing, Me.cbxPartido.SelectedValue.ToString, "0")
-        myCMD.Parameters.Add(New OracleParameter("pvi_movimiento", OracleType.VarChar, 100, ParameterDirection.Input)).Value = _
-            If(Me.cbxMovimiento.SelectedValue IsNot Nothing, Me.cbxMovimiento.SelectedValue.ToString, "0")
-        myCMD.Parameters.Add(New OracleParameter("pvi_departamento", OracleType.VarChar, 100, ParameterDirection.Input)).Value = _
-            If(Me.cbxDepartamento.SelectedValue IsNot Nothing, Me.cbxDepartamento.SelectedValue.ToString, "0")
-        myCMD.Parameters.Add(New OracleParameter("pvi_municipio", OracleType.VarChar, 100, ParameterDirection.Input)).Value = _
-            If(Me.cbxMunicipio.SelectedValue IsNot Nothing, Me.cbxMunicipio.SelectedValue.ToString, "0")
-
-        myCMD.Parameters.Add(New OracleParameter("pvi_nidentidad", OracleType.VarChar, 100, ParameterDirection.Input)).Value = Me.txtIdentidad.Text
-        myCMD.Parameters.Add(New OracleParameter("pvi_pnombre", OracleType.VarChar, 100, ParameterDirection.Input)).Value = Me.txtPNombre.Text
-        myCMD.Parameters.Add(New OracleParameter("pvi_snombre", OracleType.VarChar, 100, ParameterDirection.Input)).Value = Me.txtSNombre.Text
-        myCMD.Parameters.Add(New OracleParameter("pvi_papellido", OracleType.VarChar, 100, ParameterDirection.Input)).Value = Me.txtPApellido.Text
-        myCMD.Parameters.Add(New OracleParameter("pvi_sapellido", OracleType.VarChar, 100, ParameterDirection.Input)).Value = Me.txtSApellido.Text
-        myCMD.Parameters.Add(New OracleParameter("pvi_folio", OracleType.VarChar, 100, ParameterDirection.Input)).Value = Me.txtFolio.Text
-        myCMD.Parameters.Add(New OracleParameter("pvi_pagina", OracleType.VarChar, 100, ParameterDirection.Input)).Value = Me.txtPagina.Text
-
-        myCMD.Parameters.Add(New OracleParameter("pvi_firma", OracleType.VarChar, 100, ParameterDirection.Input)).Value = If(Me.chkFirma.Checked, "S", "N")
-        myCMD.Parameters.Add(New OracleParameter("pvi_huella", OracleType.VarChar, 100, ParameterDirection.Input)).Value = If(Me.chkHuella.Checked, "S", "N")
-        myCMD.Parameters.Add(New OracleParameter("pvi_direccion", OracleType.VarChar, 100, ParameterDirection.Input)).Value = If(Me.chkDireccion.Checked, "S", "N")
-        myCMD.Parameters.Add(New OracleParameter("pvi_igual", OracleType.VarChar, 100, ParameterDirection.Input)).Value = If(Me.chkIgual.Checked, "S", "N")
-
-        myCMD.Parameters.Add(New OracleParameter("pro_resultado", OracleType.Cursor)).Direction = ParameterDirection.Output
-
-        Dim MyDA As New OracleDataAdapter(myCMD)
-
         Try
+
+            Dim Ds As New DataSet()
+            Dim Oraclecon As New OracleConnection(Configuracion.verconfig)
+            Oraclecon.Open()
+
+            Dim myCMD As New OracleCommand() With {.Connection = Oraclecon, .CommandText = "im_k_consultas.im_p_buscar_crespaldan", .CommandType = CommandType.StoredProcedure}
+
+            myCMD.Parameters.Add(New OracleParameter("pvi_partido", OracleType.VarChar, 100, ParameterDirection.Input)).Value = _
+                If(Me.cbxPartido.SelectedValue IsNot Nothing, Me.cbxPartido.SelectedValue.ToString, "0")
+            myCMD.Parameters.Add(New OracleParameter("pvi_movimiento", OracleType.VarChar, 100, ParameterDirection.Input)).Value = _
+                If(Me.cbxMovimiento.SelectedValue IsNot Nothing, Me.cbxMovimiento.SelectedValue.ToString, "0")
+            myCMD.Parameters.Add(New OracleParameter("pvi_departamento", OracleType.VarChar, 100, ParameterDirection.Input)).Value = _
+                If(Me.cbxDepartamento.SelectedValue IsNot Nothing, Me.cbxDepartamento.SelectedValue.ToString, "0")
+            myCMD.Parameters.Add(New OracleParameter("pvi_municipio", OracleType.VarChar, 100, ParameterDirection.Input)).Value = _
+                If(Me.cbxMunicipio.SelectedValue IsNot Nothing, Me.cbxMunicipio.SelectedValue.ToString, "0")
+
+            myCMD.Parameters.Add(New OracleParameter("pvi_nidentidad", OracleType.VarChar, 100, ParameterDirection.Input)).Value = Me.txtIdentidad.Text
+            myCMD.Parameters.Add(New OracleParameter("pvi_pnombre", OracleType.VarChar, 100, ParameterDirection.Input)).Value = Me.txtPNombre.Text
+            myCMD.Parameters.Add(New OracleParameter("pvi_snombre", OracleType.VarChar, 100, ParameterDirection.Input)).Value = Me.txtSNombre.Text
+            myCMD.Parameters.Add(New OracleParameter("pvi_papellido", OracleType.VarChar, 100, ParameterDirection.Input)).Value = Me.txtPApellido.Text
+            myCMD.Parameters.Add(New OracleParameter("pvi_sapellido", OracleType.VarChar, 100, ParameterDirection.Input)).Value = Me.txtSApellido.Text
+            myCMD.Parameters.Add(New OracleParameter("pvi_folio", OracleType.VarChar, 100, ParameterDirection.Input)).Value = Me.txtFolio.Text
+            myCMD.Parameters.Add(New OracleParameter("pvi_pagina", OracleType.VarChar, 100, ParameterDirection.Input)).Value = Me.txtPagina.Text
+
+            myCMD.Parameters.Add(New OracleParameter("pvi_firma", OracleType.VarChar, 100, ParameterDirection.Input)).Value = _
+                If(Me.chkFirma.CheckState = CheckState.Checked, "S", If(Me.chkFirma.CheckState = CheckState.Indeterminate, "-", "N"))
+            myCMD.Parameters.Add(New OracleParameter("pvi_huella", OracleType.VarChar, 100, ParameterDirection.Input)).Value = _
+                If(Me.chkHuella.CheckState = CheckState.Checked, "S", If(Me.chkHuella.CheckState = CheckState.Indeterminate, "-", "N"))
+            myCMD.Parameters.Add(New OracleParameter("pvi_direccion", OracleType.VarChar, 100, ParameterDirection.Input)).Value = _
+                If(Me.chkDireccion.CheckState = CheckState.Checked, "S", If(Me.chkDireccion.CheckState = CheckState.Indeterminate, "-", "N"))
+            myCMD.Parameters.Add(New OracleParameter("pvi_igual", OracleType.VarChar, 100, ParameterDirection.Input)).Value = _
+                If(Me.chkIgual.CheckState = CheckState.Checked, "S", If(Me.chkIgual.CheckState = CheckState.Indeterminate, "-", "N"))
+
+            myCMD.Parameters.Add(New OracleParameter("pro_resultado", OracleType.Cursor)).Direction = ParameterDirection.Output
+
+            Dim MyDA As New OracleDataAdapter(myCMD)
+
             MyDA.Fill(Ds)
+
+            Me.GCBusqueda.DataSource = Ds.Tables(0)
+            Oraclecon.Close()
         Catch Myex As Exception
             MessageBox.Show(Myex.Message.ToString)
         End Try
-        Me.GCBusqueda.DataSource = Ds.Tables(0)
-        Oraclecon.Close()
     End Sub
 
     Private Sub GridView1_FocusedRowChanged(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles GridView1.FocusedRowChanged
         Dim rw As DataRowView = GridView1.GetRow(e.FocusedRowHandle)
         If rw IsNot Nothing Then
-            Dim codCiuRes As Integer = rw.Row.Item(0)
-            Dim codPar As Integer = rw.Row.Item(1)
-            Dim codMov As Integer = rw.Row.Item(2)
-            Me.ImagenesCiudadanosRespaldanTableAdapter.FillBy(Me.DSConsultas.ImagenesCiudadanosRespaldan, codCiuRes, codPar, codMov)
+            Me.ImagenesFirmaTableAdapter.FillBy(Me.DSConsultas.ImagenesFirma, rw.Row.Item(1), rw.Row.Item(2), rw.Row.Item(13))
         End If
     End Sub
 
+    Private Sub txtFolio_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtFolio.KeyPress
+        VControles.solonumeros(e)
+    End Sub
+
+    Private Sub txtPagina_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtPagina.KeyPress
+        VControles.solonumeros(e)
+    End Sub
 End Class
