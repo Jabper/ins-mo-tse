@@ -6,7 +6,6 @@ Public Class XfrmConPlanilla
     Private Sub XfrmConPlanilla_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'DSConsultas.Cargos' table. You can move, or remove it, as needed.
         Me.CargosTableAdapter.Fill(Me.DSConsultas.Cargos)
-        'Me.IM_V_PLANILLA_REQUISITOTableAdapter.FillAll(Me.DSConsultas.IM_V_PLANILLA_REQUISITO)
         'TODO: This line of code loads data into the 'DSConsultas.Niveles' table. You can move, or remove it, as needed.
         Me.NivelesTableAdapter.Fill(Me.DSConsultas.Niveles)
         'TODO: This line of code loads data into the 'DSConsultas.Municipios' table. You can move, or remove it, as needed.
@@ -17,12 +16,12 @@ Public Class XfrmConPlanilla
         Me.MovimientosTableAdapter.Fill(Me.DSConsultas.Movimientos)
         'TODO: This line of code loads data into the 'DSConsultas.Partidos' table. You can move, or remove it, as needed.
         Me.PartidosTableAdapter.Fill(Me.DSConsultas.Partidos)
-        Dim fTodos2 As Integer = Me.cbxPartido.FindStringExact("TODOS")
-        If fTodos2 > 0 Then Me.cbxPartido.SelectedIndex = fTodos2
         Dim fTodos3 As Integer = Me.cbxNivel.FindStringExact("NINGUNO")
         If fTodos3 > 0 Then Me.cbxNivel.SelectedIndex = fTodos3
         Me.cbxDepartamento.Enabled = False
         Me.cbxMunicipio.Enabled = False
+
+        Filtrar()
     End Sub
 
     Private Sub GridView1_RowCellClick(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs) Handles GridView1.RowCellClick
@@ -46,9 +45,13 @@ Public Class XfrmConPlanilla
     End Sub
 
     Private Sub btnFiltro_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFiltro.Click
+        Filtrar()
+    End Sub
+
+    Private Sub Filtrar()
         Me.IM_V_PLANILLA_REQUISITOTableAdapter.FillBy(Me.DSConsultas.IM_V_PLANILLA_REQUISITO, Me.cbxPartido.SelectedValue, _
-                                                          Me.cbxMovimiento.SelectedValue, Me.cbxNivel.SelectedValue, _
-                                                          Me.cbxCargo.SelectedValue)
+                                                  Me.cbxMovimiento.SelectedValue, Me.cbxNivel.SelectedValue, _
+                                                  Me.cbxCargo.SelectedValue)
 
         Dim filtro As String = String.Empty
 
@@ -60,8 +63,110 @@ Public Class XfrmConPlanilla
             filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("CODIGO_MUNICIPIO = {0}", Me.cbxMunicipio.SelectedValue)
         End If
 
-        Me.IMVPLANILLAREQUISITOBindingSource.Filter = filtro
+        Select Case Me.cbxCargo.SelectedValue
+            Case 0
+                Me.GridView1.Columns(8).Visible = False
+                Me.GridView1.Columns(9).Visible = False
+                Me.GridView1.Columns(10).Visible = False
+                Me.GridView1.Columns(11).Visible = False
+                Me.GridView1.Columns(12).Visible = False
+                Me.GridView1.Columns(13).Visible = False
+                Me.GridView1.Columns(14).Visible = False
+                Me.GridView1.Columns(15).Visible = False
+                Me.GridView1.Columns(16).Visible = False
+            Case 1
+                Me.GridView1.Columns(8).Visible = True
+                Me.GridView1.Columns(9).Visible = True
+                Me.GridView1.Columns(10).Visible = True
+                Me.GridView1.Columns(11).Visible = True
+                Me.GridView1.Columns(12).Visible = True
+                Me.GridView1.Columns(13).Visible = True
+                Me.GridView1.Columns(14).Visible = True
+                Me.GridView1.Columns(15).Visible = False
+                Me.GridView1.Columns(16).Visible = True
+            Case 2
+                Me.GridView1.Columns(8).Visible = True
+                Me.GridView1.Columns(9).Visible = True
+                Me.GridView1.Columns(10).Visible = True
+                Me.GridView1.Columns(11).Visible = True
+                Me.GridView1.Columns(12).Visible = True
+                Me.GridView1.Columns(13).Visible = False
+                Me.GridView1.Columns(14).Visible = False
+                Me.GridView1.Columns(15).Visible = False
+                Me.GridView1.Columns(16).Visible = True
+            Case 3
+                Me.GridView1.Columns(8).Visible = True
+                Me.GridView1.Columns(9).Visible = True
+                Me.GridView1.Columns(10).Visible = True
+                Me.GridView1.Columns(11).Visible = True
+                Me.GridView1.Columns(12).Visible = True
+                Me.GridView1.Columns(13).Visible = False
+                Me.GridView1.Columns(14).Visible = False
+                Me.GridView1.Columns(15).Visible = False
+                Me.GridView1.Columns(16).Visible = True
+            Case 4
+                Me.GridView1.Columns(8).Visible = True
+                Me.GridView1.Columns(9).Visible = True
+                Me.GridView1.Columns(10).Visible = True
+                Me.GridView1.Columns(11).Visible = True
+                Me.GridView1.Columns(12).Visible = True
+                Me.GridView1.Columns(13).Visible = False
+                Me.GridView1.Columns(14).Visible = True
+                Me.GridView1.Columns(15).Visible = True
+                Me.GridView1.Columns(16).Visible = True
+            Case 5
+                Me.GridView1.Columns(8).Visible = True
+                Me.GridView1.Columns(9).Visible = True
+                Me.GridView1.Columns(10).Visible = True
+                Me.GridView1.Columns(11).Visible = True
+                Me.GridView1.Columns(12).Visible = True
+                Me.GridView1.Columns(13).Visible = False
+                Me.GridView1.Columns(14).Visible = False
+                Me.GridView1.Columns(15).Visible = True
+                Me.GridView1.Columns(16).Visible = True
+            Case 6
+                Me.GridView1.Columns(8).Visible = True
+                Me.GridView1.Columns(9).Visible = True
+                Me.GridView1.Columns(10).Visible = True
+                Me.GridView1.Columns(11).Visible = True
+                Me.GridView1.Columns(12).Visible = False
+                Me.GridView1.Columns(13).Visible = False
+                Me.GridView1.Columns(14).Visible = True
+                Me.GridView1.Columns(15).Visible = True
+                Me.GridView1.Columns(16).Visible = True
+            Case 7
+                Me.GridView1.Columns(8).Visible = True
+                Me.GridView1.Columns(9).Visible = True
+                Me.GridView1.Columns(10).Visible = True
+                Me.GridView1.Columns(11).Visible = True
+                Me.GridView1.Columns(12).Visible = False
+                Me.GridView1.Columns(13).Visible = False
+                Me.GridView1.Columns(14).Visible = False
+                Me.GridView1.Columns(15).Visible = True
+                Me.GridView1.Columns(16).Visible = True
+            Case 8
+                Me.GridView1.Columns(8).Visible = True
+                Me.GridView1.Columns(9).Visible = True
+                Me.GridView1.Columns(10).Visible = True
+                Me.GridView1.Columns(11).Visible = True
+                Me.GridView1.Columns(12).Visible = False
+                Me.GridView1.Columns(13).Visible = False
+                Me.GridView1.Columns(14).Visible = False
+                Me.GridView1.Columns(15).Visible = True
+                Me.GridView1.Columns(16).Visible = True
+            Case 9
+                Me.GridView1.Columns(8).Visible = True
+                Me.GridView1.Columns(9).Visible = True
+                Me.GridView1.Columns(10).Visible = True
+                Me.GridView1.Columns(11).Visible = True
+                Me.GridView1.Columns(12).Visible = True
+                Me.GridView1.Columns(13).Visible = True
+                Me.GridView1.Columns(14).Visible = False
+                Me.GridView1.Columns(15).Visible = False
+                Me.GridView1.Columns(16).Visible = True
+        End Select
 
+        Me.IMVPLANILLAREQUISITOBindingSource.Filter = filtro
     End Sub
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
@@ -94,22 +199,22 @@ Public Class XfrmConPlanilla
             Case 0, 1 'Ninguno, Presidente
                 Me.cbxDepartamento.Enabled = False
                 Me.cbxMunicipio.Enabled = False
-                Me.MunicipiosTableAdapter.Fill(Me.DSConsultas.Municipios)
                 Me.DepartamentosTableAdapter.Fill(Me.DSConsultas.Departamentos)
+                Me.MunicipiosTableAdapter.Fill(Me.DSConsultas.Municipios)
                 Me.cbxDepartamento.SelectedValue = 0
                 Me.cbxMunicipio.SelectedValue = 0
-            Case 2
+            Case 2 'Diputados
                 Me.cbxDepartamento.Enabled = True
                 Me.cbxMunicipio.Enabled = False
-                Me.MunicipiosTableAdapter.FillBySinTodos(Me.DSConsultas.Municipios)
-                Me.DepartamentosTableAdapter.Fill(Me.DSConsultas.Departamentos)
+                Me.DepartamentosTableAdapter.FillBySinTodos(Me.DSConsultas.Departamentos)
+                Me.MunicipiosTableAdapter.Fill(Me.DSConsultas.Municipios)
                 Me.cbxDepartamento.SelectedValue = 1
                 Me.cbxMunicipio.SelectedValue = 0
-            Case 3
+            Case 3 'Alcaldes
                 Me.cbxDepartamento.Enabled = True
                 Me.cbxMunicipio.Enabled = True
-                Me.MunicipiosTableAdapter.FillBySinTodos(Me.DSConsultas.Municipios)
                 Me.DepartamentosTableAdapter.FillBySinTodos(Me.DSConsultas.Departamentos)
+                Me.MunicipiosTableAdapter.FillBySinTodos(Me.DSConsultas.Municipios)
                 Me.cbxDepartamento.SelectedValue = 1
                 Me.cbxMunicipio.SelectedValue = 1
         End Select

@@ -344,7 +344,7 @@ Partial Class XfrmConPlanilla
         Me.colREC1.OptionsColumn.TabStop = False
         Me.colREC1.Visible = True
         Me.colREC1.VisibleIndex = 8
-        Me.colREC1.Width = 30
+        Me.colREC1.Width = 60
         '
         'RepositoryItemCheckEdit
         '
@@ -374,7 +374,7 @@ Partial Class XfrmConPlanilla
         Me.colREC2.OptionsColumn.TabStop = False
         Me.colREC2.Visible = True
         Me.colREC2.VisibleIndex = 9
-        Me.colREC2.Width = 30
+        Me.colREC2.Width = 60
         '
         'colREC3
         '
@@ -391,7 +391,7 @@ Partial Class XfrmConPlanilla
         Me.colREC3.OptionsColumn.TabStop = False
         Me.colREC3.Visible = True
         Me.colREC3.VisibleIndex = 10
-        Me.colREC3.Width = 30
+        Me.colREC3.Width = 60
         '
         'colREC4
         '
@@ -408,7 +408,7 @@ Partial Class XfrmConPlanilla
         Me.colREC4.OptionsColumn.TabStop = False
         Me.colREC4.Visible = True
         Me.colREC4.VisibleIndex = 11
-        Me.colREC4.Width = 30
+        Me.colREC4.Width = 60
         '
         'colREC5
         '
@@ -425,7 +425,7 @@ Partial Class XfrmConPlanilla
         Me.colREC5.OptionsColumn.TabStop = False
         Me.colREC5.Visible = True
         Me.colREC5.VisibleIndex = 12
-        Me.colREC5.Width = 30
+        Me.colREC5.Width = 60
         '
         'colREC6
         '
@@ -442,7 +442,7 @@ Partial Class XfrmConPlanilla
         Me.colREC6.OptionsColumn.TabStop = False
         Me.colREC6.Visible = True
         Me.colREC6.VisibleIndex = 13
-        Me.colREC6.Width = 30
+        Me.colREC6.Width = 60
         '
         'colREC7
         '
@@ -459,7 +459,7 @@ Partial Class XfrmConPlanilla
         Me.colREC7.OptionsColumn.TabStop = False
         Me.colREC7.Visible = True
         Me.colREC7.VisibleIndex = 14
-        Me.colREC7.Width = 30
+        Me.colREC7.Width = 60
         '
         'colREC8
         '
@@ -476,7 +476,7 @@ Partial Class XfrmConPlanilla
         Me.colREC8.OptionsColumn.TabStop = False
         Me.colREC8.Visible = True
         Me.colREC8.VisibleIndex = 15
-        Me.colREC8.Width = 30
+        Me.colREC8.Width = 60
         '
         'colREC9
         '
@@ -493,7 +493,7 @@ Partial Class XfrmConPlanilla
         Me.colREC9.OptionsColumn.TabStop = False
         Me.colREC9.Visible = True
         Me.colREC9.VisibleIndex = 16
-        Me.colREC9.Width = 30
+        Me.colREC9.Width = 60
         '
         'colVALIDADO
         '
