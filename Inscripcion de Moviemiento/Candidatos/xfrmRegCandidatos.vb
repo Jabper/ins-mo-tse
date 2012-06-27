@@ -429,9 +429,10 @@ Public Class xfrmRegCandidatos
 
             Me.DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2.Rows.Clear()
 
-            Validarleyendas()
+
 
             Me.IM_MUNICIPIOSTableAdapter.Fill(Me.DSInsCandidatos.IM_MUNICIPIOS, Me.cboDepartamento.EditValue)
+            Validarleyendas()
         Catch ex As Exception
 
         End Try
@@ -1087,5 +1088,9 @@ Public Class xfrmRegCandidatos
 
     Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
         Validarleyendas()
+    End Sub
+
+    Private Sub cboDepartamento_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboDepartamento.EditValueChanged
+
     End Sub
 End Class
