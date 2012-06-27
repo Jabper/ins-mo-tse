@@ -844,7 +844,7 @@ Partial Class xfrmRegCandidatos
         Me.colPOSICION.FieldName = "POSICION"
         Me.colPOSICION.Name = "colPOSICION"
         Me.colPOSICION.Visible = True
-        Me.colPOSICION.VisibleIndex = 1
+        Me.colPOSICION.VisibleIndex = 0
         Me.colPOSICION.Width = 60
         '
         'RepositoryItemTextEdit8
@@ -860,7 +860,7 @@ Partial Class xfrmRegCandidatos
         Me.colIDENTIDAD.FieldName = "IDENTIDAD"
         Me.colIDENTIDAD.Name = "colIDENTIDAD"
         Me.colIDENTIDAD.Visible = True
-        Me.colIDENTIDAD.VisibleIndex = 2
+        Me.colIDENTIDAD.VisibleIndex = 1
         Me.colIDENTIDAD.Width = 87
         '
         'txtIdentidad
@@ -876,7 +876,7 @@ Partial Class xfrmRegCandidatos
         Me.colPRIMER_NOMBRE.FieldName = "PRIMER_NOMBRE"
         Me.colPRIMER_NOMBRE.Name = "colPRIMER_NOMBRE"
         Me.colPRIMER_NOMBRE.Visible = True
-        Me.colPRIMER_NOMBRE.VisibleIndex = 3
+        Me.colPRIMER_NOMBRE.VisibleIndex = 2
         Me.colPRIMER_NOMBRE.Width = 105
         '
         'RepositoryItemTextEdit1
@@ -892,7 +892,7 @@ Partial Class xfrmRegCandidatos
         Me.colSEGUNDO_NOMBRE.FieldName = "SEGUNDO_NOMBRE"
         Me.colSEGUNDO_NOMBRE.Name = "colSEGUNDO_NOMBRE"
         Me.colSEGUNDO_NOMBRE.Visible = True
-        Me.colSEGUNDO_NOMBRE.VisibleIndex = 4
+        Me.colSEGUNDO_NOMBRE.VisibleIndex = 3
         Me.colSEGUNDO_NOMBRE.Width = 114
         '
         'RepositoryItemTextEdit6
@@ -908,7 +908,7 @@ Partial Class xfrmRegCandidatos
         Me.colPRIMER_APELLIDO.FieldName = "PRIMER_APELLIDO"
         Me.colPRIMER_APELLIDO.Name = "colPRIMER_APELLIDO"
         Me.colPRIMER_APELLIDO.Visible = True
-        Me.colPRIMER_APELLIDO.VisibleIndex = 5
+        Me.colPRIMER_APELLIDO.VisibleIndex = 4
         Me.colPRIMER_APELLIDO.Width = 106
         '
         'RepositoryItemTextEdit5
@@ -924,7 +924,7 @@ Partial Class xfrmRegCandidatos
         Me.colSEGUNDO_APELLIDO.FieldName = "SEGUNDO_APELLIDO"
         Me.colSEGUNDO_APELLIDO.Name = "colSEGUNDO_APELLIDO"
         Me.colSEGUNDO_APELLIDO.Visible = True
-        Me.colSEGUNDO_APELLIDO.VisibleIndex = 6
+        Me.colSEGUNDO_APELLIDO.VisibleIndex = 5
         Me.colSEGUNDO_APELLIDO.Width = 108
         '
         'colIMAGEN
@@ -934,7 +934,7 @@ Partial Class xfrmRegCandidatos
         Me.colIMAGEN.FieldName = "IMAGEN"
         Me.colIMAGEN.Name = "colIMAGEN"
         Me.colIMAGEN.Visible = True
-        Me.colIMAGEN.VisibleIndex = 7
+        Me.colIMAGEN.VisibleIndex = 6
         Me.colIMAGEN.Width = 90
         '
         'RPIImgen
@@ -950,7 +950,7 @@ Partial Class xfrmRegCandidatos
         Me.colCONS_VECINDAD.FieldName = "CONS_VECINDAD"
         Me.colCONS_VECINDAD.Name = "colCONS_VECINDAD"
         Me.colCONS_VECINDAD.Visible = True
-        Me.colCONS_VECINDAD.VisibleIndex = 8
+        Me.colCONS_VECINDAD.VisibleIndex = 7
         Me.colCONS_VECINDAD.Width = 71
         '
         'chkConstancia
@@ -968,7 +968,7 @@ Partial Class xfrmRegCandidatos
         Me.colCONS_VECINDAD_IMAGEN.FieldName = "CONS_VECINDAD_IMAGEN"
         Me.colCONS_VECINDAD_IMAGEN.Name = "colCONS_VECINDAD_IMAGEN"
         Me.colCONS_VECINDAD_IMAGEN.Visible = True
-        Me.colCONS_VECINDAD_IMAGEN.VisibleIndex = 9
+        Me.colCONS_VECINDAD_IMAGEN.VisibleIndex = 8
         Me.colCONS_VECINDAD_IMAGEN.Width = 114
         '
         'PICImagenConstancia
@@ -983,8 +983,6 @@ Partial Class xfrmRegCandidatos
         Me.colESTADO.ColumnEdit = Me.ChkEstado
         Me.colESTADO.FieldName = "ESTADO"
         Me.colESTADO.Name = "colESTADO"
-        Me.colESTADO.Visible = True
-        Me.colESTADO.VisibleIndex = 0
         Me.colESTADO.Width = 49
         '
         'ChkEstado
@@ -1140,9 +1138,8 @@ Partial Class xfrmRegCandidatos
         Me.lblmujeres.Appearance.ForeColor = System.Drawing.Color.Green
         Me.lblmujeres.Location = New System.Drawing.Point(672, 110)
         Me.lblmujeres.Name = "lblmujeres"
-        Me.lblmujeres.Size = New System.Drawing.Size(38, 14)
+        Me.lblmujeres.Size = New System.Drawing.Size(0, 14)
         Me.lblmujeres.TabIndex = 57
-        Me.lblmujeres.Text = "100%"
         '
         'LabelControl16
         '

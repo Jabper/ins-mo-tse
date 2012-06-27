@@ -19,6 +19,7 @@ Public Class xfrmRegCandidatos
     Dim load As Boolean
     Dim id As String
     Dim permitir_up As Integer = 0
+    Dim ingreso_hombre As Integer
 
 
     Public Sub New()
@@ -49,24 +50,6 @@ Public Class xfrmRegCandidatos
 
         view.FocusedColumn = colPOSICION
         view.ShowEditor()
-
-    End Sub
-
-    Private Sub GridView1_CustomColumnDisplayText(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs) Handles GridView1.CustomColumnDisplayText
-        'vi = 5
-        'If (e.Column.FieldName = "POSICION") Then
-
-        '    If e.RowHandle < 0 Then
-        '        e.DisplayText = vi + 1
-
-        '    Else
-        '        e.DisplayText = e.RowHandle + 1
-        '        vi = e.RowHandle + 1
-        '    End If
-
-        'End If
-
-
 
     End Sub
 
@@ -145,11 +128,21 @@ Public Class xfrmRegCandidatos
 
             End If
 
-            Dim a As String = "select NUMERO_IDENTIDAD from IM_PADRON_ELECTORAL where NUMERO_IDENTIDAD='" & e.Value.ToString & "'"
+            Dim a As String = "select NUMERO_IDENTIDAD,SEXO from IM_PADRON_ELECTORAL where NUMERO_IDENTIDAD='" & e.Value.ToString & "'"
+
             If COracle.ObtenerDatos(a, "NUMERO_IDENTIDAD") = "N" Then
                 mensajeerror = "Candidato No Existe en el Padron Electoral"
                 e.Valid = False
                 view.FocusedColumn.FieldName = "IDENTIDAD"
+            Else
+
+                If ingreso_hombre = 0 Then
+                    Dim SEXO As String = COracle.ObtenerDatos(a, "SEXO")
+                    If SEXO = "1" Then
+                        e.Valid = False
+                        view.FocusedColumn.FieldName = "Debe Ingresar Mujeres a Este Cargo de Eleccion Popular"
+                    End If
+                End If
             End If
         End If
 
@@ -744,6 +737,7 @@ Public Class xfrmRegCandidatos
         Me.DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2.Rows.Clear()
         Val_MUN_DEP()
 
+        'VAlIDACIONES PARTICIPACION FEMENINA 
         If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 9 Then
             mujeres_ingresadas = COracle.ObtenerDatos(String.Format("SELECT NVL(COUNT(*),  0) MUJERES FROM    im_candidatos ic, im_padron_electoral IP WHERE  ic.codigo_cargo_electivo IN (1,9)  AND  IC.CODIGO_PARTIDO = {0} AND IC.CODIGO_MOVIMIENTO = {1} AND  ic.identidad = ip.numero_identidad AND ip.sexo  = 2", id_partido, id_movimiento), "MUJERES")
             mujeres_necesarias = COracle.ObtenerDatos("SELECT CANTIDAD_MUJERES FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO =9", "CANTIDAD_MUJERES")
@@ -834,6 +828,7 @@ Public Class xfrmRegCandidatos
 
         End If
 
+
         presidente = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 1 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
         designados = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 9 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
         dip_pp = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 2 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
@@ -852,6 +847,56 @@ Public Class xfrmRegCandidatos
         cdip_CNS = COracle.ObtenerDatos(String.Format("SELECT CANTIDAD_DIPUTADOS FROM IM_DEPARTAMENTOS WHERE   CODIGO_DEPARTAMENTO =  {0}", depto), "CANTIDAD_DIPUTADOS")
         cregidores = COracle.ObtenerDatos(String.Format("SELECT CANTIDAD_REGIDORES FROM IM_MUNICIPIOS WHERE   CODIGO_DEPARTAMENTO= {0} AND CODIGO_MUNICIPIO= {1} ", depto, muni), "CANTIDAD_REGIDORES")
 
+        If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 9 Then
+
+            Dim total As Double = ((cdesignados + 1) - (designados - presidente)) - (mujeres_necesarias - mujeres_ingresadas)
+            If total >= 1 Then
+                ingreso_hombre = 1
+            Else
+                ingreso_hombre = 0
+            End If
+
+        ElseIf Me.cboCargo.EditValue = 2 Then
+            Dim total As Double = (cdip_pp - dip_pp) - (mujeres_necesarias - mujeres_ingresadas)
+            If total >= 1 Then
+                ingreso_hombre = 1
+            Else
+                ingreso_hombre = 0
+            End If
+
+        ElseIf Me.cboCargo.EditValue = 3 Then
+
+            Dim total As Double = (cdip_ps - dip_ps) - (mujeres_necesarias - mujeres_ingresadas)
+            If total >= 1 Then
+                ingreso_hombre = 1
+            Else
+                ingreso_hombre = 0
+            End If
+
+        ElseIf Me.cboCargo.EditValue = 4 Then
+
+            Dim total As Double = (cdip_CN - dip_CN) - (mujeres_necesarias - mujeres_ingresadas)
+            If total >= 1 Then
+                ingreso_hombre = 1
+            Else
+                ingreso_hombre = 0
+            End If
+        ElseIf Me.cboCargo.EditValue = 5 Then
+            Dim total As Double = (cdip_CNS - dip_CNS) - (mujeres_necesarias - mujeres_ingresadas)
+            If total >= 1 Then
+                ingreso_hombre = 1
+            Else
+                ingreso_hombre = 0
+            End If
+        ElseIf Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7 Or Me.cboCargo.EditValue = 8 Then
+
+            Dim total As Double = ((2 + cregidores) - (alcalde + vice + regidores)) - (mujeres_necesarias - mujeres_ingresadas)
+            If total >= 1 Then
+                ingreso_hombre = 1
+            Else
+                ingreso_hombre = 0
+            End If
+        End If
 
 
         lblpresidnete.Text = presidente
@@ -944,7 +989,7 @@ Public Class xfrmRegCandidatos
 
             If _row.RowState = DataRowState.Added And permitir_up = 0 Then
                 guardar(e.RowHandle)
-            ElseIf _row.RowState = DataRowState.Unchanged Or permitir_up = 0 Then
+            ElseIf _row.RowState = DataRowState.Unchanged Or permitir_up = 1 Then
                 Actualizar(e.RowHandle)
 
             End If
@@ -982,40 +1027,46 @@ Public Class xfrmRegCandidatos
         If XtraMessageBox.Show("¿Desea Eliminar el Registro Seleccionado?", "Mensaje de Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
             Try
 
-
-                Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
-                'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
-                id = cellValue
-                BtnEliminar.Enabled = True
-
                 Dim view As GridView = GridView1
-                id = GridView1.GetRowCellValue(view.FocusedRowHandle, "CODIGO_CANDIDATOS")
+                If Not IsDBNull(GridView1.GetRowCellValue(View.FocusedRowHandle, "CODIGO_CANDIDATOS")) Then
 
-                Dim oradb As String = Configuracion.verconfig
 
-                Dim conn As New OracleConnection()
-                conn.ConnectionString = oradb
-                conn.Open()
-                Dim identidad1 As String = view.GetRowCellValue(view.FocusedRowHandle, "IDENTIDAD")
-                
 
-                Dim myCMD As New OracleCommand()
-                myCMD.Connection = conn
-                myCMD.CommandText = "IM_P_DELETE_CANDIDATO"
-                myCMD.CommandType = CommandType.StoredProcedure
-                myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_CANDIDATO", OracleType.Number, 6, ParameterDirection.Input)).Value = view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_CANDIDATOS")
-                myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_MOVIMIENTO", OracleType.Number, 3, ParameterDirection.Input)).Value = id_movimiento
-                myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_PARTIDO", OracleType.Number, 2, ParameterDirection.Input)).Value = id_partido
-                myCMD.Parameters.Add(New OracleParameter("PVO_MENSAJE", OracleType.NVarChar, 32767)).Direction = ParameterDirection.Output
-                myCMD.ExecuteScalar()
+                    Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
+                    'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
+                    id = cellValue
+                    BtnEliminar.Enabled = True
 
-                If myCMD.Parameters("PVO_MENSAJE").Value = "OK" Then
-                    Mensajes.MensajeEliminar()
-                    Validarleyendas()
+
+                    id = GridView1.GetRowCellValue(view.FocusedRowHandle, "CODIGO_CANDIDATOS")
+
+                    Dim oradb As String = Configuracion.verconfig
+
+                    Dim conn As New OracleConnection()
+                    conn.ConnectionString = oradb
+                    conn.Open()
+                    Dim identidad1 As String = view.GetRowCellValue(view.FocusedRowHandle, "IDENTIDAD")
+
+
+                    Dim myCMD As New OracleCommand()
+                    myCMD.Connection = conn
+                    myCMD.CommandText = "IM_P_DELETE_CANDIDATO"
+                    myCMD.CommandType = CommandType.StoredProcedure
+                    myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_CANDIDATO", OracleType.Number, 6, ParameterDirection.Input)).Value = view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_CANDIDATOS")
+                    myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_MOVIMIENTO", OracleType.Number, 3, ParameterDirection.Input)).Value = id_movimiento
+                    myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_PARTIDO", OracleType.Number, 2, ParameterDirection.Input)).Value = id_partido
+                    myCMD.Parameters.Add(New OracleParameter("PVO_MENSAJE", OracleType.NVarChar, 32767)).Direction = ParameterDirection.Output
+                    myCMD.ExecuteScalar()
+
+                    If myCMD.Parameters("PVO_MENSAJE").Value = "OK" Then
+                        Mensajes.MensajeEliminar()
+                        Validarleyendas()
+                    Else
+                        Mensajes.MensajeError(myCMD.Parameters("PVO_MENSAJE").Value)
+                    End If
                 Else
-                    Mensajes.MensajeError(myCMD.Parameters("PVO_MENSAJE").Value)
+                    Mensajes.mimensaje("No se puede Eliminar el Candidato Verifique que este Guardado")
                 End If
-
             Catch ex As Exception
                 Mensajes.MensajeError(ex.Message)
             End Try
@@ -1031,5 +1082,10 @@ Public Class xfrmRegCandidatos
 
     Private Sub BtnSalir_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
         Me.Close()
+    End Sub
+
+
+    Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
+        Validarleyendas()
     End Sub
 End Class
