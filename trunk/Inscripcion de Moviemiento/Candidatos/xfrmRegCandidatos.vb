@@ -138,8 +138,8 @@ Public Class xfrmRegCandidatos
 
                 If ingreso_hombre = 0 Then
                     Dim SEXO As String = COracle.ObtenerDatos(a, "SEXO")
-                    mensajeerror = "NO PUEDE POSTULAR MAS HOMBRES A ESTA PLANILLA"
                     If SEXO = "1" Then
+                        mensajeerror = "NO PUEDE POSTULAR MAS HOMBRES A ESTA PLANILLA"
                         e.Valid = False
                         view.FocusedColumn.FieldName = "IDENTIDAD"
                     End If
@@ -733,6 +733,10 @@ Public Class xfrmRegCandidatos
 
         Dim mujeres_ingresadas As String
         Dim mujeres_necesarias As String
+
+        Dim hombres_permitidos As Integer
+        Dim hombres_ingresados As Integer
+
         id_partido = CInt(Me.lblidpartido.Text)
         id_movimiento = CInt(Me.lblidmovimiento.Text)
 
@@ -888,53 +892,86 @@ Public Class xfrmRegCandidatos
         End If
 
         If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 9 Then
+            hombres_ingresados += 1
+        End If
 
-            Dim total As Double = ((cdesignados + 1) - (designados - presidente)) - (mujeres_necesarias - mujeres_ingresadas)
-            If total > mujeres_necesarias Then
-                ingreso_hombre = 1
-            Else
+        Dim cargo As String
+
+        If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 9 Then
+            cargo = "IN (1,9) "
+        ElseIf Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 9 Then
+            cargo = "IN (6,7,8) "
+        Else
+            cargo = " = " & Me.cboCargo.EditValue
+        End If
+
+        Dim ax As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
+                              "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
+                               "WHERE  iC.codigo_departamento = " & depto & _
+                               " AND      iC.codigo_municipio = " & muni & _
+                               " AND      im.codigo_departamento = ic.codigo_departamento " & _
+                               " AND      im.codigo_municipio       = ic.codigo_municipio " & _
+                               " AND      ic.codigo_cargo_electivo  " & cargo & _
+                               " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
+                               " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
+                               " AND      ic.identidad = ip.numero_identidad " & _
+                               " AND      ip.sexo= 1"
+
+        hombres_ingresados = CInt(COracle.ObtenerDatos(ax, "MUJERES"))
+
+
+
+        If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 9 Then
+            hombres_permitidos = (cdesignados + 1) - mujeres_necesarias
+
+            If hombres_permitidos = hombres_ingresados Then
                 ingreso_hombre = 0
+            Else
+                ingreso_hombre = 1
             End If
 
         ElseIf Me.cboCargo.EditValue = 2 Then
-            Dim total As Double = (cdip_pp - dip_pp) - (mujeres_necesarias - mujeres_ingresadas)
-            If total > mujeres_necesarias Then
-                ingreso_hombre = 1
-            Else
+            hombres_permitidos = (cdip_pp) - mujeres_necesarias
+
+            If hombres_permitidos = hombres_ingresados Then
                 ingreso_hombre = 0
+            Else
+                ingreso_hombre = 1
             End If
 
         ElseIf Me.cboCargo.EditValue = 3 Then
 
-            Dim total As Double = (cdip_ps - dip_ps) - (mujeres_necesarias - mujeres_ingresadas)
-            If total > mujeres_necesarias Then
-                ingreso_hombre = 1
-            Else
+            hombres_permitidos = (cdip_ps) - mujeres_necesarias
+
+            If hombres_permitidos = hombres_ingresados Then
                 ingreso_hombre = 0
+            Else
+                ingreso_hombre = 1
             End If
 
         ElseIf Me.cboCargo.EditValue = 4 Then
+            hombres_permitidos = (cdip_CN) - mujeres_necesarias
 
-            Dim total As Double = (cdip_CN - dip_CN) - (mujeres_necesarias - mujeres_ingresadas)
-            If total > mujeres_necesarias Then
-                ingreso_hombre = 1
-            Else
+            If hombres_permitidos = hombres_ingresados Then
                 ingreso_hombre = 0
+            Else
+                ingreso_hombre = 1
             End If
         ElseIf Me.cboCargo.EditValue = 5 Then
-            Dim total As Double = (cdip_CNS - dip_CNS) - (mujeres_necesarias - mujeres_ingresadas)
-            If total > mujeres_necesarias Then
-                ingreso_hombre = 1
-            Else
+            hombres_permitidos = (cdip_CNS) - mujeres_necesarias
+
+            If hombres_permitidos = hombres_ingresados Then
                 ingreso_hombre = 0
+            Else
+                ingreso_hombre = 1
             End If
         ElseIf Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7 Or Me.cboCargo.EditValue = 8 Then
+            hombres_permitidos = (2 + cregidores) - mujeres_necesarias
 
-            Dim total As Double = ((2 + cregidores) - (alcalde + vice + regidores)) - (mujeres_necesarias - mujeres_ingresadas)
-            If total > mujeres_necesarias Then
-                ingreso_hombre = 1
-            Else
+            If hombres_permitidos = hombres_ingresados Then
                 ingreso_hombre = 0
+            Else
+                ingreso_hombre = 1
             End If
         End If
 
