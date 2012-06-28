@@ -63,108 +63,92 @@ Public Class XfrmConPlanilla
             filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("CODIGO_MUNICIPIO = {0}", Me.cbxMunicipio.SelectedValue)
         End If
 
-        Select Case Me.cbxCargo.SelectedValue
-            Case 0
-                Me.GridView1.Columns(8).Visible = False
-                Me.GridView1.Columns(9).Visible = False
-                Me.GridView1.Columns(10).Visible = False
-                Me.GridView1.Columns(11).Visible = False
-                Me.GridView1.Columns(12).Visible = False
-                Me.GridView1.Columns(13).Visible = False
-                Me.GridView1.Columns(14).Visible = False
-                Me.GridView1.Columns(15).Visible = False
-                Me.GridView1.Columns(16).Visible = False
-            Case 1
-                Me.GridView1.Columns(8).Visible = True
-                Me.GridView1.Columns(9).Visible = True
-                Me.GridView1.Columns(10).Visible = True
-                Me.GridView1.Columns(11).Visible = True
-                Me.GridView1.Columns(12).Visible = True
-                Me.GridView1.Columns(13).Visible = True
-                Me.GridView1.Columns(14).Visible = True
-                Me.GridView1.Columns(15).Visible = False
-                Me.GridView1.Columns(16).Visible = True
-            Case 2
-                Me.GridView1.Columns(8).Visible = True
-                Me.GridView1.Columns(9).Visible = True
-                Me.GridView1.Columns(10).Visible = True
-                Me.GridView1.Columns(11).Visible = True
-                Me.GridView1.Columns(12).Visible = True
-                Me.GridView1.Columns(13).Visible = False
-                Me.GridView1.Columns(14).Visible = False
-                Me.GridView1.Columns(15).Visible = False
-                Me.GridView1.Columns(16).Visible = True
-            Case 3
-                Me.GridView1.Columns(8).Visible = True
-                Me.GridView1.Columns(9).Visible = True
-                Me.GridView1.Columns(10).Visible = True
-                Me.GridView1.Columns(11).Visible = True
-                Me.GridView1.Columns(12).Visible = True
-                Me.GridView1.Columns(13).Visible = False
-                Me.GridView1.Columns(14).Visible = False
-                Me.GridView1.Columns(15).Visible = False
-                Me.GridView1.Columns(16).Visible = True
-            Case 4
-                Me.GridView1.Columns(8).Visible = True
-                Me.GridView1.Columns(9).Visible = True
-                Me.GridView1.Columns(10).Visible = True
-                Me.GridView1.Columns(11).Visible = True
-                Me.GridView1.Columns(12).Visible = True
-                Me.GridView1.Columns(13).Visible = False
-                Me.GridView1.Columns(14).Visible = True
-                Me.GridView1.Columns(15).Visible = True
-                Me.GridView1.Columns(16).Visible = True
-            Case 5
-                Me.GridView1.Columns(8).Visible = True
-                Me.GridView1.Columns(9).Visible = True
-                Me.GridView1.Columns(10).Visible = True
-                Me.GridView1.Columns(11).Visible = True
-                Me.GridView1.Columns(12).Visible = True
-                Me.GridView1.Columns(13).Visible = False
-                Me.GridView1.Columns(14).Visible = False
-                Me.GridView1.Columns(15).Visible = True
-                Me.GridView1.Columns(16).Visible = True
-            Case 6
-                Me.GridView1.Columns(8).Visible = True
-                Me.GridView1.Columns(9).Visible = True
-                Me.GridView1.Columns(10).Visible = True
-                Me.GridView1.Columns(11).Visible = True
-                Me.GridView1.Columns(12).Visible = False
-                Me.GridView1.Columns(13).Visible = False
-                Me.GridView1.Columns(14).Visible = True
-                Me.GridView1.Columns(15).Visible = True
-                Me.GridView1.Columns(16).Visible = True
-            Case 7
-                Me.GridView1.Columns(8).Visible = True
-                Me.GridView1.Columns(9).Visible = True
-                Me.GridView1.Columns(10).Visible = True
-                Me.GridView1.Columns(11).Visible = True
-                Me.GridView1.Columns(12).Visible = False
-                Me.GridView1.Columns(13).Visible = False
-                Me.GridView1.Columns(14).Visible = False
-                Me.GridView1.Columns(15).Visible = True
-                Me.GridView1.Columns(16).Visible = True
-            Case 8
-                Me.GridView1.Columns(8).Visible = True
-                Me.GridView1.Columns(9).Visible = True
-                Me.GridView1.Columns(10).Visible = True
-                Me.GridView1.Columns(11).Visible = True
-                Me.GridView1.Columns(12).Visible = False
-                Me.GridView1.Columns(13).Visible = False
-                Me.GridView1.Columns(14).Visible = False
-                Me.GridView1.Columns(15).Visible = True
-                Me.GridView1.Columns(16).Visible = True
-            Case 9
-                Me.GridView1.Columns(8).Visible = True
-                Me.GridView1.Columns(9).Visible = True
-                Me.GridView1.Columns(10).Visible = True
-                Me.GridView1.Columns(11).Visible = True
-                Me.GridView1.Columns(12).Visible = True
-                Me.GridView1.Columns(13).Visible = True
-                Me.GridView1.Columns(14).Visible = False
-                Me.GridView1.Columns(15).Visible = False
-                Me.GridView1.Columns(16).Visible = True
-        End Select
+        If Me.cbxCargo.SelectedValue <> 0 Then
+            Me.GridView1.Columns("REC1").Visible = True
+            Me.GridView1.Columns("REC1").VisibleIndex = 25
+            Me.GridView1.Columns("REC2").Visible = True
+            Me.GridView1.Columns("REC2").VisibleIndex = 26
+            Me.GridView1.Columns("REC3").Visible = True
+            Me.GridView1.Columns("REC3").VisibleIndex = 27
+            Me.GridView1.Columns("REC4").Visible = True
+            Me.GridView1.Columns("REC4").VisibleIndex = 28
+            Select Case Me.cbxCargo.SelectedValue
+                Case 1
+                    Me.GridView1.Columns("REC5").Visible = True
+                    Me.GridView1.Columns("REC5").VisibleIndex = 26
+                    Me.GridView1.Columns("REC6").Visible = True
+                    Me.GridView1.Columns("REC6").VisibleIndex = 27
+                    Me.GridView1.Columns("REC7").Visible = True
+                    Me.GridView1.Columns("REC7").VisibleIndex = 28
+                    Me.GridView1.Columns("REC8").Visible = False
+                Case 2
+                    Me.GridView1.Columns("REC5").Visible = True
+                    Me.GridView1.Columns("REC5").VisibleIndex = 28
+                    Me.GridView1.Columns("REC6").Visible = False
+                    Me.GridView1.Columns("REC7").Visible = False
+                    Me.GridView1.Columns("REC8").Visible = False
+                Case 3
+                    Me.GridView1.Columns("REC5").Visible = True
+                    Me.GridView1.Columns("REC5").VisibleIndex = 28
+                    Me.GridView1.Columns("REC6").Visible = False
+                    Me.GridView1.Columns("REC7").Visible = False
+                    Me.GridView1.Columns("REC8").Visible = False
+                Case 4
+                    Me.GridView1.Columns("REC5").Visible = True
+                    Me.GridView1.Columns("REC5").VisibleIndex = 26
+                    Me.GridView1.Columns("REC6").Visible = False
+                    Me.GridView1.Columns("REC7").Visible = True
+                    Me.GridView1.Columns("REC7").VisibleIndex = 27
+                    Me.GridView1.Columns("REC8").Visible = True
+                    Me.GridView1.Columns("REC8").VisibleIndex = 28
+                Case 5
+                    Me.GridView1.Columns("REC5").Visible = True
+                    Me.GridView1.Columns("REC5").VisibleIndex = 27
+                    Me.GridView1.Columns("REC6").Visible = False
+                    Me.GridView1.Columns("REC7").Visible = False
+                    Me.GridView1.Columns("REC8").Visible = True
+                    Me.GridView1.Columns("REC8").VisibleIndex = 28
+                Case 6
+                    Me.GridView1.Columns("REC5").Visible = False
+                    Me.GridView1.Columns("REC6").Visible = False
+                    Me.GridView1.Columns("REC7").Visible = True
+                    Me.GridView1.Columns("REC7").VisibleIndex = 27
+                    Me.GridView1.Columns("REC8").Visible = True
+                    Me.GridView1.Columns("REC8").VisibleIndex = 28
+                Case 7
+                    Me.GridView1.Columns("REC5").Visible = False
+                    Me.GridView1.Columns("REC6").Visible = False
+                    Me.GridView1.Columns("REC7").Visible = False
+                    Me.GridView1.Columns("REC8").Visible = True
+                    Me.GridView1.Columns("REC8").VisibleIndex = 28
+                Case 8
+                    Me.GridView1.Columns("REC5").Visible = False
+                    Me.GridView1.Columns("REC6").Visible = False
+                    Me.GridView1.Columns("REC7").Visible = False
+                    Me.GridView1.Columns("REC8").Visible = True
+                    Me.GridView1.Columns("REC8").VisibleIndex = 28
+                Case 9
+                    Me.GridView1.Columns("REC5").Visible = True
+                    Me.GridView1.Columns("REC5").VisibleIndex = 27
+                    Me.GridView1.Columns("REC6").Visible = True
+                    Me.GridView1.Columns("REC6").VisibleIndex = 28
+                    Me.GridView1.Columns("REC7").Visible = False
+                    Me.GridView1.Columns("REC8").Visible = False
+            End Select
+            Me.GridView1.Columns("REC9").Visible = True
+            Me.GridView1.Columns("REC9").VisibleIndex = 29
+        Else
+            Me.GridView1.Columns("REC1").Visible = False
+            Me.GridView1.Columns("REC2").Visible = False
+            Me.GridView1.Columns("REC3").Visible = False
+            Me.GridView1.Columns("REC4").Visible = False
+            Me.GridView1.Columns("REC5").Visible = False
+            Me.GridView1.Columns("REC6").Visible = False
+            Me.GridView1.Columns("REC7").Visible = False
+            Me.GridView1.Columns("REC8").Visible = False
+            Me.GridView1.Columns("REC9").Visible = False
+        End If
+        Me.GridView1.Columns("VALIDADO").VisibleIndex = 30
 
         Me.IMVPLANILLAREQUISITOBindingSource.Filter = filtro
     End Sub

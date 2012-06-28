@@ -13,7 +13,7 @@
         If Me.txtNombres.Text <> String.Empty Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("NOMBRES LIKE '%{0}%'", Me.txtNombres.Text).ToString
         If Me.txtPApellido.Text <> String.Empty Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("PRIMER_APELLIDO LIKE '%{0}%'", Me.txtPApellido.Text).ToString
         If Me.txtSApellido.Text <> String.Empty Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("SEGUNDO_APELLIDO LIKE '%{0}%'", Me.txtSApellido.Text).ToString
-        If Me.txtDependencia.Text <> String.Empty Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("DEPENDENCIA_GUBERNAMENTAL LIKE '%{0}%'", Me.txtDependencia.Text).ToString
+        If Me.txtDependencia.Text <> String.Empty Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("DEPEDENCIA_GUBERNAMENTAL LIKE '%{0}%'", Me.txtDependencia.Text).ToString
         If Me.txtCargo.Text <> String.Empty Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("CARGO LIKE '%{0}%'", Me.txtCargo.Text).ToString
         If Me.cbxMotivo.SelectedValue > 0 Then filtro = filtro & If(filtro <> String.Empty, " AND ", String.Empty) & String.Format("CODIGO_MOTIVO = {0}", Me.cbxMotivo.SelectedValue).ToString
         Me.IMCIUDADANOSINHABILITADOSBindingSource.Filter = filtro
