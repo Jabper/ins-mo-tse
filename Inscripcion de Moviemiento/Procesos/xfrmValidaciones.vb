@@ -24,7 +24,7 @@ Public Class xfrmValidaciones
             Else
                 Mensajes.MensajeError(myCMD.Parameters("PVO_ERRORES").Value)
             End If
-
+            conn.Close()
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
         End Try
@@ -53,7 +53,7 @@ Public Class xfrmValidaciones
             Else
                 Mensajes.MensajeError(myCMD.Parameters("P_ERROR").Value)
             End If
-
+            conn.Close()
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
         End Try
@@ -61,5 +61,9 @@ Public Class xfrmValidaciones
 
     Private Sub xfrmValidaciones_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
+    End Sub
+
+    Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
+        Me.Close()
     End Sub
 End Class
