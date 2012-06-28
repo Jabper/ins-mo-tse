@@ -45,7 +45,7 @@ Public Class XFrmMenuPrincipal
     End Sub
     Private Sub XFrmMenuPrincipal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'verificaringreso()
-        verificar_permisos()
+        ' verificar_permisos()
         Me.BtnCerrarSesion.Visibility = BarItemVisibility.Always
         Me.BtnSalir.Visibility = BarItemVisibility.Always
         'Call conexion()
@@ -343,4 +343,9 @@ Public Class XFrmMenuPrincipal
         Padre(xfrmValidaciones)
     End Sub
 
+    Private Sub BarButtonItem2_ItemClick_2(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem2.ItemClick
+        Dim reportep As REPORTE_PLANILLAS_FINALES = New REPORTE_PLANILLAS_FINALES
+        reportep.ShowPreview()
+
+    End Sub
 End Class

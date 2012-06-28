@@ -101,7 +101,7 @@ Partial Class StandarControles
         '
         Me.SimpleButton1.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
         Me.SimpleButton1.Appearance.Options.UseFont = True
-        Me.SimpleButton1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
+        Me.SimpleButton1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.agregar
         Me.SimpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
         Me.SimpleButton1.Location = New System.Drawing.Point(2, 2)
         Me.SimpleButton1.Name = "SimpleButton1"
