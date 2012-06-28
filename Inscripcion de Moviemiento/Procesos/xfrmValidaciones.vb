@@ -58,4 +58,8 @@ Public Class xfrmValidaciones
             Mensajes.MensajeError(ex.Message)
         End Try
     End Sub
+
+    Private Sub xfrmValidaciones_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
