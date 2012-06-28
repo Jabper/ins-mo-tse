@@ -23,7 +23,7 @@ Public Class XfrmExportar
                 myCMD.Connection = conn
                 myCMD.CommandText = "IM_P_EXPORTAR_SIM"
                 myCMD.CommandType = CommandType.StoredProcedure
-                myCMD.Parameters.Add(New OracleParameter("pvo_mensaje", OracleType.Char, 100)).Direction = ParameterDirection.Output
+                myCMD.Parameters.Add(New OracleParameter("pvo_mensaje", OracleType.Char, 1000)).Direction = ParameterDirection.Output
                 myCMD.ExecuteOracleScalar()
                 mensaje = myCMD.Parameters("pvo_mensaje").Value
             Catch ex As Exception

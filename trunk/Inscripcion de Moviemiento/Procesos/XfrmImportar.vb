@@ -55,6 +55,55 @@ Public Class XfrmImportar
                     If pStart.ExitCode = 0 Then
                         MsgBox("La Importación ha Terminado Satisfactoriamente", MsgBoxStyle.Information)
                         TxtRuta.Text = Nothing
+
+                        'validar datos
+                        Dim conn7 As New OracleConnection()
+                        Try
+                            MsgBox("A continuación se ejecutarán los procesos de validación sobre los datos importados")
+                            Dim oradb7 As String = Configuracion.verconfig
+                            'Dim conn7 As New OracleConnection()
+                            conn7.ConnectionString = oradb7
+                            conn7.Open()
+                            Dim myCMD7 As New OracleCommand()
+                            myCMD7.Connection = conn7
+                            myCMD7.CommandText = "IM_P_EJECUTAR_VALIDACIONES"
+                            myCMD7.CommandType = CommandType.StoredProcedure
+                            myCMD7.Parameters.Add(New OracleParameter("PVO_ERRORES", OracleType.NVarChar, 32767)).Direction = ParameterDirection.Output
+                            myCMD7.ExecuteOracleScalar()
+                            If IsDBNull(myCMD7.Parameters("PVO_ERRORES").Value) Then
+                                Mensajes.mimensaje("Proceso de validación de Planilla terminado Exitosamente")
+                            Else
+                                Mensajes.MensajeError(myCMD7.Parameters("PVO_ERRORES").Value)
+                            End If
+                            conn7.Close()
+                        Catch ex As Exception
+                            conn7.close()
+                            Mensajes.MensajeError(ex.Message)
+                        End Try
+
+                        Dim conn8 As New OracleConnection()
+                        Try
+                            Dim oradb7 As String = Configuracion.verconfig
+
+                            conn8.ConnectionString = oradb7
+                            conn8.Open()
+                            Dim myCMD7 As New OracleCommand()
+                            myCMD7.Connection = conn8
+                            myCMD7.CommandText = "IM_K_CARGA_DATOS.IM_P_VALIDA_FIRMA"
+                            myCMD7.CommandType = CommandType.StoredProcedure
+                            myCMD7.Parameters.Add(New OracleParameter("P_ERROR", OracleType.NVarChar, 32767)).Direction = ParameterDirection.Output
+                            myCMD7.ExecuteOracleScalar()
+
+                            If IsDBNull(myCMD7.Parameters("P_ERROR").Value) Then
+                                Mensajes.mimensaje("Proceso de validación de Firmas terminado Exitosamente")
+                            Else
+                                Mensajes.MensajeError(myCMD7.Parameters("P_ERROR").Value)
+                            End If
+                            conn8.Close()
+                        Catch ex As Exception                            
+                            conn8.Close()
+                            Mensajes.MensajeError(ex.Message)
+                        End Try
                     Else
                         MsgBox("La Importación No se ha realizado Correctamente verifique el archivo de origen de los datos", MsgBoxStyle.Exclamation)
                     End If
