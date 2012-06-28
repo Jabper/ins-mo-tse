@@ -234,7 +234,7 @@ Public Class xfrmRegCandidatos
                     Dim estado_requisito As String
                     If permitido = 1 Then
 
-                        COracle.ejecutarconsulta(String.Format("DELETE FROM IM_REQUISITOS_X_CANDIDATO WHERE CODIGO_CANDIDATO = {0} AND CODIGO_MOVIMIENTO= {1}AND CODIGO_PARTIDO = {2} AND CODIGO_REQUISITO ={3} ", view.GetRowCellValue(i, "CODIGO_CANDIDATOS"), id_movimiento, id_partido, a))
+                        'COracle.ejecutarconsulta(String.Format("DELETE FROM IM_REQUISITOS_X_CANDIDATO WHERE CODIGO_CANDIDATO = {0} AND CODIGO_MOVIMIENTO= {1}AND CODIGO_PARTIDO = {2} AND CODIGO_REQUISITO ={3} ", view.GetRowCellValue(i, "CODIGO_CANDIDATOS"), id_movimiento, id_partido, a))
 
                         '***************************************************************************************************
                         'Dim requisitorow As DSInsCandidatos.IM_REQUISITOS_X_CANDIDATORow
@@ -376,7 +376,7 @@ Public Class xfrmRegCandidatos
                     'GuardarRequisitos()
                     BtnEliminariold.Enabled = False
 
-                    For a = 1 To 7
+                    For a = 1 To 8
                         ValidarCandidatos(I, a, identidad1, nombre1, nombre2, apellido1, apellido2)
                     Next a
                     'Me.LookUpEdit1.Reset()
@@ -622,7 +622,7 @@ Public Class xfrmRegCandidatos
                 End If
                 'guardar requisito el valor de vestado
                 conn.Close()
-            ElseIf requisito = 7 And (Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 4 Or Me.cboCargo.EditValue = 7) Then
+            ElseIf requisito = 7 And (Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 4 Or Me.cboCargo.EditValue = 6) Then
                 If IsDBNull(view.GetRowCellValue(fila, "IMAGEN")) Or view.GetRowCellValue(fila, "IMAGEN") Is Nothing Then
                     estado_requisto = "I"
                     contadorInconsistencias += 1
@@ -632,7 +632,7 @@ Public Class xfrmRegCandidatos
                     estado_requisto = "C"
                 End If
             ElseIf requisito = 8 And (Me.cboCargo.EditValue = 4 Or Me.cboCargo.EditValue = 5 Or Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7 Or Me.cboCargo.EditValue = 8) Then
-                If view.GetRowCellValue(fila, "CONS_VECINDAD") = False Then
+                If view.GetRowCellValue(fila, "CONS_VECINDAD") = "I" Then
                     contadorInconsistencias += 1
                     contadorrequisitos += 1
                     estado_requisto = "I"
@@ -802,10 +802,16 @@ Public Class xfrmRegCandidatos
 
         'VAlIDACIONES PARTICIPACION FEMENINA 
         If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 9 Then
+
             mujeres_ingresadas = COracle.ObtenerDatos(String.Format("SELECT NVL(COUNT(*),  0) MUJERES FROM    im_candidatos ic, im_padron_electoral IP WHERE  ic.codigo_cargo_electivo IN (1,9)  AND  IC.CODIGO_PARTIDO = {0} AND IC.CODIGO_MOVIMIENTO = {1} AND  ic.identidad = ip.numero_identidad AND ip.sexo  = 2", id_partido, id_movimiento), "MUJERES")
             mujeres_necesarias = COracle.ObtenerDatos("SELECT CANTIDAD_MUJERES FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO =9", "CANTIDAD_MUJERES")
 
-            Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (mujeres_necesarias - mujeres_ingresadas))
+            Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
+            If faltan < 0 Then
+                faltan = 0
+            End If
+
+            Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (faltan))
         ElseIf Me.cboCargo.EditValue = 2 Then
             Dim S As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
                                "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
