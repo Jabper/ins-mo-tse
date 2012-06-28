@@ -14,19 +14,48 @@ Public Class xfrmValidaciones
 
             Dim myCMD As New OracleCommand()
             myCMD.Connection = conn
-            myCMD.CommandText = "IM_K_CARGA_DATOS.IM_P_VALIDA_FIRMA "
+            myCMD.CommandText = "IM_P_EJECUTAR_VALIDACIONES"
             myCMD.CommandType = CommandType.StoredProcedure
-            myCMD.Parameters.Add(New OracleParameter("P_ERROR", OracleType.NVarChar, 32767)).Direction = ParameterDirection.Output
+            myCMD.Parameters.Add(New OracleParameter("PVO_ERRORES", OracleType.NVarChar, 32767)).Direction = ParameterDirection.Output
             myCMD.ExecuteOracleScalar()
 
-            If IsDBNull(myCMD.Parameters("PVO_MENSAJE").Value) Then
+            If IsDBNull(myCMD.Parameters("PVO_ERRORES").Value) Then
+                Mensajes.mimensaje("Validaciones Corridas Exitosamente")
             Else
-                Mensajes.MensajeError(myCMD.Parameters("PVO_MENSAJE").Value)
+                Mensajes.MensajeError(myCMD.Parameters("PVO_ERRORES").Value)
             End If
 
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
         End Try
 
+    End Sub
+
+    Private Sub BtnFirmas_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnFirmas.Click
+        Try
+
+
+            Dim oradb As String = Configuracion.verconfig
+
+            Dim conn As New OracleConnection()
+            conn.ConnectionString = oradb
+            conn.Open()
+
+            Dim myCMD As New OracleCommand()
+            myCMD.Connection = conn
+            myCMD.CommandText = "IM_K_CARGA_DATOS.IM_P_VALIDA_FIRMA"
+            myCMD.CommandType = CommandType.StoredProcedure
+            myCMD.Parameters.Add(New OracleParameter("P_ERROR", OracleType.NVarChar, 32767)).Direction = ParameterDirection.Output
+            myCMD.ExecuteOracleScalar()
+
+            If IsDBNull(myCMD.Parameters("P_ERROR").Value) Then
+                Mensajes.mimensaje("Validaciones Corridas Exitosamente")
+            Else
+                Mensajes.MensajeError(myCMD.Parameters("P_ERROR").Value)
+            End If
+
+        Catch ex As Exception
+            Mensajes.MensajeError(ex.Message)
+        End Try
     End Sub
 End Class
