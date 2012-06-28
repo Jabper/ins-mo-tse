@@ -300,6 +300,7 @@ Partial Class XfrmConFirmas
         '
         Me.cbxMovimiento.DataSource = Me.IMFK1MOVIMIENTOSBindingSource
         Me.cbxMovimiento.DisplayMember = "NOMBRE_MOVIMIENTO"
+        Me.cbxMovimiento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxMovimiento.FormattingEnabled = True
         Me.cbxMovimiento.Location = New System.Drawing.Point(484, 87)
         Me.cbxMovimiento.Name = "cbxMovimiento"
@@ -311,6 +312,7 @@ Partial Class XfrmConFirmas
         '
         Me.cbxMunicipio.DataSource = Me.IMFK1MUNICIPIOBindingSource
         Me.cbxMunicipio.DisplayMember = "DESCRIPCION"
+        Me.cbxMunicipio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxMunicipio.FormattingEnabled = True
         Me.cbxMunicipio.Location = New System.Drawing.Point(484, 141)
         Me.cbxMunicipio.Name = "cbxMunicipio"
@@ -322,6 +324,7 @@ Partial Class XfrmConFirmas
         '
         Me.cbxDepartamento.DataSource = Me.DepartamentosBindingSource
         Me.cbxDepartamento.DisplayMember = "DESCRIPCION"
+        Me.cbxDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxDepartamento.FormattingEnabled = True
         Me.cbxDepartamento.Location = New System.Drawing.Point(484, 114)
         Me.cbxDepartamento.Name = "cbxDepartamento"
@@ -458,6 +461,7 @@ Partial Class XfrmConFirmas
         '
         Me.cbxPartido.DataSource = Me.PartidosBindingSource
         Me.cbxPartido.DisplayMember = "NOMBRE"
+        Me.cbxPartido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxPartido.FormattingEnabled = True
         Me.cbxPartido.Location = New System.Drawing.Point(484, 60)
         Me.cbxPartido.Name = "cbxPartido"
