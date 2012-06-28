@@ -267,6 +267,7 @@ Partial Class XfrmConCiudadanosInha
         '
         Me.cbxMotivo.DataSource = Me.MotivosBindingSource
         Me.cbxMotivo.DisplayMember = "DESCRIPCION"
+        Me.cbxMotivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxMotivo.FormattingEnabled = True
         Me.cbxMotivo.Location = New System.Drawing.Point(566, 111)
         Me.cbxMotivo.Name = "cbxMotivo"

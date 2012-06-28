@@ -358,6 +358,7 @@ Partial Class XfrmConCenso
         '
         Me.cbxGenero.DataSource = Me.GenerosBindingSource
         Me.cbxGenero.DisplayMember = "DES"
+        Me.cbxGenero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxGenero.FormattingEnabled = True
         Me.cbxGenero.Location = New System.Drawing.Point(596, 60)
         Me.cbxGenero.Name = "cbxGenero"

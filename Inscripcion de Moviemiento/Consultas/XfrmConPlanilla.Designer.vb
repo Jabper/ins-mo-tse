@@ -652,6 +652,7 @@ Partial Class XfrmConPlanilla
         '
         Me.cbxCargo.DataSource = Me.IMFK1CARGOSELECTIVOSBindingSource
         Me.cbxCargo.DisplayMember = "DESCRIPCION"
+        Me.cbxCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxCargo.FormattingEnabled = True
         Me.cbxCargo.Location = New System.Drawing.Point(565, 23)
         Me.cbxCargo.Name = "cbxCargo"
@@ -677,6 +678,7 @@ Partial Class XfrmConPlanilla
         '
         Me.cbxNivel.DataSource = Me.NivelesBindingSource
         Me.cbxNivel.DisplayMember = "DESCRIPCION"
+        Me.cbxNivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxNivel.FormattingEnabled = True
         Me.cbxNivel.Location = New System.Drawing.Point(94, 77)
         Me.cbxNivel.Name = "cbxNivel"
@@ -697,6 +699,7 @@ Partial Class XfrmConPlanilla
         '
         Me.cbxMovimiento.DataSource = Me.IMFK1MOVIMIENTOSBindingSource
         Me.cbxMovimiento.DisplayMember = "NOMBRE_MOVIMIENTO"
+        Me.cbxMovimiento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxMovimiento.FormattingEnabled = True
         Me.cbxMovimiento.Location = New System.Drawing.Point(94, 50)
         Me.cbxMovimiento.Name = "cbxMovimiento"
@@ -708,6 +711,7 @@ Partial Class XfrmConPlanilla
         '
         Me.cbxMunicipio.DataSource = Me.IMFK1MUNICIPIOBindingSource
         Me.cbxMunicipio.DisplayMember = "DESCRIPCION"
+        Me.cbxMunicipio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxMunicipio.FormattingEnabled = True
         Me.cbxMunicipio.Location = New System.Drawing.Point(565, 77)
         Me.cbxMunicipio.Name = "cbxMunicipio"
@@ -719,6 +723,7 @@ Partial Class XfrmConPlanilla
         '
         Me.cbxDepartamento.DataSource = Me.DepartamentosBindingSource
         Me.cbxDepartamento.DisplayMember = "DESCRIPCION"
+        Me.cbxDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxDepartamento.FormattingEnabled = True
         Me.cbxDepartamento.Location = New System.Drawing.Point(565, 50)
         Me.cbxDepartamento.Name = "cbxDepartamento"
@@ -730,6 +735,7 @@ Partial Class XfrmConPlanilla
         '
         Me.cbxPartido.DataSource = Me.PartidosBindingSource
         Me.cbxPartido.DisplayMember = "NOMBRE"
+        Me.cbxPartido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxPartido.FormattingEnabled = True
         Me.cbxPartido.Location = New System.Drawing.Point(94, 23)
         Me.cbxPartido.Name = "cbxPartido"
