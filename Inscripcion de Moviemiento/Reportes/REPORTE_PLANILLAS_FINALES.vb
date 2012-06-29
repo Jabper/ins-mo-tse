@@ -95,6 +95,8 @@ Public Class REPORTE_PLANILLAS_FINALES
         ''variables nivel congreso nacional
         Dim tnivel_diputadoscnp As String = 0
         Dim tnivel_diputadoscns As String = 0
+        Dim tnivel_diputadospac As String = 0
+        Dim tnivel_diputadossac As String = 0
 
         Dim identidades As String = 0
         Dim total_general As String = 0
@@ -116,13 +118,14 @@ Public Class REPORTE_PLANILLAS_FINALES
         cdesignados = COracle.ObtenerDatos("Select sum(CANTIDAD_CARGO) CANTIDAD_CARGO FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO = 9", "CANTIDAD_CARGO")
         parlacen2 = COracle.ObtenerDatos("Select sum(CANTIDAD_CARGO) CANTIDAD_CARGO FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO = 3", "CANTIDAD_CARGO")
         ''TOTALES DE LA POR PARTIDO Y MOVIMIENTOS 
-        tnivel_presidencial = COracle.ObtenerDatos("select count(*) CANTIDAD_CARGO  from im_candidatos C,im_partidos_politicos p, im_movimientos m where C.CODIGO_CARGO_ELECTIVO in (1)and C.CODIGO_PARTIDO = P.CODIGO_PARTIDO and C.CODIGO_PARTIDO  = M.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO =M.CODIGO_MOVIMIENTO and c.estado='H' and P.NOMBRE ='" & Me.partidopolitico.Text & "' AND M.NOMBRE_MOVIMIENTO ='" & Me.movimientopolitico.Text & "'", "CANTIDAD_CARGO")
-        tnivel_designados = COracle.ObtenerDatos("select count(*) CANTIDAD_CARGO  from im_candidatos C,im_partidos_politicos p, im_movimientos m where C.CODIGO_CARGO_ELECTIVO in (9)and C.CODIGO_PARTIDO = P.CODIGO_PARTIDO and C.CODIGO_PARTIDO  = M.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO =M.CODIGO_MOVIMIENTO and c.estado='H' and P.NOMBRE ='" & Me.partidopolitico.Text & "' AND M.NOMBRE_MOVIMIENTO ='" & Me.movimientopolitico.Text & "'", "CANTIDAD_CARGO")
-        tnivel_diputadospp = COracle.ObtenerDatos("select count(*) CANTIDAD_CARGO  from im_candidatos C,im_partidos_politicos p, im_movimientos m where C.CODIGO_CARGO_ELECTIVO in (2)and C.CODIGO_PARTIDO = P.CODIGO_PARTIDO and C.CODIGO_PARTIDO  = M.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO =M.CODIGO_MOVIMIENTO and c.estado='H' and P.NOMBRE ='" & Me.partidopolitico.Text & "' AND M.NOMBRE_MOVIMIENTO ='" & Me.movimientopolitico.Text & "'", "CANTIDAD_CARGO")
-        tnivel_diputadosps = COracle.ObtenerDatos("select count(*) CANTIDAD_CARGO  from im_candidatos C,im_partidos_politicos p, im_movimientos m where C.CODIGO_CARGO_ELECTIVO in (3)and C.CODIGO_PARTIDO = P.CODIGO_PARTIDO and C.CODIGO_PARTIDO  = M.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO =M.CODIGO_MOVIMIENTO and c.estado='H' and P.NOMBRE ='" & Me.partidopolitico.Text & "' AND M.NOMBRE_MOVIMIENTO ='" & Me.movimientopolitico.Text & "'", "CANTIDAD_CARGO")
+        tnivel_presidencial = COracle.ObtenerDatos("select count(*) CANTIDAD_CARGO  from im_candidatos C,im_partidos_politicos p, im_movimientos m where C.CODIGO_CARGO_ELECTIVO in (1)and C.CODIGO_PARTIDO = P.CODIGO_PARTIDO and C.CODIGO_PARTIDO  = M.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO =M.CODIGO_MOVIMIENTO and P.NOMBRE ='" & Me.partidopolitico.Text & "' AND M.NOMBRE_MOVIMIENTO ='" & Me.movimientopolitico.Text & "'", "CANTIDAD_CARGO")
+        tnivel_designados = COracle.ObtenerDatos("select count(*) CANTIDAD_CARGO  from im_candidatos C,im_partidos_politicos p, im_movimientos m where C.CODIGO_CARGO_ELECTIVO in (9)and C.CODIGO_PARTIDO = P.CODIGO_PARTIDO and C.CODIGO_PARTIDO  = M.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO =M.CODIGO_MOVIMIENTO  and P.NOMBRE ='" & Me.partidopolitico.Text & "' AND M.NOMBRE_MOVIMIENTO ='" & Me.movimientopolitico.Text & "'", "CANTIDAD_CARGO")
+        tnivel_diputadospp = COracle.ObtenerDatos("select count(*) CANTIDAD_CARGO  from im_candidatos C,im_partidos_politicos p, im_movimientos m where C.CODIGO_CARGO_ELECTIVO in (2)and C.CODIGO_PARTIDO = P.CODIGO_PARTIDO and C.CODIGO_PARTIDO  = M.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO =M.CODIGO_MOVIMIENTO and P.NOMBRE ='" & Me.partidopolitico.Text & "' AND M.NOMBRE_MOVIMIENTO ='" & Me.movimientopolitico.Text & "'", "CANTIDAD_CARGO")
+        tnivel_diputadosps = COracle.ObtenerDatos("select count(*) CANTIDAD_CARGO  from im_candidatos C,im_partidos_politicos p, im_movimientos m where C.CODIGO_CARGO_ELECTIVO in (3)and C.CODIGO_PARTIDO = P.CODIGO_PARTIDO and C.CODIGO_PARTIDO  = M.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO =M.CODIGO_MOVIMIENTO and P.NOMBRE ='" & Me.partidopolitico.Text & "' AND M.NOMBRE_MOVIMIENTO ='" & Me.movimientopolitico.Text & "'", "CANTIDAD_CARGO")
         ''TOTALES DIPUTADOS AL CONGRESO NACIONAL
-        tnivel_diputadoscnp = COracle.ObtenerDatos("Select SUM(CANTIDAD_DIPUTADOS)CANTIDAD_CARGO FROM IM_DEPARTAMENTOS", "CANTIDAD_CARGO")
+        tnivel_diputadoscnp = COracle.ObtenerDatos("Select SUM(CANTIDAD_DIPUTADOS)CANTIDAD_CARGO FROM IM_DEPARTAMENTOS where descripcion='" & Me.ndepartamento.Text & "'", "CANTIDAD_CARGO")
         tnivel_diputadoscns = tnivel_diputadoscnp.ToString
+        tnivel_diputadospac = COracle.ObtenerDatos("SELECT count(*)CANTIDAD_CARGO FROM IM_DEPARTAMENTOS d, im_v_mostrar_candidatos2 a, im_cargos_electivos ca where A.CODIGO_DEPARTAMENTO = D.CODIGO_DEPARTAMENTO and A.CODIGO_CARGO_ELECTIVO = CA.CODIGO_CARGO_ELECTIVO and D.DESCRIPCION   ='" & Me.ndepartamento.Text & "' and CA.CODIGO_NIVEL_ELECTIVO  = 2", "CANTIDAD_CARGO")
 
 
         'AREA DE ASIGNACION A CAMPOS DEL REPORTE 
@@ -138,6 +141,9 @@ Public Class REPORTE_PLANILLAS_FINALES
         ''NIVEL DIPUTADOS
         Me.totaldipup.Text = tnivel_diputadoscnp.ToString
         Me.totaldipus.Text = tnivel_diputadoscns.ToString
+        Me.total_dipp.Text = tnivel_diputadospac.ToString
+        Me.total_dips.Text = tnivel_diputadospac.ToString
+
 
         'PASO LOS PARAMETROS A MI DATA SET PARA HACER EL FILTRADO EN LA CONSULTA
         Me.IM_CANDIDATOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES1.IM_CANDIDATOS, Me.partidopolitico.Text, Me.movimientopolitico.Text, Me.nivelelectivo.Text, Me.ndepartamento.Text)
