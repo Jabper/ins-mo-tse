@@ -22,35 +22,8 @@ Partial Class XfrmValidarFirmas
         Me.components = New System.ComponentModel.Container
         Me.GCBusqueda = New DevExpress.XtraGrid.GridControl
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
-        Me.colFOTOGRAFIA = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.RepositoryItemPictureEdit = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
-        Me.colCONSTANCIA = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colPOSICION = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colIDENTIDAD = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colPRIMER_NOMBRE = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colSEGUNDO_NOMBRE = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colPRIMER_APELLIDO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colSEGUNDO_APELLIDO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colREC1 = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RepositoryItemCheckEdit = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
-        Me.colREC2 = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colREC3 = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colREC4 = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colREC5 = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colREC6 = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colREC7 = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colREC8 = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colREC9 = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colVALIDADO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
-        Me.colCODIGO_PARTIDO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colCODIGO_MOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colCODIGO_NIVEL_ELECTIVO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colCODIGO_CARGO_ELECTIVO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colCODIGO_DEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colCODIGO_MUNICIPIO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colCODIGO_CANDIDATOS = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colESTADO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
@@ -68,7 +41,12 @@ Partial Class XfrmValidarFirmas
         Me.Label8 = New System.Windows.Forms.Label
         Me.Label4 = New System.Windows.Forms.Label
         Me.cbxMovimiento = New System.Windows.Forms.ComboBox
+        Me.IMFK1MOVIMIENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PartidosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DSConsultas = New Inscripcion_de_Moviemientos.DSConsultas
         Me.cbxMunicipio = New System.Windows.Forms.ComboBox
+        Me.IMFK1MUNICIPIOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DepartamentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.cbxDepartamento = New System.Windows.Forms.ComboBox
         Me.cbxPartido = New System.Windows.Forms.ComboBox
         Me.Label7 = New System.Windows.Forms.Label
@@ -76,40 +54,58 @@ Partial Class XfrmValidarFirmas
         Me.Label2 = New System.Windows.Forms.Label
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
         Me.pbxFirma = New System.Windows.Forms.PictureBox
-        Me.DSConsultas = New Inscripcion_de_Moviemientos.DSConsultas
-        Me.PartidosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PartidosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.PartidosTableAdapter
-        Me.IMFK1MOVIMIENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MovimientosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MovimientosTableAdapter
-        Me.DepartamentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DepartamentosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.DepartamentosTableAdapter
-        Me.IMFK1MUNICIPIOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MunicipiosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MunicipiosTableAdapter
+        Me.IMVVALIDARFIRMASBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IM_V_VALIDAR_FIRMASTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.IM_V_VALIDAR_FIRMASTableAdapter
+        Me.colIDENTIDAD = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colPRIMER_NOMBRE_PAPELETA = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colSEGUNDO_NOMBRE_PAPELETA = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colPRIMER_APELLIDO_PAPELETA = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colSEGUNDO_APELLIDO_PAPELETA = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colFIRMA = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colHUELLA = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colDIRECCION = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colIGUAL = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCONSISTENTE = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colFOLIO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colPAGINA = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colOBSERVACION = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colVALIDADO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colMAQUINA = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCODIGO_CUIDADANOS_RESPALDAN = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCODIGO_PARTIDO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCODIGO_MOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCODIGO_DEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCODIGO_MUNICIPIO = New DevExpress.XtraGrid.Columns.GridColumn
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemPictureEdit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemCheckEdit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PartidosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMFK1MUNICIPIOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DepartamentosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.pbxFirma, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PartidosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DepartamentosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IMFK1MUNICIPIOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMVVALIDARFIRMASBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GCBusqueda
         '
+        Me.GCBusqueda.DataSource = Me.IMVVALIDARFIRMASBindingSource
         Me.GCBusqueda.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GCBusqueda.Location = New System.Drawing.Point(0, 219)
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
-        Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit, Me.RepositoryItemPictureEdit, Me.RepositoryItemCheckEdit1})
+        Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit, Me.RepositoryItemCheckEdit1})
         Me.GCBusqueda.Size = New System.Drawing.Size(1227, 498)
         Me.GCBusqueda.TabIndex = 23
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
@@ -117,7 +113,7 @@ Partial Class XfrmValidarFirmas
         'GridView1
         '
         Me.GridView1.ColumnPanelRowHeight = 50
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colFOTOGRAFIA, Me.colCONSTANCIA, Me.colPOSICION, Me.colIDENTIDAD, Me.colPRIMER_NOMBRE, Me.colSEGUNDO_NOMBRE, Me.colPRIMER_APELLIDO, Me.colSEGUNDO_APELLIDO, Me.colREC1, Me.colREC2, Me.colREC3, Me.colREC4, Me.colREC5, Me.colREC6, Me.colREC7, Me.colREC8, Me.colREC9, Me.colVALIDADO, Me.colCODIGO_PARTIDO, Me.colCODIGO_MOVIMIENTO, Me.colCODIGO_NIVEL_ELECTIVO, Me.colCODIGO_CARGO_ELECTIVO, Me.colCODIGO_DEPARTAMENTO, Me.colCODIGO_MUNICIPIO, Me.colCODIGO_CANDIDATOS, Me.colESTADO})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colIDENTIDAD, Me.colPRIMER_NOMBRE_PAPELETA, Me.colSEGUNDO_NOMBRE_PAPELETA, Me.colPRIMER_APELLIDO_PAPELETA, Me.colSEGUNDO_APELLIDO_PAPELETA, Me.colFIRMA, Me.colHUELLA, Me.colDIRECCION, Me.colIGUAL, Me.colCONSISTENTE, Me.colFOLIO, Me.colPAGINA, Me.colOBSERVACION, Me.colVALIDADO, Me.colMAQUINA, Me.colCODIGO_CUIDADANOS_RESPALDAN, Me.colCODIGO_PARTIDO, Me.colCODIGO_MOVIMIENTO, Me.colCODIGO_DEPARTAMENTO, Me.colCODIGO_MUNICIPIO})
         Me.GridView1.GridControl = Me.GCBusqueda
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[False]
@@ -127,163 +123,7 @@ Partial Class XfrmValidarFirmas
         Me.GridView1.OptionsView.ShowDetailButtons = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
         Me.GridView1.RowHeight = 50
-        '
-        'colFOTOGRAFIA
-        '
-        Me.colFOTOGRAFIA.AppearanceHeader.Options.UseTextOptions = True
-        Me.colFOTOGRAFIA.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colFOTOGRAFIA.Caption = "Fotografía"
-        Me.colFOTOGRAFIA.ColumnEdit = Me.RepositoryItemPictureEdit
-        Me.colFOTOGRAFIA.FieldName = "FOTOGRAFIA"
-        Me.colFOTOGRAFIA.Name = "colFOTOGRAFIA"
-        Me.colFOTOGRAFIA.OptionsColumn.AllowEdit = False
-        Me.colFOTOGRAFIA.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
-        Me.colFOTOGRAFIA.OptionsColumn.ReadOnly = True
-        Me.colFOTOGRAFIA.OptionsColumn.TabStop = False
-        Me.colFOTOGRAFIA.Visible = True
-        Me.colFOTOGRAFIA.VisibleIndex = 0
-        Me.colFOTOGRAFIA.Width = 62
-        '
-        'RepositoryItemPictureEdit
-        '
-        Me.RepositoryItemPictureEdit.Name = "RepositoryItemPictureEdit"
-        Me.RepositoryItemPictureEdit.NullText = "-"
-        Me.RepositoryItemPictureEdit.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
-        '
-        'colCONSTANCIA
-        '
-        Me.colCONSTANCIA.AppearanceHeader.Options.UseTextOptions = True
-        Me.colCONSTANCIA.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colCONSTANCIA.Caption = "Constancia"
-        Me.colCONSTANCIA.ColumnEdit = Me.RepositoryItemPictureEdit
-        Me.colCONSTANCIA.FieldName = "CONSTANCIA"
-        Me.colCONSTANCIA.Name = "colCONSTANCIA"
-        Me.colCONSTANCIA.OptionsColumn.AllowEdit = False
-        Me.colCONSTANCIA.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
-        Me.colCONSTANCIA.OptionsColumn.ReadOnly = True
-        Me.colCONSTANCIA.OptionsColumn.TabStop = False
-        Me.colCONSTANCIA.Visible = True
-        Me.colCONSTANCIA.VisibleIndex = 1
-        Me.colCONSTANCIA.Width = 62
-        '
-        'colPOSICION
-        '
-        Me.colPOSICION.Caption = "Posición"
-        Me.colPOSICION.FieldName = "POSICION"
-        Me.colPOSICION.Name = "colPOSICION"
-        Me.colPOSICION.OptionsColumn.AllowEdit = False
-        Me.colPOSICION.OptionsColumn.AllowFocus = False
-        Me.colPOSICION.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
-        Me.colPOSICION.OptionsColumn.ReadOnly = True
-        Me.colPOSICION.OptionsColumn.TabStop = False
-        Me.colPOSICION.Visible = True
-        Me.colPOSICION.VisibleIndex = 2
-        Me.colPOSICION.Width = 47
-        '
-        'colIDENTIDAD
-        '
-        Me.colIDENTIDAD.AppearanceHeader.Options.UseTextOptions = True
-        Me.colIDENTIDAD.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colIDENTIDAD.Caption = "Identidad"
-        Me.colIDENTIDAD.FieldName = "IDENTIDAD"
-        Me.colIDENTIDAD.Name = "colIDENTIDAD"
-        Me.colIDENTIDAD.OptionsColumn.AllowEdit = False
-        Me.colIDENTIDAD.OptionsColumn.AllowFocus = False
-        Me.colIDENTIDAD.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
-        Me.colIDENTIDAD.OptionsColumn.ReadOnly = True
-        Me.colIDENTIDAD.OptionsColumn.TabStop = False
-        Me.colIDENTIDAD.Visible = True
-        Me.colIDENTIDAD.VisibleIndex = 3
-        Me.colIDENTIDAD.Width = 91
-        '
-        'colPRIMER_NOMBRE
-        '
-        Me.colPRIMER_NOMBRE.AppearanceCell.Options.UseTextOptions = True
-        Me.colPRIMER_NOMBRE.AppearanceCell.TextOptions.Trimming = DevExpress.Utils.Trimming.Word
-        Me.colPRIMER_NOMBRE.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colPRIMER_NOMBRE.AppearanceHeader.Options.UseTextOptions = True
-        Me.colPRIMER_NOMBRE.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colPRIMER_NOMBRE.Caption = "Primer Nombre"
-        Me.colPRIMER_NOMBRE.FieldName = "PRIMER_NOMBRE"
-        Me.colPRIMER_NOMBRE.Name = "colPRIMER_NOMBRE"
-        Me.colPRIMER_NOMBRE.OptionsColumn.AllowEdit = False
-        Me.colPRIMER_NOMBRE.OptionsColumn.AllowFocus = False
-        Me.colPRIMER_NOMBRE.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
-        Me.colPRIMER_NOMBRE.OptionsColumn.ReadOnly = True
-        Me.colPRIMER_NOMBRE.OptionsColumn.TabStop = False
-        Me.colPRIMER_NOMBRE.Visible = True
-        Me.colPRIMER_NOMBRE.VisibleIndex = 4
-        '
-        'colSEGUNDO_NOMBRE
-        '
-        Me.colSEGUNDO_NOMBRE.AppearanceCell.Options.UseTextOptions = True
-        Me.colSEGUNDO_NOMBRE.AppearanceCell.TextOptions.Trimming = DevExpress.Utils.Trimming.Word
-        Me.colSEGUNDO_NOMBRE.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colSEGUNDO_NOMBRE.AppearanceHeader.Options.UseTextOptions = True
-        Me.colSEGUNDO_NOMBRE.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colSEGUNDO_NOMBRE.Caption = "Segundo Nombre"
-        Me.colSEGUNDO_NOMBRE.FieldName = "SEGUNDO_NOMBRE"
-        Me.colSEGUNDO_NOMBRE.Name = "colSEGUNDO_NOMBRE"
-        Me.colSEGUNDO_NOMBRE.OptionsColumn.AllowEdit = False
-        Me.colSEGUNDO_NOMBRE.OptionsColumn.AllowFocus = False
-        Me.colSEGUNDO_NOMBRE.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
-        Me.colSEGUNDO_NOMBRE.OptionsColumn.ReadOnly = True
-        Me.colSEGUNDO_NOMBRE.OptionsColumn.TabStop = False
-        Me.colSEGUNDO_NOMBRE.Visible = True
-        Me.colSEGUNDO_NOMBRE.VisibleIndex = 5
-        '
-        'colPRIMER_APELLIDO
-        '
-        Me.colPRIMER_APELLIDO.AppearanceCell.Options.UseTextOptions = True
-        Me.colPRIMER_APELLIDO.AppearanceCell.TextOptions.Trimming = DevExpress.Utils.Trimming.Word
-        Me.colPRIMER_APELLIDO.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colPRIMER_APELLIDO.AppearanceHeader.Options.UseTextOptions = True
-        Me.colPRIMER_APELLIDO.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colPRIMER_APELLIDO.Caption = "Primer Apellido"
-        Me.colPRIMER_APELLIDO.FieldName = "PRIMER_APELLIDO"
-        Me.colPRIMER_APELLIDO.Name = "colPRIMER_APELLIDO"
-        Me.colPRIMER_APELLIDO.OptionsColumn.AllowEdit = False
-        Me.colPRIMER_APELLIDO.OptionsColumn.AllowFocus = False
-        Me.colPRIMER_APELLIDO.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
-        Me.colPRIMER_APELLIDO.OptionsColumn.ReadOnly = True
-        Me.colPRIMER_APELLIDO.OptionsColumn.TabStop = False
-        Me.colPRIMER_APELLIDO.Visible = True
-        Me.colPRIMER_APELLIDO.VisibleIndex = 6
-        '
-        'colSEGUNDO_APELLIDO
-        '
-        Me.colSEGUNDO_APELLIDO.AppearanceCell.Options.UseTextOptions = True
-        Me.colSEGUNDO_APELLIDO.AppearanceCell.TextOptions.Trimming = DevExpress.Utils.Trimming.Word
-        Me.colSEGUNDO_APELLIDO.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colSEGUNDO_APELLIDO.AppearanceHeader.Options.UseTextOptions = True
-        Me.colSEGUNDO_APELLIDO.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colSEGUNDO_APELLIDO.Caption = "Segundo Apellido"
-        Me.colSEGUNDO_APELLIDO.FieldName = "SEGUNDO_APELLIDO"
-        Me.colSEGUNDO_APELLIDO.Name = "colSEGUNDO_APELLIDO"
-        Me.colSEGUNDO_APELLIDO.OptionsColumn.AllowEdit = False
-        Me.colSEGUNDO_APELLIDO.OptionsColumn.AllowFocus = False
-        Me.colSEGUNDO_APELLIDO.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
-        Me.colSEGUNDO_APELLIDO.OptionsColumn.ReadOnly = True
-        Me.colSEGUNDO_APELLIDO.OptionsColumn.TabStop = False
-        Me.colSEGUNDO_APELLIDO.Visible = True
-        Me.colSEGUNDO_APELLIDO.VisibleIndex = 7
-        '
-        'colREC1
-        '
-        Me.colREC1.AppearanceHeader.Options.UseTextOptions = True
-        Me.colREC1.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colREC1.Caption = "Hondureño por Nacimiento"
-        Me.colREC1.ColumnEdit = Me.RepositoryItemCheckEdit
-        Me.colREC1.FieldName = "REC1"
-        Me.colREC1.Name = "colREC1"
-        Me.colREC1.OptionsColumn.AllowEdit = False
-        Me.colREC1.OptionsColumn.AllowFocus = False
-        Me.colREC1.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
-        Me.colREC1.OptionsColumn.ReadOnly = True
-        Me.colREC1.OptionsColumn.TabStop = False
-        Me.colREC1.Visible = True
-        Me.colREC1.VisibleIndex = 8
-        Me.colREC1.Width = 60
+        Me.GridView1.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.colSEGUNDO_NOMBRE_PAPELETA, DevExpress.Data.ColumnSortOrder.Descending)})
         '
         'RepositoryItemCheckEdit
         '
@@ -294,204 +134,18 @@ Partial Class XfrmValidarFirmas
         Me.RepositoryItemCheckEdit.PictureChecked = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Ok
         Me.RepositoryItemCheckEdit.PictureGrayed = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.errorIcon
         Me.RepositoryItemCheckEdit.PictureUnchecked = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.errorIcon
-        Me.RepositoryItemCheckEdit.ValueChecked = "1"
-        Me.RepositoryItemCheckEdit.ValueGrayed = "0"
-        Me.RepositoryItemCheckEdit.ValueUnchecked = "0"
-        '
-        'colREC2
-        '
-        Me.colREC2.AppearanceHeader.Options.UseTextOptions = True
-        Me.colREC2.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colREC2.Caption = "Existencia CNE"
-        Me.colREC2.ColumnEdit = Me.RepositoryItemCheckEdit
-        Me.colREC2.FieldName = "REC2"
-        Me.colREC2.Name = "colREC2"
-        Me.colREC2.OptionsColumn.AllowEdit = False
-        Me.colREC2.OptionsColumn.AllowFocus = False
-        Me.colREC2.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
-        Me.colREC2.OptionsColumn.ReadOnly = True
-        Me.colREC2.OptionsColumn.TabStop = False
-        Me.colREC2.Visible = True
-        Me.colREC2.VisibleIndex = 9
-        Me.colREC2.Width = 60
-        '
-        'colREC3
-        '
-        Me.colREC3.AppearanceHeader.Options.UseTextOptions = True
-        Me.colREC3.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colREC3.Caption = "Nombres Apellidos Iguales CNE"
-        Me.colREC3.ColumnEdit = Me.RepositoryItemCheckEdit
-        Me.colREC3.FieldName = "REC3"
-        Me.colREC3.Name = "colREC3"
-        Me.colREC3.OptionsColumn.AllowEdit = False
-        Me.colREC3.OptionsColumn.AllowFocus = False
-        Me.colREC3.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
-        Me.colREC3.OptionsColumn.ReadOnly = True
-        Me.colREC3.OptionsColumn.TabStop = False
-        Me.colREC3.Visible = True
-        Me.colREC3.VisibleIndex = 10
-        Me.colREC3.Width = 60
-        '
-        'colREC4
-        '
-        Me.colREC4.AppearanceHeader.Options.UseTextOptions = True
-        Me.colREC4.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colREC4.Caption = "Mayor de 18 Años"
-        Me.colREC4.ColumnEdit = Me.RepositoryItemCheckEdit
-        Me.colREC4.FieldName = "REC4"
-        Me.colREC4.Name = "colREC4"
-        Me.colREC4.OptionsColumn.AllowEdit = False
-        Me.colREC4.OptionsColumn.AllowFocus = False
-        Me.colREC4.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
-        Me.colREC4.OptionsColumn.ReadOnly = True
-        Me.colREC4.OptionsColumn.TabStop = False
-        Me.colREC4.Visible = True
-        Me.colREC4.VisibleIndex = 11
-        Me.colREC4.Width = 60
-        '
-        'colREC5
-        '
-        Me.colREC5.AppearanceHeader.Options.UseTextOptions = True
-        Me.colREC5.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colREC5.Caption = "Mayor de 21 Años"
-        Me.colREC5.ColumnEdit = Me.RepositoryItemCheckEdit
-        Me.colREC5.FieldName = "REC5"
-        Me.colREC5.Name = "colREC5"
-        Me.colREC5.OptionsColumn.AllowEdit = False
-        Me.colREC5.OptionsColumn.AllowFocus = False
-        Me.colREC5.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
-        Me.colREC5.OptionsColumn.ReadOnly = True
-        Me.colREC5.OptionsColumn.TabStop = False
-        Me.colREC5.Visible = True
-        Me.colREC5.VisibleIndex = 12
-        Me.colREC5.Width = 60
-        '
-        'colREC6
-        '
-        Me.colREC6.AppearanceHeader.Options.UseTextOptions = True
-        Me.colREC6.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colREC6.Caption = "Mayor de 30 Años"
-        Me.colREC6.ColumnEdit = Me.RepositoryItemCheckEdit
-        Me.colREC6.FieldName = "REC6"
-        Me.colREC6.Name = "colREC6"
-        Me.colREC6.OptionsColumn.AllowEdit = False
-        Me.colREC6.OptionsColumn.AllowFocus = False
-        Me.colREC6.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
-        Me.colREC6.OptionsColumn.ReadOnly = True
-        Me.colREC6.OptionsColumn.TabStop = False
-        Me.colREC6.Visible = True
-        Me.colREC6.VisibleIndex = 13
-        Me.colREC6.Width = 60
-        '
-        'colREC7
-        '
-        Me.colREC7.AppearanceHeader.Options.UseTextOptions = True
-        Me.colREC7.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colREC7.Caption = "Fotografia Reciente"
-        Me.colREC7.ColumnEdit = Me.RepositoryItemCheckEdit
-        Me.colREC7.FieldName = "REC7"
-        Me.colREC7.Name = "colREC7"
-        Me.colREC7.OptionsColumn.AllowEdit = False
-        Me.colREC7.OptionsColumn.AllowFocus = False
-        Me.colREC7.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
-        Me.colREC7.OptionsColumn.ReadOnly = True
-        Me.colREC7.OptionsColumn.TabStop = False
-        Me.colREC7.Visible = True
-        Me.colREC7.VisibleIndex = 14
-        Me.colREC7.Width = 60
-        '
-        'colREC8
-        '
-        Me.colREC8.AppearanceHeader.Options.UseTextOptions = True
-        Me.colREC8.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colREC8.Caption = "Constancia de Vecindad"
-        Me.colREC8.ColumnEdit = Me.RepositoryItemCheckEdit
-        Me.colREC8.FieldName = "REC8"
-        Me.colREC8.Name = "colREC8"
-        Me.colREC8.OptionsColumn.AllowEdit = False
-        Me.colREC8.OptionsColumn.AllowFocus = False
-        Me.colREC8.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
-        Me.colREC8.OptionsColumn.ReadOnly = True
-        Me.colREC8.OptionsColumn.TabStop = False
-        Me.colREC8.Visible = True
-        Me.colREC8.VisibleIndex = 15
-        Me.colREC8.Width = 60
-        '
-        'colREC9
-        '
-        Me.colREC9.AppearanceHeader.Options.UseTextOptions = True
-        Me.colREC9.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colREC9.Caption = "Candidato no Existe en Planilla"
-        Me.colREC9.ColumnEdit = Me.RepositoryItemCheckEdit
-        Me.colREC9.FieldName = "REC9"
-        Me.colREC9.Name = "colREC9"
-        Me.colREC9.OptionsColumn.AllowEdit = False
-        Me.colREC9.OptionsColumn.AllowFocus = False
-        Me.colREC9.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[False]
-        Me.colREC9.OptionsColumn.ReadOnly = True
-        Me.colREC9.OptionsColumn.TabStop = False
-        Me.colREC9.Visible = True
-        Me.colREC9.VisibleIndex = 16
-        Me.colREC9.Width = 60
-        '
-        'colVALIDADO
-        '
-        Me.colVALIDADO.Caption = "¿Validado?"
-        Me.colVALIDADO.ColumnEdit = Me.RepositoryItemCheckEdit1
-        Me.colVALIDADO.FieldName = "VALIDADO"
-        Me.colVALIDADO.Name = "colVALIDADO"
-        Me.colVALIDADO.Visible = True
-        Me.colVALIDADO.VisibleIndex = 17
-        Me.colVALIDADO.Width = 58
+        Me.RepositoryItemCheckEdit.ValueChecked = "S"
+        Me.RepositoryItemCheckEdit.ValueGrayed = "N"
+        Me.RepositoryItemCheckEdit.ValueUnchecked = "N"
         '
         'RepositoryItemCheckEdit1
         '
         Me.RepositoryItemCheckEdit1.AutoHeight = False
         Me.RepositoryItemCheckEdit1.Name = "RepositoryItemCheckEdit1"
         Me.RepositoryItemCheckEdit1.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
-        Me.RepositoryItemCheckEdit1.ValueChecked = "1"
-        Me.RepositoryItemCheckEdit1.ValueGrayed = "0"
-        Me.RepositoryItemCheckEdit1.ValueUnchecked = "0"
-        '
-        'colCODIGO_PARTIDO
-        '
-        Me.colCODIGO_PARTIDO.FieldName = "CODIGO_PARTIDO"
-        Me.colCODIGO_PARTIDO.Name = "colCODIGO_PARTIDO"
-        '
-        'colCODIGO_MOVIMIENTO
-        '
-        Me.colCODIGO_MOVIMIENTO.FieldName = "CODIGO_MOVIMIENTO"
-        Me.colCODIGO_MOVIMIENTO.Name = "colCODIGO_MOVIMIENTO"
-        '
-        'colCODIGO_NIVEL_ELECTIVO
-        '
-        Me.colCODIGO_NIVEL_ELECTIVO.FieldName = "CODIGO_NIVEL_ELECTIVO"
-        Me.colCODIGO_NIVEL_ELECTIVO.Name = "colCODIGO_NIVEL_ELECTIVO"
-        '
-        'colCODIGO_CARGO_ELECTIVO
-        '
-        Me.colCODIGO_CARGO_ELECTIVO.FieldName = "CODIGO_CARGO_ELECTIVO"
-        Me.colCODIGO_CARGO_ELECTIVO.Name = "colCODIGO_CARGO_ELECTIVO"
-        '
-        'colCODIGO_DEPARTAMENTO
-        '
-        Me.colCODIGO_DEPARTAMENTO.FieldName = "CODIGO_DEPARTAMENTO"
-        Me.colCODIGO_DEPARTAMENTO.Name = "colCODIGO_DEPARTAMENTO"
-        '
-        'colCODIGO_MUNICIPIO
-        '
-        Me.colCODIGO_MUNICIPIO.FieldName = "CODIGO_MUNICIPIO"
-        Me.colCODIGO_MUNICIPIO.Name = "colCODIGO_MUNICIPIO"
-        '
-        'colCODIGO_CANDIDATOS
-        '
-        Me.colCODIGO_CANDIDATOS.FieldName = "CODIGO_CANDIDATOS"
-        Me.colCODIGO_CANDIDATOS.Name = "colCODIGO_CANDIDATOS"
-        '
-        'colESTADO
-        '
-        Me.colESTADO.FieldName = "ESTADO"
-        Me.colESTADO.Name = "colESTADO"
+        Me.RepositoryItemCheckEdit1.ValueChecked = "S"
+        Me.RepositoryItemCheckEdit1.ValueGrayed = "N"
+        Me.RepositoryItemCheckEdit1.ValueUnchecked = "N"
         '
         'GridView2
         '
@@ -676,6 +330,21 @@ Partial Class XfrmValidarFirmas
         Me.cbxMovimiento.TabIndex = 3
         Me.cbxMovimiento.ValueMember = "CODIGO_MOVIMIENTO"
         '
+        'IMFK1MOVIMIENTOSBindingSource
+        '
+        Me.IMFK1MOVIMIENTOSBindingSource.DataMember = "IM_FK1_MOVIMIENTOS"
+        Me.IMFK1MOVIMIENTOSBindingSource.DataSource = Me.PartidosBindingSource
+        '
+        'PartidosBindingSource
+        '
+        Me.PartidosBindingSource.DataMember = "Partidos"
+        Me.PartidosBindingSource.DataSource = Me.DSConsultas
+        '
+        'DSConsultas
+        '
+        Me.DSConsultas.DataSetName = "DSConsultas"
+        Me.DSConsultas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'cbxMunicipio
         '
         Me.cbxMunicipio.DataSource = Me.IMFK1MUNICIPIOBindingSource
@@ -687,6 +356,16 @@ Partial Class XfrmValidarFirmas
         Me.cbxMunicipio.Size = New System.Drawing.Size(302, 21)
         Me.cbxMunicipio.TabIndex = 6
         Me.cbxMunicipio.ValueMember = "CODIGO_MUNICIPIO"
+        '
+        'IMFK1MUNICIPIOBindingSource
+        '
+        Me.IMFK1MUNICIPIOBindingSource.DataMember = "IM_FK1_MUNICIPIO"
+        Me.IMFK1MUNICIPIOBindingSource.DataSource = Me.DepartamentosBindingSource
+        '
+        'DepartamentosBindingSource
+        '
+        Me.DepartamentosBindingSource.DataMember = "Departamentos"
+        Me.DepartamentosBindingSource.DataSource = Me.DSConsultas
         '
         'cbxDepartamento
         '
@@ -758,46 +437,210 @@ Partial Class XfrmValidarFirmas
         Me.pbxFirma.TabIndex = 0
         Me.pbxFirma.TabStop = False
         '
-        'DSConsultas
-        '
-        Me.DSConsultas.DataSetName = "DSConsultas"
-        Me.DSConsultas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'PartidosBindingSource
-        '
-        Me.PartidosBindingSource.DataMember = "Partidos"
-        Me.PartidosBindingSource.DataSource = Me.DSConsultas
-        '
         'PartidosTableAdapter
         '
         Me.PartidosTableAdapter.ClearBeforeFill = True
-        '
-        'IMFK1MOVIMIENTOSBindingSource
-        '
-        Me.IMFK1MOVIMIENTOSBindingSource.DataMember = "IM_FK1_MOVIMIENTOS"
-        Me.IMFK1MOVIMIENTOSBindingSource.DataSource = Me.PartidosBindingSource
         '
         'MovimientosTableAdapter
         '
         Me.MovimientosTableAdapter.ClearBeforeFill = True
         '
-        'DepartamentosBindingSource
-        '
-        Me.DepartamentosBindingSource.DataMember = "Departamentos"
-        Me.DepartamentosBindingSource.DataSource = Me.DSConsultas
-        '
         'DepartamentosTableAdapter
         '
         Me.DepartamentosTableAdapter.ClearBeforeFill = True
         '
-        'IMFK1MUNICIPIOBindingSource
-        '
-        Me.IMFK1MUNICIPIOBindingSource.DataMember = "IM_FK1_MUNICIPIO"
-        Me.IMFK1MUNICIPIOBindingSource.DataSource = Me.DepartamentosBindingSource
-        '
         'MunicipiosTableAdapter
         '
         Me.MunicipiosTableAdapter.ClearBeforeFill = True
+        '
+        'IMVVALIDARFIRMASBindingSource
+        '
+        Me.IMVVALIDARFIRMASBindingSource.DataMember = "IM_V_VALIDAR_FIRMAS"
+        Me.IMVVALIDARFIRMASBindingSource.DataSource = Me.DSConsultas
+        '
+        'IM_V_VALIDAR_FIRMASTableAdapter
+        '
+        Me.IM_V_VALIDAR_FIRMASTableAdapter.ClearBeforeFill = True
+        '
+        'colIDENTIDAD
+        '
+        Me.colIDENTIDAD.Caption = "Identidad"
+        Me.colIDENTIDAD.FieldName = "IDENTIDAD"
+        Me.colIDENTIDAD.Name = "colIDENTIDAD"
+        Me.colIDENTIDAD.Visible = True
+        Me.colIDENTIDAD.VisibleIndex = 0
+        Me.colIDENTIDAD.Width = 96
+        '
+        'colPRIMER_NOMBRE_PAPELETA
+        '
+        Me.colPRIMER_NOMBRE_PAPELETA.Caption = "Primer Nombre"
+        Me.colPRIMER_NOMBRE_PAPELETA.FieldName = "PRIMER_NOMBRE_PAPELETA"
+        Me.colPRIMER_NOMBRE_PAPELETA.Name = "colPRIMER_NOMBRE_PAPELETA"
+        Me.colPRIMER_NOMBRE_PAPELETA.Visible = True
+        Me.colPRIMER_NOMBRE_PAPELETA.VisibleIndex = 1
+        Me.colPRIMER_NOMBRE_PAPELETA.Width = 100
+        '
+        'colSEGUNDO_NOMBRE_PAPELETA
+        '
+        Me.colSEGUNDO_NOMBRE_PAPELETA.Caption = "Segundo Nombre"
+        Me.colSEGUNDO_NOMBRE_PAPELETA.FieldName = "SEGUNDO_NOMBRE_PAPELETA"
+        Me.colSEGUNDO_NOMBRE_PAPELETA.Name = "colSEGUNDO_NOMBRE_PAPELETA"
+        Me.colSEGUNDO_NOMBRE_PAPELETA.Visible = True
+        Me.colSEGUNDO_NOMBRE_PAPELETA.VisibleIndex = 2
+        Me.colSEGUNDO_NOMBRE_PAPELETA.Width = 100
+        '
+        'colPRIMER_APELLIDO_PAPELETA
+        '
+        Me.colPRIMER_APELLIDO_PAPELETA.Caption = "Primer Apellido"
+        Me.colPRIMER_APELLIDO_PAPELETA.FieldName = "PRIMER_APELLIDO_PAPELETA"
+        Me.colPRIMER_APELLIDO_PAPELETA.Name = "colPRIMER_APELLIDO_PAPELETA"
+        Me.colPRIMER_APELLIDO_PAPELETA.Visible = True
+        Me.colPRIMER_APELLIDO_PAPELETA.VisibleIndex = 3
+        Me.colPRIMER_APELLIDO_PAPELETA.Width = 100
+        '
+        'colSEGUNDO_APELLIDO_PAPELETA
+        '
+        Me.colSEGUNDO_APELLIDO_PAPELETA.Caption = "Segundo Apellido"
+        Me.colSEGUNDO_APELLIDO_PAPELETA.FieldName = "SEGUNDO_APELLIDO_PAPELETA"
+        Me.colSEGUNDO_APELLIDO_PAPELETA.Name = "colSEGUNDO_APELLIDO_PAPELETA"
+        Me.colSEGUNDO_APELLIDO_PAPELETA.Visible = True
+        Me.colSEGUNDO_APELLIDO_PAPELETA.VisibleIndex = 4
+        Me.colSEGUNDO_APELLIDO_PAPELETA.Width = 100
+        '
+        'colFIRMA
+        '
+        Me.colFIRMA.AppearanceHeader.Options.UseTextOptions = True
+        Me.colFIRMA.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.Word
+        Me.colFIRMA.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colFIRMA.Caption = "¿Con Firma?"
+        Me.colFIRMA.ColumnEdit = Me.RepositoryItemCheckEdit
+        Me.colFIRMA.FieldName = "FIRMA"
+        Me.colFIRMA.Name = "colFIRMA"
+        Me.colFIRMA.Visible = True
+        Me.colFIRMA.VisibleIndex = 5
+        Me.colFIRMA.Width = 65
+        '
+        'colHUELLA
+        '
+        Me.colHUELLA.AppearanceHeader.Options.UseTextOptions = True
+        Me.colHUELLA.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.Word
+        Me.colHUELLA.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colHUELLA.Caption = "¿Con Huella?"
+        Me.colHUELLA.ColumnEdit = Me.RepositoryItemCheckEdit
+        Me.colHUELLA.FieldName = "HUELLA"
+        Me.colHUELLA.Name = "colHUELLA"
+        Me.colHUELLA.Visible = True
+        Me.colHUELLA.VisibleIndex = 6
+        Me.colHUELLA.Width = 65
+        '
+        'colDIRECCION
+        '
+        Me.colDIRECCION.AppearanceHeader.Options.UseTextOptions = True
+        Me.colDIRECCION.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.Word
+        Me.colDIRECCION.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colDIRECCION.Caption = "¿Con Dirección?"
+        Me.colDIRECCION.ColumnEdit = Me.RepositoryItemCheckEdit
+        Me.colDIRECCION.FieldName = "DIRECCION"
+        Me.colDIRECCION.Name = "colDIRECCION"
+        Me.colDIRECCION.Visible = True
+        Me.colDIRECCION.VisibleIndex = 7
+        Me.colDIRECCION.Width = 65
+        '
+        'colIGUAL
+        '
+        Me.colIGUAL.AppearanceHeader.Options.UseTextOptions = True
+        Me.colIGUAL.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.Word
+        Me.colIGUAL.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colIGUAL.Caption = "¿Nombre Igual al Censo?"
+        Me.colIGUAL.ColumnEdit = Me.RepositoryItemCheckEdit
+        Me.colIGUAL.FieldName = "IGUAL"
+        Me.colIGUAL.Name = "colIGUAL"
+        Me.colIGUAL.Visible = True
+        Me.colIGUAL.VisibleIndex = 8
+        Me.colIGUAL.Width = 65
+        '
+        'colCONSISTENTE
+        '
+        Me.colCONSISTENTE.AppearanceHeader.Options.UseTextOptions = True
+        Me.colCONSISTENTE.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.Word
+        Me.colCONSISTENTE.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colCONSISTENTE.Caption = "¿Es Consistente?"
+        Me.colCONSISTENTE.ColumnEdit = Me.RepositoryItemCheckEdit
+        Me.colCONSISTENTE.FieldName = "CONSISTENTE"
+        Me.colCONSISTENTE.Name = "colCONSISTENTE"
+        Me.colCONSISTENTE.Visible = True
+        Me.colCONSISTENTE.VisibleIndex = 9
+        Me.colCONSISTENTE.Width = 65
+        '
+        'colFOLIO
+        '
+        Me.colFOLIO.Caption = "Folio"
+        Me.colFOLIO.FieldName = "FOLIO"
+        Me.colFOLIO.Name = "colFOLIO"
+        Me.colFOLIO.Visible = True
+        Me.colFOLIO.VisibleIndex = 10
+        Me.colFOLIO.Width = 50
+        '
+        'colPAGINA
+        '
+        Me.colPAGINA.Caption = "Página"
+        Me.colPAGINA.FieldName = "PAGINA"
+        Me.colPAGINA.Name = "colPAGINA"
+        Me.colPAGINA.Visible = True
+        Me.colPAGINA.VisibleIndex = 11
+        Me.colPAGINA.Width = 50
+        '
+        'colOBSERVACION
+        '
+        Me.colOBSERVACION.AppearanceCell.Options.UseTextOptions = True
+        Me.colOBSERVACION.AppearanceCell.TextOptions.Trimming = DevExpress.Utils.Trimming.Word
+        Me.colOBSERVACION.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colOBSERVACION.Caption = "Observación"
+        Me.colOBSERVACION.FieldName = "OBSERVACION"
+        Me.colOBSERVACION.Name = "colOBSERVACION"
+        Me.colOBSERVACION.Visible = True
+        Me.colOBSERVACION.VisibleIndex = 12
+        Me.colOBSERVACION.Width = 200
+        '
+        'colVALIDADO
+        '
+        Me.colVALIDADO.Caption = "¿Validado?"
+        Me.colVALIDADO.ColumnEdit = Me.RepositoryItemCheckEdit1
+        Me.colVALIDADO.FieldName = "VALIDADO"
+        Me.colVALIDADO.Name = "colVALIDADO"
+        Me.colVALIDADO.Visible = True
+        Me.colVALIDADO.VisibleIndex = 13
+        Me.colVALIDADO.Width = 60
+        '
+        'colMAQUINA
+        '
+        Me.colMAQUINA.FieldName = "MAQUINA"
+        Me.colMAQUINA.Name = "colMAQUINA"
+        '
+        'colCODIGO_CUIDADANOS_RESPALDAN
+        '
+        Me.colCODIGO_CUIDADANOS_RESPALDAN.FieldName = "CODIGO_CUIDADANOS_RESPALDAN"
+        Me.colCODIGO_CUIDADANOS_RESPALDAN.Name = "colCODIGO_CUIDADANOS_RESPALDAN"
+        '
+        'colCODIGO_PARTIDO
+        '
+        Me.colCODIGO_PARTIDO.FieldName = "CODIGO_PARTIDO"
+        Me.colCODIGO_PARTIDO.Name = "colCODIGO_PARTIDO"
+        '
+        'colCODIGO_MOVIMIENTO
+        '
+        Me.colCODIGO_MOVIMIENTO.FieldName = "CODIGO_MOVIMIENTO"
+        Me.colCODIGO_MOVIMIENTO.Name = "colCODIGO_MOVIMIENTO"
+        '
+        'colCODIGO_DEPARTAMENTO
+        '
+        Me.colCODIGO_DEPARTAMENTO.FieldName = "CODIGO_DEPARTAMENTO"
+        Me.colCODIGO_DEPARTAMENTO.Name = "colCODIGO_DEPARTAMENTO"
+        '
+        'colCODIGO_MUNICIPIO
+        '
+        Me.colCODIGO_MUNICIPIO.FieldName = "CODIGO_MUNICIPIO"
+        Me.colCODIGO_MUNICIPIO.Name = "colCODIGO_MUNICIPIO"
         '
         'XfrmValidarFirmas
         '
@@ -810,7 +653,6 @@ Partial Class XfrmValidarFirmas
         Me.Text = "XfrmValidarFirmas"
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemPictureEdit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemCheckEdit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -818,47 +660,21 @@ Partial Class XfrmValidarFirmas
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PartidosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMFK1MUNICIPIOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DepartamentosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.pbxFirma, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PartidosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DepartamentosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IMFK1MUNICIPIOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMVVALIDARFIRMASBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents GCBusqueda As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents colFOTOGRAFIA As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents RepositoryItemPictureEdit As DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
-    Friend WithEvents colCONSTANCIA As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colPOSICION As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colIDENTIDAD As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colPRIMER_NOMBRE As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colSEGUNDO_NOMBRE As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colPRIMER_APELLIDO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colSEGUNDO_APELLIDO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colREC1 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCheckEdit As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
-    Friend WithEvents colREC2 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colREC3 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colREC4 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colREC5 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colREC6 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colREC7 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colREC8 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colREC9 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colVALIDADO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
-    Friend WithEvents colCODIGO_PARTIDO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colCODIGO_MOVIMIENTO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colCODIGO_NIVEL_ELECTIVO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colCODIGO_CARGO_ELECTIVO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colCODIGO_DEPARTAMENTO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colCODIGO_MUNICIPIO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colCODIGO_CANDIDATOS As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colESTADO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents FlowLayoutPanel2 As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
@@ -893,4 +709,26 @@ Partial Class XfrmValidarFirmas
     Friend WithEvents DepartamentosTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.DepartamentosTableAdapter
     Friend WithEvents IMFK1MUNICIPIOBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents MunicipiosTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MunicipiosTableAdapter
+    Friend WithEvents IMVVALIDARFIRMASBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents IM_V_VALIDAR_FIRMASTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.IM_V_VALIDAR_FIRMASTableAdapter
+    Friend WithEvents colIDENTIDAD As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colPRIMER_NOMBRE_PAPELETA As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colSEGUNDO_NOMBRE_PAPELETA As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colPRIMER_APELLIDO_PAPELETA As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colSEGUNDO_APELLIDO_PAPELETA As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colFIRMA As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colHUELLA As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colDIRECCION As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colIGUAL As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colCONSISTENTE As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colFOLIO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colPAGINA As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colOBSERVACION As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colVALIDADO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colMAQUINA As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colCODIGO_CUIDADANOS_RESPALDAN As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colCODIGO_PARTIDO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colCODIGO_MOVIMIENTO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colCODIGO_DEPARTAMENTO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colCODIGO_MUNICIPIO As DevExpress.XtraGrid.Columns.GridColumn
 End Class
