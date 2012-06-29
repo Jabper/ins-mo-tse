@@ -957,30 +957,42 @@ Public Class xfrmRegCandidatos
 
         ElseIf Me.cboCargo.EditValue = 4 Then
 
-            Dim cons As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
+            If depto = 10 Or depto = 12 Then
+
+                Dim con1 As String = "SELECT NVL(COUNT(*),  0) HOMBRES " & _
                       "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
                        "WHERE  iC.codigo_departamento = " & depto & _
                        " AND      iC.codigo_municipio = " & muni & _
                        " AND      im.codigo_departamento = ic.codigo_departamento " & _
                        " AND      im.codigo_municipio       = ic.codigo_municipio " & _
-                       " AND      ic.codigo_cargo_electivo  " & cargo & _
+                       " AND      ic.codigo_cargo_electivo = 4 " & _
                        " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
                        " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
                        " AND      ic.identidad = ip.numero_identidad " & _
                        " AND      ip.sexo= 1"
 
+                Dim con2 As String = "SELECT NVL(COUNT(*),  0) HOMBRES " & _
+                      "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
+                       "WHERE  iC.codigo_departamento = " & depto & _
+                       " AND      iC.codigo_municipio = " & muni & _
+                       " AND      im.codigo_departamento = ic.codigo_departamento " & _
+                       " AND      im.codigo_municipio       = ic.codigo_municipio " & _
+                       " AND      ic.codigo_cargo_electivo = 5 " & _
+                       " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
+                       " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
+                       " AND      ic.identidad = ip.numero_identidad " & _
+                       " AND      ip.sexo= 1"
 
+                Dim homP As Integer = COracle.ObtenerDatos(con1, "HOMBRES")
+                Dim homS As Integer = COracle.ObtenerDatos(con2, "HOMBRES")
 
-            If depto = 9 Or depto = 11 Then
-
-
-
-                If hombres_permitidos = hombres_ingresados Then
+                If (homP + homS) <= 3 And (homP < 3 And homS) Then
                     ingreso_hombre = 0
                 Else
                     ingreso_hombre = 1
                 End If
-            ElseIf depto = 10 Or depto = 12 Then
+
+            ElseIf depto = 9 Or depto = 11 Then
 
                 hombres_permitidos = (cdip_CN + cdip_CNS) - mujeres_necesarias
 
@@ -991,13 +1003,13 @@ Public Class xfrmRegCandidatos
                 End If
             End If
 
-            hombres_permitidos = (cdip_CN) - mujeres_necesarias
+                hombres_permitidos = (cdip_CN) - mujeres_necesarias
 
-            If hombres_permitidos = hombres_ingresados Then
-                ingreso_hombre = 0
-            Else
-                ingreso_hombre = 1
-            End If
+                If hombres_permitidos = hombres_ingresados Then
+                    ingreso_hombre = 0
+                Else
+                    ingreso_hombre = 1
+                End If
         ElseIf Me.cboCargo.EditValue = 5 Then
             hombres_permitidos = (cdip_CNS) - mujeres_necesarias
 
