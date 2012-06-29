@@ -277,6 +277,7 @@ Partial Class XfrmConFirmas
         '
         Me.txtPagina.Location = New System.Drawing.Point(721, 20)
         Me.txtPagina.Name = "txtPagina"
+        Me.txtPagina.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.txtPagina.Size = New System.Drawing.Size(160, 21)
         Me.txtPagina.TabIndex = 12
         '
@@ -293,6 +294,7 @@ Partial Class XfrmConFirmas
         '
         Me.txtFolio.Location = New System.Drawing.Point(484, 20)
         Me.txtFolio.Name = "txtFolio"
+        Me.txtFolio.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.txtFolio.Size = New System.Drawing.Size(160, 21)
         Me.txtFolio.TabIndex = 11
         '

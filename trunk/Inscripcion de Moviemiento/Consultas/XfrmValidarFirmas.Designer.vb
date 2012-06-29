@@ -20,9 +20,23 @@ Partial Class XfrmValidarFirmas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Me.GCBusqueda = New DevExpress.XtraGrid.GridControl
         Me.IMVVALIDARFIRMASBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DSConsultas = New Inscripcion_de_Moviemientos.DSConsultas
+        Me.IMFK1MOVIMIENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PartidosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IMFK1MUNICIPIOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DepartamentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ImagenesFirmaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PartidosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.PartidosTableAdapter
+        Me.MovimientosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MovimientosTableAdapter
+        Me.DepartamentosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.DepartamentosTableAdapter
+        Me.MunicipiosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MunicipiosTableAdapter
+        Me.IM_V_VALIDAR_FIRMASTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.IM_V_VALIDAR_FIRMASTableAdapter
+        Me.ImagenesFirmaTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.ImagenesFirmaTableAdapter
+        Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox
+        Me.pbxFirma = New System.Windows.Forms.PictureBox
+        Me.GCBusqueda = New DevExpress.XtraGrid.GridControl
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.colIDENTIDAD = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colPRIMER_NOMBRE_PAPELETA = New DevExpress.XtraGrid.Columns.GridColumn
@@ -34,7 +48,6 @@ Partial Class XfrmValidarFirmas
         Me.colHUELLA = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colDIRECCION = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colIGUAL = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colCONSISTENTE = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colFOLIO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colPAGINA = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colOBSERVACION = New DevExpress.XtraGrid.Columns.GridColumn
@@ -47,71 +60,47 @@ Partial Class XfrmValidarFirmas
         Me.colCODIGO_DEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCODIGO_MUNICIPIO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
-        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel
-        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
-        Me.btnFiltro = New DevExpress.XtraEditors.SimpleButton
-        Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
-        Me.btnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.btnUltimo = New System.Windows.Forms.Button
-        Me.btnSiguiente = New System.Windows.Forms.Button
-        Me.btnAnterior = New System.Windows.Forms.Button
-        Me.btnPrimero = New System.Windows.Forms.Button
+        Me.navFiltro = New DevExpress.XtraEditors.DataNavigator
         Me.txtPagina = New System.Windows.Forms.TextBox
         Me.txtFolio = New System.Windows.Forms.TextBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.Label8 = New System.Windows.Forms.Label
         Me.Label4 = New System.Windows.Forms.Label
         Me.cbxMovimiento = New System.Windows.Forms.ComboBox
-        Me.IMFK1MOVIMIENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PartidosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.cbxMunicipio = New System.Windows.Forms.ComboBox
-        Me.IMFK1MUNICIPIOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DepartamentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.cbxDepartamento = New System.Windows.Forms.ComboBox
         Me.cbxPartido = New System.Windows.Forms.ComboBox
         Me.Label7 = New System.Windows.Forms.Label
         Me.Label6 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox
-        Me.pbxFirma = New System.Windows.Forms.PictureBox
-        Me.ImagenesFirmaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PartidosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.PartidosTableAdapter
-        Me.MovimientosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MovimientosTableAdapter
-        Me.DepartamentosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.DepartamentosTableAdapter
-        Me.MunicipiosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MunicipiosTableAdapter
-        Me.IM_V_VALIDAR_FIRMASTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.IM_V_VALIDAR_FIRMASTableAdapter
-        Me.ImagenesFirmaTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.ImagenesFirmaTableAdapter
-        CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
+        Me.btnFiltro = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
+        Me.btnSalir = New DevExpress.XtraEditors.SimpleButton
+        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel
+        Me.NavegacionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.NavegacionTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.NavegacionTableAdapter
         CType(Me.IMVVALIDARFIRMASBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemCheckEdit, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.FlowLayoutPanel2.SuspendLayout()
-        Me.FlowLayoutPanel1.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
         CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PartidosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMFK1MUNICIPIOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DepartamentosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImagenesFirmaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FlowLayoutPanel3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.pbxFirma, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ImagenesFirmaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCheckEdit, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        Me.FlowLayoutPanel1.SuspendLayout()
+        Me.FlowLayoutPanel2.SuspendLayout()
+        CType(Me.NavegacionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'GCBusqueda
-        '
-        Me.GCBusqueda.DataSource = Me.IMVVALIDARFIRMASBindingSource
-        Me.GCBusqueda.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GCBusqueda.Location = New System.Drawing.Point(0, 219)
-        Me.GCBusqueda.MainView = Me.GridView1
-        Me.GCBusqueda.Name = "GCBusqueda"
-        Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit, Me.RepositoryItemCheckEdit1})
-        Me.GCBusqueda.Size = New System.Drawing.Size(1227, 498)
-        Me.GCBusqueda.TabIndex = 23
-        Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
         'IMVVALIDARFIRMASBindingSource
         '
@@ -123,10 +112,102 @@ Partial Class XfrmValidarFirmas
         Me.DSConsultas.DataSetName = "DSConsultas"
         Me.DSConsultas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'IMFK1MOVIMIENTOSBindingSource
+        '
+        Me.IMFK1MOVIMIENTOSBindingSource.DataMember = "IM_FK1_MOVIMIENTOS"
+        Me.IMFK1MOVIMIENTOSBindingSource.DataSource = Me.PartidosBindingSource
+        '
+        'PartidosBindingSource
+        '
+        Me.PartidosBindingSource.DataMember = "Partidos"
+        Me.PartidosBindingSource.DataSource = Me.DSConsultas
+        '
+        'IMFK1MUNICIPIOBindingSource
+        '
+        Me.IMFK1MUNICIPIOBindingSource.DataMember = "IM_FK1_MUNICIPIO"
+        Me.IMFK1MUNICIPIOBindingSource.DataSource = Me.DepartamentosBindingSource
+        '
+        'DepartamentosBindingSource
+        '
+        Me.DepartamentosBindingSource.DataMember = "Departamentos"
+        Me.DepartamentosBindingSource.DataSource = Me.DSConsultas
+        '
+        'ImagenesFirmaBindingSource
+        '
+        Me.ImagenesFirmaBindingSource.DataMember = "ImagenesFirma"
+        Me.ImagenesFirmaBindingSource.DataSource = Me.DSConsultas
+        '
+        'PartidosTableAdapter
+        '
+        Me.PartidosTableAdapter.ClearBeforeFill = True
+        '
+        'MovimientosTableAdapter
+        '
+        Me.MovimientosTableAdapter.ClearBeforeFill = True
+        '
+        'DepartamentosTableAdapter
+        '
+        Me.DepartamentosTableAdapter.ClearBeforeFill = True
+        '
+        'MunicipiosTableAdapter
+        '
+        Me.MunicipiosTableAdapter.ClearBeforeFill = True
+        '
+        'IM_V_VALIDAR_FIRMASTableAdapter
+        '
+        Me.IM_V_VALIDAR_FIRMASTableAdapter.ClearBeforeFill = True
+        '
+        'ImagenesFirmaTableAdapter
+        '
+        Me.ImagenesFirmaTableAdapter.ClearBeforeFill = True
+        '
+        'FlowLayoutPanel3
+        '
+        Me.FlowLayoutPanel3.Controls.Add(Me.GroupBox2)
+        Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(0, 240)
+        Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(294, 477)
+        Me.FlowLayoutPanel3.TabIndex = 25
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.pbxFirma)
+        Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(289, 416)
+        Me.GroupBox2.TabIndex = 41
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Firma"
+        '
+        'pbxFirma
+        '
+        Me.pbxFirma.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.ImagenesFirmaBindingSource, "IMAGEN", True))
+        Me.pbxFirma.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pbxFirma.Location = New System.Drawing.Point(3, 17)
+        Me.pbxFirma.Name = "pbxFirma"
+        Me.pbxFirma.Size = New System.Drawing.Size(283, 396)
+        Me.pbxFirma.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbxFirma.TabIndex = 0
+        Me.pbxFirma.TabStop = False
+        '
+        'GCBusqueda
+        '
+        Me.GCBusqueda.DataSource = Me.IMVVALIDARFIRMASBindingSource
+        Me.GCBusqueda.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GCBusqueda.Location = New System.Drawing.Point(294, 240)
+        Me.GCBusqueda.MainView = Me.GridView1
+        Me.GCBusqueda.Name = "GCBusqueda"
+        Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit, Me.RepositoryItemCheckEdit1})
+        Me.GCBusqueda.Size = New System.Drawing.Size(1309, 477)
+        Me.GCBusqueda.TabIndex = 26
+        Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
+        '
         'GridView1
         '
         Me.GridView1.ColumnPanelRowHeight = 50
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colIDENTIDAD, Me.colPRIMER_NOMBRE_PAPELETA, Me.colSEGUNDO_NOMBRE_PAPELETA, Me.colPRIMER_APELLIDO_PAPELETA, Me.colSEGUNDO_APELLIDO_PAPELETA, Me.colFIRMA, Me.colHUELLA, Me.colDIRECCION, Me.colIGUAL, Me.colCONSISTENTE, Me.colFOLIO, Me.colPAGINA, Me.colOBSERVACION, Me.colVALIDADO, Me.colMAQUINA, Me.colCODIGO_CUIDADANOS_RESPALDAN, Me.colCODIGO_PARTIDO, Me.colCODIGO_MOVIMIENTO, Me.colCODIGO_DEPARTAMENTO, Me.colCODIGO_MUNICIPIO})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colIDENTIDAD, Me.colPRIMER_NOMBRE_PAPELETA, Me.colSEGUNDO_NOMBRE_PAPELETA, Me.colPRIMER_APELLIDO_PAPELETA, Me.colSEGUNDO_APELLIDO_PAPELETA, Me.colFIRMA, Me.colHUELLA, Me.colDIRECCION, Me.colIGUAL, Me.colFOLIO, Me.colPAGINA, Me.colOBSERVACION, Me.colVALIDADO, Me.colMAQUINA, Me.colCODIGO_CUIDADANOS_RESPALDAN, Me.colCODIGO_PARTIDO, Me.colCODIGO_MOVIMIENTO, Me.colCODIGO_DEPARTAMENTO, Me.colCODIGO_MUNICIPIO})
         Me.GridView1.GridControl = Me.GCBusqueda
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[False]
@@ -283,23 +364,6 @@ Partial Class XfrmValidarFirmas
         Me.colIGUAL.VisibleIndex = 8
         Me.colIGUAL.Width = 65
         '
-        'colCONSISTENTE
-        '
-        Me.colCONSISTENTE.AppearanceHeader.Options.UseTextOptions = True
-        Me.colCONSISTENTE.AppearanceHeader.TextOptions.Trimming = DevExpress.Utils.Trimming.Word
-        Me.colCONSISTENTE.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colCONSISTENTE.Caption = "¿Es Consistente?"
-        Me.colCONSISTENTE.ColumnEdit = Me.RepositoryItemCheckEdit
-        Me.colCONSISTENTE.FieldName = "CONSISTENTE"
-        Me.colCONSISTENTE.Name = "colCONSISTENTE"
-        Me.colCONSISTENTE.OptionsColumn.AllowEdit = False
-        Me.colCONSISTENTE.OptionsColumn.AllowFocus = False
-        Me.colCONSISTENTE.OptionsColumn.ReadOnly = True
-        Me.colCONSISTENTE.OptionsColumn.TabStop = False
-        Me.colCONSISTENTE.Visible = True
-        Me.colCONSISTENTE.VisibleIndex = 9
-        Me.colCONSISTENTE.Width = 69
-        '
         'colFOLIO
         '
         Me.colFOLIO.Caption = "Folio"
@@ -310,7 +374,7 @@ Partial Class XfrmValidarFirmas
         Me.colFOLIO.OptionsColumn.ReadOnly = True
         Me.colFOLIO.OptionsColumn.TabStop = False
         Me.colFOLIO.Visible = True
-        Me.colFOLIO.VisibleIndex = 10
+        Me.colFOLIO.VisibleIndex = 9
         Me.colFOLIO.Width = 50
         '
         'colPAGINA
@@ -323,7 +387,7 @@ Partial Class XfrmValidarFirmas
         Me.colPAGINA.OptionsColumn.ReadOnly = True
         Me.colPAGINA.OptionsColumn.TabStop = False
         Me.colPAGINA.Visible = True
-        Me.colPAGINA.VisibleIndex = 11
+        Me.colPAGINA.VisibleIndex = 10
         Me.colPAGINA.Width = 50
         '
         'colOBSERVACION
@@ -339,7 +403,7 @@ Partial Class XfrmValidarFirmas
         Me.colOBSERVACION.OptionsColumn.ReadOnly = True
         Me.colOBSERVACION.OptionsColumn.TabStop = False
         Me.colOBSERVACION.Visible = True
-        Me.colOBSERVACION.VisibleIndex = 12
+        Me.colOBSERVACION.VisibleIndex = 11
         Me.colOBSERVACION.Width = 200
         '
         'colVALIDADO
@@ -349,7 +413,7 @@ Partial Class XfrmValidarFirmas
         Me.colVALIDADO.FieldName = "VALIDADO"
         Me.colVALIDADO.Name = "colVALIDADO"
         Me.colVALIDADO.Visible = True
-        Me.colVALIDADO.VisibleIndex = 13
+        Me.colVALIDADO.VisibleIndex = 12
         Me.colVALIDADO.Width = 60
         '
         'RepositoryItemCheckEdit1
@@ -396,72 +460,9 @@ Partial Class XfrmValidarFirmas
         Me.GridView2.GridControl = Me.GCBusqueda
         Me.GridView2.Name = "GridView2"
         '
-        'FlowLayoutPanel2
-        '
-        Me.FlowLayoutPanel2.Controls.Add(Me.FlowLayoutPanel1)
-        Me.FlowLayoutPanel2.Controls.Add(Me.GroupBox1)
-        Me.FlowLayoutPanel2.Controls.Add(Me.GroupBox2)
-        Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 0)
-        Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(1227, 219)
-        Me.FlowLayoutPanel2.TabIndex = 24
-        '
-        'FlowLayoutPanel1
-        '
-        Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.Transparent
-        Me.FlowLayoutPanel1.Controls.Add(Me.btnFiltro)
-        Me.FlowLayoutPanel1.Controls.Add(Me.BtnGuardar)
-        Me.FlowLayoutPanel1.Controls.Add(Me.btnSalir)
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 3)
-        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1204, 64)
-        Me.FlowLayoutPanel1.TabIndex = 20
-        '
-        'btnFiltro
-        '
-        Me.btnFiltro.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.btnFiltro.Appearance.Options.UseFont = True
-        Me.btnFiltro.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Filtro
-        Me.btnFiltro.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.btnFiltro.Location = New System.Drawing.Point(3, 3)
-        Me.btnFiltro.Name = "btnFiltro"
-        Me.btnFiltro.Size = New System.Drawing.Size(55, 55)
-        Me.btnFiltro.TabIndex = 0
-        Me.btnFiltro.TabStop = False
-        Me.btnFiltro.Text = "Filtrar"
-        '
-        'BtnGuardar
-        '
-        Me.BtnGuardar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnGuardar.Appearance.Options.UseFont = True
-        Me.BtnGuardar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.guardar1
-        Me.BtnGuardar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnGuardar.Location = New System.Drawing.Point(64, 3)
-        Me.BtnGuardar.Name = "BtnGuardar"
-        Me.BtnGuardar.Size = New System.Drawing.Size(55, 55)
-        Me.BtnGuardar.TabIndex = 1
-        Me.BtnGuardar.Text = "Guardar"
-        '
-        'btnSalir
-        '
-        Me.btnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.btnSalir.Appearance.Options.UseFont = True
-        Me.btnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
-        Me.btnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(125, 3)
-        Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(55, 55)
-        Me.btnSalir.TabIndex = 2
-        Me.btnSalir.TabStop = False
-        Me.btnSalir.Text = "Salir"
-        '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.btnUltimo)
-        Me.GroupBox1.Controls.Add(Me.btnSiguiente)
-        Me.GroupBox1.Controls.Add(Me.btnAnterior)
-        Me.GroupBox1.Controls.Add(Me.btnPrimero)
+        Me.GroupBox1.Controls.Add(Me.navFiltro)
         Me.GroupBox1.Controls.Add(Me.txtPagina)
         Me.GroupBox1.Controls.Add(Me.txtFolio)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -476,73 +477,48 @@ Partial Class XfrmValidarFirmas
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Location = New System.Drawing.Point(3, 73)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(628, 140)
+        Me.GroupBox1.Size = New System.Drawing.Size(628, 162)
         Me.GroupBox1.TabIndex = 21
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filtros"
         '
-        'btnUltimo
+        'navFiltro
         '
-        Me.btnUltimo.Enabled = False
-        Me.btnUltimo.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.btnUltimo.Location = New System.Drawing.Point(554, 92)
-        Me.btnUltimo.Name = "btnUltimo"
-        Me.btnUltimo.Size = New System.Drawing.Size(39, 33)
-        Me.btnUltimo.TabIndex = 12
-        Me.btnUltimo.Text = ">>"
-        Me.btnUltimo.UseVisualStyleBackColor = True
-        '
-        'btnSiguiente
-        '
-        Me.btnSiguiente.Enabled = False
-        Me.btnSiguiente.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.btnSiguiente.Location = New System.Drawing.Point(514, 92)
-        Me.btnSiguiente.Name = "btnSiguiente"
-        Me.btnSiguiente.Size = New System.Drawing.Size(39, 33)
-        Me.btnSiguiente.TabIndex = 11
-        Me.btnSiguiente.Text = ">"
-        Me.btnSiguiente.UseVisualStyleBackColor = True
-        '
-        'btnAnterior
-        '
-        Me.btnAnterior.Enabled = False
-        Me.btnAnterior.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.btnAnterior.Location = New System.Drawing.Point(474, 92)
-        Me.btnAnterior.Name = "btnAnterior"
-        Me.btnAnterior.Size = New System.Drawing.Size(39, 33)
-        Me.btnAnterior.TabIndex = 10
-        Me.btnAnterior.Text = "<"
-        Me.btnAnterior.UseVisualStyleBackColor = True
-        '
-        'btnPrimero
-        '
-        Me.btnPrimero.Enabled = False
-        Me.btnPrimero.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.btnPrimero.Location = New System.Drawing.Point(434, 92)
-        Me.btnPrimero.Name = "btnPrimero"
-        Me.btnPrimero.Size = New System.Drawing.Size(39, 33)
-        Me.btnPrimero.TabIndex = 9
-        Me.btnPrimero.Text = "<<"
-        Me.btnPrimero.UseVisualStyleBackColor = True
+        Me.navFiltro.Buttons.Append.Visible = False
+        Me.navFiltro.Buttons.CancelEdit.Visible = False
+        Me.navFiltro.Buttons.EndEdit.Visible = False
+        Me.navFiltro.Buttons.NextPage.Visible = False
+        Me.navFiltro.Buttons.PrevPage.Visible = False
+        Me.navFiltro.Buttons.Remove.Visible = False
+        Me.navFiltro.DataSource = Me.NavegacionBindingSource
+        Me.navFiltro.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.navFiltro.Location = New System.Drawing.Point(3, 137)
+        Me.navFiltro.Name = "navFiltro"
+        Me.navFiltro.Size = New System.Drawing.Size(622, 22)
+        Me.navFiltro.TabIndex = 37
+        Me.navFiltro.TextLocation = DevExpress.XtraEditors.NavigatorButtonsTextLocation.Center
+        Me.navFiltro.TextStringFormat = "{0} de {1}"
         '
         'txtPagina
         '
-        Me.txtPagina.Location = New System.Drawing.Point(474, 50)
+        Me.txtPagina.Location = New System.Drawing.Point(483, 104)
         Me.txtPagina.Name = "txtPagina"
+        Me.txtPagina.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.txtPagina.Size = New System.Drawing.Size(119, 21)
         Me.txtPagina.TabIndex = 8
         '
         'txtFolio
         '
-        Me.txtFolio.Location = New System.Drawing.Point(474, 23)
+        Me.txtFolio.Location = New System.Drawing.Point(483, 77)
         Me.txtFolio.Name = "txtFolio"
+        Me.txtFolio.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.txtFolio.Size = New System.Drawing.Size(119, 21)
         Me.txtFolio.TabIndex = 7
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(441, 26)
+        Me.Label1.Location = New System.Drawing.Point(450, 80)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(29, 13)
         Me.Label1.TabIndex = 36
@@ -551,7 +527,7 @@ Partial Class XfrmValidarFirmas
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(431, 53)
+        Me.Label8.Location = New System.Drawing.Point(440, 107)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(39, 13)
         Me.Label8.TabIndex = 34
@@ -578,16 +554,6 @@ Partial Class XfrmValidarFirmas
         Me.cbxMovimiento.TabIndex = 4
         Me.cbxMovimiento.ValueMember = "CODIGO_MOVIMIENTO"
         '
-        'IMFK1MOVIMIENTOSBindingSource
-        '
-        Me.IMFK1MOVIMIENTOSBindingSource.DataMember = "IM_FK1_MOVIMIENTOS"
-        Me.IMFK1MOVIMIENTOSBindingSource.DataSource = Me.PartidosBindingSource
-        '
-        'PartidosBindingSource
-        '
-        Me.PartidosBindingSource.DataMember = "Partidos"
-        Me.PartidosBindingSource.DataSource = Me.DSConsultas
-        '
         'cbxMunicipio
         '
         Me.cbxMunicipio.DataSource = Me.IMFK1MUNICIPIOBindingSource
@@ -599,16 +565,6 @@ Partial Class XfrmValidarFirmas
         Me.cbxMunicipio.Size = New System.Drawing.Size(302, 21)
         Me.cbxMunicipio.TabIndex = 6
         Me.cbxMunicipio.ValueMember = "CODIGO_MUNICIPIO"
-        '
-        'IMFK1MUNICIPIOBindingSource
-        '
-        Me.IMFK1MUNICIPIOBindingSource.DataMember = "IM_FK1_MUNICIPIO"
-        Me.IMFK1MUNICIPIOBindingSource.DataSource = Me.DepartamentosBindingSource
-        '
-        'DepartamentosBindingSource
-        '
-        Me.DepartamentosBindingSource.DataMember = "Departamentos"
-        Me.DepartamentosBindingSource.DataSource = Me.DSConsultas
         '
         'cbxDepartamento
         '
@@ -661,114 +617,107 @@ Partial Class XfrmValidarFirmas
         Me.Label2.TabIndex = 16
         Me.Label2.Text = "Departamento"
         '
-        'GroupBox2
+        'FlowLayoutPanel1
         '
-        Me.GroupBox2.Controls.Add(Me.pbxFirma)
-        Me.GroupBox2.Location = New System.Drawing.Point(637, 73)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(146, 140)
-        Me.GroupBox2.TabIndex = 23
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Firma"
+        Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.Transparent
+        Me.FlowLayoutPanel1.Controls.Add(Me.btnFiltro)
+        Me.FlowLayoutPanel1.Controls.Add(Me.BtnGuardar)
+        Me.FlowLayoutPanel1.Controls.Add(Me.btnSalir)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 3)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1600, 64)
+        Me.FlowLayoutPanel1.TabIndex = 20
         '
-        'pbxFirma
+        'btnFiltro
         '
-        Me.pbxFirma.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.ImagenesFirmaBindingSource, "IMAGEN", True))
-        Me.pbxFirma.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pbxFirma.Location = New System.Drawing.Point(3, 17)
-        Me.pbxFirma.Name = "pbxFirma"
-        Me.pbxFirma.Size = New System.Drawing.Size(140, 120)
-        Me.pbxFirma.TabIndex = 0
-        Me.pbxFirma.TabStop = False
+        Me.btnFiltro.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.btnFiltro.Appearance.Options.UseFont = True
+        Me.btnFiltro.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Filtro
+        Me.btnFiltro.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.btnFiltro.Location = New System.Drawing.Point(3, 3)
+        Me.btnFiltro.Name = "btnFiltro"
+        Me.btnFiltro.Size = New System.Drawing.Size(55, 55)
+        Me.btnFiltro.TabIndex = 0
+        Me.btnFiltro.TabStop = False
+        Me.btnFiltro.Text = "Filtrar"
         '
-        'ImagenesFirmaBindingSource
+        'BtnGuardar
         '
-        Me.ImagenesFirmaBindingSource.DataMember = "ImagenesFirma"
-        Me.ImagenesFirmaBindingSource.DataSource = Me.DSConsultas
+        Me.BtnGuardar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnGuardar.Appearance.Options.UseFont = True
+        Me.BtnGuardar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.guardar1
+        Me.BtnGuardar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnGuardar.Location = New System.Drawing.Point(64, 3)
+        Me.BtnGuardar.Name = "BtnGuardar"
+        Me.BtnGuardar.Size = New System.Drawing.Size(55, 55)
+        Me.BtnGuardar.TabIndex = 1
+        Me.BtnGuardar.Text = "Guardar"
         '
-        'PartidosTableAdapter
+        'btnSalir
         '
-        Me.PartidosTableAdapter.ClearBeforeFill = True
+        Me.btnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.btnSalir.Appearance.Options.UseFont = True
+        Me.btnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
+        Me.btnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.btnSalir.Location = New System.Drawing.Point(125, 3)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(55, 55)
+        Me.btnSalir.TabIndex = 2
+        Me.btnSalir.TabStop = False
+        Me.btnSalir.Text = "Salir"
         '
-        'MovimientosTableAdapter
+        'FlowLayoutPanel2
         '
-        Me.MovimientosTableAdapter.ClearBeforeFill = True
+        Me.FlowLayoutPanel2.Controls.Add(Me.FlowLayoutPanel1)
+        Me.FlowLayoutPanel2.Controls.Add(Me.GroupBox1)
+        Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 0)
+        Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(1603, 240)
+        Me.FlowLayoutPanel2.TabIndex = 24
         '
-        'DepartamentosTableAdapter
+        'NavegacionBindingSource
         '
-        Me.DepartamentosTableAdapter.ClearBeforeFill = True
+        Me.NavegacionBindingSource.DataMember = "Navegacion"
+        Me.NavegacionBindingSource.DataSource = Me.DSConsultas
         '
-        'MunicipiosTableAdapter
+        'NavegacionTableAdapter
         '
-        Me.MunicipiosTableAdapter.ClearBeforeFill = True
-        '
-        'IM_V_VALIDAR_FIRMASTableAdapter
-        '
-        Me.IM_V_VALIDAR_FIRMASTableAdapter.ClearBeforeFill = True
-        '
-        'ImagenesFirmaTableAdapter
-        '
-        Me.ImagenesFirmaTableAdapter.ClearBeforeFill = True
+        Me.NavegacionTableAdapter.ClearBeforeFill = True
         '
         'XfrmValidarFirmas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1227, 717)
+        Me.ClientSize = New System.Drawing.Size(1603, 717)
         Me.Controls.Add(Me.GCBusqueda)
+        Me.Controls.Add(Me.FlowLayoutPanel3)
         Me.Controls.Add(Me.FlowLayoutPanel2)
         Me.Name = "XfrmValidarFirmas"
         Me.Text = "XfrmValidarFirmas"
-        CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMVVALIDARFIRMASBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemCheckEdit, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.FlowLayoutPanel2.ResumeLayout(False)
-        Me.FlowLayoutPanel1.ResumeLayout(False)
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PartidosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMFK1MUNICIPIOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DepartamentosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImagenesFirmaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.FlowLayoutPanel3.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.pbxFirma, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ImagenesFirmaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCheckEdit, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.FlowLayoutPanel1.ResumeLayout(False)
+        Me.FlowLayoutPanel2.ResumeLayout(False)
+        CType(Me.NavegacionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents GCBusqueda As DevExpress.XtraGrid.GridControl
-    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents RepositoryItemCheckEdit As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
-    Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
-    Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents FlowLayoutPanel2 As System.Windows.Forms.FlowLayoutPanel
-    Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
-    Friend WithEvents btnFiltro As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents BtnGuardar As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents btnSalir As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents cbxMovimiento As System.Windows.Forms.ComboBox
-    Friend WithEvents cbxMunicipio As System.Windows.Forms.ComboBox
-    Friend WithEvents cbxDepartamento As System.Windows.Forms.ComboBox
-    Friend WithEvents cbxPartido As System.Windows.Forms.ComboBox
-    Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents txtFolio As System.Windows.Forms.TextBox
-    Friend WithEvents txtPagina As System.Windows.Forms.TextBox
-    Friend WithEvents btnAnterior As System.Windows.Forms.Button
-    Friend WithEvents btnPrimero As System.Windows.Forms.Button
-    Friend WithEvents btnUltimo As System.Windows.Forms.Button
-    Friend WithEvents btnSiguiente As System.Windows.Forms.Button
-    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents pbxFirma As System.Windows.Forms.PictureBox
     Friend WithEvents DSConsultas As Inscripcion_de_Moviemientos.DSConsultas
     Friend WithEvents PartidosBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents PartidosTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.PartidosTableAdapter
@@ -780,26 +729,54 @@ Partial Class XfrmValidarFirmas
     Friend WithEvents MunicipiosTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MunicipiosTableAdapter
     Friend WithEvents IMVVALIDARFIRMASBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents IM_V_VALIDAR_FIRMASTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.IM_V_VALIDAR_FIRMASTableAdapter
+    Friend WithEvents ImagenesFirmaBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents ImagenesFirmaTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.ImagenesFirmaTableAdapter
+    Friend WithEvents FlowLayoutPanel3 As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents GCBusqueda As DevExpress.XtraGrid.GridControl
+    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents colIDENTIDAD As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colPRIMER_NOMBRE_PAPELETA As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colSEGUNDO_NOMBRE_PAPELETA As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colPRIMER_APELLIDO_PAPELETA As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colSEGUNDO_APELLIDO_PAPELETA As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colFIRMA As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryItemCheckEdit As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents colHUELLA As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colDIRECCION As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colIGUAL As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colCONSISTENTE As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colFOLIO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colPAGINA As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colOBSERVACION As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colVALIDADO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents colMAQUINA As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colCODIGO_CUIDADANOS_RESPALDAN As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colCODIGO_PARTIDO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colCODIGO_MOVIMIENTO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colCODIGO_DEPARTAMENTO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colCODIGO_MUNICIPIO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents ImagenesFirmaBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents ImagenesFirmaTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.ImagenesFirmaTableAdapter
+    Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents txtPagina As System.Windows.Forms.TextBox
+    Friend WithEvents txtFolio As System.Windows.Forms.TextBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents cbxMovimiento As System.Windows.Forms.ComboBox
+    Friend WithEvents cbxMunicipio As System.Windows.Forms.ComboBox
+    Friend WithEvents cbxDepartamento As System.Windows.Forms.ComboBox
+    Friend WithEvents cbxPartido As System.Windows.Forms.ComboBox
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents btnFiltro As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnGuardar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnSalir As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents FlowLayoutPanel2 As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents pbxFirma As System.Windows.Forms.PictureBox
+    Friend WithEvents navFiltro As DevExpress.XtraEditors.DataNavigator
+    Friend WithEvents NavegacionBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents NavegacionTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.NavegacionTableAdapter
 End Class
