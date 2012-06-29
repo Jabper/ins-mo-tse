@@ -21,15 +21,15 @@ Partial Class frmImagenFirmaModal
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Me.btnCancel = New System.Windows.Forms.Button
-        Me.ImagenRequisitoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DSConsultas = New Inscripcion_de_Moviemientos.DSConsultas
-        Me.ImagenRequisitoTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.imagenRequisitoTableAdapter
         Me.Panel1 = New System.Windows.Forms.Panel
         Me.pbxImagen = New System.Windows.Forms.PictureBox
-        CType(Me.ImagenRequisitoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DSConsultas = New Inscripcion_de_Moviemientos.DSConsultas
+        Me.ImagenesFirmaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ImagenesFirmaTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.ImagenesFirmaTableAdapter
         Me.Panel1.SuspendLayout()
         CType(Me.pbxImagen, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImagenesFirmaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnCancel
@@ -41,20 +41,6 @@ Partial Class frmImagenFirmaModal
         Me.btnCancel.TabIndex = 0
         Me.btnCancel.TabStop = False
         Me.btnCancel.UseVisualStyleBackColor = True
-        '
-        'ImagenRequisitoBindingSource
-        '
-        Me.ImagenRequisitoBindingSource.DataMember = "imagenRequisito"
-        Me.ImagenRequisitoBindingSource.DataSource = Me.DSConsultas
-        '
-        'DSConsultas
-        '
-        Me.DSConsultas.DataSetName = "DSConsultas"
-        Me.DSConsultas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ImagenRequisitoTableAdapter
-        '
-        Me.ImagenRequisitoTableAdapter.ClearBeforeFill = True
         '
         'Panel1
         '
@@ -68,7 +54,7 @@ Partial Class frmImagenFirmaModal
         '
         'pbxImagen
         '
-        Me.pbxImagen.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.ImagenRequisitoBindingSource, "IMAGEN", True))
+        Me.pbxImagen.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.ImagenesFirmaBindingSource, "IMAGEN", True))
         Me.pbxImagen.Location = New System.Drawing.Point(0, 0)
         Me.pbxImagen.Name = "pbxImagen"
         Me.pbxImagen.Size = New System.Drawing.Size(645, 540)
@@ -76,7 +62,21 @@ Partial Class frmImagenFirmaModal
         Me.pbxImagen.TabIndex = 2
         Me.pbxImagen.TabStop = False
         '
-        'frmImagenModal
+        'DSConsultas
+        '
+        Me.DSConsultas.DataSetName = "DSConsultas"
+        Me.DSConsultas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ImagenesFirmaBindingSource
+        '
+        Me.ImagenesFirmaBindingSource.DataMember = "ImagenesFirma"
+        Me.ImagenesFirmaBindingSource.DataSource = Me.DSConsultas
+        '
+        'ImagenesFirmaTableAdapter
+        '
+        Me.ImagenesFirmaTableAdapter.ClearBeforeFill = True
+        '
+        'frmImagenFirmaModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -87,24 +87,24 @@ Partial Class frmImagenFirmaModal
         Me.Controls.Add(Me.btnCancel)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmImagenModal"
+        Me.Name = "frmImagenFirmaModal"
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Imagen"
         Me.TopMost = True
-        CType(Me.ImagenRequisitoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.pbxImagen, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImagenesFirmaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents btnCancel As System.Windows.Forms.Button
-    Friend WithEvents ImagenRequisitoBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents DSConsultas As Inscripcion_de_Moviemientos.DSConsultas
-    Friend WithEvents ImagenRequisitoTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.imagenRequisitoTableAdapter
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents pbxImagen As System.Windows.Forms.PictureBox
+    Friend WithEvents ImagenesFirmaBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents DSConsultas As Inscripcion_de_Moviemientos.DSConsultas
+    Friend WithEvents ImagenesFirmaTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.ImagenesFirmaTableAdapter
 End Class

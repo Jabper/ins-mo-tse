@@ -62,6 +62,7 @@ Partial Class XfrmValidarFirmas
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.navFiltro = New DevExpress.XtraEditors.DataNavigator
+        Me.NavegacionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.txtPagina = New System.Windows.Forms.TextBox
         Me.txtFolio = New System.Windows.Forms.TextBox
         Me.Label1 = New System.Windows.Forms.Label
@@ -79,7 +80,6 @@ Partial Class XfrmValidarFirmas
         Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
         Me.btnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel
-        Me.NavegacionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.NavegacionTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.NavegacionTableAdapter
         CType(Me.IMVVALIDARFIRMASBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -97,9 +97,9 @@ Partial Class XfrmValidarFirmas
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.NavegacionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.FlowLayoutPanel2.SuspendLayout()
-        CType(Me.NavegacionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IMVVALIDARFIRMASBindingSource
@@ -179,7 +179,7 @@ Partial Class XfrmValidarFirmas
         Me.GroupBox2.Size = New System.Drawing.Size(289, 416)
         Me.GroupBox2.TabIndex = 41
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Firma"
+        Me.GroupBox2.Text = "Firmas"
         '
         'pbxFirma
         '
@@ -499,6 +499,11 @@ Partial Class XfrmValidarFirmas
         Me.navFiltro.TextLocation = DevExpress.XtraEditors.NavigatorButtonsTextLocation.Center
         Me.navFiltro.TextStringFormat = "{0} de {1}"
         '
+        'NavegacionBindingSource
+        '
+        Me.NavegacionBindingSource.DataMember = "Navegacion"
+        Me.NavegacionBindingSource.DataSource = Me.DSConsultas
+        '
         'txtPagina
         '
         Me.txtPagina.Location = New System.Drawing.Point(483, 104)
@@ -676,11 +681,6 @@ Partial Class XfrmValidarFirmas
         Me.FlowLayoutPanel2.Size = New System.Drawing.Size(1603, 240)
         Me.FlowLayoutPanel2.TabIndex = 24
         '
-        'NavegacionBindingSource
-        '
-        Me.NavegacionBindingSource.DataMember = "Navegacion"
-        Me.NavegacionBindingSource.DataSource = Me.DSConsultas
-        '
         'NavegacionTableAdapter
         '
         Me.NavegacionTableAdapter.ClearBeforeFill = True
@@ -694,7 +694,7 @@ Partial Class XfrmValidarFirmas
         Me.Controls.Add(Me.FlowLayoutPanel3)
         Me.Controls.Add(Me.FlowLayoutPanel2)
         Me.Name = "XfrmValidarFirmas"
-        Me.Text = "XfrmValidarFirmas"
+        Me.Text = "Validar Firmas"
         CType(Me.IMVVALIDARFIRMASBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -712,9 +712,9 @@ Partial Class XfrmValidarFirmas
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.NavegacionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.FlowLayoutPanel2.ResumeLayout(False)
-        CType(Me.NavegacionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
