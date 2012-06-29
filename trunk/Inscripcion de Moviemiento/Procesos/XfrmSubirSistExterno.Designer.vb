@@ -37,17 +37,22 @@ Partial Class XfrmSubirSistExterno
         Me.PictureBox5 = New System.Windows.Forms.PictureBox
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
         Me.FbUbicacion = New System.Windows.Forms.FolderBrowserDialog
+        Me.BtnImagenesFirmas = New DevExpress.XtraEditors.SimpleButton
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox
         Me.Panel1.SuspendLayout()
         CType(Me.TxtRuta.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.BtnImagenesFirmas)
+        Me.Panel1.Controls.Add(Me.PictureBox2)
         Me.Panel1.Controls.Add(Me.BtnImagenes)
         Me.Panel1.Controls.Add(Me.BtnSalir)
         Me.Panel1.Controls.Add(Me.BtnFirmas)
@@ -65,7 +70,7 @@ Partial Class XfrmSubirSistExterno
         Me.Panel1.Controls.Add(Me.PictureBox5)
         Me.Panel1.Location = New System.Drawing.Point(12, 12)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(555, 238)
+        Me.Panel1.Size = New System.Drawing.Size(689, 238)
         Me.Panel1.TabIndex = 24
         '
         'BtnImagenes
@@ -81,7 +86,7 @@ Partial Class XfrmSubirSistExterno
         Me.BtnImagenes.Name = "BtnImagenes"
         Me.BtnImagenes.Size = New System.Drawing.Size(74, 66)
         Me.BtnImagenes.TabIndex = 35
-        Me.BtnImagenes.Text = "Imágenes"
+        Me.BtnImagenes.Text = "Imágenes " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "de Planillas"
         '
         'BtnSalir
         '
@@ -91,7 +96,7 @@ Partial Class XfrmSubirSistExterno
         Me.BtnSalir.Appearance.Options.UseForeColor = True
         Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
         Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnSalir.Location = New System.Drawing.Point(471, 136)
+        Me.BtnSalir.Location = New System.Drawing.Point(585, 136)
         Me.BtnSalir.Name = "BtnSalir"
         Me.BtnSalir.Size = New System.Drawing.Size(67, 66)
         Me.BtnSalir.TabIndex = 33
@@ -159,7 +164,7 @@ Partial Class XfrmSubirSistExterno
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(90, 111)
+        Me.Label2.Location = New System.Drawing.Point(112, 111)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(165, 13)
         Me.Label2.TabIndex = 32
@@ -167,7 +172,7 @@ Partial Class XfrmSubirSistExterno
         '
         'BtnEjecutar
         '
-        Me.BtnEjecutar.Location = New System.Drawing.Point(192, 179)
+        Me.BtnEjecutar.Location = New System.Drawing.Point(265, 179)
         Me.BtnEjecutar.Name = "BtnEjecutar"
         Me.BtnEjecutar.Size = New System.Drawing.Size(98, 23)
         Me.BtnEjecutar.TabIndex = 31
@@ -175,7 +180,7 @@ Partial Class XfrmSubirSistExterno
         '
         'BtnExplorar
         '
-        Me.BtnExplorar.Location = New System.Drawing.Point(319, 135)
+        Me.BtnExplorar.Location = New System.Drawing.Point(422, 134)
         Me.BtnExplorar.Name = "BtnExplorar"
         Me.BtnExplorar.Size = New System.Drawing.Size(75, 23)
         Me.BtnExplorar.TabIndex = 30
@@ -184,16 +189,16 @@ Partial Class XfrmSubirSistExterno
         'TxtRuta
         '
         Me.TxtRuta.Enabled = False
-        Me.TxtRuta.Location = New System.Drawing.Point(94, 136)
+        Me.TxtRuta.Location = New System.Drawing.Point(116, 136)
         Me.TxtRuta.Name = "TxtRuta"
-        Me.TxtRuta.Size = New System.Drawing.Size(219, 20)
+        Me.TxtRuta.Size = New System.Drawing.Size(299, 20)
         Me.TxtRuta.TabIndex = 29
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.flecha
-        Me.Label1.Location = New System.Drawing.Point(104, 141)
+        Me.Label1.Location = New System.Drawing.Point(126, 141)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(0, 13)
         Me.Label1.TabIndex = 24
@@ -238,11 +243,35 @@ Partial Class XfrmSubirSistExterno
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
+        'BtnImagenesFirmas
+        '
+        Me.BtnImagenesFirmas.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnImagenesFirmas.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.BtnImagenesFirmas.Appearance.Options.UseFont = True
+        Me.BtnImagenesFirmas.Appearance.Options.UseForeColor = True
+        Me.BtnImagenesFirmas.Enabled = False
+        Me.BtnImagenesFirmas.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.imagenes
+        Me.BtnImagenesFirmas.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnImagenesFirmas.Location = New System.Drawing.Point(578, 15)
+        Me.BtnImagenesFirmas.Name = "BtnImagenesFirmas"
+        Me.BtnImagenesFirmas.Size = New System.Drawing.Size(74, 66)
+        Me.BtnImagenesFirmas.TabIndex = 37
+        Me.BtnImagenesFirmas.Text = "Imágenes " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "de Firmas"
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.flecha
+        Me.PictureBox2.Location = New System.Drawing.Point(541, 33)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(34, 34)
+        Me.PictureBox2.TabIndex = 36
+        Me.PictureBox2.TabStop = False
+        '
         'XfrmSubirSistExterno
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(580, 262)
+        Me.ClientSize = New System.Drawing.Size(713, 262)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "XfrmSubirSistExterno"
         Me.Text = "Importar de Otros Sistemas"
@@ -253,6 +282,7 @@ Partial Class XfrmSubirSistExterno
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -274,4 +304,6 @@ Partial Class XfrmSubirSistExterno
     Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
     Friend WithEvents BtnImagenes As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents FbUbicacion As System.Windows.Forms.FolderBrowserDialog
+    Friend WithEvents BtnImagenesFirmas As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
 End Class
