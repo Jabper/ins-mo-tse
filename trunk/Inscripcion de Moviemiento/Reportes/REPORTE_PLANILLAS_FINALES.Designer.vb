@@ -85,6 +85,9 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         Me.nivel = New DevExpress.XtraReports.Parameters.Parameter
         Me.NombreDep = New DevExpress.XtraReports.Parameters.Parameter
         Me.XrLine1 = New DevExpress.XtraReports.UI.XRLine
+        Me.GroupHeader3 = New DevExpress.XtraReports.UI.GroupHeaderBand
+        Me.XrLabel31 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel32 = New DevExpress.XtraReports.UI.XRLabel
         CType(Me.DS_PLANILLA_TOTALES1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
@@ -521,7 +524,7 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         '
         Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.ndepartamento, Me.XrLabel27, Me.nivelelectivo, Me.XrLabel24, Me.movimientopolitico, Me.XrLabel10, Me.partidopolitico, Me.XrLabel8})
         Me.GroupHeader1.HeightF = 238.5417!
-        Me.GroupHeader1.Level = 1
+        Me.GroupHeader1.Level = 2
         Me.GroupHeader1.Name = "GroupHeader1"
         '
         'ndepartamento
@@ -613,6 +616,7 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         '
         Me.GroupHeader2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel23, Me.XrLabel21, Me.XrLabel19, Me.XrLabel17, Me.XrLabel16, Me.XrLine1})
         Me.GroupHeader2.HeightF = 48.70835!
+        Me.GroupHeader2.Level = 1
         Me.GroupHeader2.Name = "GroupHeader2"
         '
         'XrLabel23
@@ -699,9 +703,35 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         Me.XrLine1.Name = "XrLine1"
         Me.XrLine1.SizeF = New System.Drawing.SizeF(1041.0!, 15.70835!)
         '
+        'GroupHeader3
+        '
+        Me.GroupHeader3.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel32, Me.XrLabel31})
+        Me.GroupHeader3.HeightF = 44.79167!
+        Me.GroupHeader3.Name = "GroupHeader3"
+        '
+        'XrLabel31
+        '
+        Me.XrLabel31.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel31.LocationFloat = New DevExpress.Utils.PointFloat(13.12502!, 9.999974!)
+        Me.XrLabel31.Name = "XrLabel31"
+        Me.XrLabel31.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
+        Me.XrLabel31.SizeF = New System.Drawing.SizeF(94.79168!, 23.00002!)
+        Me.XrLabel31.StylePriority.UseFont = False
+        Me.XrLabel31.Text = "Municipio:"
+        '
+        'XrLabel32
+        '
+        Me.XrLabel32.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel32.LocationFloat = New DevExpress.Utils.PointFloat(107.9167!, 9.999974!)
+        Me.XrLabel32.Name = "XrLabel32"
+        Me.XrLabel32.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
+        Me.XrLabel32.SizeF = New System.Drawing.SizeF(361.4583!, 23.00002!)
+        Me.XrLabel32.StylePriority.UseFont = False
+        Me.XrLabel32.Text = "XrLabel32"
+        '
         'REPORTE_PLANILLAS_FINALES
         '
-        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.ReportHeader, Me.PageHeader, Me.GroupHeader1, Me.GroupHeader2})
+        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.ReportHeader, Me.PageHeader, Me.GroupHeader1, Me.GroupHeader2, Me.GroupHeader3})
         Me.DataAdapter = Me.IM_CANDIDATOSTableAdapter
         Me.DataMember = "IM_CANDIDATOS"
         Me.DataSource = Me.DS_PLANILLA_TOTALES1
@@ -781,5 +811,8 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
     Friend WithEvents XrLabel30 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel29 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLine1 As DevExpress.XtraReports.UI.XRLine
+    Friend WithEvents GroupHeader3 As DevExpress.XtraReports.UI.GroupHeaderBand
+    Friend WithEvents XrLabel32 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel31 As DevExpress.XtraReports.UI.XRLabel
     '   Friend WithEvents IM_CANDIDATOSTableAdapter As Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_CANDIDATOSTableAdapter
 End Class
