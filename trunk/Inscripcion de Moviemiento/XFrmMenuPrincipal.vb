@@ -348,4 +348,8 @@ Public Class XFrmMenuPrincipal
         reportep.ShowPreview()
 
     End Sub
+
+    Private Sub btnValidarFirmas_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnValidarFirmas.ItemClick
+        Padre(XfrmValidarFirmas)
+    End Sub
 End Class
