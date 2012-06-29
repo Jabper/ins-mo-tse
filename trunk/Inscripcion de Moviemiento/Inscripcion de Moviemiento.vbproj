@@ -765,6 +765,10 @@
       <DependentUpon>XfrmJerarquico.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\XfrmValidarFirmas.resx">
+      <DependentUpon>XfrmValidarFirmas.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Procesos\Dialog1.resx">
       <DependentUpon>Dialog1.vb</DependentUpon>
       <SubType>Designer</SubType>
