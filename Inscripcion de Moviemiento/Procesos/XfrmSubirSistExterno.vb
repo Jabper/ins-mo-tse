@@ -70,7 +70,6 @@ Public Class XfrmSubirSistExterno
             End If
 
             If proceso_corriendo = "N" Then
-
                 If Me.BtnCandidatos.Enabled = True Then
                     Dim oradb2 As String = Configuracion.verconfig
                     Dim conn2 As New OracleConnection()
@@ -166,6 +165,25 @@ Public Class XfrmSubirSistExterno
                 ElseIf Me.BtnImagenes.Enabled = True Then
                     retorno = subir_imagenes(Me.TxtRuta.Text)
                     If retorno = True Then
+                        Me.TxtRuta.Text = Nothing
+
+                        Me.BtnImagenes.Height = Me.BtnImagenes.Height - 15
+                        Me.BtnImagenes.Width = Me.BtnImagenes.Width - 15
+                        Dim punto As Point = New Point(Me.BtnImagenes.Location.X + 7.5, Me.BtnImagenes.Location.Y + 7.5)
+                        Me.BtnImagenes.Location = punto
+                        Me.BtnImagenes.ForeColor = Color.Black
+                        Me.BtnImagenes.Enabled = False
+
+                        Me.BtnImagenesFirmas.Enabled = True
+                        Me.BtnImagenesFirmas.ForeColor = Color.LimeGreen
+                        Me.BtnImagenesFirmas.Height = Me.BtnImagenesFirmas.Height + 15
+                        Me.BtnImagenesFirmas.Width = Me.BtnImagenesFirmas.Width + 15
+                        punto = New Point(Me.BtnImagenesFirmas.Location.X - 7.5, Me.BtnImagenesFirmas.Location.Y - 7.5)
+                        Me.BtnImagenesFirmas.Location = punto
+                    End If
+                ElseIf Me.BtnImagenesFirmas.Enabled = True Then
+                    retorno = subir_imagenes_firmas(Me.TxtRuta.Text)
+                    If retorno = True Then
                         Dim oradb3 As String = Configuracion.verconfig
                         Dim conn3 As New OracleConnection()
                         'Dim myCMD As New OracleCommand()
@@ -181,12 +199,12 @@ Public Class XfrmSubirSistExterno
 
                         Me.TxtRuta.Text = Nothing
 
-                        Me.BtnImagenes.Height = Me.BtnImagenes.Height - 15
-                        Me.BtnImagenes.Width = Me.BtnImagenes.Width - 15
-                        Dim punto As Point = New Point(Me.BtnImagenes.Location.X + 7.5, Me.BtnImagenes.Location.Y + 7.5)
-                        Me.BtnImagenes.Location = punto
-                        Me.BtnImagenes.ForeColor = Color.Black
-                        Me.BtnImagenes.Enabled = False
+                        Me.BtnImagenesFirmas.Height = Me.BtnImagenesFirmas.Height - 15
+                        Me.BtnImagenesFirmas.Width = Me.BtnImagenesFirmas.Width - 15
+                        Dim punto As Point = New Point(Me.BtnImagenesFirmas.Location.X + 7.5, Me.BtnImagenesFirmas.Location.Y + 7.5)
+                        Me.BtnImagenesFirmas.Location = punto
+                        Me.BtnImagenesFirmas.ForeColor = Color.Black
+                        Me.BtnImagenesFirmas.Enabled = False
 
                         Me.BtnCandidatos.Enabled = True
                         Me.BtnCandidatos.ForeColor = Color.LimeGreen
@@ -194,14 +212,14 @@ Public Class XfrmSubirSistExterno
                         Me.BtnCandidatos.Width = Me.BtnCandidatos.Width + 15
                         punto = New Point(Me.BtnCandidatos.Location.X - 7.5, Me.BtnCandidatos.Location.Y - 7.5)
                         Me.BtnCandidatos.Location = punto
+                        Label2.Text = "Seleccione el Archivo a Importar:"
 
                         proceso_iniciado = False
                         proceso_corriendo = Nothing
                         MsgBox("La Importación ha terminado correctamente...", MsgBoxStyle.Information)
                     End If
                 End If
-
-            End If
+            End If        
         End If
     End Sub
 
@@ -655,7 +673,6 @@ Public Class XfrmSubirSistExterno
                     conn.ConnectionString = oradb
                     conn.Open()
 
-
                     Dim sql As String = "select codigo_candidatos, codigo_partido, codigo_movimiento from tmp_im_candidatos where identidad = '" & identidad & "'"
                     Dim cmd As New OracleCommand(sql, conn)
                     cmd.CommandType = CommandType.Text
@@ -689,7 +706,9 @@ Public Class XfrmSubirSistExterno
                                     End If
                                 End If
                             Catch ex As Exception
+                                conn.Close()
                                 Mensajes.MensajeError(ex.Message)
+                                Return False
                             End Try
                         Next
                     End If
@@ -715,8 +734,97 @@ Public Class XfrmSubirSistExterno
         Return True
     End Function
 
+    Private Function subir_imagenes_firmas(ByVal FolderPath As String) As Boolean
+        Dim Archivo As FileInfo
+        Dim campos() As String
+        'Dim identidad As String
+        'Dim requisito As String
+
+        Try
+            For Each sFichero As String In Directory.GetFiles(FolderPath, "*.jpg", SearchOption.TopDirectoryOnly)
+                Archivo = New FileInfo(sFichero)
+
+                campos = Split(Archivo.Name, ".")
+                'If campos(0) <> "EMBLEMA" Then
+                'campos = Nothing
+                'campos = Split(Archivo.Name, "_")
+                'For i = LBound(campos) To UBound(campos)
+                '    If i = 0 Then
+                '        identidad = campos(i)
+                '    ElseIf i = 1 Then
+                '        requisito = campos(i)
+                '    End If
+                'Next
+                'If Not IsDBNull(requisito) Then
+                '    campos = Split(requisito, ".")
+                '    requisito = campos(0)
+                'End If
+
+                Dim oradb As String = Configuracion.verconfig
+                Dim conn As New OracleConnection()
+                conn.ConnectionString = oradb
+                conn.Open()
+
+                Dim sql As String = "select codigo_partido, codigo_movimiento from tmp_im_movimientos where rownum = 1"
+                Dim cmd As New OracleCommand(sql, conn)
+                cmd.CommandType = CommandType.Text
+                Dim chek As OracleDataReader = cmd.ExecuteReader()
+                If chek.Read Then
+                    Dim oa As OracleDataAdapter = New OracleDataAdapter(sql, conn)
+                    Dim ds As DataSet = New DataSet()
+                    oa.Fill(ds)
+                    Dim i As Integer = 0
+                    For Each row As System.Data.DataRow In ds.Tables(0).Rows
+                        Try
+                            Dim oradb1 As String = Configuracion.verconfig
+                            Dim conn1 As New OracleConnection()
+                            conn1.ConnectionString = oradb1
+                            conn1.Open()
+
+                            Dim sql1 As String = "insert into tmp_im_imagenes_firmas (codigo_partido, codigo_movimiento, pagina, folio, imagen, maquina) " _
+                            & "values ('" & row.Item("codigo_partido") & "', '" & row.Item("codigo_movimiento") & "', '" & campos(0) & "', '" & campos(0) & "', :pbi_imagen, 'externo')"
+                            Dim cmd1 As OracleCommand = New OracleCommand(sql1, conn1)
+                            cmd1.Parameters.Add(":pbi_imagen", OracleType.Blob).Value = Data.ConvertImageToByteArray(Image.FromFile(Archivo.FullName))
+                            cmd1.ExecuteOracleScalar()
+
+                            i = i + 1
+                            If i Mod 1000 = 0 Then
+                                Dialog1.LabelControl1.Text = "Se han procesado " & i & " registros. Procesando por favor espere..."
+                                If Dialog1.Visible = False Then
+                                    Dialog1.ShowDialog()
+                                End If
+                            End If
+                        Catch ex As Exception
+                            conn.Close()
+                            Mensajes.MensajeError(ex.Message)
+                            Return False
+                        End Try
+                    Next
+                End If
+                conn.Close()
+                'Else
+                'Dim oradb1 As String = Configuracion.verconfig
+                'Dim conn1 As New OracleConnection()
+                'conn1.ConnectionString = oradb1
+                'conn1.Open()
+
+                'Dim sql1 As String = "update tmp_im_movimientos set insignia = :pbi_imagen "
+                'Dim cmd1 As OracleCommand = New OracleCommand(sql1, conn1)
+                'cmd1.Parameters.Add(":pbi_imagen", OracleType.Blob).Value = Data.ConvertImageToByteArray(Image.FromFile(Archivo.FullName))
+                'cmd1.ExecuteOracleScalar()
+                'End If
+
+            Next
+        Catch ex As Exception
+            Mensajes.MensajeError(ex.Message)
+            Return False
+        End Try
+        MsgBox("La Importación de Imágenes de Firmas ha terminado exitosamente", MsgBoxStyle.Information)
+        Return True
+    End Function
+
     Private Sub BtnExplorar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnExplorar.Click
-        If Me.BtnImagenes.Enabled = True Then
+        If Me.BtnImagenes.Enabled = True Or Me.BtnImagenesFirmas.Enabled = True Then
             Me.FbUbicacion.ShowDialog()
             Me.TxtRuta.EditValue = FbUbicacion.SelectedPath
         Else
