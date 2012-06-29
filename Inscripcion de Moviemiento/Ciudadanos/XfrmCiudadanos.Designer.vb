@@ -1023,7 +1023,7 @@ Partial Class XfrmCiudadanos
         Me.ClientSize = New System.Drawing.Size(746, 563)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Name = "XfrmCiudadanos"
-        Me.Text = "Ciudadanos"
+        Me.Text = "Transcripción de Firmas"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).EndInit()

@@ -731,7 +731,7 @@ Public Class XfrmConsultaFirmas
 
                 '    GCBusqueda.DataSource = Nothing
                 'Else
-                GCBusqueda.DataSource = Me.MOSTRARFIRMASBindingSource
+
                 Dim waitDialog As New WaitDialogForm("Obteniendo Información", "Por favor espere..")
                 Me.MOSTRAR_FIRMAS1TableAdapter.FillBy(Me.DSCiudadanos.MOSTRAR_FIRMAS1, Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
                 waitDialog.Caption = "finalizando..."
@@ -754,7 +754,7 @@ Public Class XfrmConsultaFirmas
                 'If COracle.ObtenerDatos("SELECT * FROM  IM_CIUDADANOS_RESPALDAN WHERE CODIGO_PARTIDO=" & Me.CmbPartido.EditValue & " AND CODIGO_MOVIMIENTO=" & Me.CmbMovimiento.EditValue, "CODIGO_PARTIDO") = "N" Then
                 '    GCBusqueda.DataSource = Nothing
                 'Else
-                GCBusqueda.DataSource = Me.MOSTRARFIRMASBindingSource
+
                 Dim waitDialog As New WaitDialogForm("Obteniendo Información", "Por favor espere..")
 
                 Me.MOSTRAR_FIRMAS1TableAdapter.FillBy(Me.DSCiudadanos.MOSTRAR_FIRMAS1, Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
