@@ -36,20 +36,16 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         Me.XrPictureBox2 = New DevExpress.XtraReports.UI.XRPictureBox
         Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel6 = New DevExpress.XtraReports.UI.XRLabel
-        Me.total = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel
         Me.totalpp = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel
         Me.totalpre = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel2 = New DevExpress.XtraReports.UI.XRLabel
         Me.totalde = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel7 = New DevExpress.XtraReports.UI.XRLabel
         Me.totalsp = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel9 = New DevExpress.XtraReports.UI.XRLabel
         Me.total_presidencial = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel11 = New DevExpress.XtraReports.UI.XRLabel
-        Me.total_general = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel12 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel13 = New DevExpress.XtraReports.UI.XRLabel
         Me.total_designado = New DevExpress.XtraReports.UI.XRLabel
@@ -80,14 +76,15 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         Me.XrLabel19 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel17 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel16 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLine1 = New DevExpress.XtraReports.UI.XRLine
         Me.DS_PLANILLA_TOTALES1 = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALES
         Me.IM_CANDIDATOSTableAdapter = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_CANDIDATOSTableAdapter
         Me.nivel = New DevExpress.XtraReports.Parameters.Parameter
         Me.NombreDep = New DevExpress.XtraReports.Parameters.Parameter
-        Me.XrLine1 = New DevExpress.XtraReports.UI.XRLine
         Me.GroupHeader3 = New DevExpress.XtraReports.UI.GroupHeaderBand
-        Me.XrLabel31 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel32 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel31 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLine2 = New DevExpress.XtraReports.UI.XRLine
         CType(Me.DS_PLANILLA_TOTALES1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
@@ -160,7 +157,7 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         '
         'ReportHeader
         '
-        Me.ReportHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.total_dips, Me.total_dipp, Me.XrLabel30, Me.XrLabel29, Me.XrPictureBox3, Me.XrPictureBox2, Me.XrLabel1, Me.XrLabel6, Me.total, Me.XrLabel3, Me.totalpp, Me.XrLabel4, Me.XrLabel5, Me.totalpre, Me.XrLabel2, Me.totalde, Me.XrLabel7, Me.totalsp, Me.XrLabel9, Me.total_presidencial, Me.XrLabel11, Me.total_general, Me.XrLabel12, Me.XrLabel13, Me.total_designado, Me.XrLabel14, Me.totalparp, Me.XrLabel15, Me.totalpars, Me.XrLabel25, Me.XrLabel26, Me.totaldipup, Me.XrLabel28, Me.totaldipus})
+        Me.ReportHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLine2, Me.total_dips, Me.total_dipp, Me.XrLabel30, Me.XrLabel29, Me.XrPictureBox3, Me.XrPictureBox2, Me.XrLabel1, Me.XrLabel6, Me.XrLabel3, Me.totalpp, Me.XrLabel4, Me.XrLabel5, Me.totalpre, Me.totalde, Me.XrLabel7, Me.totalsp, Me.XrLabel9, Me.total_presidencial, Me.XrLabel12, Me.XrLabel13, Me.total_designado, Me.XrLabel14, Me.totalparp, Me.XrLabel15, Me.totalpars, Me.XrLabel25, Me.XrLabel26, Me.totaldipup, Me.XrLabel28, Me.totaldipus})
         Me.ReportHeader.HeightF = 489.5833!
         Me.ReportHeader.Name = "ReportHeader"
         '
@@ -243,16 +240,6 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         Me.XrLabel6.StylePriority.UseFont = False
         Me.XrLabel6.Text = "Designados(a) Presidenciales Requeridos:"
         '
-        'total
-        '
-        Me.total.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.total.LocationFloat = New DevExpress.Utils.PointFloat(443.3334!, 137.0833!)
-        Me.total.Name = "total"
-        Me.total.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.total.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.total.StylePriority.UseFont = False
-        Me.total.Text = "total"
-        '
         'XrLabel3
         '
         Me.XrLabel3.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
@@ -305,16 +292,6 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         Me.totalpre.StylePriority.UseFont = False
         Me.totalpre.Text = "totalpre"
         '
-        'XrLabel2
-        '
-        Me.XrLabel2.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 137.0834!)
-        Me.XrLabel2.Name = "XrLabel2"
-        Me.XrLabel2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel2.SizeF = New System.Drawing.SizeF(390.625!, 23.0!)
-        Me.XrLabel2.StylePriority.UseFont = False
-        Me.XrLabel2.Text = "Candidatos(a) Requeridos en Planilla Presidencial: "
-        '
         'totalde
         '
         Me.totalde.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
@@ -366,26 +343,6 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         Me.total_presidencial.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
         Me.total_presidencial.StylePriority.UseFont = False
         Me.total_presidencial.Text = "total_presidencial"
-        '
-        'XrLabel11
-        '
-        Me.XrLabel11.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel11.LocationFloat = New DevExpress.Utils.PointFloat(615.2083!, 137.0833!)
-        Me.XrLabel11.Name = "XrLabel11"
-        Me.XrLabel11.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel11.SizeF = New System.Drawing.SizeF(247.9166!, 23.0!)
-        Me.XrLabel11.StylePriority.UseFont = False
-        Me.XrLabel11.Text = "Candidato(a) en Planilla Actual:"
-        '
-        'total_general
-        '
-        Me.total_general.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.total_general.LocationFloat = New DevExpress.Utils.PointFloat(926.9167!, 137.0833!)
-        Me.total_general.Name = "total_general"
-        Me.total_general.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.total_general.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.total_general.StylePriority.UseFont = False
-        Me.total_general.Text = "total_general"
         '
         'XrLabel12
         '
@@ -677,6 +634,13 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         Me.XrLabel16.StylePriority.UseFont = False
         Me.XrLabel16.Text = "Identidad"
         '
+        'XrLine1
+        '
+        Me.XrLine1.LineWidth = 2
+        Me.XrLine1.LocationFloat = New DevExpress.Utils.PointFloat(9.999998!, 32.99999!)
+        Me.XrLine1.Name = "XrLine1"
+        Me.XrLine1.SizeF = New System.Drawing.SizeF(1041.0!, 15.70835!)
+        '
         'DS_PLANILLA_TOTALES1
         '
         Me.DS_PLANILLA_TOTALES1.DataSetName = "DS_PLANILLA_TOTALES"
@@ -696,38 +660,39 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         Me.NombreDep.Description = "Departamento"
         Me.NombreDep.Name = "NombreDep"
         '
-        'XrLine1
-        '
-        Me.XrLine1.LineWidth = 2
-        Me.XrLine1.LocationFloat = New DevExpress.Utils.PointFloat(9.999998!, 32.99999!)
-        Me.XrLine1.Name = "XrLine1"
-        Me.XrLine1.SizeF = New System.Drawing.SizeF(1041.0!, 15.70835!)
-        '
         'GroupHeader3
         '
         Me.GroupHeader3.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel32, Me.XrLabel31})
         Me.GroupHeader3.HeightF = 44.79167!
         Me.GroupHeader3.Name = "GroupHeader3"
         '
+        'XrLabel32
+        '
+        Me.XrLabel32.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS.municipio")})
+        Me.XrLabel32.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel32.LocationFloat = New DevExpress.Utils.PointFloat(107.9167!, 9.999974!)
+        Me.XrLabel32.Name = "XrLabel32"
+        Me.XrLabel32.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel32.SizeF = New System.Drawing.SizeF(361.4583!, 23.00002!)
+        Me.XrLabel32.StylePriority.UseFont = False
+        Me.XrLabel32.Text = "XrLabel32"
+        '
         'XrLabel31
         '
         Me.XrLabel31.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
         Me.XrLabel31.LocationFloat = New DevExpress.Utils.PointFloat(13.12502!, 9.999974!)
         Me.XrLabel31.Name = "XrLabel31"
-        Me.XrLabel31.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
+        Me.XrLabel31.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel31.SizeF = New System.Drawing.SizeF(94.79168!, 23.00002!)
         Me.XrLabel31.StylePriority.UseFont = False
         Me.XrLabel31.Text = "Municipio:"
         '
-        'XrLabel32
+        'XrLine2
         '
-        Me.XrLabel32.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel32.LocationFloat = New DevExpress.Utils.PointFloat(107.9167!, 9.999974!)
-        Me.XrLabel32.Name = "XrLabel32"
-        Me.XrLabel32.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel32.SizeF = New System.Drawing.SizeF(361.4583!, 23.00002!)
-        Me.XrLabel32.StylePriority.UseFont = False
-        Me.XrLabel32.Text = "XrLabel32"
+        Me.XrLine2.LineWidth = 4
+        Me.XrLine2.LocationFloat = New DevExpress.Utils.PointFloat(9.999998!, 102.0833!)
+        Me.XrLine2.Name = "XrLine2"
+        Me.XrLine2.SizeF = New System.Drawing.SizeF(1041.0!, 23.0!)
         '
         'REPORTE_PLANILLAS_FINALES
         '
@@ -751,8 +716,6 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
     Friend WithEvents ReportHeader As DevExpress.XtraReports.UI.ReportHeaderBand
     Friend WithEvents PageHeader As DevExpress.XtraReports.UI.PageHeaderBand
     Friend WithEvents XrLabel1 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents XrLabel2 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents total As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents NombrePartido As DevExpress.XtraReports.Parameters.Parameter
     Friend WithEvents XrLabel3 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents totalpp As DevExpress.XtraReports.UI.XRLabel
@@ -771,8 +734,6 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
     Friend WithEvents NombreMovimiento As DevExpress.XtraReports.Parameters.Parameter
     Friend WithEvents total_presidencial As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel9 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents XrLabel11 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents total_general As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel12 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents total_designado As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel13 As DevExpress.XtraReports.UI.XRLabel
@@ -814,5 +775,6 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
     Friend WithEvents GroupHeader3 As DevExpress.XtraReports.UI.GroupHeaderBand
     Friend WithEvents XrLabel32 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel31 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLine2 As DevExpress.XtraReports.UI.XRLine
     '   Friend WithEvents IM_CANDIDATOSTableAdapter As Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_CANDIDATOSTableAdapter
 End Class
