@@ -23,7 +23,7 @@ Public Class XfrmConfigurar
     End Sub
     Function conexion() As Boolean
 
-        ORCL.DSoruce = SystemInformation.ComputerName
+        ORCL.DSoruce = "XE"
         ORCL.pass = "TSEORACLE2012"
         ORCL.userid = "TSE"
 
