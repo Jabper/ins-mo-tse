@@ -19,6 +19,7 @@ Partial Class XfrmValidarFirmas
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container
         Me.GCBusqueda = New DevExpress.XtraGrid.GridControl
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.colFOTOGRAFIA = New DevExpress.XtraGrid.Columns.GridColumn
@@ -75,6 +76,15 @@ Partial Class XfrmValidarFirmas
         Me.Label2 = New System.Windows.Forms.Label
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
         Me.pbxFirma = New System.Windows.Forms.PictureBox
+        Me.DSConsultas = New Inscripcion_de_Moviemientos.DSConsultas
+        Me.PartidosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PartidosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.PartidosTableAdapter
+        Me.IMFK1MOVIMIENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MovimientosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MovimientosTableAdapter
+        Me.DepartamentosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DepartamentosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.DepartamentosTableAdapter
+        Me.IMFK1MUNICIPIOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MunicipiosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MunicipiosTableAdapter
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemPictureEdit, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -86,6 +96,11 @@ Partial Class XfrmValidarFirmas
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.pbxFirma, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PartidosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DepartamentosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IMFK1MUNICIPIOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GCBusqueda
@@ -651,6 +666,7 @@ Partial Class XfrmValidarFirmas
         '
         'cbxMovimiento
         '
+        Me.cbxMovimiento.DataSource = Me.IMFK1MOVIMIENTOSBindingSource
         Me.cbxMovimiento.DisplayMember = "NOMBRE_MOVIMIENTO"
         Me.cbxMovimiento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxMovimiento.FormattingEnabled = True
@@ -662,6 +678,7 @@ Partial Class XfrmValidarFirmas
         '
         'cbxMunicipio
         '
+        Me.cbxMunicipio.DataSource = Me.IMFK1MUNICIPIOBindingSource
         Me.cbxMunicipio.DisplayMember = "DESCRIPCION"
         Me.cbxMunicipio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxMunicipio.FormattingEnabled = True
@@ -673,6 +690,7 @@ Partial Class XfrmValidarFirmas
         '
         'cbxDepartamento
         '
+        Me.cbxDepartamento.DataSource = Me.DepartamentosBindingSource
         Me.cbxDepartamento.DisplayMember = "DESCRIPCION"
         Me.cbxDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxDepartamento.FormattingEnabled = True
@@ -684,6 +702,7 @@ Partial Class XfrmValidarFirmas
         '
         'cbxPartido
         '
+        Me.cbxPartido.DataSource = Me.PartidosBindingSource
         Me.cbxPartido.DisplayMember = "NOMBRE"
         Me.cbxPartido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxPartido.FormattingEnabled = True
@@ -739,6 +758,47 @@ Partial Class XfrmValidarFirmas
         Me.pbxFirma.TabIndex = 0
         Me.pbxFirma.TabStop = False
         '
+        'DSConsultas
+        '
+        Me.DSConsultas.DataSetName = "DSConsultas"
+        Me.DSConsultas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'PartidosBindingSource
+        '
+        Me.PartidosBindingSource.DataMember = "Partidos"
+        Me.PartidosBindingSource.DataSource = Me.DSConsultas
+        '
+        'PartidosTableAdapter
+        '
+        Me.PartidosTableAdapter.ClearBeforeFill = True
+        '
+        'IMFK1MOVIMIENTOSBindingSource
+        '
+        Me.IMFK1MOVIMIENTOSBindingSource.DataMember = "IM_FK1_MOVIMIENTOS"
+        Me.IMFK1MOVIMIENTOSBindingSource.DataSource = Me.PartidosBindingSource
+        '
+        'MovimientosTableAdapter
+        '
+        Me.MovimientosTableAdapter.ClearBeforeFill = True
+        '
+        'DepartamentosBindingSource
+        '
+        Me.DepartamentosBindingSource.DataMember = "Departamentos"
+        Me.DepartamentosBindingSource.DataSource = Me.DSConsultas
+        '
+        'DepartamentosTableAdapter
+        '
+        Me.DepartamentosTableAdapter.ClearBeforeFill = True
+        '
+        'IMFK1MUNICIPIOBindingSource
+        '
+        Me.IMFK1MUNICIPIOBindingSource.DataMember = "IM_FK1_MUNICIPIO"
+        Me.IMFK1MUNICIPIOBindingSource.DataSource = Me.DepartamentosBindingSource
+        '
+        'MunicipiosTableAdapter
+        '
+        Me.MunicipiosTableAdapter.ClearBeforeFill = True
+        '
         'XfrmValidarFirmas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -760,6 +820,11 @@ Partial Class XfrmValidarFirmas
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.pbxFirma, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PartidosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DepartamentosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IMFK1MUNICIPIOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -819,4 +884,13 @@ Partial Class XfrmValidarFirmas
     Friend WithEvents btnSiguiente As System.Windows.Forms.Button
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents pbxFirma As System.Windows.Forms.PictureBox
+    Friend WithEvents DSConsultas As Inscripcion_de_Moviemientos.DSConsultas
+    Friend WithEvents PartidosBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents PartidosTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.PartidosTableAdapter
+    Friend WithEvents IMFK1MOVIMIENTOSBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents MovimientosTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MovimientosTableAdapter
+    Friend WithEvents DepartamentosBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents DepartamentosTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.DepartamentosTableAdapter
+    Friend WithEvents IMFK1MUNICIPIOBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents MunicipiosTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.MunicipiosTableAdapter
 End Class
