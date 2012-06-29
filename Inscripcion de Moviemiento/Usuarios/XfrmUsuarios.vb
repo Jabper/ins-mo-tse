@@ -167,12 +167,7 @@ Public Class XfrmUsuarios
     End Sub
 
     Private Sub CODIGO_PARTIDOSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_PARTIDOSpinEdit.EditValueChanged
-        Try
-            Me.IM_MOVIMIENTOSTableAdapter.FillBy2(Me.DSPolitico.IM_MOVIMIENTOS, Me.CODIGO_PARTIDOSpinEdit.EditValue)
-
-        Catch ex As Exception
-
-        End Try
+       
     End Sub
 
 
@@ -209,5 +204,14 @@ Public Class XfrmUsuarios
 
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
         Me.Close()
+    End Sub
+
+    Private Sub CODIGO_PARTIDOSpinEdit_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CODIGO_PARTIDOSpinEdit.TextChanged
+        Try
+            Me.IM_MOVIMIENTOSTableAdapter.FillBy2(Me.DSPolitico.IM_MOVIMIENTOS, Me.CODIGO_PARTIDOSpinEdit.EditValue)
+
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class
