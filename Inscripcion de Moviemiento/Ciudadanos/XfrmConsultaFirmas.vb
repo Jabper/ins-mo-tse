@@ -40,7 +40,7 @@ Public Class XfrmConsultaFirmas
         Try
 
             Dim cnx As New OracleConnection(Configuracion.verconfig)
-            Dim view As GridView = GridView1
+            Dim view As GridView = GridView3
             'Data.ConvertImageToByteArray(Me.Imgimagen.EditValue)
 
             Dim sqlstring As String
@@ -59,24 +59,7 @@ Public Class XfrmConsultaFirmas
         End Try
 
     End Sub
-
-    Private Sub GridView1_FocusedRowChanged(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles GridView1.FocusedRowChanged
-        Dim view As GridView = GridView1
-        Dim sq As String = "SELECT IMAGEN FROM IM_IMAGENES_FIRMAS where  CODIGO_PARTIDO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO") & " and CODIGO_MOVIMIENTO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO") & " and PAGINA=" & view.GetRowCellValue(view.FocusedRowHandle, "PAGINA")
-        If COracle.ObtenerImagen(sq, "IMAGEN") Is Nothing Then
-            Me.img.Image = Nothing
-        Else
-            Me.img.Image = COracle.ObtenerImagen(sq, "IMAGEN")
-        End If
-    End Sub
-
-    Private Sub GridView1_InvalidValueException(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs) Handles GridView1.InvalidValueException
-        e.ExceptionMode = ExceptionMode.DisplayError
-        e.WindowCaption = "error"
-        e.ErrorText = mensajeerror
-        GridView1.HideEditor()
-
-    End Sub
+    
 
 
     Sub estadistico(ByVal idp As Integer, ByVal idmov As Integer)
@@ -94,11 +77,9 @@ Public Class XfrmConsultaFirmas
         Me.Close()
     End Sub
 
-
-
     Private Sub XfrmCiudadanos_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Me.KeyPress
         '   PERMITIR EL INGRESO DE SOLO CARACTERES NUMERALES
-        Dim view As GridView = GridView1
+        Dim view As GridView = GridView3
         If view.FocusedColumn.FieldName = "IDENTIDAD" Then
             VControles.solonumeros(e)
         End If
@@ -148,12 +129,7 @@ Public Class XfrmConsultaFirmas
             Dim m As Integer = Me.CmbMovimiento.Properties.GetDataSourceRowIndex(Me.CmbMovimiento.Properties.Columns("CODIGO_MOVIMIENTO"), idmov)
             Me.CmbMovimiento.EditValue = Me.CmbMovimiento.Properties.GetDataSourceValue(Me.CmbMovimiento.Properties.ValueMember, m)
             '******************Ventana de espera
-            Dim waitDialog As New WaitDialogForm("Obteniendo Información", "Por favor espere..")
-
-            Me.MOSTRAR_FIRMAS1TableAdapter.FillBy(Me.DSCiudadanos.MOSTRAR_FIRMAS1, idp, idmov)
-            waitDialog.Caption = "finalizando..."
-            waitDialog.Close()
-            estadistico(idp, idmov)
+            VerFirmas()
         Else
             limpiar()
             Me.btnfirmas.Visible = True
@@ -165,17 +141,10 @@ Public Class XfrmConsultaFirmas
 
 
     Private Sub XfrmCiudadanos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        'TODO: This line of code loads data into the 'DSCiudadanos.MOSTRAR_FIRMAS1' table. You can move, or remove it, as needed.
-        'Me.MOSTRAR_FIRMAS1TableAdapter.Fill(Me.DSCiudadanos.MOSTRAR_FIRMAS1)
-        'idmovimiento = COracle.ObtenerDatos("SELECT * FROM IM_PARAMETROS_GENERALES", "CODIGO_MOVIMIENTO")
-
-        'Dim ip As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
-
-        'Me.CODIGO_PARTIDO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_PARTIDO=" & ip)
-        'Me.CODIGO_MOVIMIENTO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_MOVIMIENTO=" & idmovimiento)
         Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
-        ActivarFiltros()
         Me.TA_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.TA_DEPARTAMENTOS)
+        ActivarFiltros()
+
 
 
     End Sub
@@ -201,7 +170,7 @@ Public Class XfrmConsultaFirmas
 
 
 
-            Dim view As GridView = GridView1
+            Dim view As GridView = GridView3
             'RECORRER EL GRID
 
             'COMPROBAR  SI LA IDENTIDAD EXISTE
@@ -284,37 +253,37 @@ Public Class XfrmConsultaFirmas
     Sub GuardarEnBase(ByVal i As Integer, ByVal NombreIgual As String, ByVal inconsistente As String, ByVal Observacion As String)
         'Guardar Informacion
         Try
-            Dim view As GridView = GridView1
-            Dim idciudadano = GridView1.GetRowCellValue(i, "CODIGO_CUIDADANOS_RESPALDAN")
+            Dim view As GridView = GridView3
+            Dim idciudadano = GridView3.GetRowCellValue(i, "CODIGO_CUIDADANOS_RESPALDAN")
             Dim consulta As String
-            consulta = "update IM_CIUDADANOS_RESPALDAN set FIRMA='" & GridView1.GetRowCellValue(i, "FIRMA").ToString & "', "
-            consulta &= "HUELLA='" & GridView1.GetRowCellValue(i, "HUELLA").ToString & "', DIRECCION='" & GridView1.GetRowCellValue(i, "DIRECCION").ToString & "', "
-            consulta &= "IDENTIDAD='" & GridView1.GetRowCellValue(i, "IDENTIDAD").ToString.Trim & "',NOMBRE_IGUAL='" & NombreIgual & "', "
+            consulta = "update IM_CIUDADANOS_RESPALDAN set FIRMA='" & GridView3.GetRowCellValue(i, "FIRMA").ToString & "', "
+            consulta &= "HUELLA='" & GridView3.GetRowCellValue(i, "HUELLA").ToString & "', DIRECCION='" & GridView3.GetRowCellValue(i, "DIRECCION").ToString & "', "
+            consulta &= "IDENTIDAD='" & GridView3.GetRowCellValue(i, "IDENTIDAD").ToString.Trim & "',NOMBRE_IGUAL='" & NombreIgual & "', "
             consulta &= "CONSISTENTE='" & inconsistente & "',OBSERVACION='" & Observacion & "', "
-            consulta &= "PRIMER_NOMBRE_PAPELETA='" & GridView1.GetRowCellValue(i, "PRIMER_NOMBRE_PAPELETA").ToString.Trim & "', "
-            consulta &= "SEGUNDO_NOMBRE_PAPELETA='" & GridView1.GetRowCellValue(i, "SEGUNDO_NOMBRE_PAPELETA").ToString.Trim & "', "
-            consulta &= "PRIMER_APELLIDO_PAPELETA='" & GridView1.GetRowCellValue(i, "PRIMER_APELLIDO_PAPELETA").ToString.Trim & "', "
-            consulta &= "SEGUNDO_APELLIDO_PAPELETA='" & GridView1.GetRowCellValue(i, "SEGUNDO_APELLIDO_PAPELETA").ToString.Trim & "', "
+            consulta &= "PRIMER_NOMBRE_PAPELETA='" & GridView3.GetRowCellValue(i, "PRIMER_NOMBRE_PAPELETA").ToString.Trim & "', "
+            consulta &= "SEGUNDO_NOMBRE_PAPELETA='" & GridView3.GetRowCellValue(i, "SEGUNDO_NOMBRE_PAPELETA").ToString.Trim & "', "
+            consulta &= "PRIMER_APELLIDO_PAPELETA='" & GridView3.GetRowCellValue(i, "PRIMER_APELLIDO_PAPELETA").ToString.Trim & "', "
+            consulta &= "SEGUNDO_APELLIDO_PAPELETA='" & GridView3.GetRowCellValue(i, "SEGUNDO_APELLIDO_PAPELETA").ToString.Trim & "', "
             consulta &= "MODIFICADO_POR='" & usuario & "', FECHA_MODIFICACION =sysdate"
             If folio <> "" Then
-                consulta &= ", FOLIO=" & GridView1.GetRowCellValue(i, "FOLIO")
+                consulta &= ", FOLIO=" & GridView3.GetRowCellValue(i, "FOLIO")
 
             End If
-            'If Not IsDBNull(GridView1.GetRowCellValue(i, "IMAGEN_FIRMA")) Then
+            'If Not IsDBNull(GridView3.GetRowCellValue(i, "IMAGEN_FIRMA")) Then
 
             '    Try
 
             '        Dim cnx As New OracleConnection(Configuracion.verconfig)
             '        '
             '        Dim bo As Byte() = view.GetRowCellValue(view.FocusedRowHandle, "IMAGEN_FIRMA") 'Data.ConvertImageToByteArray(Me.Imgimagen.EditValue)
-            '        Dim idc As Integer = CType(GridView1.GetRowCellValue(i, "CODIGO_CUIDADANOS_RESPALDAN"), Integer)
+            '        Dim idc As Integer = CType(GridView3.GetRowCellValue(i, "CODIGO_CUIDADANOS_RESPALDAN"), Integer)
             '        Dim sqlstring As String
             '        sqlstring = "UPDATE IM_CIUDADANOS_RESPALDAN SET IMAGEN_FIRMA=:ft WHERE CODIGO_CUIDADANOS_RESPALDAN=:cod AND CODIGO_PARTIDO=:cp AND CODIGO_MOVIMIENTO=:cm"
             '        Dim cmd As New OracleCommand(sqlstring, cnx)
             '        cmd.Parameters.Add(":ft", OracleType.Blob).Value = bo
             '        cmd.Parameters.Add(":cod", OracleType.Number, 8).Value = idc
-            '        cmd.Parameters.Add(":cp", OracleType.Number, 2).Value = CType((GridView1.GetRowCellValue(i, "CODIGO_PARTIDO")), Integer)
-            '        cmd.Parameters.Add(":cm", OracleType.Number, 3).Value = CType(GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO"), Integer)
+            '        cmd.Parameters.Add(":cp", OracleType.Number, 2).Value = CType((GridView3.GetRowCellValue(i, "CODIGO_PARTIDO")), Integer)
+            '        cmd.Parameters.Add(":cm", OracleType.Number, 3).Value = CType(GridView3.GetRowCellValue(i, "CODIGO_MOVIMIENTO"), Integer)
             '        cnx.Open()
             '        cmd.ExecuteNonQuery()
             '        cnx.Close()
@@ -327,8 +296,8 @@ Public Class XfrmConsultaFirmas
             '    consulta &= ", IMAGEN_FIRMA=NULL "
             'End If
 
-            consulta &= " WHERE CODIGO_CUIDADANOS_RESPALDAN=" & GridView1.GetRowCellValue(i, "CODIGO_CUIDADANOS_RESPALDAN")
-            consulta &= " AND CODIGO_PARTIDO=" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO") & " AND CODIGO_MOVIMIENTO=" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO")
+            consulta &= " WHERE CODIGO_CUIDADANOS_RESPALDAN=" & GridView3.GetRowCellValue(i, "CODIGO_CUIDADANOS_RESPALDAN")
+            consulta &= " AND CODIGO_PARTIDO=" & GridView3.GetRowCellValue(i, "CODIGO_PARTIDO") & " AND CODIGO_MOVIMIENTO=" & GridView3.GetRowCellValue(i, "CODIGO_MOVIMIENTO")
             COracle.ejecutarconsulta(consulta)
             view.SetRowCellValue(i, "CONSISTENTE", inconsistente)
             view.SetRowCellValue(i, "OBSERVACION", Observacion)
@@ -345,77 +314,12 @@ Public Class XfrmConsultaFirmas
 
     Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Try
-            MsgBox(GridView1.GetRowCellValue(2, "FIRMA").ToString)
+            MsgBox(GridView3.GetRowCellValue(2, "FIRMA").ToString)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
 
     End Sub
-
-    Private Sub GridView1_RowCellClick(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs) Handles GridView1.RowCellClick
-        Dim view As GridView = GridView1
-        Dim sq As String = "SELECT IMAGEN FROM IM_IMAGENES_FIRMAS where  CODIGO_PARTIDO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO") & " and CODIGO_MOVIMIENTO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO") & " and PAGINA=" & view.GetRowCellValue(view.FocusedRowHandle, "PAGINA")
-        If COracle.ObtenerImagen(sq, "IMAGEN") Is Nothing Then
-            Me.img.Image = Nothing
-        Else
-            Me.img.Image = COracle.ObtenerImagen(sq, "IMAGEN")
-        End If
-    End Sub
-
-    Private Sub GridView1_RowClick(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Grid.RowClickEventArgs) Handles GridView1.RowClick
-        Try
-            Dim view As GridView = GridView1
-            Dim sq As String = "SELECT IMAGEN FROM IM_IMAGENES_FIRMAS where  CODIGO_PARTIDO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO") & " and CODIGO_MOVIMIENTO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO") & " and PAGINA=" & view.GetRowCellValue(view.FocusedRowHandle, "PAGINA")
-            If COracle.ObtenerImagen(sq, "IMAGEN") Is Nothing Then
-                Me.img.Image = Nothing
-            Else
-                Me.img.Image = COracle.ObtenerImagen(sq, "IMAGEN")
-            End If
-        Catch ex As Exception
-
-        End Try
-      
-
-    End Sub
-
-
-
-
-
-
-
-    Private Sub GridView1_ValidatingEditor(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs) Handles GridView1.ValidatingEditor
-        Dim view As GridView = TryCast(sender, GridView)
-        booleanerror = False
-        If view.FocusedColumn.FieldName = "PRIMER_NOMBRE_PAPELETA" Or view.FocusedColumn.FieldName = "PRIMER_APELLIDO_PAPELETA" Or view.FocusedColumn.FieldName = "IDENTIDAD" Then
-            e.Valid = e.Value IsNot Nothing AndAlso Not e.Value.Equals(String.Empty)
-
-        End If
-
-        If view.FocusedColumn.FieldName = "IDENTIDAD" Then
-
-            If e.Value.ToString.Length <> 13 Then
-                mensajeerror = "El número de digitos en el campo Identidad es incorrecto debe de ser igual a 13 digitos"
-                e.Valid = False
-
-            End If
-
-            If IsNumeric(e.Value) = False Then
-                mensajeerror = "El valor del número de indentidad debe de ser un valor numérico"
-                e.Valid = False
-            End If
-
-            'Dim a As String = "select IDENTIDAD from IM_CIUDADANOS_RESPALDAN where IDENTIDAD='" & e.Value.ToString & "' and CODIGO_PARTIDO=" & idpartido & " and CODIGO_MOVIMIENTO=" & idmovimiento
-            'If COracle.ObtenerDatos(a, "IDENTIDAD") <> "N" Then
-            '    mensajeerror = "Este firmante ya existe en su lista"
-            '    e.Valid = False
-            'End If
-
-        End If
-
-    End Sub
-
-
 
 
 
@@ -438,83 +342,18 @@ Public Class XfrmConsultaFirmas
         End If
     End Sub
 
-    'Private Sub ChkGeografica_CheckedChanged_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChkGeografica.CheckedChanged
-    '    If ChkGeografica.CheckState = CheckState.Checked Then
-    '        Me.CmbDepartamento.Enabled = False
-    '        Me.CmbMunicipio.Enabled = False
-    '        Me.ChkDepto.CheckState = CheckState.Unchecked
-    '        Me.ChkMuni.CheckState = CheckState.Unchecked
-    '        Me.ChkDepto.Enabled = True
-    '        Me.ChkMuni.Enabled = True
-    '    Else
-
-    '        Me.ChkDepto.CheckState = CheckState.Unchecked
-    '        Me.ChkMuni.CheckState = CheckState.Unchecked
-    '        Me.ChkDepto.Enabled = False
-    '        Me.ChkMuni.Enabled = False
-    '    End If
-    'End Sub
-
 
 
 
     Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton1.Click
         filtroGrid()
-        'If ActivarOpciones.PEstado = "PDO" Then
-
-        '    If Me.CmbMovimiento.EditValue Is Nothing Or IsDBNull(Me.CmbMovimiento.EditValue) Or Me.CmbMovimiento.Text = "Seleccione" Then
-        '        Mensajes.mimensaje("Para filtrar la información primero seleccione un movimiento")
-        '    Else
-        '        Dim waitDialog As New WaitDialogForm("Obteniendo Información", "Por favor espere..")
-
-        '        Me.MOSTRAR_FIRMASTableAdapter.FillBy(Me.DSCiudadanos.MOSTRAR_FIRMAS, Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
-        '        waitDialog.Caption = "finalizando..."
-        '        waitDialog.Close()
-        '        estadistico(Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
-
-        '        filtroGrid()
-        '    End If
-
-        'ElseIf ActivarOpciones.PEstado = "MOV" Then
-        '    filtroGrid()
-
-        'ElseIf ActivarOpciones.PEstado = "TSE" Then
-        '    If Me.CmbPartido.EditValue Is Nothing Or IsDBNull(Me.CmbPartido.EditValue) Or Me.CmbPartido.Text = "Seleccione" Then
-        '        Mensajes.mimensaje("Para filtrar la información primero seleccione un Partido Político")
-
-        '    ElseIf Me.CmbMovimiento.EditValue Is Nothing Or IsDBNull(Me.CmbMovimiento.EditValue) Or Me.CmbMovimiento.Text = "Seleccione" Then
-        '        Mensajes.mimensaje("Para filtrar la información primero seleccione un movimiento")
-        '    Else
-        '        Dim waitDialog As New WaitDialogForm("Obteniendo Información", "Por favor espere..")
-
-        '        Me.MOSTRAR_FIRMASTableAdapter.FillBy(Me.DSCiudadanos.MOSTRAR_FIRMAS, Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
-        '        waitDialog.Caption = "finalizando..."
-        '        waitDialog.Close()
-        '        estadistico(Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
-
-        '        filtroGrid()
-
-        '    End If
-
-        'End If
-
-
-        'Try
-        '    If CmbMovimiento.Text = "Seleccione" Or CmbMovimiento.EditValue Is Nothing Then
-
-        '    Else
-        '        If ActivarOpciones.PEstado = "PDO" Or ActivarOpciones.PEstado = "TSE" Then
-        '       End If
-        '    End If
-        'Catch ex As Exception
-
-        'End Try
+     
 
 
     End Sub
 
     Sub filtroGrid()
-        GridView1.ActiveFilter.Clear()
+        GridView3.ActiveFilter.Clear()
 
 
         If txtidentidad.Text = Nothing Or txtidentidad.Text = "" Then
@@ -569,7 +408,7 @@ Public Class XfrmConsultaFirmas
 
 
     Private Sub BtnReestablecer_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnReestablecer.Click
-        GridView1.ActiveFilter.Clear()
+        GridView3.ActiveFilter.Clear()
 
         Me.ChkDepto.CheckState = CheckState.Unchecked
 
@@ -581,7 +420,7 @@ Public Class XfrmConsultaFirmas
 
 
             If (XtraMessageBox.Show("¿Desea eliminar el registro seleccionado?", "Confirmar", MessageBoxButtons.YesNo) <> DialogResult.Yes) Then Return
-            Dim view As GridView = GridView1
+            Dim view As GridView = GridView3
             Dim consulta As String
             consulta = "delete from IM_CIUDADANOS_RESPALDAN where "
             consulta &= "CODIGO_CUIDADANOS_RESPALDAN=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_CUIDADANOS_RESPALDAN")
@@ -604,7 +443,7 @@ Public Class XfrmConsultaFirmas
         Try
             If (XtraMessageBox.Show("¿Desea actualizar el registro seleccionado?", "Confirmar", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes) Then
 
-                Dim view As GridView = GridView1
+                Dim view As GridView = GridView3
                 guardar(view.FocusedRowHandle)
             Else
                 Dim view As GridView = CType(sender, GridView)
@@ -648,9 +487,7 @@ Public Class XfrmConsultaFirmas
         End Try
     End Sub
 
-    Private Sub CmbMovimiento_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
+    
 
 
     Private Sub SimpleButton4_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton4.Click
@@ -669,7 +506,7 @@ Public Class XfrmConsultaFirmas
         If Me.img.Image Is Nothing Then
             Mensajes.mimensaje("Seleccione una imagen")
         Else
-            Dim view As GridView = GridView1
+            Dim view As GridView = GridView3
             Dim sq As String = "SELECT PAGINA FROM IM_IMAGENES_FIRMAS where  CODIGO_PARTIDO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO") & " and CODIGO_MOVIMIENTO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO") & " and PAGINA=" & view.GetRowCellValue(view.FocusedRowHandle, "PAGINA")
             If COracle.ObtenerDatos(sq, "PAGINA") <> "N" Then
                 actualizarimagen()
@@ -687,7 +524,7 @@ Public Class XfrmConsultaFirmas
                 Dim cnx As New OracleConnection(Configuracion.verconfig)
                 '
                 'Data.ConvertImageToByteArray(Me.Imgimagen.EditValue)
-                Dim view As GridView = GridView1
+                Dim view As GridView = GridView3
                 Dim sqlstring As String
                 sqlstring = "INSERT INTO IM_IMAGENES_FIRMAS ( CODIGO_PARTIDO,CODIGO_MOVIMIENTO,PAGINA,FOLIO,IMAGEN) VALUES(:idp,:idmov,:pag,:folio,:imagen)"
                 Dim cmd As New OracleCommand(sqlstring, cnx)
@@ -712,60 +549,131 @@ Public Class XfrmConsultaFirmas
 
     End Sub
 
-    Private Sub GCBusqueda_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GCBusqueda.Click
+    Private Sub GCBusqueda_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
     End Sub
 
-    Private Sub CmbMovimiento_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs)
-
+    Sub eliminarFilas()
+        For i = 0 To GridView3.DataRowCount - 1
+            GridView3.DeleteRow(i)
+        Next i
     End Sub
 
-    Private Sub btnfirmas_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnfirmas.Click
+   
 
+    Sub VerFirmas()
+        If COracle.ObtenerDatos("SELECT * FROM  IM_CIUDADANOS_RESPALDAN WHERE CODIGO_PARTIDO=" & Me.CmbPartido.EditValue & " AND CODIGO_MOVIMIENTO=" & Me.CmbMovimiento.EditValue, "CODIGO_PARTIDO") = "N" Then
+            Dim ds As New DataTable
+            GCBusqueda.DataSource = Nothing
+            GCBusqueda.DataSource = ds
+        Else
+            Dim idpar As Integer = Me.CmbPartido.EditValue
+            Dim idmovi As Integer = Me.CmbMovimiento.EditValue
+
+            Dim waitDialog As New WaitDialogForm("Obteniendo Información", "Por favor espere..")
+            Try
+
+                '    Me.IM_V_MOSTRAR_FIRMASTableAdapter.Fill(Me.DSCiudadanos.IM_V_MOSTRAR_FIRMAS, idpar, idmovi)
+                Dim cnx As New OracleConnection(Configuracion.verconfig)
+                Dim sql As String = "select * from IM_V_MOSTRAR_FIRMAS where CODIGO_PARTIDO = " & idpar & " AND CODIGO_MOVIMIENTO = " & idmovi
+                cnx.Open()
+                Dim oa As OracleDataAdapter = New OracleDataAdapter(sql, cnx)
+                Dim ds As New DataTable
+                oa.Fill(ds)
+                Me.GCBusqueda.DataSource = Nothing
+                Me.GCBusqueda.DataSource = ds
+                cnx.Close()
+                oa.Dispose()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+            waitDialog.Caption = "finalizando..."
+            waitDialog.Close()
+            estadistico(Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
+
+        End If
+    End Sub
+
+    
+
+    Private Sub CmbMovimiento_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CmbMovimiento.TextChanged
         If ActivarOpciones.PEstado = "PDO" Then
 
             If Me.CmbMovimiento.EditValue Is Nothing Or IsDBNull(Me.CmbMovimiento.EditValue) Or Me.CmbMovimiento.Text = "Seleccione" Then
                 Mensajes.mimensaje("Para filtrar la información primero seleccione un movimiento")
             Else
-                'If COracle.ObtenerDatos("SELECT * FROM  IM_CIUDADANOS_RESPALDAN WHERE CODIGO_PARTIDO=" & Me.CmbPartido.EditValue & " AND CODIGO_MOVIMIENTO=" & Me.CmbMovimiento.EditValue, "CODIGO_PARTIDO") = "N" Then
-
-                '    GCBusqueda.DataSource = Nothing
-                'Else
-
-                Dim waitDialog As New WaitDialogForm("Obteniendo Información", "Por favor espere..")
-                Me.MOSTRAR_FIRMAS1TableAdapter.FillBy(Me.DSCiudadanos.MOSTRAR_FIRMAS1, Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
-                waitDialog.Caption = "finalizando..."
-                waitDialog.Close()
-                estadistico(Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
-
-                'End If
+                VerFirmas()
             End If
 
         ElseIf ActivarOpciones.PEstado = "MOV" Then
 
 
         ElseIf ActivarOpciones.PEstado = "TSE" Then
-        If Me.CmbPartido.EditValue Is Nothing Or IsDBNull(Me.CmbPartido.EditValue) Or Me.CmbPartido.Text = "Seleccione" Then
-            Mensajes.mimensaje("Para filtrar la información primero seleccione un Partido Político")
+            If Me.CmbPartido.EditValue Is Nothing Or IsDBNull(Me.CmbPartido.EditValue) Or Me.CmbPartido.Text = "Seleccione" Then
+                Mensajes.mimensaje("Para filtrar la información primero seleccione un Partido Político")
 
-        ElseIf Me.CmbMovimiento.EditValue Is Nothing Or IsDBNull(Me.CmbMovimiento.EditValue) Or Me.CmbMovimiento.Text = "Seleccione" Then
-            Mensajes.mimensaje("Para filtrar la información primero seleccione un movimiento")
-        Else
-                'If COracle.ObtenerDatos("SELECT * FROM  IM_CIUDADANOS_RESPALDAN WHERE CODIGO_PARTIDO=" & Me.CmbPartido.EditValue & " AND CODIGO_MOVIMIENTO=" & Me.CmbMovimiento.EditValue, "CODIGO_PARTIDO") = "N" Then
-                '    GCBusqueda.DataSource = Nothing
-                'Else
+            ElseIf Me.CmbMovimiento.EditValue Is Nothing Or IsDBNull(Me.CmbMovimiento.EditValue) Or Me.CmbMovimiento.Text = "Seleccione" Then
+                Mensajes.mimensaje("Para filtrar la información primero seleccione un movimiento")
+            Else
 
-                Dim waitDialog As New WaitDialogForm("Obteniendo Información", "Por favor espere..")
+                VerFirmas()
 
-                Me.MOSTRAR_FIRMAS1TableAdapter.FillBy(Me.DSCiudadanos.MOSTRAR_FIRMAS1, Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
-                waitDialog.Caption = "finalizando..."
-                waitDialog.Close()
-                estadistico(Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
+            End If
 
-                'End If
+        End If
+    End Sub
+
+    Private Sub GridView3_FocusedRowChanged(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles GridView3.FocusedRowChanged
+        If e.PrevFocusedRowHandle <> e.FocusedRowHandle Then
+            Dim view As GridView = GridView3
+            Dim sq As String = "SELECT IMAGEN FROM IM_IMAGENES_FIRMAS where  CODIGO_PARTIDO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO") & " and CODIGO_MOVIMIENTO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO") & " and PAGINA=" & view.GetRowCellValue(view.FocusedRowHandle, "PAGINA")
+            If COracle.ObtenerImagen(sq, "IMAGEN") Is Nothing Then
+                Me.img.Image = Nothing
+            Else
+                Me.img.Image = COracle.ObtenerImagen(sq, "IMAGEN")
+            End If
+        End If
+
+    End Sub
+
+    Private Sub GridView3_InvalidValueException(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs) Handles GridView3.InvalidValueException
+        e.ExceptionMode = ExceptionMode.DisplayError
+        e.WindowCaption = "error"
+        e.ErrorText = mensajeerror
+        GridView3.HideEditor()
+
+    End Sub
+
+  
+    Private Sub GridView3_ValidatingEditor(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs) Handles GridView3.ValidatingEditor
+        Dim view As GridView = TryCast(sender, GridView)
+        booleanerror = False
+        If view.FocusedColumn.FieldName = "PRIMER_NOMBRE_PAPELETA" Or view.FocusedColumn.FieldName = "PRIMER_APELLIDO_PAPELETA" Or view.FocusedColumn.FieldName = "IDENTIDAD" Then
+            e.Valid = e.Value IsNot Nothing AndAlso Not e.Value.Equals(String.Empty)
 
         End If
 
+        If view.FocusedColumn.FieldName = "IDENTIDAD" Then
+
+            If e.Value.ToString.Length <> 13 Then
+                mensajeerror = "El número de digitos en el campo Identidad es incorrecto debe de ser igual a 13 digitos"
+                e.Valid = False
+
             End If
+
+            If IsNumeric(e.Value) = False Then
+                mensajeerror = "El valor del número de indentidad debe de ser un valor numérico"
+                e.Valid = False
+            End If
+
+            'Dim a As String = "select IDENTIDAD from IM_CIUDADANOS_RESPALDAN where IDENTIDAD='" & e.Value.ToString & "' and CODIGO_PARTIDO=" & idpartido & " and CODIGO_MOVIMIENTO=" & idmovimiento
+            'If COracle.ObtenerDatos(a, "IDENTIDAD") <> "N" Then
+            '    mensajeerror = "Este firmante ya existe en su lista"
+            '    e.Valid = False
+            'End If
+
+        End If
+
     End Sub
 End Class

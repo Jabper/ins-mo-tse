@@ -46,16 +46,16 @@ Public Class XfrmCiudadanos
                 'Data.ConvertImageToByteArray(Me.Imgimagen.EditValue)
 
                 Dim sqlstring As String
-                sqlstring = "INSERT INTO IM_IMAGENES_FIRMAS ( CODIGO_PARTIDO,CODIGO_MOVIMIENTO,PAGINA,FOLIO,IMAGEN,MAQUINA) VALUES(:idp,:idmov,:pag,:folio,:imagen,:maq)"
+                sqlstring = "INSERT INTO IM_IMAGENES_FIRMAS (CODIGO_PARTIDO,CODIGO_MOVIMIENTO,PAGINA,FOLIO,IMAGEN,MAQUINA) VALUES(:idp,:idmov,:pag,:folio,:imagen,:maq)"
                 Dim cmd As New OracleCommand(sqlstring, cnx)
-                cmd.Parameters.Add(":idp", OracleType.Number, 2).Value = idpartido
-                cmd.Parameters.Add(":idmov", OracleType.Number, 3).Value = idmovimiento
-                cmd.Parameters.Add(":pag", OracleType.Number).Value = pagina
-                cmd.Parameters.Add(":maq", OracleType.Number).Value = SystemInformation.ComputerName
+                cmd.Parameters.Add(":idp", OracleType.Number).Value = idpartido
+                cmd.Parameters.Add(":idmov", OracleType.Number).Value = idmovimiento
+                cmd.Parameters.Add(":pag", OracleType.Number).Value = CType(pagina, Integer)
+                cmd.Parameters.Add(":maq", OracleType.VarChar).Value = SystemInformation.ComputerName
                 If folio = "" Or folio Is Nothing Then
                     cmd.Parameters.Add(":folio", OracleType.Number).Value = DBNull.Value
                 Else
-                    cmd.Parameters.Add(":folio", OracleType.Number).Value = folio
+                    cmd.Parameters.Add(":folio", OracleType.Number).Value = CType(folio, Integer)
                 End If
                 cmd.Parameters.Add(":imagen", OracleType.Blob).Value = Data.ConvertImageToByteArray(img)
                 cnx.Open()
@@ -184,7 +184,7 @@ Public Class XfrmCiudadanos
         Estado.Visible = False
         lblfolio.Text = folio
         Dim sqlc As String = "select nvl((max(PAGINA) +1 ),1) as PAGINA  from IM_CIUDADANOS_RESPALDAN where CODIGO_PARTIDO=" & idpartido & " and CODIGO_MOVIMIENTO=" & idmovimiento
-        pagina = COracle.ObtenerDatos(sqlc, "PAGINA")
+        pagina = CType(COracle.ObtenerDatos(sqlc, "PAGINA"), Integer)
         lblpagina.Text = pagina
     End Sub
     Private Sub CmbPartido_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CmbPartido.EditValueChanged
@@ -416,19 +416,19 @@ Public Class XfrmCiudadanos
 
                 If view.GetRowCellValue(i, "FIRMA") Is Nothing Or IsDBNull(view.GetRowCellValue(i, "FIRMA")) Or view.GetRowCellValue(i, "FIRMA").ToString = "N" Then
                     inconsistente = "N"
-
+                    view.SetRowCellValue(i, "FIRMA", "N")
                     Observacion &= " No presenta firma "
                 End If
 
                 If view.GetRowCellValue(i, "HUELLA") Is Nothing Or IsDBNull(view.GetRowCellValue(i, "HUELLA")) Or view.GetRowCellValue(i, "HUELLA").ToString = "N" Then
                     inconsistente = "N"
-
+                    view.SetRowCellValue(i, "HUELLA", "N")
                     Observacion &= " No presenta huella "
                 End If
 
                 If view.GetRowCellValue(i, "DIRECCION") Is Nothing Or IsDBNull(view.GetRowCellValue(i, "DIRECCION")) Or view.GetRowCellValue(i, "DIRECCION").ToString = "N" Then
                     inconsistente = "N"
-
+                    view.SetRowCellValue(i, "DIRECCION", "N")
                     Observacion &= " No presenta dirección "
                 End If
 
@@ -458,7 +458,7 @@ Public Class XfrmCiudadanos
             Dim ciudadanos As DSCiudadanos.IM_CIUDADANOS_RESPALDAN1Row
             ciudadanos = Me.DSCiudadanos.IM_CIUDADANOS_RESPALDAN1.NewIM_CIUDADANOS_RESPALDAN1Row
             With ciudadanos
-                Dim cod As Integer = COracle.FUN_EJECUTAR_SEQ("IM_SQ1_CIUDADANOS_RESPALDAN")
+                Dim cod As Integer = CType(COracle.FUN_EJECUTAR_SEQ("IM_SQ1_CIUDADANOS_RESPALDAN"), Integer)
                 .CODIGO_CUIDADANOS_RESPALDAN = cod
                 .CODIGO_PARTIDO = idpartido
                 .CODIGO_MOVIMIENTO = idmovimiento
