@@ -80,6 +80,8 @@ Partial Class XfrmValidarFirmas
         Me.colCODIGO_MOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCODIGO_DEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCODIGO_MUNICIPIO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.ImagenesFirmaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ImagenesFirmaTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.ImagenesFirmaTableAdapter
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemCheckEdit, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -96,6 +98,7 @@ Partial Class XfrmValidarFirmas
         Me.GroupBox2.SuspendLayout()
         CType(Me.pbxFirma, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMVVALIDARFIRMASBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImagenesFirmaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GCBusqueda
@@ -122,8 +125,7 @@ Partial Class XfrmValidarFirmas
         Me.GridView1.OptionsView.ColumnAutoWidth = False
         Me.GridView1.OptionsView.ShowDetailButtons = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
-        Me.GridView1.RowHeight = 50
-        Me.GridView1.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.colSEGUNDO_NOMBRE_PAPELETA, DevExpress.Data.ColumnSortOrder.Descending)})
+        Me.GridView1.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.colPRIMER_APELLIDO_PAPELETA, DevExpress.Data.ColumnSortOrder.Ascending)})
         '
         'RepositoryItemCheckEdit
         '
@@ -430,6 +432,7 @@ Partial Class XfrmValidarFirmas
         '
         'pbxFirma
         '
+        Me.pbxFirma.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.ImagenesFirmaBindingSource, "IMAGEN", True))
         Me.pbxFirma.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pbxFirma.Location = New System.Drawing.Point(3, 17)
         Me.pbxFirma.Name = "pbxFirma"
@@ -467,6 +470,10 @@ Partial Class XfrmValidarFirmas
         Me.colIDENTIDAD.Caption = "Identidad"
         Me.colIDENTIDAD.FieldName = "IDENTIDAD"
         Me.colIDENTIDAD.Name = "colIDENTIDAD"
+        Me.colIDENTIDAD.OptionsColumn.AllowEdit = False
+        Me.colIDENTIDAD.OptionsColumn.AllowFocus = False
+        Me.colIDENTIDAD.OptionsColumn.ReadOnly = True
+        Me.colIDENTIDAD.OptionsColumn.TabStop = False
         Me.colIDENTIDAD.Visible = True
         Me.colIDENTIDAD.VisibleIndex = 0
         Me.colIDENTIDAD.Width = 96
@@ -476,6 +483,10 @@ Partial Class XfrmValidarFirmas
         Me.colPRIMER_NOMBRE_PAPELETA.Caption = "Primer Nombre"
         Me.colPRIMER_NOMBRE_PAPELETA.FieldName = "PRIMER_NOMBRE_PAPELETA"
         Me.colPRIMER_NOMBRE_PAPELETA.Name = "colPRIMER_NOMBRE_PAPELETA"
+        Me.colPRIMER_NOMBRE_PAPELETA.OptionsColumn.AllowEdit = False
+        Me.colPRIMER_NOMBRE_PAPELETA.OptionsColumn.AllowFocus = False
+        Me.colPRIMER_NOMBRE_PAPELETA.OptionsColumn.ReadOnly = True
+        Me.colPRIMER_NOMBRE_PAPELETA.OptionsColumn.TabStop = False
         Me.colPRIMER_NOMBRE_PAPELETA.Visible = True
         Me.colPRIMER_NOMBRE_PAPELETA.VisibleIndex = 1
         Me.colPRIMER_NOMBRE_PAPELETA.Width = 100
@@ -485,6 +496,10 @@ Partial Class XfrmValidarFirmas
         Me.colSEGUNDO_NOMBRE_PAPELETA.Caption = "Segundo Nombre"
         Me.colSEGUNDO_NOMBRE_PAPELETA.FieldName = "SEGUNDO_NOMBRE_PAPELETA"
         Me.colSEGUNDO_NOMBRE_PAPELETA.Name = "colSEGUNDO_NOMBRE_PAPELETA"
+        Me.colSEGUNDO_NOMBRE_PAPELETA.OptionsColumn.AllowEdit = False
+        Me.colSEGUNDO_NOMBRE_PAPELETA.OptionsColumn.AllowFocus = False
+        Me.colSEGUNDO_NOMBRE_PAPELETA.OptionsColumn.ReadOnly = True
+        Me.colSEGUNDO_NOMBRE_PAPELETA.OptionsColumn.TabStop = False
         Me.colSEGUNDO_NOMBRE_PAPELETA.Visible = True
         Me.colSEGUNDO_NOMBRE_PAPELETA.VisibleIndex = 2
         Me.colSEGUNDO_NOMBRE_PAPELETA.Width = 100
@@ -494,6 +509,10 @@ Partial Class XfrmValidarFirmas
         Me.colPRIMER_APELLIDO_PAPELETA.Caption = "Primer Apellido"
         Me.colPRIMER_APELLIDO_PAPELETA.FieldName = "PRIMER_APELLIDO_PAPELETA"
         Me.colPRIMER_APELLIDO_PAPELETA.Name = "colPRIMER_APELLIDO_PAPELETA"
+        Me.colPRIMER_APELLIDO_PAPELETA.OptionsColumn.AllowEdit = False
+        Me.colPRIMER_APELLIDO_PAPELETA.OptionsColumn.AllowFocus = False
+        Me.colPRIMER_APELLIDO_PAPELETA.OptionsColumn.ReadOnly = True
+        Me.colPRIMER_APELLIDO_PAPELETA.OptionsColumn.TabStop = False
         Me.colPRIMER_APELLIDO_PAPELETA.Visible = True
         Me.colPRIMER_APELLIDO_PAPELETA.VisibleIndex = 3
         Me.colPRIMER_APELLIDO_PAPELETA.Width = 100
@@ -503,6 +522,10 @@ Partial Class XfrmValidarFirmas
         Me.colSEGUNDO_APELLIDO_PAPELETA.Caption = "Segundo Apellido"
         Me.colSEGUNDO_APELLIDO_PAPELETA.FieldName = "SEGUNDO_APELLIDO_PAPELETA"
         Me.colSEGUNDO_APELLIDO_PAPELETA.Name = "colSEGUNDO_APELLIDO_PAPELETA"
+        Me.colSEGUNDO_APELLIDO_PAPELETA.OptionsColumn.AllowEdit = False
+        Me.colSEGUNDO_APELLIDO_PAPELETA.OptionsColumn.AllowFocus = False
+        Me.colSEGUNDO_APELLIDO_PAPELETA.OptionsColumn.ReadOnly = True
+        Me.colSEGUNDO_APELLIDO_PAPELETA.OptionsColumn.TabStop = False
         Me.colSEGUNDO_APELLIDO_PAPELETA.Visible = True
         Me.colSEGUNDO_APELLIDO_PAPELETA.VisibleIndex = 4
         Me.colSEGUNDO_APELLIDO_PAPELETA.Width = 100
@@ -516,6 +539,10 @@ Partial Class XfrmValidarFirmas
         Me.colFIRMA.ColumnEdit = Me.RepositoryItemCheckEdit
         Me.colFIRMA.FieldName = "FIRMA"
         Me.colFIRMA.Name = "colFIRMA"
+        Me.colFIRMA.OptionsColumn.AllowEdit = False
+        Me.colFIRMA.OptionsColumn.AllowFocus = False
+        Me.colFIRMA.OptionsColumn.ReadOnly = True
+        Me.colFIRMA.OptionsColumn.TabStop = False
         Me.colFIRMA.Visible = True
         Me.colFIRMA.VisibleIndex = 5
         Me.colFIRMA.Width = 65
@@ -529,6 +556,10 @@ Partial Class XfrmValidarFirmas
         Me.colHUELLA.ColumnEdit = Me.RepositoryItemCheckEdit
         Me.colHUELLA.FieldName = "HUELLA"
         Me.colHUELLA.Name = "colHUELLA"
+        Me.colHUELLA.OptionsColumn.AllowEdit = False
+        Me.colHUELLA.OptionsColumn.AllowFocus = False
+        Me.colHUELLA.OptionsColumn.ReadOnly = True
+        Me.colHUELLA.OptionsColumn.TabStop = False
         Me.colHUELLA.Visible = True
         Me.colHUELLA.VisibleIndex = 6
         Me.colHUELLA.Width = 65
@@ -542,6 +573,10 @@ Partial Class XfrmValidarFirmas
         Me.colDIRECCION.ColumnEdit = Me.RepositoryItemCheckEdit
         Me.colDIRECCION.FieldName = "DIRECCION"
         Me.colDIRECCION.Name = "colDIRECCION"
+        Me.colDIRECCION.OptionsColumn.AllowEdit = False
+        Me.colDIRECCION.OptionsColumn.AllowFocus = False
+        Me.colDIRECCION.OptionsColumn.ReadOnly = True
+        Me.colDIRECCION.OptionsColumn.TabStop = False
         Me.colDIRECCION.Visible = True
         Me.colDIRECCION.VisibleIndex = 7
         Me.colDIRECCION.Width = 65
@@ -555,6 +590,10 @@ Partial Class XfrmValidarFirmas
         Me.colIGUAL.ColumnEdit = Me.RepositoryItemCheckEdit
         Me.colIGUAL.FieldName = "IGUAL"
         Me.colIGUAL.Name = "colIGUAL"
+        Me.colIGUAL.OptionsColumn.AllowEdit = False
+        Me.colIGUAL.OptionsColumn.AllowFocus = False
+        Me.colIGUAL.OptionsColumn.ReadOnly = True
+        Me.colIGUAL.OptionsColumn.TabStop = False
         Me.colIGUAL.Visible = True
         Me.colIGUAL.VisibleIndex = 8
         Me.colIGUAL.Width = 65
@@ -568,15 +607,23 @@ Partial Class XfrmValidarFirmas
         Me.colCONSISTENTE.ColumnEdit = Me.RepositoryItemCheckEdit
         Me.colCONSISTENTE.FieldName = "CONSISTENTE"
         Me.colCONSISTENTE.Name = "colCONSISTENTE"
+        Me.colCONSISTENTE.OptionsColumn.AllowEdit = False
+        Me.colCONSISTENTE.OptionsColumn.AllowFocus = False
+        Me.colCONSISTENTE.OptionsColumn.ReadOnly = True
+        Me.colCONSISTENTE.OptionsColumn.TabStop = False
         Me.colCONSISTENTE.Visible = True
         Me.colCONSISTENTE.VisibleIndex = 9
-        Me.colCONSISTENTE.Width = 65
+        Me.colCONSISTENTE.Width = 69
         '
         'colFOLIO
         '
         Me.colFOLIO.Caption = "Folio"
         Me.colFOLIO.FieldName = "FOLIO"
         Me.colFOLIO.Name = "colFOLIO"
+        Me.colFOLIO.OptionsColumn.AllowEdit = False
+        Me.colFOLIO.OptionsColumn.AllowFocus = False
+        Me.colFOLIO.OptionsColumn.ReadOnly = True
+        Me.colFOLIO.OptionsColumn.TabStop = False
         Me.colFOLIO.Visible = True
         Me.colFOLIO.VisibleIndex = 10
         Me.colFOLIO.Width = 50
@@ -586,6 +633,10 @@ Partial Class XfrmValidarFirmas
         Me.colPAGINA.Caption = "Página"
         Me.colPAGINA.FieldName = "PAGINA"
         Me.colPAGINA.Name = "colPAGINA"
+        Me.colPAGINA.OptionsColumn.AllowEdit = False
+        Me.colPAGINA.OptionsColumn.AllowFocus = False
+        Me.colPAGINA.OptionsColumn.ReadOnly = True
+        Me.colPAGINA.OptionsColumn.TabStop = False
         Me.colPAGINA.Visible = True
         Me.colPAGINA.VisibleIndex = 11
         Me.colPAGINA.Width = 50
@@ -598,6 +649,10 @@ Partial Class XfrmValidarFirmas
         Me.colOBSERVACION.Caption = "Observación"
         Me.colOBSERVACION.FieldName = "OBSERVACION"
         Me.colOBSERVACION.Name = "colOBSERVACION"
+        Me.colOBSERVACION.OptionsColumn.AllowEdit = False
+        Me.colOBSERVACION.OptionsColumn.AllowFocus = False
+        Me.colOBSERVACION.OptionsColumn.ReadOnly = True
+        Me.colOBSERVACION.OptionsColumn.TabStop = False
         Me.colOBSERVACION.Visible = True
         Me.colOBSERVACION.VisibleIndex = 12
         Me.colOBSERVACION.Width = 200
@@ -642,6 +697,15 @@ Partial Class XfrmValidarFirmas
         Me.colCODIGO_MUNICIPIO.FieldName = "CODIGO_MUNICIPIO"
         Me.colCODIGO_MUNICIPIO.Name = "colCODIGO_MUNICIPIO"
         '
+        'ImagenesFirmaBindingSource
+        '
+        Me.ImagenesFirmaBindingSource.DataMember = "ImagenesFirma"
+        Me.ImagenesFirmaBindingSource.DataSource = Me.DSConsultas
+        '
+        'ImagenesFirmaTableAdapter
+        '
+        Me.ImagenesFirmaTableAdapter.ClearBeforeFill = True
+        '
         'XfrmValidarFirmas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -668,6 +732,7 @@ Partial Class XfrmValidarFirmas
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.pbxFirma, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMVVALIDARFIRMASBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImagenesFirmaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -731,4 +796,6 @@ Partial Class XfrmValidarFirmas
     Friend WithEvents colCODIGO_MOVIMIENTO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colCODIGO_DEPARTAMENTO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colCODIGO_MUNICIPIO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ImagenesFirmaBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents ImagenesFirmaTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.ImagenesFirmaTableAdapter
 End Class

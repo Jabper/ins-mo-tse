@@ -15360,11 +15360,21 @@ Namespace DSConsultasTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        IM_V_VALIDAR_FIRMAS.*"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_VALIDAR_FIRMAS"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        IM_V_VALIDAR_FIRMAS.*"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_VALIDAR_FIRMAS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE C"& _ 
+                "ODIGO_PARTIDO = :partido AND CODIGO_MOVIMIENTO = :movimiento"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND CODIGO_DEPARTA"& _ 
+                "MENTO = :departamento AND CODIGO_MUNICIPIO = :municipio"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("partido", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("movimiento", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("departamento", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("municipio", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MUNICIPIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -15384,6 +15394,36 @@ Namespace DSConsultasTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As DSConsultas.IM_V_VALIDAR_FIRMASDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As DSConsultas.IM_V_VALIDAR_FIRMASDataTable = New DSConsultas.IM_V_VALIDAR_FIRMASDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DSConsultas.IM_V_VALIDAR_FIRMASDataTable, ByVal partido As Decimal, ByVal movimiento As Decimal, ByVal departamento As Decimal, ByVal municipio As Decimal) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(partido,Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(movimiento,Decimal)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(departamento,Decimal)
+            Me.Adapter.SelectCommand.Parameters(3).Value = CType(municipio,Decimal)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy(ByVal partido As Decimal, ByVal movimiento As Decimal, ByVal departamento As Decimal, ByVal municipio As Decimal) As DSConsultas.IM_V_VALIDAR_FIRMASDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(partido,Decimal)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(movimiento,Decimal)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(departamento,Decimal)
+            Me.Adapter.SelectCommand.Parameters(3).Value = CType(municipio,Decimal)
             Dim dataTable As DSConsultas.IM_V_VALIDAR_FIRMASDataTable = New DSConsultas.IM_V_VALIDAR_FIRMASDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
