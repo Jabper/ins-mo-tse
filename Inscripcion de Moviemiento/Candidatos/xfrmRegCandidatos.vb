@@ -751,7 +751,7 @@ Public Class xfrmRegCandidatos
         dip_CN = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 4 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2}", id_partido, id_movimiento, depto), "TOTAL")
         dip_CNS = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 5 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2}", id_partido, id_movimiento, depto), "TOTAL")
         alcalde = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 6 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2} AND CODIGO_MUNICIPIO= {3} ", id_partido, id_movimiento, depto, muni), "TOTAL")
-        vice = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 6 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2} AND CODIGO_MUNICIPIO= {3} ", id_partido, id_movimiento, depto, muni), "TOTAL")
+        vice = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 7 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2} AND CODIGO_MUNICIPIO= {3} ", id_partido, id_movimiento, depto, muni), "TOTAL")
         regidores = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 8 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2} AND CODIGO_MUNICIPIO= {3} ", id_partido, id_movimiento, depto, muni), "TOTAL")
 
 
@@ -926,7 +926,6 @@ Public Class xfrmRegCandidatos
         hombres_ingresados = CInt(COracle.ObtenerDatos(ax, "MUJERES"))
 
 
-
         If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 9 Then
             hombres_permitidos = (cdesignados + 1) - mujeres_necesarias
 
@@ -937,6 +936,7 @@ Public Class xfrmRegCandidatos
             End If
 
         ElseIf Me.cboCargo.EditValue = 2 Then
+
             hombres_permitidos = (cdip_pp) - mujeres_necesarias
 
             If hombres_permitidos = hombres_ingresados Then
@@ -956,6 +956,41 @@ Public Class xfrmRegCandidatos
             End If
 
         ElseIf Me.cboCargo.EditValue = 4 Then
+
+            Dim cons As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
+                      "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
+                       "WHERE  iC.codigo_departamento = " & depto & _
+                       " AND      iC.codigo_municipio = " & muni & _
+                       " AND      im.codigo_departamento = ic.codigo_departamento " & _
+                       " AND      im.codigo_municipio       = ic.codigo_municipio " & _
+                       " AND      ic.codigo_cargo_electivo  " & cargo & _
+                       " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
+                       " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
+                       " AND      ic.identidad = ip.numero_identidad " & _
+                       " AND      ip.sexo= 1"
+
+
+
+            If depto = 9 Or depto = 11 Then
+
+
+
+                If hombres_permitidos = hombres_ingresados Then
+                    ingreso_hombre = 0
+                Else
+                    ingreso_hombre = 1
+                End If
+            ElseIf depto = 10 Or depto = 12 Then
+
+                hombres_permitidos = (cdip_CN + cdip_CNS) - mujeres_necesarias
+
+                If hombres_permitidos = hombres_ingresados Then
+                    ingreso_hombre = 0
+                Else
+                    ingreso_hombre = 1
+                End If
+            End If
+
             hombres_permitidos = (cdip_CN) - mujeres_necesarias
 
             If hombres_permitidos = hombres_ingresados Then
