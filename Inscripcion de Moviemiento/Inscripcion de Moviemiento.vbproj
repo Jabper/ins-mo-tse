@@ -241,6 +241,12 @@
     <Compile Include="Configuracion\XtraForm1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Consultas\frmImagenFirmaModal.Designer.vb">
+      <DependentUpon>frmImagenFirmaModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmImagenFirmaModal.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Consultas\DSConsultas.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -735,6 +741,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Configuracion\XtraForm1.resx">
       <DependentUpon>XtraForm1.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\frmImagenFirmaModal.resx">
+      <DependentUpon>frmImagenFirmaModal.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\frmImagenModal.resx">
