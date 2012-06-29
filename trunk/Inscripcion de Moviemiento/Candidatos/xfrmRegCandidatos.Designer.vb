@@ -82,9 +82,9 @@ Partial Class xfrmRegCandidatos
         Me.colSEGUNDO_APELLIDO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colIMAGEN = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RPIImgen = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
-        Me.colCONS_VECINDAD = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.CONS_VECINDAD = New DevExpress.XtraGrid.Columns.GridColumn
         Me.chkConstancia = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
-        Me.colCONS_VECINDAD_IMAGEN = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.CONS_VECINDAD_IMAGEN = New DevExpress.XtraGrid.Columns.GridColumn
         Me.PICImagenConstancia = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
         Me.colESTADO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.ChkEstado = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
@@ -619,7 +619,7 @@ Partial Class xfrmRegCandidatos
         Me.GridView1.AppearancePrint.HeaderPanel.TextOptions.Trimming = DevExpress.Utils.Trimming.EllipsisWord
         Me.GridView1.AppearancePrint.HeaderPanel.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.GridView1.ColumnPanelRowHeight = 50
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colPOSICION, Me.colIDENTIDAD, Me.colPRIMER_NOMBRE, Me.colSEGUNDO_NOMBRE, Me.colPRIMER_APELLIDO, Me.colSEGUNDO_APELLIDO, Me.colIMAGEN, Me.colCONS_VECINDAD, Me.colCONS_VECINDAD_IMAGEN, Me.colESTADO, Me.CODIGO_CANDIDATOS})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colPOSICION, Me.colIDENTIDAD, Me.colPRIMER_NOMBRE, Me.colSEGUNDO_NOMBRE, Me.colPRIMER_APELLIDO, Me.colSEGUNDO_APELLIDO, Me.colIMAGEN, Me.CONS_VECINDAD, Me.CONS_VECINDAD_IMAGEN, Me.colESTADO, Me.CODIGO_CANDIDATOS})
         Me.GridView1.GridControl = Me.GCBusqueda
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[True]
@@ -736,15 +736,15 @@ Partial Class xfrmRegCandidatos
         Me.RPIImgen.PictureStoreMode = DevExpress.XtraEditors.Controls.PictureStoreMode.ByteArray
         Me.RPIImgen.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
         '
-        'colCONS_VECINDAD
+        'CONS_VECINDAD
         '
-        Me.colCONS_VECINDAD.Caption = "Constancia Vecindad"
-        Me.colCONS_VECINDAD.ColumnEdit = Me.chkConstancia
-        Me.colCONS_VECINDAD.FieldName = "CONS_VECINDAD"
-        Me.colCONS_VECINDAD.Name = "colCONS_VECINDAD"
-        Me.colCONS_VECINDAD.Visible = True
-        Me.colCONS_VECINDAD.VisibleIndex = 7
-        Me.colCONS_VECINDAD.Width = 71
+        Me.CONS_VECINDAD.Caption = "Constancia Vecindad"
+        Me.CONS_VECINDAD.ColumnEdit = Me.chkConstancia
+        Me.CONS_VECINDAD.FieldName = "CONS_VECINDAD"
+        Me.CONS_VECINDAD.Name = "CONS_VECINDAD"
+        Me.CONS_VECINDAD.Visible = True
+        Me.CONS_VECINDAD.VisibleIndex = 7
+        Me.CONS_VECINDAD.Width = 71
         '
         'chkConstancia
         '
@@ -754,15 +754,15 @@ Partial Class xfrmRegCandidatos
         Me.chkConstancia.ValueGrayed = "I"
         Me.chkConstancia.ValueUnchecked = "I"
         '
-        'colCONS_VECINDAD_IMAGEN
+        'CONS_VECINDAD_IMAGEN
         '
-        Me.colCONS_VECINDAD_IMAGEN.Caption = "Imagen Constancia"
-        Me.colCONS_VECINDAD_IMAGEN.ColumnEdit = Me.PICImagenConstancia
-        Me.colCONS_VECINDAD_IMAGEN.FieldName = "CONS_VECINDAD_IMAGEN"
-        Me.colCONS_VECINDAD_IMAGEN.Name = "colCONS_VECINDAD_IMAGEN"
-        Me.colCONS_VECINDAD_IMAGEN.Visible = True
-        Me.colCONS_VECINDAD_IMAGEN.VisibleIndex = 8
-        Me.colCONS_VECINDAD_IMAGEN.Width = 114
+        Me.CONS_VECINDAD_IMAGEN.Caption = "Imagen Constancia"
+        Me.CONS_VECINDAD_IMAGEN.ColumnEdit = Me.PICImagenConstancia
+        Me.CONS_VECINDAD_IMAGEN.FieldName = "CONS_VECINDAD_IMAGEN"
+        Me.CONS_VECINDAD_IMAGEN.Name = "CONS_VECINDAD_IMAGEN"
+        Me.CONS_VECINDAD_IMAGEN.Visible = True
+        Me.CONS_VECINDAD_IMAGEN.VisibleIndex = 8
+        Me.CONS_VECINDAD_IMAGEN.Width = 114
         '
         'PICImagenConstancia
         '
@@ -791,6 +791,8 @@ Partial Class xfrmRegCandidatos
         Me.CODIGO_CANDIDATOS.Caption = "CODIGO_CANDIDATOS"
         Me.CODIGO_CANDIDATOS.FieldName = "CODIGO_CANDIDATOS"
         Me.CODIGO_CANDIDATOS.Name = "CODIGO_CANDIDATOS"
+        Me.CODIGO_CANDIDATOS.Visible = True
+        Me.CODIGO_CANDIDATOS.VisibleIndex = 9
         '
         'RIChkCoincide
         '
@@ -1113,8 +1115,8 @@ Partial Class xfrmRegCandidatos
     Friend WithEvents colPRIMER_APELLIDO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colSEGUNDO_APELLIDO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colIMAGEN As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colCONS_VECINDAD As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colCONS_VECINDAD_IMAGEN As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents CONS_VECINDAD As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents CONS_VECINDAD_IMAGEN As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colESTADO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemTextEdit6 As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
     Friend WithEvents RepositoryItemTextEdit5 As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit

@@ -177,6 +177,7 @@ Public Class xfrmRegCandidatos
 
             Dim conn As New OracleConnection()
             conn.ConnectionString = oradb
+
             conn.Open()
             Dim identidad1 As String = view.GetRowCellValue(i, "IDENTIDAD")
             Dim nombre1 As String = view.GetRowCellValue(i, "PRIMER_NOMBRE")
@@ -218,7 +219,10 @@ Public Class xfrmRegCandidatos
             myCMD.Parameters.Add(New OracleParameter("PVO_MENSAJE", OracleType.NVarChar, 32767)).Direction = ParameterDirection.Output
             myCMD.ExecuteOracleScalar()
 
-            If myCMD.Parameters("PVO_MENSAJE").Value = "N" Then
+            Dim mensaje As String = myCMD.Parameters("PVO_MENSAJE").Value
+            conn.Close()
+
+            If mensaje = "N" Then
 
 
                 For a = 7 To 8
@@ -246,6 +250,14 @@ Public Class xfrmRegCandidatos
                         'Me.IM_REQUISITOS_X_CANDIDATOTableAdapter.Update(Me.DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO)
                         ''***************************************************************************************************
 
+
+                        Me.DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO.Clear()
+                        'Me.DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO.Rows.Clear()
+
+
+
+                        Me.IM_REQUISITOS_X_CANDIDATOTableAdapter.Update(Me.DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO)
+
                         Dim CANDIDATOS As DSInsCandidatos.IM_REQUISITOS_X_CANDIDATORow
                         CANDIDATOS = DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO.NewIM_REQUISITOS_X_CANDIDATORow
 
@@ -257,9 +269,9 @@ Public Class xfrmRegCandidatos
                             If a = 8 Then
                                 estado_requisito = view.GetRowCellValue(i, "CONS_VECINDAD")
                                 If estado_requisito = "C" Then
-                                    If IsDBNull(view.GetRowCellValue(i, "CONS_VECINDAD_IMG")) Or view.GetRowCellValue(i, "CONS_VECINDAD_IMG") Is Nothing Then
+                                    If IsDBNull(view.GetRowCellValue(i, "CONS_VECINDAD_IMAGEN")) Or view.GetRowCellValue(i, "CONS_VECINDAD_IMAGEN") Is Nothing Then
                                     Else
-                                        .IMAGEN = view.GetRowCellValue(i, "CONS_VECINDAD_IMG")
+                                        .IMAGEN = view.GetRowCellValue(i, "CONS_VECINDAD_IMAGEN")
                                     End If
 
                                 Else
@@ -281,6 +293,10 @@ Public Class xfrmRegCandidatos
 
                         End With
 
+
+                        'Me.GCBusqueda.DataSource = Nothing
+
+
                         Me.DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO.Rows.Add(CANDIDATOS)
                         Me.IM_REQUISITOS_X_CANDIDATOTableAdapter.Update(Me.DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO)
 
@@ -291,7 +307,7 @@ Public Class xfrmRegCandidatos
                 Mensajes.MensajeActualizar()
                 Validarleyendas()
             Else
-                Mensajes.MensajeError(myCMD.Parameters("PVO_MENSAJE").Value)
+                Mensajes.MensajeError(mensaje)
             End If
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
@@ -673,9 +689,9 @@ Public Class xfrmRegCandidatos
                     .CODIGO_PARTIDO = id_partido
                     .CODIGO_MOVIMIENTO = id_movimiento
                     If requisito = 8 Then
-                        If IsDBNull(view.GetRowCellValue(fila, "CONS_VECINDAD_IMG")) Then
+                        If IsDBNull(view.GetRowCellValue(fila, "CONS_VECINDAD_IMAGEN")) Then
                         Else
-                            .IMAGEN = view.GetRowCellValue(fila, "CONS_VECINDAD_IMG")
+                            .IMAGEN = view.GetRowCellValue(fila, "CONS_VECINDAD_IMAGEN")
                         End If
                     ElseIf requisito = 7 Then
                         If IsDBNull(view.GetRowCellValue(fila, "IMAGEN")) Then
@@ -768,6 +784,9 @@ Public Class xfrmRegCandidatos
         lblparlacen2.Text = String.Format("{0} / {1}", dip_ps, cdip_ps)
         lblcnr1.Text = String.Format("{0} / {1}", dip_CN, cdip_CN)
         lblcnr2.Text = String.Format("{0} / {1}", dip_CNS, cdip_CNS)
+
+        lblcnr1.Text = String.Format("{0} / {1}", dip_CN, cdip_CN)
+        lblcnr2.Text = String.Format("{0} / {1}", dip_CNS, cdip_CNS)
         lblalcalde.Text = alcalde
         lblvice.Text = vice
         lblregidores.Text = String.Format("{0} / {1}", regidores, cregidores)
@@ -827,7 +846,14 @@ Public Class xfrmRegCandidatos
 
             mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
             mujeres_necesarias = COracle.ObtenerDatos("SELECT CANTIDAD_MUJERES FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO =2", "CANTIDAD_MUJERES")
-            Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (mujeres_necesarias - mujeres_ingresadas))
+
+
+            Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
+            If faltan < 0 Then
+                faltan = 0
+            End If
+
+            Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (faltan))
 
         ElseIf Me.cboCargo.EditValue = 3 Then
             Dim S As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
@@ -844,8 +870,16 @@ Public Class xfrmRegCandidatos
 
             mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
             mujeres_necesarias = COracle.ObtenerDatos("SELECT CANTIDAD_MUJERES FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO =3", "CANTIDAD_MUJERES")
-            Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (mujeres_necesarias - mujeres_ingresadas))
+
+            Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
+            If faltan < 0 Then
+                faltan = 0
+            End If
+
+            Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (faltan))
+
         ElseIf Me.cboCargo.EditValue = 4 Then
+
             Dim S As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
                               "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
                                "WHERE  iC.codigo_departamento = " & depto & _
@@ -858,9 +892,42 @@ Public Class xfrmRegCandidatos
                                " AND      ic.identidad = ip.numero_identidad " & _
                                " AND      ip.sexo= 2"
 
-            mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
-            mujeres_necesarias = COracle.ObtenerDatos("select cantidad_mujeres from im_departamentos where codigo_departamento = " & depto, "cantidad_mujeres")
-            Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (mujeres_necesarias - mujeres_ingresadas))
+
+
+            If depto = 10 Or depto = 11 Then
+
+                Dim S1 As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
+                  "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
+                   "WHERE  iC.codigo_departamento = " & depto & _
+                   " AND      iC.codigo_municipio = " & muni & _
+                   " AND      im.codigo_departamento = ic.codigo_departamento " & _
+                   " AND      im.codigo_municipio       = ic.codigo_municipio " & _
+                   " AND      ic.codigo_cargo_electivo in (4,5)" & _
+                   " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
+                   " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
+                   " AND      ic.identidad = ip.numero_identidad " & _
+                   " AND      ip.sexo= 2"
+
+                mujeres_ingresadas = COracle.ObtenerDatos(S1, "MUJERES")
+
+
+                Dim faltan As String = 3 - mujeres_ingresadas
+                If faltan < 0 Then
+                    faltan = 0
+                End If
+                Me.lblmujeres.Text = "Necesita Minimo 3 Mujeres entre Propietarias y Suplentes, Faltan " & (faltan)
+            Else
+                mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
+                Dim faltan As String = 3 - mujeres_ingresadas
+                If faltan < 0 Then
+                    faltan = 0
+                End If
+
+                Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (faltan))
+            End If
+
+            
+
 
         ElseIf Me.cboCargo.EditValue = 5 Then
             Dim S As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
@@ -877,6 +944,13 @@ Public Class xfrmRegCandidatos
 
             mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
             mujeres_necesarias = COracle.ObtenerDatos("select cantidad_mujeres from im_departamentos where codigo_departamento = " & depto, "cantidad_mujeres")
+
+
+            Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
+            If faltan < 0 Then
+                faltan = 0
+            End If
+
             Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (mujeres_necesarias - mujeres_ingresadas))
         ElseIf Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7 Or Me.cboCargo.EditValue = 8 Then
             Dim S As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
@@ -893,7 +967,13 @@ Public Class xfrmRegCandidatos
 
             mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
             mujeres_necesarias = COracle.ObtenerDatos("select cantidad_mujeres from im_municipios where codigo_departamento = " & depto & " and codigo_municipio =" & muni, "cantidad_mujeres")
-            Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (mujeres_necesarias - mujeres_ingresadas))
+
+            Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
+            If faltan < 0 Then
+                faltan = 0
+            End If
+
+            Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (faltan))
 
         End If
 
@@ -1003,13 +1083,13 @@ Public Class xfrmRegCandidatos
                 End If
             End If
 
-                hombres_permitidos = (cdip_CN) - mujeres_necesarias
+            hombres_permitidos = (cdip_CN) - mujeres_necesarias
 
-                If hombres_permitidos = hombres_ingresados Then
-                    ingreso_hombre = 0
-                Else
-                    ingreso_hombre = 1
-                End If
+            If hombres_permitidos = hombres_ingresados Then
+                ingreso_hombre = 0
+            Else
+                ingreso_hombre = 1
+            End If
         ElseIf Me.cboCargo.EditValue = 5 Then
             hombres_permitidos = (cdip_CNS) - mujeres_necesarias
 
@@ -1187,7 +1267,4 @@ Public Class xfrmRegCandidatos
         Validarleyendas()
     End Sub
 
-    Private Sub cboDepartamento_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboDepartamento.EditValueChanged
-
-    End Sub
 End Class
