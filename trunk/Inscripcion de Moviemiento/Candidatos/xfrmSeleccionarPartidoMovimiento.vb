@@ -1,9 +1,55 @@
 ﻿Public Class xfrmSeleccionarPartidoMovimiento 
 
+    Sub ActivarFiltros()
+        If activaropciones.PEstado = "PDO" Then
+            Dim idp As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
+            Me.CmbPartido.Enabled = False
+
+
+            'Partido
+            Dim p As Integer = Me.CmbPartido.Properties.GetDataSourceRowIndex(Me.CmbPartido.Properties.Columns("CODIGO_PARTIDO"), idp)
+            CmbPartido.EditValue = Me.CmbPartido.Properties.GetDataSourceValue(CmbPartido.Properties.ValueMember, p)
+
+            Try
+                'TODO: This line of code loads data into the 'DSInsCandidatos.IM_MOVIMIENTOS' table. You can move, or remove it, as needed.
+                Me.IM_MOVIMIENTOSTableAdapter.FillBy(Me.DSInsCandidatos.IM_MOVIMIENTOS, Me.CmbPartido.EditValue)
+
+            Catch ex As Exception
+
+            End Try
+            Me.CmbMovimiento.Enabled = True
+
+        ElseIf activaropciones.PEstado = "MOV" Then
+            Dim idp As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
+            Dim idmov As String = COracle.ObtenerDatos("SELECT CODIGO_MOVIMIENTO FROM IM_PARAMETROS_GENERALES", "CODIGO_MOVIMIENTO")
+
+            Me.CmbPartido.Enabled = False
+            Me.CmbMovimiento.Enabled = False
+
+            'Partido
+            Dim p As Integer = Me.CmbPartido.Properties.GetDataSourceRowIndex(Me.CmbPartido.Properties.Columns("CODIGO_PARTIDO"), idp)
+            CmbPartido.EditValue = Me.CmbPartido.Properties.GetDataSourceValue(CmbPartido.Properties.ValueMember, p)
+            Try
+                'TODO: This line of code loads data into the 'DSInsCandidatos.IM_MOVIMIENTOS' table. You can move, or remove it, as needed.
+                Me.IM_MOVIMIENTOSTableAdapter.FillBy(Me.DSInsCandidatos.IM_MOVIMIENTOS, idp)
+
+            Catch ex As Exception
+
+            End Try
+            'Movimiento
+            Dim m As Integer = Me.CmbMovimiento.Properties.GetDataSourceRowIndex(Me.CmbMovimiento.Properties.Columns("CODIGO_MOVIMIENTO"), idmov)
+            Me.CmbMovimiento.EditValue = Me.CmbMovimiento.Properties.GetDataSourceValue(Me.CmbMovimiento.Properties.ValueMember, m)
+
+        Else
+
+        End If
+    End Sub
+
     Private Sub xfrmSeleccionarPartidoMovimiento_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         
         'TODO: This line of code loads data into the 'DSInsCandidatos.IM_PARTIDOS_POLITICOS' table. You can move, or remove it, as needed.
         Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSInsCandidatos.IM_PARTIDOS_POLITICOS)
+        ActivarFiltros()
 
     End Sub
 
@@ -12,6 +58,7 @@
             
             'TODO: This line of code loads data into the 'DSInsCandidatos.IM_MOVIMIENTOS' table. You can move, or remove it, as needed.
             Me.IM_MOVIMIENTOSTableAdapter.FillBy(Me.DSInsCandidatos.IM_MOVIMIENTOS, Me.CmbPartido.EditValue)
+
         Catch ex As Exception
 
         End Try
