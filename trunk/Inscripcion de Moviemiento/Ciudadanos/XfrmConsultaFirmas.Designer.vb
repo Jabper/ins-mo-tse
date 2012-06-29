@@ -36,6 +36,7 @@ Partial Class XfrmConsultaFirmas
         Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl
+        Me.LabelControl16 = New DevExpress.XtraEditors.LabelControl
         Me.btnfirmas = New DevExpress.XtraEditors.SimpleButton
         Me.CmbMovimiento = New DevExpress.XtraEditors.LookUpEdit
         Me.TAMOVIMIENTOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -73,7 +74,7 @@ Partial Class XfrmConsultaFirmas
         Me.TADEPARTAMENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GCBusqueda = New DevExpress.XtraGrid.GridControl
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.MOSTRARFIRMASBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MOSTRARFIRMAS1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DSCiudadanos = New Inscripcion_de_Moviemientos.DSCiudadanos
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.colCODIGO_CUIDADANOS_RESPALDAN = New DevExpress.XtraGrid.Columns.GridColumn
@@ -118,14 +119,14 @@ Partial Class XfrmConsultaFirmas
         Me.LayoutControlItem10 = New DevExpress.XtraLayout.LayoutControlItem
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.SplitterItem1 = New DevExpress.XtraLayout.SplitterItem
+        Me.SplitterItem2 = New DevExpress.XtraLayout.SplitterItem
         Me.TA_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_PARTIDOS_POLITICOSTableAdapter
         Me.TA_MOVIMIENTOTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_MOVIMIENTOTableAdapter
         Me.TA_DEPARTAMENTOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_DEPARTAMENTOSTableAdapter
         Me.TA_MUNICIPIOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_MUNICIPIOSTableAdapter
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.MOSTRAR_FIRMASTableAdapter = New Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.MOSTRAR_FIRMASTableAdapter
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
-        Me.MOSTRARFIRMAS1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MOSTRAR_FIRMAS1TableAdapter = New Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.MOSTRAR_FIRMAS1TableAdapter
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
@@ -153,7 +154,7 @@ Partial Class XfrmConsultaFirmas
         CType(Me.CmbDepartamento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TADEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.MOSTRARFIRMASBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MOSTRARFIRMAS1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSCiudadanos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ChkEstado, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -175,8 +176,9 @@ Partial Class XfrmConsultaFirmas
         CType(Me.LayoutControlItem10, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SplitterItem1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SplitterItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.MOSTRARFIRMAS1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -365,6 +367,7 @@ Partial Class XfrmConsultaFirmas
         Me.PanelControl3.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.PanelControl3.Appearance.Options.UseBackColor = True
         Me.PanelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl3.Controls.Add(Me.LabelControl16)
         Me.PanelControl3.Controls.Add(Me.btnfirmas)
         Me.PanelControl3.Controls.Add(Me.CmbMovimiento)
         Me.PanelControl3.Controls.Add(Me.LabelControl15)
@@ -396,8 +399,16 @@ Partial Class XfrmConsultaFirmas
         Me.PanelControl3.Controls.Add(Me.CmbDepartamento)
         Me.PanelControl3.Location = New System.Drawing.Point(12, 12)
         Me.PanelControl3.Name = "PanelControl3"
-        Me.PanelControl3.Size = New System.Drawing.Size(779, 219)
+        Me.PanelControl3.Size = New System.Drawing.Size(779, 226)
         Me.PanelControl3.TabIndex = 17
+        '
+        'LabelControl16
+        '
+        Me.LabelControl16.Location = New System.Drawing.Point(14, 208)
+        Me.LabelControl16.Name = "LabelControl16"
+        Me.LabelControl16.Size = New System.Drawing.Size(169, 13)
+        Me.LabelControl16.TabIndex = 59
+        Me.LabelControl16.Text = "Presione Esc para cancelar cambios"
         '
         'btnfirmas
         '
@@ -704,11 +715,11 @@ Partial Class XfrmConsultaFirmas
         '
         Me.GCBusqueda.ContextMenuStrip = Me.ContextMenuStrip1
         Me.GCBusqueda.DataSource = Me.MOSTRARFIRMAS1BindingSource
-        Me.GCBusqueda.Location = New System.Drawing.Point(12, 235)
+        Me.GCBusqueda.Location = New System.Drawing.Point(12, 248)
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
         Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RIChkCoincide, Me.RIChkFima, Me.RPIImgfirma, Me.RepositoryItemComboBox1, Me.ChkEstado, Me.RepositoryItemMemoExEdit1, Me.RepositoryItemTextEdit1, Me.RepositoryItemTextEdit2, Me.RepositoryItemMemoEdit1, Me.RepositoryItemTextEdit3, Me.RepositoryItemPictureEdit1, Me.RepositoryItemMemoEdit2})
-        Me.GCBusqueda.Size = New System.Drawing.Size(804, 401)
+        Me.GCBusqueda.Size = New System.Drawing.Size(804, 382)
         Me.GCBusqueda.TabIndex = 8
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -717,10 +728,10 @@ Partial Class XfrmConsultaFirmas
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
-        'MOSTRARFIRMASBindingSource
+        'MOSTRARFIRMAS1BindingSource
         '
-        Me.MOSTRARFIRMASBindingSource.DataMember = "MOSTRAR_FIRMAS"
-        Me.MOSTRARFIRMASBindingSource.DataSource = Me.DSCiudadanos
+        Me.MOSTRARFIRMAS1BindingSource.DataMember = "MOSTRAR_FIRMAS1"
+        Me.MOSTRARFIRMAS1BindingSource.DataSource = Me.DSCiudadanos
         '
         'DSCiudadanos
         '
@@ -807,7 +818,7 @@ Partial Class XfrmConsultaFirmas
         '
         Me.colSEGUNDO_NOMBRE_PAPELETA.Caption = "Segundo Nombre"
         Me.colSEGUNDO_NOMBRE_PAPELETA.ColumnEdit = Me.RepositoryItemTextEdit2
-        Me.colSEGUNDO_NOMBRE_PAPELETA.FieldName = "PRIMER_APELLIDO_PAPELETA"
+        Me.colSEGUNDO_NOMBRE_PAPELETA.FieldName = "SEGUNDO_NOMBRE_PAPELETA"
         Me.colSEGUNDO_NOMBRE_PAPELETA.Name = "colSEGUNDO_NOMBRE_PAPELETA"
         Me.colSEGUNDO_NOMBRE_PAPELETA.Visible = True
         Me.colSEGUNDO_NOMBRE_PAPELETA.VisibleIndex = 3
@@ -1040,7 +1051,7 @@ Partial Class XfrmConsultaFirmas
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.EmptySpaceItem3, Me.LayoutControlItem2, Me.LayoutControlItem10, Me.EmptySpaceItem1, Me.LayoutControlItem3})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.EmptySpaceItem3, Me.LayoutControlItem2, Me.LayoutControlItem10, Me.EmptySpaceItem1, Me.LayoutControlItem3, Me.SplitterItem1, Me.SplitterItem2})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(828, 750)
@@ -1052,11 +1063,8 @@ Partial Class XfrmConsultaFirmas
         Me.EmptySpaceItem3.AllowHotTrack = False
         Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
         Me.EmptySpaceItem3.Location = New System.Drawing.Point(779, 628)
-        Me.EmptySpaceItem3.MaxSize = New System.Drawing.Size(29, 102)
-        Me.EmptySpaceItem3.MinSize = New System.Drawing.Size(29, 102)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
         Me.EmptySpaceItem3.Size = New System.Drawing.Size(29, 102)
-        Me.EmptySpaceItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem3.Text = "EmptySpaceItem3"
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -1064,9 +1072,9 @@ Partial Class XfrmConsultaFirmas
         '
         Me.LayoutControlItem2.Control = Me.GCBusqueda
         Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 223)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 236)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(808, 405)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(808, 386)
         Me.LayoutControlItem2.Text = "LayoutControlItem2"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextToControlDistance = 0
@@ -1078,7 +1086,7 @@ Partial Class XfrmConsultaFirmas
         Me.LayoutControlItem10.CustomizationFormText = "LayoutControlItem10"
         Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem10.Name = "LayoutControlItem10"
-        Me.LayoutControlItem10.Size = New System.Drawing.Size(783, 223)
+        Me.LayoutControlItem10.Size = New System.Drawing.Size(783, 230)
         Me.LayoutControlItem10.Text = "LayoutControlItem10"
         Me.LayoutControlItem10.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem10.TextToControlDistance = 0
@@ -1089,10 +1097,10 @@ Partial Class XfrmConsultaFirmas
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
         Me.EmptySpaceItem1.Location = New System.Drawing.Point(783, 0)
-        Me.EmptySpaceItem1.MaxSize = New System.Drawing.Size(25, 223)
-        Me.EmptySpaceItem1.MinSize = New System.Drawing.Size(25, 223)
+        Me.EmptySpaceItem1.MaxSize = New System.Drawing.Size(25, 0)
+        Me.EmptySpaceItem1.MinSize = New System.Drawing.Size(25, 10)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(25, 223)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(25, 230)
         Me.EmptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem1.Text = "EmptySpaceItem1"
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
@@ -1108,6 +1116,22 @@ Partial Class XfrmConsultaFirmas
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextToControlDistance = 0
         Me.LayoutControlItem3.TextVisible = False
+        '
+        'SplitterItem1
+        '
+        Me.SplitterItem1.AllowHotTrack = True
+        Me.SplitterItem1.CustomizationFormText = "SplitterItem1"
+        Me.SplitterItem1.Location = New System.Drawing.Point(0, 622)
+        Me.SplitterItem1.Name = "SplitterItem1"
+        Me.SplitterItem1.Size = New System.Drawing.Size(808, 6)
+        '
+        'SplitterItem2
+        '
+        Me.SplitterItem2.AllowHotTrack = True
+        Me.SplitterItem2.CustomizationFormText = "SplitterItem2"
+        Me.SplitterItem2.Location = New System.Drawing.Point(0, 230)
+        Me.SplitterItem2.Name = "SplitterItem2"
+        Me.SplitterItem2.Size = New System.Drawing.Size(808, 6)
         '
         'TA_PARTIDOS_POLITICOSTableAdapter
         '
@@ -1129,18 +1153,9 @@ Partial Class XfrmConsultaFirmas
         '
         Me.ErrorProvider1.ContainerControl = Me
         '
-        'MOSTRAR_FIRMASTableAdapter
-        '
-        Me.MOSTRAR_FIRMASTableAdapter.ClearBeforeFill = True
-        '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'MOSTRARFIRMAS1BindingSource
-        '
-        Me.MOSTRARFIRMAS1BindingSource.DataMember = "MOSTRAR_FIRMAS1"
-        Me.MOSTRARFIRMAS1BindingSource.DataSource = Me.DSCiudadanos
         '
         'MOSTRAR_FIRMAS1TableAdapter
         '
@@ -1154,7 +1169,7 @@ Partial Class XfrmConsultaFirmas
         Me.Controls.Add(Me.LayoutControl1)
         Me.LookAndFeel.SkinName = "Office 2010 Silver"
         Me.Name = "XfrmConsultaFirmas"
-        Me.Text = "Modificación de firmas"
+        Me.Text = "Correción de Firmas"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
         CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1183,7 +1198,7 @@ Partial Class XfrmConsultaFirmas
         CType(Me.CmbDepartamento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TADEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.MOSTRARFIRMASBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MOSTRARFIRMAS1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DSCiudadanos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ChkEstado, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1205,8 +1220,9 @@ Partial Class XfrmConsultaFirmas
         CType(Me.LayoutControlItem10, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SplitterItem1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SplitterItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.MOSTRARFIRMAS1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1268,8 +1284,6 @@ Partial Class XfrmConsultaFirmas
     Friend WithEvents PictureEdit1 As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents MOSTRARFIRMASBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents MOSTRAR_FIRMASTableAdapter As Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.MOSTRAR_FIRMASTableAdapter
     Friend WithEvents colDEPARTAMENTO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colMUNICIPIO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colNOMBRE As DevExpress.XtraGrid.Columns.GridColumn
@@ -1317,4 +1331,7 @@ Partial Class XfrmConsultaFirmas
     Friend WithEvents btnfirmas As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents MOSTRARFIRMAS1BindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents MOSTRAR_FIRMAS1TableAdapter As Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.MOSTRAR_FIRMAS1TableAdapter
+    Friend WithEvents SplitterItem1 As DevExpress.XtraLayout.SplitterItem
+    Friend WithEvents SplitterItem2 As DevExpress.XtraLayout.SplitterItem
+    Friend WithEvents LabelControl16 As DevExpress.XtraEditors.LabelControl
 End Class
