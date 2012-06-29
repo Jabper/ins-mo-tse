@@ -254,9 +254,8 @@ Public Class xfrmRegCandidatos
                         Me.DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO.Clear()
                         'Me.DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO.Rows.Clear()
 
-
-
                         Me.IM_REQUISITOS_X_CANDIDATOTableAdapter.Update(Me.DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO)
+
 
                         Dim CANDIDATOS As DSInsCandidatos.IM_REQUISITOS_X_CANDIDATORow
                         CANDIDATOS = DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO.NewIM_REQUISITOS_X_CANDIDATORow
@@ -518,7 +517,6 @@ Public Class xfrmRegCandidatos
 
 
 
-
             If requisito = 1 Then
 
                 Dim oradb As String = Configuracion.verconfig
@@ -675,9 +673,13 @@ Public Class xfrmRegCandidatos
                 Dim consultaq As String = "SELECT MAX(CODIGO_CANDIDATOS) maximo FROM IM_CANDIDATOS"
                 vcodigo_Candidato = CType(COracle.ObtenerDatos(consultaq, "maximo"), Integer)
 
-                'Dim view As GridView = GridView1
-                'RECORRER EL GRID
 
+                'insercion por problemas de constrains
+
+                Me.DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO.Clear()
+                'Me.DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO.Rows.Clear()
+
+                Me.IM_REQUISITOS_X_CANDIDATOTableAdapter.Update(Me.DSInsCandidatos.IM_REQUISITOS_X_CANDIDATO)
 
 
                 Dim CANDIDATOS As DSInsCandidatos.IM_REQUISITOS_X_CANDIDATORow
@@ -925,9 +927,6 @@ Public Class xfrmRegCandidatos
 
                 Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (faltan))
             End If
-
-            
-
 
         ElseIf Me.cboCargo.EditValue = 5 Then
             Dim S As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
