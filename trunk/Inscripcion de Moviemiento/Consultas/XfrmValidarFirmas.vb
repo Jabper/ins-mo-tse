@@ -58,18 +58,33 @@ Public Class XfrmValidarFirmas
             _folio = _drv.Row.Item("folio").ToString
             _pagina = _drv.Row.Item("pagina").ToString
             _maquina = _drv.Row.Item("maquina").ToString
+            Me.ImagenesFirmaTableAdapter.FillByMaquina(Me.DSConsultas.ImagenesFirma, Me.cbxPartido.SelectedValue.ToString, Me.cbxMovimiento.SelectedValue.ToString, _folio, _pagina, _maquina)
+            Me.ImagenesFirmaBindingSource.Filter = String.Empty
+
+            If _folio > 0 Then _filter = _filter & String.Format("FOLIO={0}", _folio)
+            If _pagina > 0 Then _filter = _filter & If(_filter <> String.Empty, " AND ", String.Empty) & String.Format("PAGINA={0}", _pagina)
+            If _maquina <> String.Empty Then _filter = _filter & If(_filter <> String.Empty, " AND ", String.Empty) & String.Format("MAQUINA='{0}'", _maquina)
+            Me.IMVVALIDARFIRMASBindingSource.Filter = _filter
+        Else
+            Me.ImagenesFirmaBindingSource.Filter = "1=0"
+            Me.IMVVALIDARFIRMASBindingSource.Filter = "1=0"
         End If
 
-        If _folio > 0 Then _filter = _filter & String.Format("FOLIO={0}", _folio)
-        If _pagina > 0 Then _filter = _filter & If(_filter <> String.Empty, " AND ", String.Empty) & String.Format("PAGINA={0}", _pagina)
-        If _maquina <> String.Empty Then _filter = _filter & If(_filter <> String.Empty, " AND ", String.Empty) & String.Format("MAQUINA='{0}'", _maquina)
-        Me.IMVVALIDARFIRMASBindingSource.Filter = _filter
 
-        Me.ImagenesFirmaTableAdapter.FillByMaquina(Me.DSConsultas.ImagenesFirma, Me.cbxPartido.SelectedValue.ToString, Me.cbxMovimiento.SelectedValue.ToString, _folio, _pagina, _maquina)
     End Sub
 
     Private Sub pbxFirma_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles pbxFirma.Click
-        Stop
+        If Me.pbxFirma.Image IsNot Nothing Then
+            Dim _drv As DataRowView = NavegacionBindingSource.Current
+
+            frmImagenFirmaModal.codigoPartido = Me.cbxPartido.SelectedValue.ToString
+            frmImagenFirmaModal.codigoMovimiento = Me.cbxMovimiento.SelectedValue.ToString
+            frmImagenFirmaModal.folio = _drv.Row.Item("folio").ToString
+            frmImagenFirmaModal.pagina = _drv.Row.Item("pagina").ToString
+            frmImagenFirmaModal.maquina = _drv.Row.Item("maquina").ToString
+            frmImagenFirmaModal.Titulo = String.Format("Folio: {0} Pagina: {1}", _drv.Row.Item("folio").ToString, _drv.Row.Item("pagina").ToString)
+            frmImagenFirmaModal.ShowDialog(Me)
+        End If
     End Sub
 
     Private Sub NavegacionBindingSource_CurrentChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles NavegacionBindingSource.CurrentChanged

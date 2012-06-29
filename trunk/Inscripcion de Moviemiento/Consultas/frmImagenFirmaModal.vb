@@ -2,8 +2,9 @@
 Public Class frmImagenFirmaModal
     Private _codigoPartido As Integer
     Private _codigoMovimiento As Integer
-    Private _codigoCandidato As Integer
-    Private _codigoRequisito As Integer
+    Private _folio As Integer
+    Private _pagina As Integer
+    Private _maquina As String
 
     Public WriteOnly Property codigoPartido() As Integer
         Set(ByVal value As Integer)
@@ -17,15 +18,21 @@ Public Class frmImagenFirmaModal
         End Set
     End Property
 
-    Public WriteOnly Property codigoCandidato() As Integer
+    Public WriteOnly Property folio() As Integer
         Set(ByVal value As Integer)
-            _codigoCandidato = value
+            _folio = value
         End Set
     End Property
 
-    Public WriteOnly Property codigoRequisito() As Integer
+    Public WriteOnly Property pagina() As Integer
         Set(ByVal value As Integer)
-            _codigoRequisito = value
+            _pagina = value
+        End Set
+    End Property
+
+    Public WriteOnly Property maquina() As String
+        Set(ByVal value As String)
+            _maquina = value
         End Set
     End Property
 
@@ -36,7 +43,7 @@ Public Class frmImagenFirmaModal
     End Property
 
     Private Sub frmImagenModal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Me.ImagenRequisitoTableAdapter.FillBy(Me.DSConsultas.imagenRequisito, _codigoCandidato, _codigoPartido, _codigoMovimiento, _codigoRequisito)
+        Me.ImagenesFirmaTableAdapter.FillByMaquina(Me.DSConsultas.ImagenesFirma, _codigoPartido, _codigoMovimiento, _folio, _pagina, _maquina)
     End Sub
 
     Private Sub btnCancel_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnCancel.Click
