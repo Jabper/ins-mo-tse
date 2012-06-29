@@ -1982,17 +1982,16 @@ Namespace DS_PLANILLA_TOTALESTableAdapters
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        A.IDENTIDAD, A.NOMBRE, A.APELLIDO, A.CARGO, A.IMAGEN, PAR.IMAGEN AS"& _ 
-                " PAR, MOV.EMBLEMA AS MOV, DEP.DESCRIPCION ""DEPARTAMENTO"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_M"& _ 
-                "OSTRAR_CANDIDATOS2 a, IM_CANDIDATOS c, IM_CARGOS_ELECTIVOS ca, IM_NIVEL_ELECTIVO"& _ 
-                " NE, IM_PARTIDOS_POLITICOS PAR, Im_departamentos dep,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         "& _ 
-                "IM_MOVIMIENTOS MOV"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (A.CODIGO_CANDIDATOS = C.CODIGO_CANDIDATOS) AND"& _ 
-                " (C.ESTADO = 'H') AND (A.partido = :p) AND (A.nombre_movimiento = :m) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
-                "                     (A.CODIGO_CARGO_ELECTIVO = CA.CODIGO_CARGO_ELECTIVO) AND (C"& _ 
-                "A.CODIGO_NIVEL_ELECTIVO = 1) AND (NE.DESCRIPCION = :NE) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
-                "       (CA.CODIGO_NIVEL_ELECTIVO = NE.CODIGO_NIVEL_ELECTIVO) AND (A.CODIGO_PARTI"& _ 
-                "DO = PAR.CODIGO_PARTIDO) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (A.CODIGO_MOVIMIENTO = M"& _ 
-                "OV.CODIGO_MOVIMIENTO) and (A.CODIGO_DEPARTAMENTO = DEP.CODIGO_DEPARTAMENTO) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" a"& _ 
-                "nd (DEP.DESCRIPCION =:dep)"
+                " PAR, MOV.INSIGNIA AS MOV, DEP.DESCRIPCION ""DEPARTAMENTO"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_"& _ 
+                "MOSTRAR_CANDIDATOS2 a, IM_CANDIDATOS c, IM_CARGOS_ELECTIVOS ca, IM_NIVEL_ELECTIV"& _ 
+                "O NE, IM_PARTIDOS_POLITICOS PAR, Im_departamentos dep,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                        "& _ 
+                " IM_MOVIMIENTOS MOV"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (A.CODIGO_CANDIDATOS = C.CODIGO_CANDIDATOS) AN"& _ 
+                "D (A.partido = :p) AND (A.nombre_movimiento = :m) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                        "& _ 
+                " (A.CODIGO_CARGO_ELECTIVO = CA.CODIGO_CARGO_ELECTIVO)  AND (NE.DESCRIPCION = :NE"& _ 
+                ") AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (CA.CODIGO_NIVEL_ELECTIVO = NE.CODIGO_NIVEL_ELE"& _ 
+                "CTIVO) AND (A.CODIGO_PARTIDO = PAR.CODIGO_PARTIDO) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
+                "  (A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO) and (A.CODIGO_DEPARTAMENTO = DEP"& _ 
+                ".CODIGO_DEPARTAMENTO) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND (DEP.DESCRIPCION =:dep)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p", Global.System.Data.OracleClient.OracleType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, "", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("m", Global.System.Data.OracleClient.OracleType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, "", Global.System.Data.DataRowVersion.Current, false, Nothing))

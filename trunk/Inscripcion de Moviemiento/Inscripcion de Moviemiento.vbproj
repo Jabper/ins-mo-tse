@@ -19,6 +19,7 @@
     <OptionStrict>Off</OptionStrict>
     <OptionInfer>On</OptionInfer>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ApplicationIcon>tse.ico</ApplicationIcon>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -33,7 +34,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <ApplicationIcon>tse.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -308,6 +308,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="General\DS_Motivos.vb">
+      <DependentUpon>DS_Motivos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="General\XfrmPartidos.Designer.vb">
       <DependentUpon>XfrmPartidos.vb</DependentUpon>
     </Compile>
@@ -357,6 +360,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_LOG.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DS_PLANILLA_TOTALES.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_PLANILLA_TOTALES.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reportes\DS_REPORTE_CANDIDATOS.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -1278,6 +1286,17 @@
     <None Include="Reportes\DS_LOG.xss">
       <DependentUpon>DS_LOG.xsd</DependentUpon>
     </None>
+    <None Include="Reportes\DS_PLANILLA_TOTALES.xsc">
+      <DependentUpon>DS_PLANILLA_TOTALES.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_PLANILLA_TOTALES.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_PLANILLA_TOTALES.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DS_PLANILLA_TOTALES.xss">
+      <DependentUpon>DS_PLANILLA_TOTALES.xsd</DependentUpon>
+    </None>
     <None Include="Reportes\DS_REPORTE_CANDIDATOS.xsc">
       <DependentUpon>DS_REPORTE_CANDIDATOS.xsd</DependentUpon>
     </None>
@@ -1410,6 +1429,38 @@
       <DependentUpon>DSConsultas.xsd</DependentUpon>
     </None>
     <None Include="Resources\motivo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="DevExpress.Printing.v11.2.Core">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraCharts.v11.2">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.XtraReports.v11.2">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

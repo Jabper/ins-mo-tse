@@ -28,6 +28,10 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         Me.TopMargin = New DevExpress.XtraReports.UI.TopMarginBand
         Me.BottomMargin = New DevExpress.XtraReports.UI.BottomMarginBand
         Me.ReportHeader = New DevExpress.XtraReports.UI.ReportHeaderBand
+        Me.total_dips = New DevExpress.XtraReports.UI.XRLabel
+        Me.total_dipp = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel30 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel29 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrPictureBox3 = New DevExpress.XtraReports.UI.XRPictureBox
         Me.XrPictureBox2 = New DevExpress.XtraReports.UI.XRPictureBox
         Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel
@@ -80,6 +84,7 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         Me.IM_CANDIDATOSTableAdapter = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_CANDIDATOSTableAdapter
         Me.nivel = New DevExpress.XtraReports.Parameters.Parameter
         Me.NombreDep = New DevExpress.XtraReports.Parameters.Parameter
+        Me.XrLine1 = New DevExpress.XtraReports.UI.XRLine
         CType(Me.DS_PLANILLA_TOTALES1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
@@ -152,9 +157,49 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         '
         'ReportHeader
         '
-        Me.ReportHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrPictureBox3, Me.XrPictureBox2, Me.XrLabel1, Me.XrLabel6, Me.total, Me.XrLabel3, Me.totalpp, Me.XrLabel4, Me.XrLabel5, Me.totalpre, Me.XrLabel2, Me.totalde, Me.XrLabel7, Me.totalsp, Me.XrLabel9, Me.total_presidencial, Me.XrLabel11, Me.total_general, Me.XrLabel12, Me.XrLabel13, Me.total_designado, Me.XrLabel14, Me.totalparp, Me.XrLabel15, Me.totalpars, Me.XrLabel25, Me.XrLabel26, Me.totaldipup, Me.XrLabel28, Me.totaldipus})
-        Me.ReportHeader.HeightF = 421.875!
+        Me.ReportHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.total_dips, Me.total_dipp, Me.XrLabel30, Me.XrLabel29, Me.XrPictureBox3, Me.XrPictureBox2, Me.XrLabel1, Me.XrLabel6, Me.total, Me.XrLabel3, Me.totalpp, Me.XrLabel4, Me.XrLabel5, Me.totalpre, Me.XrLabel2, Me.totalde, Me.XrLabel7, Me.totalsp, Me.XrLabel9, Me.total_presidencial, Me.XrLabel11, Me.total_general, Me.XrLabel12, Me.XrLabel13, Me.total_designado, Me.XrLabel14, Me.totalparp, Me.XrLabel15, Me.totalpars, Me.XrLabel25, Me.XrLabel26, Me.totaldipup, Me.XrLabel28, Me.totaldipus})
+        Me.ReportHeader.HeightF = 489.5833!
         Me.ReportHeader.Name = "ReportHeader"
+        '
+        'total_dips
+        '
+        Me.total_dips.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.total_dips.LocationFloat = New DevExpress.Utils.PointFloat(930.0416!, 420.875!)
+        Me.total_dips.Name = "total_dips"
+        Me.total_dips.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.total_dips.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.total_dips.StylePriority.UseFont = False
+        Me.total_dips.Text = "total_dips"
+        '
+        'total_dipp
+        '
+        Me.total_dipp.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.total_dipp.LocationFloat = New DevExpress.Utils.PointFloat(930.0416!, 397.875!)
+        Me.total_dipp.Name = "total_dipp"
+        Me.total_dipp.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.total_dipp.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.total_dipp.StylePriority.UseFont = False
+        Me.total_dipp.Text = "total_dipp"
+        '
+        'XrLabel30
+        '
+        Me.XrLabel30.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel30.LocationFloat = New DevExpress.Utils.PointFloat(566.2499!, 420.875!)
+        Me.XrLabel30.Name = "XrLabel30"
+        Me.XrLabel30.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel30.SizeF = New System.Drawing.SizeF(353.1249!, 23.0!)
+        Me.XrLabel30.StylePriority.UseFont = False
+        Me.XrLabel30.Text = "Diputados(a) Suplentes al Congreso Nacional:"
+        '
+        'XrLabel29
+        '
+        Me.XrLabel29.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel29.LocationFloat = New DevExpress.Utils.PointFloat(566.2499!, 397.875!)
+        Me.XrLabel29.Name = "XrLabel29"
+        Me.XrLabel29.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel29.SizeF = New System.Drawing.SizeF(353.1249!, 23.0!)
+        Me.XrLabel29.StylePriority.UseFont = False
+        Me.XrLabel29.Text = "Diputados(a) Propietarios al Congreso Nacional:"
         '
         'XrPictureBox3
         '
@@ -412,7 +457,7 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         'XrLabel25
         '
         Me.XrLabel25.Font = New System.Drawing.Font("Times New Roman", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
-        Me.XrLabel25.LocationFloat = New DevExpress.Utils.PointFloat(53.75002!, 323.9167!)
+        Me.XrLabel25.LocationFloat = New DevExpress.Utils.PointFloat(56.87501!, 359.3333!)
         Me.XrLabel25.Name = "XrLabel25"
         Me.XrLabel25.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel25.SizeF = New System.Drawing.SizeF(302.0833!, 23.00002!)
@@ -424,7 +469,7 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         'XrLabel26
         '
         Me.XrLabel26.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel26.LocationFloat = New DevExpress.Utils.PointFloat(10.00004!, 362.4583!)
+        Me.XrLabel26.LocationFloat = New DevExpress.Utils.PointFloat(13.12502!, 397.875!)
         Me.XrLabel26.Name = "XrLabel26"
         Me.XrLabel26.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel26.SizeF = New System.Drawing.SizeF(433.3333!, 23.0!)
@@ -434,7 +479,7 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         'totaldipup
         '
         Me.totaldipup.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.totaldipup.LocationFloat = New DevExpress.Utils.PointFloat(443.3334!, 362.4583!)
+        Me.totaldipup.LocationFloat = New DevExpress.Utils.PointFloat(446.4584!, 397.875!)
         Me.totaldipup.Name = "totaldipup"
         Me.totaldipup.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.totaldipup.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
@@ -444,7 +489,7 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         'XrLabel28
         '
         Me.XrLabel28.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel28.LocationFloat = New DevExpress.Utils.PointFloat(10.00004!, 385.4584!)
+        Me.XrLabel28.LocationFloat = New DevExpress.Utils.PointFloat(13.12502!, 420.8751!)
         Me.XrLabel28.Name = "XrLabel28"
         Me.XrLabel28.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel28.SizeF = New System.Drawing.SizeF(433.3333!, 23.00003!)
@@ -454,7 +499,7 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         'totaldipus
         '
         Me.totaldipus.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.totaldipus.LocationFloat = New DevExpress.Utils.PointFloat(443.3333!, 385.4584!)
+        Me.totaldipus.LocationFloat = New DevExpress.Utils.PointFloat(446.4583!, 420.8751!)
         Me.totaldipus.Name = "totaldipus"
         Me.totaldipus.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.totaldipus.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
@@ -463,7 +508,7 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         '
         'PageHeader
         '
-        Me.PageHeader.HeightF = 59.375!
+        Me.PageHeader.HeightF = 22.91667!
         Me.PageHeader.Name = "PageHeader"
         Me.PageHeader.PrintOn = DevExpress.XtraReports.UI.PrintOnPages.NotWithReportHeader
         '
@@ -475,16 +520,18 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         'GroupHeader1
         '
         Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.ndepartamento, Me.XrLabel27, Me.nivelelectivo, Me.XrLabel24, Me.movimientopolitico, Me.XrLabel10, Me.partidopolitico, Me.XrLabel8})
-        Me.GroupHeader1.HeightF = 153.125!
+        Me.GroupHeader1.HeightF = 238.5417!
         Me.GroupHeader1.Level = 1
         Me.GroupHeader1.Name = "GroupHeader1"
         '
         'ndepartamento
         '
+        Me.ndepartamento.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ndepartamento.LocationFloat = New DevExpress.Utils.PointFloat(253.75!, 79.00003!)
         Me.ndepartamento.Name = "ndepartamento"
         Me.ndepartamento.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.ndepartamento.SizeF = New System.Drawing.SizeF(442.7083!, 23.0!)
+        Me.ndepartamento.SizeF = New System.Drawing.SizeF(590.6246!, 23.00002!)
+        Me.ndepartamento.StylePriority.UseFont = False
         Me.ndepartamento.Text = "ndepartamento"
         '
         'XrLabel27
@@ -564,8 +611,8 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         '
         'GroupHeader2
         '
-        Me.GroupHeader2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel23, Me.XrLabel21, Me.XrLabel19, Me.XrLabel17, Me.XrLabel16})
-        Me.GroupHeader2.HeightF = 36.45835!
+        Me.GroupHeader2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel23, Me.XrLabel21, Me.XrLabel19, Me.XrLabel17, Me.XrLabel16, Me.XrLine1})
+        Me.GroupHeader2.HeightF = 48.70835!
         Me.GroupHeader2.Name = "GroupHeader2"
         '
         'XrLabel23
@@ -645,6 +692,13 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         Me.NombreDep.Description = "Departamento"
         Me.NombreDep.Name = "NombreDep"
         '
+        'XrLine1
+        '
+        Me.XrLine1.LineWidth = 2
+        Me.XrLine1.LocationFloat = New DevExpress.Utils.PointFloat(9.999998!, 32.99999!)
+        Me.XrLine1.Name = "XrLine1"
+        Me.XrLine1.SizeF = New System.Drawing.SizeF(1041.0!, 15.70835!)
+        '
         'REPORTE_PLANILLAS_FINALES
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.ReportHeader, Me.PageHeader, Me.GroupHeader1, Me.GroupHeader2})
@@ -722,5 +776,10 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
     Friend WithEvents NombreDep As DevExpress.XtraReports.Parameters.Parameter
     Friend WithEvents ndepartamento As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel27 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents total_dips As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents total_dipp As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel30 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel29 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLine1 As DevExpress.XtraReports.UI.XRLine
     '   Friend WithEvents IM_CANDIDATOSTableAdapter As Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_CANDIDATOSTableAdapter
 End Class
