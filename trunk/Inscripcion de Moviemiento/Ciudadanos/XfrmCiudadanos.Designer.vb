@@ -691,7 +691,7 @@ Partial Class XfrmCiudadanos
         '
         'colFIRMA
         '
-        Me.colFIRMA.Caption = "Firma"
+        Me.colFIRMA.Caption = "(*) Firma"
         Me.colFIRMA.ColumnEdit = Me.RIChkFima
         Me.colFIRMA.FieldName = "FIRMA"
         Me.colFIRMA.Name = "colFIRMA"
@@ -710,7 +710,7 @@ Partial Class XfrmCiudadanos
         '
         'colHUELLA
         '
-        Me.colHUELLA.Caption = "Huella"
+        Me.colHUELLA.Caption = "(*) Huella"
         Me.colHUELLA.ColumnEdit = Me.RIChkFima
         Me.colHUELLA.FieldName = "HUELLA"
         Me.colHUELLA.Name = "colHUELLA"

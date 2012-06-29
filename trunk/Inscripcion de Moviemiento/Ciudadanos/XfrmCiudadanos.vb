@@ -46,11 +46,12 @@ Public Class XfrmCiudadanos
                 'Data.ConvertImageToByteArray(Me.Imgimagen.EditValue)
 
                 Dim sqlstring As String
-                sqlstring = "INSERT INTO IM_IMAGENES_FIRMAS ( CODIGO_PARTIDO,CODIGO_MOVIMIENTO,PAGINA,FOLIO,IMAGEN) VALUES(:idp,:idmov,:pag,:folio,:imagen)"
+                sqlstring = "INSERT INTO IM_IMAGENES_FIRMAS ( CODIGO_PARTIDO,CODIGO_MOVIMIENTO,PAGINA,FOLIO,IMAGEN,MAQUINA) VALUES(:idp,:idmov,:pag,:folio,:imagen,:maq)"
                 Dim cmd As New OracleCommand(sqlstring, cnx)
                 cmd.Parameters.Add(":idp", OracleType.Number, 2).Value = idpartido
                 cmd.Parameters.Add(":idmov", OracleType.Number, 3).Value = idmovimiento
                 cmd.Parameters.Add(":pag", OracleType.Number).Value = pagina
+                cmd.Parameters.Add(":maq", OracleType.Number).Value = SystemInformation.ComputerName
                 If folio = "" Or folio Is Nothing Then
                     cmd.Parameters.Add(":folio", OracleType.Number).Value = DBNull.Value
                 Else
@@ -385,8 +386,9 @@ Public Class XfrmCiudadanos
                     NombreIgual = "N"
                     Observacion &= " El primer nombre no coincide con el del padrón electoral "
                     'COMPROBANDO EL SEGUNDO NOMBRE
+                End If
 
-                ElseIf papellido <> COracle.ObtenerDatos(consulta, "PRIMER_APELLIDO") Then
+                If papellido <> COracle.ObtenerDatos(consulta, "PRIMER_APELLIDO") Then
                     inconsistente = "N"
                     NombreIgual = "N"
                     Observacion &= " El primer apellido no coincide con el del padrón electoral "
@@ -412,19 +414,19 @@ Public Class XfrmCiudadanos
                     Observacion &= " El segundo apellido no coincide con el del padrón electoral "
                 End If
 
-                If view.GetRowCellValue(view.FocusedRowHandle, "FIRMA") Is Nothing Or IsDBNull(view.GetRowCellValue(view.FocusedRowHandle, "FIRMA")) Or view.GetRowCellValue(view.FocusedRowHandle, "FIRMA").ToString = "N" Then
+                If view.GetRowCellValue(i, "FIRMA") Is Nothing Or IsDBNull(view.GetRowCellValue(i, "FIRMA")) Or view.GetRowCellValue(i, "FIRMA").ToString = "N" Then
                     inconsistente = "N"
 
                     Observacion &= " No presenta firma "
                 End If
 
-                If view.GetRowCellValue(view.FocusedRowHandle, "HUELLA") Is Nothing Or IsDBNull(view.GetRowCellValue(view.FocusedRowHandle, "HUELLA")) Or view.GetRowCellValue(view.FocusedRowHandle, "HUELLA").ToString = "N" Then
+                If view.GetRowCellValue(i, "HUELLA") Is Nothing Or IsDBNull(view.GetRowCellValue(i, "HUELLA")) Or view.GetRowCellValue(i, "HUELLA").ToString = "N" Then
                     inconsistente = "N"
 
                     Observacion &= " No presenta huella "
                 End If
 
-                If view.GetRowCellValue(view.FocusedRowHandle, "DIRECCION") Is Nothing Or IsDBNull(view.GetRowCellValue(view.FocusedRowHandle, "DIRECCION")) Or view.GetRowCellValue(view.FocusedRowHandle, "DIRECCION").ToString = "N" Then
+                If view.GetRowCellValue(i, "DIRECCION") Is Nothing Or IsDBNull(view.GetRowCellValue(i, "DIRECCION")) Or view.GetRowCellValue(i, "DIRECCION").ToString = "N" Then
                     inconsistente = "N"
 
                     Observacion &= " No presenta dirección "

@@ -119,8 +119,9 @@
   </resheader>
   <data name="Label1.Text" xml:space="preserve">
     <value>Los campos marcados con (*)  son requeridos
-Solo se guardarán los registros en los cuales los campos requeridos estén ingresados correctamente,
-si estan incompletos aunque contengan información se tomarán como nulos o inexistentes
+Solo  se  guardarán los  registros en los cuales los campos  requeridos  estén ingresados 
+correctamente, si estan incompletos aunque contengan información se tomarán como 
+nulos o inexistentes
 </value>
   </data>
   <metadata name="TAMUNICIPIOSBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
