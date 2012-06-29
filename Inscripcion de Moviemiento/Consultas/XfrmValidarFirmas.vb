@@ -22,16 +22,21 @@ Public Class XfrmValidarFirmas
     End Sub
 
     Private Sub FillGrid()
-        Dim _filter As String = String.Empty
 
-        Me.IM_V_VALIDAR_FIRMASTableAdapter.FillBy(Me.DSConsultas.IM_V_VALIDAR_FIRMAS, Me.cbxPartido.SelectedValue.ToString, Me.cbxMovimiento.SelectedValue.ToString, _
-                                                  Me.cbxDepartamento.SelectedValue.ToString, Me.cbxMunicipio.SelectedValue.ToString)
-        Me.NavegacionTableAdapter.FillBy(Me.DSConsultas.Navegacion, Me.cbxPartido.SelectedValue.ToString, Me.cbxMovimiento.SelectedValue.ToString, _
-                                         Me.cbxDepartamento.SelectedValue.ToString, Me.cbxMunicipio.SelectedValue.ToString)
-        If Me.txtFolio.Text <> "0" AndAlso Me.txtFolio.Text <> String.Empty Then _filter = _filter & String.Format("FOLIO={0}", Me.txtFolio.Text)
-        If Me.txtPagina.Text <> "0" AndAlso Me.txtPagina.Text <> String.Empty Then _filter = _filter & If(_filter <> String.Empty, " AND ", String.Empty) & String.Format("PAGINA={0}", Me.txtPagina.Text)
-        Me.NavegacionBindingSource.Filter = _filter
-        setFilter()
+        Try
+            Dim _filter As String = String.Empty
+
+            Me.IM_V_VALIDAR_FIRMASTableAdapter.FillBy(Me.DSConsultas.IM_V_VALIDAR_FIRMAS, Me.cbxPartido.SelectedValue.ToString, Me.cbxMovimiento.SelectedValue.ToString, _
+                                                      Me.cbxDepartamento.SelectedValue.ToString, Me.cbxMunicipio.SelectedValue.ToString)
+            Me.NavegacionTableAdapter.FillBy(Me.DSConsultas.Navegacion, Me.cbxPartido.SelectedValue.ToString, Me.cbxMovimiento.SelectedValue.ToString, _
+                                             Me.cbxDepartamento.SelectedValue.ToString, Me.cbxMunicipio.SelectedValue.ToString)
+            If Me.txtFolio.Text <> "0" AndAlso Me.txtFolio.Text <> String.Empty Then _filter = _filter & String.Format("FOLIO={0}", Me.txtFolio.Text)
+            If Me.txtPagina.Text <> "0" AndAlso Me.txtPagina.Text <> String.Empty Then _filter = _filter & If(_filter <> String.Empty, " AND ", String.Empty) & String.Format("PAGINA={0}", Me.txtPagina.Text)
+            Me.NavegacionBindingSource.Filter = _filter
+            setFilter()
+        Catch ex As Exception
+            Mensajes.mimensaje(ex.Message)
+        End Try
 
     End Sub
 
