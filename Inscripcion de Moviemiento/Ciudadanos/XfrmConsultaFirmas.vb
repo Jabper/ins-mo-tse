@@ -115,7 +115,7 @@ Public Class XfrmConsultaFirmas
         If ActivarOpciones.PEstado = "PDO" Then
             Dim idp As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
             Me.CmbPartido.Enabled = False
-
+            Me.btnfirmas.Visible = True
 
             'Partido
             Dim p As Integer = Me.CmbPartido.Properties.GetDataSourceRowIndex(Me.CmbPartido.Properties.Columns("CODIGO_PARTIDO"), idp)
@@ -133,7 +133,7 @@ Public Class XfrmConsultaFirmas
 
             Me.CmbPartido.Enabled = False
             Me.CmbMovimiento.Enabled = False
-
+            Me.btnfirmas.Visible = False
             'Partido
             Dim p As Integer = Me.CmbPartido.Properties.GetDataSourceRowIndex(Me.CmbPartido.Properties.Columns("CODIGO_PARTIDO"), idp)
             CmbPartido.EditValue = Me.CmbPartido.Properties.GetDataSourceValue(CmbPartido.Properties.ValueMember, p)
@@ -150,12 +150,13 @@ Public Class XfrmConsultaFirmas
             '******************Ventana de espera
             Dim waitDialog As New WaitDialogForm("Obteniendo Información", "Por favor espere..")
 
-            Me.MOSTRAR_FIRMASTableAdapter.FillBy(Me.DSCiudadanos.MOSTRAR_FIRMAS, idp, idmov)
+            Me.MOSTRAR_FIRMAS1TableAdapter.FillBy(Me.DSCiudadanos.MOSTRAR_FIRMAS1, idp, idmov)
             waitDialog.Caption = "finalizando..."
             waitDialog.Close()
             estadistico(idp, idmov)
         Else
             limpiar()
+            Me.btnfirmas.Visible = True
         End If
     End Sub
 
@@ -164,6 +165,8 @@ Public Class XfrmConsultaFirmas
 
 
     Private Sub XfrmCiudadanos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        'TODO: This line of code loads data into the 'DSCiudadanos.MOSTRAR_FIRMAS1' table. You can move, or remove it, as needed.
+        'Me.MOSTRAR_FIRMAS1TableAdapter.Fill(Me.DSCiudadanos.MOSTRAR_FIRMAS1)
         'idmovimiento = COracle.ObtenerDatos("SELECT * FROM IM_PARAMETROS_GENERALES", "CODIGO_MOVIMIENTO")
 
         'Dim ip As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
@@ -219,8 +222,9 @@ Public Class XfrmConsultaFirmas
                     NombreIgual = "N"
                     Observacion &= " El primer nombre no coincide con el del padrón electoral "
                     'COMPROBANDO EL SEGUNDO NOMBRE
+                End If
 
-                ElseIf papellido <> COracle.ObtenerDatos(consulta, "PRIMER_APELLIDO") Then
+                If papellido <> COracle.ObtenerDatos(consulta, "PRIMER_APELLIDO") Then
                     inconsistente = "N"
                     NombreIgual = "N"
                     Observacion &= " El primer apellido no coincide con el del padrón electoral "
@@ -232,15 +236,15 @@ Public Class XfrmConsultaFirmas
                 Dim SNOMBRE As String = view.GetRowCellValue(i, "SEGUNDO_NOMBRE_PAPELETA").ToString.Trim
                 Dim SAPELLIDO As String = view.GetRowCellValue(i, "SEGUNDO_APELLIDO_PAPELETA").ToString.Trim
 
-                If COracle.ObtenerDatos(consulta, "SEGUNDO_NOMBRE") = SNOMBRE Then
-                Else
+                If COracle.ObtenerDatos(consulta, "SEGUNDO_NOMBRE") <> SNOMBRE Then
+
                     inconsistente = "N"
                     NombreIgual = "N"
                     Observacion &= " El segundo nombre no coincide con el del padrón electoral "
                 End If
 
-                If COracle.ObtenerDatos(consulta, "SEGUNDO_APELLIDO") = SAPELLIDO Then
-                Else
+                If COracle.ObtenerDatos(consulta, "SEGUNDO_APELLIDO") <> SAPELLIDO Then
+
                     inconsistente = "N"
                     NombreIgual = "N"
                     Observacion &= " El segundo apellido no coincide con el del padrón electoral "
@@ -455,34 +459,56 @@ Public Class XfrmConsultaFirmas
 
 
     Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton1.Click
+        filtroGrid()
+        'If ActivarOpciones.PEstado = "PDO" Then
 
-        If ActivarOpciones.PEstado = "PDO" Then
+        '    If Me.CmbMovimiento.EditValue Is Nothing Or IsDBNull(Me.CmbMovimiento.EditValue) Or Me.CmbMovimiento.Text = "Seleccione" Then
+        '        Mensajes.mimensaje("Para filtrar la información primero seleccione un movimiento")
+        '    Else
+        '        Dim waitDialog As New WaitDialogForm("Obteniendo Información", "Por favor espere..")
 
-            If Me.CmbMovimiento.EditValue Is Nothing Or IsDBNull(Me.CmbMovimiento.EditValue) Or Me.CmbMovimiento.Text = "Seleccione" Then
-                Mensajes.mimensaje("Para filtrar la información primero seleccione un movimiento")
-            Else
+        '        Me.MOSTRAR_FIRMASTableAdapter.FillBy(Me.DSCiudadanos.MOSTRAR_FIRMAS, Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
+        '        waitDialog.Caption = "finalizando..."
+        '        waitDialog.Close()
+        '        estadistico(Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
 
-                filtroGrid()
-            End If
+        '        filtroGrid()
+        '    End If
 
-        ElseIf ActivarOpciones.PEstado = "MOV" Then
-            filtroGrid()
+        'ElseIf ActivarOpciones.PEstado = "MOV" Then
+        '    filtroGrid()
 
-        ElseIf ActivarOpciones.PEstado = "TSE" Then
-            If Me.CmbPartido.EditValue Is Nothing Or IsDBNull(Me.CmbPartido.EditValue) Or Me.CmbPartido.Text = "Seleccione" Then
-                Mensajes.mimensaje("Para filtrar la información primero seleccione un Partido Político")
+        'ElseIf ActivarOpciones.PEstado = "TSE" Then
+        '    If Me.CmbPartido.EditValue Is Nothing Or IsDBNull(Me.CmbPartido.EditValue) Or Me.CmbPartido.Text = "Seleccione" Then
+        '        Mensajes.mimensaje("Para filtrar la información primero seleccione un Partido Político")
 
-            ElseIf Me.CmbMovimiento.EditValue Is Nothing Or IsDBNull(Me.CmbMovimiento.EditValue) Or Me.CmbMovimiento.Text = "Seleccione" Then
-                Mensajes.mimensaje("Para filtrar la información primero seleccione un movimiento")
-            Else
-                filtroGrid()
+        '    ElseIf Me.CmbMovimiento.EditValue Is Nothing Or IsDBNull(Me.CmbMovimiento.EditValue) Or Me.CmbMovimiento.Text = "Seleccione" Then
+        '        Mensajes.mimensaje("Para filtrar la información primero seleccione un movimiento")
+        '    Else
+        '        Dim waitDialog As New WaitDialogForm("Obteniendo Información", "Por favor espere..")
 
-            End If
+        '        Me.MOSTRAR_FIRMASTableAdapter.FillBy(Me.DSCiudadanos.MOSTRAR_FIRMAS, Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
+        '        waitDialog.Caption = "finalizando..."
+        '        waitDialog.Close()
+        '        estadistico(Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
 
-        End If
+        '        filtroGrid()
+
+        '    End If
+
+        'End If
 
 
+        'Try
+        '    If CmbMovimiento.Text = "Seleccione" Or CmbMovimiento.EditValue Is Nothing Then
 
+        '    Else
+        '        If ActivarOpciones.PEstado = "PDO" Or ActivarOpciones.PEstado = "TSE" Then
+        '       End If
+        '    End If
+        'Catch ex As Exception
+
+        'End Try
 
 
     End Sub
@@ -622,23 +648,8 @@ Public Class XfrmConsultaFirmas
         End Try
     End Sub
 
-    Private Sub CmbMovimiento_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CmbMovimiento.EditValueChanged
-        Try
-            If CmbMovimiento.Text = "Seleccione" Or CmbMovimiento.EditValue Is Nothing Then
+    Private Sub CmbMovimiento_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
-            Else
-                If ActivarOpciones.PEstado = "PDO" Or ActivarOpciones.PEstado = "TSE" Then
-                    Dim waitDialog As New WaitDialogForm("Obteniendo Información", "Por favor espere..")
-
-                    Me.MOSTRAR_FIRMASTableAdapter.FillBy(Me.DSCiudadanos.MOSTRAR_FIRMAS, Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
-                    waitDialog.Caption = "finalizando..."
-                    waitDialog.Close()
-                    estadistico(Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
-                End If
-            End If
-        Catch ex As Exception
-
-        End Try
     End Sub
 
 
@@ -703,5 +714,58 @@ Public Class XfrmConsultaFirmas
 
     Private Sub GCBusqueda_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GCBusqueda.Click
 
+    End Sub
+
+    Private Sub CmbMovimiento_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs)
+
+    End Sub
+
+    Private Sub btnfirmas_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnfirmas.Click
+
+        If ActivarOpciones.PEstado = "PDO" Then
+
+            If Me.CmbMovimiento.EditValue Is Nothing Or IsDBNull(Me.CmbMovimiento.EditValue) Or Me.CmbMovimiento.Text = "Seleccione" Then
+                Mensajes.mimensaje("Para filtrar la información primero seleccione un movimiento")
+            Else
+                'If COracle.ObtenerDatos("SELECT * FROM  IM_CIUDADANOS_RESPALDAN WHERE CODIGO_PARTIDO=" & Me.CmbPartido.EditValue & " AND CODIGO_MOVIMIENTO=" & Me.CmbMovimiento.EditValue, "CODIGO_PARTIDO") = "N" Then
+
+                '    GCBusqueda.DataSource = Nothing
+                'Else
+                GCBusqueda.DataSource = Me.MOSTRARFIRMASBindingSource
+                Dim waitDialog As New WaitDialogForm("Obteniendo Información", "Por favor espere..")
+                Me.MOSTRAR_FIRMAS1TableAdapter.FillBy(Me.DSCiudadanos.MOSTRAR_FIRMAS1, Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
+                waitDialog.Caption = "finalizando..."
+                waitDialog.Close()
+                estadistico(Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
+
+                'End If
+            End If
+
+        ElseIf ActivarOpciones.PEstado = "MOV" Then
+
+
+        ElseIf ActivarOpciones.PEstado = "TSE" Then
+        If Me.CmbPartido.EditValue Is Nothing Or IsDBNull(Me.CmbPartido.EditValue) Or Me.CmbPartido.Text = "Seleccione" Then
+            Mensajes.mimensaje("Para filtrar la información primero seleccione un Partido Político")
+
+        ElseIf Me.CmbMovimiento.EditValue Is Nothing Or IsDBNull(Me.CmbMovimiento.EditValue) Or Me.CmbMovimiento.Text = "Seleccione" Then
+            Mensajes.mimensaje("Para filtrar la información primero seleccione un movimiento")
+        Else
+                'If COracle.ObtenerDatos("SELECT * FROM  IM_CIUDADANOS_RESPALDAN WHERE CODIGO_PARTIDO=" & Me.CmbPartido.EditValue & " AND CODIGO_MOVIMIENTO=" & Me.CmbMovimiento.EditValue, "CODIGO_PARTIDO") = "N" Then
+                '    GCBusqueda.DataSource = Nothing
+                'Else
+                GCBusqueda.DataSource = Me.MOSTRARFIRMASBindingSource
+                Dim waitDialog As New WaitDialogForm("Obteniendo Información", "Por favor espere..")
+
+                Me.MOSTRAR_FIRMAS1TableAdapter.FillBy(Me.DSCiudadanos.MOSTRAR_FIRMAS1, Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
+                waitDialog.Caption = "finalizando..."
+                waitDialog.Close()
+                estadistico(Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
+
+                'End If
+
+        End If
+
+            End If
     End Sub
 End Class
