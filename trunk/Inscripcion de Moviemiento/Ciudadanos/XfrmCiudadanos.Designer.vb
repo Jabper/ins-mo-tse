@@ -704,6 +704,7 @@ Partial Class XfrmCiudadanos
         Me.RIChkFima.AutoHeight = False
         Me.RIChkFima.Name = "RIChkFima"
         Me.RIChkFima.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
+        Me.RIChkFima.NullText = "N"
         Me.RIChkFima.ValueChecked = "S"
         Me.RIChkFima.ValueGrayed = "N"
         Me.RIChkFima.ValueUnchecked = "N"
