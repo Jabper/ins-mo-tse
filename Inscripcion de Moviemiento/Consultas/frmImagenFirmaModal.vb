@@ -43,7 +43,10 @@ Public Class frmImagenFirmaModal
     End Property
 
     Private Sub frmImagenModal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Me.ImagenesFirmaTableAdapter.FillByMaquina(Me.DSConsultas.ImagenesFirma, _codigoPartido, _codigoMovimiento, _folio, _pagina, _maquina)
+        Dim _filter As String = String.Empty
+        If _folio > 0 Then _filter = _filter & String.Format("FOLIO={0}", _folio)
+        Me.ImagenesFirmaTableAdapter.FillByMaquina(Me.DSConsultas.ImagenesFirma, _codigoPartido, _codigoMovimiento, _pagina, _maquina)
+        Me.ImagenesFirmaBindingSource.Filter = _filter
     End Sub
 
     Private Sub btnCancel_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnCancel.Click
