@@ -40,9 +40,6 @@ Partial Class XfrmValidarFirmas
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.colIDENTIDAD = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colPRIMER_NOMBRE_PAPELETA = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colSEGUNDO_NOMBRE_PAPELETA = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colPRIMER_APELLIDO_PAPELETA = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colSEGUNDO_APELLIDO_PAPELETA = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colFIRMA = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RepositoryItemCheckEdit = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
         Me.colHUELLA = New DevExpress.XtraGrid.Columns.GridColumn
@@ -51,6 +48,7 @@ Partial Class XfrmValidarFirmas
         Me.colFOLIO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colPAGINA = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colOBSERVACION = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.RepositoryItemMemoEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit
         Me.colVALIDADO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
         Me.colMAQUINA = New DevExpress.XtraGrid.Columns.GridColumn
@@ -94,6 +92,7 @@ Partial Class XfrmValidarFirmas
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemCheckEdit, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemMemoEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -199,7 +198,7 @@ Partial Class XfrmValidarFirmas
         Me.GCBusqueda.Location = New System.Drawing.Point(294, 240)
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
-        Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit, Me.RepositoryItemCheckEdit1})
+        Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit, Me.RepositoryItemCheckEdit1, Me.RepositoryItemMemoEdit1})
         Me.GCBusqueda.Size = New System.Drawing.Size(1309, 477)
         Me.GCBusqueda.TabIndex = 26
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
@@ -207,16 +206,16 @@ Partial Class XfrmValidarFirmas
         'GridView1
         '
         Me.GridView1.ColumnPanelRowHeight = 50
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colIDENTIDAD, Me.colPRIMER_NOMBRE_PAPELETA, Me.colSEGUNDO_NOMBRE_PAPELETA, Me.colPRIMER_APELLIDO_PAPELETA, Me.colSEGUNDO_APELLIDO_PAPELETA, Me.colFIRMA, Me.colHUELLA, Me.colDIRECCION, Me.colIGUAL, Me.colFOLIO, Me.colPAGINA, Me.colOBSERVACION, Me.colVALIDADO, Me.colMAQUINA, Me.colCODIGO_CUIDADANOS_RESPALDAN, Me.colCODIGO_PARTIDO, Me.colCODIGO_MOVIMIENTO, Me.colCODIGO_DEPARTAMENTO, Me.colCODIGO_MUNICIPIO})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colIDENTIDAD, Me.colPRIMER_NOMBRE_PAPELETA, Me.colFIRMA, Me.colHUELLA, Me.colDIRECCION, Me.colIGUAL, Me.colFOLIO, Me.colPAGINA, Me.colOBSERVACION, Me.colVALIDADO, Me.colMAQUINA, Me.colCODIGO_CUIDADANOS_RESPALDAN, Me.colCODIGO_PARTIDO, Me.colCODIGO_MOVIMIENTO, Me.colCODIGO_DEPARTAMENTO, Me.colCODIGO_MUNICIPIO})
         Me.GridView1.GridControl = Me.GCBusqueda
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridView1.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.[False]
         Me.GridView1.OptionsView.ColumnAutoWidth = False
+        Me.GridView1.OptionsView.RowAutoHeight = True
         Me.GridView1.OptionsView.ShowDetailButtons = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
-        Me.GridView1.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.colPRIMER_APELLIDO_PAPELETA, DevExpress.Data.ColumnSortOrder.Ascending)})
         '
         'colIDENTIDAD
         '
@@ -233,7 +232,7 @@ Partial Class XfrmValidarFirmas
         '
         'colPRIMER_NOMBRE_PAPELETA
         '
-        Me.colPRIMER_NOMBRE_PAPELETA.Caption = "Primer Nombre"
+        Me.colPRIMER_NOMBRE_PAPELETA.Caption = "Nombre Completo"
         Me.colPRIMER_NOMBRE_PAPELETA.FieldName = "PRIMER_NOMBRE_PAPELETA"
         Me.colPRIMER_NOMBRE_PAPELETA.Name = "colPRIMER_NOMBRE_PAPELETA"
         Me.colPRIMER_NOMBRE_PAPELETA.OptionsColumn.AllowEdit = False
@@ -242,46 +241,7 @@ Partial Class XfrmValidarFirmas
         Me.colPRIMER_NOMBRE_PAPELETA.OptionsColumn.TabStop = False
         Me.colPRIMER_NOMBRE_PAPELETA.Visible = True
         Me.colPRIMER_NOMBRE_PAPELETA.VisibleIndex = 1
-        Me.colPRIMER_NOMBRE_PAPELETA.Width = 100
-        '
-        'colSEGUNDO_NOMBRE_PAPELETA
-        '
-        Me.colSEGUNDO_NOMBRE_PAPELETA.Caption = "Segundo Nombre"
-        Me.colSEGUNDO_NOMBRE_PAPELETA.FieldName = "SEGUNDO_NOMBRE_PAPELETA"
-        Me.colSEGUNDO_NOMBRE_PAPELETA.Name = "colSEGUNDO_NOMBRE_PAPELETA"
-        Me.colSEGUNDO_NOMBRE_PAPELETA.OptionsColumn.AllowEdit = False
-        Me.colSEGUNDO_NOMBRE_PAPELETA.OptionsColumn.AllowFocus = False
-        Me.colSEGUNDO_NOMBRE_PAPELETA.OptionsColumn.ReadOnly = True
-        Me.colSEGUNDO_NOMBRE_PAPELETA.OptionsColumn.TabStop = False
-        Me.colSEGUNDO_NOMBRE_PAPELETA.Visible = True
-        Me.colSEGUNDO_NOMBRE_PAPELETA.VisibleIndex = 2
-        Me.colSEGUNDO_NOMBRE_PAPELETA.Width = 100
-        '
-        'colPRIMER_APELLIDO_PAPELETA
-        '
-        Me.colPRIMER_APELLIDO_PAPELETA.Caption = "Primer Apellido"
-        Me.colPRIMER_APELLIDO_PAPELETA.FieldName = "PRIMER_APELLIDO_PAPELETA"
-        Me.colPRIMER_APELLIDO_PAPELETA.Name = "colPRIMER_APELLIDO_PAPELETA"
-        Me.colPRIMER_APELLIDO_PAPELETA.OptionsColumn.AllowEdit = False
-        Me.colPRIMER_APELLIDO_PAPELETA.OptionsColumn.AllowFocus = False
-        Me.colPRIMER_APELLIDO_PAPELETA.OptionsColumn.ReadOnly = True
-        Me.colPRIMER_APELLIDO_PAPELETA.OptionsColumn.TabStop = False
-        Me.colPRIMER_APELLIDO_PAPELETA.Visible = True
-        Me.colPRIMER_APELLIDO_PAPELETA.VisibleIndex = 3
-        Me.colPRIMER_APELLIDO_PAPELETA.Width = 100
-        '
-        'colSEGUNDO_APELLIDO_PAPELETA
-        '
-        Me.colSEGUNDO_APELLIDO_PAPELETA.Caption = "Segundo Apellido"
-        Me.colSEGUNDO_APELLIDO_PAPELETA.FieldName = "SEGUNDO_APELLIDO_PAPELETA"
-        Me.colSEGUNDO_APELLIDO_PAPELETA.Name = "colSEGUNDO_APELLIDO_PAPELETA"
-        Me.colSEGUNDO_APELLIDO_PAPELETA.OptionsColumn.AllowEdit = False
-        Me.colSEGUNDO_APELLIDO_PAPELETA.OptionsColumn.AllowFocus = False
-        Me.colSEGUNDO_APELLIDO_PAPELETA.OptionsColumn.ReadOnly = True
-        Me.colSEGUNDO_APELLIDO_PAPELETA.OptionsColumn.TabStop = False
-        Me.colSEGUNDO_APELLIDO_PAPELETA.Visible = True
-        Me.colSEGUNDO_APELLIDO_PAPELETA.VisibleIndex = 4
-        Me.colSEGUNDO_APELLIDO_PAPELETA.Width = 100
+        Me.colPRIMER_NOMBRE_PAPELETA.Width = 195
         '
         'colFIRMA
         '
@@ -297,7 +257,7 @@ Partial Class XfrmValidarFirmas
         Me.colFIRMA.OptionsColumn.ReadOnly = True
         Me.colFIRMA.OptionsColumn.TabStop = False
         Me.colFIRMA.Visible = True
-        Me.colFIRMA.VisibleIndex = 5
+        Me.colFIRMA.VisibleIndex = 2
         Me.colFIRMA.Width = 65
         '
         'RepositoryItemCheckEdit
@@ -327,7 +287,7 @@ Partial Class XfrmValidarFirmas
         Me.colHUELLA.OptionsColumn.ReadOnly = True
         Me.colHUELLA.OptionsColumn.TabStop = False
         Me.colHUELLA.Visible = True
-        Me.colHUELLA.VisibleIndex = 6
+        Me.colHUELLA.VisibleIndex = 3
         Me.colHUELLA.Width = 65
         '
         'colDIRECCION
@@ -344,7 +304,7 @@ Partial Class XfrmValidarFirmas
         Me.colDIRECCION.OptionsColumn.ReadOnly = True
         Me.colDIRECCION.OptionsColumn.TabStop = False
         Me.colDIRECCION.Visible = True
-        Me.colDIRECCION.VisibleIndex = 7
+        Me.colDIRECCION.VisibleIndex = 4
         Me.colDIRECCION.Width = 65
         '
         'colIGUAL
@@ -361,7 +321,7 @@ Partial Class XfrmValidarFirmas
         Me.colIGUAL.OptionsColumn.ReadOnly = True
         Me.colIGUAL.OptionsColumn.TabStop = False
         Me.colIGUAL.Visible = True
-        Me.colIGUAL.VisibleIndex = 8
+        Me.colIGUAL.VisibleIndex = 5
         Me.colIGUAL.Width = 65
         '
         'colFOLIO
@@ -374,7 +334,7 @@ Partial Class XfrmValidarFirmas
         Me.colFOLIO.OptionsColumn.ReadOnly = True
         Me.colFOLIO.OptionsColumn.TabStop = False
         Me.colFOLIO.Visible = True
-        Me.colFOLIO.VisibleIndex = 9
+        Me.colFOLIO.VisibleIndex = 6
         Me.colFOLIO.Width = 50
         '
         'colPAGINA
@@ -387,15 +347,16 @@ Partial Class XfrmValidarFirmas
         Me.colPAGINA.OptionsColumn.ReadOnly = True
         Me.colPAGINA.OptionsColumn.TabStop = False
         Me.colPAGINA.Visible = True
-        Me.colPAGINA.VisibleIndex = 10
+        Me.colPAGINA.VisibleIndex = 7
         Me.colPAGINA.Width = 50
         '
         'colOBSERVACION
         '
         Me.colOBSERVACION.AppearanceCell.Options.UseTextOptions = True
-        Me.colOBSERVACION.AppearanceCell.TextOptions.Trimming = DevExpress.Utils.Trimming.Word
+        Me.colOBSERVACION.AppearanceCell.TextOptions.Trimming = DevExpress.Utils.Trimming.None
         Me.colOBSERVACION.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.colOBSERVACION.Caption = "Observación"
+        Me.colOBSERVACION.ColumnEdit = Me.RepositoryItemMemoEdit1
         Me.colOBSERVACION.FieldName = "OBSERVACION"
         Me.colOBSERVACION.Name = "colOBSERVACION"
         Me.colOBSERVACION.OptionsColumn.AllowEdit = False
@@ -403,8 +364,12 @@ Partial Class XfrmValidarFirmas
         Me.colOBSERVACION.OptionsColumn.ReadOnly = True
         Me.colOBSERVACION.OptionsColumn.TabStop = False
         Me.colOBSERVACION.Visible = True
-        Me.colOBSERVACION.VisibleIndex = 11
-        Me.colOBSERVACION.Width = 200
+        Me.colOBSERVACION.VisibleIndex = 8
+        Me.colOBSERVACION.Width = 360
+        '
+        'RepositoryItemMemoEdit1
+        '
+        Me.RepositoryItemMemoEdit1.Name = "RepositoryItemMemoEdit1"
         '
         'colVALIDADO
         '
@@ -413,7 +378,7 @@ Partial Class XfrmValidarFirmas
         Me.colVALIDADO.FieldName = "VALIDADO"
         Me.colVALIDADO.Name = "colVALIDADO"
         Me.colVALIDADO.Visible = True
-        Me.colVALIDADO.VisibleIndex = 12
+        Me.colVALIDADO.VisibleIndex = 9
         Me.colVALIDADO.Width = 60
         '
         'RepositoryItemCheckEdit1
@@ -708,6 +673,7 @@ Partial Class XfrmValidarFirmas
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemCheckEdit, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemMemoEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
@@ -736,9 +702,6 @@ Partial Class XfrmValidarFirmas
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents colIDENTIDAD As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colPRIMER_NOMBRE_PAPELETA As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colSEGUNDO_NOMBRE_PAPELETA As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colPRIMER_APELLIDO_PAPELETA As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colSEGUNDO_APELLIDO_PAPELETA As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colFIRMA As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCheckEdit As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents colHUELLA As DevExpress.XtraGrid.Columns.GridColumn
@@ -779,4 +742,5 @@ Partial Class XfrmValidarFirmas
     Friend WithEvents navFiltro As DevExpress.XtraEditors.DataNavigator
     Friend WithEvents NavegacionBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents NavegacionTableAdapter As Inscripcion_de_Moviemientos.DSConsultasTableAdapters.NavegacionTableAdapter
+    Friend WithEvents RepositoryItemMemoEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit
 End Class

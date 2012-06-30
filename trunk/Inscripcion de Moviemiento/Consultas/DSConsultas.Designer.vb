@@ -6124,6 +6124,8 @@ Partial Public Class DSConsultas
         
         Private columnIMAGEN As Global.System.Data.DataColumn
         
+        Private columnFOLIO As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -6163,6 +6165,13 @@ Partial Public Class DSConsultas
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property FOLIOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFOLIO
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -6192,9 +6201,9 @@ Partial Public Class DSConsultas
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddImagenesFirmaRow(ByVal IMAGEN() As Byte) As ImagenesFirmaRow
+        Public Overloads Function AddImagenesFirmaRow(ByVal IMAGEN() As Byte, ByVal FOLIO As Decimal) As ImagenesFirmaRow
             Dim rowImagenesFirmaRow As ImagenesFirmaRow = CType(Me.NewRow,ImagenesFirmaRow)
-            Dim columnValuesArray() As Object = New Object() {IMAGEN}
+            Dim columnValuesArray() As Object = New Object() {IMAGEN, FOLIO}
             rowImagenesFirmaRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowImagenesFirmaRow)
             Return rowImagenesFirmaRow
@@ -6215,12 +6224,15 @@ Partial Public Class DSConsultas
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Sub InitVars()
             Me.columnIMAGEN = MyBase.Columns("IMAGEN")
+            Me.columnFOLIO = MyBase.Columns("FOLIO")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitClass()
             Me.columnIMAGEN = New Global.System.Data.DataColumn("IMAGEN", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIMAGEN)
+            Me.columnFOLIO = New Global.System.Data.DataColumn("FOLIO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFOLIO)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -9502,6 +9514,20 @@ Partial Public Class DSConsultas
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property FOLIO() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableImagenesFirma.FOLIOColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FOLIO' in table 'ImagenesFirma' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableImagenesFirma.FOLIOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsIMAGENNull() As Boolean
             Return Me.IsNull(Me.tableImagenesFirma.IMAGENColumn)
         End Function
@@ -9509,6 +9535,16 @@ Partial Public Class DSConsultas
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetIMAGENNull()
             Me(Me.tableImagenesFirma.IMAGENColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsFOLIONull() As Boolean
+            Return Me.IsNull(Me.tableImagenesFirma.FOLIOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetFOLIONull()
+            Me(Me.tableImagenesFirma.FOLIOColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -15303,6 +15339,7 @@ Namespace DSConsultasTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "ImagenesFirma"
             tableMapping.ColumnMappings.Add("IMAGEN", "IMAGEN")
+            tableMapping.ColumnMappings.Add("FOLIO", "FOLIO")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -15317,17 +15354,18 @@ Namespace DSConsultasTableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        IMAGEN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_IMAGENES_FIRMAS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CODIGO_PA"& _ 
-                "RTIDO = :partido) AND (CODIGO_MOVIMIENTO = :movimiento) AND (PAGINA = :pagina) "
+            Me._commandCollection(0).CommandText = "SELECT        IMAGEN, NVL(FOLIO,0) FOLIO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_IMAGENES_FIRMAS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHE"& _ 
+                "RE        (CODIGO_PARTIDO = :partido) AND (CODIGO_MOVIMIENTO = :movimiento) AND "& _ 
+                "(PAGINA = :pagina) "
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("partido", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("movimiento", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("pagina", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "PAGINA", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        IMAGEN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_IMAGENES_FIRMAS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CODIGO_PA"& _ 
-                "RTIDO = :partido) AND (CODIGO_MOVIMIENTO = :movimiento) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND (PAGINA = :pagina)"& _ 
-                " "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND (MAQUINA = :maquina) "
+            Me._commandCollection(1).CommandText = "SELECT IMAGEN, NVL(FOLIO,0) FOLIO FROM IM_IMAGENES_FIRMAS WHERE (CODIGO_PARTIDO ="& _ 
+                " :partido) AND (CODIGO_MOVIMIENTO = :movimiento) AND (PAGINA = :pagina) AND (MAQ"& _ 
+                "UINA = :maquina)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("partido", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("movimiento", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
