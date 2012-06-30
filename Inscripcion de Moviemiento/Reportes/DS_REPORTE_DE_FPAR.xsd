@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="DS_REPORTE_DE_FPAR" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+<xs:schema id="DS_REPORTE_DE_FPAR" targetNamespace="http://tempuri.org/DS_REPORTE_DE_FPAR.xsd" xmlns:mstns="http://tempuri.org/DS_REPORTE_DE_FPAR.xsd" xmlns="http://tempuri.org/DS_REPORTE_DE_FPAR.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="Data Source=TSEDB2;User ID=tse;Password=oracle" IsAppSettingsProperty="false" Modifier="Assembly" Name="Connection" ParameterPrefix="@" Provider="System.Data.OracleClient" />
+          <Connection ConnectionStringObject="Data Source=TSEDB2;User ID=tse;Password=oracle" IsAppSettingsProperty="false" Modifier="Assembly" Name="ConnectionString (MySettings)" ParameterPrefix="@" Provider="System.Data.OracleClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="IM_V_CRUCE_FIRMAS_PARAdapter" GeneratorDataComponentClassName="IM_V_CRUCE_FIRMAS_PARAdapter" Name="IM_V_CRUCE_FIRMAS_PAR" UserDataComponentName="IM_V_CRUCE_FIRMAS_PARAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Connection" DbObjectName="TSE.IM_V_CRUCE_FIRMAS_PAR" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="TSE.IM_V_CRUCE_FIRMAS_PAR" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT PARTIDO, IDENTIDAD, NOMBRE, APELLIDOS, DEPARTAMENTO, MUNICIPIO FROM TSE.IM_V_CRUCE_FIRMAS_PAR</CommandText>
@@ -30,7 +30,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TD_departamentos_cfparTableAdapter" GeneratorDataComponentClassName="TD_departamentos_cfparTableAdapter" Name="TD_departamentos_cfpar" UserDataComponentName="TD_departamentos_cfparTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Connection" DbObjectName="TSE.IM_DEPARTAMENTOS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="TSE.IM_DEPARTAMENTOS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM "IM_DEPARTAMENTOS" WHERE (("CODIGO_DEPARTAMENTO" = :Original_CODIGO_DEPARTAMENTO) AND ("DESCRIPCION" = :Original_DEPARTAMENTO))</CommandText>
@@ -69,7 +69,7 @@ ORDER BY CODIGO_DEPARTAMENTO</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DT_PARTIDOS_POLITICOS_CFPARTableAdapter" GeneratorDataComponentClassName="DT_PARTIDOS_POLITICOS_CFPARTableAdapter" Name="DT_PARTIDOS_POLITICOS_CFPAR" UserDataComponentName="DT_PARTIDOS_POLITICOS_CFPARTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Connection" DbObjectName="TSE.IM_PARTIDOS_POLITICOS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="TSE.IM_PARTIDOS_POLITICOS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM "IM_PARTIDOS_POLITICOS" WHERE (("CODIGO_PARTIDO" = :Original_CODIGO_PARTIDO) AND ("NOMBRE" = :Original_NOMBRE_PARTIDO))</CommandText>
@@ -111,48 +111,48 @@ ORDER BY CODIGO_PARTIDO</CommandText>
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DS_REPORTE_DE_FPAR" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DS_REPORTE_DE_FPAR" msprop:Generator_DataSetName="DS_REPORTE_DE_FPAR">
+  <xs:element name="DS_REPORTE_DE_FPAR" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DS_REPORTE_DE_FPAR" msprop:Generator_DataSetName="DS_REPORTE_DE_FPAR" msprop:EnableTableAdapterManager="True">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="IM_V_CRUCE_FIRMAS_PAR" msprop:Generator_UserTableName="IM_V_CRUCE_FIRMAS_PAR" msprop:Generator_RowDeletedName="IM_V_CRUCE_FIRMAS_PARRowDeleted" msprop:Generator_RowChangedName="IM_V_CRUCE_FIRMAS_PARRowChanged" msprop:Generator_RowClassName="IM_V_CRUCE_FIRMAS_PARRow" msprop:Generator_RowChangingName="IM_V_CRUCE_FIRMAS_PARRowChanging" msprop:Generator_RowEvArgName="IM_V_CRUCE_FIRMAS_PARRowChangeEvent" msprop:Generator_RowEvHandlerName="IM_V_CRUCE_FIRMAS_PARRowChangeEventHandler" msprop:Generator_TableClassName="IM_V_CRUCE_FIRMAS_PARDataTable" msprop:Generator_TableVarName="tableIM_V_CRUCE_FIRMAS_PAR" msprop:Generator_RowDeletingName="IM_V_CRUCE_FIRMAS_PARRowDeleting" msprop:Generator_TablePropName="IM_V_CRUCE_FIRMAS_PAR">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="PARTIDO" msprop:Generator_UserColumnName="PARTIDO" msprop:Generator_ColumnPropNameInRow="PARTIDO" msprop:Generator_ColumnVarNameInTable="columnPARTIDO" msprop:Generator_ColumnPropNameInTable="PARTIDOColumn">
+              <xs:element name="PARTIDO" msprop:Generator_UserColumnName="PARTIDO" msprop:Generator_ColumnVarNameInTable="columnPARTIDO" msprop:Generator_ColumnPropNameInRow="PARTIDO" msprop:Generator_ColumnPropNameInTable="PARTIDOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="IDENTIDAD" msprop:Generator_UserColumnName="IDENTIDAD" msprop:Generator_ColumnPropNameInRow="IDENTIDAD" msprop:Generator_ColumnVarNameInTable="columnIDENTIDAD" msprop:Generator_ColumnPropNameInTable="IDENTIDADColumn">
+              <xs:element name="IDENTIDAD" msprop:Generator_UserColumnName="IDENTIDAD" msprop:Generator_ColumnVarNameInTable="columnIDENTIDAD" msprop:Generator_ColumnPropNameInRow="IDENTIDAD" msprop:Generator_ColumnPropNameInTable="IDENTIDADColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="15" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" minOccurs="0">
+              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="101" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="APELLIDOS" msprop:Generator_UserColumnName="APELLIDOS" msprop:Generator_ColumnPropNameInRow="APELLIDOS" msprop:Generator_ColumnVarNameInTable="columnAPELLIDOS" msprop:Generator_ColumnPropNameInTable="APELLIDOSColumn" minOccurs="0">
+              <xs:element name="APELLIDOS" msprop:Generator_UserColumnName="APELLIDOS" msprop:Generator_ColumnVarNameInTable="columnAPELLIDOS" msprop:Generator_ColumnPropNameInRow="APELLIDOS" msprop:Generator_ColumnPropNameInTable="APELLIDOSColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="101" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DEPARTAMENTO" msprop:Generator_UserColumnName="DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTOColumn">
+              <xs:element name="DEPARTAMENTO" msprop:Generator_UserColumnName="DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MUNICIPIO" msprop:Generator_UserColumnName="MUNICIPIO" msprop:Generator_ColumnPropNameInRow="MUNICIPIO" msprop:Generator_ColumnVarNameInTable="columnMUNICIPIO" msprop:Generator_ColumnPropNameInTable="MUNICIPIOColumn">
+              <xs:element name="MUNICIPIO" msprop:Generator_UserColumnName="MUNICIPIO" msprop:Generator_ColumnVarNameInTable="columnMUNICIPIO" msprop:Generator_ColumnPropNameInRow="MUNICIPIO" msprop:Generator_ColumnPropNameInTable="MUNICIPIOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
@@ -165,8 +165,8 @@ ORDER BY CODIGO_PARTIDO</CommandText>
         <xs:element name="TD_departamentos_cfpar" msprop:Generator_UserTableName="TD_departamentos_cfpar" msprop:Generator_RowDeletedName="TD_departamentos_cfparRowDeleted" msprop:Generator_RowChangedName="TD_departamentos_cfparRowChanged" msprop:Generator_RowClassName="TD_departamentos_cfparRow" msprop:Generator_RowChangingName="TD_departamentos_cfparRowChanging" msprop:Generator_RowEvArgName="TD_departamentos_cfparRowChangeEvent" msprop:Generator_RowEvHandlerName="TD_departamentos_cfparRowChangeEventHandler" msprop:Generator_TableClassName="TD_departamentos_cfparDataTable" msprop:Generator_TableVarName="tableTD_departamentos_cfpar" msprop:Generator_RowDeletingName="TD_departamentos_cfparRowDeleting" msprop:Generator_TablePropName="TD_departamentos_cfpar">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CODIGO_DEPARTAMENTO" msprop:Generator_UserColumnName="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_DEPARTAMENTOColumn" type="xs:decimal" />
-              <xs:element name="DEPARTAMENTO" msprop:Generator_UserColumnName="DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTOColumn">
+              <xs:element name="CODIGO_DEPARTAMENTO" msprop:Generator_UserColumnName="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_DEPARTAMENTOColumn" type="xs:decimal" />
+              <xs:element name="DEPARTAMENTO" msprop:Generator_UserColumnName="DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
@@ -179,8 +179,8 @@ ORDER BY CODIGO_PARTIDO</CommandText>
         <xs:element name="DT_PARTIDOS_POLITICOS_CFPAR" msprop:Generator_UserTableName="DT_PARTIDOS_POLITICOS_CFPAR" msprop:Generator_RowDeletedName="DT_PARTIDOS_POLITICOS_CFPARRowDeleted" msprop:Generator_RowChangedName="DT_PARTIDOS_POLITICOS_CFPARRowChanged" msprop:Generator_RowClassName="DT_PARTIDOS_POLITICOS_CFPARRow" msprop:Generator_RowChangingName="DT_PARTIDOS_POLITICOS_CFPARRowChanging" msprop:Generator_RowEvArgName="DT_PARTIDOS_POLITICOS_CFPARRowChangeEvent" msprop:Generator_RowEvHandlerName="DT_PARTIDOS_POLITICOS_CFPARRowChangeEventHandler" msprop:Generator_TableClassName="DT_PARTIDOS_POLITICOS_CFPARDataTable" msprop:Generator_TableVarName="tableDT_PARTIDOS_POLITICOS_CFPAR" msprop:Generator_RowDeletingName="DT_PARTIDOS_POLITICOS_CFPARRowDeleting" msprop:Generator_TablePropName="DT_PARTIDOS_POLITICOS_CFPAR">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" type="xs:decimal" />
-              <xs:element name="NOMBRE_x0020_PARTIDO" msprop:Generator_UserColumnName="NOMBRE PARTIDO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_PARTIDO" msprop:Generator_ColumnPropNameInRow="NOMBRE_PARTIDO" msprop:Generator_ColumnPropNameInTable="NOMBRE_PARTIDOColumn">
+              <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" type="xs:decimal" />
+              <xs:element name="NOMBRE_x0020_PARTIDO" msprop:Generator_UserColumnName="NOMBRE PARTIDO" msprop:Generator_ColumnPropNameInRow="NOMBRE_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_PARTIDO" msprop:Generator_ColumnPropNameInTable="NOMBRE_PARTIDOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
@@ -193,12 +193,12 @@ ORDER BY CODIGO_PARTIDO</CommandText>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//TD_departamentos_cfpar" />
-      <xs:field xpath="CODIGO_DEPARTAMENTO" />
+      <xs:selector xpath=".//mstns:TD_departamentos_cfpar" />
+      <xs:field xpath="mstns:CODIGO_DEPARTAMENTO" />
     </xs:unique>
     <xs:unique name="DT_PARTIDOS_POLITICOS_CFPAR_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//DT_PARTIDOS_POLITICOS_CFPAR" />
-      <xs:field xpath="CODIGO_PARTIDO" />
+      <xs:selector xpath=".//mstns:DT_PARTIDOS_POLITICOS_CFPAR" />
+      <xs:field xpath="mstns:CODIGO_PARTIDO" />
     </xs:unique>
   </xs:element>
 </xs:schema>
