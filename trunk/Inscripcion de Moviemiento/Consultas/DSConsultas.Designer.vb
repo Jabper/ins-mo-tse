@@ -15326,11 +15326,11 @@ Namespace DSConsultasTableAdapters
             Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT        IMAGEN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_IMAGENES_FIRMAS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CODIGO_PA"& _ 
-                "RTIDO = :partido) AND (CODIGO_MOVIMIENTO = :movimiento) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND (FOLIO = :folio) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND (PAGINA = :pagina) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND (MAQUINA = :maquina) "
+                "RTIDO = :partido) AND (CODIGO_MOVIMIENTO = :movimiento) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND (PAGINA = :pagina)"& _ 
+                " "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND (MAQUINA = :maquina) "
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("partido", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("movimiento", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("folio", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "FOLIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("pagina", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "PAGINA", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("maquina", Global.System.Data.OracleClient.OracleType.VarChar, 50, Global.System.Data.ParameterDirection.Input, "MAQUINA", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
@@ -15366,20 +15366,15 @@ Namespace DSConsultasTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByMaquina(ByVal dataTable As DSConsultas.ImagenesFirmaDataTable, ByVal partido As Decimal, ByVal movimiento As Decimal, ByVal folio As Global.System.Nullable(Of Decimal), ByVal pagina As Decimal, ByVal maquina As String) As Integer
+        Public Overloads Overridable Function FillByMaquina(ByVal dataTable As DSConsultas.ImagenesFirmaDataTable, ByVal partido As Decimal, ByVal movimiento As Decimal, ByVal pagina As Decimal, ByVal maquina As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(partido,Decimal)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(movimiento,Decimal)
-            If (folio.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(folio.Value,Decimal)
-            Else
-                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.SelectCommand.Parameters(3).Value = CType(pagina,Decimal)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(pagina,Decimal)
             If (maquina Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("maquina")
             Else
-                Me.Adapter.SelectCommand.Parameters(4).Value = CType(maquina,String)
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(maquina,String)
             End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -15391,20 +15386,15 @@ Namespace DSConsultasTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByMaquina(ByVal partido As Decimal, ByVal movimiento As Decimal, ByVal folio As Global.System.Nullable(Of Decimal), ByVal pagina As Decimal, ByVal maquina As String) As DSConsultas.ImagenesFirmaDataTable
+        Public Overloads Overridable Function GetDataByMaquina(ByVal partido As Decimal, ByVal movimiento As Decimal, ByVal pagina As Decimal, ByVal maquina As String) As DSConsultas.ImagenesFirmaDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(partido,Decimal)
             Me.Adapter.SelectCommand.Parameters(1).Value = CType(movimiento,Decimal)
-            If (folio.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(folio.Value,Decimal)
-            Else
-                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.SelectCommand.Parameters(3).Value = CType(pagina,Decimal)
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(pagina,Decimal)
             If (maquina Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("maquina")
             Else
-                Me.Adapter.SelectCommand.Parameters(4).Value = CType(maquina,String)
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(maquina,String)
             End If
             Dim dataTable As DSConsultas.ImagenesFirmaDataTable = New DSConsultas.ImagenesFirmaDataTable
             Me.Adapter.Fill(dataTable)

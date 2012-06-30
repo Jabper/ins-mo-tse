@@ -63,10 +63,10 @@ Public Class XfrmValidarFirmas
             _folio = _drv.Row.Item("folio").ToString
             _pagina = _drv.Row.Item("pagina").ToString
             _maquina = _drv.Row.Item("maquina").ToString
-            Me.ImagenesFirmaTableAdapter.FillByMaquina(Me.DSConsultas.ImagenesFirma, Me.cbxPartido.SelectedValue.ToString, Me.cbxMovimiento.SelectedValue.ToString, _folio, _pagina, _maquina)
-            Me.ImagenesFirmaBindingSource.Filter = String.Empty
-
+            Me.ImagenesFirmaTableAdapter.FillByMaquina(Me.DSConsultas.ImagenesFirma, Me.cbxPartido.SelectedValue.ToString, Me.cbxMovimiento.SelectedValue.ToString, _pagina, _maquina)
             If _folio > 0 Then _filter = _filter & String.Format("FOLIO={0}", _folio)
+            Me.ImagenesFirmaBindingSource.Filter = _filter
+
             If _pagina > 0 Then _filter = _filter & If(_filter <> String.Empty, " AND ", String.Empty) & String.Format("PAGINA={0}", _pagina)
             If _maquina <> String.Empty Then _filter = _filter & If(_filter <> String.Empty, " AND ", String.Empty) & String.Format("MAQUINA='{0}'", _maquina)
             Me.IMVVALIDARFIRMASBindingSource.Filter = _filter
