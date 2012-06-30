@@ -71,7 +71,6 @@ Partial Class XfrmConsultaFirmas
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl
         Me.LabelControl16 = New DevExpress.XtraEditors.LabelControl
-        Me.btnfirmas = New DevExpress.XtraEditors.SimpleButton
         Me.CmbMovimiento = New DevExpress.XtraEditors.LookUpEdit
         Me.TAMOVIMIENTOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DSPolitico = New Inscripcion_de_Moviemientos.DSPolitico
@@ -114,6 +113,7 @@ Partial Class XfrmConsultaFirmas
         Me.SplitterItem2 = New DevExpress.XtraLayout.SplitterItem
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem
+        Me.SplitterItem1 = New DevExpress.XtraLayout.SplitterItem
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.TA_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_PARTIDOS_POLITICOSTableAdapter
         Me.TA_MOVIMIENTOTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_MOVIMIENTOTableAdapter
@@ -122,7 +122,6 @@ Partial Class XfrmConsultaFirmas
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
         Me.IM_V_MOSTRAR_FIRMASTableAdapter = New Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.IM_V_MOSTRAR_FIRMASTableAdapter
-        Me.SplitterItem1 = New DevExpress.XtraLayout.SplitterItem
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -167,8 +166,8 @@ Partial Class XfrmConsultaFirmas
         CType(Me.SplitterItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitterItem1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -651,7 +650,6 @@ Partial Class XfrmConsultaFirmas
         Me.PanelControl3.Appearance.Options.UseBackColor = True
         Me.PanelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
         Me.PanelControl3.Controls.Add(Me.LabelControl16)
-        Me.PanelControl3.Controls.Add(Me.btnfirmas)
         Me.PanelControl3.Controls.Add(Me.CmbMovimiento)
         Me.PanelControl3.Controls.Add(Me.LabelControl15)
         Me.PanelControl3.Controls.Add(Me.SimpleButton5)
@@ -692,15 +690,6 @@ Partial Class XfrmConsultaFirmas
         Me.LabelControl16.Size = New System.Drawing.Size(169, 13)
         Me.LabelControl16.TabIndex = 59
         Me.LabelControl16.Text = "Presione Esc para cancelar cambios"
-        '
-        'btnfirmas
-        '
-        Me.btnfirmas.Location = New System.Drawing.Point(524, 27)
-        Me.btnfirmas.Name = "btnfirmas"
-        Me.btnfirmas.Size = New System.Drawing.Size(79, 23)
-        Me.btnfirmas.TabIndex = 58
-        Me.btnfirmas.Text = "Mostrar Firmas"
-        Me.btnfirmas.Visible = False
         '
         'CmbMovimiento
         '
@@ -1083,6 +1072,14 @@ Partial Class XfrmConsultaFirmas
         Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
+        'SplitterItem1
+        '
+        Me.SplitterItem1.AllowHotTrack = True
+        Me.SplitterItem1.CustomizationFormText = "SplitterItem1"
+        Me.SplitterItem1.Location = New System.Drawing.Point(0, 232)
+        Me.SplitterItem1.Name = "SplitterItem1"
+        Me.SplitterItem1.Size = New System.Drawing.Size(808, 5)
+        '
         'ContextMenuStrip1
         '
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
@@ -1115,14 +1112,6 @@ Partial Class XfrmConsultaFirmas
         'IM_V_MOSTRAR_FIRMASTableAdapter
         '
         Me.IM_V_MOSTRAR_FIRMASTableAdapter.ClearBeforeFill = True
-        '
-        'SplitterItem1
-        '
-        Me.SplitterItem1.AllowHotTrack = True
-        Me.SplitterItem1.CustomizationFormText = "SplitterItem1"
-        Me.SplitterItem1.Location = New System.Drawing.Point(0, 232)
-        Me.SplitterItem1.Name = "SplitterItem1"
-        Me.SplitterItem1.Size = New System.Drawing.Size(808, 5)
         '
         'XfrmConsultaFirmas
         '
@@ -1179,8 +1168,8 @@ Partial Class XfrmConsultaFirmas
         CType(Me.SplitterItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SplitterItem1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1247,7 +1236,6 @@ Partial Class XfrmConsultaFirmas
     Friend WithEvents SimpleButton5 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LabelControl15 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents CmbMovimiento As DevExpress.XtraEditors.LookUpEdit
-    Friend WithEvents btnfirmas As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents SplitterItem2 As DevExpress.XtraLayout.SplitterItem
     Friend WithEvents LabelControl16 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents IMVMOSTRARFIRMASBindingSource As System.Windows.Forms.BindingSource
