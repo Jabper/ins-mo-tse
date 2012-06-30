@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -361,6 +361,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_LOG.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\DS_LOG.vb">
+      <DependentUpon>DS_LOG.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DS_PLANILLA_TOTALES.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -373,6 +376,11 @@
     </Compile>
     <Compile Include="Reportes\DS_REPORTE_DE_FDP.vb">
       <DependentUpon>DS_REPORTE_DE_FDP.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DS_REPORTE_DE_PNEM_1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_REPORTE_DE_PNEM_1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reportes\DS_REPORTE_DE_RESUMEN_FDP.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -1307,6 +1315,17 @@
     </None>
     <None Include="Reportes\DS_REPORTE_CANDIDATOS.xss">
       <DependentUpon>DS_REPORTE_CANDIDATOS.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_PNEM_1.xsc">
+      <DependentUpon>DS_REPORTE_DE_PNEM_1.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_PNEM_1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_REPORTE_DE_PNEM_1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_PNEM_1.xss">
+      <DependentUpon>DS_REPORTE_DE_PNEM_1.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DS_REPORTE_DE_RESUMEN_FDP.xsc">
       <DependentUpon>DS_REPORTE_DE_RESUMEN_FDP.xsd</DependentUpon>
