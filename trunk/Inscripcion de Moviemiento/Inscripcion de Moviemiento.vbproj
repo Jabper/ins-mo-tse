@@ -377,11 +377,6 @@
     <Compile Include="Reportes\DS_REPORTE_DE_FDP.vb">
       <DependentUpon>DS_REPORTE_DE_FDP.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\DS_REPORTE_DE_PNEM_1.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DS_REPORTE_DE_PNEM_1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Reportes\DS_REPORTE_DE_RESUMEN_FDP.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1315,17 +1310,6 @@
     </None>
     <None Include="Reportes\DS_REPORTE_CANDIDATOS.xss">
       <DependentUpon>DS_REPORTE_CANDIDATOS.xsd</DependentUpon>
-    </None>
-    <None Include="Reportes\DS_REPORTE_DE_PNEM_1.xsc">
-      <DependentUpon>DS_REPORTE_DE_PNEM_1.xsd</DependentUpon>
-    </None>
-    <None Include="Reportes\DS_REPORTE_DE_PNEM_1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DS_REPORTE_DE_PNEM_1.Designer.vb</LastGenOutput>
-    </None>
-    <None Include="Reportes\DS_REPORTE_DE_PNEM_1.xss">
-      <DependentUpon>DS_REPORTE_DE_PNEM_1.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DS_REPORTE_DE_RESUMEN_FDP.xsc">
       <DependentUpon>DS_REPORTE_DE_RESUMEN_FDP.xsd</DependentUpon>

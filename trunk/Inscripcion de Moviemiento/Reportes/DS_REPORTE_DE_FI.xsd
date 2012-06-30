@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="DS_REPORTE_DE_FI" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+<xs:schema id="DS_REPORTE_DE_FI" targetNamespace="http://tempuri.org/DS_REPORTE_DE_FI.xsd" xmlns:mstns="http://tempuri.org/DS_REPORTE_DE_FI.xsd" xmlns="http://tempuri.org/DS_REPORTE_DE_FI.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="Data Source=TSEDB2;User ID=tse;Password=oracle" IsAppSettingsProperty="false" Modifier="Assembly" Name="Connection" ParameterPrefix="@" Provider="System.Data.OracleClient" />
+          <Connection ConnectionStringObject="Data Source=TSEDB2;User ID=tse;Password=oracle" IsAppSettingsProperty="false" Modifier="Assembly" Name="ConnectionString (MySettings)" ParameterPrefix="@" Provider="System.Data.OracleClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="IM_V_FIRMAS_INCONSISTENTESAdapter" GeneratorDataComponentClassName="IM_V_FIRMAS_INCONSISTENTESAdapter" Name="IM_V_FIRMAS_INCONSISTENTES" UserDataComponentName="IM_V_FIRMAS_INCONSISTENTESAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Connection" DbObjectName="TSE.IM_V_FIRMAS_INCONSISTENTES" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="TSE.IM_V_FIRMAS_INCONSISTENTES" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        IDENTIDAD, NOMBRE, APELLIDOS, PARTIDO AS "NOMBRE PARTIDO", MOVIMIENTO AS "NOMBRE MOVIMIENTO", DEPARTAMENTO, MUNICIPIO, ESTADO, 
@@ -35,7 +35,7 @@ FROM            IM_V_FIRMAS_INCONSISTENTES</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DT_MOVIMIENTOS_FTableAdapter" GeneratorDataComponentClassName="DT_MOVIMIENTOS_FTableAdapter" Name="DT_MOVIMIENTOS_F" UserDataComponentName="DT_MOVIMIENTOS_FTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Connection" DbObjectName="TSE.IM_MOVIMIENTOS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="TSE.IM_MOVIMIENTOS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO AS "NOMBRE MOVIMIENTO"
@@ -54,7 +54,7 @@ ORDER BY CODIGO_MOVIMIENTO</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DT_PARTIDOS_FTableAdapter" GeneratorDataComponentClassName="DT_PARTIDOS_FTableAdapter" Name="DT_PARTIDOS_F" UserDataComponentName="DT_PARTIDOS_FTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Connection" DbObjectName="TSE.IM_PARTIDOS_POLITICOS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="TSE.IM_PARTIDOS_POLITICOS" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM "IM_PARTIDOS_POLITICOS" WHERE (("CODIGO_PARTIDO" = :Original_CODIGO_PARTIDO) AND ("NOMBRE" = :Original_NOMBRE_PARTIDO))</CommandText>
@@ -96,7 +96,7 @@ ORDER BY CODIGO_PARTIDO</CommandText>
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DS_REPORTE_DE_FI" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DS_REPORTE_DE_FI" msprop:Generator_DataSetName="DS_REPORTE_DE_FI">
+  <xs:element name="DS_REPORTE_DE_FI" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DS_REPORTE_DE_FI" msprop:Generator_DataSetName="DS_REPORTE_DE_FI" msprop:EnableTableAdapterManager="True">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="IM_V_FIRMAS_INCONSISTENTES" msprop:Generator_UserTableName="IM_V_FIRMAS_INCONSISTENTES" msprop:Generator_RowDeletedName="IM_V_FIRMAS_INCONSISTENTESRowDeleted" msprop:Generator_RowChangedName="IM_V_FIRMAS_INCONSISTENTESRowChanged" msprop:Generator_RowClassName="IM_V_FIRMAS_INCONSISTENTESRow" msprop:Generator_RowChangingName="IM_V_FIRMAS_INCONSISTENTESRowChanging" msprop:Generator_RowEvArgName="IM_V_FIRMAS_INCONSISTENTESRowChangeEvent" msprop:Generator_RowEvHandlerName="IM_V_FIRMAS_INCONSISTENTESRowChangeEventHandler" msprop:Generator_TableClassName="IM_V_FIRMAS_INCONSISTENTESDataTable" msprop:Generator_TableVarName="tableIM_V_FIRMAS_INCONSISTENTES" msprop:Generator_RowDeletingName="IM_V_FIRMAS_INCONSISTENTESRowDeleting" msprop:Generator_TablePropName="IM_V_FIRMAS_INCONSISTENTES">
@@ -182,7 +182,7 @@ ORDER BY CODIGO_PARTIDO</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DT_PARTIDOS_F" msprop:Generator_UserTableName="DT_PARTIDOS_F" msprop:Generator_RowDeletedName="DT_PARTIDOS_FRowDeleted" msprop:Generator_TableClassName="DT_PARTIDOS_FDataTable" msprop:Generator_RowChangedName="DT_PARTIDOS_FRowChanged" msprop:Generator_RowClassName="DT_PARTIDOS_FRow" msprop:Generator_RowChangingName="DT_PARTIDOS_FRowChanging" msprop:Generator_RowEvArgName="DT_PARTIDOS_FRowChangeEvent" msprop:Generator_RowEvHandlerName="DT_PARTIDOS_FRowChangeEventHandler" msprop:Generator_TablePropName="DT_PARTIDOS_F" msprop:Generator_TableVarName="tableDT_PARTIDOS_F" msprop:Generator_RowDeletingName="DT_PARTIDOS_FRowDeleting">
+        <xs:element name="DT_PARTIDOS_F" msprop:Generator_UserTableName="DT_PARTIDOS_F" msprop:Generator_RowDeletedName="DT_PARTIDOS_FRowDeleted" msprop:Generator_RowChangedName="DT_PARTIDOS_FRowChanged" msprop:Generator_RowClassName="DT_PARTIDOS_FRow" msprop:Generator_RowChangingName="DT_PARTIDOS_FRowChanging" msprop:Generator_RowEvArgName="DT_PARTIDOS_FRowChangeEvent" msprop:Generator_RowEvHandlerName="DT_PARTIDOS_FRowChangeEventHandler" msprop:Generator_TableClassName="DT_PARTIDOS_FDataTable" msprop:Generator_TableVarName="tableDT_PARTIDOS_F" msprop:Generator_RowDeletingName="DT_PARTIDOS_FRowDeleting" msprop:Generator_TablePropName="DT_PARTIDOS_F">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" type="xs:decimal" />
@@ -199,8 +199,8 @@ ORDER BY CODIGO_PARTIDO</CommandText>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//DT_PARTIDOS_F" />
-      <xs:field xpath="CODIGO_PARTIDO" />
+      <xs:selector xpath=".//mstns:DT_PARTIDOS_F" />
+      <xs:field xpath="mstns:CODIGO_PARTIDO" />
     </xs:unique>
   </xs:element>
 </xs:schema>
