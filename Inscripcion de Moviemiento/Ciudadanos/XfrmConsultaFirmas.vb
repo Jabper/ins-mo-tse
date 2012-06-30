@@ -170,14 +170,6 @@ Public Class XfrmConsultaFirmas
     End Sub
 
 
-    Private Sub CmbPartido_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Try
-            Me.TA_MOVIMIENTOTableAdapter.FillBy1(Me.DSPolitico.TA_MOVIMIENTO, CmbPartido.EditValue)
-
-        Catch ex As Exception
-
-        End Try
-    End Sub
 
 
 
@@ -486,26 +478,27 @@ Public Class XfrmConsultaFirmas
 
 
     Private Sub CmbPartido_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CmbPartido.TextChanged
+       
+
+
         Try
             TA_MOVIMIENTOTableAdapter.FillBy1(Me.DSPolitico.TA_MOVIMIENTO, Me.CmbPartido.EditValue)
         Catch ex As Exception
 
         End Try
+        If Me.CmbMovimiento.EditValue Is Nothing Or IsDBNull(Me.CmbMovimiento.EditValue) Or Me.CmbMovimiento.Text = "Seleccione" Or Me.CmbMovimiento.Text = "" Then
+            Dim ds As New DataTable
+
+            GCBusqueda.DataSource = Nothing
+
+            Me.img.Image = Nothing
+            estadistico(Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
+
+
+        End If
     End Sub
 
 
-
-    Private Sub CmbDepartamento_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CmbDepartamento.EditValueChanged
-
-    End Sub
-
-    Private Sub CmbDepartamento_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CmbDepartamento.TextChanged
-        Try
-            TA_MUNICIPIOSTableAdapter.FillBy1(Me.DSDeptoMuni.TA_MUNICIPIOS, Me.CmbDepartamento.EditValue)
-        Catch ex As Exception
-
-        End Try
-    End Sub
 
     
 
@@ -702,6 +695,12 @@ Public Class XfrmConsultaFirmas
     End Sub
 
     Private Sub CmbMovimiento_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CmbMovimiento.EditValueChanged
+      
+    End Sub
 
+    
+   
+    Private Sub CmbPartido_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CmbPartido.EditValueChanged
+       
     End Sub
 End Class
