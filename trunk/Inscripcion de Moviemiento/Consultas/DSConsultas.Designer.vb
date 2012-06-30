@@ -6928,11 +6928,11 @@ Partial Public Class DSConsultas
     Partial Public Class NavegacionDataTable
         Inherits Global.System.Data.TypedTableBase(Of NavegacionRow)
         
-        Private columnFOLIO As Global.System.Data.DataColumn
-        
         Private columnPAGINA As Global.System.Data.DataColumn
         
         Private columnMAQUINA As Global.System.Data.DataColumn
+        
+        Private columnFOLIO As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
@@ -6967,13 +6967,6 @@ Partial Public Class DSConsultas
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property FOLIOColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnFOLIO
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public ReadOnly Property PAGINAColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnPAGINA
@@ -6984,6 +6977,13 @@ Partial Public Class DSConsultas
         Public ReadOnly Property MAQUINAColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnMAQUINA
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property FOLIOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFOLIO
             End Get
         End Property
         
@@ -7016,17 +7016,17 @@ Partial Public Class DSConsultas
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddNavegacionRow(ByVal FOLIO As Decimal, ByVal PAGINA As Decimal, ByVal MAQUINA As String) As NavegacionRow
+        Public Overloads Function AddNavegacionRow(ByVal PAGINA As Decimal, ByVal MAQUINA As String, ByVal FOLIO As Decimal) As NavegacionRow
             Dim rowNavegacionRow As NavegacionRow = CType(Me.NewRow,NavegacionRow)
-            Dim columnValuesArray() As Object = New Object() {FOLIO, PAGINA, MAQUINA}
+            Dim columnValuesArray() As Object = New Object() {PAGINA, MAQUINA, FOLIO}
             rowNavegacionRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowNavegacionRow)
             Return rowNavegacionRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function FindByFOLIOMAQUINAPAGINA(ByVal FOLIO As Decimal, ByVal MAQUINA As String, ByVal PAGINA As Decimal) As NavegacionRow
-            Return CType(Me.Rows.Find(New Object() {FOLIO, MAQUINA, PAGINA}),NavegacionRow)
+        Public Function FindByPAGINAFOLIOMAQUINA(ByVal PAGINA As Decimal, ByVal FOLIO As Decimal, ByVal MAQUINA As String) As NavegacionRow
+            Return CType(Me.Rows.Find(New Object() {PAGINA, FOLIO, MAQUINA}),NavegacionRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -7043,24 +7043,24 @@ Partial Public Class DSConsultas
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Sub InitVars()
-            Me.columnFOLIO = MyBase.Columns("FOLIO")
             Me.columnPAGINA = MyBase.Columns("PAGINA")
             Me.columnMAQUINA = MyBase.Columns("MAQUINA")
+            Me.columnFOLIO = MyBase.Columns("FOLIO")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitClass()
-            Me.columnFOLIO = New Global.System.Data.DataColumn("FOLIO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFOLIO)
             Me.columnPAGINA = New Global.System.Data.DataColumn("PAGINA", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPAGINA)
             Me.columnMAQUINA = New Global.System.Data.DataColumn("MAQUINA", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMAQUINA)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnFOLIO, Me.columnMAQUINA, Me.columnPAGINA}, true))
-            Me.columnFOLIO.AllowDBNull = false
+            Me.columnFOLIO = New Global.System.Data.DataColumn("FOLIO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFOLIO)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnPAGINA, Me.columnFOLIO, Me.columnMAQUINA}, true))
             Me.columnPAGINA.AllowDBNull = false
             Me.columnMAQUINA.AllowDBNull = false
             Me.columnMAQUINA.MaxLength = 50
+            Me.columnFOLIO.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -10060,16 +10060,6 @@ Partial Public Class DSConsultas
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property FOLIO() As Decimal
-            Get
-                Return CType(Me(Me.tableNavegacion.FOLIOColumn),Decimal)
-            End Get
-            Set
-                Me(Me.tableNavegacion.FOLIOColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property PAGINA() As Decimal
             Get
                 Return CType(Me(Me.tableNavegacion.PAGINAColumn),Decimal)
@@ -10086,6 +10076,16 @@ Partial Public Class DSConsultas
             End Get
             Set
                 Me(Me.tableNavegacion.MAQUINAColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property FOLIO() As Decimal
+            Get
+                Return CType(Me(Me.tableNavegacion.FOLIOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableNavegacion.FOLIOColumn) = value
             End Set
         End Property
     End Class
@@ -15760,9 +15760,9 @@ Namespace DSConsultasTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "Navegacion"
-            tableMapping.ColumnMappings.Add("FOLIO", "FOLIO")
             tableMapping.ColumnMappings.Add("PAGINA", "PAGINA")
             tableMapping.ColumnMappings.Add("MAQUINA", "MAQUINA")
+            tableMapping.ColumnMappings.Add("FOLIO", "FOLIO")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -15777,9 +15777,9 @@ Namespace DSConsultasTableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT DISTINCT folio, pagina, maquina FROM tse.im_ciudadanos_respaldan WHERE cod"& _ 
-                "igo_partido=:partido AND codigo_movimiento=:movimiento AND codigo_departamento=:"& _ 
-                "departamento AND codigo_municipio=:municipio ORDER BY 1, 2, 3"
+            Me._commandCollection(0).CommandText = "SELECT DISTINCT NVL(folio,0) folio, pagina, maquina FROM tse.im_ciudadanos_respal"& _ 
+                "dan WHERE codigo_partido=:partido AND codigo_movimiento=:movimiento AND codigo_d"& _ 
+                "epartamento=:departamento AND codigo_municipio=:municipio ORDER BY 1, 2, 3"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("partido", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("movimiento", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
