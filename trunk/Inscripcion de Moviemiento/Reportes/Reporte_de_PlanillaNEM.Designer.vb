@@ -411,7 +411,7 @@ Partial Public Class Reporte_de_PlanillaNEM
     Friend WithEvents XrLabel16 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel17 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel18 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents IM_V_PLANILLAS_X_NIVELAdapter1 As Inscripcion_de_Moviemientos.DS_REPORTE_DE_PNEMTableAdapters.IM_V_PLANILLAS_X_NIVELAdapter
+    Friend WithEvents IM_V_PLANILLAS_X_NIVELAdapter1 As Inscripcion_de_Moviemientos.DS_REPORTE_DE_PNEMTableAdapters.IM_V_PLANILLAS_X_NIVELTableAdapter
     Friend WithEvents DS_REPORTE_DE_PNEM1 As Inscripcion_de_Moviemientos.DS_REPORTE_DE_PNEM
     Friend WithEvents GroupHeaderBand1 As DevExpress.XtraReports.UI.GroupHeaderBand
     Friend WithEvents XrLabel4 As DevExpress.XtraReports.UI.XRLabel
