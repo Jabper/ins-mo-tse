@@ -96,7 +96,7 @@ Public Class XfrmConsultaFirmas
         If ActivarOpciones.PEstado = "PDO" Then
             Dim idp As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
             Me.CmbPartido.Enabled = False
-            Me.btnfirmas.Visible = True
+
 
             'Partido
             Dim p As Integer = Me.CmbPartido.Properties.GetDataSourceRowIndex(Me.CmbPartido.Properties.Columns("CODIGO_PARTIDO"), idp)
@@ -114,7 +114,7 @@ Public Class XfrmConsultaFirmas
 
             Me.CmbPartido.Enabled = False
             Me.CmbMovimiento.Enabled = False
-            Me.btnfirmas.Visible = False
+
             'Partido
             Dim p As Integer = Me.CmbPartido.Properties.GetDataSourceRowIndex(Me.CmbPartido.Properties.Columns("CODIGO_PARTIDO"), idp)
             CmbPartido.EditValue = Me.CmbPartido.Properties.GetDataSourceValue(CmbPartido.Properties.ValueMember, p)
@@ -129,10 +129,30 @@ Public Class XfrmConsultaFirmas
             Dim m As Integer = Me.CmbMovimiento.Properties.GetDataSourceRowIndex(Me.CmbMovimiento.Properties.Columns("CODIGO_MOVIMIENTO"), idmov)
             Me.CmbMovimiento.EditValue = Me.CmbMovimiento.Properties.GetDataSourceValue(Me.CmbMovimiento.Properties.ValueMember, m)
             '******************Ventana de espera
-            VerFirmas()
+            Dim waitDialog As New WaitDialogForm("Obteniendo Información", "Por favor espere..")
+            Try
+
+                '    Me.IM_V_MOSTRAR_FIRMASTableAdapter.Fill(Me.DSCiudadanos.IM_V_MOSTRAR_FIRMAS, idpar, idmovi)
+                Dim cnx As New OracleConnection(Configuracion.verconfig)
+                Dim sql As String = "select * from IM_V_MOSTRAR_FIRMAS where CODIGO_PARTIDO = " & idp & " AND CODIGO_MOVIMIENTO = " & idmov
+                cnx.Open()
+                Dim oa As OracleDataAdapter = New OracleDataAdapter(sql, cnx)
+                Dim ds As New DataTable
+                oa.Fill(ds)
+                Me.GCBusqueda.DataSource = Nothing
+                Me.GCBusqueda.DataSource = ds
+                cnx.Close()
+                oa.Dispose()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+            waitDialog.Caption = "finalizando..."
+            waitDialog.Close()
+            estadistico(Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
         Else
             limpiar()
-            Me.btnfirmas.Visible = True
+
         End If
     End Sub
 
@@ -562,10 +582,14 @@ Public Class XfrmConsultaFirmas
    
 
     Sub VerFirmas()
+
         If COracle.ObtenerDatos("SELECT * FROM  IM_CIUDADANOS_RESPALDAN WHERE CODIGO_PARTIDO=" & Me.CmbPartido.EditValue & " AND CODIGO_MOVIMIENTO=" & Me.CmbMovimiento.EditValue, "CODIGO_PARTIDO") = "N" Then
             Dim ds As New DataTable
+
             GCBusqueda.DataSource = Nothing
-            GCBusqueda.DataSource = ds
+            'GCBusqueda.DataSource = ds
+            Me.img.Image = Nothing
+            estadistico(Me.CmbPartido.EditValue, Me.CmbMovimiento.EditValue)
         Else
             Dim idpar As Integer = Me.CmbPartido.EditValue
             Dim idmovi As Integer = Me.CmbMovimiento.EditValue
@@ -611,10 +635,10 @@ Public Class XfrmConsultaFirmas
 
         ElseIf ActivarOpciones.PEstado = "TSE" Then
             If Me.CmbPartido.EditValue Is Nothing Or IsDBNull(Me.CmbPartido.EditValue) Or Me.CmbPartido.Text = "Seleccione" Then
-                Mensajes.mimensaje("Para filtrar la información primero seleccione un Partido Político")
+                '    Mensajes.mimensaje("Para filtrar la información primero seleccione un Partido Político")
 
             ElseIf Me.CmbMovimiento.EditValue Is Nothing Or IsDBNull(Me.CmbMovimiento.EditValue) Or Me.CmbMovimiento.Text = "Seleccione" Then
-                Mensajes.mimensaje("Para filtrar la información primero seleccione un movimiento")
+                '    Mensajes.mimensaje("Para filtrar la información primero seleccione un movimiento")
             Else
 
                 VerFirmas()
@@ -674,6 +698,10 @@ Public Class XfrmConsultaFirmas
             'End If
 
         End If
+
+    End Sub
+
+    Private Sub CmbMovimiento_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CmbMovimiento.EditValueChanged
 
     End Sub
 End Class
