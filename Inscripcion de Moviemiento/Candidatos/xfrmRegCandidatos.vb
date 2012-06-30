@@ -978,11 +978,14 @@ Public Class xfrmRegCandidatos
                 End If
                 Me.lblmujeres.Text = "Necesita Minimo 3 Mujeres entre Propietarias y Suplentes, Faltan " & (faltan)
             Else
+
                 mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
                 Dim faltan As String = 3 - mujeres_ingresadas
                 If faltan < 0 Then
                     faltan = 0
                 End If
+
+                mujeres_necesarias = COracle.ObtenerDatos("select cantidad_mujeres from im_departamentos where codigo_departamento = " & depto, "cantidad_mujeres")
 
                 Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (faltan))
             End If

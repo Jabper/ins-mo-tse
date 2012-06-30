@@ -744,7 +744,7 @@ Partial Class xfrmRegCandidatos
         Me.CONS_VECINDAD.Name = "CONS_VECINDAD"
         Me.CONS_VECINDAD.Visible = True
         Me.CONS_VECINDAD.VisibleIndex = 7
-        Me.CONS_VECINDAD.Width = 71
+        Me.CONS_VECINDAD.Width = 114
         '
         'chkConstancia
         '
@@ -791,8 +791,6 @@ Partial Class xfrmRegCandidatos
         Me.CODIGO_CANDIDATOS.Caption = "CODIGO_CANDIDATOS"
         Me.CODIGO_CANDIDATOS.FieldName = "CODIGO_CANDIDATOS"
         Me.CODIGO_CANDIDATOS.Name = "CODIGO_CANDIDATOS"
-        Me.CODIGO_CANDIDATOS.Visible = True
-        Me.CODIGO_CANDIDATOS.VisibleIndex = 9
         '
         'RIChkCoincide
         '

@@ -66,4 +66,9 @@ Public Class xfrmValidaciones
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
         Me.Close()
     End Sub
+
+    Private Sub btnreportes_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnreportes.Click
+        Dim reporte3 As REPORTE_PLANILLAS_FINALES = New REPORTE_PLANILLAS_FINALES
+        reporte3.ShowPreview()
+    End Sub
 End Class
