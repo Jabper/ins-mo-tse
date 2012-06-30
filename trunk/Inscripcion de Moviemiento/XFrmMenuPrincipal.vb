@@ -252,8 +252,8 @@ Public Class XFrmMenuPrincipal
     End Sub
 
     Private Sub BarButtonItem2_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnPlanillanivel.ItemClick
-        Dim reporte As Reporte_de_PlanillaNEM = New Reporte_de_PlanillaNEM
-        reporte.ShowPreview()
+        ' Dim reporte As Reporte_de_PlanillaNEM = New Reporte_de_PlanillaNEM
+        ' reporte.ShowPreview()
     End Sub
 
     Private Sub BarButtonItem3_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnPlanilladivision.ItemClick
