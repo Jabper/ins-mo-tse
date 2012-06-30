@@ -171,7 +171,7 @@ Public Class xfrmRegCandidatos
 
         Try
 
-        
+            Dim estado_requisito As String
             Dim view As GridView = GridView1
             Dim oradb As String = Configuracion.verconfig
 
@@ -235,7 +235,7 @@ Public Class xfrmRegCandidatos
 
                     'Dim view As GridView = GridView1
                     'RECORRER EL GRID
-                    Dim estado_requisito As String
+
                     If permitido = 1 Then
 
                         'COracle.ejecutarconsulta(String.Format("DELETE FROM IM_REQUISITOS_X_CANDIDATO WHERE CODIGO_CANDIDATO = {0} AND CODIGO_MOVIMIENTO= {1}AND CODIGO_PARTIDO = {2} AND CODIGO_REQUISITO ={3} ", view.GetRowCellValue(i, "CODIGO_CANDIDATOS"), id_movimiento, id_partido, a))
@@ -266,6 +266,40 @@ Public Class xfrmRegCandidatos
                             .CODIGO_PARTIDO = id_partido
                             .CODIGO_MOVIMIENTO = id_movimiento
                             If a = 8 Then
+
+                                Dim oradb1 As String = Configuracion.verconfig
+                                Dim conn1 As New OracleConnection()
+                                conn.ConnectionString = oradb
+                                If conn1.State = ConnectionState.Open Then
+                                    conn1.Close()
+                                End If
+                                conn1.Open()
+
+                                Dim myCMD1 As New OracleCommand()
+                                myCMD1.Connection = conn
+                                myCMD1.CommandText = "IM_K_VALIDACIONES.IM_P_VALIDA_CONSTACIA_VECINDAD"
+                                myCMD1.CommandType = CommandType.StoredProcedure
+                                myCMD1.Parameters.Add(New OracleParameter("PVI_IDENTIDAD", OracleType.NVarChar, 15, ParameterDirection.Input)).Value = view.GetRowCellValue(i, "IDENTIDAD")
+                                myCMD1.Parameters.Add(New OracleParameter("PNI_DEPTO", OracleType.Number, 2, ParameterDirection.Input)).Value = depto
+                                myCMD1.Parameters.Add(New OracleParameter("PNI_MUNI", OracleType.Number, 2, ParameterDirection.Input)).Value = muni
+                                myCMD1.Parameters.Add(New OracleParameter("PNI_CODIGO_CARGO_ELECTIVO", OracleType.Number, 3, ParameterDirection.Input)).Value = Me.cboCargo.EditValue
+                                myCMD1.Parameters.Add(New OracleParameter("PVO_ESTADO", OracleType.Char, 1)).Direction = ParameterDirection.InputOutput
+                                myCMD1.ExecuteOracleScalar()
+
+                                estado_requisito = myCMD1.Parameters("PVO_ESTADO").Value
+
+                                If estado_requisito = "C" Then
+                                    contadorrequisitos += 1
+
+                                Else
+                                    If view.GetRowCellValue(a, "CONS_VECINDAD") = "I" Then
+                                        contadorInconsistencias += 1
+                                        contadorrequisitos += 1
+                                        estado_requisito = "I"
+                                    End If
+                                End If
+                                conn1.Close()
+
                                 estado_requisito = view.GetRowCellValue(i, "CONS_VECINDAD")
                                 If estado_requisito = "C" Then
                                     If IsDBNull(view.GetRowCellValue(i, "CONS_VECINDAD_IMAGEN")) Or view.GetRowCellValue(i, "CONS_VECINDAD_IMAGEN") Is Nothing Then
@@ -391,7 +425,7 @@ Public Class xfrmRegCandidatos
                     'GuardarRequisitos()
                     BtnEliminariold.Enabled = False
 
-                    For a = 1 To 8
+                    For a = 1 To 9
                         ValidarCandidatos(I, a, identidad1, nombre1, nombre2, apellido1, apellido2)
                     Next a
                     'Me.LookUpEdit1.Reset()
@@ -514,8 +548,6 @@ Public Class xfrmRegCandidatos
 
             Dim consulta As String = "select NUMERO_IDENTIDAD  "
             consulta &= "from Im_padron_electoral where NUMERO_IDENTIDAD='" & iden & "'"
-
-
 
             If requisito = 1 Then
 
@@ -646,14 +678,41 @@ Public Class xfrmRegCandidatos
                     estado_requisto = "C"
                 End If
             ElseIf requisito = 8 And (Me.cboCargo.EditValue = 4 Or Me.cboCargo.EditValue = 5 Or Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7 Or Me.cboCargo.EditValue = 8) Then
-                If view.GetRowCellValue(fila, "CONS_VECINDAD") = "I" Then
-                    contadorInconsistencias += 1
-                    contadorrequisitos += 1
-                    estado_requisto = "I"
-                Else
-                    contadorrequisitos += 1
-                    estado_requisto = "C"
+
+                Dim oradb As String = Configuracion.verconfig
+                Dim conn As New OracleConnection()
+                conn.ConnectionString = oradb
+                If conn.State = ConnectionState.Open Then
+                    conn.Close()
                 End If
+                conn.Open()
+
+                Dim myCMD As New OracleCommand()
+                myCMD.Connection = conn
+                myCMD.CommandText = "IM_K_VALIDACIONES.IM_P_VALIDA_CONSTACIA_VECINDAD"
+                myCMD.CommandType = CommandType.StoredProcedure
+                myCMD.Parameters.Add(New OracleParameter("PVI_IDENTIDAD", OracleType.NVarChar, 15, ParameterDirection.Input)).Value = iden
+                myCMD.Parameters.Add(New OracleParameter("PNI_DEPTO", OracleType.Number, 2, ParameterDirection.Input)).Value = depto
+                myCMD.Parameters.Add(New OracleParameter("PNI_MUNI", OracleType.Number, 2, ParameterDirection.Input)).Value = muni
+                myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_CARGO_ELECTIVO", OracleType.Number, 3, ParameterDirection.Input)).Value = Me.cboCargo.EditValue
+                myCMD.Parameters.Add(New OracleParameter("PVO_ESTADO", OracleType.Char, 1)).Direction = ParameterDirection.InputOutput
+                myCMD.ExecuteOracleScalar()
+                estado_requisto = myCMD.Parameters("PVO_ESTADO").Value
+
+                If estado_requisto = "C" Then
+                    contadorrequisitos += 1
+
+                Else
+                    If view.GetRowCellValue(fila, "CONS_VECINDAD") = "I" Then
+                        contadorInconsistencias += 1
+                        contadorrequisitos += 1
+                        estado_requisto = "I"
+                    End If
+                End If
+                conn.Close()
+
+            ElseIf requisito = 9 Then
+                estado_requisto = "C"
             Else
                 requisito = 0
             End If
