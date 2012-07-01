@@ -425,6 +425,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_REPORTE_DE_FPAR_1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\DS_REPORTE_DE_PNEM_1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_REPORTE_DE_PNEM_1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DS_REPORTE_DE_RESUMEN_FDP.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -458,6 +463,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_REPORTE_DE_DP.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\DS_REPORTE_DE_RESUMEN_FDP_1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_REPORTE_DE_RESUMEN_FDP_1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\REPORTE_DE _PLANILLA_DE_CANDIDATOS.Designer.vb">
       <DependentUpon>REPORTE_DE _PLANILLA_DE_CANDIDATOS.vb</DependentUpon>
     </Compile>
@@ -468,6 +478,12 @@
       <DependentUpon>REPORTE_DE_LOG.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\REPORTE_DE_LOG.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\Reporte_de_Planilla_PNEMO.Designer.vb">
+      <DependentUpon>Reporte_de_Planilla_PNEMO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Reporte_de_Planilla_PNEMO.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\Reporte_Estadistico_general_firmas.Designer.vb">
@@ -855,6 +871,9 @@
     <EmbeddedResource Include="Reportes\REPORTE_DE_LOG.resx">
       <DependentUpon>REPORTE_DE_LOG.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Reporte_de_Planilla_PNEMO.resx">
+      <DependentUpon>Reporte_de_Planilla_PNEMO.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Reporte_Estadistico_general_firmas.resx">
       <DependentUpon>Reporte_Estadistico_general_firmas.vb</DependentUpon>
@@ -1415,6 +1434,17 @@
     <None Include="Reportes\DS_REPORTE_DE_FPAR_1.xss">
       <DependentUpon>DS_REPORTE_DE_FPAR_1.xsd</DependentUpon>
     </None>
+    <None Include="Reportes\DS_REPORTE_DE_PNEM_1.xsc">
+      <DependentUpon>DS_REPORTE_DE_PNEM_1.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_PNEM_1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_REPORTE_DE_PNEM_1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_PNEM_1.xss">
+      <DependentUpon>DS_REPORTE_DE_PNEM_1.xsd</DependentUpon>
+    </None>
     <None Include="Reportes\DS_REPORTE_DE_RESUMEN_FDP.xsc">
       <DependentUpon>DS_REPORTE_DE_RESUMEN_FDP.xsd</DependentUpon>
     </None>
@@ -1480,6 +1510,17 @@
     </None>
     <None Include="Reportes\DS_REPORTE_DE_DP.xss">
       <DependentUpon>DS_REPORTE_DE_DP.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_RESUMEN_FDP_1.xsc">
+      <DependentUpon>DS_REPORTE_DE_RESUMEN_FDP_1.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_RESUMEN_FDP_1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_REPORTE_DE_RESUMEN_FDP_1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_RESUMEN_FDP_1.xss">
+      <DependentUpon>DS_REPORTE_DE_RESUMEN_FDP_1.xsd</DependentUpon>
     </None>
     <None Include="Resources\candidatos_repetidos.png" />
     <None Include="Resources\firmas.png" />
