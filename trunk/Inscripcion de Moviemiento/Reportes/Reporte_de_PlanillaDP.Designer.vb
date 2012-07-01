@@ -26,8 +26,6 @@ Partial Public Class Reporte_de_PlanillaDP
         Me.XrLabel20 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel21 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel22 = New DevExpress.XtraReports.UI.XRLabel
-        Me.IM_V_PLANILLAS_X_DPOLITICAAdapter1 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_DPTableAdapters.IM_V_PLANILLAS_X_DPOLITICAAdapter
-        Me.DS_REPORTE_DE_DP1 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_DP
         Me.GroupHeaderBand1 = New DevExpress.XtraReports.UI.GroupHeaderBand
         Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel
@@ -65,7 +63,6 @@ Partial Public Class Reporte_de_PlanillaDP
         Me.NivelElectivo = New DevExpress.XtraReports.Parameters.Parameter
         Me.DS_REPORTE_DE_DP_11 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_DP_1
         Me.IM_V_PLANILLAS_X_DPOLITICATableAdapter = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_DP_1TableAdapters.IM_V_PLANILLAS_X_DPOLITICATableAdapter
-        CType(Me.DS_REPORTE_DE_DP1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_REPORTE_DE_DP_11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
@@ -135,15 +132,6 @@ Partial Public Class Reporte_de_PlanillaDP
         Me.XrLabel22.StylePriority.UseTextAlignment = False
         Me.XrLabel22.Text = "XrLabel22"
         Me.XrLabel22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'IM_V_PLANILLAS_X_DPOLITICAAdapter1
-        '
-        Me.IM_V_PLANILLAS_X_DPOLITICAAdapter1.ClearBeforeFill = True
-        '
-        'DS_REPORTE_DE_DP1
-        '
-        Me.DS_REPORTE_DE_DP1.DataSetName = "DS_REPORTE_DE_DP"
-        Me.DS_REPORTE_DE_DP1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupHeaderBand1
         '
@@ -454,7 +442,7 @@ Partial Public Class Reporte_de_PlanillaDP
         'Reporte_de_PlanillaDP
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.GroupHeaderBand1, Me.GroupHeaderBand2, Me.GroupHeaderBand3, Me.PageFooterBand1, Me.ReportHeaderBand1, Me.TopMarginBand1, Me.BottomMarginBand1})
-        Me.DataAdapter = Me.IM_V_PLANILLAS_X_DPOLITICAAdapter1
+        Me.DataAdapter = Me.IM_V_PLANILLAS_X_DPOLITICATableAdapter
         Me.DataMember = "IM_V_PLANILLAS_X_DPOLITICA"
         Me.DataSource = Me.DS_REPORTE_DE_DP_11
         Me.FilterString = "[NOMBRE PARTIDO] = ?NombrePartido And [NOMBRE MOVIMIENTO ] = ?NombreMovimiento An" & _
@@ -467,7 +455,6 @@ Partial Public Class Reporte_de_PlanillaDP
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.StyleSheet.AddRange(New DevExpress.XtraReports.UI.XRControlStyle() {Me.Title, Me.FieldCaption, Me.PageInfo, Me.DataField})
         Me.Version = "11.2"
-        CType(Me.DS_REPORTE_DE_DP1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DS_REPORTE_DE_DP_11, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
@@ -479,8 +466,6 @@ Partial Public Class Reporte_de_PlanillaDP
     Friend WithEvents XrLabel20 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel21 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel22 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents IM_V_PLANILLAS_X_DPOLITICAAdapter1 As Inscripcion_de_Moviemientos.DS_REPORTE_DE_DPTableAdapters.IM_V_PLANILLAS_X_DPOLITICAAdapter
-    Friend WithEvents DS_REPORTE_DE_DP1 As Inscripcion_de_Moviemientos.DS_REPORTE_DE_DP
     Friend WithEvents GroupHeaderBand1 As DevExpress.XtraReports.UI.GroupHeaderBand
     Friend WithEvents XrLabel4 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel5 As DevExpress.XtraReports.UI.XRLabel
