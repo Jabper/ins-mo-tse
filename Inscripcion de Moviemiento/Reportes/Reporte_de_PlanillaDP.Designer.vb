@@ -63,7 +63,10 @@ Partial Public Class Reporte_de_PlanillaDP
         Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
         Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
         Me.NivelElectivo = New DevExpress.XtraReports.Parameters.Parameter
+        Me.DS_REPORTE_DE_DP_11 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_DP_1
+        Me.IM_V_PLANILLAS_X_DPOLITICATableAdapter = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_DP_1TableAdapters.IM_V_PLANILLAS_X_DPOLITICATableAdapter
         CType(Me.DS_REPORTE_DE_DP1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DS_REPORTE_DE_DP_11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
         'Detail
@@ -439,12 +442,21 @@ Partial Public Class Reporte_de_PlanillaDP
         Me.NivelElectivo.Description = "Nivel Electivo"
         Me.NivelElectivo.Name = "NivelElectivo"
         '
+        'DS_REPORTE_DE_DP_11
+        '
+        Me.DS_REPORTE_DE_DP_11.DataSetName = "DS_REPORTE_DE_DP_1"
+        Me.DS_REPORTE_DE_DP_11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'IM_V_PLANILLAS_X_DPOLITICATableAdapter
+        '
+        Me.IM_V_PLANILLAS_X_DPOLITICATableAdapter.ClearBeforeFill = True
+        '
         'Reporte_de_PlanillaDP
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.GroupHeaderBand1, Me.GroupHeaderBand2, Me.GroupHeaderBand3, Me.PageFooterBand1, Me.ReportHeaderBand1, Me.TopMarginBand1, Me.BottomMarginBand1})
         Me.DataAdapter = Me.IM_V_PLANILLAS_X_DPOLITICAAdapter1
         Me.DataMember = "IM_V_PLANILLAS_X_DPOLITICA"
-        Me.DataSource = Me.DS_REPORTE_DE_DP1
+        Me.DataSource = Me.DS_REPORTE_DE_DP_11
         Me.FilterString = "[NOMBRE PARTIDO] = ?NombrePartido And [NOMBRE MOVIMIENTO ] = ?NombreMovimiento An" & _
             "d [NIVEL ELECTIVO] = ?NivelElectivo"
         Me.Landscape = True
@@ -456,6 +468,7 @@ Partial Public Class Reporte_de_PlanillaDP
         Me.StyleSheet.AddRange(New DevExpress.XtraReports.UI.XRControlStyle() {Me.Title, Me.FieldCaption, Me.PageInfo, Me.DataField})
         Me.Version = "11.2"
         CType(Me.DS_REPORTE_DE_DP1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DS_REPORTE_DE_DP_11, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub
@@ -503,4 +516,6 @@ Partial Public Class Reporte_de_PlanillaDP
     Friend WithEvents NombrePartido As DevExpress.XtraReports.Parameters.Parameter
     Friend WithEvents NombreMovimiento As DevExpress.XtraReports.Parameters.Parameter
     Friend WithEvents NivelElectivo As DevExpress.XtraReports.Parameters.Parameter
+    Friend WithEvents DS_REPORTE_DE_DP_11 As Inscripcion_de_Moviemientos.DS_REPORTE_DE_DP_1
+    Friend WithEvents IM_V_PLANILLAS_X_DPOLITICATableAdapter As Inscripcion_de_Moviemientos.DS_REPORTE_DE_DP_1TableAdapters.IM_V_PLANILLAS_X_DPOLITICATableAdapter
 End Class
