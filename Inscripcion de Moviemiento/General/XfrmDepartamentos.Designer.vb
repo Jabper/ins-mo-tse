@@ -22,9 +22,10 @@ Partial Class XfrmDepartamentos
         Me.components = New System.ComponentModel.Container
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
         Me.DataLayoutControl2 = New DevExpress.XtraDataLayout.DataLayoutControl
-        Me.DESCRIPCIONTextEdit = New DevExpress.XtraEditors.TextEdit
+        Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit
         Me.IMDEPARTAMENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DSDeptoMuni = New Inscripcion_de_Moviemientos.DSDeptoMuni
+        Me.DESCRIPCIONTextEdit = New DevExpress.XtraEditors.TextEdit
         Me.ADICIONADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.FECHA_ADICIONDateEdit = New DevExpress.XtraEditors.DateEdit
         Me.MODIFICADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
@@ -43,6 +44,8 @@ Partial Class XfrmDepartamentos
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.EmptySpaceItem3 = New DevExpress.XtraLayout.EmptySpaceItem
+        Me.LayoutControlItem7 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.EmptySpaceItem4 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
         Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
@@ -67,13 +70,15 @@ Partial Class XfrmDepartamentos
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
         Me.TA_DEPARTAMENTOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_DEPARTAMENTOSTableAdapter
         Me.IM_DEPARTAMENTOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.IM_DEPARTAMENTOSTableAdapter
+        Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.DataLayoutControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DataLayoutControl2.SuspendLayout()
-        CType(Me.DESCRIPCIONTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMDEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DESCRIPCIONTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -94,6 +99,8 @@ Partial Class XfrmDepartamentos
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
@@ -111,6 +118,7 @@ Partial Class XfrmDepartamentos
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -130,6 +138,7 @@ Partial Class XfrmDepartamentos
         '
         'DataLayoutControl2
         '
+        Me.DataLayoutControl2.Controls.Add(Me.TextEdit1)
         Me.DataLayoutControl2.Controls.Add(Me.DESCRIPCIONTextEdit)
         Me.DataLayoutControl2.Controls.Add(Me.ADICIONADO_PORSpinEdit)
         Me.DataLayoutControl2.Controls.Add(Me.FECHA_ADICIONDateEdit)
@@ -147,15 +156,18 @@ Partial Class XfrmDepartamentos
         Me.DataLayoutControl2.TabIndex = 6
         Me.DataLayoutControl2.Text = "DataLayoutControl2"
         '
-        'DESCRIPCIONTextEdit
+        'TextEdit1
         '
-        Me.DESCRIPCIONTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMDEPARTAMENTOSBindingSource, "DESCRIPCION", True))
-        Me.DESCRIPCIONTextEdit.Location = New System.Drawing.Point(125, 36)
-        Me.DESCRIPCIONTextEdit.Name = "DESCRIPCIONTextEdit"
-        Me.DESCRIPCIONTextEdit.Properties.MaxLength = 100
-        Me.DESCRIPCIONTextEdit.Size = New System.Drawing.Size(274, 20)
-        Me.DESCRIPCIONTextEdit.StyleController = Me.DataLayoutControl2
-        Me.DESCRIPCIONTextEdit.TabIndex = 5
+        Me.TextEdit1.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMDEPARTAMENTOSBindingSource, "CANTIDAD_MUJERES", True))
+        Me.TextEdit1.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.TextEdit1.Location = New System.Drawing.Point(358, 60)
+        Me.TextEdit1.Name = "TextEdit1"
+        Me.TextEdit1.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
+        Me.TextEdit1.Properties.Mask.EditMask = "00"
+        Me.TextEdit1.Properties.MaxLength = 2
+        Me.TextEdit1.Size = New System.Drawing.Size(58, 20)
+        Me.TextEdit1.StyleController = Me.DataLayoutControl2
+        Me.TextEdit1.TabIndex = 7
         '
         'IMDEPARTAMENTOSBindingSource
         '
@@ -166,6 +178,16 @@ Partial Class XfrmDepartamentos
         '
         Me.DSDeptoMuni.DataSetName = "DSDeptoMuni"
         Me.DSDeptoMuni.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'DESCRIPCIONTextEdit
+        '
+        Me.DESCRIPCIONTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMDEPARTAMENTOSBindingSource, "DESCRIPCION", True))
+        Me.DESCRIPCIONTextEdit.Location = New System.Drawing.Point(125, 36)
+        Me.DESCRIPCIONTextEdit.Name = "DESCRIPCIONTextEdit"
+        Me.DESCRIPCIONTextEdit.Properties.MaxLength = 100
+        Me.DESCRIPCIONTextEdit.Size = New System.Drawing.Size(293, 20)
+        Me.DESCRIPCIONTextEdit.StyleController = Me.DataLayoutControl2
+        Me.DESCRIPCIONTextEdit.TabIndex = 5
         '
         'ADICIONADO_PORSpinEdit
         '
@@ -300,7 +322,7 @@ Partial Class XfrmDepartamentos
         Me.LayoutControlGroup3.AllowDrawBackground = False
         Me.LayoutControlGroup3.CustomizationFormText = "autoGeneratedGroup0"
         Me.LayoutControlGroup3.GroupBordersVisible = False
-        Me.LayoutControlGroup3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForCODIGO_DEPARTAMENTO, Me.ItemForDESCRIPCION, Me.ItemForCANTIDAD_DIPUTADOS, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.EmptySpaceItem3})
+        Me.LayoutControlGroup3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForCODIGO_DEPARTAMENTO, Me.ItemForDESCRIPCION, Me.ItemForCANTIDAD_DIPUTADOS, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.EmptySpaceItem3, Me.LayoutControlItem7, Me.EmptySpaceItem4})
         Me.LayoutControlGroup3.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup3.Name = "autoGeneratedGroup0"
         Me.LayoutControlGroup3.Size = New System.Drawing.Size(526, 79)
@@ -322,7 +344,7 @@ Partial Class XfrmDepartamentos
         Me.ItemForDESCRIPCION.CustomizationFormText = "DESCRIPCION"
         Me.ItemForDESCRIPCION.Location = New System.Drawing.Point(0, 24)
         Me.ItemForDESCRIPCION.Name = "ItemForDESCRIPCION"
-        Me.ItemForDESCRIPCION.Size = New System.Drawing.Size(391, 24)
+        Me.ItemForDESCRIPCION.Size = New System.Drawing.Size(410, 24)
         Me.ItemForDESCRIPCION.Text = "Descripción"
         Me.ItemForDESCRIPCION.TextSize = New System.Drawing.Size(109, 13)
         '
@@ -351,8 +373,11 @@ Partial Class XfrmDepartamentos
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
         Me.EmptySpaceItem2.Location = New System.Drawing.Point(167, 48)
+        Me.EmptySpaceItem2.MaxSize = New System.Drawing.Size(66, 31)
+        Me.EmptySpaceItem2.MinSize = New System.Drawing.Size(66, 31)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(359, 31)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(66, 31)
+        Me.EmptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -360,11 +385,31 @@ Partial Class XfrmDepartamentos
         '
         Me.EmptySpaceItem3.AllowHotTrack = False
         Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Location = New System.Drawing.Point(391, 24)
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(410, 24)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Size = New System.Drawing.Size(135, 24)
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(116, 24)
         Me.EmptySpaceItem3.Text = "EmptySpaceItem3"
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'LayoutControlItem7
+        '
+        Me.LayoutControlItem7.Control = Me.TextEdit1
+        Me.LayoutControlItem7.CustomizationFormText = "Minimo Mujeres"
+        Me.LayoutControlItem7.Location = New System.Drawing.Point(233, 48)
+        Me.LayoutControlItem7.Name = "LayoutControlItem7"
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(175, 31)
+        Me.LayoutControlItem7.Text = "Minimo Mujeres"
+        Me.LayoutControlItem7.TextSize = New System.Drawing.Size(109, 13)
+        '
+        'EmptySpaceItem4
+        '
+        Me.EmptySpaceItem4.AllowHotTrack = False
+        Me.EmptySpaceItem4.CustomizationFormText = "EmptySpaceItem4"
+        Me.EmptySpaceItem4.Location = New System.Drawing.Point(408, 48)
+        Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
+        Me.EmptySpaceItem4.Size = New System.Drawing.Size(118, 31)
+        Me.EmptySpaceItem4.Text = "EmptySpaceItem4"
+        Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
         '
         'PanelControl1
         '
@@ -616,6 +661,17 @@ Partial Class XfrmDepartamentos
         '
         Me.IM_DEPARTAMENTOSTableAdapter.ClearBeforeFill = True
         '
+        'LayoutControlItem6
+        '
+        Me.LayoutControlItem6.Control = Me.CANTIDAD_DIPUTADOSSpinEdit
+        Me.LayoutControlItem6.CustomizationFormText = "CANTIDAD_DIPUTADOS"
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 48)
+        Me.LayoutControlItem6.Name = "ItemForCANTIDAD_DIPUTADOS"
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(167, 31)
+        Me.LayoutControlItem6.Text = "Cantidad de Diputados"
+        Me.LayoutControlItem6.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem6.TextToControlDistance = 5
+        '
         'XfrmDepartamentos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -628,9 +684,10 @@ Partial Class XfrmDepartamentos
         Me.LayoutControl1.ResumeLayout(False)
         CType(Me.DataLayoutControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DataLayoutControl2.ResumeLayout(False)
-        CType(Me.DESCRIPCIONTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMDEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DSDeptoMuni, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DESCRIPCIONTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -651,6 +708,8 @@ Partial Class XfrmDepartamentos
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         Me.FlowLayoutPanel1.ResumeLayout(False)
@@ -668,6 +727,7 @@ Partial Class XfrmDepartamentos
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -718,4 +778,8 @@ Partial Class XfrmDepartamentos
     Friend WithEvents BtnGuardar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnEliminar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnSalir As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents TextEdit1 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LayoutControlItem7 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlItem6 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents EmptySpaceItem4 As DevExpress.XtraLayout.EmptySpaceItem
 End Class
