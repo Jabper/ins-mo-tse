@@ -24,8 +24,6 @@ Partial Public Class Reporte_de_cruce_FPA
         Me.XrLabel10 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel11 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel12 = New DevExpress.XtraReports.UI.XRLabel
-        Me.IM_V_CRUCE_FIRMAS_PARAdapter1 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FPARTableAdapters.IM_V_CRUCE_FIRMAS_PARAdapter
-        Me.DS_REPORTE_DE_FPAR1 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FPAR
         Me.GroupHeaderBand1 = New DevExpress.XtraReports.UI.GroupHeaderBand
         Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel
@@ -50,7 +48,9 @@ Partial Public Class Reporte_de_cruce_FPA
         Me.TopMarginBand1 = New DevExpress.XtraReports.UI.TopMarginBand
         Me.BottomMarginBand1 = New DevExpress.XtraReports.UI.BottomMarginBand
         Me.NombreDepartamento = New DevExpress.XtraReports.Parameters.Parameter
-        CType(Me.DS_REPORTE_DE_FPAR1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DS_REPORTE_DE_FPAR_11 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FPAR_1
+        Me.IM_V_CRUCE_FIRMAS_PARTableAdapter = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FPAR_1TableAdapters.IM_V_CRUCE_FIRMAS_PARTableAdapter
+        CType(Me.DS_REPORTE_DE_FPAR_11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
         'Detail
@@ -97,15 +97,6 @@ Partial Public Class Reporte_de_cruce_FPA
         Me.XrLabel12.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel12.SizeF = New System.Drawing.SizeF(248.0118!, 14.99999!)
         Me.XrLabel12.Text = "XrLabel12"
-        '
-        'IM_V_CRUCE_FIRMAS_PARAdapter1
-        '
-        Me.IM_V_CRUCE_FIRMAS_PARAdapter1.ClearBeforeFill = True
-        '
-        'DS_REPORTE_DE_FPAR1
-        '
-        Me.DS_REPORTE_DE_FPAR1.DataSetName = "DS_REPORTE_DE_FPAR"
-        Me.DS_REPORTE_DE_FPAR1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupHeaderBand1
         '
@@ -303,12 +294,21 @@ Partial Public Class Reporte_de_cruce_FPA
         Me.NombreDepartamento.Description = "Nombre de departamento"
         Me.NombreDepartamento.Name = "NombreDepartamento"
         '
+        'DS_REPORTE_DE_FPAR_11
+        '
+        Me.DS_REPORTE_DE_FPAR_11.DataSetName = "DS_REPORTE_DE_FPAR_1"
+        Me.DS_REPORTE_DE_FPAR_11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'IM_V_CRUCE_FIRMAS_PARTableAdapter
+        '
+        Me.IM_V_CRUCE_FIRMAS_PARTableAdapter.ClearBeforeFill = True
+        '
         'Reporte_de_cruce_FPA
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.GroupHeaderBand1, Me.GroupHeaderBand2, Me.PageFooterBand1, Me.ReportHeaderBand1, Me.TopMarginBand1, Me.BottomMarginBand1})
-        Me.DataAdapter = Me.IM_V_CRUCE_FIRMAS_PARAdapter1
+        Me.DataAdapter = Me.IM_V_CRUCE_FIRMAS_PARTableAdapter
         Me.DataMember = "IM_V_CRUCE_FIRMAS_PAR"
-        Me.DataSource = Me.DS_REPORTE_DE_FPAR1
+        Me.DataSource = Me.DS_REPORTE_DE_FPAR_11
         Me.FilterString = "[DEPARTAMENTO] = ?NombreDepartamento"
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(25, 18, 35, 100)
@@ -318,7 +318,7 @@ Partial Public Class Reporte_de_cruce_FPA
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.StyleSheet.AddRange(New DevExpress.XtraReports.UI.XRControlStyle() {Me.Title, Me.FieldCaption, Me.PageInfo, Me.DataField})
         Me.Version = "11.2"
-        CType(Me.DS_REPORTE_DE_FPAR1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DS_REPORTE_DE_FPAR_11, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub
@@ -327,8 +327,6 @@ Partial Public Class Reporte_de_cruce_FPA
     Friend WithEvents XrLabel10 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel11 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel12 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents IM_V_CRUCE_FIRMAS_PARAdapter1 As Inscripcion_de_Moviemientos.DS_REPORTE_DE_FPARTableAdapters.IM_V_CRUCE_FIRMAS_PARAdapter
-    Friend WithEvents DS_REPORTE_DE_FPAR1 As Inscripcion_de_Moviemientos.DS_REPORTE_DE_FPAR
     Friend WithEvents GroupHeaderBand1 As DevExpress.XtraReports.UI.GroupHeaderBand
     Friend WithEvents XrLabel3 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel4 As DevExpress.XtraReports.UI.XRLabel
@@ -353,4 +351,6 @@ Partial Public Class Reporte_de_cruce_FPA
     Friend WithEvents TopMarginBand1 As DevExpress.XtraReports.UI.TopMarginBand
     Friend WithEvents BottomMarginBand1 As DevExpress.XtraReports.UI.BottomMarginBand
     Friend WithEvents NombreDepartamento As DevExpress.XtraReports.Parameters.Parameter
+    Friend WithEvents DS_REPORTE_DE_FPAR_11 As Inscripcion_de_Moviemientos.DS_REPORTE_DE_FPAR_1
+    Friend WithEvents IM_V_CRUCE_FIRMAS_PARTableAdapter As Inscripcion_de_Moviemientos.DS_REPORTE_DE_FPAR_1TableAdapters.IM_V_CRUCE_FIRMAS_PARTableAdapter
 End Class

@@ -7,9 +7,9 @@ Imports DevExpress.XtraReports.Parameters
 Public Class Reporte_de_cruce_FPA
 
     Private Sub Reporte_de_cruce_FPA_ParametersRequestBeforeShow(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestEventArgs) Handles Me.ParametersRequestBeforeShow
-        Dim dataset As New DS_REPORTE_DE_FPAR
-        Using Adapter As New DS_REPORTE_DE_FPARTableAdapters.DT_PARTIDOS_POLITICOS_CFPARTableAdapter
-            Adapter.Fill(dataset.DT_PARTIDOS_POLITICOS_CFPAR)
+        Dim dataset As New DS_REPORTE_DE_FPAR_1
+        Using Adapter As New DS_REPORTE_DE_FPAR_1TableAdapters.IM_PARTIDOS_POLITICOSTableAdapter
+            Adapter.Fill(dataset.IM_PARTIDOS_POLITICOS)
         End Using
 
         'For Each info In e.ParametersInformation
@@ -25,14 +25,14 @@ Public Class Reporte_de_cruce_FPA
         'Next
 
         ' ''CODIGO NECESARIO PARA AGREGAR LA LISTA DE VALOR DE LOS MOVIMIENTOS
-        Using Adapter1 As New DS_REPORTE_DE_FPARTableAdapters.TD_departamentos_cfparTableAdapter
-            Adapter1.Fill(dataset.TD_departamentos_cfpar)
+        Using Adapter1 As New DS_REPORTE_DE_FPAR_1TableAdapters.IM_DEPARTAMENTOSTableAdapter
+            Adapter1.Fill(dataset.IM_DEPARTAMENTOS)
         End Using
 
         For Each info In e.ParametersInformation
             If info.Parameter.Name = "NombreDepartamento" Then
                 Dim LookUpEdit As New LookUpEdit()
-                LookUpEdit.Properties.DataSource = dataset.TD_departamentos_cfpar
+                LookUpEdit.Properties.DataSource = dataset.IM_DEPARTAMENTOS
                 LookUpEdit.Properties.DisplayMember = "DEPARTAMENTO" 'COLOCA EL CAMPO SELECCIONADO EN EL TEXTBOX
                 LookUpEdit.Properties.ValueMember = "DEPARTAMENTO"
                 LookUpEdit.Properties.Columns.Add(New  _
