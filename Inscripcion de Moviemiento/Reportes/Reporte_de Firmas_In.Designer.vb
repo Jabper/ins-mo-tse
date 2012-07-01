@@ -25,8 +25,6 @@ Partial Public Class Reporte_de_Firmas_In
         Me.XrLabel16 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel17 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel18 = New DevExpress.XtraReports.UI.XRLabel
-        Me.IM_V_FIRMAS_INCONSISTENTESAdapter1 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FITableAdapters.IM_V_FIRMAS_INCONSISTENTESAdapter
-        Me.DS_REPORTE_DE_FI1 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FI
         Me.GroupHeaderBand1 = New DevExpress.XtraReports.UI.GroupHeaderBand
         Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel
@@ -58,7 +56,9 @@ Partial Public Class Reporte_de_Firmas_In
         Me.BottomMarginBand1 = New DevExpress.XtraReports.UI.BottomMarginBand
         Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
         Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
-        CType(Me.DS_REPORTE_DE_FI1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DS_REPORTE_DE_FI_11 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FI_1
+        Me.IM_V_FIRMAS_INCONSISTENTESTableAdapter = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FI_1TableAdapters.IM_V_FIRMAS_INCONSISTENTESTableAdapter
+        CType(Me.DS_REPORTE_DE_FI_11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
         'Detail
@@ -116,16 +116,6 @@ Partial Public Class Reporte_de_Firmas_In
         Me.XrLabel18.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel18.SizeF = New System.Drawing.SizeF(351.5417!, 14.99999!)
         Me.XrLabel18.Text = "XrLabel18"
-        '
-        'IM_V_FIRMAS_INCONSISTENTESAdapter1
-        '
-        Me.IM_V_FIRMAS_INCONSISTENTESAdapter1.ClearBeforeFill = True
-        '
-        'DS_REPORTE_DE_FI1
-        '
-        Me.DS_REPORTE_DE_FI1.DataSetName = "DS_REPORTE_DE_FI"
-        Me.DS_REPORTE_DE_FI1.EnforceConstraints = False
-        Me.DS_REPORTE_DE_FI1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupHeaderBand1
         '
@@ -384,12 +374,21 @@ Partial Public Class Reporte_de_Firmas_In
         Me.NombreMovimiento.Description = "Nombre de Movimiento"
         Me.NombreMovimiento.Name = "NombreMovimiento"
         '
+        'DS_REPORTE_DE_FI_11
+        '
+        Me.DS_REPORTE_DE_FI_11.DataSetName = "DS_REPORTE_DE_FI_1"
+        Me.DS_REPORTE_DE_FI_11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'IM_V_FIRMAS_INCONSISTENTESTableAdapter
+        '
+        Me.IM_V_FIRMAS_INCONSISTENTESTableAdapter.ClearBeforeFill = True
+        '
         'Reporte_de_Firmas_In
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.GroupHeaderBand1, Me.GroupHeaderBand2, Me.GroupHeaderBand4, Me.PageFooterBand1, Me.ReportHeaderBand1, Me.TopMarginBand1, Me.BottomMarginBand1})
-        Me.DataAdapter = Me.IM_V_FIRMAS_INCONSISTENTESAdapter1
+        Me.DataAdapter = Me.IM_V_FIRMAS_INCONSISTENTESTableAdapter
         Me.DataMember = "IM_V_FIRMAS_INCONSISTENTES"
-        Me.DataSource = Me.DS_REPORTE_DE_FI1
+        Me.DataSource = Me.DS_REPORTE_DE_FI_11
         Me.FilterString = "[NOMBRE PARTIDO] = ?NombrePartido And [NOMBRE MOVIMIENTO] = ?NombreMovimiento"
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(45, 16, 25, 100)
@@ -399,7 +398,7 @@ Partial Public Class Reporte_de_Firmas_In
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.StyleSheet.AddRange(New DevExpress.XtraReports.UI.XRControlStyle() {Me.Title, Me.FieldCaption, Me.PageInfo, Me.DataField})
         Me.Version = "11.2"
-        CType(Me.DS_REPORTE_DE_FI1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DS_REPORTE_DE_FI_11, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub
@@ -409,8 +408,6 @@ Partial Public Class Reporte_de_Firmas_In
     Friend WithEvents XrLabel16 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel17 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel18 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents IM_V_FIRMAS_INCONSISTENTESAdapter1 As Inscripcion_de_Moviemientos.DS_REPORTE_DE_FITableAdapters.IM_V_FIRMAS_INCONSISTENTESAdapter
-    Friend WithEvents DS_REPORTE_DE_FI1 As Inscripcion_de_Moviemientos.DS_REPORTE_DE_FI
     Friend WithEvents GroupHeaderBand1 As DevExpress.XtraReports.UI.GroupHeaderBand
     Friend WithEvents XrLabel3 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel4 As DevExpress.XtraReports.UI.XRLabel
@@ -442,4 +439,6 @@ Partial Public Class Reporte_de_Firmas_In
     Friend WithEvents BottomMarginBand1 As DevExpress.XtraReports.UI.BottomMarginBand
     Friend WithEvents NombrePartido As DevExpress.XtraReports.Parameters.Parameter
     Friend WithEvents NombreMovimiento As DevExpress.XtraReports.Parameters.Parameter
+    Friend WithEvents DS_REPORTE_DE_FI_11 As Inscripcion_de_Moviemientos.DS_REPORTE_DE_FI_1
+    Friend WithEvents IM_V_FIRMAS_INCONSISTENTESTableAdapter As Inscripcion_de_Moviemientos.DS_REPORTE_DE_FI_1TableAdapters.IM_V_FIRMAS_INCONSISTENTESTableAdapter
 End Class

@@ -26,8 +26,6 @@ Partial Public Class Reporte_de_cruce_FMOV
         Me.XrLabel14 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel15 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel16 = New DevExpress.XtraReports.UI.XRLabel
-        Me.IM_V_CRUZE_FIRMAS_MOVAdapter1 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FMOVTableAdapters.IM_V_CRUZE_FIRMAS_MOVAdapter
-        Me.DS_REPORTE_DE_FMOV1 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FMOV
         Me.GroupHeaderBand1 = New DevExpress.XtraReports.UI.GroupHeaderBand
         Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel
@@ -55,7 +53,9 @@ Partial Public Class Reporte_de_cruce_FMOV
         Me.BottomMarginBand1 = New DevExpress.XtraReports.UI.BottomMarginBand
         Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
         Me.NombreDepartamento = New DevExpress.XtraReports.Parameters.Parameter
-        CType(Me.DS_REPORTE_DE_FMOV1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DS_REPORTE_DE_FMOV_11 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FMOV_1
+        Me.IM_V_CRUZE_FIRMAS_MOVTableAdapter = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FMOV_1TableAdapters.IM_V_CRUZE_FIRMAS_MOVTableAdapter
+        CType(Me.DS_REPORTE_DE_FMOV_11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
         'Detail
@@ -122,15 +122,6 @@ Partial Public Class Reporte_de_cruce_FMOV
         Me.XrLabel16.StylePriority.UseTextAlignment = False
         Me.XrLabel16.Text = "XrLabel16"
         Me.XrLabel16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'IM_V_CRUZE_FIRMAS_MOVAdapter1
-        '
-        Me.IM_V_CRUZE_FIRMAS_MOVAdapter1.ClearBeforeFill = True
-        '
-        'DS_REPORTE_DE_FMOV1
-        '
-        Me.DS_REPORTE_DE_FMOV1.DataSetName = "DS_REPORTE_DE_FMOV"
-        Me.DS_REPORTE_DE_FMOV1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupHeaderBand1
         '
@@ -353,12 +344,21 @@ Partial Public Class Reporte_de_cruce_FMOV
         Me.NombreDepartamento.Description = "Nombre Departamento"
         Me.NombreDepartamento.Name = "NombreDepartamento"
         '
+        'DS_REPORTE_DE_FMOV_11
+        '
+        Me.DS_REPORTE_DE_FMOV_11.DataSetName = "DS_REPORTE_DE_FMOV_1"
+        Me.DS_REPORTE_DE_FMOV_11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'IM_V_CRUZE_FIRMAS_MOVTableAdapter
+        '
+        Me.IM_V_CRUZE_FIRMAS_MOVTableAdapter.ClearBeforeFill = True
+        '
         'Reporte_de_cruce_FMOV
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.GroupHeaderBand1, Me.GroupHeaderBand2, Me.PageFooterBand1, Me.ReportHeaderBand1, Me.TopMarginBand1, Me.BottomMarginBand1})
-        Me.DataAdapter = Me.IM_V_CRUZE_FIRMAS_MOVAdapter1
+        Me.DataAdapter = Me.IM_V_CRUZE_FIRMAS_MOVTableAdapter
         Me.DataMember = "IM_V_CRUZE_FIRMAS_MOV"
-        Me.DataSource = Me.DS_REPORTE_DE_FMOV1
+        Me.DataSource = Me.DS_REPORTE_DE_FMOV_11
         Me.FilterString = "[PARTIDO] = ?NombrePartido And [DEPARTAMENTO] = ?NombreDepartamento"
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(22, 31, 26, 100)
@@ -368,7 +368,7 @@ Partial Public Class Reporte_de_cruce_FMOV
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.StyleSheet.AddRange(New DevExpress.XtraReports.UI.XRControlStyle() {Me.Title, Me.FieldCaption, Me.PageInfo, Me.DataField})
         Me.Version = "11.2"
-        CType(Me.DS_REPORTE_DE_FMOV1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DS_REPORTE_DE_FMOV_11, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub
@@ -379,8 +379,6 @@ Partial Public Class Reporte_de_cruce_FMOV
     Friend WithEvents XrLabel14 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel15 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel16 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents IM_V_CRUZE_FIRMAS_MOVAdapter1 As Inscripcion_de_Moviemientos.DS_REPORTE_DE_FMOVTableAdapters.IM_V_CRUZE_FIRMAS_MOVAdapter
-    Friend WithEvents DS_REPORTE_DE_FMOV1 As Inscripcion_de_Moviemientos.DS_REPORTE_DE_FMOV
     Friend WithEvents GroupHeaderBand1 As DevExpress.XtraReports.UI.GroupHeaderBand
     Friend WithEvents XrLabel3 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel4 As DevExpress.XtraReports.UI.XRLabel
@@ -408,4 +406,6 @@ Partial Public Class Reporte_de_cruce_FMOV
     Friend WithEvents BottomMarginBand1 As DevExpress.XtraReports.UI.BottomMarginBand
     Friend WithEvents NombrePartido As DevExpress.XtraReports.Parameters.Parameter
     Friend WithEvents NombreDepartamento As DevExpress.XtraReports.Parameters.Parameter
+    Friend WithEvents DS_REPORTE_DE_FMOV_11 As Inscripcion_de_Moviemientos.DS_REPORTE_DE_FMOV_1
+    Friend WithEvents IM_V_CRUZE_FIRMAS_MOVTableAdapter As Inscripcion_de_Moviemientos.DS_REPORTE_DE_FMOV_1TableAdapters.IM_V_CRUZE_FIRMAS_MOVTableAdapter
 End Class

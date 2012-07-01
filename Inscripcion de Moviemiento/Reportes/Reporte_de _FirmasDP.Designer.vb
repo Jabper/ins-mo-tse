@@ -24,14 +24,12 @@ Partial Public Class Reporte_de__FirmasDP
         Me.XrLabel14 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel15 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel16 = New DevExpress.XtraReports.UI.XRLabel
-        Me.IM_V_FIRMAS_DIVISION_POLITICAAdapter1 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FDPTableAdapters.IM_V_FIRMAS_DIVISION_POLITICAAdapter
-        Me.DS_REPORTE_DE_FDP1 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FDP
         Me.GroupHeaderBand1 = New DevExpress.XtraReports.UI.GroupHeaderBand
-        Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
         Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
         Me.GroupHeaderBand2 = New DevExpress.XtraReports.UI.GroupHeaderBand
         Me.XrLabel7 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel8 = New DevExpress.XtraReports.UI.XRLabel
@@ -56,7 +54,9 @@ Partial Public Class Reporte_de__FirmasDP
         Me.TopMarginBand1 = New DevExpress.XtraReports.UI.TopMarginBand
         Me.BottomMarginBand1 = New DevExpress.XtraReports.UI.BottomMarginBand
         Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
-        CType(Me.DS_REPORTE_DE_FDP1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DS_REPORTE_DE_FDP_11 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FDP_1
+        Me.IM_V_FIRMAS_DIVISION_POLITICATableAdapter = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FDP_1TableAdapters.IM_V_FIRMAS_DIVISION_POLITICATableAdapter
+        CType(Me.DS_REPORTE_DE_FDP_11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
         'Detail
@@ -106,15 +106,6 @@ Partial Public Class Reporte_de__FirmasDP
         Me.XrLabel16.Text = "XrLabel16"
         Me.XrLabel16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
-        'IM_V_FIRMAS_DIVISION_POLITICAAdapter1
-        '
-        Me.IM_V_FIRMAS_DIVISION_POLITICAAdapter1.ClearBeforeFill = True
-        '
-        'DS_REPORTE_DE_FDP1
-        '
-        Me.DS_REPORTE_DE_FDP1.DataSetName = "DS_REPORTE_DE_FDP"
-        Me.DS_REPORTE_DE_FDP1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'GroupHeaderBand1
         '
         Me.GroupHeaderBand1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel3, Me.XrLabel4, Me.XrLabel1, Me.XrLabel2})
@@ -122,11 +113,6 @@ Partial Public Class Reporte_de__FirmasDP
         Me.GroupHeaderBand1.HeightF = 70.375!
         Me.GroupHeaderBand1.Level = 2
         Me.GroupHeaderBand1.Name = "GroupHeaderBand1"
-        '
-        'NombrePartido
-        '
-        Me.NombrePartido.Description = "Nombre de Partido Politico"
-        Me.NombrePartido.Name = "NombrePartido"
         '
         'XrLabel3
         '
@@ -165,6 +151,11 @@ Partial Public Class Reporte_de__FirmasDP
         Me.XrLabel2.SizeF = New System.Drawing.SizeF(179.8389!, 19.33333!)
         Me.XrLabel2.StyleName = "FieldCaption"
         Me.XrLabel2.Text = "NOMBRE MOVIMIENTO:"
+        '
+        'NombrePartido
+        '
+        Me.NombrePartido.Description = "Nombre de Partido Politico"
+        Me.NombrePartido.Name = "NombrePartido"
         '
         'GroupHeaderBand2
         '
@@ -366,12 +357,21 @@ Partial Public Class Reporte_de__FirmasDP
         Me.NombreMovimiento.Description = "Nombre de Movimiento"
         Me.NombreMovimiento.Name = "NombreMovimiento"
         '
+        'DS_REPORTE_DE_FDP_11
+        '
+        Me.DS_REPORTE_DE_FDP_11.DataSetName = "DS_REPORTE_DE_FDP_1"
+        Me.DS_REPORTE_DE_FDP_11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'IM_V_FIRMAS_DIVISION_POLITICATableAdapter
+        '
+        Me.IM_V_FIRMAS_DIVISION_POLITICATableAdapter.ClearBeforeFill = True
+        '
         'Reporte_de__FirmasDP
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.GroupHeaderBand1, Me.GroupHeaderBand2, Me.GroupHeaderBand3, Me.PageFooterBand1, Me.ReportHeaderBand1, Me.TopMarginBand1, Me.BottomMarginBand1})
-        Me.DataAdapter = Me.IM_V_FIRMAS_DIVISION_POLITICAAdapter1
+        Me.DataAdapter = Me.IM_V_FIRMAS_DIVISION_POLITICATableAdapter
         Me.DataMember = "IM_V_FIRMAS_DIVISION_POLITICA"
-        Me.DataSource = Me.DS_REPORTE_DE_FDP1
+        Me.DataSource = Me.DS_REPORTE_DE_FDP_11
         Me.FilterString = "[NOMBRE PARTIDO] = ?NombrePartido And [NOMBRE MOVIMIENTO] = ?NombreMovimiento"
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(23, 41, 31, 100)
@@ -381,7 +381,7 @@ Partial Public Class Reporte_de__FirmasDP
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.StyleSheet.AddRange(New DevExpress.XtraReports.UI.XRControlStyle() {Me.Title, Me.FieldCaption, Me.PageInfo, Me.DataField})
         Me.Version = "11.2"
-        CType(Me.DS_REPORTE_DE_FDP1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DS_REPORTE_DE_FDP_11, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub
@@ -390,8 +390,6 @@ Partial Public Class Reporte_de__FirmasDP
     Friend WithEvents XrLabel14 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel15 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel16 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents IM_V_FIRMAS_DIVISION_POLITICAAdapter1 As Inscripcion_de_Moviemientos.DS_REPORTE_DE_FDPTableAdapters.IM_V_FIRMAS_DIVISION_POLITICAAdapter
-    Friend WithEvents DS_REPORTE_DE_FDP1 As Inscripcion_de_Moviemientos.DS_REPORTE_DE_FDP
     Friend WithEvents GroupHeaderBand1 As DevExpress.XtraReports.UI.GroupHeaderBand
     Friend WithEvents XrLabel3 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel4 As DevExpress.XtraReports.UI.XRLabel
@@ -422,4 +420,6 @@ Partial Public Class Reporte_de__FirmasDP
     Friend WithEvents BottomMarginBand1 As DevExpress.XtraReports.UI.BottomMarginBand
     Friend WithEvents NombrePartido As DevExpress.XtraReports.Parameters.Parameter
     Friend WithEvents NombreMovimiento As DevExpress.XtraReports.Parameters.Parameter
+    Friend WithEvents DS_REPORTE_DE_FDP_11 As Inscripcion_de_Moviemientos.DS_REPORTE_DE_FDP_1
+    Friend WithEvents IM_V_FIRMAS_DIVISION_POLITICATableAdapter As Inscripcion_de_Moviemientos.DS_REPORTE_DE_FDP_1TableAdapters.IM_V_FIRMAS_DIVISION_POLITICATableAdapter
 End Class

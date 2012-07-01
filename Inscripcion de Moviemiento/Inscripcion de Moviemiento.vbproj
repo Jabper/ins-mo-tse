@@ -405,6 +405,26 @@
     <Compile Include="Reportes\DS_REPORTE_DE_FDP.vb">
       <DependentUpon>DS_REPORTE_DE_FDP.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\DS_REPORTE_DE_FDP_1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_REPORTE_DE_FDP_1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DS_REPORTE_DE_FI_1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_REPORTE_DE_FI_1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DS_REPORTE_DE_FMOV_1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_REPORTE_DE_FMOV_1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DS_REPORTE_DE_FPAR_1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_REPORTE_DE_FPAR_1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DS_REPORTE_DE_RESUMEN_FDP.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1350,6 +1370,50 @@
     </None>
     <None Include="Reportes\DS_REPORTE_DE_DP_1.xss">
       <DependentUpon>DS_REPORTE_DE_DP_1.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_FDP_1.xsc">
+      <DependentUpon>DS_REPORTE_DE_FDP_1.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_FDP_1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_REPORTE_DE_FDP_1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_FDP_1.xss">
+      <DependentUpon>DS_REPORTE_DE_FDP_1.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_FI_1.xsc">
+      <DependentUpon>DS_REPORTE_DE_FI_1.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_FI_1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_REPORTE_DE_FI_1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_FI_1.xss">
+      <DependentUpon>DS_REPORTE_DE_FI_1.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_FMOV_1.xsc">
+      <DependentUpon>DS_REPORTE_DE_FMOV_1.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_FMOV_1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_REPORTE_DE_FMOV_1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_FMOV_1.xss">
+      <DependentUpon>DS_REPORTE_DE_FMOV_1.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_FPAR_1.xsc">
+      <DependentUpon>DS_REPORTE_DE_FPAR_1.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_FPAR_1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_REPORTE_DE_FPAR_1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DS_REPORTE_DE_FPAR_1.xss">
+      <DependentUpon>DS_REPORTE_DE_FPAR_1.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DS_REPORTE_DE_RESUMEN_FDP.xsc">
       <DependentUpon>DS_REPORTE_DE_RESUMEN_FDP.xsd</DependentUpon>
