@@ -167,7 +167,7 @@ Public Class XFrmMenuPrincipal
     End Sub
 
     Private Sub BtnRequisitos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnRequisitos.ItemClick
-        Padre(XfrmRequisitos)
+        Padre(xfrmRequisitos_Cargos)
     End Sub
 
     Private Sub BtnCandidatos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCandidatos.ItemClick
