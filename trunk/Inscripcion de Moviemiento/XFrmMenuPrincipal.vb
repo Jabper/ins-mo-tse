@@ -352,4 +352,8 @@ Public Class XFrmMenuPrincipal
     Private Sub btnValidarFirmas_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnValidarFirmas.ItemClick
         Padre(XfrmValidarFirmas)
     End Sub
+
+    Private Sub BarButtonItem3_ItemClick_1(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem3.ItemClick
+        Padre(xfrmRequisitosFinales)
+    End Sub
 End Class

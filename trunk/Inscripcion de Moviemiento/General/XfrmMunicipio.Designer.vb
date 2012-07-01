@@ -38,8 +38,9 @@ Partial Class Municipios
         Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
         Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.DataLayoutControl1 = New DevExpress.XtraDataLayout.DataLayoutControl
-        Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit
+        Me.TextEdit2 = New DevExpress.XtraEditors.TextEdit
         Me.IMMUNICIPIOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit
         Me.ADICIONADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
         Me.FECHA_ADICIONDateEdit = New DevExpress.XtraEditors.DateEdit
         Me.MODIFICADO_PORSpinEdit = New DevExpress.XtraEditors.SpinEdit
@@ -62,6 +63,8 @@ Partial Class Municipios
         Me.EmptySpaceItem3 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.EmptySpaceItem4 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.EmptySpaceItem5 = New DevExpress.XtraLayout.EmptySpaceItem
+        Me.LayoutControlItem10 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.EmptySpaceItem6 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem
@@ -71,6 +74,7 @@ Partial Class Municipios
         Me.TA_MUNICIPIOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.TA_MUNICIPIOSTableAdapter
         Me.IM_MUNICIPIOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.IM_MUNICIPIOSTableAdapter
         Me.IM_DEPARTAMENTOSTableAdapter = New Inscripcion_de_Moviemientos.DSDeptoMuniTableAdapters.IM_DEPARTAMENTOSTableAdapter
+        Me.LayoutControlItem9 = New DevExpress.XtraLayout.LayoutControlItem
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,8 +87,9 @@ Partial Class Municipios
         Me.FlowLayoutPanel1.SuspendLayout()
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DataLayoutControl1.SuspendLayout()
-        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TextEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMMUNICIPIOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -109,12 +114,15 @@ Partial Class Municipios
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem10, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem9, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -126,7 +134,7 @@ Partial Class Municipios
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl1.Name = "LayoutControl1"
-        Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(531, 188, 250, 350)
+        Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(744, 207, 250, 350)
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
         Me.LayoutControl1.Size = New System.Drawing.Size(750, 430)
         Me.LayoutControl1.TabIndex = 0
@@ -290,6 +298,7 @@ Partial Class Municipios
         '
         'DataLayoutControl1
         '
+        Me.DataLayoutControl1.Controls.Add(Me.TextEdit2)
         Me.DataLayoutControl1.Controls.Add(Me.TextEdit1)
         Me.DataLayoutControl1.Controls.Add(Me.ADICIONADO_PORSpinEdit)
         Me.DataLayoutControl1.Controls.Add(Me.FECHA_ADICIONDateEdit)
@@ -308,20 +317,33 @@ Partial Class Municipios
         Me.DataLayoutControl1.TabIndex = 4
         Me.DataLayoutControl1.Text = "DataLayoutControl1"
         '
+        'TextEdit2
+        '
+        Me.TextEdit2.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMUNICIPIOSBindingSource, "CANTIDAD_MUJERES", True))
+        Me.TextEdit2.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.TextEdit2.Location = New System.Drawing.Point(292, 84)
+        Me.TextEdit2.Name = "TextEdit2"
+        Me.TextEdit2.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
+        Me.TextEdit2.Properties.Mask.BeepOnError = True
+        Me.TextEdit2.Properties.MaxLength = 2
+        Me.TextEdit2.Size = New System.Drawing.Size(50, 20)
+        Me.TextEdit2.StyleController = Me.DataLayoutControl1
+        Me.TextEdit2.TabIndex = 11
+        '
+        'IMMUNICIPIOSBindingSource
+        '
+        Me.IMMUNICIPIOSBindingSource.DataMember = "IM_MUNICIPIOS"
+        Me.IMMUNICIPIOSBindingSource.DataSource = Me.DSDeptoMuni
+        '
         'TextEdit1
         '
         Me.TextEdit1.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMMUNICIPIOSBindingSource, "DESCRIPCION", True))
         Me.TextEdit1.Location = New System.Drawing.Point(125, 36)
         Me.TextEdit1.Name = "TextEdit1"
         Me.TextEdit1.Properties.MaxLength = 100
-        Me.TextEdit1.Size = New System.Drawing.Size(233, 20)
+        Me.TextEdit1.Size = New System.Drawing.Size(321, 20)
         Me.TextEdit1.StyleController = Me.DataLayoutControl1
         Me.TextEdit1.TabIndex = 11
-        '
-        'IMMUNICIPIOSBindingSource
-        '
-        Me.IMMUNICIPIOSBindingSource.DataMember = "IM_MUNICIPIOS"
-        Me.IMMUNICIPIOSBindingSource.DataSource = Me.DSDeptoMuni
         '
         'ADICIONADO_PORSpinEdit
         '
@@ -378,7 +400,7 @@ Partial Class Municipios
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.NullText = ""
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
         Me.CODIGO_DEPARTAMENTOSpinEdit.Properties.ValueMember = "CODIGO_DEPARTAMENTO"
-        Me.CODIGO_DEPARTAMENTOSpinEdit.Size = New System.Drawing.Size(233, 20)
+        Me.CODIGO_DEPARTAMENTOSpinEdit.Size = New System.Drawing.Size(321, 20)
         Me.CODIGO_DEPARTAMENTOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_DEPARTAMENTOSpinEdit.TabIndex = 9
         '
@@ -395,7 +417,7 @@ Partial Class Municipios
         Me.CODIGO_MUNICIPIOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CODIGO_MUNICIPIOSpinEdit.Properties.Mask.EditMask = "00"
         Me.CODIGO_MUNICIPIOSpinEdit.Properties.MaxLength = 2
-        Me.CODIGO_MUNICIPIOSpinEdit.Size = New System.Drawing.Size(50, 20)
+        Me.CODIGO_MUNICIPIOSpinEdit.Size = New System.Drawing.Size(55, 20)
         Me.CODIGO_MUNICIPIOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_MUNICIPIOSpinEdit.TabIndex = 8
         '
@@ -473,7 +495,7 @@ Partial Class Municipios
         Me.LayoutControlGroup3.AllowDrawBackground = False
         Me.LayoutControlGroup3.CustomizationFormText = "autoGeneratedGroup0"
         Me.LayoutControlGroup3.GroupBordersVisible = False
-        Me.LayoutControlGroup3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem6, Me.LayoutControlItem7, Me.LayoutControlItem8, Me.LayoutControlItem5, Me.EmptySpaceItem2, Me.EmptySpaceItem3, Me.EmptySpaceItem4, Me.EmptySpaceItem5})
+        Me.LayoutControlGroup3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem6, Me.LayoutControlItem7, Me.LayoutControlItem8, Me.LayoutControlItem5, Me.EmptySpaceItem2, Me.EmptySpaceItem3, Me.EmptySpaceItem4, Me.EmptySpaceItem5, Me.LayoutControlItem10, Me.EmptySpaceItem6})
         Me.LayoutControlGroup3.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup3.Name = "autoGeneratedGroup0"
         Me.LayoutControlGroup3.Size = New System.Drawing.Size(562, 116)
@@ -485,7 +507,7 @@ Partial Class Municipios
         Me.LayoutControlItem6.CustomizationFormText = "CODIGO_DEPARTAMENTO"
         Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 48)
         Me.LayoutControlItem6.Name = "ItemForCODIGO_DEPARTAMENTO"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(350, 24)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(438, 24)
         Me.LayoutControlItem6.Text = "Departamento"
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(109, 13)
         '
@@ -505,7 +527,7 @@ Partial Class Municipios
         Me.LayoutControlItem8.CustomizationFormText = "DESCRIPCION"
         Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 24)
         Me.LayoutControlItem8.Name = "ItemForDESCRIPCION"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(350, 24)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(438, 24)
         Me.LayoutControlItem8.Text = "Descripción"
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(109, 13)
         '
@@ -515,7 +537,7 @@ Partial Class Municipios
         Me.LayoutControlItem5.CustomizationFormText = "CODIGO_MUNICIPIO"
         Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem5.Name = "ItemForCODIGO_MUNICIPIO"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(167, 24)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(172, 24)
         Me.LayoutControlItem5.Text = "Código Municipio"
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(109, 13)
         '
@@ -523,9 +545,12 @@ Partial Class Municipios
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(167, 0)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(172, 0)
+        Me.EmptySpaceItem2.MaxSize = New System.Drawing.Size(390, 24)
+        Me.EmptySpaceItem2.MinSize = New System.Drawing.Size(390, 24)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(395, 24)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(390, 24)
+        Me.EmptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -533,9 +558,12 @@ Partial Class Municipios
         '
         Me.EmptySpaceItem3.AllowHotTrack = False
         Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Location = New System.Drawing.Point(350, 24)
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(438, 24)
+        Me.EmptySpaceItem3.MaxSize = New System.Drawing.Size(124, 24)
+        Me.EmptySpaceItem3.MinSize = New System.Drawing.Size(124, 24)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Size = New System.Drawing.Size(212, 24)
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(124, 24)
+        Me.EmptySpaceItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem3.Text = "EmptySpaceItem3"
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -543,9 +571,12 @@ Partial Class Municipios
         '
         Me.EmptySpaceItem4.AllowHotTrack = False
         Me.EmptySpaceItem4.CustomizationFormText = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Location = New System.Drawing.Point(350, 48)
+        Me.EmptySpaceItem4.Location = New System.Drawing.Point(438, 48)
+        Me.EmptySpaceItem4.MaxSize = New System.Drawing.Size(124, 24)
+        Me.EmptySpaceItem4.MinSize = New System.Drawing.Size(124, 24)
         Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Size = New System.Drawing.Size(212, 24)
+        Me.EmptySpaceItem4.Size = New System.Drawing.Size(124, 24)
+        Me.EmptySpaceItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem4.Text = "EmptySpaceItem4"
         Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -553,11 +584,34 @@ Partial Class Municipios
         '
         Me.EmptySpaceItem5.AllowHotTrack = False
         Me.EmptySpaceItem5.CustomizationFormText = "EmptySpaceItem5"
-        Me.EmptySpaceItem5.Location = New System.Drawing.Point(167, 72)
+        Me.EmptySpaceItem5.Location = New System.Drawing.Point(438, 72)
         Me.EmptySpaceItem5.Name = "EmptySpaceItem5"
-        Me.EmptySpaceItem5.Size = New System.Drawing.Size(395, 44)
+        Me.EmptySpaceItem5.Size = New System.Drawing.Size(124, 44)
         Me.EmptySpaceItem5.Text = "EmptySpaceItem5"
         Me.EmptySpaceItem5.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'LayoutControlItem10
+        '
+        Me.LayoutControlItem10.Control = Me.TextEdit2
+        Me.LayoutControlItem10.CustomizationFormText = "Minimo Mujeres"
+        Me.LayoutControlItem10.Location = New System.Drawing.Point(167, 72)
+        Me.LayoutControlItem10.Name = "LayoutControlItem10"
+        Me.LayoutControlItem10.Size = New System.Drawing.Size(167, 44)
+        Me.LayoutControlItem10.Text = "Minimo Mujeres"
+        Me.LayoutControlItem10.TextSize = New System.Drawing.Size(109, 13)
+        '
+        'EmptySpaceItem6
+        '
+        Me.EmptySpaceItem6.AllowHotTrack = False
+        Me.EmptySpaceItem6.CustomizationFormText = "EmptySpaceItem6"
+        Me.EmptySpaceItem6.Location = New System.Drawing.Point(334, 72)
+        Me.EmptySpaceItem6.MaxSize = New System.Drawing.Size(104, 44)
+        Me.EmptySpaceItem6.MinSize = New System.Drawing.Size(104, 44)
+        Me.EmptySpaceItem6.Name = "EmptySpaceItem6"
+        Me.EmptySpaceItem6.Size = New System.Drawing.Size(104, 44)
+        Me.EmptySpaceItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.EmptySpaceItem6.Text = "EmptySpaceItem6"
+        Me.EmptySpaceItem6.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlGroup1
         '
@@ -651,6 +705,17 @@ Partial Class Municipios
         '
         Me.IM_DEPARTAMENTOSTableAdapter.ClearBeforeFill = True
         '
+        'LayoutControlItem9
+        '
+        Me.LayoutControlItem9.Control = Me.CANTIDAD_REGIDORESSpinEdit
+        Me.LayoutControlItem9.CustomizationFormText = "CANTIDAD_REGIDORES"
+        Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 72)
+        Me.LayoutControlItem9.Name = "ItemForCANTIDAD_REGIDORES"
+        Me.LayoutControlItem9.Size = New System.Drawing.Size(167, 44)
+        Me.LayoutControlItem9.Text = "Cantidad de Regidores"
+        Me.LayoutControlItem9.TextSize = New System.Drawing.Size(109, 13)
+        Me.LayoutControlItem9.TextToControlDistance = 5
+        '
         'Municipios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -671,8 +736,9 @@ Partial Class Municipios
         Me.FlowLayoutPanel1.ResumeLayout(False)
         CType(Me.DataLayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DataLayoutControl1.ResumeLayout(False)
-        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TextEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMMUNICIPIOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ADICIONADO_PORSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FECHA_ADICIONDateEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -697,12 +763,15 @@ Partial Class Municipios
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem10, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem9, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -751,10 +820,14 @@ Partial Class Municipios
     Friend WithEvents EmptySpaceItem2 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents EmptySpaceItem3 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents EmptySpaceItem4 As DevExpress.XtraLayout.EmptySpaceItem
-    Friend WithEvents EmptySpaceItem5 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents BtnNuevo As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnGuardar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnEliminar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnSalir As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents TextEdit2 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents EmptySpaceItem5 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents LayoutControlItem10 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents EmptySpaceItem6 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents LayoutControlItem9 As DevExpress.XtraLayout.LayoutControlItem
 End Class

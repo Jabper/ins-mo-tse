@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -155,6 +155,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSRequisitos.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Candidatos\DSRequisitos.vb">
+      <DependentUpon>DSRequisitos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Candidatos\xfrmBusquedaCandidatos.Designer.vb">
       <DependentUpon>xfrmBusquedaCandidatos.vb</DependentUpon>
     </Compile>
@@ -189,6 +192,12 @@
       <DependentUpon>XfrmRequisitos.vb</DependentUpon>
     </Compile>
     <Compile Include="Candidatos\XfrmRequisitos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Candidatos\xfrmRequisitosFinales.Designer.vb">
+      <DependentUpon>xfrmRequisitosFinales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Candidatos\xfrmRequisitosFinales.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Candidatos\xfrmRequisitos_Cargos.Designer.vb">
@@ -725,6 +734,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Candidatos\XfrmRequisitos.resx">
       <DependentUpon>XfrmRequisitos.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Candidatos\xfrmRequisitosFinales.resx">
+      <DependentUpon>xfrmRequisitosFinales.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Candidatos\xfrmRequisitos_Cargos.resx">
