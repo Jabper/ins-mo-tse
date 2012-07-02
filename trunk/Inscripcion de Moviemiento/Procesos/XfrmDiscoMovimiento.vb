@@ -61,7 +61,7 @@ Public Class XfrmDiscoMovimiento
                     conn.Close()
 
                     If My.Computer.FileSystem.DirectoryExists(Application.StartupPath.ToString & "\CSIM") Then
-                        My.Computer.FileSystem.CopyDirectory(Application.StartupPath.ToString & "\CSIM", TxtRuta.Text & "\CSIM", True)
+                        My.Computer.FileSystem.CopyDirectory(Application.StartupPath.ToString & "\CSIM", TxtRuta.Text & "\Archivos de Instalacion\", True)
                         If comprobararchivos() Then
                             'ejecutar(datapump)
                             If File.Exists("C:\oraclexe\app\oracle\admin\XE\dpdump\exp_tse.dmp") Then
@@ -190,14 +190,14 @@ Public Class XfrmDiscoMovimiento
     End Sub
 
     Function comprobararchivos() As Boolean
-        Dim poracle As String = TxtRuta.Text & "\CSIM\Aplicacion\Componentes\OracleXEUniv.exe"
+        Dim poracle As String = TxtRuta.Text & "\Archivos de Instalacion\Aplicación\Componentes\OracleXEUniv.exe"
         'Dim psetup As String = TxtRuta.Text & "\CSIM\Aplicacion\Componentes\setup.exe"
-        Dim psetup2 As String = TxtRuta.Text & "\CSIM\Aplicacion\Componentes\Inscripción de Movimientos TSE.msi"
+        Dim psetup2 As String = TxtRuta.Text & "\Archivos de Instalacion\Aplicación\Componentes\Inscripción de Movimientos TSE.msi"
         'Dim backupo As String = TxtRuta.Text & "\CSIM\Componentes\exp_tse.dmp"
-        Dim conxion As String = TxtRuta.Text & "\CSIM\Aplicacion\Componentes\CNX.TAR"
-        Dim conexionsql As String = TxtRuta.Text & "\CSIM\Aplicacion\Componentes\CSQ.TAR"
-        Dim archivopar As String = TxtRuta.Text & "\CSIM\Aplicacion\Componentes\IMPAR.TAR"
-        Dim importar As String = TxtRuta.Text & "\CSIM\Aplicacion\Componentes\IMP.TAR"
+        Dim conxion As String = TxtRuta.Text & "\Archivos de Instalacion\Aplicación\Componentes\CNX.TAR"
+        Dim conexionsql As String = TxtRuta.Text & "\Archivos de Instalacion\Aplicación\Componentes\CSQ.TAR"
+        Dim archivopar As String = TxtRuta.Text & "\Archivos de Instalacion\Aplicación\Componentes\IMPAR.TAR"
+        Dim importar As String = TxtRuta.Text & "\Archivos de Instalacion\Aplicación\Componentes\IMP.TAR"
 
         If File.Exists(poracle) And File.Exists(psetup2) _
             And File.Exists(conxion) And File.Exists(conexionsql) _
