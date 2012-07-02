@@ -70,6 +70,13 @@ Public Class XfrmDiscoPartido
                     My.Computer.FileSystem.CopyDirectory(Application.StartupPath.ToString & "\CSIM", TxtRuta.Text & "\CSIM\", True)
                     If comprobararchivos() Then
                         'ejecutar(datapump)
+                        If File.Exists("C:\oraclexe\app\oracle\admin\XE\dpdump\exp_tse.dmp") Then
+                            Try
+                                File.Delete("C:\oraclexe\app\oracle\admin\XE\dpdump\exp_tse.dmp")
+                            Catch ex As Exception
+                                MsgBox("Error al generar archivos de la base de datos. Borre el archivo exp_tse.dmp que se encuentra en: C:\oraclexe\app\oracle\admin\XE\dpdump\ y vuelva a generar el Disco")
+                            End Try
+                        End If
                         Try
                             Dim startInfo As ProcessStartInfo
                             Dim pStart As New Process
@@ -106,45 +113,7 @@ Public Class XfrmDiscoPartido
                             conn4.Close()
                             Mensajes.MensajeError(ex.Message)
                             Exit Sub
-                        End Try
-
-                        'Try
-                        '    Dim startInfo As ProcessStartInfo
-                        '    Dim pStart As New Process
-                        '    startInfo = New ProcessStartInfo("cmd.exe", "/C expdp TSE/TSEORACLE2012@XE directory=data_pump_dir dumpfile=exp_tse_md.dmp logfile=exp_tse_md.log schemas=tse version=10 content=metadata_only")
-                        '    pStart.StartInfo = startInfo
-                        '    pStart.Start()
-                        '    pStart.WaitForExit()
-                        '    If pStart.ExitCode = 3 Then
-                        '        MsgBox("La Exportación de metadata ha Terminado Satisfactoriamente... Continuando con el proceso por favor espere", MsgBoxStyle.Information)
-                        '    Else
-                        '        MsgBox("La Generación de Metadata No se ha realizado Correctamente", MsgBoxStyle.Exclamation)
-                        '        Dim oradb6 As String = Configuracion.verconfig
-                        '        Dim conn6 As New OracleConnection()
-                        '        Dim myCMD6 As New OracleCommand()
-                        '        conn6.ConnectionString = oradb6
-                        '        conn6.Open()
-                        '        myCMD6.Connection = conn6
-                        '        myCMD6.CommandText = "Update im_parametros_generales set codigo_partido = " & partido
-                        '        myCMD6.CommandType = CommandType.Text
-                        '        myCMD6.ExecuteOracleScalar()
-                        '        conn6.Close()
-                        '        Exit Sub
-                        '    End If
-                        'Catch ex As Exception
-                        '    Dim oradb6 As String = Configuracion.verconfig
-                        '    Dim conn6 As New OracleConnection()
-                        '    Dim myCMD6 As New OracleCommand()
-                        '    conn6.ConnectionString = oradb6
-                        '    conn6.Open()
-                        '    myCMD6.Connection = conn6
-                        '    myCMD6.CommandText = "Update im_parametros_generales set codigo_partido = " & partido
-                        '    myCMD6.CommandType = CommandType.Text
-                        '    myCMD6.ExecuteOracleScalar()
-                        '    conn6.Close()
-                        '    Mensajes.MensajeError(ex.Message)
-                        '    Exit Sub
-                        'End Try
+                        End Try                   
 
                         If File.Exists("C:\oraclexe\app\oracle\admin\XE\dpdump\exp_tse.dmp") Then
                             System.IO.File.Copy("C:\oraclexe\app\oracle\admin\XE\dpdump\exp_tse.dmp", TxtRuta.Text & "\CSIM\Componentes\exp_tse.dmp", True)
@@ -213,7 +182,7 @@ Public Class XfrmDiscoPartido
                 MsgBox("Debe seleccionar un partido.")
             End If
         Else
-            MsgBox("Debe seleccionar una ruta para los archivos.")
+        MsgBox("Debe seleccionar una ruta para los archivos.")
         End If
     End Sub
 
