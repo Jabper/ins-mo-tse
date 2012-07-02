@@ -892,6 +892,7 @@ Public Class xfrmRegCandidatos
             End If
 
             Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (faltan))
+
         ElseIf Me.cboCargo.EditValue = 2 Then
             Dim S As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
                                "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
@@ -980,7 +981,8 @@ Public Class xfrmRegCandidatos
             Else
 
                 mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
-                Dim faltan As String = 3 - mujeres_ingresadas
+
+                Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
                 If faltan < 0 Then
                     faltan = 0
                 End If
