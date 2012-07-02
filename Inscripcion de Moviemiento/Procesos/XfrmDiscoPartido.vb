@@ -188,7 +188,7 @@ Public Class XfrmDiscoPartido
 
     Function comprobararchivos() As Boolean
         Dim poracle As String = TxtRuta.Text & "\CSIM\Aplicacion\Componentes\OracleXEUniv.exe"
-        Dim psetup As String = TxtRuta.Text & "\CSIM\Aplicacion\Componentes\setup.exe"
+        'Dim psetup As String = TxtRuta.Text & "\CSIM\Aplicacion\Componentes\setup.exe"
         Dim psetup2 As String = TxtRuta.Text & "\CSIM\Aplicacion\Componentes\Inscripción de Movimientos TSE.msi"
         'Dim backupo As String = TxtRuta.Text & "\CSIM\Componentes\exp_tse.dmp"
         Dim conxion As String = TxtRuta.Text & "\CSIM\Aplicacion\Componentes\CNX.TAR"
@@ -197,16 +197,14 @@ Public Class XfrmDiscoPartido
         Dim importar As String = TxtRuta.Text & "\CSIM\Aplicacion\Componentes\IMP.TAR"
 
         If File.Exists(poracle) Then            
-            If File.Exists(psetup) Then
-                If File.Exists(psetup2) Then
-                    If File.Exists(conxion) Then
-                        If File.Exists(conexionsql) Then
-                            If File.Exists(archivopar) Then
-                                If File.Exists(importar) Then
-                                    Return True
-                                Else
-                                    Return False
-                                End If
+            If File.Exists(psetup2) Then
+                If File.Exists(conxion) Then
+                    If File.Exists(conexionsql) Then
+                        If File.Exists(archivopar) Then
+                            If File.Exists(importar) Then
+                                Return True
+                            Else
+                                Return False
                             End If
                         End If
                     End If
