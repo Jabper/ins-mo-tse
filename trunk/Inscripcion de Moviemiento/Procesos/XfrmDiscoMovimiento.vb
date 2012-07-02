@@ -191,7 +191,7 @@ Public Class XfrmDiscoMovimiento
 
     Function comprobararchivos() As Boolean
         Dim poracle As String = TxtRuta.Text & "\CSIM\Aplicacion\Componentes\OracleXEUniv.exe"
-        Dim psetup As String = TxtRuta.Text & "\CSIM\Aplicacion\Componentes\setup.exe"
+        'Dim psetup As String = TxtRuta.Text & "\CSIM\Aplicacion\Componentes\setup.exe"
         Dim psetup2 As String = TxtRuta.Text & "\CSIM\Aplicacion\Componentes\Inscripción de Movimientos TSE.msi"
         'Dim backupo As String = TxtRuta.Text & "\CSIM\Componentes\exp_tse.dmp"
         Dim conxion As String = TxtRuta.Text & "\CSIM\Aplicacion\Componentes\CNX.TAR"
@@ -199,7 +199,7 @@ Public Class XfrmDiscoMovimiento
         Dim archivopar As String = TxtRuta.Text & "\CSIM\Aplicacion\Componentes\IMPAR.TAR"
         Dim importar As String = TxtRuta.Text & "\CSIM\Aplicacion\Componentes\IMP.TAR"
 
-        If File.Exists(poracle) And File.Exists(psetup) And File.Exists(psetup2) _
+        If File.Exists(poracle) And File.Exists(psetup2) _
             And File.Exists(conxion) And File.Exists(conexionsql) _
          And File.Exists(archivopar) And File.Exists(importar) Then
             Return True
