@@ -66,14 +66,14 @@ Public Class XfrmImportar
                             conn7.Open()
                             Dim myCMD7 As New OracleCommand()
                             myCMD7.Connection = conn7
-                            myCMD7.CommandText = "IM_P_EJECUTAR_VALIDACIONES"
+                            myCMD7.CommandText = "im_k_carga_datos.IM_P_CARGA_DATOS"
                             myCMD7.CommandType = CommandType.StoredProcedure
-                            myCMD7.Parameters.Add(New OracleParameter("PVO_ERRORES", OracleType.NVarChar, 32767)).Direction = ParameterDirection.Output
+                            myCMD7.Parameters.Add(New OracleParameter("P_Error", OracleType.NVarChar, 500)).Direction = ParameterDirection.InputOutput
                             myCMD7.ExecuteOracleScalar()
-                            If IsDBNull(myCMD7.Parameters("PVO_ERRORES").Value) Then
+                            If IsDBNull(myCMD7.Parameters("P_Error").Value) Then
                                 Mensajes.mimensaje("Proceso de validación de Planilla terminado Exitosamente")
                             Else
-                                Mensajes.MensajeError(myCMD7.Parameters("PVO_ERRORES").Value)
+                                Mensajes.MensajeError(myCMD7.Parameters("P_Error").Value)
                             End If
                             conn7.Close()
                         Catch ex As Exception
