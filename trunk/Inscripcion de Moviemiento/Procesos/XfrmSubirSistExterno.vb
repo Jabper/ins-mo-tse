@@ -255,14 +255,14 @@ Public Class XfrmSubirSistExterno
                 For Each row As System.Data.DataRow In dt.Rows
                     Try
                         myCMD.Connection = conn1
-                        myCMD.CommandText = "Insert into tmp_im_candidatos (CODIGO_CANDIDATOS, IDENTIDAD, NOMBRE, APELLIDO, POSICION, " _
+                        myCMD.CommandText = "Insert into tmp_im_candidatos (CODIGO_CANDIDATOS, IDENTIDAD, PRIMER_NOMBRE,SEGUNDO_NOMBRE,PRIMER_APELLIDO,SEGUNDO_APELLIDO, POSICION, " _
                         & "CODIGO_CARGO_ELECTIVO,  CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, CODIGO_PARTIDO, CODIGO_MOVIMIENTO, " _
                         & "ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, " _
-                        & "ESTADO) VALUES ('" _
-                        & row.Item(0).ToString & "', '" & row.Item(1).ToString & "', '" & row.Item(2).ToString & "', '" & row.Item(3).ToString _
-                        & "', '" & row.Item(4).ToString & "', '" & row.Item(5).ToString & "', '" & row.Item(6).ToString & "', '" & row.Item(7).ToString _
-                        & "', '" & row.Item(8).ToString & "', '" & row.Item(9).ToString & "', 'TSE', to_date('" & DateTime.Now & "','dd/mm/yyyy hh:mi:ss p.m.')" _
-                        & ", null, null, '" & row.Item(10).ToString & "')"
+                        & "ESTADO, VALIDADO) VALUES ('" _
+                        & row.Item(0).ToString & "', '" & row.Item(1).ToString & "', '" & row.Item(2).ToString & "', '" & row.Item(3).ToString & "', '" & row.Item(4).ToString & "', '" & row.Item(5).ToString _
+                        & "', '" & row.Item(6).ToString & "', '" & row.Item(7).ToString & "', '" & row.Item(8).ToString & "', '" & row.Item(9).ToString _
+                        & "', '" & row.Item(10).ToString & "', '" & row.Item(11).ToString & "', '" & usuario & "', to_date('" & DateTime.Now & "','dd/mm/yyyy hh:mi:ss p.m.')" _
+                        & ", null, null, 'H',null)"
                         myCMD.CommandType = CommandType.Text
                         myCMD.ExecuteOracleScalar()
                         i = i + 1
@@ -426,7 +426,7 @@ Public Class XfrmSubirSistExterno
                         myCMD.CommandText = "Insert into tmp_im_requisitos_x_candidato (CODIGO_CANDIDATO, CODIGO_PARTIDO, CODIGO_MOVIMIENTO, " _
                         & "CODIGO_REQUISITO, CANTIDAD, IMAGEN, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, ESTADO, tipo_sistema) " _
                         & "VALUES ('" & row.Item(0).ToString & "', '" & row.Item(1).ToString & "', '" & row.Item(2).ToString & "', '" & row.Item(3).ToString _
-                        & "', '" & row.Item(4).ToString & "', null, 'TSE', to_date('" & DateTime.Now & "','dd/mm/yyyy hh:mi:ss p.m.'), null, null, '" & row.Item(5).ToString & "','E')"
+                        & "', '" & row.Item(4).ToString & "', null, '" & usuario & "', to_date('" & DateTime.Now & "','dd/mm/yyyy hh:mi:ss p.m.'), null, null, 'C','E')"
                         myCMD.CommandType = CommandType.Text
                         myCMD.ExecuteOracleScalar()
 
@@ -514,14 +514,14 @@ Public Class XfrmSubirSistExterno
                         & "PRIMER_NOMBRE_PAPELETA, SEGUNDO_NOMBRE_PAPELETA, PRIMER_APELLIDO_PAPELETA, SEGUNDO_APELLIDO_PAPELETA, CODIGO_PARTIDO, " _
                         & "CODIGO_MOVIMIENTO, CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, FIRMA, HUELLA, DIRECCION,  NOMBRE_IGUAL, " _
                         & "FOLIO, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, " _
-                        & "CONSISTENTE, OBSERVACION, MAQUINA, PAGINA) " _
+                        & "CONSISTENTE, OBSERVACION, MAQUINA, PAGINA, VALIDADO) " _
                         & "VALUES ('" & row.Item(0).ToString & "', '" & row.Item(1).ToString & "', '" & row.Item(2).ToString & "', '" & row.Item(3).ToString _
                         & "', '" & row.Item(4).ToString & "', '" & row.Item(5).ToString & "', '" & row.Item(6).ToString _
                         & "', '" & row.Item(7).ToString & "', '" & row.Item(8).ToString & "', '" & row.Item(9).ToString _
                         & "', '" & row.Item(10).ToString & "', '" & row.Item(11).ToString & "', '" & row.Item(12).ToString _
-                        & "', '" & row.Item(13).ToString & "', '" & row.Item(14).ToString _
-                        & "', 'TSE', to_date('" & DateTime.Now & "','dd/mm/yyyy hh:mi:ss p.m.'), null, null, '" _
-                        & row.Item(15).ToString & "', '" & row.Item(16).ToString & "', '" & row.Item(17).ToString & "', '" & row.Item(18).ToString & "')"
+                        & "', 'S', '" & row.Item(14).ToString _
+                        & "', '" & usuario & "', to_date('" & DateTime.Now & "','dd/mm/yyyy hh:mi:ss p.m.'), null, null, 'S',null, 'EXTERNO','" _
+                        & row.Item(18).ToString & "',null)"
                         myCMD.CommandType = CommandType.Text
                         myCMD.ExecuteOracleScalar()
                         'CoWaitForMultipleHandles(
@@ -608,8 +608,8 @@ Public Class XfrmSubirSistExterno
                         myCMD.Connection = conn
                         myCMD.CommandText = "Insert into tmp_im_movimientos(CODIGO_PARTIDO, CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO, INSIGNIA, EMBLEMA, " _
                         & "ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION) " _
-                        & "VALUES ('" & row.Item(0).ToString & "', '" & row.Item(1).ToString & "', '" & row.Item(2).ToString & "', null, null," _
-                        & "'TSE', to_date('" & DateTime.Now & "','dd/mm/yyyy hh:mi:ss p.m.'), null, null)"
+                        & "VALUES ('" & row.Item(0).ToString & "', '" & row.Item(1).ToString & "', '" & row.Item(2).ToString & "', null, null,'" _
+                        & usuario & "', to_date('" & DateTime.Now & "','dd/mm/yyyy hh:mi:ss p.m.'), null, null)"
                         myCMD.CommandType = CommandType.Text
                         myCMD.ExecuteOracleScalar()
 
@@ -653,7 +653,7 @@ Public Class XfrmSubirSistExterno
                 Archivo = New FileInfo(sFichero)
 
                 campos = Split(Archivo.Name, ".")
-                If campos(0) <> "EMBLEMA" Then
+                If campos(0) <> "INSIGNIA" Then
                     campos = Nothing
                     campos = Split(Archivo.Name, "_")
                     For i = LBound(campos) To UBound(campos)
@@ -770,36 +770,38 @@ Public Class XfrmSubirSistExterno
                 cmd.CommandType = CommandType.Text
                 Dim chek As OracleDataReader = cmd.ExecuteReader()
                 If chek.Read Then
-                    Dim oa As OracleDataAdapter = New OracleDataAdapter(sql, conn)
-                    Dim ds As DataSet = New DataSet()
-                    oa.Fill(ds)
-                    Dim i As Integer = 0
-                    For Each row As System.Data.DataRow In ds.Tables(0).Rows
-                        Try
-                            Dim oradb1 As String = Configuracion.verconfig
-                            Dim conn1 As New OracleConnection()
-                            conn1.ConnectionString = oradb1
-                            conn1.Open()
+                    If IsNumeric(campos(0)) Then
+                        Dim oa As OracleDataAdapter = New OracleDataAdapter(sql, conn)
+                        Dim ds As DataSet = New DataSet()
+                        oa.Fill(ds)
+                        Dim i As Integer = 0
+                        For Each row As System.Data.DataRow In ds.Tables(0).Rows
+                            Try
+                                Dim oradb1 As String = Configuracion.verconfig
+                                Dim conn1 As New OracleConnection()
+                                conn1.ConnectionString = oradb1
+                                conn1.Open()
 
-                            Dim sql1 As String = "insert into tmp_im_imagenes_firmas (codigo_partido, codigo_movimiento, pagina, folio, imagen, maquina) " _
-                            & "values ('" & row.Item("codigo_partido") & "', '" & row.Item("codigo_movimiento") & "', '" & campos(0) & "', '" & campos(0) & "', :pbi_imagen, 'externo')"
-                            Dim cmd1 As OracleCommand = New OracleCommand(sql1, conn1)
-                            cmd1.Parameters.Add(":pbi_imagen", OracleType.Blob).Value = Data.ConvertImageToByteArray(Image.FromFile(Archivo.FullName))
-                            cmd1.ExecuteOracleScalar()
+                                Dim sql1 As String = "insert into tmp_im_imagenes_firmas (codigo_partido, codigo_movimiento, pagina, folio, imagen, maquina) " _
+                                & "values ('" & row.Item("codigo_partido") & "', '" & row.Item("codigo_movimiento") & "', '" & campos(0) & "', '" & campos(0) & "', :pbi_imagen, 'externo')"
+                                Dim cmd1 As OracleCommand = New OracleCommand(sql1, conn1)
+                                cmd1.Parameters.Add(":pbi_imagen", OracleType.Blob).Value = Data.ConvertImageToByteArray(Image.FromFile(Archivo.FullName))
+                                cmd1.ExecuteOracleScalar()
 
-                            i = i + 1
-                            If i Mod 1000 = 0 Then
-                                Dialog1.LabelControl1.Text = "Se han procesado " & i & " registros. Procesando por favor espere..."
-                                If Dialog1.Visible = False Then
-                                    Dialog1.ShowDialog()
+                                i = i + 1
+                                If i Mod 1000 = 0 Then
+                                    Dialog1.LabelControl1.Text = "Se han procesado " & i & " registros. Procesando por favor espere..."
+                                    If Dialog1.Visible = False Then
+                                        Dialog1.ShowDialog()
+                                    End If
                                 End If
-                            End If
-                        Catch ex As Exception
-                            conn.Close()
-                            Mensajes.MensajeError(ex.Message)
-                            Return False
-                        End Try
-                    Next
+                            Catch ex As Exception
+                                conn.Close()
+                                Mensajes.MensajeError(ex.Message)
+                                Return False
+                            End Try
+                        Next
+                    End If
                 End If
                 conn.Close()
                 'Else

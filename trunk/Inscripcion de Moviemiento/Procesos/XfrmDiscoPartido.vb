@@ -73,12 +73,12 @@ Public Class XfrmDiscoPartido
                         Try
                             Dim startInfo As ProcessStartInfo
                             Dim pStart As New Process
-                            startInfo = New ProcessStartInfo("cmd.exe", "/C expdp TSE/TSEORACLE2012@XE directory=data_pump_dir dumpfile=exp_tse.dmp logfile=exp_movimiento.log schemas=tse version=10 query=im_partidos_politicos:\""WHERE codigo_partido = (SELECT codigo_partido FROM im_parametros_generales)\"" query=im_usuarios:\""where codigo_usuario = 'TSE'\"" query=im_roles:\""where codigo_rol in (2,3)\"" query=IM_OPERACIONES_POR_ROL:\""where  codigo_rol in (2,3)\"" query=im_log_procesos:\""where 1 =2\"" query=im_candidatos:\""where codigo_candidatos = 0\"" query=im_requisitos_x_candidato:\""where codigo_candidato = 0\"" query=im_ciudadanos_respaldan:\""where 1 > 2\"" query=im_ciudadanos_inhabilitados:\""where 1 = 2\"" query=im_movimientos:\""where 1 = 2\"" query=im_candidatos_repetidos:\""where 1 = 2\"" query=im_imagenes_candidato:\""where 1 = 2 \"" query=im_imagenes_firmas:\""where 1 = 2\""")
+                            startInfo = New ProcessStartInfo("cmd.exe", "/C expdp TSE/TSEORACLE2012@XE directory=data_pump_dir dumpfile=exp_tse.dmp logfile=exp_partido.log schemas=tse version=10 query=im_partidos_politicos:\""WHERE codigo_partido = (SELECT codigo_partido FROM im_parametros_generales)\"" query=im_usuarios:\""where codigo_usuario = 'TSE'\"" query=im_roles:\""where codigo_rol in (2,3)\"" query=IM_OPERACIONES_POR_ROL:\""where  codigo_rol in (2,3)\"" query=im_log_procesos:\""where 1 =2\"" query=im_candidatos:\""where codigo_candidatos = 0\"" query=im_requisitos_x_candidato:\""where codigo_candidato = 0\"" query=im_ciudadanos_respaldan:\""where 1 > 2\"" query=im_ciudadanos_inhabilitados:\""where 1 = 2\"" query=im_movimientos:\""where 1 = 2\"" query=im_candidatos_repetidos:\""where 1 = 2\"" query=im_imagenes_candidato:\""where 1 = 2 \"" query=im_imagenes_firmas:\""where 1 = 2\""")
                             pStart.StartInfo = startInfo
                             pStart.Start()
                             pStart.WaitForExit()
-                            If pStart.ExitCode = 3 Then
-                                MsgBox("La Exportación de Tablas ha Terminado Satisfactoriamente... Continuando con el proceso por favor espere", MsgBoxStyle.Information)
+                            If pStart.ExitCode = 0 Then
+                                MsgBox("La Exportación de Tablas ha Terminado Satisfactoriamente... Continuando con el proceso por favor espere...", MsgBoxStyle.Information)
                             Else
                                 Dim oradb5 As String = Configuracion.verconfig
                                 Dim conn5 As New OracleConnection()
@@ -108,43 +108,43 @@ Public Class XfrmDiscoPartido
                             Exit Sub
                         End Try
 
-                        Try
-                            Dim startInfo As ProcessStartInfo
-                            Dim pStart As New Process
-                            startInfo = New ProcessStartInfo("cmd.exe", "/C expdp TSE/TSEORACLE2012@XE directory=data_pump_dir dumpfile=exp_tse_md.dmp logfile=exp_tse_md.log schemas=tse version=10 content=metadata_only")
-                            pStart.StartInfo = startInfo
-                            pStart.Start()
-                            pStart.WaitForExit()
-                            If pStart.ExitCode = 3 Then
-                                MsgBox("La Exportación de metadata ha Terminado Satisfactoriamente... Continuando con el proceso por favor espere", MsgBoxStyle.Information)
-                            Else
-                                MsgBox("La Generación de Metadata No se ha realizado Correctamente", MsgBoxStyle.Exclamation)
-                                Dim oradb6 As String = Configuracion.verconfig
-                                Dim conn6 As New OracleConnection()
-                                Dim myCMD6 As New OracleCommand()
-                                conn6.ConnectionString = oradb6
-                                conn6.Open()
-                                myCMD6.Connection = conn6
-                                myCMD6.CommandText = "Update im_parametros_generales set codigo_partido = " & partido
-                                myCMD6.CommandType = CommandType.Text
-                                myCMD6.ExecuteOracleScalar()
-                                conn6.Close()
-                                Exit Sub
-                            End If
-                        Catch ex As Exception
-                            Dim oradb6 As String = Configuracion.verconfig
-                            Dim conn6 As New OracleConnection()
-                            Dim myCMD6 As New OracleCommand()
-                            conn6.ConnectionString = oradb6
-                            conn6.Open()
-                            myCMD6.Connection = conn6
-                            myCMD6.CommandText = "Update im_parametros_generales set codigo_partido = " & partido
-                            myCMD6.CommandType = CommandType.Text
-                            myCMD6.ExecuteOracleScalar()
-                            conn6.Close()
-                            Mensajes.MensajeError(ex.Message)
-                            Exit Sub
-                        End Try
+                        'Try
+                        '    Dim startInfo As ProcessStartInfo
+                        '    Dim pStart As New Process
+                        '    startInfo = New ProcessStartInfo("cmd.exe", "/C expdp TSE/TSEORACLE2012@XE directory=data_pump_dir dumpfile=exp_tse_md.dmp logfile=exp_tse_md.log schemas=tse version=10 content=metadata_only")
+                        '    pStart.StartInfo = startInfo
+                        '    pStart.Start()
+                        '    pStart.WaitForExit()
+                        '    If pStart.ExitCode = 3 Then
+                        '        MsgBox("La Exportación de metadata ha Terminado Satisfactoriamente... Continuando con el proceso por favor espere", MsgBoxStyle.Information)
+                        '    Else
+                        '        MsgBox("La Generación de Metadata No se ha realizado Correctamente", MsgBoxStyle.Exclamation)
+                        '        Dim oradb6 As String = Configuracion.verconfig
+                        '        Dim conn6 As New OracleConnection()
+                        '        Dim myCMD6 As New OracleCommand()
+                        '        conn6.ConnectionString = oradb6
+                        '        conn6.Open()
+                        '        myCMD6.Connection = conn6
+                        '        myCMD6.CommandText = "Update im_parametros_generales set codigo_partido = " & partido
+                        '        myCMD6.CommandType = CommandType.Text
+                        '        myCMD6.ExecuteOracleScalar()
+                        '        conn6.Close()
+                        '        Exit Sub
+                        '    End If
+                        'Catch ex As Exception
+                        '    Dim oradb6 As String = Configuracion.verconfig
+                        '    Dim conn6 As New OracleConnection()
+                        '    Dim myCMD6 As New OracleCommand()
+                        '    conn6.ConnectionString = oradb6
+                        '    conn6.Open()
+                        '    myCMD6.Connection = conn6
+                        '    myCMD6.CommandText = "Update im_parametros_generales set codigo_partido = " & partido
+                        '    myCMD6.CommandType = CommandType.Text
+                        '    myCMD6.ExecuteOracleScalar()
+                        '    conn6.Close()
+                        '    Mensajes.MensajeError(ex.Message)
+                        '    Exit Sub
+                        'End Try
 
                         If File.Exists("C:\oraclexe\app\oracle\admin\XE\dpdump\exp_tse.dmp") Then
                             System.IO.File.Copy("C:\oraclexe\app\oracle\admin\XE\dpdump\exp_tse.dmp", TxtRuta.Text & "\CSIM\Componentes\exp_tse.dmp", True)

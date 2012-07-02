@@ -102,44 +102,44 @@ Public Class XfrmDiscoMovimiento
                             Exit Sub
                         End Try
 
-                        Try
-                            Dim startInfo As ProcessStartInfo
-                            Dim pStart As New Process
-                            startInfo = New ProcessStartInfo("cmd.exe", "/C expdp TSE/TSEORACLE2012@XE directory=data_pump_dir dumpfile=exp_tse_md.dmp logfile=exp_tse_md.log schemas=tse version=10 content=metadata_only")
-                            pStart.StartInfo = startInfo
-                            pStart.Start()
-                            pStart.WaitForExit()
-                            If pStart.ExitCode = 3 Then
-                                MsgBox("La Exportación de metadata ha Terminado Satisfactoriamente", MsgBoxStyle.Information)
-                            Else
-                                MsgBox("La Generación de Metadata No se ha realizado Correctamente", MsgBoxStyle.Exclamation)
-                                Dim oradb3 As String = Configuracion.verconfig
-                                Dim conn3 As New OracleConnection()
-                                Dim myCMD3 As New OracleCommand()
-                                conn3.ConnectionString = oradb3
-                                conn3.Open()
-                                myCMD3.Connection = conn3
-                                myCMD3.CommandText = "Update im_parametros_generales set codigo_partido = " & partido & ", codigo_movimiento = " & movimiento
-                                myCMD3.CommandType = CommandType.Text
-                                myCMD3.ExecuteOracleScalar()
-                                conn3.Close()
-                                Exit Sub
-                            End If
-                        Catch ex As Exception
-                            Dim oradb3 As String = Configuracion.verconfig
-                            Dim conn3 As New OracleConnection()
-                            Dim myCMD3 As New OracleCommand()
-                            conn3.ConnectionString = oradb3
-                            conn3.Open()
-                            myCMD3.Connection = conn3
-                            myCMD3.CommandText = "Update im_parametros_generales set codigo_partido = " & partido & ", codigo_movimiento = " & movimiento
-                            myCMD3.CommandType = CommandType.Text
-                            myCMD3.ExecuteOracleScalar()
-                            conn3.Close()
-                            'conn.Close()
-                            Mensajes.MensajeError(ex.Message)
-                            Exit Sub
-                        End Try
+                        'Try
+                        '    Dim startInfo As ProcessStartInfo
+                        '    Dim pStart As New Process
+                        '    startInfo = New ProcessStartInfo("cmd.exe", "/C expdp TSE/TSEORACLE2012@XE directory=data_pump_dir dumpfile=exp_tse_md.dmp logfile=exp_tse_md.log schemas=tse version=10 content=metadata_only")
+                        '    pStart.StartInfo = startInfo
+                        '    pStart.Start()
+                        '    pStart.WaitForExit()
+                        '    If pStart.ExitCode = 3 Then
+                        '        MsgBox("La Exportación de metadata ha Terminado Satisfactoriamente", MsgBoxStyle.Information)
+                        '    Else
+                        '        MsgBox("La Generación de Metadata No se ha realizado Correctamente", MsgBoxStyle.Exclamation)
+                        '        Dim oradb3 As String = Configuracion.verconfig
+                        '        Dim conn3 As New OracleConnection()
+                        '        Dim myCMD3 As New OracleCommand()
+                        '        conn3.ConnectionString = oradb3
+                        '        conn3.Open()
+                        '        myCMD3.Connection = conn3
+                        '        myCMD3.CommandText = "Update im_parametros_generales set codigo_partido = " & partido & ", codigo_movimiento = " & movimiento
+                        '        myCMD3.CommandType = CommandType.Text
+                        '        myCMD3.ExecuteOracleScalar()
+                        '        conn3.Close()
+                        '        Exit Sub
+                        '    End If
+                        'Catch ex As Exception
+                        '    Dim oradb3 As String = Configuracion.verconfig
+                        '    Dim conn3 As New OracleConnection()
+                        '    Dim myCMD3 As New OracleCommand()
+                        '    conn3.ConnectionString = oradb3
+                        '    conn3.Open()
+                        '    myCMD3.Connection = conn3
+                        '    myCMD3.CommandText = "Update im_parametros_generales set codigo_partido = " & partido & ", codigo_movimiento = " & movimiento
+                        '    myCMD3.CommandType = CommandType.Text
+                        '    myCMD3.ExecuteOracleScalar()
+                        '    conn3.Close()
+                        '    'conn.Close()
+                        '    Mensajes.MensajeError(ex.Message)
+                        '    Exit Sub
+                        'End Try
 
 
                         If File.Exists("C:\oraclexe\app\oracle\admin\XE\dpdump\exp_tse.dmp") Then
