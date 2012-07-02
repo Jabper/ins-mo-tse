@@ -294,84 +294,6 @@ Public Class XfrmSubirSistExterno
         End Try
     End Function
 
-    'Private Function subir_candidatos_repetidos(ByVal Filename As String) As Boolean
-    '    Dim waitDialog As New WaitDialogForm("Procesando Información", "Por favor espere..")
-    '    Try
-    '        Dim extension As String = IO.Path.GetExtension(Filename)
-    '        Dim connString As String = "Data Source=" & Filename
-
-    '        If (extension = ".xls") Then
-    '            connString &= ";Provider=Microsoft.Jet.OLEDB.4.0; Extended Properties='Excel 8.0;HDR=YES;IMEX=1'"
-    '        ElseIf (extension = ".xlsx") Then
-    '            connString &= ";Provider=Microsoft.ACE.OLEDB.12.0; Extended Properties='Excel 12.0 Xml;HDR=YES;IMEX=1'"
-    '        Else
-    '            Mensajes.MensajeError("El tipo de archivo seleccionado no esta permitido")
-    '            waitDialog.Caption = "finalizando..."
-    '            waitDialog.Close()
-    '            Return False
-    '        End If
-
-    '        Using conexion As New OleDbConnection(connString)
-    '            Dim sql As String = "SELECT * FROM [Candidatos_Repetidos$]"
-    '            Dim adaptador As New OleDbDataAdapter(sql, conexion)
-    '            Dim dt As New DataTable("Excel")
-    '            adaptador.Fill(dt)
-
-    '            'Dim oradb1 As String = Configuracion.verconfig
-    '            'Dim conn1 As New OracleConnection()
-    '            'Dim myCMD1 As New OracleCommand()
-    '            'conn1.ConnectionString = oradb1
-    '            'conn1.Open()
-    '            'Try
-    '            '    myCMD1.Connection = conn1
-    '            '    myCMD1.CommandText = "Delete tmp_im_candidatos_repetidos"
-    '            '    myCMD1.CommandType = CommandType.Text
-    '            '    myCMD1.ExecuteOracleScalar()
-    '            'Catch ex As Exception
-    '            '    conn1.Close()
-    '            '    waitDialog.Caption = "finalizando..."
-    '            '    waitDialog.Close()
-    '            '    Mensajes.MensajeError(ex.Message)
-    '            '    Return False
-    '            'End Try
-    '            'conn1.Close()
-
-    '            Dim oradb As String = Configuracion.verconfig
-    '            Dim conn As New OracleConnection()
-    '            Dim myCMD As New OracleCommand()
-    '            conn.ConnectionString = oradb
-    '            conn.Open()
-    '            For Each row As System.Data.DataRow In dt.Rows
-    '                Try
-    '                    myCMD.Connection = conn
-    '                    myCMD.CommandText = "Insert into tmp_im_candidatos_repetidos (IDENTIDAD, CODIGO_MOVIMIENTO, CODIGO_PARTIDO," _
-    '                    & " ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, ESTADO) VALUES ('" _
-    '                    & row.Item(0).ToString & "', '" & row.Item(1).ToString & "', '" & row.Item(2).ToString & "', 'TSE'" _
-    '                    & ", to_date('" & DateTime.Now & "','dd/mm/yyyy hh:mi:ss p.m.'), null, null, '" & row.Item(3).ToString & "')"
-    '                    myCMD.CommandType = CommandType.Text
-    '                    myCMD.ExecuteOracleScalar()
-    '                Catch ex As Exception
-    '                    conn.Close()
-    '                    waitDialog.Caption = "finalizando..."
-    '                    waitDialog.Close()
-    '                    Mensajes.MensajeError(ex.Message)
-    '                    Return False
-    '                End Try
-    '            Next
-    '            conn.Close()
-    '        End Using
-    '        waitDialog.Caption = "finalizando..."
-    '        waitDialog.Close()
-    '        MsgBox("La Importación de Candidatos Repetidos ha terminado exitosamente", MsgBoxStyle.Information)
-    '        Return True
-    '    Catch ex As Exception
-    '        waitDialog.Caption = "finalizando..."
-    '        waitDialog.Close()
-    '        Mensajes.MensajeError(ex.Message)
-    '        Return False
-    '    End Try
-    'End Function
-
     Private Function subir_requisitos_x_candidato(ByVal Filename As String) As Boolean
         ' Dim waitDialog As New WaitDialogForm("Procesando Información", "Por favor espere..")
         Try
@@ -426,7 +348,7 @@ Public Class XfrmSubirSistExterno
                         myCMD.CommandText = "Insert into tmp_im_requisitos_x_candidato (CODIGO_CANDIDATO, CODIGO_PARTIDO, CODIGO_MOVIMIENTO, " _
                         & "CODIGO_REQUISITO, CANTIDAD, IMAGEN, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, ESTADO, tipo_sistema) " _
                         & "VALUES ('" & row.Item(0).ToString & "', '" & row.Item(1).ToString & "', '" & row.Item(2).ToString & "', '" & row.Item(3).ToString _
-                        & "', '" & row.Item(4).ToString & "', null, '" & usuario & "', to_date('" & DateTime.Now & "','dd/mm/yyyy hh:mi:ss p.m.'), null, null, 'C','E')"
+                        & "', '1', null, '" & usuario & "', to_date('" & DateTime.Now & "','dd/mm/yyyy hh:mi:ss p.m.'), null, null, 'C','E')"
                         myCMD.CommandType = CommandType.Text
                         myCMD.ExecuteOracleScalar()
 
