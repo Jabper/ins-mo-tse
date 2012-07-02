@@ -312,7 +312,7 @@ Public Class XfrmSubirSistExterno
             End If
 
             Using conexion As New OleDbConnection(connString)
-                Dim sql As String = "SELECT * FROM [requisitos_x_candidato$]"
+                Dim sql As String = "SELECT * FROM [requisitos$]"
                 Dim adaptador As New OleDbDataAdapter(sql, conexion)
                 Dim dt As New DataTable("Excel")
                 adaptador.Fill(dt)
