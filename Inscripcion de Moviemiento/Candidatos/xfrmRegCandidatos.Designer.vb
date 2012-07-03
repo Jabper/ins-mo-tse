@@ -668,6 +668,7 @@ Partial Class xfrmRegCandidatos
         Me.colPRIMER_NOMBRE.ColumnEdit = Me.RepositoryItemTextEdit1
         Me.colPRIMER_NOMBRE.FieldName = "PRIMER_NOMBRE"
         Me.colPRIMER_NOMBRE.Name = "colPRIMER_NOMBRE"
+        Me.colPRIMER_NOMBRE.OptionsColumn.AllowEdit = False
         Me.colPRIMER_NOMBRE.Visible = True
         Me.colPRIMER_NOMBRE.VisibleIndex = 2
         Me.colPRIMER_NOMBRE.Width = 105
@@ -684,6 +685,7 @@ Partial Class xfrmRegCandidatos
         Me.colSEGUNDO_NOMBRE.ColumnEdit = Me.RepositoryItemTextEdit6
         Me.colSEGUNDO_NOMBRE.FieldName = "SEGUNDO_NOMBRE"
         Me.colSEGUNDO_NOMBRE.Name = "colSEGUNDO_NOMBRE"
+        Me.colSEGUNDO_NOMBRE.OptionsColumn.AllowEdit = False
         Me.colSEGUNDO_NOMBRE.Visible = True
         Me.colSEGUNDO_NOMBRE.VisibleIndex = 3
         Me.colSEGUNDO_NOMBRE.Width = 114
@@ -700,6 +702,7 @@ Partial Class xfrmRegCandidatos
         Me.colPRIMER_APELLIDO.ColumnEdit = Me.RepositoryItemTextEdit5
         Me.colPRIMER_APELLIDO.FieldName = "PRIMER_APELLIDO"
         Me.colPRIMER_APELLIDO.Name = "colPRIMER_APELLIDO"
+        Me.colPRIMER_APELLIDO.OptionsColumn.AllowEdit = False
         Me.colPRIMER_APELLIDO.Visible = True
         Me.colPRIMER_APELLIDO.VisibleIndex = 4
         Me.colPRIMER_APELLIDO.Width = 106
@@ -716,6 +719,7 @@ Partial Class xfrmRegCandidatos
         Me.colSEGUNDO_APELLIDO.ColumnEdit = Me.RepositoryItemTextEdit1
         Me.colSEGUNDO_APELLIDO.FieldName = "SEGUNDO_APELLIDO"
         Me.colSEGUNDO_APELLIDO.Name = "colSEGUNDO_APELLIDO"
+        Me.colSEGUNDO_APELLIDO.OptionsColumn.AllowEdit = False
         Me.colSEGUNDO_APELLIDO.Visible = True
         Me.colSEGUNDO_APELLIDO.VisibleIndex = 5
         Me.colSEGUNDO_APELLIDO.Width = 108

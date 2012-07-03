@@ -1,5 +1,30 @@
 ﻿Imports System.Data.OracleClient ''IMPORTANDO LIBRERIAS NECESARIAS
 Public Class COracle
+
+    Public Shared Sub GetName(ByVal Identidad As String)
+        Dim consulta As String = "select NUMERO_IDENTIDAD, PRIMER_NOMBRE, SEGUNDO_NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO "
+        consulta &= "from Im_padron_electoral where NUMERO_IDENTIDAD='" & Identidad & "'"
+        Dim N1 As String = COracle.ObtenerDatos(consulta, "PRIMER_NOMBRE")
+        Dim N2 As String = COracle.ObtenerDatos(consulta, "SEGUNDO_NOMBRE")
+        Dim A1 As String = COracle.ObtenerDatos(consulta, "PRIMER_APELLIDO")
+        Dim A2 As String = COracle.ObtenerDatos(consulta, "SEGUNDO_APELLIDO")
+        If N1 = "N" Then
+            Primer_Nombre = ""
+            Segundo_Nombre = ""
+            Primer_Apellido = ""
+            Segundo_Apellido = ""
+            Return
+            'Mensajes.mimensaje("NUMERO DE IDENTIDAD NO EXISTE EN CNE")
+        Else
+            Primer_Nombre = N1
+            Segundo_Nombre = N2
+            Primer_Apellido = A1
+            Segundo_Apellido = A2
+
+        End If
+
+    End Sub
+
     Public Shared Sub ejecutarconsulta(ByVal consulta As String)
 
         Try
@@ -29,11 +54,11 @@ Public Class COracle
             Dim CMD As New OracleCommand()
             CMD.Connection = conn
             CMD.CommandType = CommandType.Text
-            CMD.CommandText = "select codigo_opcion from im_opciones where nombre_control ='" & control & "'"            
+            CMD.CommandText = "select codigo_opcion from im_opciones where nombre_control ='" & control & "'"
 
             Dim chek As OracleDataReader = CMD.ExecuteReader()
             If chek.Read Then
-                opcion = chek.Item("CODIGO_OPCION")            
+                opcion = chek.Item("CODIGO_OPCION")
             End If
 
             Dim myCMD As New OracleCommand()
@@ -48,7 +73,7 @@ Public Class COracle
 
             conn.Close()
             Return myCMD.Parameters("pvi_acceso").Value
-        Catch ex As Exception            
+        Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
         End Try
     End Function
@@ -95,6 +120,7 @@ Public Class COracle
             MessageBox.Show(ex.Message)
         End Try
     End Function
+
 
     Public Shared Function FUN_EJECUTAR_SEQ(ByVal nombre_sequencia As String) As Integer
         Try
