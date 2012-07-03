@@ -137,6 +137,16 @@ Public Class xfrmRegCandidatos
                 view.FocusedColumn.FieldName = "IDENTIDAD"
             Else
 
+                If ingreso_hombre = 0 Then
+                    Dim SEXO As String = COracle.ObtenerDatos(a, "SEXO")
+                    If SEXO = "1" Then
+                        mensajeerror = "NO PUEDE POSTULAR MAS HOMBRES A ESTA PLANILLA"
+                        e.Valid = False
+                        view.FocusedColumn.FieldName = "IDENTIDAD"
+                        Return
+                    End If
+                End If
+
                 COracle.GetName(e.Value)
 
                 view.SetRowCellValue(view.FocusedRowHandle, "PRIMER_NOMBRE", Primer_Nombre)
@@ -144,14 +154,7 @@ Public Class xfrmRegCandidatos
                 view.SetRowCellValue(view.FocusedRowHandle, "PRIMER_APELLIDO", Primer_Apellido)
                 view.SetRowCellValue(view.FocusedRowHandle, "SEGUNDO_APELLIDO", Segundo_Apellido)
 
-                If ingreso_hombre = 0 Then
-                    Dim SEXO As String = COracle.ObtenerDatos(a, "SEXO")
-                    If SEXO = "1" Then
-                        mensajeerror = "NO PUEDE POSTULAR MAS HOMBRES A ESTA PLANILLA"
-                        e.Valid = False
-                        view.FocusedColumn.FieldName = "IDENTIDAD"
-                    End If
-                End If
+
             End If
         End If
 
@@ -291,15 +294,20 @@ Public Class xfrmRegCandidatos
                                     contadorrequisitos += 1
 
                                 Else
-                                    If view.GetRowCellValue(a, "CONS_VECINDAD") = "I" Then
+                                    If IsDBNull(view.GetRowCellValue(i, "CONS_VECINDAD")) Then
+                                        estado_requisito = "I"
+                                    Else
+                                        estado_requisito = view.GetRowCellValue(i, "CONS_VECINDAD")
+                                    End If
+
+                                    If estado_requisito = "I" Then
                                         contadorInconsistencias += 1
                                         contadorrequisitos += 1
-                                        estado_requisito = "I"
+
                                     End If
                                 End If
 
 
-                                estado_requisito = view.GetRowCellValue(i, "CONS_VECINDAD")
                                 If estado_requisito = "C" Then
                                     If IsDBNull(view.GetRowCellValue(i, "CONS_VECINDAD_IMAGEN")) Or view.GetRowCellValue(i, "CONS_VECINDAD_IMAGEN") Is Nothing Then
                                     Else
@@ -711,7 +719,12 @@ Public Class xfrmRegCandidatos
 
                 Else
 
-                    estado_requisto = view.GetRowCellValue(fila, "CONS_VECINDAD")
+                    If IsDBNull(view.GetRowCellValue(fila, "CONS_VECINDAD")) Then
+                        estado_requisto = "I"
+                    Else
+                        estado_requisto = view.GetRowCellValue(fila, "CONS_VECINDAD")
+                    End If
+
 
                     If estado_requisto = "I" Then
                         contadorInconsistencias += 1
@@ -725,9 +738,9 @@ Public Class xfrmRegCandidatos
                 conn.Close()
 
             ElseIf requisito = 9 Then
-                    estado_requisto = "C"
+                estado_requisto = "C"
             Else
-                    requisito = 0
+                requisito = 0
             End If
 
             ''guardando los requisitos

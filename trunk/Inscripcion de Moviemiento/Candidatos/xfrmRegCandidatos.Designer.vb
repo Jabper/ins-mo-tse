@@ -754,6 +754,8 @@ Partial Class xfrmRegCandidatos
         '
         Me.chkConstancia.AutoHeight = False
         Me.chkConstancia.Name = "chkConstancia"
+        Me.chkConstancia.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
+        Me.chkConstancia.NullText = "I"
         Me.chkConstancia.ValueChecked = "C"
         Me.chkConstancia.ValueGrayed = "I"
         Me.chkConstancia.ValueUnchecked = "I"
