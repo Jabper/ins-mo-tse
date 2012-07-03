@@ -58,6 +58,8 @@ Partial Public Class Reporte_de_Firmas_In
         Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
         Me.DS_REPORTE_DE_FI_11 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FI_1
         Me.IM_V_FIRMAS_INCONSISTENTESTableAdapter = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FI_1TableAdapters.IM_V_FIRMAS_INCONSISTENTESTableAdapter
+        Me.XrLabel20 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel21 = New DevExpress.XtraReports.UI.XRLabel
         CType(Me.DS_REPORTE_DE_FI_11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
@@ -165,9 +167,9 @@ Partial Public Class Reporte_de_Firmas_In
         '
         'GroupHeaderBand2
         '
-        Me.GroupHeaderBand2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel6, Me.XrLabel5, Me.XrLabel7, Me.XrLabel8})
+        Me.GroupHeaderBand2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel21, Me.XrLabel20, Me.XrLabel6, Me.XrLabel5, Me.XrLabel7, Me.XrLabel8})
         Me.GroupHeaderBand2.GroupFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("DEPARTAMENTO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
-        Me.GroupHeaderBand2.HeightF = 83.91667!
+        Me.GroupHeaderBand2.HeightF = 83.91668!
         Me.GroupHeaderBand2.Level = 1
         Me.GroupHeaderBand2.Name = "GroupHeaderBand2"
         '
@@ -305,11 +307,13 @@ Partial Public Class Reporte_de_Firmas_In
         '
         'XrLabel19
         '
+        Me.XrLabel19.Font = New System.Drawing.Font("Times New Roman", 24.0!, CType((System.Drawing.FontStyle.Italic Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
         Me.XrLabel19.LocationFloat = New DevExpress.Utils.PointFloat(6.00001!, 6.00001!)
         Me.XrLabel19.Name = "XrLabel19"
         Me.XrLabel19.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel19.SizeF = New System.Drawing.SizeF(1009.0!, 39.0!)
         Me.XrLabel19.StyleName = "Title"
+        Me.XrLabel19.StylePriority.UseFont = False
         Me.XrLabel19.StylePriority.UseTextAlignment = False
         Me.XrLabel19.Text = "Reporte de Firmas Inconsistentes"
         Me.XrLabel19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
@@ -383,6 +387,27 @@ Partial Public Class Reporte_de_Firmas_In
         '
         Me.IM_V_FIRMAS_INCONSISTENTESTableAdapter.ClearBeforeFill = True
         '
+        'XrLabel20
+        '
+        Me.XrLabel20.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel20.LocationFloat = New DevExpress.Utils.PointFloat(5.999979!, 60.91668!)
+        Me.XrLabel20.Name = "XrLabel20"
+        Me.XrLabel20.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
+        Me.XrLabel20.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.XrLabel20.StylePriority.UseFont = False
+        Me.XrLabel20.Text = "FOLIO:"
+        '
+        'XrLabel21
+        '
+        Me.XrLabel21.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_INCONSISTENTES.FOLIO")})
+        Me.XrLabel21.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel21.LocationFloat = New DevExpress.Utils.PointFloat(225.2084!, 60.91668!)
+        Me.XrLabel21.Name = "XrLabel21"
+        Me.XrLabel21.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
+        Me.XrLabel21.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.XrLabel21.StylePriority.UseFont = False
+        Me.XrLabel21.Text = "XrLabel21"
+        '
         'Reporte_de_Firmas_In
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.GroupHeaderBand1, Me.GroupHeaderBand2, Me.GroupHeaderBand4, Me.PageFooterBand1, Me.ReportHeaderBand1, Me.TopMarginBand1, Me.BottomMarginBand1})
@@ -441,4 +466,6 @@ Partial Public Class Reporte_de_Firmas_In
     Friend WithEvents NombreMovimiento As DevExpress.XtraReports.Parameters.Parameter
     Friend WithEvents DS_REPORTE_DE_FI_11 As Inscripcion_de_Moviemientos.DS_REPORTE_DE_FI_1
     Friend WithEvents IM_V_FIRMAS_INCONSISTENTESTableAdapter As Inscripcion_de_Moviemientos.DS_REPORTE_DE_FI_1TableAdapters.IM_V_FIRMAS_INCONSISTENTESTableAdapter
+    Friend WithEvents XrLabel21 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel20 As DevExpress.XtraReports.UI.XRLabel
 End Class

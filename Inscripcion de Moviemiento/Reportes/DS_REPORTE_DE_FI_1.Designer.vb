@@ -353,6 +353,8 @@ Partial Public Class DS_REPORTE_DE_FI_1
         
         Private columnOBSERVACION As Global.System.Data.DataColumn
         
+        Private columnFOLIO As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -448,6 +450,13 @@ Partial Public Class DS_REPORTE_DE_FI_1
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property FOLIOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFOLIO
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -477,9 +486,9 @@ Partial Public Class DS_REPORTE_DE_FI_1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddIM_V_FIRMAS_INCONSISTENTESRow(ByVal IDENTIDAD As String, ByVal NOMBRE As String, ByVal APELLIDOS As String, ByVal NOMBRE_PARTIDO As String, ByVal NOMBRE_MOVIMIENTO As String, ByVal DEPARTAMENTO As String, ByVal MUNICIPIO As String, ByVal ESTADO As String, ByVal OBSERVACION As String) As IM_V_FIRMAS_INCONSISTENTESRow
+        Public Overloads Function AddIM_V_FIRMAS_INCONSISTENTESRow(ByVal IDENTIDAD As String, ByVal NOMBRE As String, ByVal APELLIDOS As String, ByVal NOMBRE_PARTIDO As String, ByVal NOMBRE_MOVIMIENTO As String, ByVal DEPARTAMENTO As String, ByVal MUNICIPIO As String, ByVal ESTADO As String, ByVal OBSERVACION As String, ByVal FOLIO As Decimal) As IM_V_FIRMAS_INCONSISTENTESRow
             Dim rowIM_V_FIRMAS_INCONSISTENTESRow As IM_V_FIRMAS_INCONSISTENTESRow = CType(Me.NewRow,IM_V_FIRMAS_INCONSISTENTESRow)
-            Dim columnValuesArray() As Object = New Object() {IDENTIDAD, NOMBRE, APELLIDOS, NOMBRE_PARTIDO, NOMBRE_MOVIMIENTO, DEPARTAMENTO, MUNICIPIO, ESTADO, OBSERVACION}
+            Dim columnValuesArray() As Object = New Object() {IDENTIDAD, NOMBRE, APELLIDOS, NOMBRE_PARTIDO, NOMBRE_MOVIMIENTO, DEPARTAMENTO, MUNICIPIO, ESTADO, OBSERVACION, FOLIO}
             rowIM_V_FIRMAS_INCONSISTENTESRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowIM_V_FIRMAS_INCONSISTENTESRow)
             Return rowIM_V_FIRMAS_INCONSISTENTESRow
@@ -508,6 +517,7 @@ Partial Public Class DS_REPORTE_DE_FI_1
             Me.columnMUNICIPIO = MyBase.Columns("MUNICIPIO")
             Me.columnESTADO = MyBase.Columns("ESTADO")
             Me.columnOBSERVACION = MyBase.Columns("OBSERVACION")
+            Me.columnFOLIO = MyBase.Columns("FOLIO")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -530,6 +540,8 @@ Partial Public Class DS_REPORTE_DE_FI_1
             MyBase.Columns.Add(Me.columnESTADO)
             Me.columnOBSERVACION = New Global.System.Data.DataColumn("OBSERVACION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnOBSERVACION)
+            Me.columnFOLIO = New Global.System.Data.DataColumn("FOLIO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFOLIO)
             Me.columnIDENTIDAD.AllowDBNull = false
             Me.columnIDENTIDAD.MaxLength = 15
             Me.columnNOMBRE.MaxLength = 101
@@ -1303,6 +1315,20 @@ Partial Public Class DS_REPORTE_DE_FI_1
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property FOLIO() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_FIRMAS_INCONSISTENTES.FOLIOColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FOLIO' in table 'IM_V_FIRMAS_INCONSISTENTES' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_FIRMAS_INCONSISTENTES.FOLIOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsNOMBRENull() As Boolean
             Return Me.IsNull(Me.tableIM_V_FIRMAS_INCONSISTENTES.NOMBREColumn)
         End Function
@@ -1340,6 +1366,16 @@ Partial Public Class DS_REPORTE_DE_FI_1
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetOBSERVACIONNull()
             Me(Me.tableIM_V_FIRMAS_INCONSISTENTES.OBSERVACIONColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsFOLIONull() As Boolean
+            Return Me.IsNull(Me.tableIM_V_FIRMAS_INCONSISTENTES.FOLIOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetFOLIONull()
+            Me(Me.tableIM_V_FIRMAS_INCONSISTENTES.FOLIOColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1676,6 +1712,7 @@ Namespace DS_REPORTE_DE_FI_1TableAdapters
             tableMapping.ColumnMappings.Add("MUNICIPIO", "MUNICIPIO")
             tableMapping.ColumnMappings.Add("ESTADO", "ESTADO")
             tableMapping.ColumnMappings.Add("OBSERVACION", "OBSERVACION")
+            tableMapping.ColumnMappings.Add("FOLIO", "FOLIO")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -1690,9 +1727,11 @@ Namespace DS_REPORTE_DE_FI_1TableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        IDENTIDAD, NOMBRE, APELLIDOS, PARTIDO AS ""NOMBRE PARTIDO"", MOVIMIEN"& _ 
-                "TO AS ""NOMBRE MOVIMIENTO"", DEPARTAMENTO, MUNICIPIO, ESTADO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
-                "       OBSERVACION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_FIRMAS_INCONSISTENTES"
+            Me._commandCollection(0).CommandText = "SELECT        A.IDENTIDAD, A.NOMBRE, A.APELLIDOS, A.PARTIDO AS ""NOMBRE PARTIDO"", "& _ 
+                "A.MOVIMIENTO AS ""NOMBRE MOVIMIENTO"", A.DEPARTAMENTO, A.MUNICIPIO, A.ESTADO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
+                "                 A.OBSERVACION, B.FOLIO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_FIRMAS_INCONSISTE"& _ 
+                "NTES A, im_ciudadanos_respaldan B "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where A.IDENTIDAD = B.IDENTIDAD "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and B.CONS"& _ 
+                "ISTENTE ='N'"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
