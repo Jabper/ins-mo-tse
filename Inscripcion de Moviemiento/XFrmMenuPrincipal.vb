@@ -357,4 +357,9 @@ Public Class XFrmMenuPrincipal
     Private Sub BarButtonItem3_ItemClick_1(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem3.ItemClick
         Padre(xfrmRequisitosFinales)
     End Sub
+
+    Private Sub BtnCandidatosInha_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCandidatosInha.ItemClick
+        Dim reportep1 As Reporte_candidatos_inhabilitados = New Reporte_candidatos_inhabilitados
+        reportep1.ShowPreview()
+    End Sub
 End Class

@@ -57,4 +57,9 @@ Public Class Reporte_candidatos_inhabilitados
         Next
 
     End Sub
+
+    Private Sub Reporte_candidatos_inhabilitados_ParametersRequestSubmit(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestEventArgs) Handles Me.ParametersRequestSubmit
+        Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(DS_LOG.IM_PARTIDOS_POLITICOS_imagen, NombrePartido.Value.ToString)
+
+    End Sub
 End Class
