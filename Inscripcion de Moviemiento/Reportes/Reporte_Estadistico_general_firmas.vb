@@ -41,4 +41,12 @@ Public Class Reporte_Estadistico_general_firmas
         Next
 
     End Sub
+
+    Private Sub Reporte_Estadistico_general_firmas_ParametersRequestSubmit(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestEventArgs) Handles Me.ParametersRequestSubmit
+        IM_V_ESTADISTICO_FIRMASTableAdapter.Fill(DS_ESTADISTICO_FIRMAS1.IM_V_ESTADISTICO_FIRMAS, NombrePartido.Value.ToString, NombreMovimiento.Value.ToString)
+        Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(DS_LOG.IM_PARTIDOS_POLITICOS_imagen, NombrePartido.Value.ToString)
+        Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(DS_LOG.IM_MOVIMIENTOS_imagen, NombreMovimiento.Value.ToString)
+
+
+    End Sub
 End Class
