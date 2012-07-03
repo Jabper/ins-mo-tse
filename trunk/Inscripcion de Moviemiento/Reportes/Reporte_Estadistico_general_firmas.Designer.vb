@@ -55,6 +55,11 @@ Partial Public Class Reporte_Estadistico_general_firmas
         Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo
         Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
         Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
+        Me.BindingSourceimagen = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DS_LOG = New Inscripcion_de_Moviemientos.DS_LOG
+        Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
+        Me.BindingSourceimagen_mov = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IM_MOVIMIENTOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
         CType(Me.DS_ESTADISTICO_FIRMAS1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMVESTADISTICOGENERALFBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_ESTADISTICO_GENERAL_FIRMAS1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,6 +70,9 @@ Partial Public Class Reporte_Estadistico_general_firmas
         CType(Series2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(SideBySideBarSeriesLabel2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(SideBySideBarSeriesLabel3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSourceimagen, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSourceimagen_mov, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
         'DS_ESTADISTICO_FIRMAS1
@@ -107,7 +115,7 @@ Partial Public Class Reporte_Estadistico_general_firmas
         XyDiagram1.DefaultPane.EnableAxisYScrolling = DevExpress.Utils.DefaultBoolean.[False]
         XyDiagram1.DefaultPane.EnableAxisYZooming = DevExpress.Utils.DefaultBoolean.[False]
         Me.XrChart1.Diagram = XyDiagram1
-        Me.XrChart1.LocationFloat = New DevExpress.Utils.PointFloat(23.54164!, 191.6667!)
+        Me.XrChart1.LocationFloat = New DevExpress.Utils.PointFloat(25.62498!, 192.7083!)
         Me.XrChart1.Name = "XrChart1"
         Series1.ArgumentDataMember = "IM_V_ESTADISTICO_FIRMAS.CONSISTENTE"
         Series1.DataSource = Me.DS_ESTADISTICO_FIRMAS1
@@ -263,15 +271,19 @@ Partial Public Class Reporte_Estadistico_general_firmas
         '
         'XrPictureBox2
         '
+        Me.XrPictureBox2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSourceimagen_mov, "IMAGEN")})
         Me.XrPictureBox2.LocationFloat = New DevExpress.Utils.PointFloat(936.46!, 9.998353!)
         Me.XrPictureBox2.Name = "XrPictureBox2"
         Me.XrPictureBox2.SizeF = New System.Drawing.SizeF(113.54!, 78.21!)
+        Me.XrPictureBox2.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage
         '
         'XrPictureBox1
         '
+        Me.XrPictureBox1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSourceimagen, "IMAGEN")})
         Me.XrPictureBox1.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 10.00001!)
         Me.XrPictureBox1.Name = "XrPictureBox1"
         Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(113.5417!, 78.20834!)
+        Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage
         '
         'XrLabel6
         '
@@ -330,6 +342,29 @@ Partial Public Class Reporte_Estadistico_general_firmas
         Me.NombreMovimiento.Description = "Movimiento Politico"
         Me.NombreMovimiento.Name = "NombreMovimiento"
         '
+        'BindingSourceimagen
+        '
+        Me.BindingSourceimagen.DataMember = "IM_PARTIDOS_POLITICOS_imagen"
+        Me.BindingSourceimagen.DataSource = Me.DS_LOG
+        '
+        'DS_LOG
+        '
+        Me.DS_LOG.DataSetName = "DS_LOG"
+        Me.DS_LOG.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'IM_PARTIDOS_POLITICOS_imagenTableAdapter
+        '
+        Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.ClearBeforeFill = True
+        '
+        'BindingSourceimagen_mov
+        '
+        Me.BindingSourceimagen_mov.DataMember = "IM_MOVIMIENTOS_imagen"
+        Me.BindingSourceimagen_mov.DataSource = Me.DS_LOG
+        '
+        'IM_MOVIMIENTOS_imagenTableAdapter
+        '
+        Me.IM_MOVIMIENTOS_imagenTableAdapter.ClearBeforeFill = True
+        '
         'Reporte_Estadistico_general_firmas
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.ReportFooter})
@@ -354,6 +389,9 @@ Partial Public Class Reporte_Estadistico_general_firmas
         CType(Series2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(SideBySideBarSeriesLabel3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XrChart1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSourceimagen, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSourceimagen_mov, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub
@@ -385,4 +423,9 @@ Partial Public Class Reporte_Estadistico_general_firmas
     Friend WithEvents DS_ESTADISTICO_FIRMAS1 As Inscripcion_de_Moviemientos.DS_ESTADISTICO_FIRMAS
     Friend WithEvents NombrePartido As DevExpress.XtraReports.Parameters.Parameter
     Friend WithEvents NombreMovimiento As DevExpress.XtraReports.Parameters.Parameter
+    Friend WithEvents BindingSourceimagen_mov As System.Windows.Forms.BindingSource
+    Friend WithEvents DS_LOG As Inscripcion_de_Moviemientos.DS_LOG
+    Friend WithEvents BindingSourceimagen As System.Windows.Forms.BindingSource
+    Friend WithEvents IM_PARTIDOS_POLITICOS_imagenTableAdapter As Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
+    Friend WithEvents IM_MOVIMIENTOS_imagenTableAdapter As Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
 End Class
