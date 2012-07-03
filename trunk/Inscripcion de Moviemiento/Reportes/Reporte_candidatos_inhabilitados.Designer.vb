@@ -31,6 +31,8 @@ Partial Public Class Reporte_candidatos_inhabilitados
         Me.BottomMargin = New DevExpress.XtraReports.UI.BottomMarginBand
         Me.ReportHeader = New DevExpress.XtraReports.UI.ReportHeaderBand
         Me.XrPictureBox1 = New DevExpress.XtraReports.UI.XRPictureBox
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DS_LOG = New Inscripcion_de_Moviemientos.DS_LOG
         Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel
         Me.GroupHeader1 = New DevExpress.XtraReports.UI.GroupHeaderBand
         Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel
@@ -52,12 +54,10 @@ Partial Public Class Reporte_candidatos_inhabilitados
         Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
         Me.NombreDepartamento = New DevExpress.XtraReports.Parameters.Parameter
         Me.NombreNivel = New DevExpress.XtraReports.Parameters.Parameter
-        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DS_LOG = New Inscripcion_de_Moviemientos.DS_LOG
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
-        CType(Me.DS_CANDIDATOS_INHABILITADOS1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DS_CANDIDATOS_INHABILITADOS1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
         'Detail
@@ -148,6 +148,16 @@ Partial Public Class Reporte_candidatos_inhabilitados
         Me.XrPictureBox1.Name = "XrPictureBox1"
         Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(123.9583!, 79.99998!)
         Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage
+        '
+        'BindingSource1
+        '
+        Me.BindingSource1.DataMember = "IM_PARTIDOS_POLITICOS_imagen"
+        Me.BindingSource1.DataSource = Me.DS_LOG
+        '
+        'DS_LOG
+        '
+        Me.DS_LOG.DataSetName = "DS_LOG"
+        Me.DS_LOG.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'XrLabel1
         '
@@ -329,16 +339,6 @@ Partial Public Class Reporte_candidatos_inhabilitados
         Me.NombreNivel.Description = "Cargo Electivo"
         Me.NombreNivel.Name = "NombreNivel"
         '
-        'BindingSource1
-        '
-        Me.BindingSource1.DataMember = "IM_PARTIDOS_POLITICOS_imagen"
-        Me.BindingSource1.DataSource = Me.DS_LOG
-        '
-        'DS_LOG
-        '
-        Me.DS_LOG.DataSetName = "DS_LOG"
-        Me.DS_LOG.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'IM_PARTIDOS_POLITICOS_imagenTableAdapter
         '
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.ClearBeforeFill = True
@@ -349,6 +349,8 @@ Partial Public Class Reporte_candidatos_inhabilitados
         Me.DataAdapter = Me.IM_V_CANDIDATOS_INHATableAdapter
         Me.DataMember = "IM_V_CANDIDATOS_INHA"
         Me.DataSource = Me.DS_CANDIDATOS_INHABILITADOS1
+        Me.FilterString = "[PARTIDO] = ?NombrePartido And [DEPARTAMENTO] = ?NombreDepartamento And [NIVELELE" & _
+            "CTIVO] = ?NombreNivel"
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(28, 25, 25, 100)
         Me.PageHeight = 850
@@ -356,9 +358,9 @@ Partial Public Class Reporte_candidatos_inhabilitados
         Me.Parameters.AddRange(New DevExpress.XtraReports.Parameters.Parameter() {Me.NombrePartido, Me.NombreDepartamento, Me.NombreNivel})
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.Version = "11.2"
-        CType(Me.DS_CANDIDATOS_INHABILITADOS1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DS_CANDIDATOS_INHABILITADOS1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub
