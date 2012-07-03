@@ -80,7 +80,7 @@ Public Class REPORTE_PLANILLAS_FINALES
         Dim oradb As String = Configuracion.verconfig
         Dim conn As New OracleConnection()
         Dim myCMD As New OracleCommand()
-        Dim mensaje As String
+        'Dim mensaje As String
         Dim cdesignados As String = 0
         Dim parlacen1 As String = 0
         Dim total_presidencial As String = 0
