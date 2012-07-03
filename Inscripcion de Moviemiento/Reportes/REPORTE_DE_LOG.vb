@@ -1,4 +1,5 @@
-﻿Imports System
+﻿Imports System.Data.OracleClient
+Imports System
 Imports DevExpress.XtraEditors
 Imports DevExpress.XtraEditors.Controls
 Imports DevExpress.XtraReports.UI
@@ -74,5 +75,12 @@ Public Class REPORTE_DE_LOG
         '        info.Editor = LookUpEdit
         '    End If
         'Next
+    End Sub
+
+    Private Sub REPORTE_DE_LOG_ParametersRequestSubmit(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestEventArgs) Handles Me.ParametersRequestSubmit
+        'se envian los filtros por nombre de partido y nombre de movimiento para recuperar las respectivas imagenes
+        Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(DS_LOG1.IM_PARTIDOS_POLITICOS_imagen, NombrePartido.Value.ToString)
+        Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(DS_LOG1.IM_MOVIMIENTOS_imagen, NombreMovimiento.Value.ToString)
+
     End Sub
 End Class
