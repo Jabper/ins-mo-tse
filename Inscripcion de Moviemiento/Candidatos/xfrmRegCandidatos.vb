@@ -56,7 +56,6 @@ Public Class xfrmRegCandidatos
     Private Sub xfrmRegCandidatos_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.GotFocus
         mostrarimg()
     End Sub
-
     Private Sub xfrmRegCandidatos_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Me.KeyPress
 
         Dim view As GridView = GridView1
@@ -177,7 +176,6 @@ Public Class xfrmRegCandidatos
 
 
     End Sub
-
     Sub Actualizar(ByVal i As Integer)
 
         Try
@@ -348,12 +346,12 @@ Public Class xfrmRegCandidatos
                 Validarleyendas()
             Else
                 Mensajes.MensajeError(mensaje)
+                Validarleyendas()
             End If
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
         End Try
     End Sub
-
     Sub guardar(ByVal I As Integer)
 
         Try
@@ -452,6 +450,7 @@ Public Class xfrmRegCandidatos
 
                 Else
                     Mensajes.MensajeError(myCMD.Parameters("PVO_MENSAJE").Value)
+                    Validarleyendas()
                 End If
 
                 conn.Close()
@@ -468,7 +467,6 @@ Public Class xfrmRegCandidatos
         End Try
 
     End Sub
-
     Private Sub cboMunicipio_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboMunicipio.TextChanged
         Try
 
@@ -546,6 +544,7 @@ Public Class xfrmRegCandidatos
     End Sub
 
     Sub ValidarCandidatos(ByVal fila As Integer, ByVal requisito As Integer, ByVal iden As String, ByVal nombre1 As String, ByVal nombre2 As String, ByVal apellido1 As String, ByVal apellido2 As String)
+
         Try
 
             Dim view As GridView = GridView1
