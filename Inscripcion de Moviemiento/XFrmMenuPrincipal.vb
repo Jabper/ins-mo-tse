@@ -313,6 +313,7 @@ Public Class XFrmMenuPrincipal
     Private Sub BarButtonItem8_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnEstadisticoFI.ItemClick
         Dim reporte8 As Reporte_Estadistico_general_firmas = New Reporte_Estadistico_general_firmas
         reporte8.ShowPreview()
+        
     End Sub
 
     Private Sub BarButtonItem9_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles Btnlogproce.ItemClick

@@ -21,12 +21,12 @@ Option Explicit On
  Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
  Global.System.ComponentModel.ToolboxItem(true),  _
  Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema"),  _
- Global.System.Xml.Serialization.XmlRootAttribute("DS_ESTADISTICO_GENERAL_FIRMAS"),  _
+ Global.System.Xml.Serialization.XmlRootAttribute("DS_ESTADISTICO_FIRMAS"),  _
  Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")>  _
-Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
+Partial Public Class DS_ESTADISTICO_FIRMAS
     Inherits Global.System.Data.DataSet
     
-    Private tableIM_V_ESTADISTICO_GENERAL_F As IM_V_ESTADISTICO_GENERAL_FDataTable
+    Private tableIM_V_ESTADISTICO_FIRMAS As IM_V_ESTADISTICO_FIRMASDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -55,8 +55,8 @@ Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
         If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
-            If (Not (ds.Tables("IM_V_ESTADISTICO_GENERAL_F")) Is Nothing) Then
-                MyBase.Tables.Add(New IM_V_ESTADISTICO_GENERAL_FDataTable(ds.Tables("IM_V_ESTADISTICO_GENERAL_F")))
+            If (Not (ds.Tables("IM_V_ESTADISTICO_FIRMAS")) Is Nothing) Then
+                MyBase.Tables.Add(New IM_V_ESTADISTICO_FIRMASDataTable(ds.Tables("IM_V_ESTADISTICO_FIRMAS")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -78,9 +78,9 @@ Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property IM_V_ESTADISTICO_GENERAL_F() As IM_V_ESTADISTICO_GENERAL_FDataTable
+    Public ReadOnly Property IM_V_ESTADISTICO_FIRMAS() As IM_V_ESTADISTICO_FIRMASDataTable
         Get
-            Return Me.tableIM_V_ESTADISTICO_GENERAL_F
+            Return Me.tableIM_V_ESTADISTICO_FIRMAS
         End Get
     End Property
     
@@ -121,7 +121,7 @@ Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Public Overrides Function Clone() As Global.System.Data.DataSet
-        Dim cln As DS_ESTADISTICO_GENERAL_FIRMAS = CType(MyBase.Clone,DS_ESTADISTICO_GENERAL_FIRMAS)
+        Dim cln As DS_ESTADISTICO_FIRMAS = CType(MyBase.Clone,DS_ESTADISTICO_FIRMAS)
         cln.InitVars
         cln.SchemaSerializationMode = Me.SchemaSerializationMode
         Return cln
@@ -143,8 +143,8 @@ Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
             Me.Reset
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet
             ds.ReadXml(reader)
-            If (Not (ds.Tables("IM_V_ESTADISTICO_GENERAL_F")) Is Nothing) Then
-                MyBase.Tables.Add(New IM_V_ESTADISTICO_GENERAL_FDataTable(ds.Tables("IM_V_ESTADISTICO_GENERAL_F")))
+            If (Not (ds.Tables("IM_V_ESTADISTICO_FIRMAS")) Is Nothing) Then
+                MyBase.Tables.Add(New IM_V_ESTADISTICO_FIRMASDataTable(ds.Tables("IM_V_ESTADISTICO_FIRMAS")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -175,27 +175,27 @@ Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
-        Me.tableIM_V_ESTADISTICO_GENERAL_F = CType(MyBase.Tables("IM_V_ESTADISTICO_GENERAL_F"),IM_V_ESTADISTICO_GENERAL_FDataTable)
+        Me.tableIM_V_ESTADISTICO_FIRMAS = CType(MyBase.Tables("IM_V_ESTADISTICO_FIRMAS"),IM_V_ESTADISTICO_FIRMASDataTable)
         If (initTable = true) Then
-            If (Not (Me.tableIM_V_ESTADISTICO_GENERAL_F) Is Nothing) Then
-                Me.tableIM_V_ESTADISTICO_GENERAL_F.InitVars
+            If (Not (Me.tableIM_V_ESTADISTICO_FIRMAS) Is Nothing) Then
+                Me.tableIM_V_ESTADISTICO_FIRMAS.InitVars
             End If
         End If
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Private Sub InitClass()
-        Me.DataSetName = "DS_ESTADISTICO_GENERAL_FIRMAS"
+        Me.DataSetName = "DS_ESTADISTICO_FIRMAS"
         Me.Prefix = ""
-        Me.Namespace = "http://tempuri.org/DS_ESTADISTICO_GENERAL_FIRMAS.xsd"
+        Me.Namespace = "http://tempuri.org/DS_ESTADISTICO_FIRMAS.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tableIM_V_ESTADISTICO_GENERAL_F = New IM_V_ESTADISTICO_GENERAL_FDataTable
-        MyBase.Tables.Add(Me.tableIM_V_ESTADISTICO_GENERAL_F)
+        Me.tableIM_V_ESTADISTICO_FIRMAS = New IM_V_ESTADISTICO_FIRMASDataTable
+        MyBase.Tables.Add(Me.tableIM_V_ESTADISTICO_FIRMAS)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-    Private Function ShouldSerializeIM_V_ESTADISTICO_GENERAL_F() As Boolean
+    Private Function ShouldSerializeIM_V_ESTADISTICO_FIRMAS() As Boolean
         Return false
     End Function
     
@@ -208,7 +208,7 @@ Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Public Shared Function GetTypedDataSetSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-        Dim ds As DS_ESTADISTICO_GENERAL_FIRMAS = New DS_ESTADISTICO_GENERAL_FIRMAS
+        Dim ds As DS_ESTADISTICO_FIRMAS = New DS_ESTADISTICO_FIRMAS
         Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType
         Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence
         Dim any As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
@@ -255,7 +255,7 @@ Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
         Return type
     End Function
     
-    Public Delegate Sub IM_V_ESTADISTICO_GENERAL_FRowChangeEventHandler(ByVal sender As Object, ByVal e As IM_V_ESTADISTICO_GENERAL_FRowChangeEvent)
+    Public Delegate Sub IM_V_ESTADISTICO_FIRMASRowChangeEventHandler(ByVal sender As Object, ByVal e As IM_V_ESTADISTICO_FIRMASRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -263,8 +263,8 @@ Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
      Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class IM_V_ESTADISTICO_GENERAL_FDataTable
-        Inherits Global.System.Data.TypedTableBase(Of IM_V_ESTADISTICO_GENERAL_FRow)
+    Partial Public Class IM_V_ESTADISTICO_FIRMASDataTable
+        Inherits Global.System.Data.TypedTableBase(Of IM_V_ESTADISTICO_FIRMASRow)
         
         Private columnINCONSISTENTE As Global.System.Data.DataColumn
         
@@ -276,10 +276,14 @@ Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
         
         Private _columnCONSISTENTE_ As Global.System.Data.DataColumn
         
+        Private columnNOMBRE As Global.System.Data.DataColumn
+        
+        Private columnNOMBRE_MOVIMIENTO As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "IM_V_ESTADISTICO_GENERAL_F"
+            Me.TableName = "IM_V_ESTADISTICO_FIRMAS"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -343,6 +347,20 @@ Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property NOMBREColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNOMBRE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property NOMBRE_MOVIMIENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNOMBRE_MOVIMIENTO
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -352,44 +370,44 @@ Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As IM_V_ESTADISTICO_GENERAL_FRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As IM_V_ESTADISTICO_FIRMASRow
             Get
-                Return CType(Me.Rows(index),IM_V_ESTADISTICO_GENERAL_FRow)
+                Return CType(Me.Rows(index),IM_V_ESTADISTICO_FIRMASRow)
             End Get
         End Property
         
-        Public Event IM_V_ESTADISTICO_GENERAL_FRowChanging As IM_V_ESTADISTICO_GENERAL_FRowChangeEventHandler
+        Public Event IM_V_ESTADISTICO_FIRMASRowChanging As IM_V_ESTADISTICO_FIRMASRowChangeEventHandler
         
-        Public Event IM_V_ESTADISTICO_GENERAL_FRowChanged As IM_V_ESTADISTICO_GENERAL_FRowChangeEventHandler
+        Public Event IM_V_ESTADISTICO_FIRMASRowChanged As IM_V_ESTADISTICO_FIRMASRowChangeEventHandler
         
-        Public Event IM_V_ESTADISTICO_GENERAL_FRowDeleting As IM_V_ESTADISTICO_GENERAL_FRowChangeEventHandler
+        Public Event IM_V_ESTADISTICO_FIRMASRowDeleting As IM_V_ESTADISTICO_FIRMASRowChangeEventHandler
         
-        Public Event IM_V_ESTADISTICO_GENERAL_FRowDeleted As IM_V_ESTADISTICO_GENERAL_FRowChangeEventHandler
+        Public Event IM_V_ESTADISTICO_FIRMASRowDeleted As IM_V_ESTADISTICO_FIRMASRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Sub AddIM_V_ESTADISTICO_GENERAL_FRow(ByVal row As IM_V_ESTADISTICO_GENERAL_FRow)
+        Public Overloads Sub AddIM_V_ESTADISTICO_FIRMASRow(ByVal row As IM_V_ESTADISTICO_FIRMASRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddIM_V_ESTADISTICO_GENERAL_FRow(ByVal INCONSISTENTE As Decimal, ByVal CONSISTENTE As Decimal, ByVal VALOR As Decimal, ByVal _INCONSISTENTE_ As String, ByVal _CONSISTENTE_ As String) As IM_V_ESTADISTICO_GENERAL_FRow
-            Dim rowIM_V_ESTADISTICO_GENERAL_FRow As IM_V_ESTADISTICO_GENERAL_FRow = CType(Me.NewRow,IM_V_ESTADISTICO_GENERAL_FRow)
-            Dim columnValuesArray() As Object = New Object() {INCONSISTENTE, CONSISTENTE, VALOR, _INCONSISTENTE_, _CONSISTENTE_}
-            rowIM_V_ESTADISTICO_GENERAL_FRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowIM_V_ESTADISTICO_GENERAL_FRow)
-            Return rowIM_V_ESTADISTICO_GENERAL_FRow
+        Public Overloads Function AddIM_V_ESTADISTICO_FIRMASRow(ByVal INCONSISTENTE As Decimal, ByVal CONSISTENTE As Decimal, ByVal VALOR As Decimal, ByVal _INCONSISTENTE_ As String, ByVal _CONSISTENTE_ As String, ByVal NOMBRE As String, ByVal NOMBRE_MOVIMIENTO As String) As IM_V_ESTADISTICO_FIRMASRow
+            Dim rowIM_V_ESTADISTICO_FIRMASRow As IM_V_ESTADISTICO_FIRMASRow = CType(Me.NewRow,IM_V_ESTADISTICO_FIRMASRow)
+            Dim columnValuesArray() As Object = New Object() {INCONSISTENTE, CONSISTENTE, VALOR, _INCONSISTENTE_, _CONSISTENTE_, NOMBRE, NOMBRE_MOVIMIENTO}
+            rowIM_V_ESTADISTICO_FIRMASRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowIM_V_ESTADISTICO_FIRMASRow)
+            Return rowIM_V_ESTADISTICO_FIRMASRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As IM_V_ESTADISTICO_GENERAL_FDataTable = CType(MyBase.Clone,IM_V_ESTADISTICO_GENERAL_FDataTable)
+            Dim cln As IM_V_ESTADISTICO_FIRMASDataTable = CType(MyBase.Clone,IM_V_ESTADISTICO_FIRMASDataTable)
             cln.InitVars
             Return cln
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New IM_V_ESTADISTICO_GENERAL_FDataTable
+            Return New IM_V_ESTADISTICO_FIRMASDataTable
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -399,6 +417,8 @@ Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
             Me.columnVALOR = MyBase.Columns("VALOR")
             Me._columnINCONSISTENTE_ = MyBase.Columns("INCONSISTENTE%")
             Me._columnCONSISTENTE_ = MyBase.Columns("CONSISTENTE%")
+            Me.columnNOMBRE = MyBase.Columns("NOMBRE")
+            Me.columnNOMBRE_MOVIMIENTO = MyBase.Columns("NOMBRE_MOVIMIENTO")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -417,57 +437,65 @@ Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
             Me._columnCONSISTENTE_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnCONSISTENTE_")
             Me._columnCONSISTENTE_.ExtendedProperties.Add("Generator_UserColumnName", "CONSISTENTE%")
             MyBase.Columns.Add(Me._columnCONSISTENTE_)
+            Me.columnNOMBRE = New Global.System.Data.DataColumn("NOMBRE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNOMBRE)
+            Me.columnNOMBRE_MOVIMIENTO = New Global.System.Data.DataColumn("NOMBRE_MOVIMIENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNOMBRE_MOVIMIENTO)
+            Me._columnINCONSISTENTE_.MaxLength = 41
+            Me._columnCONSISTENTE_.MaxLength = 41
+            Me.columnNOMBRE.MaxLength = 100
+            Me.columnNOMBRE_MOVIMIENTO.MaxLength = 200
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function NewIM_V_ESTADISTICO_GENERAL_FRow() As IM_V_ESTADISTICO_GENERAL_FRow
-            Return CType(Me.NewRow,IM_V_ESTADISTICO_GENERAL_FRow)
+        Public Function NewIM_V_ESTADISTICO_FIRMASRow() As IM_V_ESTADISTICO_FIRMASRow
+            Return CType(Me.NewRow,IM_V_ESTADISTICO_FIRMASRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New IM_V_ESTADISTICO_GENERAL_FRow(builder)
+            Return New IM_V_ESTADISTICO_FIRMASRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(IM_V_ESTADISTICO_GENERAL_FRow)
+            Return GetType(IM_V_ESTADISTICO_FIRMASRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.IM_V_ESTADISTICO_GENERAL_FRowChangedEvent) Is Nothing) Then
-                RaiseEvent IM_V_ESTADISTICO_GENERAL_FRowChanged(Me, New IM_V_ESTADISTICO_GENERAL_FRowChangeEvent(CType(e.Row,IM_V_ESTADISTICO_GENERAL_FRow), e.Action))
+            If (Not (Me.IM_V_ESTADISTICO_FIRMASRowChangedEvent) Is Nothing) Then
+                RaiseEvent IM_V_ESTADISTICO_FIRMASRowChanged(Me, New IM_V_ESTADISTICO_FIRMASRowChangeEvent(CType(e.Row,IM_V_ESTADISTICO_FIRMASRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.IM_V_ESTADISTICO_GENERAL_FRowChangingEvent) Is Nothing) Then
-                RaiseEvent IM_V_ESTADISTICO_GENERAL_FRowChanging(Me, New IM_V_ESTADISTICO_GENERAL_FRowChangeEvent(CType(e.Row,IM_V_ESTADISTICO_GENERAL_FRow), e.Action))
+            If (Not (Me.IM_V_ESTADISTICO_FIRMASRowChangingEvent) Is Nothing) Then
+                RaiseEvent IM_V_ESTADISTICO_FIRMASRowChanging(Me, New IM_V_ESTADISTICO_FIRMASRowChangeEvent(CType(e.Row,IM_V_ESTADISTICO_FIRMASRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.IM_V_ESTADISTICO_GENERAL_FRowDeletedEvent) Is Nothing) Then
-                RaiseEvent IM_V_ESTADISTICO_GENERAL_FRowDeleted(Me, New IM_V_ESTADISTICO_GENERAL_FRowChangeEvent(CType(e.Row,IM_V_ESTADISTICO_GENERAL_FRow), e.Action))
+            If (Not (Me.IM_V_ESTADISTICO_FIRMASRowDeletedEvent) Is Nothing) Then
+                RaiseEvent IM_V_ESTADISTICO_FIRMASRowDeleted(Me, New IM_V_ESTADISTICO_FIRMASRowChangeEvent(CType(e.Row,IM_V_ESTADISTICO_FIRMASRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.IM_V_ESTADISTICO_GENERAL_FRowDeletingEvent) Is Nothing) Then
-                RaiseEvent IM_V_ESTADISTICO_GENERAL_FRowDeleting(Me, New IM_V_ESTADISTICO_GENERAL_FRowChangeEvent(CType(e.Row,IM_V_ESTADISTICO_GENERAL_FRow), e.Action))
+            If (Not (Me.IM_V_ESTADISTICO_FIRMASRowDeletingEvent) Is Nothing) Then
+                RaiseEvent IM_V_ESTADISTICO_FIRMASRowDeleting(Me, New IM_V_ESTADISTICO_FIRMASRowChangeEvent(CType(e.Row,IM_V_ESTADISTICO_FIRMASRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub RemoveIM_V_ESTADISTICO_GENERAL_FRow(ByVal row As IM_V_ESTADISTICO_GENERAL_FRow)
+        Public Sub RemoveIM_V_ESTADISTICO_FIRMASRow(ByVal row As IM_V_ESTADISTICO_FIRMASRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -475,7 +503,7 @@ Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence
-            Dim ds As DS_ESTADISTICO_GENERAL_FIRMAS = New DS_ESTADISTICO_GENERAL_FIRMAS
+            Dim ds As DS_ESTADISTICO_FIRMAS = New DS_ESTADISTICO_FIRMAS
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -493,7 +521,7 @@ Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "IM_V_ESTADISTICO_GENERAL_FDataTable"
+            attribute2.FixedValue = "IM_V_ESTADISTICO_FIRMASDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -541,29 +569,29 @@ Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
     '''Represents strongly named DataRow class.
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
-    Partial Public Class IM_V_ESTADISTICO_GENERAL_FRow
+    Partial Public Class IM_V_ESTADISTICO_FIRMASRow
         Inherits Global.System.Data.DataRow
         
-        Private tableIM_V_ESTADISTICO_GENERAL_F As IM_V_ESTADISTICO_GENERAL_FDataTable
+        Private tableIM_V_ESTADISTICO_FIRMAS As IM_V_ESTADISTICO_FIRMASDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableIM_V_ESTADISTICO_GENERAL_F = CType(Me.Table,IM_V_ESTADISTICO_GENERAL_FDataTable)
+            Me.tableIM_V_ESTADISTICO_FIRMAS = CType(Me.Table,IM_V_ESTADISTICO_FIRMASDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property INCONSISTENTE() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableIM_V_ESTADISTICO_GENERAL_F.INCONSISTENTEColumn),Decimal)
+                    Return CType(Me(Me.tableIM_V_ESTADISTICO_FIRMAS.INCONSISTENTEColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'INCONSISTENTE' in table 'IM_V_ESTADISTICO_GENERAL_F' is DBN"& _ 
-                            "ull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'INCONSISTENTE' in table 'IM_V_ESTADISTICO_FIRMAS' is DBNull"& _ 
+                            ".", e)
                 End Try
             End Get
             Set
-                Me(Me.tableIM_V_ESTADISTICO_GENERAL_F.INCONSISTENTEColumn) = value
+                Me(Me.tableIM_V_ESTADISTICO_FIRMAS.INCONSISTENTEColumn) = value
             End Set
         End Property
         
@@ -571,14 +599,13 @@ Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
         Public Property CONSISTENTE() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableIM_V_ESTADISTICO_GENERAL_F.CONSISTENTEColumn),Decimal)
+                    Return CType(Me(Me.tableIM_V_ESTADISTICO_FIRMAS.CONSISTENTEColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CONSISTENTE' in table 'IM_V_ESTADISTICO_GENERAL_F' is DBNul"& _ 
-                            "l.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CONSISTENTE' in table 'IM_V_ESTADISTICO_FIRMAS' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableIM_V_ESTADISTICO_GENERAL_F.CONSISTENTEColumn) = value
+                Me(Me.tableIM_V_ESTADISTICO_FIRMAS.CONSISTENTEColumn) = value
             End Set
         End Property
         
@@ -586,13 +613,13 @@ Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
         Public Property VALOR() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableIM_V_ESTADISTICO_GENERAL_F.VALORColumn),Decimal)
+                    Return CType(Me(Me.tableIM_V_ESTADISTICO_FIRMAS.VALORColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'VALOR' in table 'IM_V_ESTADISTICO_GENERAL_F' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'VALOR' in table 'IM_V_ESTADISTICO_FIRMAS' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableIM_V_ESTADISTICO_GENERAL_F.VALORColumn) = value
+                Me(Me.tableIM_V_ESTADISTICO_FIRMAS.VALORColumn) = value
             End Set
         End Property
         
@@ -600,14 +627,14 @@ Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
         Public Property _INCONSISTENTE_() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableIM_V_ESTADISTICO_GENERAL_F._INCONSISTENTE_Column),String)
+                    Return CType(Me(Me.tableIM_V_ESTADISTICO_FIRMAS._INCONSISTENTE_Column),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'INCONSISTENTE%' in table 'IM_V_ESTADISTICO_GENERAL_F' is DB"& _ 
-                            "Null.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'INCONSISTENTE%' in table 'IM_V_ESTADISTICO_FIRMAS' is DBNul"& _ 
+                            "l.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableIM_V_ESTADISTICO_GENERAL_F._INCONSISTENTE_Column) = value
+                Me(Me.tableIM_V_ESTADISTICO_FIRMAS._INCONSISTENTE_Column) = value
             End Set
         End Property
         
@@ -615,65 +642,114 @@ Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
         Public Property _CONSISTENTE_() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableIM_V_ESTADISTICO_GENERAL_F._CONSISTENTE_Column),String)
+                    Return CType(Me(Me.tableIM_V_ESTADISTICO_FIRMAS._CONSISTENTE_Column),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CONSISTENTE%' in table 'IM_V_ESTADISTICO_GENERAL_F' is DBNu"& _ 
-                            "ll.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CONSISTENTE%' in table 'IM_V_ESTADISTICO_FIRMAS' is DBNull."& _ 
+                            "", e)
                 End Try
             End Get
             Set
-                Me(Me.tableIM_V_ESTADISTICO_GENERAL_F._CONSISTENTE_Column) = value
+                Me(Me.tableIM_V_ESTADISTICO_FIRMAS._CONSISTENTE_Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property NOMBRE() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_ESTADISTICO_FIRMAS.NOMBREColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'NOMBRE' in table 'IM_V_ESTADISTICO_FIRMAS' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_ESTADISTICO_FIRMAS.NOMBREColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property NOMBRE_MOVIMIENTO() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_ESTADISTICO_FIRMAS.NOMBRE_MOVIMIENTOColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'NOMBRE_MOVIMIENTO' in table 'IM_V_ESTADISTICO_FIRMAS' is DB"& _ 
+                            "Null.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_ESTADISTICO_FIRMAS.NOMBRE_MOVIMIENTOColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsINCONSISTENTENull() As Boolean
-            Return Me.IsNull(Me.tableIM_V_ESTADISTICO_GENERAL_F.INCONSISTENTEColumn)
+            Return Me.IsNull(Me.tableIM_V_ESTADISTICO_FIRMAS.INCONSISTENTEColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetINCONSISTENTENull()
-            Me(Me.tableIM_V_ESTADISTICO_GENERAL_F.INCONSISTENTEColumn) = Global.System.Convert.DBNull
+            Me(Me.tableIM_V_ESTADISTICO_FIRMAS.INCONSISTENTEColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsCONSISTENTENull() As Boolean
-            Return Me.IsNull(Me.tableIM_V_ESTADISTICO_GENERAL_F.CONSISTENTEColumn)
+            Return Me.IsNull(Me.tableIM_V_ESTADISTICO_FIRMAS.CONSISTENTEColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetCONSISTENTENull()
-            Me(Me.tableIM_V_ESTADISTICO_GENERAL_F.CONSISTENTEColumn) = Global.System.Convert.DBNull
+            Me(Me.tableIM_V_ESTADISTICO_FIRMAS.CONSISTENTEColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsVALORNull() As Boolean
-            Return Me.IsNull(Me.tableIM_V_ESTADISTICO_GENERAL_F.VALORColumn)
+            Return Me.IsNull(Me.tableIM_V_ESTADISTICO_FIRMAS.VALORColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetVALORNull()
-            Me(Me.tableIM_V_ESTADISTICO_GENERAL_F.VALORColumn) = Global.System.Convert.DBNull
+            Me(Me.tableIM_V_ESTADISTICO_FIRMAS.VALORColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function Is_INCONSISTENTE_Null() As Boolean
-            Return Me.IsNull(Me.tableIM_V_ESTADISTICO_GENERAL_F._INCONSISTENTE_Column)
+            Return Me.IsNull(Me.tableIM_V_ESTADISTICO_FIRMAS._INCONSISTENTE_Column)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub Set_INCONSISTENTE_Null()
-            Me(Me.tableIM_V_ESTADISTICO_GENERAL_F._INCONSISTENTE_Column) = Global.System.Convert.DBNull
+            Me(Me.tableIM_V_ESTADISTICO_FIRMAS._INCONSISTENTE_Column) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function Is_CONSISTENTE_Null() As Boolean
-            Return Me.IsNull(Me.tableIM_V_ESTADISTICO_GENERAL_F._CONSISTENTE_Column)
+            Return Me.IsNull(Me.tableIM_V_ESTADISTICO_FIRMAS._CONSISTENTE_Column)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub Set_CONSISTENTE_Null()
-            Me(Me.tableIM_V_ESTADISTICO_GENERAL_F._CONSISTENTE_Column) = Global.System.Convert.DBNull
+            Me(Me.tableIM_V_ESTADISTICO_FIRMAS._CONSISTENTE_Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsNOMBRENull() As Boolean
+            Return Me.IsNull(Me.tableIM_V_ESTADISTICO_FIRMAS.NOMBREColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetNOMBRENull()
+            Me(Me.tableIM_V_ESTADISTICO_FIRMAS.NOMBREColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsNOMBRE_MOVIMIENTONull() As Boolean
+            Return Me.IsNull(Me.tableIM_V_ESTADISTICO_FIRMAS.NOMBRE_MOVIMIENTOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetNOMBRE_MOVIMIENTONull()
+            Me(Me.tableIM_V_ESTADISTICO_FIRMAS.NOMBRE_MOVIMIENTOColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -681,22 +757,22 @@ Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
-    Public Class IM_V_ESTADISTICO_GENERAL_FRowChangeEvent
+    Public Class IM_V_ESTADISTICO_FIRMASRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As IM_V_ESTADISTICO_GENERAL_FRow
+        Private eventRow As IM_V_ESTADISTICO_FIRMASRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub New(ByVal row As IM_V_ESTADISTICO_GENERAL_FRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As IM_V_ESTADISTICO_FIRMASRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Row() As IM_V_ESTADISTICO_GENERAL_FRow
+        Public ReadOnly Property Row() As IM_V_ESTADISTICO_FIRMASRow
             Get
                 Return Me.eventRow
             End Get
@@ -711,7 +787,7 @@ Partial Public Class DS_ESTADISTICO_GENERAL_FIRMAS
     End Class
 End Class
 
-Namespace DS_ESTADISTICO_GENERAL_FIRMASTableAdapters
+Namespace DS_ESTADISTICO_FIRMASTableAdapters
     
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
@@ -723,7 +799,7 @@ Namespace DS_ESTADISTICO_GENERAL_FIRMASTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class IM_V_ESTADISTICO_GENERAL_FTableAdapter
+    Partial Public Class IM_V_ESTADISTICO_FIRMASTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.OracleClient.OracleDataAdapter
@@ -833,12 +909,14 @@ Namespace DS_ESTADISTICO_GENERAL_FIRMASTableAdapters
             Me._adapter = New Global.System.Data.OracleClient.OracleDataAdapter
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "IM_V_ESTADISTICO_GENERAL_F"
+            tableMapping.DataSetTable = "IM_V_ESTADISTICO_FIRMAS"
             tableMapping.ColumnMappings.Add("INCONSISTENTE", "INCONSISTENTE")
             tableMapping.ColumnMappings.Add("CONSISTENTE", "CONSISTENTE")
             tableMapping.ColumnMappings.Add("VALOR", "VALOR")
             tableMapping.ColumnMappings.Add("INCONSISTENTE%", "INCONSISTENTE%")
             tableMapping.ColumnMappings.Add("CONSISTENTE%", "CONSISTENTE%")
+            tableMapping.ColumnMappings.Add("NOMBRE", "NOMBRE")
+            tableMapping.ColumnMappings.Add("NOMBRE_MOVIMIENTO", "NOMBRE_MOVIMIENTO")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -853,16 +931,28 @@ Namespace DS_ESTADISTICO_GENERAL_FIRMASTableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        INCONSISTENTE, CONSISTENTE, VALOR, ""INCONSISTENTE%"", ""CONSISTENTE%"""& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_ESTADISTICO_GENERAL_F"
+            Me._commandCollection(0).CommandText = "SELECT *"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM IM_V_ESTADISTICO_FIRMAS "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE NOMBRE=:P"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND NOMBRE_MOVIMIENTO ="& _ 
+                ":M"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and rownum =1"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("P", Global.System.Data.OracleClient.OracleType.VarChar, 100, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("M", Global.System.Data.OracleClient.OracleType.VarChar, 200, Global.System.Data.ParameterDirection.Input, "NOMBRE_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DS_ESTADISTICO_GENERAL_FIRMAS.IM_V_ESTADISTICO_GENERAL_FDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_ESTADISTICO_FIRMAS.IM_V_ESTADISTICO_FIRMASDataTable, ByVal P As String, ByVal M As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (P Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(P,String)
+            End If
+            If (M Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(M,String)
+            End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -873,9 +963,19 @@ Namespace DS_ESTADISTICO_GENERAL_FIRMASTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DS_ESTADISTICO_GENERAL_FIRMAS.IM_V_ESTADISTICO_GENERAL_FDataTable
+        Public Overloads Overridable Function GetData(ByVal P As String, ByVal M As String) As DS_ESTADISTICO_FIRMAS.IM_V_ESTADISTICO_FIRMASDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DS_ESTADISTICO_GENERAL_FIRMAS.IM_V_ESTADISTICO_GENERAL_FDataTable = New DS_ESTADISTICO_GENERAL_FIRMAS.IM_V_ESTADISTICO_GENERAL_FDataTable
+            If (P Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(P,String)
+            End If
+            If (M Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(M,String)
+            End If
+            Dim dataTable As DS_ESTADISTICO_FIRMAS.IM_V_ESTADISTICO_FIRMASDataTable = New DS_ESTADISTICO_FIRMAS.IM_V_ESTADISTICO_FIRMASDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -946,7 +1046,7 @@ Namespace DS_ESTADISTICO_GENERAL_FIRMASTableAdapters
         '''Update rows in top-down order.
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private Function UpdateUpdatedRows(ByVal dataSet As DS_ESTADISTICO_GENERAL_FIRMAS, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateUpdatedRows(ByVal dataSet As DS_ESTADISTICO_FIRMAS, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             Return result
         End Function
@@ -955,7 +1055,7 @@ Namespace DS_ESTADISTICO_GENERAL_FIRMASTableAdapters
         '''Insert rows in top-down order.
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private Function UpdateInsertedRows(ByVal dataSet As DS_ESTADISTICO_GENERAL_FIRMAS, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateInsertedRows(ByVal dataSet As DS_ESTADISTICO_FIRMAS, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             Return result
         End Function
@@ -964,7 +1064,7 @@ Namespace DS_ESTADISTICO_GENERAL_FIRMASTableAdapters
         '''Delete rows in bottom-up order.
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private Function UpdateDeletedRows(ByVal dataSet As DS_ESTADISTICO_GENERAL_FIRMAS, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateDeletedRows(ByVal dataSet As DS_ESTADISTICO_FIRMAS, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             Return result
         End Function
@@ -998,7 +1098,7 @@ Namespace DS_ESTADISTICO_GENERAL_FIRMASTableAdapters
         '''Update all changes to the dataset.
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overridable Function UpdateAll(ByVal dataSet As DS_ESTADISTICO_GENERAL_FIRMAS) As Integer
+        Public Overridable Function UpdateAll(ByVal dataSet As DS_ESTADISTICO_FIRMAS) As Integer
             If (dataSet Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("dataSet")
             End If
