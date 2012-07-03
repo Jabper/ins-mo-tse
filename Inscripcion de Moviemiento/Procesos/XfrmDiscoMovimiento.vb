@@ -78,7 +78,7 @@ Public Class XfrmDiscoMovimiento
                                 pStart.StartInfo = startInfo
                                 pStart.Start()
                                 pStart.WaitForExit()
-                                If pStart.ExitCode = 3 Then
+                                If pStart.ExitCode = 0 Then
                                     MsgBox("La Exportación de Tablas ha Terminado Satisfactoriamente... Continuando con el proceso por favor espere", MsgBoxStyle.Information)
                                 Else
                                     Dim oradb3 As String = Configuracion.verconfig
