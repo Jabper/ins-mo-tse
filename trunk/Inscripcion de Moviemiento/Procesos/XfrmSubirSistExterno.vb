@@ -317,25 +317,6 @@ Public Class XfrmSubirSistExterno
                 Dim dt As New DataTable("Excel")
                 adaptador.Fill(dt)
 
-                'Dim oradb1 As String = Configuracion.verconfig
-                'Dim conn1 As New OracleConnection()
-                'Dim myCMD1 As New OracleCommand()
-                'conn1.ConnectionString = oradb1
-                'conn1.Open()
-                'Try
-                '    myCMD1.Connection = conn1
-                '    myCMD1.CommandText = "Delete tmp_im_requisitos_x_candidato"
-                '    myCMD1.CommandType = CommandType.Text
-                '    myCMD1.ExecuteOracleScalar()
-                'Catch ex As Exception
-                '    conn1.Close()
-                '    waitDialog.Caption = "finalizando..."
-                '    waitDialog.Close()
-                '    Mensajes.MensajeError(ex.Message)
-                '    Return False
-                'End Try
-                'conn1.Close()
-
                 Dim oradb As String = Configuracion.verconfig
                 Dim conn As New OracleConnection()
                 Dim myCMD As New OracleCommand()
