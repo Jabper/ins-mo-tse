@@ -156,7 +156,7 @@ Partial Public Class REPORTE_DE__PLANILLA_DE_CANDIDATOS
         Me.XrLabel1.SizeF = New System.Drawing.SizeF(1041.0!, 47.91666!)
         Me.XrLabel1.StylePriority.UseFont = False
         Me.XrLabel1.StylePriority.UseTextAlignment = False
-        Me.XrLabel1.Text = "Planilla de Candidatos"
+        Me.XrLabel1.Text = "Planilla de Candidatos Habilitados "
         Me.XrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'GroupHeader1

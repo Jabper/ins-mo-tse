@@ -366,6 +366,11 @@
     <Compile Include="Procesos\xfrmValidaciones.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\DS_CANDIDATOS_INHABILITADOS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_CANDIDATOS_INHABILITADOS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DS_ESTADISTICO_FIRMAS.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -477,6 +482,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_REPORTE_DE_RESUMEN_FDP_1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Reporte_candidatos_inhabilitados.Designer.vb">
+      <DependentUpon>Reporte_candidatos_inhabilitados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Reporte_candidatos_inhabilitados.vb">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\REPORTE_DE _PLANILLA_DE_CANDIDATOS.Designer.vb">
       <DependentUpon>REPORTE_DE _PLANILLA_DE_CANDIDATOS.vb</DependentUpon>
@@ -873,6 +884,9 @@
     <EmbeddedResource Include="Procesos\xfrmValidaciones.resx">
       <DependentUpon>xfrmValidaciones.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Reporte_candidatos_inhabilitados.resx">
+      <DependentUpon>Reporte_candidatos_inhabilitados.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_DE _PLANILLA_DE_CANDIDATOS.resx">
       <DependentUpon>REPORTE_DE _PLANILLA_DE_CANDIDATOS.vb</DependentUpon>
@@ -1334,6 +1348,17 @@
     </None>
     <None Include="Procesos\Ds_procesos.xss">
       <DependentUpon>Ds_procesos.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_CANDIDATOS_INHABILITADOS.xsc">
+      <DependentUpon>DS_CANDIDATOS_INHABILITADOS.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_CANDIDATOS_INHABILITADOS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_CANDIDATOS_INHABILITADOS.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DS_CANDIDATOS_INHABILITADOS.xss">
+      <DependentUpon>DS_CANDIDATOS_INHABILITADOS.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DS_ESTADISTICO_FIRMAS.xsc">
       <DependentUpon>DS_ESTADISTICO_FIRMAS.xsd</DependentUpon>
