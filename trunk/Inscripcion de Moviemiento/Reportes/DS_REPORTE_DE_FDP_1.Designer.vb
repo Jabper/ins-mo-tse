@@ -410,6 +410,8 @@ Partial Public Class DS_REPORTE_DE_FDP_1
         
         Private columnESTADO As Global.System.Data.DataColumn
         
+        Private columnFOLIO As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -498,6 +500,13 @@ Partial Public Class DS_REPORTE_DE_FDP_1
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property FOLIOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFOLIO
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -527,9 +536,9 @@ Partial Public Class DS_REPORTE_DE_FDP_1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddIM_V_FIRMAS_DIVISION_POLITICARow(ByVal IDENTIDAD As String, ByVal NOMBRE As String, ByVal APELLIDOS As String, ByVal NOMBRE_PARTIDO As String, ByVal NOMBRE_MOVIMIENTO As String, ByVal NOMBRE_DEPARTAMENTO As String, ByVal MUNICIPIO As String, ByVal ESTADO As String) As IM_V_FIRMAS_DIVISION_POLITICARow
+        Public Overloads Function AddIM_V_FIRMAS_DIVISION_POLITICARow(ByVal IDENTIDAD As String, ByVal NOMBRE As String, ByVal APELLIDOS As String, ByVal NOMBRE_PARTIDO As String, ByVal NOMBRE_MOVIMIENTO As String, ByVal NOMBRE_DEPARTAMENTO As String, ByVal MUNICIPIO As String, ByVal ESTADO As String, ByVal FOLIO As Decimal) As IM_V_FIRMAS_DIVISION_POLITICARow
             Dim rowIM_V_FIRMAS_DIVISION_POLITICARow As IM_V_FIRMAS_DIVISION_POLITICARow = CType(Me.NewRow,IM_V_FIRMAS_DIVISION_POLITICARow)
-            Dim columnValuesArray() As Object = New Object() {IDENTIDAD, NOMBRE, APELLIDOS, NOMBRE_PARTIDO, NOMBRE_MOVIMIENTO, NOMBRE_DEPARTAMENTO, MUNICIPIO, ESTADO}
+            Dim columnValuesArray() As Object = New Object() {IDENTIDAD, NOMBRE, APELLIDOS, NOMBRE_PARTIDO, NOMBRE_MOVIMIENTO, NOMBRE_DEPARTAMENTO, MUNICIPIO, ESTADO, FOLIO}
             rowIM_V_FIRMAS_DIVISION_POLITICARow.ItemArray = columnValuesArray
             Me.Rows.Add(rowIM_V_FIRMAS_DIVISION_POLITICARow)
             Return rowIM_V_FIRMAS_DIVISION_POLITICARow
@@ -557,6 +566,7 @@ Partial Public Class DS_REPORTE_DE_FDP_1
             Me.columnNOMBRE_DEPARTAMENTO = MyBase.Columns("NOMBRE DEPARTAMENTO")
             Me.columnMUNICIPIO = MyBase.Columns("MUNICIPIO")
             Me.columnESTADO = MyBase.Columns("ESTADO")
+            Me.columnFOLIO = MyBase.Columns("FOLIO")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -577,6 +587,8 @@ Partial Public Class DS_REPORTE_DE_FDP_1
             MyBase.Columns.Add(Me.columnMUNICIPIO)
             Me.columnESTADO = New Global.System.Data.DataColumn("ESTADO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnESTADO)
+            Me.columnFOLIO = New Global.System.Data.DataColumn("FOLIO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFOLIO)
             Me.columnIDENTIDAD.AllowDBNull = false
             Me.columnIDENTIDAD.MaxLength = 15
             Me.columnNOMBRE.MaxLength = 101
@@ -1812,6 +1824,20 @@ Partial Public Class DS_REPORTE_DE_FDP_1
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property FOLIO() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_FIRMAS_DIVISION_POLITICA.FOLIOColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FOLIO' in table 'IM_V_FIRMAS_DIVISION_POLITICA' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_FIRMAS_DIVISION_POLITICA.FOLIOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsNOMBRENull() As Boolean
             Return Me.IsNull(Me.tableIM_V_FIRMAS_DIVISION_POLITICA.NOMBREColumn)
         End Function
@@ -1839,6 +1865,16 @@ Partial Public Class DS_REPORTE_DE_FDP_1
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetESTADONull()
             Me(Me.tableIM_V_FIRMAS_DIVISION_POLITICA.ESTADOColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsFOLIONull() As Boolean
+            Return Me.IsNull(Me.tableIM_V_FIRMAS_DIVISION_POLITICA.FOLIOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetFOLIONull()
+            Me(Me.tableIM_V_FIRMAS_DIVISION_POLITICA.FOLIOColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -2311,22 +2347,8 @@ Namespace DS_REPORTE_DE_FDP_1TableAdapters
             tableMapping.ColumnMappings.Add("NOMBRE DEPARTAMENTO", "NOMBRE DEPARTAMENTO")
             tableMapping.ColumnMappings.Add("MUNICIPIO", "MUNICIPIO")
             tableMapping.ColumnMappings.Add("ESTADO", "ESTADO")
+            tableMapping.ColumnMappings.Add("FOLIO", "FOLIO")
             Me._adapter.TableMappings.Add(tableMapping)
-            Me._adapter.InsertCommand = New Global.System.Data.OracleClient.OracleCommand
-            Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO ""IM_V_FIRMAS_DIVISION_POLITICA"" (""IDENTIDAD"", ""NOMBRE"", ""APELLIDOS"", "& _ 
-                """PARTIDO"", ""MOVIMIENTO"", ""DEPARTAMENTO"", ""MUNICIPIO"", ""ESTADO"") VALUES (:IDENTID"& _ 
-                "AD, :NOMBRE, :APELLIDOS, :NOMBRE_PARTIDO, :NOMBRE_MOVIMIENTO, :NOMBRE_DEPARTAMEN"& _ 
-                "TO, :MUNICIPIO, :ESTADO)"
-            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("IDENTIDAD", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "IDENTIDAD", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NOMBRE", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("APELLIDOS", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "APELLIDOS", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NOMBRE_PARTIDO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NOMBRE_MOVIMIENTO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NOMBRE_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("MUNICIPIO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "MUNICIPIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("ESTADO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "ESTADO", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -2340,10 +2362,11 @@ Namespace DS_REPORTE_DE_FDP_1TableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        IDENTIDAD, NOMBRE, APELLIDOS, PARTIDO AS ""NOMBRE PARTIDO"", MOVIMIEN"& _ 
-                "TO AS ""NOMBRE MOVIMIENTO"", DEPARTAMENTO AS ""NOMBRE DEPARTAMENTO"","&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
-                "             MUNICIPIO, ESTADO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_FIRMAS_DIVISION_POLITICA"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"W"& _ 
-                "HERE        (PARTIDO = :NombrePartido)"
+            Me._commandCollection(0).CommandText = "SELECT        A.IDENTIDAD, A.NOMBRE, A.APELLIDOS, A.PARTIDO AS ""NOMBRE PARTIDO"",A"& _ 
+                ".MOVIMIENTO AS ""NOMBRE MOVIMIENTO"", A.DEPARTAMENTO AS ""NOMBRE DEPARTAMENTO"","&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
+                "                        A.MUNICIPIO, A.ESTADO, C.FOLIO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_FI"& _ 
+                "RMAS_DIVISION_POLITICA A, IM_CIUDADANOS_RESPALDAN C"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (A.PARTIDO = :"& _ 
+                "NombrePartido)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND A.IDENTIDAD =C.IDENTIDAD"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND C.CONSISTENTE ='S'"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NombrePartido", Global.System.Data.OracleClient.OracleType.VarChar, 100, Global.System.Data.ParameterDirection.Input, "NOMBRE PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
@@ -2378,30 +2401,6 @@ Namespace DS_REPORTE_DE_FDP_1TableAdapters
             Dim dataTable As DS_REPORTE_DE_FDP_1.IM_V_FIRMAS_DIVISION_POLITICADataTable = New DS_REPORTE_DE_FDP_1.IM_V_FIRMAS_DIVISION_POLITICADataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As DS_REPORTE_DE_FDP_1.IM_V_FIRMAS_DIVISION_POLITICADataTable) As Integer
-            Return Me.Adapter.Update(dataTable)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As DS_REPORTE_DE_FDP_1) As Integer
-            Return Me.Adapter.Update(dataSet, "IM_V_FIRMAS_DIVISION_POLITICA")
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(dataRows)
         End Function
     End Class
     
@@ -3392,8 +3391,6 @@ Namespace DS_REPORTE_DE_FDP_1TableAdapters
         
         Private _updateOrder As UpdateOrderOption
         
-        Private _iM_V_FIRMAS_DIVISION_POLITICATableAdapter As IM_V_FIRMAS_DIVISION_POLITICATableAdapter
-        
         Private _iM_PARTIDOS_POLITICOSTableAdapter As IM_PARTIDOS_POLITICOSTableAdapter
         
         Private _iM_NIVEL_ELECTIVOTableAdapter As IM_NIVEL_ELECTIVOTableAdapter
@@ -3411,19 +3408,6 @@ Namespace DS_REPORTE_DE_FDP_1TableAdapters
             End Get
             Set
                 Me._updateOrder = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"& _ 
-            "", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property IM_V_FIRMAS_DIVISION_POLITICATableAdapter() As IM_V_FIRMAS_DIVISION_POLITICATableAdapter
-            Get
-                Return Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter
-            End Get
-            Set
-                Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter = value
             End Set
         End Property
         
@@ -3483,10 +3467,6 @@ Namespace DS_REPORTE_DE_FDP_1TableAdapters
                 If (Not (Me._connection) Is Nothing) Then
                     Return Me._connection
                 End If
-                If ((Not (Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter.Connection) Is Nothing)) Then
-                    Return Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter.Connection
-                End If
                 If ((Not (Me._iM_PARTIDOS_POLITICOSTableAdapter) Is Nothing)  _
                             AndAlso (Not (Me._iM_PARTIDOS_POLITICOSTableAdapter.Connection) Is Nothing)) Then
                     Return Me._iM_PARTIDOS_POLITICOSTableAdapter.Connection
@@ -3511,9 +3491,6 @@ Namespace DS_REPORTE_DE_FDP_1TableAdapters
         Public ReadOnly Property TableAdapterInstanceCount() As Integer
             Get
                 Dim count As Integer = 0
-                If (Not (Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter) Is Nothing) Then
-                    count = (count + 1)
-                End If
                 If (Not (Me._iM_PARTIDOS_POLITICOSTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
@@ -3551,15 +3528,6 @@ Namespace DS_REPORTE_DE_FDP_1TableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.IM_V_FIRMAS_DIVISION_POLITICA.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             If (Not (Me._iM_PARTIDOS_POLITICOSTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.IM_PARTIDOS_POLITICOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
@@ -3594,14 +3562,6 @@ Namespace DS_REPORTE_DE_FDP_1TableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.IM_V_FIRMAS_DIVISION_POLITICA.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._iM_PARTIDOS_POLITICOSTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.IM_PARTIDOS_POLITICOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
@@ -3624,14 +3584,6 @@ Namespace DS_REPORTE_DE_FDP_1TableAdapters
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._iM_PARTIDOS_POLITICOSTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.IM_V_FIRMAS_DIVISION_POLITICA.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -3690,11 +3642,6 @@ Namespace DS_REPORTE_DE_FDP_1TableAdapters
             If (dataSet.HasChanges = false) Then
                 Return 0
             End If
-            If ((Not (Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
-                        "tring.")
-            End If
             If ((Not (Me._iM_PARTIDOS_POLITICOSTableAdapter) Is Nothing)  _
                         AndAlso (Me.MatchTableAdapterConnection(Me._iM_PARTIDOS_POLITICOSTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
@@ -3742,15 +3689,6 @@ Namespace DS_REPORTE_DE_FDP_1TableAdapters
             Try 
                 '---- Prepare for update -----------
                 '
-                If (Not (Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter, Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter.Connection)
-                    Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter.Connection = CType(workConnection,Global.System.Data.OracleClient.OracleConnection)
-                    Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter.Transaction = CType(workTransaction,Global.System.Data.OracleClient.OracleTransaction)
-                    If Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter.Adapter)
-                    End If
-                End If
                 If (Not (Me._iM_PARTIDOS_POLITICOSTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._iM_PARTIDOS_POLITICOSTableAdapter, Me._iM_PARTIDOS_POLITICOSTableAdapter.Connection)
                     Me._iM_PARTIDOS_POLITICOSTableAdapter.Connection = CType(workConnection,Global.System.Data.OracleClient.OracleConnection)
@@ -3837,10 +3775,6 @@ Namespace DS_REPORTE_DE_FDP_1TableAdapters
             Finally
                 If workConnOpened Then
                     workConnection.Close
-                End If
-                If (Not (Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter) Is Nothing) Then
-                    Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter.Connection = CType(revertConnections(Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter),Global.System.Data.OracleClient.OracleConnection)
-                    Me._iM_V_FIRMAS_DIVISION_POLITICATableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._iM_PARTIDOS_POLITICOSTableAdapter) Is Nothing) Then
                     Me._iM_PARTIDOS_POLITICOSTableAdapter.Connection = CType(revertConnections(Me._iM_PARTIDOS_POLITICOSTableAdapter),Global.System.Data.OracleClient.OracleConnection)
