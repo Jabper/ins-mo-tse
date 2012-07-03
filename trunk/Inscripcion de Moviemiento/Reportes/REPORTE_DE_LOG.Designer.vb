@@ -54,9 +54,12 @@ Partial Public Class REPORTE_DE_LOG
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
         Me.BindingSource_imagen_m = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_MOVIMIENTOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
+        Me.DS_LOG_11 = New Inscripcion_de_Moviemientos.DS_LOG_1
+        Me.DS_LOG_1TableAdapter = New Inscripcion_de_Moviemientos.DS_LOG_1TableAdapters.DS_LOG_1TableAdapter
         CType(Me.DS_LOG1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceimagen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource_imagen_m, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DS_LOG_11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
         'Detail
@@ -69,7 +72,7 @@ Partial Public Class REPORTE_DE_LOG
         '
         'XrLabel9
         '
-        Me.XrLabel9.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "DT_TABLE_LOG.DESCRIPCION")})
+        Me.XrLabel9.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "DS_LOG_1.DESCRIPCION")})
         Me.XrLabel9.LocationFloat = New DevExpress.Utils.PointFloat(100.0!, 9.999974!)
         Me.XrLabel9.Name = "XrLabel9"
         Me.XrLabel9.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -78,7 +81,7 @@ Partial Public Class REPORTE_DE_LOG
         '
         'XrLabel8
         '
-        Me.XrLabel8.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "DT_TABLE_LOG.CODIGO")})
+        Me.XrLabel8.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "DS_LOG_1.CODIGO")})
         Me.XrLabel8.LocationFloat = New DevExpress.Utils.PointFloat(11.04167!, 10.00001!)
         Me.XrLabel8.Name = "XrLabel8"
         Me.XrLabel8.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -89,22 +92,22 @@ Partial Public Class REPORTE_DE_LOG
         '
         'XrLabel11
         '
-        Me.XrLabel11.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "DT_TABLE_LOG.MOVIMIENTO")})
+        Me.XrLabel11.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "DS_LOG_1.MOVIMIENTO")})
         Me.XrLabel11.LocationFloat = New DevExpress.Utils.PointFloat(209.125!, 44.08334!)
         Me.XrLabel11.Name = "XrLabel11"
         Me.XrLabel11.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel11.SizeF = New System.Drawing.SizeF(207.1251!, 18.83334!)
+        Me.XrLabel11.SizeF = New System.Drawing.SizeF(536.4584!, 18.83334!)
         Me.XrLabel11.StylePriority.UseTextAlignment = False
         Me.XrLabel11.Text = "XrLabel11"
         Me.XrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
         '
         'XrLabel10
         '
-        Me.XrLabel10.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "DT_TABLE_LOG.PARTIDO")})
+        Me.XrLabel10.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "DS_LOG_1.PARTIDO")})
         Me.XrLabel10.LocationFloat = New DevExpress.Utils.PointFloat(209.125!, 10.00001!)
         Me.XrLabel10.Name = "XrLabel10"
         Me.XrLabel10.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel10.SizeF = New System.Drawing.SizeF(229.1667!, 15.70833!)
+        Me.XrLabel10.SizeF = New System.Drawing.SizeF(536.4584!, 15.70833!)
         Me.XrLabel10.Text = "XrLabel10"
         '
         'TopMargin
@@ -117,7 +120,7 @@ Partial Public Class REPORTE_DE_LOG
         '
         'XrPictureBox2
         '
-        Me.XrPictureBox2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Nothing, "IM_PARTIDOS_POLITICOS_imagen.IMAGEN")})
+        Me.XrPictureBox2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSourceimagen, "IMAGEN")})
         Me.XrPictureBox2.LocationFloat = New DevExpress.Utils.PointFloat(31.87501!, 23.91667!)
         Me.XrPictureBox2.Name = "XrPictureBox2"
         Me.XrPictureBox2.SizeF = New System.Drawing.SizeF(117.7083!, 68.08333!)
@@ -125,7 +128,7 @@ Partial Public Class REPORTE_DE_LOG
         '
         'XrPictureBox1
         '
-        Me.XrPictureBox1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Nothing, "IM_MOVIMIENTOS_imagen.IMAGEN")})
+        Me.XrPictureBox1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSource_imagen_m, "IMAGEN")})
         Me.XrPictureBox1.LocationFloat = New DevExpress.Utils.PointFloat(911.2901!, 23.91667!)
         Me.XrPictureBox1.Name = "XrPictureBox1"
         Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(117.71!, 68.08!)
@@ -133,7 +136,7 @@ Partial Public Class REPORTE_DE_LOG
         '
         'XrLabel1
         '
-        Me.XrLabel1.Font = New System.Drawing.Font("Times New Roman", 20.0!, System.Drawing.FontStyle.Italic)
+        Me.XrLabel1.Font = New System.Drawing.Font("Times New Roman", 20.0!, CType((System.Drawing.FontStyle.Italic Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
         Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(251.6666!, 23.91667!)
         Me.XrLabel1.Name = "XrLabel1"
         Me.XrLabel1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -245,20 +248,20 @@ Partial Public Class REPORTE_DE_LOG
         '
         'XrLabel13
         '
-        Me.XrLabel13.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "DT_TABLE_LOG.PROCESO")})
+        Me.XrLabel13.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "DS_LOG_1.PROCESO")})
         Me.XrLabel13.LocationFloat = New DevExpress.Utils.PointFloat(209.125!, 39.16667!)
         Me.XrLabel13.Name = "XrLabel13"
         Me.XrLabel13.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel13.SizeF = New System.Drawing.SizeF(294.7917!, 23.0!)
+        Me.XrLabel13.SizeF = New System.Drawing.SizeF(536.4584!, 22.99999!)
         Me.XrLabel13.Text = "XrLabel13"
         '
         'XrLabel12
         '
-        Me.XrLabel12.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "DT_TABLE_LOG.OPERACION")})
+        Me.XrLabel12.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "DS_LOG_1.OPERACION")})
         Me.XrLabel12.LocationFloat = New DevExpress.Utils.PointFloat(209.125!, 10.00001!)
         Me.XrLabel12.Name = "XrLabel12"
         Me.XrLabel12.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel12.SizeF = New System.Drawing.SizeF(294.7917!, 23.0!)
+        Me.XrLabel12.SizeF = New System.Drawing.SizeF(536.4584!, 22.99998!)
         Me.XrLabel12.Text = "XrLabel12"
         '
         'ReportFooter
@@ -319,12 +322,21 @@ Partial Public Class REPORTE_DE_LOG
         '
         Me.IM_MOVIMIENTOS_imagenTableAdapter.ClearBeforeFill = True
         '
+        'DS_LOG_11
+        '
+        Me.DS_LOG_11.DataSetName = "DS_LOG_1"
+        Me.DS_LOG_11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'DS_LOG_1TableAdapter
+        '
+        Me.DS_LOG_1TableAdapter.ClearBeforeFill = True
+        '
         'REPORTE_DE_LOG
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.GroupHeader1, Me.GroupHeader2, Me.ReportFooter, Me.GroupHeader3})
-        Me.DataAdapter = Me.DT_TABLE_LOGTableAdapter
-        Me.DataMember = "DT_TABLE_LOG"
-        Me.DataSource = Me.DS_LOG1
+        Me.DataAdapter = Me.DS_LOG_1TableAdapter
+        Me.DataMember = "DS_LOG_1"
+        Me.DataSource = Me.DS_LOG_11
         Me.FilterString = "[PARTIDO] = ?NombrePartido And [MOVIMIENTO] = ?NombreMovimiento"
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(14, 22, 102, 100)
@@ -336,6 +348,7 @@ Partial Public Class REPORTE_DE_LOG
         CType(Me.DS_LOG1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceimagen, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource_imagen_m, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DS_LOG_11, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub
@@ -373,4 +386,6 @@ Partial Public Class REPORTE_DE_LOG
     Friend WithEvents IM_PARTIDOS_POLITICOS_imagenTableAdapter As Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
     Friend WithEvents BindingSource_imagen_m As System.Windows.Forms.BindingSource
     Friend WithEvents IM_MOVIMIENTOS_imagenTableAdapter As Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
+    Friend WithEvents DS_LOG_11 As Inscripcion_de_Moviemientos.DS_LOG_1
+    Friend WithEvents DS_LOG_1TableAdapter As Inscripcion_de_Moviemientos.DS_LOG_1TableAdapters.DS_LOG_1TableAdapter
 End Class
