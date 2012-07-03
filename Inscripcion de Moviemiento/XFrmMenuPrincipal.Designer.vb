@@ -56,6 +56,7 @@ Partial Class XFrmMenuPrincipal
         Me.BtnPlanilladivision = New DevExpress.XtraBars.BarButtonItem
         Me.BtnPlanillacandidatos = New DevExpress.XtraBars.BarButtonItem
         Me.BarButtonItem2 = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnCandidatosInha = New DevExpress.XtraBars.BarButtonItem
         Me.btnConsultarFirmas = New DevExpress.XtraBars.BarButtonItem
         Me.BtnRFirmas = New DevExpress.XtraBars.BarSubItem
         Me.BtnFDP = New DevExpress.XtraBars.BarButtonItem
@@ -105,7 +106,6 @@ Partial Class XFrmMenuPrincipal
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.BarSubItem1 = New DevExpress.XtraBars.BarSubItem
         Me.RibbonPageGroup10 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
-        Me.BtnCandidatosInha = New DevExpress.XtraBars.BarButtonItem
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -373,6 +373,12 @@ Partial Class XFrmMenuPrincipal
         Me.BarButtonItem2.Id = 58
         Me.BarButtonItem2.Name = "BarButtonItem2"
         '
+        'BtnCandidatosInha
+        '
+        Me.BtnCandidatosInha.Caption = "Reporte de Candidatos Inhabilitados"
+        Me.BtnCandidatosInha.Id = 62
+        Me.BtnCandidatosInha.Name = "BtnCandidatosInha"
+        '
         'btnConsultarFirmas
         '
         Me.btnConsultarFirmas.Caption = "Consultar Firmas"
@@ -516,6 +522,7 @@ Partial Class XFrmMenuPrincipal
         '
         Me.BarButtonItem3.Caption = "Requisitos"
         Me.BarButtonItem3.Id = 61
+        Me.BarButtonItem3.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.requisitos_1
         Me.BarButtonItem3.Name = "BarButtonItem3"
         '
         'RibbonPage1
@@ -736,12 +743,6 @@ Partial Class XFrmMenuPrincipal
         'RibbonPageGroup10
         '
         Me.RibbonPageGroup10.Name = "RibbonPageGroup10"
-        '
-        'BtnCandidatosInha
-        '
-        Me.BtnCandidatosInha.Caption = "Reporte de Candidatos Inhabilitados"
-        Me.BtnCandidatosInha.Id = 62
-        Me.BtnCandidatosInha.Name = "BtnCandidatosInha"
         '
         'XFrmMenuPrincipal
         '
