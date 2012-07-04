@@ -190,6 +190,7 @@ Public Class xfrmRegCandidatos
                 conn.Close()
             End If
             conn.Open()
+
             Dim identidad1 As String = view.GetRowCellValue(i, "IDENTIDAD")
             Dim nombre1 As String = view.GetRowCellValue(i, "PRIMER_NOMBRE")
             Dim nombre2 As String
@@ -342,6 +343,7 @@ Public Class xfrmRegCandidatos
                     permitido = 0
                 Next a
 
+                ActualizarEstadoCandidato(view.GetRowCellValue(i, "CODIGO_CANDIDATOS"))
                 Mensajes.MensajeActualizar()
                 Validarleyendas()
             Else
@@ -352,6 +354,28 @@ Public Class xfrmRegCandidatos
             Mensajes.MensajeError(ex.Message)
         End Try
     End Sub
+
+    Sub ActualizarEstadoCandidato(ByVal codigo_candidato As Integer)
+
+        Dim oradb As String = Configuracion.verconfig
+
+        Dim conn As New OracleConnection()
+        conn.ConnectionString = oradb
+        conn.Open()
+
+        Dim myCMD As New OracleCommand()
+        myCMD.Connection = conn
+        myCMD.CommandText = "IM_P_ACTUALIZAR_ESTADO"
+        myCMD.CommandType = CommandType.StoredProcedure
+        myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_CANDIDATO", OracleType.Number, 2, ParameterDirection.Input)).Value = codigo_candidato
+        myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_MOVIMIENTO", OracleType.Number, 2, ParameterDirection.Input)).Value = id_movimiento
+        myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_PARTIDO", OracleType.Number, 2, ParameterDirection.Input)).Value = id_partido
+        myCMD.ExecuteOracleScalar()
+
+        conn.Close()
+
+    End Sub
+
     Sub guardar(ByVal I As Integer)
 
         Try
@@ -1130,7 +1154,7 @@ Public Class xfrmRegCandidatos
 
                 Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (faltan))
 
-            End If
+        End If
 
             If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 9 Then
                 hombres_ingresados += 1
