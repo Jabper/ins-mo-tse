@@ -37,7 +37,7 @@ Public Class XfrmExportar
                 Try
                     Dim startInfo As ProcessStartInfo
                     Dim pStart As New Process
-                    startInfo = New ProcessStartInfo("cmd.exe", "/C exp TSE/oracle@tsedb2 Buffer=5000000 File=" & TxtRuta.Text & "\Firmas_y_Planilla.dmp log=" & TxtRuta.Text & "\errores.log direct=Y Consistent=Y Rows=Y compress=N TABLES=tmp_im_candidatos, TMP_IM_MOVIMIENTOS, TMP_IM_REQUISITOS_X_CANDIDATO, tmp_im_ciudadanos_respaldan, tmp_im_parametros_generales, tmp_im_imagenes_firmas")
+                    startInfo = New ProcessStartInfo("cmd.exe", "/C exp TSE/TSEORACLE2012@XE Buffer=5000000 File=" & TxtRuta.Text & "\Firmas_y_Planilla.dmp log=" & TxtRuta.Text & "\errores.log direct=Y Consistent=Y Rows=Y compress=N TABLES=tmp_im_candidatos, TMP_IM_MOVIMIENTOS, TMP_IM_REQUISITOS_X_CANDIDATO, tmp_im_ciudadanos_respaldan, tmp_im_parametros_generales, tmp_im_imagenes_firmas")
                     pStart.StartInfo = startInfo
                     pStart.Start()
                     pStart.WaitForExit()
