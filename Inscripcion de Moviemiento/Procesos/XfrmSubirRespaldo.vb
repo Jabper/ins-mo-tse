@@ -64,7 +64,7 @@ Public Class XfrmSubirRespaldo
                     mensaje = "Error"
                     Dim startInfo As ProcessStartInfo
                     Dim pStart As New Process
-                    startInfo = New ProcessStartInfo("cmd.exe", "/C imp TSE/oracle@TSEDB2 Buffer=5000000 File=" & TxtRuta.Text & " FROMUSER=TSE TOUSER=TSE ignore=Y")
+                    startInfo = New ProcessStartInfo("cmd.exe", "/C imp TSE/TSEORACLE2012@XE Buffer=5000000 File=" & TxtRuta.Text & " FROMUSER=TSE TOUSER=TSE ignore=Y")
                     pStart.StartInfo = startInfo
                     pStart.Start()
                     pStart.WaitForExit()
