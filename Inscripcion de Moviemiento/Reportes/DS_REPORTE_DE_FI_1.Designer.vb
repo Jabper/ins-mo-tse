@@ -32,6 +32,8 @@ Partial Public Class DS_REPORTE_DE_FI_1
     
     Private tableIM_MOVIMIENTOS As IM_MOVIMIENTOSDataTable
     
+    Private tableIM_DEPARTAMENTOS As IM_DEPARTAMENTOSDataTable
+    
     Private relationIM_FK1_MOVIMIENTOS As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
@@ -69,6 +71,9 @@ Partial Public Class DS_REPORTE_DE_FI_1
             End If
             If (Not (ds.Tables("IM_MOVIMIENTOS")) Is Nothing) Then
                 MyBase.Tables.Add(New IM_MOVIMIENTOSDataTable(ds.Tables("IM_MOVIMIENTOS")))
+            End If
+            If (Not (ds.Tables("IM_DEPARTAMENTOS")) Is Nothing) Then
+                MyBase.Tables.Add(New IM_DEPARTAMENTOSDataTable(ds.Tables("IM_DEPARTAMENTOS")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -111,6 +116,15 @@ Partial Public Class DS_REPORTE_DE_FI_1
     Public ReadOnly Property IM_MOVIMIENTOS() As IM_MOVIMIENTOSDataTable
         Get
             Return Me.tableIM_MOVIMIENTOS
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property IM_DEPARTAMENTOS() As IM_DEPARTAMENTOSDataTable
+        Get
+            Return Me.tableIM_DEPARTAMENTOS
         End Get
     End Property
     
@@ -182,6 +196,9 @@ Partial Public Class DS_REPORTE_DE_FI_1
             If (Not (ds.Tables("IM_MOVIMIENTOS")) Is Nothing) Then
                 MyBase.Tables.Add(New IM_MOVIMIENTOSDataTable(ds.Tables("IM_MOVIMIENTOS")))
             End If
+            If (Not (ds.Tables("IM_DEPARTAMENTOS")) Is Nothing) Then
+                MyBase.Tables.Add(New IM_DEPARTAMENTOSDataTable(ds.Tables("IM_DEPARTAMENTOS")))
+            End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
             Me.Namespace = ds.Namespace
@@ -229,6 +246,12 @@ Partial Public Class DS_REPORTE_DE_FI_1
                 Me.tableIM_MOVIMIENTOS.InitVars
             End If
         End If
+        Me.tableIM_DEPARTAMENTOS = CType(MyBase.Tables("IM_DEPARTAMENTOS"),IM_DEPARTAMENTOSDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableIM_DEPARTAMENTOS) Is Nothing) Then
+                Me.tableIM_DEPARTAMENTOS.InitVars
+            End If
+        End If
         Me.relationIM_FK1_MOVIMIENTOS = Me.Relations("IM_FK1_MOVIMIENTOS")
     End Sub
     
@@ -245,6 +268,8 @@ Partial Public Class DS_REPORTE_DE_FI_1
         MyBase.Tables.Add(Me.tableIM_PARTIDOS_POLITICOS)
         Me.tableIM_MOVIMIENTOS = New IM_MOVIMIENTOSDataTable
         MyBase.Tables.Add(Me.tableIM_MOVIMIENTOS)
+        Me.tableIM_DEPARTAMENTOS = New IM_DEPARTAMENTOSDataTable
+        MyBase.Tables.Add(Me.tableIM_DEPARTAMENTOS)
         Me.relationIM_FK1_MOVIMIENTOS = New Global.System.Data.DataRelation("IM_FK1_MOVIMIENTOS", New Global.System.Data.DataColumn() {Me.tableIM_PARTIDOS_POLITICOS.CODIGO_PARTIDOColumn}, New Global.System.Data.DataColumn() {Me.tableIM_MOVIMIENTOS.CODIGO_PARTIDOColumn}, false)
         Me.Relations.Add(Me.relationIM_FK1_MOVIMIENTOS)
     End Sub
@@ -261,6 +286,11 @@ Partial Public Class DS_REPORTE_DE_FI_1
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Private Function ShouldSerializeIM_MOVIMIENTOS() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+    Private Function ShouldSerializeIM_DEPARTAMENTOS() As Boolean
         Return false
     End Function
     
@@ -325,6 +355,8 @@ Partial Public Class DS_REPORTE_DE_FI_1
     Public Delegate Sub IM_PARTIDOS_POLITICOSRowChangeEventHandler(ByVal sender As Object, ByVal e As IM_PARTIDOS_POLITICOSRowChangeEvent)
     
     Public Delegate Sub IM_MOVIMIENTOSRowChangeEventHandler(ByVal sender As Object, ByVal e As IM_MOVIMIENTOSRowChangeEvent)
+    
+    Public Delegate Sub IM_DEPARTAMENTOSRowChangeEventHandler(ByVal sender As Object, ByVal e As IM_DEPARTAMENTOSRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -1192,6 +1224,256 @@ Partial Public Class DS_REPORTE_DE_FI_1
     End Class
     
     '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class IM_DEPARTAMENTOSDataTable
+        Inherits Global.System.Data.TypedTableBase(Of IM_DEPARTAMENTOSRow)
+        
+        Private columnCODIGO_DEPARTAMENTO As Global.System.Data.DataColumn
+        
+        Private columnNOMBRE_DEPARTAMENTO As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "IM_DEPARTAMENTOS"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CODIGO_DEPARTAMENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCODIGO_DEPARTAMENTO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property NOMBRE_DEPARTAMENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNOMBRE_DEPARTAMENTO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As IM_DEPARTAMENTOSRow
+            Get
+                Return CType(Me.Rows(index),IM_DEPARTAMENTOSRow)
+            End Get
+        End Property
+        
+        Public Event IM_DEPARTAMENTOSRowChanging As IM_DEPARTAMENTOSRowChangeEventHandler
+        
+        Public Event IM_DEPARTAMENTOSRowChanged As IM_DEPARTAMENTOSRowChangeEventHandler
+        
+        Public Event IM_DEPARTAMENTOSRowDeleting As IM_DEPARTAMENTOSRowChangeEventHandler
+        
+        Public Event IM_DEPARTAMENTOSRowDeleted As IM_DEPARTAMENTOSRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Sub AddIM_DEPARTAMENTOSRow(ByVal row As IM_DEPARTAMENTOSRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Function AddIM_DEPARTAMENTOSRow(ByVal CODIGO_DEPARTAMENTO As Decimal, ByVal NOMBRE_DEPARTAMENTO As String) As IM_DEPARTAMENTOSRow
+            Dim rowIM_DEPARTAMENTOSRow As IM_DEPARTAMENTOSRow = CType(Me.NewRow,IM_DEPARTAMENTOSRow)
+            Dim columnValuesArray() As Object = New Object() {CODIGO_DEPARTAMENTO, NOMBRE_DEPARTAMENTO}
+            rowIM_DEPARTAMENTOSRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowIM_DEPARTAMENTOSRow)
+            Return rowIM_DEPARTAMENTOSRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function FindByCODIGO_DEPARTAMENTO(ByVal CODIGO_DEPARTAMENTO As Decimal) As IM_DEPARTAMENTOSRow
+            Return CType(Me.Rows.Find(New Object() {CODIGO_DEPARTAMENTO}),IM_DEPARTAMENTOSRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As IM_DEPARTAMENTOSDataTable = CType(MyBase.Clone,IM_DEPARTAMENTOSDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New IM_DEPARTAMENTOSDataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub InitVars()
+            Me.columnCODIGO_DEPARTAMENTO = MyBase.Columns("CODIGO_DEPARTAMENTO")
+            Me.columnNOMBRE_DEPARTAMENTO = MyBase.Columns("NOMBRE DEPARTAMENTO")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitClass()
+            Me.columnCODIGO_DEPARTAMENTO = New Global.System.Data.DataColumn("CODIGO_DEPARTAMENTO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_DEPARTAMENTO)
+            Me.columnNOMBRE_DEPARTAMENTO = New Global.System.Data.DataColumn("NOMBRE DEPARTAMENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNOMBRE_DEPARTAMENTO)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_DEPARTAMENTO}, true))
+            Me.columnCODIGO_DEPARTAMENTO.AllowDBNull = false
+            Me.columnCODIGO_DEPARTAMENTO.Unique = true
+            Me.columnNOMBRE_DEPARTAMENTO.AllowDBNull = false
+            Me.columnNOMBRE_DEPARTAMENTO.MaxLength = 100
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function NewIM_DEPARTAMENTOSRow() As IM_DEPARTAMENTOSRow
+            Return CType(Me.NewRow,IM_DEPARTAMENTOSRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New IM_DEPARTAMENTOSRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(IM_DEPARTAMENTOSRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.IM_DEPARTAMENTOSRowChangedEvent) Is Nothing) Then
+                RaiseEvent IM_DEPARTAMENTOSRowChanged(Me, New IM_DEPARTAMENTOSRowChangeEvent(CType(e.Row,IM_DEPARTAMENTOSRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.IM_DEPARTAMENTOSRowChangingEvent) Is Nothing) Then
+                RaiseEvent IM_DEPARTAMENTOSRowChanging(Me, New IM_DEPARTAMENTOSRowChangeEvent(CType(e.Row,IM_DEPARTAMENTOSRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.IM_DEPARTAMENTOSRowDeletedEvent) Is Nothing) Then
+                RaiseEvent IM_DEPARTAMENTOSRowDeleted(Me, New IM_DEPARTAMENTOSRowChangeEvent(CType(e.Row,IM_DEPARTAMENTOSRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.IM_DEPARTAMENTOSRowDeletingEvent) Is Nothing) Then
+                RaiseEvent IM_DEPARTAMENTOSRowDeleting(Me, New IM_DEPARTAMENTOSRowChangeEvent(CType(e.Row,IM_DEPARTAMENTOSRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub RemoveIM_DEPARTAMENTOSRow(ByVal row As IM_DEPARTAMENTOSRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence
+            Dim ds As DS_REPORTE_DE_FI_1 = New DS_REPORTE_DE_FI_1
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "IM_DEPARTAMENTOSDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
@@ -1481,6 +1763,42 @@ Partial Public Class DS_REPORTE_DE_FI_1
     End Class
     
     '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Partial Public Class IM_DEPARTAMENTOSRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableIM_DEPARTAMENTOS As IM_DEPARTAMENTOSDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableIM_DEPARTAMENTOS = CType(Me.Table,IM_DEPARTAMENTOSDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CODIGO_DEPARTAMENTO() As Decimal
+            Get
+                Return CType(Me(Me.tableIM_DEPARTAMENTOS.CODIGO_DEPARTAMENTOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIM_DEPARTAMENTOS.CODIGO_DEPARTAMENTOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property NOMBRE_DEPARTAMENTO() As String
+            Get
+                Return CType(Me(Me.tableIM_DEPARTAMENTOS.NOMBRE_DEPARTAMENTOColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_DEPARTAMENTOS.NOMBRE_DEPARTAMENTOColumn) = value
+            End Set
+        End Property
+    End Class
+    
+    '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
@@ -1566,6 +1884,39 @@ Partial Public Class DS_REPORTE_DE_FI_1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public ReadOnly Property Row() As IM_MOVIMIENTOSRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Public Class IM_DEPARTAMENTOSRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As IM_DEPARTAMENTOSRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New(ByVal row As IM_DEPARTAMENTOSRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Row() As IM_DEPARTAMENTOSRow
             Get
                 Return Me.eventRow
             End Get
@@ -1731,15 +2082,21 @@ Namespace DS_REPORTE_DE_FI_1TableAdapters
                 "A.MOVIMIENTO AS ""NOMBRE MOVIMIENTO"", A.DEPARTAMENTO, A.MUNICIPIO, A.ESTADO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
                 "                 A.OBSERVACION, B.FOLIO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_FIRMAS_INCONSISTE"& _ 
                 "NTES A, im_ciudadanos_respaldan B "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where A.IDENTIDAD = B.IDENTIDAD "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and B.CONS"& _ 
-                "ISTENTE ='N'"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+                "ISTENTE ='N'"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND A.DEPARTAMENTO =DECODE(:DEP,'TODOS',A.DEPARTAMENTO,:DEP)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("DEP", Global.System.Data.OracleClient.OracleType.VarChar, 100, Global.System.Data.ParameterDirection.Input, "DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DS_REPORTE_DE_FI_1.IM_V_FIRMAS_INCONSISTENTESDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_REPORTE_DE_FI_1.IM_V_FIRMAS_INCONSISTENTESDataTable, ByVal DEP As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (DEP Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("DEP")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DEP,String)
+            End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -1750,8 +2107,13 @@ Namespace DS_REPORTE_DE_FI_1TableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DS_REPORTE_DE_FI_1.IM_V_FIRMAS_INCONSISTENTESDataTable
+        Public Overloads Overridable Function GetData(ByVal DEP As String) As DS_REPORTE_DE_FI_1.IM_V_FIRMAS_INCONSISTENTESDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (DEP Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("DEP")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DEP,String)
+            End If
             Dim dataTable As DS_REPORTE_DE_FI_1.IM_V_FIRMAS_INCONSISTENTESDataTable = New DS_REPORTE_DE_FI_1.IM_V_FIRMAS_INCONSISTENTESDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -2240,6 +2602,275 @@ Namespace DS_REPORTE_DE_FI_1TableAdapters
     End Class
     
     '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class IM_DEPARTAMENTOSTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.OracleClient.OracleDataAdapter
+        
+        Private _connection As Global.System.Data.OracleClient.OracleConnection
+        
+        Private _transaction As Global.System.Data.OracleClient.OracleTransaction
+        
+        Private _commandCollection() As Global.System.Data.OracleClient.OracleCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.OracleClient.OracleDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Connection() As Global.System.Data.OracleClient.OracleConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.OracleClient.OracleCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Transaction() As Global.System.Data.OracleClient.OracleTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.OracleClient.OracleCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.OracleClient.OracleDataAdapter
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "IM_DEPARTAMENTOS"
+            tableMapping.ColumnMappings.Add("CODIGO_DEPARTAMENTO", "CODIGO_DEPARTAMENTO")
+            tableMapping.ColumnMappings.Add("NOMBRE DEPARTAMENTO", "NOMBRE DEPARTAMENTO")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.OracleClient.OracleCommand
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM ""IM_DEPARTAMENTOS"" WHERE ((""CODIGO_DEPARTAMENTO"" = :Original_CODIGO_D"& _ 
+                "EPARTAMENTO) AND (""DESCRIPCION"" = :Original_NOMBRE_DEPARTAMENTO))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_NOMBRE_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand = New Global.System.Data.OracleClient.OracleCommand
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE ""IM_DEPARTAMENTOS"" SET ""CODIGO_DEPARTAMENTO"" = :CODIGO_DEPARTAMENTO, ""DESC"& _ 
+                "RIPCION"" = :NOMBRE_DEPARTAMENTO WHERE ((""CODIGO_DEPARTAMENTO"" = :Original_CODIGO"& _ 
+                "_DEPARTAMENTO) AND (""DESCRIPCION"" = :Original_NOMBRE_DEPARTAMENTO))"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NOMBRE_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_CODIGO_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.Number, 0, Global.System.Data.ParameterDirection.Input, "CODIGO_DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Original_NOMBRE_DEPARTAMENTO", Global.System.Data.OracleClient.OracleType.VarChar, 0, Global.System.Data.ParameterDirection.Input, "NOMBRE DEPARTAMENTO", Global.System.Data.DataRowVersion.Original, false, Nothing))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.OracleClient.OracleConnection
+            Me._connection.ConnectionString = Global.Inscripcion_de_Moviemientos.My.MySettings.Default.ConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT        CODIGO_DEPARTAMENTO, DESCRIPCION AS ""NOMBRE DEPARTAMENTO"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM    "& _ 
+                "        IM_DEPARTAMENTOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY CODIGO_DEPARTAMENTO"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_REPORTE_DE_FI_1.IM_DEPARTAMENTOSDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As DS_REPORTE_DE_FI_1.IM_DEPARTAMENTOSDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As DS_REPORTE_DE_FI_1.IM_DEPARTAMENTOSDataTable = New DS_REPORTE_DE_FI_1.IM_DEPARTAMENTOSDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As DS_REPORTE_DE_FI_1.IM_DEPARTAMENTOSDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As DS_REPORTE_DE_FI_1) As Integer
+            Return Me.Adapter.Update(dataSet, "IM_DEPARTAMENTOS")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_CODIGO_DEPARTAMENTO As Decimal, ByVal Original_NOMBRE_DEPARTAMENTO As String) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CODIGO_DEPARTAMENTO,Decimal)
+            If (Original_NOMBRE_DEPARTAMENTO Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_NOMBRE_DEPARTAMENTO")
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_NOMBRE_DEPARTAMENTO,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal CODIGO_DEPARTAMENTO As Decimal, ByVal NOMBRE_DEPARTAMENTO As String, ByVal Original_CODIGO_DEPARTAMENTO As Decimal, ByVal Original_NOMBRE_DEPARTAMENTO As String) As Integer
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CODIGO_DEPARTAMENTO,Decimal)
+            If (NOMBRE_DEPARTAMENTO Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("NOMBRE_DEPARTAMENTO")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(NOMBRE_DEPARTAMENTO,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_CODIGO_DEPARTAMENTO,Decimal)
+            If (Original_NOMBRE_DEPARTAMENTO Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_NOMBRE_DEPARTAMENTO")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_NOMBRE_DEPARTAMENTO,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal NOMBRE_DEPARTAMENTO As String, ByVal Original_CODIGO_DEPARTAMENTO As Decimal, ByVal Original_NOMBRE_DEPARTAMENTO As String) As Integer
+            Return Me.Update(Original_CODIGO_DEPARTAMENTO, NOMBRE_DEPARTAMENTO, Original_CODIGO_DEPARTAMENTO, Original_NOMBRE_DEPARTAMENTO)
+        End Function
+    End Class
+    
+    '''<summary>
     '''TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
@@ -2256,6 +2887,8 @@ Namespace DS_REPORTE_DE_FI_1TableAdapters
         Private _iM_PARTIDOS_POLITICOSTableAdapter As IM_PARTIDOS_POLITICOSTableAdapter
         
         Private _iM_MOVIMIENTOSTableAdapter As IM_MOVIMIENTOSTableAdapter
+        
+        Private _iM_DEPARTAMENTOSTableAdapter As IM_DEPARTAMENTOSTableAdapter
         
         Private _backupDataSetBeforeUpdate As Boolean
         
@@ -2297,6 +2930,19 @@ Namespace DS_REPORTE_DE_FI_1TableAdapters
             End Set
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
+            "ft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"& _ 
+            "", "System.Drawing.Design.UITypeEditor")>  _
+        Public Property IM_DEPARTAMENTOSTableAdapter() As IM_DEPARTAMENTOSTableAdapter
+            Get
+                Return Me._iM_DEPARTAMENTOSTableAdapter
+            End Get
+            Set
+                Me._iM_DEPARTAMENTOSTableAdapter = value
+            End Set
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property BackupDataSetBeforeUpdate() As Boolean
             Get
@@ -2322,6 +2968,10 @@ Namespace DS_REPORTE_DE_FI_1TableAdapters
                             AndAlso (Not (Me._iM_MOVIMIENTOSTableAdapter.Connection) Is Nothing)) Then
                     Return Me._iM_MOVIMIENTOSTableAdapter.Connection
                 End If
+                If ((Not (Me._iM_DEPARTAMENTOSTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._iM_DEPARTAMENTOSTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._iM_DEPARTAMENTOSTableAdapter.Connection
+                End If
                 Return Nothing
             End Get
             Set
@@ -2340,6 +2990,9 @@ Namespace DS_REPORTE_DE_FI_1TableAdapters
                 If (Not (Me._iM_MOVIMIENTOSTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
+                If (Not (Me._iM_DEPARTAMENTOSTableAdapter) Is Nothing) Then
+                    count = (count + 1)
+                End If
                 Return count
             End Get
         End Property
@@ -2356,6 +3009,15 @@ Namespace DS_REPORTE_DE_FI_1TableAdapters
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._iM_PARTIDOS_POLITICOSTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._iM_DEPARTAMENTOSTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.IM_DEPARTAMENTOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._iM_DEPARTAMENTOSTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -2385,6 +3047,14 @@ Namespace DS_REPORTE_DE_FI_1TableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
+            If (Not (Me._iM_DEPARTAMENTOSTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.IM_DEPARTAMENTOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._iM_DEPARTAMENTOSTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
             If (Not (Me._iM_MOVIMIENTOSTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.IM_MOVIMIENTOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
@@ -2407,6 +3077,14 @@ Namespace DS_REPORTE_DE_FI_1TableAdapters
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._iM_MOVIMIENTOSTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._iM_DEPARTAMENTOSTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.IM_DEPARTAMENTOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._iM_DEPARTAMENTOSTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -2467,6 +3145,11 @@ Namespace DS_REPORTE_DE_FI_1TableAdapters
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
+            If ((Not (Me._iM_DEPARTAMENTOSTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._iM_DEPARTAMENTOSTableAdapter.Connection) = false)) Then
+                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
+                        "tring.")
+            End If
             Dim workConnection As Global.System.Data.IDbConnection = Me.Connection
             If (workConnection Is Nothing) Then
                 Throw New Global.System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana"& _ 
@@ -2515,6 +3198,15 @@ Namespace DS_REPORTE_DE_FI_1TableAdapters
                     If Me._iM_MOVIMIENTOSTableAdapter.Adapter.AcceptChangesDuringUpdate Then
                         Me._iM_MOVIMIENTOSTableAdapter.Adapter.AcceptChangesDuringUpdate = false
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._iM_MOVIMIENTOSTableAdapter.Adapter)
+                    End If
+                End If
+                If (Not (Me._iM_DEPARTAMENTOSTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._iM_DEPARTAMENTOSTableAdapter, Me._iM_DEPARTAMENTOSTableAdapter.Connection)
+                    Me._iM_DEPARTAMENTOSTableAdapter.Connection = CType(workConnection,Global.System.Data.OracleClient.OracleConnection)
+                    Me._iM_DEPARTAMENTOSTableAdapter.Transaction = CType(workTransaction,Global.System.Data.OracleClient.OracleTransaction)
+                    If Me._iM_DEPARTAMENTOSTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._iM_DEPARTAMENTOSTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._iM_DEPARTAMENTOSTableAdapter.Adapter)
                     End If
                 End If
                 '
@@ -2584,6 +3276,10 @@ Namespace DS_REPORTE_DE_FI_1TableAdapters
                 If (Not (Me._iM_MOVIMIENTOSTableAdapter) Is Nothing) Then
                     Me._iM_MOVIMIENTOSTableAdapter.Connection = CType(revertConnections(Me._iM_MOVIMIENTOSTableAdapter),Global.System.Data.OracleClient.OracleConnection)
                     Me._iM_MOVIMIENTOSTableAdapter.Transaction = Nothing
+                End If
+                If (Not (Me._iM_DEPARTAMENTOSTableAdapter) Is Nothing) Then
+                    Me._iM_DEPARTAMENTOSTableAdapter.Connection = CType(revertConnections(Me._iM_DEPARTAMENTOSTableAdapter),Global.System.Data.OracleClient.OracleConnection)
+                    Me._iM_DEPARTAMENTOSTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter

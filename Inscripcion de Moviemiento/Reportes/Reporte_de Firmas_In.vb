@@ -1,5 +1,4 @@
-﻿
-Imports System
+﻿Imports System
 Imports DevExpress.XtraEditors
 Imports DevExpress.XtraEditors.Controls
 Imports DevExpress.XtraReports.UI
@@ -41,6 +40,23 @@ Public Class Reporte_de_Firmas_In
             End If
         Next
 
+        Using adapter2 As New DS_REPORTE_DE_FI_1TableAdapters.IM_DEPARTAMENTOSTableAdapter
+            adapter2.Fill(dataset.IM_DEPARTAMENTOS)
+        End Using
+
+        For Each info In e.ParametersInformation
+            If info.Parameter.Name = "NombreDepartamento" Then
+                Dim LookUpEdit As New LookUpEdit()
+                LookUpEdit.Properties.DataSource = dataset.IM_DEPARTAMENTOS
+                LookUpEdit.Properties.DisplayMember = "NOMBRE DEPARTAMENTO" 'COLOCA EL CAMPO SELECCIONADO EN EL TEXTBOX
+                LookUpEdit.Properties.ValueMember = "NOMBRE DEPARTAMENTO"
+                LookUpEdit.Properties.Columns.Add(New  _
+                    LookUpColumnInfo("NOMBRE DEPARTAMENTO", 0, "NOMBRE DEPARTAMENTO")) 'AGREGA EL NOMBRE DEL PARTIDO A LA LISTA 
+                info.Editor = LookUpEdit
+            End If
+        Next
+
+
 
         ' ''CODIGO NECESARIO PARA AGREGAR LA LISTA DE VALORES DEL NIVEL ELECTIVO
         'Using Adapter2 As New DS_REPORTE_DE_PNEMTableAdapters.DT_NIVEL_ELECTIVOTableAdapter
@@ -61,5 +77,11 @@ Public Class Reporte_de_Firmas_In
 
 
 
+    End Sub
+
+    Private Sub Reporte_de_Firmas_In_ParametersRequestSubmit(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestEventArgs) Handles Me.ParametersRequestSubmit
+        Me.IM_V_FIRMAS_INCONSISTENTESTableAdapter.Fill(Me.DS_REPORTE_DE_FI_11.IM_V_FIRMAS_INCONSISTENTES, NombreDepartamento.Value.ToString)
+        Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(DS_LOG.IM_PARTIDOS_POLITICOS_imagen, NombrePartido.Value.ToString)
+        Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(DS_LOG.IM_MOVIMIENTOS_imagen, NombreMovimiento.Value.ToString)
     End Sub
 End Class
