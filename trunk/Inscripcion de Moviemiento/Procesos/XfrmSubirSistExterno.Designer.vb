@@ -20,12 +20,6 @@ Partial Class XfrmSubirSistExterno
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.BtnEjecutar = New DevExpress.XtraEditors.SimpleButton
-        Me.BtnExplorar = New DevExpress.XtraEditors.SimpleButton
-        Me.TxtRuta = New DevExpress.XtraEditors.TextEdit
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
-        Me.FbUbicacion = New System.Windows.Forms.FolderBrowserDialog
         Me.BtnImagenesFirmas = New DevExpress.XtraEditors.SimpleButton
         Me.PictureBox2 = New System.Windows.Forms.PictureBox
         Me.BtnImagenes = New DevExpress.XtraEditors.SimpleButton
@@ -34,14 +28,20 @@ Partial Class XfrmSubirSistExterno
         Me.BtnCandidatos = New DevExpress.XtraEditors.SimpleButton
         Me.BtnRequisitos = New DevExpress.XtraEditors.SimpleButton
         Me.BtnMovimiento = New DevExpress.XtraEditors.SimpleButton
+        Me.Label2 = New System.Windows.Forms.Label
+        Me.BtnEjecutar = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnExplorar = New DevExpress.XtraEditors.SimpleButton
+        Me.TxtRuta = New DevExpress.XtraEditors.TextEdit
         Me.Label1 = New System.Windows.Forms.Label
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.PictureBox3 = New System.Windows.Forms.PictureBox
         Me.PictureBox4 = New System.Windows.Forms.PictureBox
         Me.PictureBox5 = New System.Windows.Forms.PictureBox
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
+        Me.FbUbicacion = New System.Windows.Forms.FolderBrowserDialog
         Me.Panel1.SuspendLayout()
-        CType(Me.TxtRuta.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TxtRuta.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -72,43 +72,6 @@ Partial Class XfrmSubirSistExterno
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(689, 238)
         Me.Panel1.TabIndex = 24
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(112, 111)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(165, 13)
-        Me.Label2.TabIndex = 32
-        Me.Label2.Text = "Seleccione el Archivo a Importar:"
-        '
-        'BtnEjecutar
-        '
-        Me.BtnEjecutar.Location = New System.Drawing.Point(265, 179)
-        Me.BtnEjecutar.Name = "BtnEjecutar"
-        Me.BtnEjecutar.Size = New System.Drawing.Size(98, 23)
-        Me.BtnEjecutar.TabIndex = 31
-        Me.BtnEjecutar.Text = "Subir Datos"
-        '
-        'BtnExplorar
-        '
-        Me.BtnExplorar.Location = New System.Drawing.Point(422, 134)
-        Me.BtnExplorar.Name = "BtnExplorar"
-        Me.BtnExplorar.Size = New System.Drawing.Size(75, 23)
-        Me.BtnExplorar.TabIndex = 30
-        Me.BtnExplorar.Text = "Explorar"
-        '
-        'TxtRuta
-        '
-        Me.TxtRuta.Enabled = False
-        Me.TxtRuta.Location = New System.Drawing.Point(116, 136)
-        Me.TxtRuta.Name = "TxtRuta"
-        Me.TxtRuta.Size = New System.Drawing.Size(299, 20)
-        Me.TxtRuta.TabIndex = 29
-        '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
         'BtnImagenesFirmas
         '
@@ -222,6 +185,39 @@ Partial Class XfrmSubirSistExterno
         Me.BtnMovimiento.TabIndex = 21
         Me.BtnMovimiento.Text = "Movimiento"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(112, 111)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(165, 13)
+        Me.Label2.TabIndex = 32
+        Me.Label2.Text = "Seleccione el Archivo a Importar:"
+        '
+        'BtnEjecutar
+        '
+        Me.BtnEjecutar.Location = New System.Drawing.Point(265, 179)
+        Me.BtnEjecutar.Name = "BtnEjecutar"
+        Me.BtnEjecutar.Size = New System.Drawing.Size(98, 23)
+        Me.BtnEjecutar.TabIndex = 31
+        Me.BtnEjecutar.Text = "Subir Datos"
+        '
+        'BtnExplorar
+        '
+        Me.BtnExplorar.Location = New System.Drawing.Point(422, 134)
+        Me.BtnExplorar.Name = "BtnExplorar"
+        Me.BtnExplorar.Size = New System.Drawing.Size(75, 23)
+        Me.BtnExplorar.TabIndex = 30
+        Me.BtnExplorar.Text = "Explorar"
+        '
+        'TxtRuta
+        '
+        Me.TxtRuta.Enabled = False
+        Me.TxtRuta.Location = New System.Drawing.Point(116, 136)
+        Me.TxtRuta.Name = "TxtRuta"
+        Me.TxtRuta.Size = New System.Drawing.Size(299, 20)
+        Me.TxtRuta.TabIndex = 29
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -267,6 +263,10 @@ Partial Class XfrmSubirSistExterno
         Me.PictureBox5.TabIndex = 34
         Me.PictureBox5.TabStop = False
         '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
         'XfrmSubirSistExterno
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -277,8 +277,8 @@ Partial Class XfrmSubirSistExterno
         Me.Text = "Importar de Otros Sistemas"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.TxtRuta.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TxtRuta.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
