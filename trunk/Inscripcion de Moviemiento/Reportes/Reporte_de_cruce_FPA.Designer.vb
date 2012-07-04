@@ -228,7 +228,7 @@ Partial Public Class Reporte_de_cruce_FPA
         '
         'XrLabel13
         '
-        Me.XrLabel13.Font = New System.Drawing.Font("Times New Roman", 20.0!, System.Drawing.FontStyle.Italic)
+        Me.XrLabel13.Font = New System.Drawing.Font("Times New Roman", 20.0!, CType((System.Drawing.FontStyle.Italic Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
         Me.XrLabel13.LocationFloat = New DevExpress.Utils.PointFloat(6.000002!, 6.00001!)
         Me.XrLabel13.Name = "XrLabel13"
         Me.XrLabel13.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
