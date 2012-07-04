@@ -63,4 +63,10 @@ Public Class Reporte_de_PlanillaDP
 
 
     End Sub
+
+    Private Sub Reporte_de_PlanillaDP_ParametersRequestSubmit(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestEventArgs) Handles Me.ParametersRequestSubmit
+        Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(Me.DS_LOG.IM_PARTIDOS_POLITICOS_imagen, NombrePartido.Value.ToString)
+        Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(Me.DS_LOG.IM_MOVIMIENTOS_imagen, NombreMovimiento.Value.ToString)
+
+    End Sub
 End Class
