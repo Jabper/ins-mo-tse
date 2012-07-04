@@ -25,6 +25,8 @@ Public Class REPORTE_PLANILLAS_FINALES
             End If
         Next
 
+
+
         Dim dataset As New DS_PLANILLA_TOTALES
         Using Adapter As New DS_PLANILLA_TOTALESTableAdapters.IM_PARTIDOS_POLITICOSTableAdapter
             Adapter.Fill(dataset.IM_PARTIDOS_POLITICOS)
@@ -41,7 +43,7 @@ Public Class REPORTE_PLANILLAS_FINALES
                 info.Editor = LookUpEdit
             End If
         Next
-
+       
         ' ''CODIGO NECESARIO PARA AGREGAR LA LISTA DE VALOR DE LOS MOVIMIENTOS
         Using Adapter1 As New DS_PLANILLA_TOTALESTableAdapters.IM_MOVIMIENTOSTableAdapter
             Adapter1.Fill(dataset.IM_MOVIMIENTOS)
@@ -74,6 +76,10 @@ Public Class REPORTE_PLANILLAS_FINALES
                 info.Editor = LookUpEdit
             End If
         Next
+
+
+      
+
     End Sub
 
     Private Sub REPORTE_PLANILLAS_FINALES_ParametersRequestSubmit(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestEventArgs) Handles Me.ParametersRequestSubmit
@@ -128,19 +134,19 @@ Public Class REPORTE_PLANILLAS_FINALES
 
         'AREA DE ASIGNACION A CAMPOS DEL REPORTE 
         ' Me.total.Text = total_presidencial.ToString 'asigno el total de candidatos nivel presidencial
-        Me.totalpp.Text = parlacen1.ToString 'asigno el total de candidatos al parlacen propietario
-        Me.totalpre.Text = cpresidente.ToString 'asigno el total de candidatos a presidencia
-        Me.totalde.Text = cdesignados.ToString 'asigno el total de designados presidenciales
-        Me.totalsp.Text = parlacen2.ToString 'asigno el total de candidatos al parlacen suplentes
-        Me.total_presidencial.Text = tnivel_presidencial.ToString 'asigno el numero candidato presidencial actual
-        Me.total_designado.Text = tnivel_designados.ToString 'asigno el numero de designados actuales
-        Me.totalparp.Text = tnivel_diputadospp.ToString
-        Me.totalpars.Text = tnivel_diputadosps.ToString
-        ''NIVEL DIPUTADOS
-        Me.totaldipup.Text = tnivel_diputadoscnp.ToString
-        Me.totaldipus.Text = tnivel_diputadoscns.ToString
-        Me.total_dipp.Text = tnivel_diputadospac.ToString
-        Me.total_dips.Text = tnivel_diputadospac.ToString
+        'Me.totalpp.Text = parlacen1.ToString 'asigno el total de candidatos al parlacen propietario
+        'Me.totalpre.Text = cpresidente.ToString 'asigno el total de candidatos a presidencia
+        'Me.totalde.Text = cdesignados.ToString 'asigno el total de designados presidenciales
+        'Me.totalsp.Text = parlacen2.ToString 'asigno el total de candidatos al parlacen suplentes
+        'Me.total_presidencial.Text = tnivel_presidencial.ToString 'asigno el numero candidato presidencial actual
+        'Me.total_designado.Text = tnivel_designados.ToString 'asigno el numero de designados actuales
+        'Me.totalparp.Text = tnivel_diputadospp.ToString
+        'Me.totalpars.Text = tnivel_diputadosps.ToString
+        ' ''NIVEL DIPUTADOS
+        'Me.totaldipup.Text = tnivel_diputadoscnp.ToString
+        'Me.totaldipus.Text = tnivel_diputadoscns.ToString
+        'Me.total_dipp.Text = tnivel_diputadospac.ToString
+        'Me.total_dips.Text = tnivel_diputadospac.ToString
 
 
         'PASO LOS PARAMETROS A MI DATA SET PARA HACER EL FILTRADO EN LA CONSULTA
@@ -152,4 +158,5 @@ Public Class REPORTE_PLANILLAS_FINALES
         'MsgBox(Me.partidopolitico.Text & Me.movimientopolitico.Text)
 
     End Sub
+
 End Class
