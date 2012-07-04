@@ -152,12 +152,27 @@ Public Class REPORTE_PLANILLAS_FINALES
         Me.IM_CANDIDATOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES1.IM_CANDIDATOS, Me.partidopolitico.Text, Me.movimientopolitico.Text, Me.nivelelectivo.Text, Me.ndepartamento.Text)
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(Me.DS_LOG.IM_PARTIDOS_POLITICOS_imagen, NombrePartido.Value.ToString)
         Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(Me.DS_LOG.IM_MOVIMIENTOS_imagen, NombreMovimiento.Value.ToString)
-
-
+        Me.IM_DEPARTAMENTOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES1.IM_DEPARTAMENTOS, NombreDep.Value.ToString)
+        Me.DT_totalTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.DT_total, Me.NombrePartido.Value.ToString, Me.NombreMovimiento.Value.ToString, Me.NombreDep.Value.ToString, Me.nivel.Value.ToString)
         'cierro conexion
         conn.Close()
         'MsgBox(Me.partidopolitico.Text & Me.movimientopolitico.Text)
+        If Me.nivel.Value.ToString <> "CORPORACION MUNICIPAL" Then
+            Me.muniname.Visible = False
+            Me.munivalor.Visible = False
 
+        Else
+            Me.muniname.Visible = True
+            Me.munivalor.Visible = True
+        End If
+
+        'If Me.nivel.Value.ToString <> "DIPUTADOS AL CONGRESO NACIONAL" Then
+        '    Me.diputados.Visible = False
+        '    Me.diputadosactuales.Visible = False
+        'Else
+        '    Me.diputados.Visible = True
+        '    Me.diputadosactuales.Visible = True
+        'End If
     End Sub
 
 End Class
