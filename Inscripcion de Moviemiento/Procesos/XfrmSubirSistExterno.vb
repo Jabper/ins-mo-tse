@@ -184,6 +184,30 @@ Public Class XfrmSubirSistExterno
                 ElseIf Me.BtnImagenesFirmas.Enabled = True Then
                     retorno = subir_imagenes_firmas(Me.TxtRuta.Text)
                     If retorno = True Then
+                        Dim conn7 As New OracleConnection()
+                        Try
+                            MsgBox("A continuación se ejecutarán los procesos de validación sobre los datos importados")
+                            Dim oradb7 As String = Configuracion.verconfig
+                            'Dim conn7 As New OracleConnection()
+                            conn7.ConnectionString = oradb7
+                            conn7.Open()
+                            Dim myCMD7 As New OracleCommand()
+                            myCMD7.Connection = conn7
+                            myCMD7.CommandText = "im_k_carga_datos.IM_P_CARGA_DATOS"
+                            myCMD7.CommandType = CommandType.StoredProcedure
+                            myCMD7.Parameters.Add(New OracleParameter("P_Error", OracleType.NVarChar, 500)).Direction = ParameterDirection.InputOutput
+                            myCMD7.ExecuteOracleScalar()
+                            If IsDBNull(myCMD7.Parameters("P_Error").Value) Then
+                                Mensajes.mimensaje("Proceso de validación de Datos terminado Exitosamente")
+                            Else
+                                Mensajes.MensajeError(myCMD7.Parameters("P_Error").Value)
+                            End If
+                            conn7.Close()
+                        Catch ex As Exception
+                            conn7.Close()
+                            Mensajes.MensajeError(ex.Message)
+                        End Try
+
                         Dim oradb3 As String = Configuracion.verconfig
                         Dim conn3 As New OracleConnection()
                         'Dim myCMD As New OracleCommand()
@@ -385,25 +409,6 @@ Public Class XfrmSubirSistExterno
                 Dim dt As New DataTable("Excel")
                 adaptador.Fill(dt)
 
-                'Dim oradb1 As String = Configuracion.verconfig
-                'Dim conn1 As New OracleConnection()
-                'Dim myCMD1 As New OracleCommand()
-                'conn1.ConnectionString = oradb1
-                'conn1.Open()
-                'Try
-                '    myCMD1.Connection = conn1
-                '    myCMD1.CommandText = "Delete tmp_im_ciudadanos_respaldan"
-                '    myCMD1.CommandType = CommandType.Text
-                '    myCMD1.ExecuteOracleScalar()
-                'Catch ex As Exception
-                '    conn1.Close()
-                '    'waitDialog.Caption = "finalizando..."
-                '    'waitDialog.Close()
-                '    Mensajes.MensajeError(ex.Message)
-                '    Return False
-                'End Try
-                'conn1.Close()
-
                 Dim oradb As String = Configuracion.verconfig
                 Dim conn As New OracleConnection()
                 Dim myCMD As New OracleCommand()
@@ -476,29 +481,10 @@ Public Class XfrmSubirSistExterno
             End If
 
             Using conexion As New OleDbConnection(connString)
-                Dim sql As String = "SELECT * FROM [movimientos$]"
+                Dim sql As String = "SELECT * FROM [movimiento$]"
                 Dim adaptador As New OleDbDataAdapter(sql, conexion)
                 Dim dt As New DataTable("Excel")
                 adaptador.Fill(dt)
-
-                'Dim oradb1 As String = Configuracion.verconfig
-                'Dim conn1 As New OracleConnection()
-                'Dim myCMD1 As New OracleCommand()
-                'conn1.ConnectionString = oradb1
-                'conn1.Open()
-                'Try
-                '    myCMD1.Connection = conn1
-                '    myCMD1.CommandText = "Delete tmp_im_movimientos"
-                '    myCMD1.CommandType = CommandType.Text
-                '    myCMD1.ExecuteOracleScalar()
-                'Catch ex As Exception
-                '    conn1.Close()
-                '    waitDialog.Caption = "finalizando..."
-                '    waitDialog.Close()
-                '    Mensajes.MensajeError(ex.Message)
-                '    Return False
-                'End Try
-                'conn1.Close()
 
                 Dim oradb As String = Configuracion.verconfig
                 Dim conn As New OracleConnection()
@@ -640,28 +626,12 @@ Public Class XfrmSubirSistExterno
     Private Function subir_imagenes_firmas(ByVal FolderPath As String) As Boolean
         Dim Archivo As FileInfo
         Dim campos() As String
-        'Dim identidad As String
-        'Dim requisito As String
 
         Try
             For Each sFichero As String In Directory.GetFiles(FolderPath, "*.jpg", SearchOption.TopDirectoryOnly)
                 Archivo = New FileInfo(sFichero)
 
-                campos = Split(Archivo.Name, ".")
-                'If campos(0) <> "EMBLEMA" Then
-                'campos = Nothing
-                'campos = Split(Archivo.Name, "_")
-                'For i = LBound(campos) To UBound(campos)
-                '    If i = 0 Then
-                '        identidad = campos(i)
-                '    ElseIf i = 1 Then
-                '        requisito = campos(i)
-                '    End If
-                'Next
-                'If Not IsDBNull(requisito) Then
-                '    campos = Split(requisito, ".")
-                '    requisito = campos(0)
-                'End If
+                campos = Split(Archivo.Name, ".")              
 
                 Dim oradb As String = Configuracion.verconfig
                 Dim conn As New OracleConnection()
@@ -706,19 +676,7 @@ Public Class XfrmSubirSistExterno
                         Next
                     End If
                 End If
-                conn.Close()
-                'Else
-                'Dim oradb1 As String = Configuracion.verconfig
-                'Dim conn1 As New OracleConnection()
-                'conn1.ConnectionString = oradb1
-                'conn1.Open()
-
-                'Dim sql1 As String = "update tmp_im_movimientos set insignia = :pbi_imagen "
-                'Dim cmd1 As OracleCommand = New OracleCommand(sql1, conn1)
-                'cmd1.Parameters.Add(":pbi_imagen", OracleType.Blob).Value = Data.ConvertImageToByteArray(Image.FromFile(Archivo.FullName))
-                'cmd1.ExecuteOracleScalar()
-                'End If
-
+                conn.Close()                
             Next
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
