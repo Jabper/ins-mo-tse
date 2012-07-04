@@ -26,7 +26,6 @@ Public Class REPORTE_PLANILLAS_FINALES
         Next
 
 
-
         Dim dataset As New DS_PLANILLA_TOTALES
         Using Adapter As New DS_PLANILLA_TOTALESTableAdapters.IM_PARTIDOS_POLITICOSTableAdapter
             Adapter.Fill(dataset.IM_PARTIDOS_POLITICOS)
@@ -151,6 +150,8 @@ Public Class REPORTE_PLANILLAS_FINALES
 
         'PASO LOS PARAMETROS A MI DATA SET PARA HACER EL FILTRADO EN LA CONSULTA
         Me.IM_CANDIDATOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES1.IM_CANDIDATOS, Me.partidopolitico.Text, Me.movimientopolitico.Text, Me.nivelelectivo.Text, Me.ndepartamento.Text)
+        Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(Me.DS_LOG.IM_PARTIDOS_POLITICOS_imagen, NombrePartido.Value.ToString)
+        Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(Me.DS_LOG.IM_MOVIMIENTOS_imagen, NombreMovimiento.Value.ToString)
 
 
         'cierro conexion
