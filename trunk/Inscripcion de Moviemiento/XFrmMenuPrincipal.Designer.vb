@@ -351,13 +351,13 @@ Partial Class XFrmMenuPrincipal
         '
         'BtnPlanillanivel
         '
-        Me.BtnPlanillanivel.Caption = "Reporte de Planilla por Nivel Electivo y Movimiento"
+        Me.BtnPlanillanivel.Caption = "Reporte de Candidatos por Nivel Electivo y Movimiento"
         Me.BtnPlanillanivel.Id = 32
         Me.BtnPlanillanivel.Name = "BtnPlanillanivel"
         '
         'BtnPlanilladivision
         '
-        Me.BtnPlanilladivision.Caption = "Reporte de Planilla por Divisíon Politica"
+        Me.BtnPlanilladivision.Caption = "Reporte de Candidatos por Divisíon Politica"
         Me.BtnPlanilladivision.Id = 33
         Me.BtnPlanilladivision.Name = "BtnPlanilladivision"
         '
