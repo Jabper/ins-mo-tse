@@ -342,8 +342,9 @@ Public Class xfrmRegCandidatos
                     End If
                     permitido = 0
                 Next a
+                Dim cod As Integer = CInt(view.GetRowCellValue(i, "CODIGO_CANDIDATOS"))
 
-                ActualizarEstadoCandidato(view.GetRowCellValue(i, "CODIGO_CANDIDATOS"))
+                ActualizarEstadoCandidato(cod)
                 Mensajes.MensajeActualizar()
                 Validarleyendas()
             Else
@@ -459,15 +460,18 @@ Public Class xfrmRegCandidatos
                     Next a
                     'Me.LookUpEdit1.Reset()
                     'ACTUALIZARGRID()
-                    If contadorInconsistencias > 0 Then
-                        Dim cons As String = "SELECT MAX(CODIGO_CANDIDATOS) maximo FROM IM_CANDIDATOS"
-                        Dim vcodigo As Integer = CType(COracle.ObtenerDatos(cons, "maximo"), Integer)
-                        COracle.ejecutarconsulta("UPDATE IM_CANDIDATOS SET ESTADO = 'I' WHERE CODIGO_CANDIDATOS = " & vcodigo)
-                    Else
-                        Dim cons As String = "SELECT MAX(CODIGO_CANDIDATOS) maximo FROM IM_CANDIDATOS"
-                        Dim vcodigo As Integer = CType(COracle.ObtenerDatos(cons, "maximo"), Integer)
-                        COracle.ejecutarconsulta("UPDATE IM_CANDIDATOS SET ESTADO = 'H' WHERE CODIGO_CANDIDATOS = " & vcodigo)
-                    End If
+                    'If contadorInconsistencias > 0 Then
+                    Dim cons As String = "SELECT MAX(CODIGO_CANDIDATOS) maximo FROM IM_CANDIDATOS"
+                    Dim vcodigo As Integer = CType(COracle.ObtenerDatos(cons, "maximo"), Integer)
+
+                    ActualizarEstadoCandidato(vcodigo)
+                    '    COracle.ejecutarconsulta("UPDATE IM_CANDIDATOS SET ESTADO = 'I' WHERE CODIGO_CANDIDATOS = " & vcodigo)
+                    'Else
+                    '    Dim cons As String = "SELECT MAX(CODIGO_CANDIDATOS) maximo FROM IM_CANDIDATOS"
+                    '    Dim vcodigo As Integer = CType(COracle.ObtenerDatos(cons, "maximo"), Integer)
+                    '    COracle.ejecutarconsulta("UPDATE IM_CANDIDATOS SET ESTADO = 'H' WHERE CODIGO_CANDIDATOS = " & vcodigo)
+                    'End If
+
 
                     'Mensajes.MensajeGuardar()
                     Validarleyendas()
