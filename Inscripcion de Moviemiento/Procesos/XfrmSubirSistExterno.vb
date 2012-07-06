@@ -698,4 +698,8 @@ Public Class XfrmSubirSistExterno
     Private Sub OpenFileDialog1_FileOk(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles OpenFileDialog1.FileOk
         Me.TxtRuta.Text = OpenFileDialog1.FileName
     End Sub
+
+    Private Sub BtnCandidatos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnCandidatos.Click
+
+    End Sub
 End Class
