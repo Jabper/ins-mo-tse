@@ -285,7 +285,7 @@ Public Class XfrmSubirSistExterno
                         & "ESTADO, VALIDADO) VALUES ('" _
                         & row.Item(0).ToString & "', '" & row.Item(1).ToString & "', '" & row.Item(2).ToString & "', '" & row.Item(3).ToString & "', '" & row.Item(4).ToString & "', '" & row.Item(5).ToString _
                         & "', '" & row.Item(6).ToString & "', '" & row.Item(7).ToString & "', '" & row.Item(8).ToString & "', '" & row.Item(9).ToString _
-                        & "', '" & row.Item(10).ToString & "', '" & row.Item(11).ToString & "', '" & usuario & "', to_date('" & DateTime.Now & "','dd/mm/yyyy hh:mi:ss p.m.')" _
+                        & "', '" & row.Item(10).ToString & "', '" & row.Item(11).ToString & "', '" & usuario & "', to_date('" & DateTime.Now.Date & "','dd/mm/yyyy')" _
                         & ", null, null, 'H',null)"
                         myCMD.CommandType = CommandType.Text
                         myCMD.ExecuteOracleScalar()
@@ -353,7 +353,7 @@ Public Class XfrmSubirSistExterno
                         myCMD.CommandText = "Insert into tmp_im_requisitos_x_candidato (CODIGO_CANDIDATO, CODIGO_PARTIDO, CODIGO_MOVIMIENTO, " _
                         & "CODIGO_REQUISITO, CANTIDAD, IMAGEN, ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, ESTADO, tipo_sistema) " _
                         & "VALUES ('" & row.Item(0).ToString & "', '" & row.Item(1).ToString & "', '" & row.Item(2).ToString & "', '" & row.Item(3).ToString _
-                        & "', '1', null, '" & usuario & "', to_date('" & DateTime.Now & "','dd/mm/yyyy hh:mi:ss p.m.'), null, null, 'C','E')"
+                        & "', '1', null, '" & usuario & "', to_date('" & DateTime.Now.Date & "','dd/mm/yyyy'), null, null, 'C','E')"
                         myCMD.CommandType = CommandType.Text
                         myCMD.ExecuteOracleScalar()
 
@@ -427,9 +427,9 @@ Public Class XfrmSubirSistExterno
                         & "', '" & row.Item(4).ToString & "', '" & row.Item(5).ToString & "', '" & row.Item(6).ToString _
                         & "', '" & row.Item(7).ToString & "', '" & row.Item(8).ToString & "', '" & row.Item(9).ToString _
                         & "', '" & row.Item(10).ToString & "', '" & row.Item(11).ToString & "', '" & row.Item(12).ToString _
-                        & "', 'S', '" & row.Item(14).ToString _
-                        & "', '" & usuario & "', to_date('" & DateTime.Now & "','dd/mm/yyyy hh:mi:ss p.m.'), null, null, 'S',null, 'EXTERNO','" _
-                        & row.Item(18).ToString & "',null)"
+                        & "', 'S', '" & row.Item(13).ToString _
+                        & "', '" & usuario & "', to_date('" & DateTime.Now.Date & "','dd/mm/yyyy'), null, null, 'S',null, 'EXTERNO','" _
+                        & row.Item(14).ToString & "',null)"
                         myCMD.CommandType = CommandType.Text
                         myCMD.ExecuteOracleScalar()
                         'CoWaitForMultipleHandles(
@@ -496,9 +496,9 @@ Public Class XfrmSubirSistExterno
                     Try
                         myCMD.Connection = conn
                         myCMD.CommandText = "Insert into tmp_im_movimientos(CODIGO_PARTIDO, CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO, INSIGNIA, EMBLEMA, " _
-                        & "ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION) " _
+                        & "ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, TIPO_SISTEMA) " _
                         & "VALUES ('" & row.Item(0).ToString & "', '" & row.Item(1).ToString & "', '" & row.Item(2).ToString & "', null, null,'" _
-                        & usuario & "', to_date('" & DateTime.Now & "','dd/mm/yyyy hh:mi:ss p.m.'), null, null)"
+                        & usuario & "', to_date('" & DateTime.Now.Date & "','dd/mm/yyyy'), null, null,'E')"
                         myCMD.CommandType = CommandType.Text
                         myCMD.ExecuteOracleScalar()
 
