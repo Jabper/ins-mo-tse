@@ -85,7 +85,7 @@ Public Class XFrmMenuPrincipal
         End If
     End Sub
 
-    Private Sub verificar_permisos()
+    Public Sub verificar_permisos()
         For i = 0 To Me.RibbonControl.Pages.Count - 1
             'deshabilita las pestañas
             Dim insertar As String = COracle.credenciales(Me.Ribbon.Pages(i).Name.ToString, "INSERTAR")

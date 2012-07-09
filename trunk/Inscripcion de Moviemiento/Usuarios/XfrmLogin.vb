@@ -29,6 +29,7 @@ Public Class XfrmLogin
                 Me.TxtUsuario.Text = Nothing
                 XFrmMenuPrincipal.TxtUser.Caption = NombreUsuario
                 XFrmMenuPrincipal.verificar_permisos()
+
                 XFrmMenuPrincipal.Visible = True
 
                 XFrmMenuPrincipal.Focus()
