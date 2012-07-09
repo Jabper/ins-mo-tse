@@ -1,12 +1,15 @@
 ﻿Imports System.Data.OracleClient
+Imports System.IO
 
 Public Class XfrmSubirRespaldo
+    Dim archivo As String
     Private Sub BtnExplorar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnExplorar.Click
         OpenFileDialog1.ShowDialog()
     End Sub
 
     Private Sub OpenFileDialog1_FileOk(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles OpenFileDialog1.FileOk
         TxtRuta.Text = OpenFileDialog1.FileName
+        archivo = OpenFileDialog1.SafeFileName
     End Sub
 
     Private Sub BtnEjecutar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEjecutar.Click
@@ -60,15 +63,20 @@ Public Class XfrmSubirRespaldo
             conn1.Close()
 
             If Trim(mensaje) = "OK" Then
+                If File.Exists("C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo) Then
+                    System.IO.File.Copy(TxtRuta.Text, "C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo, True)
+                End If
+
                 Try
                     mensaje = "Error"
                     Dim startInfo As ProcessStartInfo
                     Dim pStart As New Process
-                    startInfo = New ProcessStartInfo("cmd.exe", "/C imp TSE/TSEORACLE2012@XE Buffer=5000000 File=" & TxtRuta.Text & " FROMUSER=TSE TOUSER=TSE ignore=Y")
+                    startInfo = New ProcessStartInfo("cmd.exe", "/C impdp TSE/TSEORACLE2012@XE DUMPFILE=Respaldo.dmp LOGFILE=imp_Respaldo.log DIRECTORY=DATA_PUMP_DIR CONTENT=ALL TABLE_EXISTS_ACTION=REPLACE")
+                    'imp TSE/TSEORACLE2012@XE Buffer=5000000 File=" & TxtRuta.Text & " FROMUSER=TSE TOUSER=TSE ignore=Y")
                     pStart.StartInfo = startInfo
                     pStart.Start()
                     pStart.WaitForExit()
-                    If pStart.ExitCode = 3 Then
+                    If pStart.ExitCode = 0 Then
                         mensaje = "OK"
                     Else
                         MsgBox("La Importación No se ha realizado Correctamente verifique el archivo de origen de los datos", MsgBoxStyle.Exclamation)
@@ -106,7 +114,7 @@ Public Class XfrmSubirRespaldo
             Dim conn3 As New OracleConnection()
             Dim myCMD3 As New OracleCommand()
             conn3.ConnectionString = oradb3
-            conn3.Open()            
+            conn3.Open()
             If Trim(mensaje) = "OK" Then
                 Try
                     mensaje = "Error"
@@ -129,7 +137,7 @@ Public Class XfrmSubirRespaldo
                 MsgBox("Error: " & mensaje, MsgBoxStyle.Information)
             End If
             conn3.Close()
-            End If
+        End If
     End Sub
 
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
