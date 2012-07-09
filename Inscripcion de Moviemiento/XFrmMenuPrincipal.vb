@@ -363,8 +363,13 @@ Public Class XFrmMenuPrincipal
         reportep1.ShowPreview()
     End Sub
 
-    Private Sub BarButtonItem4_ItemClick_1(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem4.ItemClick
+    Private Sub BarButtonItem4_ItemClick_1(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNrepocaninc.ItemClick
         Dim REPORTECINC As REPORTE_CANDIDATOS_INCONSISTENTES = New REPORTE_CANDIDATOS_INCONSISTENTES
         REPORTECINC.ShowPreview()
+    End Sub
+
+    Private Sub BTNrepociuinc_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNrepociuinc.ItemClick
+        Dim reporteciuinc As REPORTE_CIU_INCONSISTENTE = New REPORTE_CIU_INCONSISTENTE
+        reporteciuinc.ShowPreview()
     End Sub
 End Class

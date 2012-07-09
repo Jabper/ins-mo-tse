@@ -1,0 +1,3 @@
+﻿Public Class REPORTE_CIU_INCONSISTENTE
+
+End Class
