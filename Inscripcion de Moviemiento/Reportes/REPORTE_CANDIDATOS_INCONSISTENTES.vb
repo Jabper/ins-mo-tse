@@ -1,0 +1,3 @@
+﻿Public Class REPORTE_CANDIDATOS_INCONSISTENTES
+
+End Class
