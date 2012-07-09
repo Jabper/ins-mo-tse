@@ -20,6 +20,12 @@ Partial Public Class REPORTE_CANDIDATOS_INCONSISTENTES
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Detail = New DevExpress.XtraReports.UI.DetailBand
+        Me.XrLabel19 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel18 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel17 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel16 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel15 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel14 = New DevExpress.XtraReports.UI.XRLabel
         Me.TopMargin = New DevExpress.XtraReports.UI.TopMarginBand
         Me.BottomMargin = New DevExpress.XtraReports.UI.BottomMarginBand
         Me.ReportHeader = New DevExpress.XtraReports.UI.ReportHeaderBand
@@ -30,26 +36,20 @@ Partial Public Class REPORTE_CANDIDATOS_INCONSISTENTES
         Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel2 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel6 = New DevExpress.XtraReports.UI.XRLabel
-        Me.DS_CANDIDATOS_INC1 = New Inscripcion_de_Moviemientos.DS_CANDIDATOS_INC
-        Me.IM_CANDIDATOS_INCONSISTENTESTableAdapter = New Inscripcion_de_Moviemientos.DS_CANDIDATOS_INCTableAdapters.IM_CANDIDATOS_INCONSISTENTESTableAdapter
         Me.XrLabel7 = New DevExpress.XtraReports.UI.XRLabel
-        Me.GroupHeader2 = New DevExpress.XtraReports.UI.GroupHeaderBand
-        Me.XrLabel8 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel9 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel10 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel11 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel12 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel13 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel14 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel15 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel16 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel17 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel18 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel19 = New DevExpress.XtraReports.UI.XRLabel
-        Me.GroupHeader3 = New DevExpress.XtraReports.UI.GroupHeaderBand
         Me.XrLabel20 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel21 = New DevExpress.XtraReports.UI.XRLabel
+        Me.DS_CANDIDATOS_INC1 = New Inscripcion_de_Moviemientos.DS_CANDIDATOS_INC
+        Me.IM_CANDIDATOS_INCONSISTENTESTableAdapter = New Inscripcion_de_Moviemientos.DS_CANDIDATOS_INCTableAdapters.IM_CANDIDATOS_INCONSISTENTESTableAdapter
+        Me.GroupHeader2 = New DevExpress.XtraReports.UI.GroupHeaderBand
+        Me.XrLabel13 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel12 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel11 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel10 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel9 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel8 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLine1 = New DevExpress.XtraReports.UI.XRLine
+        Me.GroupHeader3 = New DevExpress.XtraReports.UI.GroupHeaderBand
         CType(Me.DS_CANDIDATOS_INC1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
@@ -60,6 +60,60 @@ Partial Public Class REPORTE_CANDIDATOS_INCONSISTENTES
         Me.Detail.Name = "Detail"
         Me.Detail.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
+        '
+        'XrLabel19
+        '
+        Me.XrLabel19.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS_INCONSISTENTES.OBSERVACION")})
+        Me.XrLabel19.LocationFloat = New DevExpress.Utils.PointFloat(801.0417!, 9.999974!)
+        Me.XrLabel19.Name = "XrLabel19"
+        Me.XrLabel19.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel19.SizeF = New System.Drawing.SizeF(262.9583!, 22.99999!)
+        Me.XrLabel19.Text = "XrLabel19"
+        '
+        'XrLabel18
+        '
+        Me.XrLabel18.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS_INCONSISTENTES.CARGO ELECTIVO")})
+        Me.XrLabel18.LocationFloat = New DevExpress.Utils.PointFloat(564.5833!, 9.999974!)
+        Me.XrLabel18.Name = "XrLabel18"
+        Me.XrLabel18.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel18.SizeF = New System.Drawing.SizeF(220.8334!, 22.99999!)
+        Me.XrLabel18.Text = "XrLabel18"
+        '
+        'XrLabel17
+        '
+        Me.XrLabel17.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS_INCONSISTENTES.APELLIDOS")})
+        Me.XrLabel17.LocationFloat = New DevExpress.Utils.PointFloat(373.9583!, 9.999974!)
+        Me.XrLabel17.Name = "XrLabel17"
+        Me.XrLabel17.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel17.SizeF = New System.Drawing.SizeF(190.625!, 22.99999!)
+        Me.XrLabel17.Text = "XrLabel17"
+        '
+        'XrLabel16
+        '
+        Me.XrLabel16.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS_INCONSISTENTES.NOMBRES")})
+        Me.XrLabel16.LocationFloat = New DevExpress.Utils.PointFloat(214.1667!, 9.999974!)
+        Me.XrLabel16.Name = "XrLabel16"
+        Me.XrLabel16.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel16.SizeF = New System.Drawing.SizeF(145.8333!, 22.99999!)
+        Me.XrLabel16.Text = "XrLabel16"
+        '
+        'XrLabel15
+        '
+        Me.XrLabel15.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS_INCONSISTENTES.IDENTIDAD")})
+        Me.XrLabel15.LocationFloat = New DevExpress.Utils.PointFloat(114.1667!, 9.999974!)
+        Me.XrLabel15.Name = "XrLabel15"
+        Me.XrLabel15.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel15.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.XrLabel15.Text = "XrLabel15"
+        '
+        'XrLabel14
+        '
+        Me.XrLabel14.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS_INCONSISTENTES.CODIGO CANDIDATO")})
+        Me.XrLabel14.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 9.999974!)
+        Me.XrLabel14.Name = "XrLabel14"
+        Me.XrLabel14.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel14.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.XrLabel14.Text = "XrLabel14"
         '
         'TopMargin
         '
@@ -95,8 +149,8 @@ Partial Public Class REPORTE_CANDIDATOS_INCONSISTENTES
         '
         'GroupHeader1
         '
-        Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel5, Me.XrLabel4, Me.XrLabel3, Me.XrLabel2, Me.XrLabel6, Me.XrLabel7, Me.XrLabel20, Me.XrLabel21})
-        Me.GroupHeader1.HeightF = 163.5417!
+        Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel5, Me.XrLabel4, Me.XrLabel3, Me.XrLabel2})
+        Me.GroupHeader1.HeightF = 86.45837!
         Me.GroupHeader1.Level = 2
         Me.GroupHeader1.Name = "GroupHeader1"
         '
@@ -141,12 +195,40 @@ Partial Public Class REPORTE_CANDIDATOS_INCONSISTENTES
         'XrLabel6
         '
         Me.XrLabel6.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel6.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 90.20831!)
+        Me.XrLabel6.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 9.999974!)
         Me.XrLabel6.Name = "XrLabel6"
         Me.XrLabel6.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel6.SizeF = New System.Drawing.SizeF(160.4167!, 22.99998!)
         Me.XrLabel6.StylePriority.UseFont = False
         Me.XrLabel6.Text = "Departamento:"
+        '
+        'XrLabel7
+        '
+        Me.XrLabel7.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS_INCONSISTENTES.DEPARTAMENTO")})
+        Me.XrLabel7.LocationFloat = New DevExpress.Utils.PointFloat(179.7918!, 9.999974!)
+        Me.XrLabel7.Name = "XrLabel7"
+        Me.XrLabel7.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel7.SizeF = New System.Drawing.SizeF(469.7916!, 22.99999!)
+        Me.XrLabel7.Text = "XrLabel7"
+        '
+        'XrLabel20
+        '
+        Me.XrLabel20.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel20.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 43.04174!)
+        Me.XrLabel20.Name = "XrLabel20"
+        Me.XrLabel20.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel20.SizeF = New System.Drawing.SizeF(160.4167!, 23.0!)
+        Me.XrLabel20.StylePriority.UseFont = False
+        Me.XrLabel20.Text = "Municipio:"
+        '
+        'XrLabel21
+        '
+        Me.XrLabel21.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS_INCONSISTENTES.MUNICIPIO")})
+        Me.XrLabel21.LocationFloat = New DevExpress.Utils.PointFloat(179.7919!, 43.04174!)
+        Me.XrLabel21.Name = "XrLabel21"
+        Me.XrLabel21.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel21.SizeF = New System.Drawing.SizeF(469.7915!, 23.00002!)
+        Me.XrLabel21.Text = "XrLabel21"
         '
         'DS_CANDIDATOS_INC1
         '
@@ -157,162 +239,75 @@ Partial Public Class REPORTE_CANDIDATOS_INCONSISTENTES
         '
         Me.IM_CANDIDATOS_INCONSISTENTESTableAdapter.ClearBeforeFill = True
         '
-        'XrLabel7
-        '
-        Me.XrLabel7.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS_INCONSISTENTES.DEPARTAMENTO")})
-        Me.XrLabel7.LocationFloat = New DevExpress.Utils.PointFloat(179.7917!, 90.20831!)
-        Me.XrLabel7.Name = "XrLabel7"
-        Me.XrLabel7.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel7.SizeF = New System.Drawing.SizeF(469.7916!, 22.99999!)
-        Me.XrLabel7.Text = "XrLabel7"
-        '
         'GroupHeader2
         '
         Me.GroupHeader2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel13, Me.XrLabel12, Me.XrLabel11, Me.XrLabel10, Me.XrLabel9, Me.XrLabel8, Me.XrLine1})
         Me.GroupHeader2.HeightF = 44.79167!
         Me.GroupHeader2.Name = "GroupHeader2"
         '
-        'XrLabel8
+        'XrLabel13
         '
-        Me.XrLabel8.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel8.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 5.541674!)
-        Me.XrLabel8.Name = "XrLabel8"
-        Me.XrLabel8.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel8.SizeF = New System.Drawing.SizeF(60.41666!, 22.99999!)
-        Me.XrLabel8.StylePriority.UseFont = False
-        Me.XrLabel8.Text = "Codigo"
-        '
-        'XrLabel9
-        '
-        Me.XrLabel9.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel9.LocationFloat = New DevExpress.Utils.PointFloat(114.1667!, 5.541674!)
-        Me.XrLabel9.Name = "XrLabel9"
-        Me.XrLabel9.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel9.SizeF = New System.Drawing.SizeF(79.16667!, 23.0!)
-        Me.XrLabel9.StylePriority.UseFont = False
-        Me.XrLabel9.Text = "Identidad"
-        '
-        'XrLabel10
-        '
-        Me.XrLabel10.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel10.LocationFloat = New DevExpress.Utils.PointFloat(233.9583!, 5.541674!)
-        Me.XrLabel10.Name = "XrLabel10"
-        Me.XrLabel10.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel10.SizeF = New System.Drawing.SizeF(141.6667!, 23.0!)
-        Me.XrLabel10.StylePriority.UseFont = False
-        Me.XrLabel10.StylePriority.UseTextAlignment = False
-        Me.XrLabel10.Text = "Nombres"
-        Me.XrLabel10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
-        '
-        'XrLabel11
-        '
-        Me.XrLabel11.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel11.LocationFloat = New DevExpress.Utils.PointFloat(413.5417!, 5.541674!)
-        Me.XrLabel11.Name = "XrLabel11"
-        Me.XrLabel11.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel11.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.XrLabel11.StylePriority.UseFont = False
-        Me.XrLabel11.StylePriority.UseTextAlignment = False
-        Me.XrLabel11.Text = "Apellidos"
-        Me.XrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
+        Me.XrLabel13.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel13.LocationFloat = New DevExpress.Utils.PointFloat(868.75!, 5.541674!)
+        Me.XrLabel13.Name = "XrLabel13"
+        Me.XrLabel13.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel13.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.XrLabel13.StylePriority.UseFont = False
+        Me.XrLabel13.Text = "Observación"
         '
         'XrLabel12
         '
         Me.XrLabel12.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
         Me.XrLabel12.LocationFloat = New DevExpress.Utils.PointFloat(564.5833!, 5.541674!)
         Me.XrLabel12.Name = "XrLabel12"
-        Me.XrLabel12.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
+        Me.XrLabel12.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel12.SizeF = New System.Drawing.SizeF(138.5417!, 23.0!)
         Me.XrLabel12.StylePriority.UseFont = False
         Me.XrLabel12.Text = "Cargo electivo"
         '
-        'XrLabel13
+        'XrLabel11
         '
-        Me.XrLabel13.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel13.LocationFloat = New DevExpress.Utils.PointFloat(868.75!, 5.541674!)
-        Me.XrLabel13.Name = "XrLabel13"
-        Me.XrLabel13.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel13.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.XrLabel13.StylePriority.UseFont = False
-        Me.XrLabel13.Text = "Observación"
+        Me.XrLabel11.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel11.LocationFloat = New DevExpress.Utils.PointFloat(413.5417!, 5.541674!)
+        Me.XrLabel11.Name = "XrLabel11"
+        Me.XrLabel11.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel11.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.XrLabel11.StylePriority.UseFont = False
+        Me.XrLabel11.StylePriority.UseTextAlignment = False
+        Me.XrLabel11.Text = "Apellidos"
+        Me.XrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
         '
-        'XrLabel14
+        'XrLabel10
         '
-        Me.XrLabel14.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS_INCONSISTENTES.CODIGO CANDIDATO")})
-        Me.XrLabel14.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 9.999974!)
-        Me.XrLabel14.Name = "XrLabel14"
-        Me.XrLabel14.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel14.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.XrLabel14.Text = "XrLabel14"
+        Me.XrLabel10.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel10.LocationFloat = New DevExpress.Utils.PointFloat(233.9583!, 5.541674!)
+        Me.XrLabel10.Name = "XrLabel10"
+        Me.XrLabel10.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel10.SizeF = New System.Drawing.SizeF(141.6667!, 23.0!)
+        Me.XrLabel10.StylePriority.UseFont = False
+        Me.XrLabel10.StylePriority.UseTextAlignment = False
+        Me.XrLabel10.Text = "Nombres"
+        Me.XrLabel10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
         '
-        'XrLabel15
+        'XrLabel9
         '
-        Me.XrLabel15.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS_INCONSISTENTES.IDENTIDAD")})
-        Me.XrLabel15.LocationFloat = New DevExpress.Utils.PointFloat(114.1667!, 9.999974!)
-        Me.XrLabel15.Name = "XrLabel15"
-        Me.XrLabel15.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel15.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.XrLabel15.Text = "XrLabel15"
+        Me.XrLabel9.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel9.LocationFloat = New DevExpress.Utils.PointFloat(114.1667!, 5.541674!)
+        Me.XrLabel9.Name = "XrLabel9"
+        Me.XrLabel9.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel9.SizeF = New System.Drawing.SizeF(79.16667!, 23.0!)
+        Me.XrLabel9.StylePriority.UseFont = False
+        Me.XrLabel9.Text = "Identidad"
         '
-        'XrLabel16
+        'XrLabel8
         '
-        Me.XrLabel16.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS_INCONSISTENTES.NOMBRES")})
-        Me.XrLabel16.LocationFloat = New DevExpress.Utils.PointFloat(214.1667!, 9.999974!)
-        Me.XrLabel16.Name = "XrLabel16"
-        Me.XrLabel16.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel16.SizeF = New System.Drawing.SizeF(145.8333!, 22.99999!)
-        Me.XrLabel16.Text = "XrLabel16"
-        '
-        'XrLabel17
-        '
-        Me.XrLabel17.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS_INCONSISTENTES.APELLIDOS")})
-        Me.XrLabel17.LocationFloat = New DevExpress.Utils.PointFloat(373.9583!, 9.999974!)
-        Me.XrLabel17.Name = "XrLabel17"
-        Me.XrLabel17.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel17.SizeF = New System.Drawing.SizeF(190.625!, 22.99999!)
-        Me.XrLabel17.Text = "XrLabel17"
-        '
-        'XrLabel18
-        '
-        Me.XrLabel18.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS_INCONSISTENTES.CARGO ELECTIVO")})
-        Me.XrLabel18.LocationFloat = New DevExpress.Utils.PointFloat(564.5833!, 9.999974!)
-        Me.XrLabel18.Name = "XrLabel18"
-        Me.XrLabel18.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel18.SizeF = New System.Drawing.SizeF(220.8334!, 22.99999!)
-        Me.XrLabel18.Text = "XrLabel18"
-        '
-        'XrLabel19
-        '
-        Me.XrLabel19.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS_INCONSISTENTES.OBSERVACION")})
-        Me.XrLabel19.LocationFloat = New DevExpress.Utils.PointFloat(801.0417!, 9.999974!)
-        Me.XrLabel19.Name = "XrLabel19"
-        Me.XrLabel19.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel19.SizeF = New System.Drawing.SizeF(262.9583!, 22.99999!)
-        Me.XrLabel19.Text = "XrLabel19"
-        '
-        'GroupHeader3
-        '
-        Me.GroupHeader3.Level = 1
-        Me.GroupHeader3.Name = "GroupHeader3"
-        '
-        'XrLabel20
-        '
-        Me.XrLabel20.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel20.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 130.5417!)
-        Me.XrLabel20.Name = "XrLabel20"
-        Me.XrLabel20.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel20.SizeF = New System.Drawing.SizeF(160.4167!, 23.0!)
-        Me.XrLabel20.StylePriority.UseFont = False
-        Me.XrLabel20.Text = "Municipio:"
-        '
-        'XrLabel21
-        '
-        Me.XrLabel21.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS_INCONSISTENTES.MUNICIPIO")})
-        Me.XrLabel21.LocationFloat = New DevExpress.Utils.PointFloat(179.7918!, 130.5416!)
-        Me.XrLabel21.Name = "XrLabel21"
-        Me.XrLabel21.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel21.SizeF = New System.Drawing.SizeF(469.7915!, 23.00002!)
-        Me.XrLabel21.Text = "XrLabel21"
+        Me.XrLabel8.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel8.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 5.541674!)
+        Me.XrLabel8.Name = "XrLabel8"
+        Me.XrLabel8.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel8.SizeF = New System.Drawing.SizeF(60.41666!, 22.99999!)
+        Me.XrLabel8.StylePriority.UseFont = False
+        Me.XrLabel8.Text = "Codigo"
         '
         'XrLine1
         '
@@ -320,6 +315,12 @@ Partial Public Class REPORTE_CANDIDATOS_INCONSISTENTES
         Me.XrLine1.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 28.54163!)
         Me.XrLine1.Name = "XrLine1"
         Me.XrLine1.SizeF = New System.Drawing.SizeF(1054.0!, 14.66669!)
+        '
+        'GroupHeader3
+        '
+        Me.GroupHeader3.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel6, Me.XrLabel7, Me.XrLabel20, Me.XrLabel21})
+        Me.GroupHeader3.Level = 1
+        Me.GroupHeader3.Name = "GroupHeader3"
         '
         'REPORTE_CANDIDATOS_INCONSISTENTES
         '
