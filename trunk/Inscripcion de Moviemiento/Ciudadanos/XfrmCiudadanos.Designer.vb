@@ -183,7 +183,7 @@ Partial Class XfrmCiudadanos
         Me.Label1.ForeColor = System.Drawing.Color.Red
         Me.Label1.Location = New System.Drawing.Point(12, 150)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(618, 39)
+        Me.Label1.Size = New System.Drawing.Size(618, 52)
         Me.Label1.TabIndex = 4
         Me.Label1.Text = resources.GetString("Label1.Text")
         '
@@ -623,11 +623,11 @@ Partial Class XfrmCiudadanos
         '
         Me.GCBusqueda.ContextMenuStrip = Me.ContextMenuStrip1
         Me.GCBusqueda.DataSource = Me.IMCIUDADANOSRESPALDANBindingSource
-        Me.GCBusqueda.Location = New System.Drawing.Point(12, 193)
+        Me.GCBusqueda.Location = New System.Drawing.Point(12, 206)
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
         Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RIChkCoincide, Me.RIChkFima, Me.RPIImgfirma, Me.RepositoryItemComboBox1, Me.ChkEstado, Me.RepositoryItemTextEdit1, Me.RepositoryItemTextEdit2, Me.RepositoryItemTextEdit3})
-        Me.GCBusqueda.Size = New System.Drawing.Size(722, 261)
+        Me.GCBusqueda.Size = New System.Drawing.Size(722, 248)
         Me.GCBusqueda.TabIndex = 8
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -697,7 +697,7 @@ Partial Class XfrmCiudadanos
         Me.colFIRMA.Name = "colFIRMA"
         Me.colFIRMA.Visible = True
         Me.colFIRMA.VisibleIndex = 7
-        Me.colFIRMA.Width = 34
+        Me.colFIRMA.Width = 72
         '
         'RIChkFima
         '
@@ -717,11 +717,11 @@ Partial Class XfrmCiudadanos
         Me.colHUELLA.Name = "colHUELLA"
         Me.colHUELLA.Visible = True
         Me.colHUELLA.VisibleIndex = 8
-        Me.colHUELLA.Width = 38
+        Me.colHUELLA.Width = 65
         '
         'colDIRECCION
         '
-        Me.colDIRECCION.Caption = "Direccion"
+        Me.colDIRECCION.Caption = "(*) Dirección"
         Me.colDIRECCION.ColumnEdit = Me.RIChkFima
         Me.colDIRECCION.FieldName = "DIRECCION"
         Me.colDIRECCION.Name = "colDIRECCION"
@@ -747,10 +747,11 @@ Partial Class XfrmCiudadanos
         '
         'colPrimerNombre
         '
-        Me.colPrimerNombre.Caption = "(*) Primer Nombre"
+        Me.colPrimerNombre.Caption = "Primer Nombre"
         Me.colPrimerNombre.ColumnEdit = Me.RepositoryItemTextEdit2
         Me.colPrimerNombre.FieldName = "PrimerNombre"
         Me.colPrimerNombre.Name = "colPrimerNombre"
+        Me.colPrimerNombre.OptionsColumn.AllowEdit = False
         Me.colPrimerNombre.Visible = True
         Me.colPrimerNombre.VisibleIndex = 3
         Me.colPrimerNombre.Width = 113
@@ -767,6 +768,7 @@ Partial Class XfrmCiudadanos
         Me.colSegundoNombre.ColumnEdit = Me.RepositoryItemTextEdit2
         Me.colSegundoNombre.FieldName = "SegundoNombre"
         Me.colSegundoNombre.Name = "colSegundoNombre"
+        Me.colSegundoNombre.OptionsColumn.AllowEdit = False
         Me.colSegundoNombre.Visible = True
         Me.colSegundoNombre.VisibleIndex = 4
         Me.colSegundoNombre.Width = 118
@@ -777,16 +779,18 @@ Partial Class XfrmCiudadanos
         Me.colSegundoApellido.ColumnEdit = Me.RepositoryItemTextEdit2
         Me.colSegundoApellido.FieldName = "SegundoApellido"
         Me.colSegundoApellido.Name = "colSegundoApellido"
+        Me.colSegundoApellido.OptionsColumn.AllowEdit = False
         Me.colSegundoApellido.Visible = True
         Me.colSegundoApellido.VisibleIndex = 6
         Me.colSegundoApellido.Width = 116
         '
         'colPrimerApellido
         '
-        Me.colPrimerApellido.Caption = "(*) Primer Apellido"
+        Me.colPrimerApellido.Caption = "Primer Apellido"
         Me.colPrimerApellido.ColumnEdit = Me.RepositoryItemTextEdit2
         Me.colPrimerApellido.FieldName = "PrimerApellido"
         Me.colPrimerApellido.Name = "colPrimerApellido"
+        Me.colPrimerApellido.OptionsColumn.AllowEdit = False
         Me.colPrimerApellido.Visible = True
         Me.colPrimerApellido.VisibleIndex = 5
         Me.colPrimerApellido.Width = 102
@@ -864,9 +868,9 @@ Partial Class XfrmCiudadanos
         '
         Me.LayoutControlItem2.Control = Me.GCBusqueda
         Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 181)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 194)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(726, 265)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(726, 252)
         Me.LayoutControlItem2.Text = "LayoutControlItem2"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextToControlDistance = 0
@@ -968,10 +972,10 @@ Partial Class XfrmCiudadanos
         Me.EmptySpaceItem5.AllowHotTrack = False
         Me.EmptySpaceItem5.CustomizationFormText = "EmptySpaceItem5"
         Me.EmptySpaceItem5.Location = New System.Drawing.Point(622, 138)
-        Me.EmptySpaceItem5.MaxSize = New System.Drawing.Size(104, 43)
-        Me.EmptySpaceItem5.MinSize = New System.Drawing.Size(104, 43)
+        Me.EmptySpaceItem5.MaxSize = New System.Drawing.Size(104, 56)
+        Me.EmptySpaceItem5.MinSize = New System.Drawing.Size(104, 56)
         Me.EmptySpaceItem5.Name = "EmptySpaceItem5"
-        Me.EmptySpaceItem5.Size = New System.Drawing.Size(104, 43)
+        Me.EmptySpaceItem5.Size = New System.Drawing.Size(104, 56)
         Me.EmptySpaceItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem5.Text = "EmptySpaceItem5"
         Me.EmptySpaceItem5.TextSize = New System.Drawing.Size(0, 0)
@@ -982,7 +986,7 @@ Partial Class XfrmCiudadanos
         Me.LayoutControlItem8.CustomizationFormText = "LayoutControlItem8"
         Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 138)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(622, 43)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(622, 56)
         Me.LayoutControlItem8.Text = "LayoutControlItem8"
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem8.TextToControlDistance = 0

@@ -113,7 +113,6 @@ Partial Class XfrmConsultaFirmas
         Me.SplitterItem2 = New DevExpress.XtraLayout.SplitterItem
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem
-        Me.SplitterItem1 = New DevExpress.XtraLayout.SplitterItem
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.TA_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_PARTIDOS_POLITICOSTableAdapter
         Me.TA_MOVIMIENTOTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_MOVIMIENTOTableAdapter
@@ -166,7 +165,6 @@ Partial Class XfrmConsultaFirmas
         CType(Me.SplitterItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SplitterItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -187,10 +185,10 @@ Partial Class XfrmConsultaFirmas
         'GCBusqueda
         '
         Me.GCBusqueda.DataSource = Me.IMVMOSTRARFIRMASBindingSource
-        Me.GCBusqueda.Location = New System.Drawing.Point(12, 250)
+        Me.GCBusqueda.Location = New System.Drawing.Point(12, 244)
         Me.GCBusqueda.MainView = Me.GridView3
         Me.GCBusqueda.Name = "GCBusqueda"
-        Me.GCBusqueda.Size = New System.Drawing.Size(794, 366)
+        Me.GCBusqueda.Size = New System.Drawing.Size(794, 372)
         Me.GCBusqueda.TabIndex = 11
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView3, Me.GridView4})
         '
@@ -270,6 +268,7 @@ Partial Class XfrmConsultaFirmas
         Me.colPRIMER_NOMBRE_PAPELETA.ColumnEdit = Me.RepositoryItemTextEdit2
         Me.colPRIMER_NOMBRE_PAPELETA.FieldName = "PRIMER_NOMBRE_PAPELETA"
         Me.colPRIMER_NOMBRE_PAPELETA.Name = "colPRIMER_NOMBRE_PAPELETA"
+        Me.colPRIMER_NOMBRE_PAPELETA.OptionsColumn.AllowEdit = False
         Me.colPRIMER_NOMBRE_PAPELETA.Visible = True
         Me.colPRIMER_NOMBRE_PAPELETA.VisibleIndex = 2
         Me.colPRIMER_NOMBRE_PAPELETA.Width = 100
@@ -286,6 +285,7 @@ Partial Class XfrmConsultaFirmas
         Me.colSEGUNDO_NOMBRE_PAPELETA.ColumnEdit = Me.RepositoryItemTextEdit2
         Me.colSEGUNDO_NOMBRE_PAPELETA.FieldName = "SEGUNDO_NOMBRE_PAPELETA"
         Me.colSEGUNDO_NOMBRE_PAPELETA.Name = "colSEGUNDO_NOMBRE_PAPELETA"
+        Me.colSEGUNDO_NOMBRE_PAPELETA.OptionsColumn.AllowEdit = False
         Me.colSEGUNDO_NOMBRE_PAPELETA.Visible = True
         Me.colSEGUNDO_NOMBRE_PAPELETA.VisibleIndex = 3
         Me.colSEGUNDO_NOMBRE_PAPELETA.Width = 103
@@ -296,6 +296,7 @@ Partial Class XfrmConsultaFirmas
         Me.colPRIMER_APELLIDO_PAPELETA.ColumnEdit = Me.RepositoryItemTextEdit2
         Me.colPRIMER_APELLIDO_PAPELETA.FieldName = "PRIMER_APELLIDO_PAPELETA"
         Me.colPRIMER_APELLIDO_PAPELETA.Name = "colPRIMER_APELLIDO_PAPELETA"
+        Me.colPRIMER_APELLIDO_PAPELETA.OptionsColumn.AllowEdit = False
         Me.colPRIMER_APELLIDO_PAPELETA.Visible = True
         Me.colPRIMER_APELLIDO_PAPELETA.VisibleIndex = 4
         Me.colPRIMER_APELLIDO_PAPELETA.Width = 93
@@ -306,6 +307,7 @@ Partial Class XfrmConsultaFirmas
         Me.colSEGUNDO_APELLIDO_PAPELETA.ColumnEdit = Me.RepositoryItemTextEdit2
         Me.colSEGUNDO_APELLIDO_PAPELETA.FieldName = "SEGUNDO_APELLIDO_PAPELETA"
         Me.colSEGUNDO_APELLIDO_PAPELETA.Name = "colSEGUNDO_APELLIDO_PAPELETA"
+        Me.colSEGUNDO_APELLIDO_PAPELETA.OptionsColumn.AllowEdit = False
         Me.colSEGUNDO_APELLIDO_PAPELETA.Visible = True
         Me.colSEGUNDO_APELLIDO_PAPELETA.VisibleIndex = 5
         Me.colSEGUNDO_APELLIDO_PAPELETA.Width = 93
@@ -988,7 +990,7 @@ Partial Class XfrmConsultaFirmas
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.EmptySpaceItem3, Me.LayoutControlItem10, Me.EmptySpaceItem1, Me.LayoutControlItem3, Me.SplitterItem2, Me.LayoutControlItem1, Me.EmptySpaceItem2, Me.SplitterItem1})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.EmptySpaceItem3, Me.LayoutControlItem10, Me.EmptySpaceItem1, Me.LayoutControlItem3, Me.SplitterItem2, Me.LayoutControlItem1, Me.EmptySpaceItem2})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(828, 750)
@@ -1025,8 +1027,11 @@ Partial Class XfrmConsultaFirmas
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
         Me.EmptySpaceItem1.Location = New System.Drawing.Point(783, 0)
+        Me.EmptySpaceItem1.MaxSize = New System.Drawing.Size(25, 232)
+        Me.EmptySpaceItem1.MinSize = New System.Drawing.Size(25, 232)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
         Me.EmptySpaceItem1.Size = New System.Drawing.Size(25, 232)
+        Me.EmptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem1.Text = "EmptySpaceItem1"
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -1054,9 +1059,9 @@ Partial Class XfrmConsultaFirmas
         '
         Me.LayoutControlItem1.Control = Me.GCBusqueda
         Me.LayoutControlItem1.CustomizationFormText = "LayoutControlItem1"
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 238)
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 232)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(798, 370)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(798, 376)
         Me.LayoutControlItem1.Text = "LayoutControlItem1"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem1.TextToControlDistance = 0
@@ -1066,19 +1071,11 @@ Partial Class XfrmConsultaFirmas
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(798, 238)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(798, 232)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(10, 370)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(10, 376)
         Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
-        '
-        'SplitterItem1
-        '
-        Me.SplitterItem1.AllowHotTrack = True
-        Me.SplitterItem1.CustomizationFormText = "SplitterItem1"
-        Me.SplitterItem1.Location = New System.Drawing.Point(0, 232)
-        Me.SplitterItem1.Name = "SplitterItem1"
-        Me.SplitterItem1.Size = New System.Drawing.Size(808, 6)
         '
         'ContextMenuStrip1
         '
@@ -1168,7 +1165,6 @@ Partial Class XfrmConsultaFirmas
         CType(Me.SplitterItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SplitterItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -1274,5 +1270,4 @@ Partial Class XfrmConsultaFirmas
     Friend WithEvents GridView4 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents EmptySpaceItem2 As DevExpress.XtraLayout.EmptySpaceItem
-    Friend WithEvents SplitterItem1 As DevExpress.XtraLayout.SplitterItem
 End Class
