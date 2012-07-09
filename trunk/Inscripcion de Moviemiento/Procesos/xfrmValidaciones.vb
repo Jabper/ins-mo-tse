@@ -53,6 +53,7 @@ Public Class xfrmValidaciones
             'Else
             '    Mensajes.MensajeError(myCMD.Parameters("P_ERROR").Value)
             'End If
+
             conn.Close()
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
