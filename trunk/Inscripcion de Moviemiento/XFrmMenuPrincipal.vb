@@ -362,4 +362,9 @@ Public Class XFrmMenuPrincipal
         Dim reportep1 As Reporte_candidatos_inhabilitados = New Reporte_candidatos_inhabilitados
         reportep1.ShowPreview()
     End Sub
+
+    Private Sub BarButtonItem4_ItemClick_1(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem4.ItemClick
+        Dim REPORTECINC As REPORTE_CANDIDATOS_INCONSISTENTES = New REPORTE_CANDIDATOS_INCONSISTENTES
+        REPORTECINC.ShowPreview()
+    End Sub
 End Class

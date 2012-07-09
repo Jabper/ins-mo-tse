@@ -79,6 +79,8 @@ Partial Class XFrmMenuPrincipal
         Me.btnValidarFirmas = New DevExpress.XtraBars.BarButtonItem
         Me.BarButtonItem3 = New DevExpress.XtraBars.BarButtonItem
         Me.BTN_Reporteimpor = New DevExpress.XtraBars.BarSubItem
+        Me.BarButtonItem4 = New DevExpress.XtraBars.BarButtonItem
+        Me.BarButtonItem5 = New DevExpress.XtraBars.BarButtonItem
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage
@@ -108,8 +110,6 @@ Partial Class XFrmMenuPrincipal
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.BarSubItem1 = New DevExpress.XtraBars.BarSubItem
         Me.RibbonPageGroup10 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
-        Me.BarButtonItem4 = New DevExpress.XtraBars.BarButtonItem
-        Me.BarButtonItem5 = New DevExpress.XtraBars.BarButtonItem
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -537,6 +537,18 @@ Partial Class XFrmMenuPrincipal
         Me.BTN_Reporteimpor.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem4), New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem5)})
         Me.BTN_Reporteimpor.Name = "BTN_Reporteimpor"
         '
+        'BarButtonItem4
+        '
+        Me.BarButtonItem4.Caption = "Reporte de Candidatos Inconsistentes"
+        Me.BarButtonItem4.Id = 64
+        Me.BarButtonItem4.Name = "BarButtonItem4"
+        '
+        'BarButtonItem5
+        '
+        Me.BarButtonItem5.Caption = "Reporte de Ciudadanos Inconsistentes"
+        Me.BarButtonItem5.Id = 65
+        Me.BarButtonItem5.Name = "BarButtonItem5"
+        '
         'RibbonPage1
         '
         Me.RibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1})
@@ -760,18 +772,6 @@ Partial Class XFrmMenuPrincipal
         'RibbonPageGroup10
         '
         Me.RibbonPageGroup10.Name = "RibbonPageGroup10"
-        '
-        'BarButtonItem4
-        '
-        Me.BarButtonItem4.Caption = "Reporte de Candidatos Inconsistentes"
-        Me.BarButtonItem4.Id = 64
-        Me.BarButtonItem4.Name = "BarButtonItem4"
-        '
-        'BarButtonItem5
-        '
-        Me.BarButtonItem5.Caption = "Reporte de Ciudadanos Inconsistentes"
-        Me.BarButtonItem5.Id = 65
-        Me.BarButtonItem5.Name = "BarButtonItem5"
         '
         'XFrmMenuPrincipal
         '
