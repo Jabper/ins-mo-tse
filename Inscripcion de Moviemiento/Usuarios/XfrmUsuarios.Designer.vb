@@ -44,7 +44,7 @@ Partial Class XfrmUsuarios
         Me.PREGUNTA_SEGURIDADTextEdit = New DevExpress.XtraEditors.LookUpEdit
         Me.CODIGO_USUARIOSpinEdit = New DevExpress.XtraEditors.TextEdit
         Me.CODIGO_MOVIMIENTOSpinEdit = New DevExpress.XtraEditors.LookUpEdit
-        Me.IMMOVIMIENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TAMOVIMIENTOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ESTADOTextEdit = New DevExpress.XtraEditors.CheckEdit
         Me.NIVELSpinEdit = New DevExpress.XtraEditors.LookUpEdit
         Me.ItemForADICIONADO_POR = New DevExpress.XtraLayout.LayoutControlItem
@@ -94,9 +94,9 @@ Partial Class XfrmUsuarios
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
         Me.IM_USUARIOSTableAdapter = New Inscripcion_de_Moviemientos.DTUsersTableAdapters.IM_USUARIOSTableAdapter
         Me.TA_ROLESTableAdapter = New Inscripcion_de_Moviemientos.DTUsersTableAdapters.TA_ROLESTableAdapter
-        Me.IM_MOVIMIENTOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.IM_MOVIMIENTOSTableAdapter
         Me.DT_USUARIOSTableAdapter = New Inscripcion_de_Moviemientos.DTUsersTableAdapters.DT_USUARIOSTableAdapter
         Me.TA_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_PARTIDOS_POLITICOSTableAdapter
+        Me.TA_MOVIMIENTOTableAdapter = New Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_MOVIMIENTOTableAdapter
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -123,7 +123,7 @@ Partial Class XfrmUsuarios
         CType(Me.PREGUNTA_SEGURIDADTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CODIGO_USUARIOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CODIGO_MOVIMIENTOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.IMMOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TAMOVIMIENTOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ESTADOTextEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NIVELSpinEdit.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ItemForADICIONADO_POR, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -188,7 +188,7 @@ Partial Class XfrmUsuarios
         Me.PanelControl1.Controls.Add(Me.BtnGuardar)
         Me.PanelControl1.Location = New System.Drawing.Point(12, 12)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(321, 61)
+        Me.PanelControl1.Size = New System.Drawing.Size(479, 61)
         Me.PanelControl1.TabIndex = 7
         '
         'BtnSalir
@@ -280,7 +280,7 @@ Partial Class XfrmUsuarios
         Me.IDENTIDADTextEdit.Location = New System.Drawing.Point(133, 60)
         Me.IDENTIDADTextEdit.Name = "IDENTIDADTextEdit"
         Me.IDENTIDADTextEdit.Properties.Mask.BeepOnError = True
-        Me.IDENTIDADTextEdit.Properties.MaxLength = 15
+        Me.IDENTIDADTextEdit.Properties.MaxLength = 13
         Me.IDENTIDADTextEdit.Size = New System.Drawing.Size(167, 20)
         Me.IDENTIDADTextEdit.StyleController = Me.DataLayoutControl1
         Me.IDENTIDADTextEdit.TabIndex = 7
@@ -419,7 +419,7 @@ Partial Class XfrmUsuarios
         Me.CODIGO_USUARIOSpinEdit.Location = New System.Drawing.Point(133, 12)
         Me.CODIGO_USUARIOSpinEdit.Name = "CODIGO_USUARIOSpinEdit"
         Me.CODIGO_USUARIOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
-        Me.CODIGO_USUARIOSpinEdit.Properties.MaxLength = 15
+        Me.CODIGO_USUARIOSpinEdit.Properties.MaxLength = 10
         Me.CODIGO_USUARIOSpinEdit.Size = New System.Drawing.Size(107, 20)
         Me.CODIGO_USUARIOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_USUARIOSpinEdit.TabIndex = 4
@@ -432,7 +432,7 @@ Partial Class XfrmUsuarios
         Me.CODIGO_MOVIMIENTOSpinEdit.Name = "CODIGO_MOVIMIENTOSpinEdit"
         Me.CODIGO_MOVIMIENTOSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.CODIGO_MOVIMIENTOSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MOVIMIENTO", "Código", 30, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE_MOVIMIENTO", "Movimiento", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
-        Me.CODIGO_MOVIMIENTOSpinEdit.Properties.DataSource = Me.IMMOVIMIENTOSBindingSource
+        Me.CODIGO_MOVIMIENTOSpinEdit.Properties.DataSource = Me.TAMOVIMIENTOBindingSource
         Me.CODIGO_MOVIMIENTOSpinEdit.Properties.DisplayMember = "NOMBRE_MOVIMIENTO"
         Me.CODIGO_MOVIMIENTOSpinEdit.Properties.NullText = "Seleccione"
         Me.CODIGO_MOVIMIENTOSpinEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
@@ -440,6 +440,11 @@ Partial Class XfrmUsuarios
         Me.CODIGO_MOVIMIENTOSpinEdit.Size = New System.Drawing.Size(168, 20)
         Me.CODIGO_MOVIMIENTOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_MOVIMIENTOSpinEdit.TabIndex = 10
+        '
+        'TAMOVIMIENTOBindingSource
+        '
+        Me.TAMOVIMIENTOBindingSource.DataMember = "TA_MOVIMIENTO"
+        Me.TAMOVIMIENTOBindingSource.DataSource = Me.DSPolitico
         '
         'ESTADOTextEdit
         '
@@ -543,7 +548,7 @@ Partial Class XfrmUsuarios
         Me.ItemForCODIGO_USUARIO.Location = New System.Drawing.Point(0, 0)
         Me.ItemForCODIGO_USUARIO.Name = "ItemForCODIGO_USUARIO"
         Me.ItemForCODIGO_USUARIO.Size = New System.Drawing.Size(232, 24)
-        Me.ItemForCODIGO_USUARIO.Text = "Código Usuario"
+        Me.ItemForCODIGO_USUARIO.Text = "Usuario"
         Me.ItemForCODIGO_USUARIO.TextSize = New System.Drawing.Size(117, 13)
         '
         'ItemForCODIGO_ROL
@@ -880,11 +885,11 @@ Partial Class XfrmUsuarios
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(325, 0)
-        Me.EmptySpaceItem2.MaxSize = New System.Drawing.Size(163, 65)
-        Me.EmptySpaceItem2.MinSize = New System.Drawing.Size(163, 65)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(483, 0)
+        Me.EmptySpaceItem2.MaxSize = New System.Drawing.Size(388, 65)
+        Me.EmptySpaceItem2.MinSize = New System.Drawing.Size(388, 65)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(546, 65)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(388, 65)
         Me.EmptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
@@ -909,10 +914,10 @@ Partial Class XfrmUsuarios
         Me.LayoutControlItem3.Control = Me.PanelControl1
         Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
         Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(325, 0)
-        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(325, 24)
+        Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(483, 65)
+        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(483, 65)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(325, 65)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(483, 65)
         Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem3.Text = "LayoutControlItem3"
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
@@ -942,10 +947,6 @@ Partial Class XfrmUsuarios
         '
         Me.TA_ROLESTableAdapter.ClearBeforeFill = True
         '
-        'IM_MOVIMIENTOSTableAdapter
-        '
-        Me.IM_MOVIMIENTOSTableAdapter.ClearBeforeFill = True
-        '
         'DT_USUARIOSTableAdapter
         '
         Me.DT_USUARIOSTableAdapter.ClearBeforeFill = True
@@ -953,6 +954,10 @@ Partial Class XfrmUsuarios
         'TA_PARTIDOS_POLITICOSTableAdapter
         '
         Me.TA_PARTIDOS_POLITICOSTableAdapter.ClearBeforeFill = True
+        '
+        'TA_MOVIMIENTOTableAdapter
+        '
+        Me.TA_MOVIMIENTOTableAdapter.ClearBeforeFill = True
         '
         'XfrmUsuarios
         '
@@ -988,7 +993,7 @@ Partial Class XfrmUsuarios
         CType(Me.PREGUNTA_SEGURIDADTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CODIGO_USUARIOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CODIGO_MOVIMIENTOSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.IMMOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TAMOVIMIENTOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ESTADOTextEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NIVELSpinEdit.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ItemForADICIONADO_POR, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1068,8 +1073,6 @@ Partial Class XfrmUsuarios
     Friend WithEvents TA_ROLESTableAdapter As Inscripcion_de_Moviemientos.DTUsersTableAdapters.TA_ROLESTableAdapter
     Friend WithEvents CODIGO_MOVIMIENTOSpinEdit As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents DSPolitico As Inscripcion_de_Moviemientos.DSPolitico
-    Friend WithEvents IMMOVIMIENTOSBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents IM_MOVIMIENTOSTableAdapter As Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.IM_MOVIMIENTOSTableAdapter
     Friend WithEvents CODIGO_PARTIDOSpinEdit As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents PREGUNTA_SEGURIDADTextEdit As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
@@ -1108,4 +1111,6 @@ Partial Class XfrmUsuarios
     Friend WithEvents BtnSalir As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents NIVELSpinEdit As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+    Friend WithEvents TAMOVIMIENTOBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents TA_MOVIMIENTOTableAdapter As Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_MOVIMIENTOTableAdapter
 End Class

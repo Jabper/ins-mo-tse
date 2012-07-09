@@ -186,6 +186,7 @@ Partial Class XfrmOperacionesPorUsuario
         Me.GridView1.OptionsView.ColumnAutoWidth = False
         Me.GridView1.OptionsView.ShowDetailButtons = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
+        Me.GridView1.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.colCODIGO_OPCION, DevExpress.Data.ColumnSortOrder.Ascending)})
         '
         'colCODIGO_OPCION
         '
@@ -308,6 +309,7 @@ Partial Class XfrmOperacionesPorUsuario
         'ChkEliminar
         '
         Me.ChkEliminar.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMOPERACIONESXUSUARIOBindingSource, "ELIMINAR", True))
+        Me.ChkEliminar.EditValue = "N"
         Me.ChkEliminar.Location = New System.Drawing.Point(255, 9)
         Me.ChkEliminar.Name = "ChkEliminar"
         Me.ChkEliminar.Properties.Caption = "Eliminar"
@@ -324,6 +326,7 @@ Partial Class XfrmOperacionesPorUsuario
         'ChkModificar
         '
         Me.ChkModificar.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMOPERACIONESXUSUARIOBindingSource, "MODIFICAR", True))
+        Me.ChkModificar.EditValue = "N"
         Me.ChkModificar.Location = New System.Drawing.Point(172, 9)
         Me.ChkModificar.Name = "ChkModificar"
         Me.ChkModificar.Properties.Caption = "Modificar"
@@ -335,6 +338,7 @@ Partial Class XfrmOperacionesPorUsuario
         'ChkInsertar
         '
         Me.ChkInsertar.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMOPERACIONESXUSUARIOBindingSource, "INSERTAR", True))
+        Me.ChkInsertar.EditValue = "N"
         Me.ChkInsertar.Location = New System.Drawing.Point(91, 9)
         Me.ChkInsertar.Name = "ChkInsertar"
         Me.ChkInsertar.Properties.Caption = "Insertar"
@@ -444,7 +448,7 @@ Partial Class XfrmOperacionesPorUsuario
         Me.CODIGO_OPCIONSpinEdit.Location = New System.Drawing.Point(52, 36)
         Me.CODIGO_OPCIONSpinEdit.Name = "CODIGO_OPCIONSpinEdit"
         Me.CODIGO_OPCIONSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.CODIGO_OPCIONSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Opción", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.Ascending)})
+        Me.CODIGO_OPCIONSpinEdit.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_OPCION", "Código", 30, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.Ascending), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Opción", 150, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.CODIGO_OPCIONSpinEdit.Properties.DataSource = Me.IMOPCIONESBindingSource
         Me.CODIGO_OPCIONSpinEdit.Properties.DisplayMember = "DESCRIPCION"
         Me.CODIGO_OPCIONSpinEdit.Properties.NullText = ""

@@ -827,15 +827,10 @@ Partial Public Class DTUsuario
             Me.columnCODIGO_OPCION.AllowDBNull = false
             Me.columnCODIGO_USUARIO.AllowDBNull = false
             Me.columnCODIGO_USUARIO.MaxLength = 10
-            Me.columnDESCRIPCION.AllowDBNull = false
             Me.columnDESCRIPCION.MaxLength = 300
-            Me.columnINSERTAR.AllowDBNull = false
             Me.columnINSERTAR.MaxLength = 1
-            Me.columnMODIFICAR.AllowDBNull = false
             Me.columnMODIFICAR.MaxLength = 1
-            Me.columnELIMINAR.AllowDBNull = false
             Me.columnELIMINAR.MaxLength = 1
-            Me.columnNOMBRE.AllowDBNull = false
             Me.columnNOMBRE.MaxLength = 100
         End Sub
         
@@ -1171,7 +1166,11 @@ Partial Public Class DTUsuario
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property DESCRIPCION() As String
             Get
-                Return CType(Me(Me.tableDT_OPERACIONES.DESCRIPCIONColumn),String)
+                Try 
+                    Return CType(Me(Me.tableDT_OPERACIONES.DESCRIPCIONColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DESCRIPCION' in table 'DT_OPERACIONES' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableDT_OPERACIONES.DESCRIPCIONColumn) = value
@@ -1181,7 +1180,11 @@ Partial Public Class DTUsuario
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property INSERTAR() As String
             Get
-                Return CType(Me(Me.tableDT_OPERACIONES.INSERTARColumn),String)
+                Try 
+                    Return CType(Me(Me.tableDT_OPERACIONES.INSERTARColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'INSERTAR' in table 'DT_OPERACIONES' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableDT_OPERACIONES.INSERTARColumn) = value
@@ -1191,7 +1194,11 @@ Partial Public Class DTUsuario
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property MODIFICAR() As String
             Get
-                Return CType(Me(Me.tableDT_OPERACIONES.MODIFICARColumn),String)
+                Try 
+                    Return CType(Me(Me.tableDT_OPERACIONES.MODIFICARColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'MODIFICAR' in table 'DT_OPERACIONES' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableDT_OPERACIONES.MODIFICARColumn) = value
@@ -1201,7 +1208,11 @@ Partial Public Class DTUsuario
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property ELIMINAR() As String
             Get
-                Return CType(Me(Me.tableDT_OPERACIONES.ELIMINARColumn),String)
+                Try 
+                    Return CType(Me(Me.tableDT_OPERACIONES.ELIMINARColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ELIMINAR' in table 'DT_OPERACIONES' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableDT_OPERACIONES.ELIMINARColumn) = value
@@ -1211,12 +1222,66 @@ Partial Public Class DTUsuario
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property NOMBRE() As String
             Get
-                Return CType(Me(Me.tableDT_OPERACIONES.NOMBREColumn),String)
+                Try 
+                    Return CType(Me(Me.tableDT_OPERACIONES.NOMBREColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'NOMBRE' in table 'DT_OPERACIONES' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableDT_OPERACIONES.NOMBREColumn) = value
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsDESCRIPCIONNull() As Boolean
+            Return Me.IsNull(Me.tableDT_OPERACIONES.DESCRIPCIONColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetDESCRIPCIONNull()
+            Me(Me.tableDT_OPERACIONES.DESCRIPCIONColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsINSERTARNull() As Boolean
+            Return Me.IsNull(Me.tableDT_OPERACIONES.INSERTARColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetINSERTARNull()
+            Me(Me.tableDT_OPERACIONES.INSERTARColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsMODIFICARNull() As Boolean
+            Return Me.IsNull(Me.tableDT_OPERACIONES.MODIFICARColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetMODIFICARNull()
+            Me(Me.tableDT_OPERACIONES.MODIFICARColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsELIMINARNull() As Boolean
+            Return Me.IsNull(Me.tableDT_OPERACIONES.ELIMINARColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetELIMINARNull()
+            Me(Me.tableDT_OPERACIONES.ELIMINARColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsNOMBRENull() As Boolean
+            Return Me.IsNull(Me.tableDT_OPERACIONES.NOMBREColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetNOMBRENull()
+            Me(Me.tableDT_OPERACIONES.NOMBREColumn) = Global.System.Convert.DBNull
+        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function GetIM_OPERACIONES_X_USUARIORows() As IM_OPERACIONES_X_USUARIORow()
@@ -2022,29 +2087,22 @@ Namespace DTUsuarioTableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        IM_OPERACIONES_X_USUARIO.CODIGO_OPCION, IM_OPERACIONES_X_USUARIO.CO"& _ 
-                "DIGO_USUARIO, IM_OPCIONES.DESCRIPCION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_OPERACIONES"& _ 
-                "_X_USUARIO.INSERTAR, IM_OPERACIONES_X_USUARIO.MODIFICAR, IM_OPERACIONES_X_USUARI"& _ 
-                "O.ELIMINAR, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_USUARIOS.NOMBRE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_OP"& _ 
-                "ERACIONES_X_USUARIO, IM_OPCIONES, IM_USUARIOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        IM_OPERACIONES_X_USU"& _ 
-                "ARIO.CODIGO_OPCION = IM_OPCIONES.CODIGO_OPCION AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM"& _ 
-                "_OPERACIONES_X_USUARIO.ADICIONADO_POR = IM_USUARIOS.CODIGO_USUARIO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
-                "                  IM_OPERACIONES_X_USUARIO.CODIGO_USUARIO = IM_USUARIOS.CODIGO_U"& _ 
-                "SUARIO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_OPCIONES.ADICIONADO_POR = IM_USUARIOS.C"& _ 
-                "ODIGO_USUARIO"
+            Me._commandCollection(0).CommandText = "SELECT        operaciones.CODIGO_OPCION, operaciones.CODIGO_USUARIO, opciones.DES"& _ 
+                "CRIPCION, operaciones.INSERTAR, operaciones.MODIFICAR, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
+                "  operaciones.ELIMINAR, usuarios.NOMBRE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_OPERACIONES_X_USUARI"& _ 
+                "O operaciones, IM_OPCIONES opciones, IM_USUARIOS usuarios"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        OPERACIO"& _ 
+                "NES.CODIGO_OPCION = OPCIONES.CODIGO_OPCION AND OPERACIONES.CODIGO_USUARIO = USUA"& _ 
+                "RIOS.CODIGO_USUARIO"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        IM_OPERACIONES_X_USUARIO.CODIGO_OPCION, IM_OPERACIONES_X_USUARIO.CO"& _ 
-                "DIGO_USUARIO, IM_OPCIONES.DESCRIPCION, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_OPERACIONES"& _ 
-                "_X_USUARIO.INSERTAR, IM_OPERACIONES_X_USUARIO.MODIFICAR, IM_OPERACIONES_X_USUARI"& _ 
-                "O.ELIMINAR, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_USUARIOS.NOMBRE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_OP"& _ 
-                "ERACIONES_X_USUARIO, IM_OPCIONES, IM_USUARIOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        IM_OPERACIONES_X_USU"& _ 
-                "ARIO.CODIGO_OPCION = IM_OPCIONES.CODIGO_OPCION AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM"& _ 
-                "_OPERACIONES_X_USUARIO.ADICIONADO_POR = IM_USUARIOS.CODIGO_USUARIO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
-                "                  IM_OPERACIONES_X_USUARIO.CODIGO_USUARIO = IM_USUARIOS.CODIGO_U"& _ 
-                "SUARIO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IM_OPCIONES.ADICIONADO_POR = IM_USUARIOS.C"& _ 
-                "ODIGO_USUARIO AND"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"IM_OPERACIONES_X_USUARIO.CODIGO_USUARIO=:us"
+            Me._commandCollection(1).CommandText = "SELECT        operaciones.CODIGO_OPCION, operaciones.CODIGO_USUARIO, opciones.DES"& _ 
+                "CRIPCION, operaciones.INSERTAR, operaciones.MODIFICAR, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
+                "  operaciones.ELIMINAR, usuarios.NOMBRE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_OPERACIONES_X_USUARI"& _ 
+                "O operaciones, IM_OPCIONES opciones, IM_USUARIOS usuarios"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        OPERACIO"& _ 
+                "NES.CODIGO_OPCION = OPCIONES.CODIGO_OPCION AND OPERACIONES.CODIGO_USUARIO = USUA"& _ 
+                "RIOS.CODIGO_USUARIO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (operaciones.CODIGO_USUARIO ="& _ 
+                " :us)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("us", Global.System.Data.OracleClient.OracleType.VarChar, 10, Global.System.Data.ParameterDirection.Input, "CODIGO_USUARIO", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub

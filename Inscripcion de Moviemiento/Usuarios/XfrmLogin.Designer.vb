@@ -32,12 +32,16 @@ Partial Class XfrmLogin
         Me.TxtPassword = New DevExpress.XtraEditors.TextEdit
         Me.Label4 = New System.Windows.Forms.Label
         Me.Button1 = New System.Windows.Forms.Button
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Label3 = New System.Windows.Forms.Label
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtUsuario.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtPassword.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox2
@@ -92,19 +96,22 @@ Partial Class XfrmLogin
         Me.PictureBox3.BackgroundImage = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.logme
         Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox3.Location = New System.Drawing.Point(322, 230)
+        Me.PictureBox3.Location = New System.Drawing.Point(329, 231)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(100, 39)
         Me.PictureBox3.TabIndex = 7
         Me.PictureBox3.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.PictureBox3, "Ingresar al Sistema")
         '
         'TxtUsuario
         '
         Me.TxtUsuario.Location = New System.Drawing.Point(249, 128)
         Me.TxtUsuario.Name = "TxtUsuario"
         Me.TxtUsuario.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.TxtUsuario.Properties.MaxLength = 10
         Me.TxtUsuario.Size = New System.Drawing.Size(146, 18)
         Me.TxtUsuario.TabIndex = 0
+        Me.TxtUsuario.ToolTipTitle = "Usuario"
         ConditionValidationRule1.CaseSensitive = True
         ConditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
         ConditionValidationRule1.ErrorText = "Valor Inválido"
@@ -118,6 +125,7 @@ Partial Class XfrmLogin
         Me.TxtPassword.Properties.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TxtPassword.Size = New System.Drawing.Size(146, 18)
         Me.TxtPassword.TabIndex = 2
+        Me.TxtPassword.ToolTipTitle = "Contraseña"
         ConditionValidationRule2.CaseSensitive = True
         ConditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
         ConditionValidationRule2.ErrorText = "Valor Inválido"
@@ -143,16 +151,41 @@ Partial Class XfrmLogin
         Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.turnoff
-        Me.Button1.Location = New System.Drawing.Point(416, 287)
+        Me.Button1.Location = New System.Drawing.Point(446, 290)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(81, 48)
+        Me.Button1.Size = New System.Drawing.Size(40, 43)
         Me.Button1.TabIndex = 12
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.ToolTip1.SetToolTip(Me.Button1, "Salir del Sistema")
         Me.Button1.UseVisualStyleBackColor = False
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox4.BackgroundImage = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.tselogop
+        Me.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox4.Location = New System.Drawing.Point(12, 287)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(83, 48)
+        Me.PictureBox4.TabIndex = 13
+        Me.PictureBox4.TabStop = False
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Label3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(87, 231)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(192, 13)
+        Me.Label3.TabIndex = 14
+        Me.Label3.Text = "¿No puedes acceder a tu cuenta?"
         '
         'XfrmLogin
         '
-        Me.Appearance.BackColor = System.Drawing.Color.Fuchsia
+        Me.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Appearance.Options.UseBackColor = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -160,6 +193,8 @@ Partial Class XfrmLogin
         Me.BackgroundImageStore = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.backlogin
         Me.ClientSize = New System.Drawing.Size(506, 342)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.PictureBox4)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.TxtPassword)
@@ -181,6 +216,7 @@ Partial Class XfrmLogin
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TxtUsuario.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TxtPassword.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -195,4 +231,7 @@ Partial Class XfrmLogin
     Friend WithEvents TxtPassword As DevExpress.XtraEditors.TextEdit
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
+    Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents Label3 As System.Windows.Forms.Label
 End Class
