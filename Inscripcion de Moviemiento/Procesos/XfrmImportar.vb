@@ -1,9 +1,10 @@
 ﻿Imports System.Data.OracleClient
+Imports System.IO
 
 Public Class XfrmImportar
-
+    Dim archivo As String
     Private Sub BtnExplorar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnExplorar.Click
-        OpenFileDialog1.ShowDialog()        
+        OpenFileDialog1.ShowDialog()
     End Sub
 
     Private Sub BtnEjecutar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEjecutar.Click
@@ -14,6 +15,7 @@ Public Class XfrmImportar
         If TxtRuta.Text = Nothing Then
             Mensajes.MensajeError("Debe seleccionar una ruta para la ubicación del archivo a Importar")
         Else
+
             Dim oradb As String = Configuracion.verconfig
             Dim conn As New OracleConnection()
             'Dim myCMD As New OracleCommand()
@@ -28,10 +30,13 @@ Public Class XfrmImportar
             Dim proceso_corriendo As String
             If chek.Read Then
                 proceso_corriendo = chek.Item("proceso_en_ejecucion")
-            End If           
+            End If
             conn.Close()
 
             If proceso_corriendo = "N" Then
+                If File.Exists("C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo) Then
+                    System.IO.File.Copy(TxtRuta.Text, "C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo, True)
+                End If
                 Try
                     Dim oradb1 As String = Configuracion.verconfig
                     Dim conn1 As New OracleConnection()
@@ -48,7 +53,8 @@ Public Class XfrmImportar
 
                     Dim startInfo As ProcessStartInfo
                     Dim pStart As New Process
-                    startInfo = New ProcessStartInfo("cmd.exe", "/C imp TSE/TSEORACLE2012@XE Buffer=5000000 File=" & TxtRuta.Text & " FROMUSER=TSE TOUSER=TSE ignore=Y TABLES=tmp_im_candidatos, TMP_IM_MOVIMIENTOS, TMP_IM_REQUISITOS_X_CANDIDATO, tmp_im_ciudadanos_respaldan, tmp_im_imagenes_firmas, tmp_im_parametros_generales")
+                    startInfo = New ProcessStartInfo("cmd.exe", "/C impdp TSE/TSEORACLE2012@XE directory=data_pump_dir dumpfile=" & archivo & " LOGFILE=imp_firmas_y_planilla.log TABLE_EXISTS_ACTION=REPLACE")
+                    'imp TSE/TSEORACLE2012@XE Buffer=5000000 File=" & TxtRuta.Text & " FROMUSER=TSE TOUSER=TSE ignore=Y TABLES=tmp_im_candidatos, TMP_IM_MOVIMIENTOS, TMP_IM_REQUISITOS_X_CANDIDATO, tmp_im_ciudadanos_respaldan, tmp_im_imagenes_firmas, tmp_im_parametros_generales")
                     pStart.StartInfo = startInfo
                     pStart.Start()
                     pStart.WaitForExit()
@@ -77,39 +83,16 @@ Public Class XfrmImportar
                             End If
                             conn7.Close()
                         Catch ex As Exception
-                            conn7.close()
+                            conn7.Close()
                             Mensajes.MensajeError(ex.Message)
                         End Try
 
-                        'Dim conn8 As New OracleConnection()
-                        'Try
-                        '    Dim oradb7 As String = Configuracion.verconfig
-
-                        '    conn8.ConnectionString = oradb7
-                        '    conn8.Open()
-                        '    Dim myCMD7 As New OracleCommand()
-                        '    myCMD7.Connection = conn8
-                        '    myCMD7.CommandText = "IM_K_CARGA_DATOS.IM_P_VALIDA_FIRMA"
-                        '    myCMD7.CommandType = CommandType.StoredProcedure
-                        '    myCMD7.Parameters.Add(New OracleParameter("P_ERROR", OracleType.NVarChar, 32767)).Direction = ParameterDirection.Output
-                        '    myCMD7.ExecuteOracleScalar()
-
-                        '    If IsDBNull(myCMD7.Parameters("P_ERROR").Value) Then
-                        '        Mensajes.mimensaje("Proceso de validación de Firmas terminado Exitosamente")
-                        '    Else
-                        '        Mensajes.MensajeError(myCMD7.Parameters("P_ERROR").Value)
-                        '    End If
-                        '    conn8.Close()
-                        'Catch ex As Exception                            
-                        '    conn8.Close()
-                        '    Mensajes.MensajeError(ex.Message)
-                        'End Try
                     Else
                         MsgBox("La Importación No se ha realizado Correctamente verifique el archivo de origen de los datos", MsgBoxStyle.Exclamation)
                     End If
 
                     Dim oradb2 As String = Configuracion.verconfig
-                    Dim conn2 As New OracleConnection()                    
+                    Dim conn2 As New OracleConnection()
                     conn2.ConnectionString = oradb2
                     conn2.Open()
 
@@ -131,6 +114,7 @@ Public Class XfrmImportar
 
     Private Sub OpenFileDialog1_FileOk(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles OpenFileDialog1.FileOk
         TxtRuta.Text = OpenFileDialog1.FileName
+        archivo = OpenFileDialog1.SafeFileName
     End Sub
 
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
@@ -150,6 +134,6 @@ Public Class XfrmImportar
         conn2.Close()
     End Sub
 
-    Private Sub XfrmImportar_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load        
+    Private Sub XfrmImportar_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
     End Sub
 End Class
