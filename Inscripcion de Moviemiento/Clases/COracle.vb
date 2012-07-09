@@ -89,7 +89,7 @@ Public Class COracle
 
 
             'Compruebo si existe el Usuario
-            Dim Ssql As String = "SELECT * FROM IM_USUARIOS WHERE CODIGO_USUARIO='" & txtusuario.Text & "' AND ESTADO='A'"
+            Dim Ssql As String = "SELECT * FROM IM_USUARIOS WHERE CODIGO_USUARIO='" & VControles.SafeSqlLikeClauseLiteral(txtusuario.Text) & "' AND ESTADO='A'"
             Dim sqdel As New OracleCommand(Ssql, cnx)
             Dim dataread As OracleDataReader = sqdel.ExecuteReader()
 
@@ -100,6 +100,7 @@ Public Class COracle
                     NombreUsuario = (.Item("NOMBRE"))
                     usuario = (.Item("CODIGO_USUARIO"))
                     NivelUsuario = (.Item("NIVEL"))
+                    RolUsuario = (.Item("CODIGO_ROL"))
                 End With
 
                 'compruebo la contraseña

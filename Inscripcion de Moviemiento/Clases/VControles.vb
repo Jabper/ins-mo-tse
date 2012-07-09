@@ -30,4 +30,14 @@ Public Class VControles
         texto.SelStart = tl
 
     End Sub
+
+
+    Public Shared Function SafeSqlLikeClauseLiteral(ByVal inputSQL As String) As String
+        Dim s As String = inputSQL
+        s = inputSQL.Replace("'", "")
+        s = s.Replace("[", "")
+        s = s.Replace("%", "")
+        s = s.Replace("=", "")
+        Return s
+    End Function
 End Class
