@@ -43,16 +43,16 @@ Public Class xfrmValidaciones
 
             Dim myCMD As New OracleCommand()
             myCMD.Connection = conn
-            myCMD.CommandText = "IM_K_CARGA_DATOS.IM_P_VALIDA_FIRMA"
+            myCMD.CommandText = "IM_K_VALIDA_FIRMAS.IM_P_VALIDA"
             myCMD.CommandType = CommandType.StoredProcedure
-            myCMD.Parameters.Add(New OracleParameter("P_ERROR", OracleType.NVarChar, 32767)).Direction = ParameterDirection.Output
+            'myCMD.Parameters.Add(New OracleParameter("P_ERROR", OracleType.NVarChar, 32767)).Direction = ParameterDirection.Output
             myCMD.ExecuteOracleScalar()
 
-            If IsDBNull(myCMD.Parameters("P_ERROR").Value) Then
-                Mensajes.mimensaje("Validaciones Corridas Exitosamente")
-            Else
-                Mensajes.MensajeError(myCMD.Parameters("P_ERROR").Value)
-            End If
+            'If IsDBNull(myCMD.Parameters("P_ERROR").Value) Then
+            '    Mensajes.mimensaje("Validaciones Corridas Exitosamente")
+            'Else
+            '    Mensajes.MensajeError(myCMD.Parameters("P_ERROR").Value)
+            'End If
             conn.Close()
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
