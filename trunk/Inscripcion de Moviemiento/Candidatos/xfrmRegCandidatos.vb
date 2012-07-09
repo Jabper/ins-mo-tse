@@ -239,7 +239,7 @@ Public Class xfrmRegCandidatos
 
                 For a = 7 To 8
                     Dim permitido As Integer
-                    If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 4 Then
+                    If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 4 Or Me.cboCargo.EditValue = 7 Then
                         permitido = 1
                     ElseIf a = 8 And (Me.cboCargo.EditValue = 4 Or Me.cboCargo.EditValue = 5 Or Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7 Or Me.cboCargo.EditValue = 8) Then
                         permitido = 1
@@ -318,7 +318,13 @@ Public Class xfrmRegCandidatos
                                 End If
                             ElseIf a = 7 Then
                                 If IsDBNull(view.GetRowCellValue(i, "IMAGEN")) Or view.GetRowCellValue(i, "IMAGEN") Is Nothing Then
-                                    estado_requisito = "I"
+
+                                    If Me.cboCargo.EditValue = 7 Then
+                                        estado_requisito = "C"
+                                    Else
+                                        estado_requisito = "I"
+                                    End If
+
                                 Else
                                     .IMAGEN = view.GetRowCellValue(i, "IMAGEN")
                                     estado_requisito = "C"
@@ -710,11 +716,16 @@ Public Class xfrmRegCandidatos
                 End If
                 'guardar requisito el valor de vestado
                 conn.Close()
-            ElseIf requisito = 7 And (Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 4 Or Me.cboCargo.EditValue = 6) Then
+            ElseIf requisito = 7 And (Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 4 Or Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7) Then
                 If IsDBNull(view.GetRowCellValue(fila, "IMAGEN")) Or view.GetRowCellValue(fila, "IMAGEN") Is Nothing Then
-                    estado_requisto = "I"
-                    contadorInconsistencias += 1
-                    contadorrequisitos += 1
+                    If Me.cboCargo.EditValue = 7 Then
+                        estado_requisto = "C"
+                    Else
+                        estado_requisto = "I"
+                        contadorInconsistencias += 1
+                        contadorrequisitos += 1
+                    End If
+                    
                 Else
                     contadorrequisitos += 1
                     estado_requisto = "C"
