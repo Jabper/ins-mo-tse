@@ -1,4 +1,5 @@
 ﻿Imports DevExpress.XtraEditors
+Imports DevExpress.XtraGrid.Views.Grid
 
 Public Class XfrmOperacionesPorUsuario
     Dim actualizar As Boolean = False
@@ -12,8 +13,8 @@ Public Class XfrmOperacionesPorUsuario
         'TODO: This line of code loads data into the 'DTUsers.IM_USUARIOS' table. You can move, or remove it, as needed.
         Me.IM_USUARIOSTableAdapter.Fill(Me.DTUsers.IM_USUARIOS)
         'TODO: This line of code loads data into the 'DTUsuario.IM_OPERACIONES_X_USUARIO' table. You can move, or remove it, as needed.
-        Me.IM_OPERACIONES_X_USUARIOTableAdapter.Fill(Me.DTUsuario.IM_OPERACIONES_X_USUARIO)
-        Me.DT_OPERACIONESTableAdapter.FillBy(Me.DTUsuario.DT_OPERACIONES, "Null")
+        'Me.IM_OPERACIONES_X_USUARIOTableAdapter.Fill(Me.DTUsuario.IM_OPERACIONES_X_USUARIO)
+        'Me.DT_OPERACIONESTableAdapter.Fill(Me.DTUsuario.DT_OPERACIONES)
         Me.IMOPERACIONESXUSUARIOBindingSource.AddNew()
 
         Me.ChkInsertar.Checked = False
@@ -82,11 +83,12 @@ Public Class XfrmOperacionesPorUsuario
         Try
 
             'SE LE ASIGNA A UNA VARIABLE EL VALOR DE LA CELDA QUE SE DESEA
-            idcodigo = Data.CapturarDatoGrid(Me.GridView1, 0)
-            iduser = Data.CapturarDatoGrid(Me.GridView1, 1)
+            Dim view As GridView = GridView1
+            idcodigo = view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_OPCION") 'Data.CapturarDatoGrid(Me.GridView1, 0)
+            iduser = view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_USUARIO") 'Data.CapturarDatoGrid(Me.GridView1, 1)
             'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
 
-            Me.IM_OPERACIONES_X_USUARIOTableAdapter.FillBy(DTUsuario.IM_OPERACIONES_X_USUARIO, CType(idcodigo, Integer), iduser)
+            Me.IM_OPERACIONES_X_USUARIOTableAdapter.FillBy(DTUsuario.IM_OPERACIONES_X_USUARIO, idcodigo, iduser)
             actualizar = True
             BtnEliminar.Enabled = True
 
@@ -99,10 +101,9 @@ Public Class XfrmOperacionesPorUsuario
         Me.DT_OPERACIONESTableAdapter.FillBy(Me.DTUsuario.DT_OPERACIONES, Me.CODIGO_USUARIOTextEdit.EditValue)
     End Sub
 
-    
+
 
     Private Sub CODIGO_USUARIOTextEdit_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CODIGO_USUARIOTextEdit.TextChanged
-        Me.DT_OPERACIONESTableAdapter.FillBy(Me.DTUsuario.DT_OPERACIONES, Me.CODIGO_USUARIOTextEdit.EditValue)
     End Sub
 
     Private Sub GridView1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.DoubleClick
@@ -127,7 +128,7 @@ Public Class XfrmOperacionesPorUsuario
         Catch ex As Exception
             Mensajes.mimensaje(ex.Message)
         End Try
-        
+
     End Sub
 
     Private Sub BtnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click
@@ -137,17 +138,21 @@ Public Class XfrmOperacionesPorUsuario
         If XtraMessageBox.Show("¿Desea Eliminar el Registro Seleccionado?", "Mensaje de Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
             Try
 
+                Dim view As GridView = GridView1
+                'idcodigo = view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_OPCION") 'Data.CapturarDatoGrid(Me.GridView1, 0)
+                'iduser = view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_USUARIO") 'Data.CapturarDatoGrid(Me.GridView1, 1)
 
                 'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
-                Me.IM_OPERACIONES_X_USUARIOTableAdapter.FillBy(DTUsuario.IM_OPERACIONES_X_USUARIO, CType(idcodigo, Integer), iduser)
+                'Me.IM_OPERACIONES_X_USUARIOTableAdapter.FillBy(DTUsuario.IM_OPERACIONES_X_USUARIO, CType(idcodigo, Integer), iduser)
                 Dim Drow As DTUsuario.IM_OPERACIONES_X_USUARIORow
 
-                Drow = DTUsuario.IM_OPERACIONES_X_USUARIO.FindByCODIGO_OPCIONCODIGO_USUARIO(CType(idcodigo, Integer), iduser)
+                Drow = DTUsuario.IM_OPERACIONES_X_USUARIO.FindByCODIGO_OPCIONCODIGO_USUARIO(Me.CODIGO_OPCIONSpinEdit.EditValue, Me.CODIGO_USUARIOTextEdit.EditValue)
 
                 Drow.Delete()
 
                 Me.IM_OPERACIONES_X_USUARIOTableAdapter.Update(Me.DTUsuario.IM_OPERACIONES_X_USUARIO)
-                ActualizarGrid()
+                Me.DT_OPERACIONESTableAdapter.Fill(Me.DTUsuario.DT_OPERACIONES)
+
                 Mensajes.MensajeEliminar()
                 Me.IMOPERACIONESXUSUARIOBindingSource.AddNew()
                 Me.BtnEliminar.Enabled = False
@@ -165,5 +170,10 @@ Public Class XfrmOperacionesPorUsuario
 
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
         Me.Close()
+    End Sub
+
+    Private Sub CODIGO_USUARIOTextEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_USUARIOTextEdit.EditValueChanged
+        Me.DT_OPERACIONESTableAdapter.FillBy(Me.DTUsuario.DT_OPERACIONES, Me.CODIGO_USUARIOTextEdit.EditValue)
+
     End Sub
 End Class

@@ -149,6 +149,7 @@ Partial Class fmOpcion
         Me.GridView1.OptionsBehavior.Editable = False
         Me.GridView1.OptionsView.ShowDetailButtons = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
+        Me.GridView1.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.colCODIGO_OPCION, DevExpress.Data.ColumnSortOrder.Ascending)})
         '
         'colCODIGO_OPCION
         '

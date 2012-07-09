@@ -108,17 +108,13 @@ FROM            IM_OPERACIONES_X_USUARIO</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DT_OPERACIONESTableAdapter" GeneratorDataComponentClassName="DT_OPERACIONESTableAdapter" Name="DT_OPERACIONES" UserDataComponentName="DT_OPERACIONESTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        IM_OPERACIONES_X_USUARIO.CODIGO_OPCION, IM_OPERACIONES_X_USUARIO.CODIGO_USUARIO, IM_OPCIONES.DESCRIPCION, 
-                         IM_OPERACIONES_X_USUARIO.INSERTAR, IM_OPERACIONES_X_USUARIO.MODIFICAR, IM_OPERACIONES_X_USUARIO.ELIMINAR, 
-                         IM_USUARIOS.NOMBRE
-FROM            IM_OPERACIONES_X_USUARIO, IM_OPCIONES, IM_USUARIOS
-WHERE        IM_OPERACIONES_X_USUARIO.CODIGO_OPCION = IM_OPCIONES.CODIGO_OPCION AND 
-                         IM_OPERACIONES_X_USUARIO.ADICIONADO_POR = IM_USUARIOS.CODIGO_USUARIO AND 
-                         IM_OPERACIONES_X_USUARIO.CODIGO_USUARIO = IM_USUARIOS.CODIGO_USUARIO AND 
-                         IM_OPCIONES.ADICIONADO_POR = IM_USUARIOS.CODIGO_USUARIO</CommandText>
+                    <CommandText>SELECT        operaciones.CODIGO_OPCION, operaciones.CODIGO_USUARIO, opciones.DESCRIPCION, operaciones.INSERTAR, operaciones.MODIFICAR, 
+                         operaciones.ELIMINAR, usuarios.NOMBRE
+FROM            IM_OPERACIONES_X_USUARIO operaciones, IM_OPCIONES opciones, IM_USUARIOS usuarios
+WHERE        OPERACIONES.CODIGO_OPCION = OPCIONES.CODIGO_OPCION AND OPERACIONES.CODIGO_USUARIO = USUARIOS.CODIGO_USUARIO</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -137,15 +133,11 @@ WHERE        IM_OPERACIONES_X_USUARIO.CODIGO_OPCION = IM_OPCIONES.CODIGO_OPCION 
               <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        IM_OPERACIONES_X_USUARIO.CODIGO_OPCION, IM_OPERACIONES_X_USUARIO.CODIGO_USUARIO, IM_OPCIONES.DESCRIPCION, 
-                         IM_OPERACIONES_X_USUARIO.INSERTAR, IM_OPERACIONES_X_USUARIO.MODIFICAR, IM_OPERACIONES_X_USUARIO.ELIMINAR, 
-                         IM_USUARIOS.NOMBRE
-FROM            IM_OPERACIONES_X_USUARIO, IM_OPCIONES, IM_USUARIOS
-WHERE        IM_OPERACIONES_X_USUARIO.CODIGO_OPCION = IM_OPCIONES.CODIGO_OPCION AND 
-                         IM_OPERACIONES_X_USUARIO.ADICIONADO_POR = IM_USUARIOS.CODIGO_USUARIO AND 
-                         IM_OPERACIONES_X_USUARIO.CODIGO_USUARIO = IM_USUARIOS.CODIGO_USUARIO AND 
-                         IM_OPCIONES.ADICIONADO_POR = IM_USUARIOS.CODIGO_USUARIO AND
-IM_OPERACIONES_X_USUARIO.CODIGO_USUARIO=:us</CommandText>
+                    <CommandText>SELECT        operaciones.CODIGO_OPCION, operaciones.CODIGO_USUARIO, opciones.DESCRIPCION, operaciones.INSERTAR, operaciones.MODIFICAR, 
+                         operaciones.ELIMINAR, usuarios.NOMBRE
+FROM            IM_OPERACIONES_X_USUARIO operaciones, IM_OPCIONES opciones, IM_USUARIOS usuarios
+WHERE        OPERACIONES.CODIGO_OPCION = OPCIONES.CODIGO_OPCION AND OPERACIONES.CODIGO_USUARIO = USUARIOS.CODIGO_USUARIO AND 
+                         (operaciones.CODIGO_USUARIO = :us)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="us" ColumnName="CODIGO_USUARIO" DataSourceName="TSE.IM_OPERACIONES_X_USUARIO" DataTypeServer="VARCHAR2(10)" DbType="AnsiString" Direction="Input" ParameterName="us" Precision="0" ProviderType="VarChar" Scale="0" Size="10" SourceColumn="CODIGO_USUARIO" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
@@ -165,94 +157,94 @@ IM_OPERACIONES_X_USUARIO.CODIGO_USUARIO=:us</CommandText>
         <xs:element name="IM_OPERACIONES_X_USUARIO" msprop:Generator_UserTableName="IM_OPERACIONES_X_USUARIO" msprop:Generator_RowDeletedName="IM_OPERACIONES_X_USUARIORowDeleted" msprop:Generator_RowChangedName="IM_OPERACIONES_X_USUARIORowChanged" msprop:Generator_RowClassName="IM_OPERACIONES_X_USUARIORow" msprop:Generator_RowChangingName="IM_OPERACIONES_X_USUARIORowChanging" msprop:Generator_RowEvArgName="IM_OPERACIONES_X_USUARIORowChangeEvent" msprop:Generator_RowEvHandlerName="IM_OPERACIONES_X_USUARIORowChangeEventHandler" msprop:Generator_TableClassName="IM_OPERACIONES_X_USUARIODataTable" msprop:Generator_TableVarName="tableIM_OPERACIONES_X_USUARIO" msprop:Generator_RowDeletingName="IM_OPERACIONES_X_USUARIORowDeleting" msprop:Generator_TablePropName="IM_OPERACIONES_X_USUARIO">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CODIGO_OPCION" msprop:Generator_UserColumnName="CODIGO_OPCION" msprop:Generator_ColumnPropNameInRow="CODIGO_OPCION" msprop:Generator_ColumnVarNameInTable="columnCODIGO_OPCION" msprop:Generator_ColumnPropNameInTable="CODIGO_OPCIONColumn" type="xs:decimal" />
-              <xs:element name="CODIGO_USUARIO" msprop:Generator_UserColumnName="CODIGO_USUARIO" msprop:Generator_ColumnPropNameInRow="CODIGO_USUARIO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_USUARIO" msprop:Generator_ColumnPropNameInTable="CODIGO_USUARIOColumn">
+              <xs:element name="CODIGO_OPCION" msprop:Generator_UserColumnName="CODIGO_OPCION" msprop:Generator_ColumnVarNameInTable="columnCODIGO_OPCION" msprop:Generator_ColumnPropNameInRow="CODIGO_OPCION" msprop:Generator_ColumnPropNameInTable="CODIGO_OPCIONColumn" type="xs:decimal" />
+              <xs:element name="CODIGO_USUARIO" msprop:Generator_UserColumnName="CODIGO_USUARIO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_USUARIO" msprop:Generator_ColumnPropNameInRow="CODIGO_USUARIO" msprop:Generator_ColumnPropNameInTable="CODIGO_USUARIOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="INSERTAR" msprop:Generator_UserColumnName="INSERTAR" msprop:Generator_ColumnPropNameInRow="INSERTAR" msprop:Generator_ColumnVarNameInTable="columnINSERTAR" msprop:Generator_ColumnPropNameInTable="INSERTARColumn">
+              <xs:element name="INSERTAR" msprop:Generator_UserColumnName="INSERTAR" msprop:Generator_ColumnVarNameInTable="columnINSERTAR" msprop:Generator_ColumnPropNameInRow="INSERTAR" msprop:Generator_ColumnPropNameInTable="INSERTARColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MODIFICAR" msprop:Generator_UserColumnName="MODIFICAR" msprop:Generator_ColumnPropNameInRow="MODIFICAR" msprop:Generator_ColumnVarNameInTable="columnMODIFICAR" msprop:Generator_ColumnPropNameInTable="MODIFICARColumn">
+              <xs:element name="MODIFICAR" msprop:Generator_UserColumnName="MODIFICAR" msprop:Generator_ColumnVarNameInTable="columnMODIFICAR" msprop:Generator_ColumnPropNameInRow="MODIFICAR" msprop:Generator_ColumnPropNameInTable="MODIFICARColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ELIMINAR" msprop:Generator_UserColumnName="ELIMINAR" msprop:Generator_ColumnPropNameInRow="ELIMINAR" msprop:Generator_ColumnVarNameInTable="columnELIMINAR" msprop:Generator_ColumnPropNameInTable="ELIMINARColumn">
+              <xs:element name="ELIMINAR" msprop:Generator_UserColumnName="ELIMINAR" msprop:Generator_ColumnVarNameInTable="columnELIMINAR" msprop:Generator_ColumnPropNameInRow="ELIMINAR" msprop:Generator_ColumnPropNameInTable="ELIMINARColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ADICIONADO_POR" msprop:Generator_UserColumnName="ADICIONADO_POR" msprop:Generator_ColumnPropNameInRow="ADICIONADO_POR" msprop:Generator_ColumnVarNameInTable="columnADICIONADO_POR" msprop:Generator_ColumnPropNameInTable="ADICIONADO_PORColumn" minOccurs="0">
+              <xs:element name="ADICIONADO_POR" msprop:Generator_UserColumnName="ADICIONADO_POR" msprop:Generator_ColumnVarNameInTable="columnADICIONADO_POR" msprop:Generator_ColumnPropNameInRow="ADICIONADO_POR" msprop:Generator_ColumnPropNameInTable="ADICIONADO_PORColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FECHA_ADICION" msprop:Generator_UserColumnName="FECHA_ADICION" msprop:Generator_ColumnPropNameInRow="FECHA_ADICION" msprop:Generator_ColumnVarNameInTable="columnFECHA_ADICION" msprop:Generator_ColumnPropNameInTable="FECHA_ADICIONColumn" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="MODIFICADO_POR" msprop:Generator_UserColumnName="MODIFICADO_POR" msprop:Generator_ColumnPropNameInRow="MODIFICADO_POR" msprop:Generator_ColumnVarNameInTable="columnMODIFICADO_POR" msprop:Generator_ColumnPropNameInTable="MODIFICADO_PORColumn" minOccurs="0">
+              <xs:element name="FECHA_ADICION" msprop:Generator_UserColumnName="FECHA_ADICION" msprop:Generator_ColumnVarNameInTable="columnFECHA_ADICION" msprop:Generator_ColumnPropNameInRow="FECHA_ADICION" msprop:Generator_ColumnPropNameInTable="FECHA_ADICIONColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="MODIFICADO_POR" msprop:Generator_UserColumnName="MODIFICADO_POR" msprop:Generator_ColumnVarNameInTable="columnMODIFICADO_POR" msprop:Generator_ColumnPropNameInRow="MODIFICADO_POR" msprop:Generator_ColumnPropNameInTable="MODIFICADO_PORColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FECHA_MODIFICACION" msprop:Generator_UserColumnName="FECHA_MODIFICACION" msprop:Generator_ColumnPropNameInRow="FECHA_MODIFICACION" msprop:Generator_ColumnVarNameInTable="columnFECHA_MODIFICACION" msprop:Generator_ColumnPropNameInTable="FECHA_MODIFICACIONColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FECHA_MODIFICACION" msprop:Generator_UserColumnName="FECHA_MODIFICACION" msprop:Generator_ColumnVarNameInTable="columnFECHA_MODIFICACION" msprop:Generator_ColumnPropNameInRow="FECHA_MODIFICACION" msprop:Generator_ColumnPropNameInTable="FECHA_MODIFICACIONColumn" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
         <xs:element name="DT_OPERACIONES" msprop:Generator_UserTableName="DT_OPERACIONES" msprop:Generator_RowDeletedName="DT_OPERACIONESRowDeleted" msprop:Generator_RowChangedName="DT_OPERACIONESRowChanged" msprop:Generator_RowClassName="DT_OPERACIONESRow" msprop:Generator_RowChangingName="DT_OPERACIONESRowChanging" msprop:Generator_RowEvArgName="DT_OPERACIONESRowChangeEvent" msprop:Generator_RowEvHandlerName="DT_OPERACIONESRowChangeEventHandler" msprop:Generator_TableClassName="DT_OPERACIONESDataTable" msprop:Generator_TableVarName="tableDT_OPERACIONES" msprop:Generator_RowDeletingName="DT_OPERACIONESRowDeleting" msprop:Generator_TablePropName="DT_OPERACIONES">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CODIGO_OPCION" msprop:Generator_UserColumnName="CODIGO_OPCION" msprop:Generator_ColumnPropNameInRow="CODIGO_OPCION" msprop:Generator_ColumnVarNameInTable="columnCODIGO_OPCION" msprop:Generator_ColumnPropNameInTable="CODIGO_OPCIONColumn" type="xs:decimal" />
-              <xs:element name="CODIGO_USUARIO" msprop:Generator_UserColumnName="CODIGO_USUARIO" msprop:Generator_ColumnPropNameInRow="CODIGO_USUARIO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_USUARIO" msprop:Generator_ColumnPropNameInTable="CODIGO_USUARIOColumn">
+              <xs:element name="CODIGO_OPCION" msprop:Generator_UserColumnName="CODIGO_OPCION" msprop:Generator_ColumnVarNameInTable="columnCODIGO_OPCION" msprop:Generator_ColumnPropNameInRow="CODIGO_OPCION" msprop:Generator_ColumnPropNameInTable="CODIGO_OPCIONColumn" type="xs:decimal" />
+              <xs:element name="CODIGO_USUARIO" msprop:Generator_UserColumnName="CODIGO_USUARIO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_USUARIO" msprop:Generator_ColumnPropNameInRow="CODIGO_USUARIO" msprop:Generator_ColumnPropNameInTable="CODIGO_USUARIOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DESCRIPCION" msprop:Generator_UserColumnName="DESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn">
+              <xs:element name="DESCRIPCION" msprop:Generator_UserColumnName="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="300" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="INSERTAR" msprop:Generator_UserColumnName="INSERTAR" msprop:Generator_ColumnPropNameInRow="INSERTAR" msprop:Generator_ColumnVarNameInTable="columnINSERTAR" msprop:Generator_ColumnPropNameInTable="INSERTARColumn">
+              <xs:element name="INSERTAR" msprop:Generator_UserColumnName="INSERTAR" msprop:Generator_ColumnVarNameInTable="columnINSERTAR" msprop:Generator_ColumnPropNameInRow="INSERTAR" msprop:Generator_ColumnPropNameInTable="INSERTARColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MODIFICAR" msprop:Generator_UserColumnName="MODIFICAR" msprop:Generator_ColumnPropNameInRow="MODIFICAR" msprop:Generator_ColumnVarNameInTable="columnMODIFICAR" msprop:Generator_ColumnPropNameInTable="MODIFICARColumn">
+              <xs:element name="MODIFICAR" msprop:Generator_UserColumnName="MODIFICAR" msprop:Generator_ColumnVarNameInTable="columnMODIFICAR" msprop:Generator_ColumnPropNameInRow="MODIFICAR" msprop:Generator_ColumnPropNameInTable="MODIFICARColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ELIMINAR" msprop:Generator_UserColumnName="ELIMINAR" msprop:Generator_ColumnPropNameInRow="ELIMINAR" msprop:Generator_ColumnVarNameInTable="columnELIMINAR" msprop:Generator_ColumnPropNameInTable="ELIMINARColumn">
+              <xs:element name="ELIMINAR" msprop:Generator_UserColumnName="ELIMINAR" msprop:Generator_ColumnVarNameInTable="columnELIMINAR" msprop:Generator_ColumnPropNameInRow="ELIMINAR" msprop:Generator_ColumnPropNameInTable="ELIMINARColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn">
+              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />

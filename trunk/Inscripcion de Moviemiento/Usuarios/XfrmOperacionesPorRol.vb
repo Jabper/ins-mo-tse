@@ -16,7 +16,7 @@ Public Class XfrmOperacionesPorRol
         'TODO: This line of code loads data into the 'DTUsers.IM_OPERACIONES_POR_ROL' table. You can move, or remove it, as needed.
         Me.IM_OPERACIONES_POR_ROLTableAdapter.Fill(Me.DTUsers.IM_OPERACIONES_POR_ROL)
         Me.IMOPERACIONESPORROLBindingSource.AddNew()
-        Me.DT_OPCIONES_X_ROLTableAdapter.FillBy(Me.DTUsers.DT_OPCIONES_X_ROL, 0)
+        Me.DT_OPCIONES_X_ROLTableAdapter.Fill(Me.DTUsers.DT_OPCIONES_X_ROL)
 
         Me.ChkInsertar.Checked = False
         Me.ChkModificar.Checked = False
@@ -121,15 +121,21 @@ Public Class XfrmOperacionesPorRol
 
 
                 'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
-                Me.IM_OPERACIONES_POR_ROLTableAdapter.FillBy(DTUsers.IM_OPERACIONES_POR_ROL, idop, idrol)
+                'Me.IM_OPERACIONES_POR_ROLTableAdapter.FillBy(DTUsers.IM_OPERACIONES_POR_ROL, idop, idrol)
+
                 Dim Drow As DTUsers.IM_OPERACIONES_POR_ROLRow
 
-                Drow = DTUsers.IM_OPERACIONES_POR_ROL.FindByCODIGO_OPCIONCODIGO_ROL(idop, idrol)
+                Drow = DTUsers.IM_OPERACIONES_POR_ROL.FindByCODIGO_OPCIONCODIGO_ROL(Me.CODIGO_OPCIONSpinEdit.EditValue, Me.CODIGO_ROLSpinEdit.EditValue)
 
                 Drow.Delete()
 
                 Me.IM_OPERACIONES_POR_ROLTableAdapter.Update(Me.DTUsers.IM_OPERACIONES_POR_ROL)
-                ActualizarGrid()
+                Try
+                    Me.DT_OPCIONES_X_ROLTableAdapter.Fill(Me.DTUsers.DT_OPCIONES_X_ROL)
+                Catch ex As Exception
+
+                End Try
+                'ActualizarGrid()
                 Mensajes.MensajeEliminar()
                 Me.IMOPERACIONESPORROLBindingSource.AddNew()
                 Me.BtnEliminar.Enabled = False

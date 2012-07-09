@@ -28,7 +28,9 @@ Public Class XfrmLogin
                 Me.TxtUsuario.Text = Nothing
                 Me.TxtUsuario.Text = Nothing
                 XFrmMenuPrincipal.TxtUser.Caption = NombreUsuario
+                XFrmMenuPrincipal.verificar_permisos()
                 XFrmMenuPrincipal.Visible = True
+
                 XFrmMenuPrincipal.Focus()
                 Me.Close()
             Else
@@ -76,6 +78,11 @@ Public Class XfrmLogin
 
 
     Private Sub XfrmLogin_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        If VControles.ComprobarFormAbierto(XfrmConfigurar) Then
+
+            XfrmConfigurar.Close()
+        End If
+        Me.Focus()
         Me.TxtUsuario.Focus()
 
     End Sub
@@ -109,5 +116,17 @@ Public Class XfrmLogin
         End If
 
 
+    End Sub
+
+    Private Sub Label3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label3.Click
+        XfrmRecuperarPass.Show()
+    End Sub
+
+    Private Sub Label3_MouseHover(ByVal sender As Object, ByVal e As System.EventArgs) Handles Label3.MouseHover
+        Me.Label3.ForeColor = Color.Blue
+    End Sub
+
+    Private Sub Label3_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Label3.MouseLeave
+        Me.Label3.ForeColor = Color.White
     End Sub
 End Class

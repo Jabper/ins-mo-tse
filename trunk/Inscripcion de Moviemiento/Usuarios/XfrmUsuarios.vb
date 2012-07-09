@@ -1,26 +1,38 @@
 ﻿Imports DevExpress.Utils
 Imports System.Threading
+Imports System.Data.OracleClient
 
 Public Class XfrmUsuarios
     Dim actualizar As Boolean = False
     Private Sub XfrmUsuarios_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.GotFocus
         'Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
-        Me.TA_ROLESTableAdapter.Fill(Me.DTUsers.TA_ROLES)
-        Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
-    End Sub
+     End Sub
 
     Private Sub XfrmUsuarios_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DSPolitico.TA_MOVIMIENTO' table. You can move, or remove it, as needed.
+
         '******************************************
         ActualizarGrid()
 
         'Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
         'TODO: This line of code loads data into the 'DSPolitico.IM_MOVIMIENTOS' table. You can move, or remove it, as needed.
+        If RolUsuario = "1" Then
+            Me.TA_ROLESTableAdapter.Fill(Me.DTUsers.TA_ROLES)
+        ElseIf RolUsuario = "2" Then
+            Me.TA_ROLESTableAdapter.FillBy(Me.DTUsers.TA_ROLES)
+        ElseIf RolUsuario = "3" Then
+            Me.TA_ROLESTableAdapter.FillBy1(Me.DTUsers.TA_ROLES)
+
+        End If
+
+
+        Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
 
         PreguntasDeSeguridad()
         niveles()
         Me.IMUSUARIOSBindingSource.AddNew()
         '*******************************************
-       
+
         ESTADOTextEdit.Checked = False
         If COracle.credenciales("BtnUsuarios", "MODIFICAR") = "N" And COracle.credenciales("BtnUsuarios", "INSERTAR") = "N" Then
             DxControls.ObtenerCredencial("BtnUsuarios", "MODIFICAR", Me.BtnGuardar)
@@ -38,8 +50,8 @@ Public Class XfrmUsuarios
         tbl.Rows.Add(1, "¿Nombre de mi mascosta?")
         tbl.Rows.Add(2, "¿Lugar de Nacimiento?")
         tbl.Rows.Add(3, "¿Color Favorito?")
-        tbl.Rows.Add(4, "¿Lugar de nacimiento?")
-        tbl.Rows.Add(5, "¿Lugar de nacimiento?")
+        tbl.Rows.Add(4, "¿Nombre de mi abuela materna?")
+        tbl.Rows.Add(5, "¿Nombre de mi amigo de la infancia?")
         'SE ENLAZA EL DATATABLE CREADO PARA MOSTRARLO EN EL CONTROL
         With PREGUNTA_SEGURIDADTextEdit
             .Properties.DataSource = tbl
@@ -74,7 +86,7 @@ Public Class XfrmUsuarios
                 tblniveles.Rows.Add(3, "3")
 
         End Select
-        
+
         'SE ENLAZA EL DATATABLE CREADO PARA MOSTRARLO EN EL CONTROL
         With NIVELSpinEdit
             .Properties.DataSource = tblniveles
@@ -103,41 +115,48 @@ Public Class XfrmUsuarios
     End Sub
 
     Sub guardar()
-        Try
-            Me.IMUSUARIOSBindingSource.EndEdit()
+        If COracle.ObtenerDatos("select * from IM_PADRON_ELECTORAL WHERE NUMERO_IDENTIDAD='" & Me.IDENTIDADTextEdit.Text & "'", "NUMERO_IDENTIDAD") <> "N" Then
 
-            'AGREGAR INFORMACION DE AUDITORIA (MODIFICA EL REGISTRO ANTES DE AGREGARLO A LA BASE )
-            For Each _datar As DTUsers.IM_USUARIOSRow In DTUsers.IM_USUARIOS
-                'SI ES UN NUEVO REGITRO
-                If _datar.RowState = DataRowState.Added Then
-                    _datar.ADICIONADO_POR = usuario
-                    _datar.FECHA_ADICION = DateTime.Now
-                    'SI EL REGISTRO SE MODIFICA
-                ElseIf _datar.RowState = DataRowState.Modified Then
-                    _datar.MODIFICADO_POR = usuario
-                    _datar.FECHA_MODIFICACION = DateTime.Now
+
+            Try
+                Me.IMUSUARIOSBindingSource.EndEdit()
+
+                'AGREGAR INFORMACION DE AUDITORIA (MODIFICA EL REGISTRO ANTES DE AGREGARLO A LA BASE )
+                For Each _datar As DTUsers.IM_USUARIOSRow In DTUsers.IM_USUARIOS
+                    'SI ES UN NUEVO REGITRO
+                    If _datar.RowState = DataRowState.Added Then
+                        _datar.ADICIONADO_POR = usuario
+                        _datar.FECHA_ADICION = DateTime.Now
+                        'SI EL REGISTRO SE MODIFICA
+                    ElseIf _datar.RowState = DataRowState.Modified Then
+                        _datar.MODIFICADO_POR = usuario
+                        _datar.FECHA_MODIFICACION = DateTime.Now
+                    End If
+                Next
+
+                'AGREGANDO LA INFORMACION A LA BASE DE DATOS
+                Me.IM_USUARIOSTableAdapter.Update(Me.DTUsers.IM_USUARIOS)
+
+
+                'ACTUALIZANDO EL GRID DE BUSQUEDA Y EDICION
+                ActualizarGrid()
+
+
+                If actualizar = True Then
+                    Mensajes.MensajeActualizar()
+                    actualizar = False
+                Else
+                    asignarroles()
+                    Mensajes.MensajeGuardar()
                 End If
-            Next
-
-            'AGREGANDO LA INFORMACION A LA BASE DE DATOS
-            Me.IM_USUARIOSTableAdapter.Update(Me.DTUsers.IM_USUARIOS)
-
-
-            'ACTUALIZANDO EL GRID DE BUSQUEDA Y EDICION
-            ActualizarGrid()
-
-
-            If actualizar = True Then
-                Mensajes.MensajeActualizar()
-                actualizar = False
-            Else
-                Mensajes.MensajeGuardar()
-            End If
-            Me.IMUSUARIOSBindingSource.AddNew()
-        Catch ex As Exception
-            'CONTROL DE ERRORES
-            Mensajes.MensajeError(ex.Message)
-        End Try
+                Me.IMUSUARIOSBindingSource.AddNew()
+            Catch ex As Exception
+                'CONTROL DE ERRORES
+                Mensajes.MensajeError(ex.Message)
+            End Try
+        Else
+            Mensajes.mimensaje("El número de Identidad Ingresado es incorrecto o no existe")
+        End If
     End Sub
     Sub MostrarDatos()
         Try
@@ -155,6 +174,7 @@ Public Class XfrmUsuarios
     End Sub
 
     Sub ActualizarGrid()
+
         Select Case NivelUsuario
             Case 3
                 Me.DT_USUARIOSTableAdapter.Nivel3(Me.DTUsers.DT_USUARIOS)
@@ -167,7 +187,11 @@ Public Class XfrmUsuarios
     End Sub
 
     Private Sub CODIGO_PARTIDOSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_PARTIDOSpinEdit.EditValueChanged
-       
+        Try
+            Me.TA_MOVIMIENTOTableAdapter.FillBy1(Me.DSPolitico.TA_MOVIMIENTO, Me.CODIGO_PARTIDOSpinEdit.EditValue)
+        Catch ex As Exception
+
+        End Try
     End Sub
 
 
@@ -192,7 +216,7 @@ Public Class XfrmUsuarios
         MostrarDatos()
     End Sub
 
-  
+
     Private Sub CODIGO_USUARIOSpinEdit_InvalidValue(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs) Handles CODIGO_USUARIOSpinEdit.InvalidValue
         e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction
     End Sub
@@ -207,11 +231,49 @@ Public Class XfrmUsuarios
     End Sub
 
     Private Sub CODIGO_PARTIDOSpinEdit_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CODIGO_PARTIDOSpinEdit.TextChanged
-        Try
-            Me.IM_MOVIMIENTOSTableAdapter.FillBy2(Me.DSPolitico.IM_MOVIMIENTOS, Me.CODIGO_PARTIDOSpinEdit.EditValue)
+       
+    End Sub
 
+
+    Sub asignarroles()
+        Try
+            Dim cnx As New OracleConnection(Configuracion.verconfig)
+
+            cnx.Open()
+            Dim myCMD As New OracleCommand()
+            myCMD.Connection = cnx
+            myCMD.CommandText = "IM_P_OPERACIONES_X_USUARIO"
+            myCMD.CommandType = CommandType.StoredProcedure
+            myCMD.Parameters.Add(New OracleParameter("pni_rol", OracleType.Number, ParameterDirection.Input)).Value = CODIGO_ROLSpinEdit.EditValue
+            myCMD.Parameters.Add(New OracleParameter("pvi_usuario", OracleType.NVarChar, 32767, ParameterDirection.Input)).Value = CODIGO_USUARIOSpinEdit.Text
+            myCMD.Parameters.Add(New OracleParameter("pvi_usuario_creador", OracleType.NVarChar, 32767, ParameterDirection.Input)).Value = usuario
+            myCMD.Parameters.Add(New OracleParameter("pvo_mensaje", OracleType.NVarChar, 32767)).Direction = ParameterDirection.Output
+            myCMD.ExecuteOracleScalar()
+            If CType(myCMD.Parameters("PVO_MENSAJE").Value, String) = "OK" Then
+
+            Else
+
+            End If
         Catch ex As Exception
+            'MsgBox(ex.Message)
 
         End Try
+
+    End Sub
+
+    Private Sub CODIGO_USUARIOSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_USUARIOSpinEdit.EditValueChanged
+
+    End Sub
+
+    Private Sub CODIGO_USUARIOSpinEdit_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles CODIGO_USUARIOSpinEdit.LostFocus
+        CODIGO_USUARIOSpinEdit.Text = VControles.SafeSqlLikeClauseLiteral(CODIGO_USUARIOSpinEdit.Text)
+    End Sub
+
+    Private Sub CONTRASENATextEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CONTRASENATextEdit.EditValueChanged
+
+    End Sub
+
+    Private Sub CONTRASENATextEdit_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles CONTRASENATextEdit.LostFocus
+        CONTRASENATextEdit.Text = CONTRASENATextEdit.Text.Replace("'", "")
     End Sub
 End Class
