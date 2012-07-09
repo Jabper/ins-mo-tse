@@ -85,10 +85,15 @@ Public Class XfrmConsultaFirmas
         End If
     End Sub
     Sub limpiar()
-        CmbPartido.EditValue = DBNull.Value
-        CmbDepartamento.EditValue = DBNull.Value
-        CmbMunicipio.EditValue = DBNull.Value
-        CmbMovimiento.EditValue = DBNull.Value
+        Try
+            CmbPartido.EditValue = DBNull.Value
+            CmbDepartamento.EditValue = DBNull.Value
+            CmbMunicipio.EditValue = DBNull.Value
+            CmbMovimiento.EditValue = DBNull.Value
+        Catch ex As Exception
+
+        End Try
+     
 
     End Sub
 
@@ -161,8 +166,14 @@ Public Class XfrmConsultaFirmas
 
 
     Private Sub XfrmCiudadanos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
-        Me.TA_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.TA_DEPARTAMENTOS)
+        Try
+            Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
+            Me.TA_DEPARTAMENTOSTableAdapter.NoCeros(Me.DSDeptoMuni.TA_DEPARTAMENTOS)
+
+        Catch ex As Exception
+
+        End Try
+        
         ActivarFiltros()
 
 
@@ -423,7 +434,7 @@ Public Class XfrmConsultaFirmas
         GridView3.ActiveFilter.Clear()
 
         Me.ChkDepto.CheckState = CheckState.Unchecked
-
+        Me.ChkMuni.CheckState = CheckState.Unchecked
 
     End Sub
 
@@ -615,10 +626,14 @@ Public Class XfrmConsultaFirmas
     
 
     Private Sub CmbMovimiento_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CmbMovimiento.TextChanged
+        GridView3.ActiveFilter.Clear()
+
+        Me.ChkDepto.CheckState = CheckState.Unchecked
+        Me.ChkMuni.CheckState = CheckState.Unchecked
         If ActivarOpciones.PEstado = "PDO" Then
 
             If Me.CmbMovimiento.EditValue Is Nothing Or IsDBNull(Me.CmbMovimiento.EditValue) Or Me.CmbMovimiento.Text = "Seleccione" Then
-                Mensajes.mimensaje("Para filtrar la información primero seleccione un movimiento")
+                'Mensajes.mimensaje("Para filtrar la información primero seleccione un movimiento")
             Else
                 VerFirmas()
             End If
@@ -671,6 +686,7 @@ Public Class XfrmConsultaFirmas
 
         End If
 
+
         If view.FocusedColumn.FieldName = "IDENTIDAD" Then
 
             If e.Value.ToString.Length <> 13 Then
@@ -690,6 +706,28 @@ Public Class XfrmConsultaFirmas
             '    e.Valid = False
             'End If
 
+            If COracle.ObtenerDatos("select * from IM_PADRON_ELECTORAL WHERE NUMERO_IDENTIDAD='" & e.Value.ToString & "'", "NUMERO_IDENTIDAD") <> "N" Then
+                Dim a As String = "select IDENTIDAD from IM_CIUDADANOS_RESPALDAN where IDENTIDAD='" & e.Value.ToString & "' and CODIGO_PARTIDO=" & Me.CmbPartido.EditValue & " and CODIGO_MOVIMIENTO=" & Me.CmbMovimiento.EditValue
+                If COracle.ObtenerDatos(a, "IDENTIDAD") <> "N" Then
+                    mensajeerror = "Este firmante ya existe en su lista"
+                    e.Valid = False
+                Else
+                    COracle.GetName(e.Value)
+                    view.SetRowCellValue(view.FocusedRowHandle, "PrimerNombre", Primer_Nombre)
+                    view.SetRowCellValue(view.FocusedRowHandle, "SegundoNombre", Segundo_Nombre)
+                    view.SetRowCellValue(view.FocusedRowHandle, "PrimerApellido", Primer_Apellido)
+                    view.SetRowCellValue(view.FocusedRowHandle, "SegundoApellido", Segundo_Apellido)
+                End If
+
+            Else
+
+                mensajeerror = "Identidad no encontrada"
+                e.Valid = False
+            End If
+
+            
+
+            
         End If
 
     End Sub
@@ -702,5 +740,18 @@ Public Class XfrmConsultaFirmas
    
     Private Sub CmbPartido_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CmbPartido.EditValueChanged
        
+    End Sub
+
+    Private Sub CmbDepartamento_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CmbDepartamento.EditValueChanged
+
+    End Sub
+
+    Private Sub CmbDepartamento_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CmbDepartamento.TextChanged
+        Try
+            Me.TA_MUNICIPIOSTableAdapter.DeptoNoCero(Me.DSDeptoMuni.TA_MUNICIPIOS, CmbDepartamento.EditValue)
+
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

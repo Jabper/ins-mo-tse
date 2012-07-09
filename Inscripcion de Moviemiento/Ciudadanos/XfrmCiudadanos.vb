@@ -21,6 +21,7 @@ Public Class XfrmCiudadanos
     Dim mensajeerror As String
     Dim vinicio As Boolean = False
     Dim guardados As Integer = 0
+    Dim repetidos As Integer = 0
     Public Sub New()
 
         ' Llamada necesaria para el Diseñador de Windows Forms.
@@ -38,36 +39,84 @@ Public Class XfrmCiudadanos
     End Sub
 
     Sub guardarimagen()
-        Try
-            If img Is Nothing Then
-            Else
-                Dim cnx As New OracleConnection(Configuracion.verconfig)
-                '
-                'Data.ConvertImageToByteArray(Me.Imgimagen.EditValue)
+         Try
 
-                Dim sqlstring As String
-                sqlstring = "INSERT INTO IM_IMAGENES_FIRMAS (CODIGO_PARTIDO,CODIGO_MOVIMIENTO,PAGINA,FOLIO,IMAGEN,MAQUINA) VALUES(:idp,:idmov,:pag,:folio,:imagen,:maq)"
-                Dim cmd As New OracleCommand(sqlstring, cnx)
-                cmd.Parameters.Add(":idp", OracleType.Number).Value = idpartido
-                cmd.Parameters.Add(":idmov", OracleType.Number).Value = idmovimiento
-                cmd.Parameters.Add(":pag", OracleType.Number).Value = CType(pagina, Integer)
-                cmd.Parameters.Add(":maq", OracleType.VarChar).Value = SystemInformation.ComputerName
-                If folio = "" Or folio Is Nothing Then
-                    cmd.Parameters.Add(":folio", OracleType.Number).Value = DBNull.Value
+            If img Is Nothing Then
+
+
+            Else
+
+                Dim sq As String = "SELECT PAGINA FROM IM_IMAGENES_FIRMAS where  CODIGO_PARTIDO=" & idpartido & " and CODIGO_MOVIMIENTO=" & idmovimiento & " and PAGINA=" & pagina
+                If COracle.ObtenerDatos(sq, "PAGINA") <> "N" Then
+
+                    Try
+
+                        Dim cnx As New OracleConnection(Configuracion.verconfig)
+
+                        'Data.ConvertImageToByteArray(Me.Imgimagen.EditValue)
+
+                        Dim sqlstring As String
+                        sqlstring = "UPDATE IM_IMAGENES_FIRMAS set  IMAGEN=:ft where CODIGO_PARTIDO=:idp and CODIGO_MOVIMIENTO=:idmov and PAGINA=:pagina"
+                        Dim cmd As New OracleCommand(sqlstring, cnx)
+                        cmd.Parameters.Add(":ft", OracleType.Blob).Value = Data.ConvertImageToByteArray(img)
+                        cmd.Parameters.Add(":idp", OracleType.Number).Value = idpartido
+                        cmd.Parameters.Add(":idmov", OracleType.Number).Value = idmovimiento
+                        cmd.Parameters.Add(":pagina", OracleType.Number).Value = pagina
+                        cnx.Close()
+                        cnx.Open()
+                        cmd.ExecuteNonQuery()
+                        cnx.Close()
+                        imagesave = True
+
+                    Catch ex As Exception
+                        Mensajes.mimensaje(ex.Message)
+                    End Try
+
                 Else
-                    cmd.Parameters.Add(":folio", OracleType.Number).Value = CType(folio, Integer)
+                    Try
+
+
+
+                        Dim cnx As New OracleConnection(Configuracion.verconfig)
+                        Dim sqlstring As String
+                        sqlstring = "INSERT INTO IM_IMAGENES_FIRMAS (CODIGO_PARTIDO,CODIGO_MOVIMIENTO,PAGINA,FOLIO,IMAGEN,MAQUINA) VALUES(:idp,:idmov,:pag,:folio,:imagen,:maq)"
+                        Dim cmd As New OracleCommand(sqlstring, cnx)
+                        cmd.Parameters.Add(":idp", OracleType.Number).Value = idpartido
+                        cmd.Parameters.Add(":idmov", OracleType.Number).Value = idmovimiento
+                        cmd.Parameters.Add(":pag", OracleType.Number).Value = CType(pagina, Integer)
+                        cmd.Parameters.Add(":maq", OracleType.VarChar).Value = SystemInformation.ComputerName
+                        If folio = "" Or folio Is Nothing Then
+                            cmd.Parameters.Add(":folio", OracleType.Number).Value = DBNull.Value
+                        Else
+                            cmd.Parameters.Add(":folio", OracleType.Number).Value = CType(folio, Integer)
+                        End If
+                        cmd.Parameters.Add(":imagen", OracleType.Blob).Value = Data.ConvertImageToByteArray(img)
+                        cnx.Close()
+                        cnx.Open()
+                        cmd.ExecuteNonQuery()
+                        cnx.Close()
+                        imagesave = True
+                    Catch ex As Exception
+
+                    End Try
+
                 End If
-                cmd.Parameters.Add(":imagen", OracleType.Blob).Value = Data.ConvertImageToByteArray(img)
-                cnx.Open()
-                cmd.ExecuteNonQuery()
-                cnx.Close()
-                imagesave = True
+
             End If
+
+
         Catch ex As Exception
-            Mensajes.mimensaje(ex.Message)
+
         End Try
 
+      
         
+
+
+
+
+       
+
     End Sub
 
     Private Sub GridView1_CustomColumnDisplayText(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs) Handles GridView1.CustomColumnDisplayText
@@ -117,9 +166,23 @@ Public Class XfrmCiudadanos
                 e.Valid = False
 
             End If
-            Dim a As String = "select IDENTIDAD from IM_CIUDADANOS_RESPALDAN where IDENTIDAD='" & e.Value.ToString & "' and CODIGO_PARTIDO=" & idpartido & " and CODIGO_MOVIMIENTO=" & idmovimiento
-            If COracle.ObtenerDatos(a, "IDENTIDAD") <> "N" Then
-                mensajeerror = "Este firmante ya existe en su lista"
+
+            If COracle.ObtenerDatos("select * from IM_PADRON_ELECTORAL WHERE NUMERO_IDENTIDAD='" & e.Value.ToString & "'", "NUMERO_IDENTIDAD") <> "N" Then
+                Dim a As String = "select IDENTIDAD from IM_CIUDADANOS_RESPALDAN where IDENTIDAD='" & e.Value.ToString & "' and CODIGO_PARTIDO=" & idpartido & " and CODIGO_MOVIMIENTO=" & idmovimiento
+                If COracle.ObtenerDatos(a, "IDENTIDAD") <> "N" Then
+                    mensajeerror = "Este firmante ya existe en su lista"
+                    e.Valid = False
+                Else
+                    COracle.GetName(e.Value)
+                    view.SetRowCellValue(view.FocusedRowHandle, "PrimerNombre", Primer_Nombre)
+                    view.SetRowCellValue(view.FocusedRowHandle, "SegundoNombre", Segundo_Nombre)
+                    view.SetRowCellValue(view.FocusedRowHandle, "PrimerApellido", Primer_Apellido)
+                    view.SetRowCellValue(view.FocusedRowHandle, "SegundoApellido", Segundo_Apellido)
+                End If
+
+            Else
+
+                mensajeerror = "Identidad no encontrada"
                 e.Valid = False
             End If
         End If
@@ -221,12 +284,22 @@ Public Class XfrmCiudadanos
             'SI CUMLE CON TODAS LAS CONDICIONES
             '****************************************
             If Not IsDBNull(view.GetRowCellValue(i, "IDENTIDAD")) And Not IsDBNull(view.GetRowCellValue(i, "PrimerNombre")) And Not IsDBNull(view.GetRowCellValue(i, "PrimerApellido")) Then
-                view.SetRowCellValue(i, "Estado", True)
-                guardar(i)
+               
+                'Comprobar que no este ingresado
+
+                Dim a As String = "select IDENTIDAD from IM_CIUDADANOS_RESPALDAN where IDENTIDAD='" & view.GetRowCellValue(i, "IDENTIDAD") & "' and CODIGO_PARTIDO=" & idpartido & " and CODIGO_MOVIMIENTO=" & idmovimiento
+                If COracle.ObtenerDatos(a, "IDENTIDAD") <> "N" Then
+                    'mensajeerror = "Este firmante ya existe en su lista"
+                    view.SetRowCellValue(i, "Estado", False)
+                    repetidos += 1
+                Else
+                    view.SetRowCellValue(i, "Estado", True)
+                    guardar(i)
+                    estadistico()
+                End If
+               
 
 
-
-                estadistico()
             Else
                 view.SetRowCellValue(i, "Estado", False)
 
@@ -240,7 +313,7 @@ Public Class XfrmCiudadanos
 
         If guardados = view.DataRowCount Then
             Dim consis As Integer = guardados - noinconsistentes
-            Dim mensaje As String = "Registros consistentes: " & consis & vbCrLf & "Registros con inconsistencia:" & noinconsistentes & vbCrLf & "Total de Registros Guardados: " & guardados & vbCrLf & "Presione Aceptar para cerrar la pantalla actual"
+            Dim mensaje As String = "Registros consistentes: " & consis & vbCrLf & "Registros con inconsistencia:" & noinconsistentes & vbCrLf & "Total de Registros Guardados: " & guardados & vbCrLf & "Registros ya existentes en su lista: " & repetidos & " Presione Aceptar para cerrar la pantalla actual"
             If XtraMessageBox.Show(mensaje, "Mensaje de Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information) = Windows.Forms.DialogResult.OK Then
 
                 Me.Close()
@@ -248,7 +321,7 @@ Public Class XfrmCiudadanos
         ElseIf ArregloDeErrores > 1 Or guardados <> view.DataRowCount Then
             'SI NO GUARDO TODOS LOS DATOS
             Dim consis As Integer = guardados - noinconsistentes
-            Dim mensaje As String = "Registros consistentes: " & consis & vbCrLf & "Registros con inconsistencia:" & noinconsistentes & vbCrLf & "Total de Registros Guardados: " & guardados & vbCrLf & "¿Desea terminar de editar los registros vacíos e incompletos ?" & vbCrLf & "Presione No para Salir"
+            Dim mensaje As String = "Registros consistentes: " & consis & vbCrLf & "Registros con inconsistencia:" & noinconsistentes & vbCrLf & "Total de Registros Guardados: " & guardados & vbCrLf & "Registros ya existentes en su lista: " & repetidos & " ¿Desea terminar de editar los registros vacíos e incompletos ?" & vbCrLf & "Presione No para Salir"
             If XtraMessageBox.Show(mensaje, "Mensaje de Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
 
                 Me.Estado.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("Estado= 'False'")
@@ -261,6 +334,7 @@ Public Class XfrmCiudadanos
         'Me.GridView1.ExportToXls("E:\test.xls")
         guardados = 0
         ArregloDeErrores = 0
+        repetidos = 0
         If ContarNoNulos() = 0 Then
             Mensajes.mimensaje("Los campos estan vacíos o estan ingresados incorrectamente, Debe de guardar almenos un registro que contenga los campos requeridos")
         Else

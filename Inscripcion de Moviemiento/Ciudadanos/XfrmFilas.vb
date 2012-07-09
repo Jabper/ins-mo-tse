@@ -157,4 +157,8 @@
 
         End Try
     End Sub
+
+    Private Sub CmbDepartamento_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CmbDepartamento.EditValueChanged
+
+    End Sub
 End Class
