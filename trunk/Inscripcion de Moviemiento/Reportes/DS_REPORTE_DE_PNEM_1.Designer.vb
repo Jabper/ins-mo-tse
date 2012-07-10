@@ -385,6 +385,10 @@ Partial Public Class DS_REPORTE_DE_PNEM_1
         
         Private columnESTADO As Global.System.Data.DataColumn
         
+        Private columnDEPARTAMENTO As Global.System.Data.DataColumn
+        
+        Private columnMUNICIPIO As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -480,6 +484,20 @@ Partial Public Class DS_REPORTE_DE_PNEM_1
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property DEPARTAMENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDEPARTAMENTO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property MUNICIPIOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMUNICIPIO
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -509,9 +527,9 @@ Partial Public Class DS_REPORTE_DE_PNEM_1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddIM_V_PLANILLAS_X_NIVELRow(ByVal CODIGO_CANDIDATO As Decimal, ByVal IDENTIDAD As String, ByVal NOMBRE_CANDIDATO As String, ByVal APELLIDO As String, ByVal NOMBRE_MOVIMIENTO_ As String, ByVal NOMBRE_PARTIDO As String, ByVal CARGO_ELECTIVO As String, ByVal NIVEL_ELECTIVO As String, ByVal ESTADO As String) As IM_V_PLANILLAS_X_NIVELRow
+        Public Overloads Function AddIM_V_PLANILLAS_X_NIVELRow(ByVal CODIGO_CANDIDATO As Decimal, ByVal IDENTIDAD As String, ByVal NOMBRE_CANDIDATO As String, ByVal APELLIDO As String, ByVal NOMBRE_MOVIMIENTO_ As String, ByVal NOMBRE_PARTIDO As String, ByVal CARGO_ELECTIVO As String, ByVal NIVEL_ELECTIVO As String, ByVal ESTADO As String, ByVal DEPARTAMENTO As String, ByVal MUNICIPIO As String) As IM_V_PLANILLAS_X_NIVELRow
             Dim rowIM_V_PLANILLAS_X_NIVELRow As IM_V_PLANILLAS_X_NIVELRow = CType(Me.NewRow,IM_V_PLANILLAS_X_NIVELRow)
-            Dim columnValuesArray() As Object = New Object() {CODIGO_CANDIDATO, IDENTIDAD, NOMBRE_CANDIDATO, APELLIDO, NOMBRE_MOVIMIENTO_, NOMBRE_PARTIDO, CARGO_ELECTIVO, NIVEL_ELECTIVO, ESTADO}
+            Dim columnValuesArray() As Object = New Object() {CODIGO_CANDIDATO, IDENTIDAD, NOMBRE_CANDIDATO, APELLIDO, NOMBRE_MOVIMIENTO_, NOMBRE_PARTIDO, CARGO_ELECTIVO, NIVEL_ELECTIVO, ESTADO, DEPARTAMENTO, MUNICIPIO}
             rowIM_V_PLANILLAS_X_NIVELRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowIM_V_PLANILLAS_X_NIVELRow)
             Return rowIM_V_PLANILLAS_X_NIVELRow
@@ -540,6 +558,8 @@ Partial Public Class DS_REPORTE_DE_PNEM_1
             Me.columnCARGO_ELECTIVO = MyBase.Columns("CARGO ELECTIVO")
             Me.columnNIVEL_ELECTIVO = MyBase.Columns("NIVEL ELECTIVO")
             Me.columnESTADO = MyBase.Columns("ESTADO")
+            Me.columnDEPARTAMENTO = MyBase.Columns("DEPARTAMENTO")
+            Me.columnMUNICIPIO = MyBase.Columns("MUNICIPIO")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -562,6 +582,10 @@ Partial Public Class DS_REPORTE_DE_PNEM_1
             MyBase.Columns.Add(Me.columnNIVEL_ELECTIVO)
             Me.columnESTADO = New Global.System.Data.DataColumn("ESTADO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnESTADO)
+            Me.columnDEPARTAMENTO = New Global.System.Data.DataColumn("DEPARTAMENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDEPARTAMENTO)
+            Me.columnMUNICIPIO = New Global.System.Data.DataColumn("MUNICIPIO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMUNICIPIO)
             Me.columnIDENTIDAD.MaxLength = 15
             Me.columnNOMBRE_CANDIDATO.MaxLength = 100
             Me.columnAPELLIDO.MaxLength = 100
@@ -570,6 +594,10 @@ Partial Public Class DS_REPORTE_DE_PNEM_1
             Me.columnCARGO_ELECTIVO.MaxLength = 100
             Me.columnNIVEL_ELECTIVO.MaxLength = 100
             Me.columnESTADO.MaxLength = 12
+            Me.columnDEPARTAMENTO.AllowDBNull = false
+            Me.columnDEPARTAMENTO.MaxLength = 100
+            Me.columnMUNICIPIO.AllowDBNull = false
+            Me.columnMUNICIPIO.MaxLength = 100
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1603,6 +1631,26 @@ Partial Public Class DS_REPORTE_DE_PNEM_1
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property DEPARTAMENTO() As String
+            Get
+                Return CType(Me(Me.tableIM_V_PLANILLAS_X_NIVEL.DEPARTAMENTOColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLAS_X_NIVEL.DEPARTAMENTOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property MUNICIPIO() As String
+            Get
+                Return CType(Me(Me.tableIM_V_PLANILLAS_X_NIVEL.MUNICIPIOColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_V_PLANILLAS_X_NIVEL.MUNICIPIOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsCODIGO_CANDIDATONull() As Boolean
             Return Me.IsNull(Me.tableIM_V_PLANILLAS_X_NIVEL.CODIGO_CANDIDATOColumn)
         End Function
@@ -2095,6 +2143,8 @@ Namespace DS_REPORTE_DE_PNEM_1TableAdapters
             tableMapping.ColumnMappings.Add("CARGO ELECTIVO", "CARGO ELECTIVO")
             tableMapping.ColumnMappings.Add("NIVEL ELECTIVO", "NIVEL ELECTIVO")
             tableMapping.ColumnMappings.Add("ESTADO", "ESTADO")
+            tableMapping.ColumnMappings.Add("DEPARTAMENTO", "DEPARTAMENTO")
+            tableMapping.ColumnMappings.Add("MUNICIPIO", "MUNICIPIO")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -2109,9 +2159,12 @@ Namespace DS_REPORTE_DE_PNEM_1TableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ""CODIGO CANDIDATO"", IDENTIDAD, ""NOMBRE CANDIDATO"", APELLIDO, ""NOMBRE MOVIM"& _ 
-                "IENTO "", ""NOMBRE PARTIDO"", ""CARGO ELECTIVO"", ""NIVEL ELECTIVO"", ESTADO FROM TSE.I"& _ 
-                "M_V_PLANILLAS_X_NIVEL"
+            Me._commandCollection(0).CommandText = "SELECT a.""CODIGO CANDIDATO"", a.IDENTIDAD, a.""NOMBRE CANDIDATO"", a.APELLIDO, a.""NO"& _ 
+                "MBRE MOVIMIENTO "", a.""NOMBRE PARTIDO"", a.""CARGO ELECTIVO"", a.""NIVEL ELECTIVO"", "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"a.ESTADO, D.DESCRIPCION ""DEPARTAMENTO"" ,MUNI.DESCRIPCION ""MUNICIPIO"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM TSE."& _ 
+                "IM_V_PLANILLAS_X_NIVEL a, im_candidatos c, im_departamentos d, IM_MUNICIPIOS MUN"& _ 
+                "I"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where A.IDENTIDAD = C.IDENTIDAD "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C.CODIGO_DEPARTAMENTO = D.CODIGO_DEPART"& _ 
+                "AMENTO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND C.CODIGO_DEPARTAMENTO = MUNI.CODIGO_DEPARTAMENTO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND C.CODIGO_MUN"& _ 
+                "ICIPIO = MUNI.CODIGO_MUNICIPIO "
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
