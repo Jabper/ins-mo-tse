@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:TA_MUNICIPIOS" ZOrder="1" X="861" Y="72" Height="267" Width="239" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
     <Shape ID="DesignTable:TA_DEPARTAMENTOS" ZOrder="2" X="713" Y="397" Height="153" Width="273" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
-    <Shape ID="DesignTable:IM_MUNICIPIOS" ZOrder="7" X="469" Y="108" Height="267" Width="239" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
+    <Shape ID="DesignTable:IM_MUNICIPIOS" ZOrder="7" X="469" Y="108" Height="305" Width="239" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="197" />
     <Shape ID="DesignTable:IM_DEPARTAMENTOS" ZOrder="5" X="178" Y="126" Height="248" Width="273" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
   </Shapes>
   <Connectors>
@@ -24,7 +24,7 @@
         </Point>
         <Point>
           <X>655</X>
-          <Y>375</Y>
+          <Y>413</Y>
         </Point>
       </RoutePoints>
     </Connector>

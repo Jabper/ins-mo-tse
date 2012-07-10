@@ -10,17 +10,17 @@ Public Class XfrmConfigurar
     Dim creousuario As Boolean = False
     Dim pasarpagina As Boolean = False
 
-    Public Sub New()
+    'Public Sub New()
 
-        ' Llamada necesaria para el Diseñador de Windows Forms.
+    '    ' Llamada necesaria para el Diseñador de Windows Forms.
 
-        InitializeComponent()
+    '    InitializeComponent()
 
-        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+    '    ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
 
-        Me.KeyPreview = True
+    '    Me.KeyPreview = True
 
-    End Sub
+    'End Sub
     Function conexion() As Boolean
 
         ORCL.DSoruce = "XE"
@@ -46,15 +46,15 @@ Public Class XfrmConfigurar
         End If
     End Function
 
-    Private Sub XfrmConfigurar_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Me.KeyPress
-        Dim S As String
+    'Private Sub XfrmConfigurar_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Me.KeyPress
+    '    Dim S As String
 
-        S = UCase(e.KeyChar)
+    '    S = UCase(e.KeyChar)
 
-        S = ChrW(Asc(S))
+    '    S = ChrW(Asc(S))
 
-        e.KeyChar = S
-    End Sub
+    '    e.KeyChar = S
+    'End Sub
     Private Sub XfrmConfigurar_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         PreguntasDeSeguridad()
@@ -68,6 +68,7 @@ Public Class XfrmConfigurar
     End Sub
 
     Private Sub WizardControl1_FinishClick(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles WizardControl1.FinishClick
+        Me.Visible = False
         XFrmMenuPrincipal.Visible = True
         XFrmMenuPrincipal.Focus()
         XFrmMenuPrincipal.verificaringreso()
@@ -87,7 +88,7 @@ Public Class XfrmConfigurar
     Private Sub WizardControl1_SelectedPageChanging(ByVal sender As Object, ByVal e As DevExpress.XtraWizard.WizardPageChangingEventArgs) Handles WizardControl1.SelectedPageChanging
         If (e.Page.Name = "WizardPage1") Then
             'MsgBox(Configuracion.verconfig)
-            If conexion() = True Then
+
             If ActivarOpciones.PEstado = "MOV" Then
 
 
@@ -112,10 +113,7 @@ Public Class XfrmConfigurar
                 'WizardControl1.SelectedPage = WizardPage2
                 'WizardPage2.Focus()
             End If
-        Else
-            e.Cancel = True
 
-        End If
         End If
 
 
@@ -151,7 +149,7 @@ Public Class XfrmConfigurar
 
 
 
-                        
+
                     Catch ex As Exception
                         e.Cancel = True
                         Mensajes.mimensaje(ex.Message)
@@ -172,24 +170,44 @@ Public Class XfrmConfigurar
                     Return
 
                 Else
-                    If creousuario = False Then
-                        If crearusuario() = True Then
-                            If asignarroles() = True Then
-                                Dim file As System.IO.FileStream
-                                file = System.IO.File.Create(Application.StartupPath.ToString & "\Cnf.ini")
+                    If COracle.ObtenerDatos("select * from IM_PADRON_ELECTORAL WHERE NUMERO_IDENTIDAD='" & Me.IDENTIDADTextEdit.Text & "'", "NUMERO_IDENTIDAD") <> "N" Then
+
+                        If creousuario = False Then
+
+                            If crearusuario() = True Then
+                                If asignarroles() = True Then
+
+                                    Try
+                                        'If System.IO.File.Exists(Application.StartupPath.ToString & "\Cnf.ini") = True Then
+                                        '    My.Computer.FileSystem.DeleteFile(Application.StartupPath.ToString & "\Cnf.ini")
+                                        'End If
+                                        Dim file As System.IO.FileStream
+                                        file = System.IO.File.Create(Application.StartupPath.ToString & "\Cnf.ini")
+
+                                        MoverArchivos.MoverArchivos()
+                                        MoverArchivos.MoverCarpetas()
+
+                                    Catch ex As Exception
+
+                                    End Try
+
+                                Else
+                                    e.Cancel = True
+                                End If
                             Else
                                 e.Cancel = True
                             End If
+
                         Else
-                            e.Cancel = True
+                            If asignarroles() = True Then
+                            Else
+                                e.Cancel = True
+                            End If
                         End If
                     Else
-                        If asignarroles() = True Then
-                        Else
-                            e.Cancel = True
-                        End If
+                        MsgBox("El número de identidad ingresado no existe", MsgBoxStyle.Critical)
+                        e.Cancel = True
                     End If
-
                 End If
             End If
 
@@ -270,12 +288,13 @@ Public Class XfrmConfigurar
                     vrol = 3
                 ElseIf ActivarOpciones.PEstado = "PDO" Then
                     .CODIGO_PARTIDO = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
+
                     .NIVEL = 2
                     .CODIGO_ROL = 2
                     vrol = 2
                 ElseIf ActivarOpciones.PEstado = "TSE" Then
 
-                    .CODIGO_PARTIDO = 0
+                    .CODIGO_PARTIDO = 99
                     .NIVEL = 1
                     .CODIGO_ROL = 1
                     vrol = 1
@@ -330,5 +349,33 @@ Public Class XfrmConfigurar
 
     Private Sub WizardPage2_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles WizardPage2.GotFocus
        
+    End Sub
+
+    Private Sub txtusuario_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtusuario.EditValueChanged
+
+    End Sub
+
+    Private Sub txtusuario_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtusuario.LostFocus
+        txtusuario.Text = VControles.SafeSqlLikeClauseLiteral(txtusuario.Text)
+    End Sub
+
+    Private Sub CONTRASENATextEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CONTRASENATextEdit.EditValueChanged
+
+    End Sub
+
+    Private Sub CONTRASENATextEdit_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles CONTRASENATextEdit.LostFocus
+        CONTRASENATextEdit.Text = CONTRASENATextEdit.Text.Replace("'", "")
+    End Sub
+
+    Private Sub CONTRASENATextEdit_MarginChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CONTRASENATextEdit.MarginChanged
+
+    End Sub
+
+    Private Sub RESPUESTA_SEGURIDADTextEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RESPUESTA_SEGURIDADTextEdit.EditValueChanged
+
+    End Sub
+
+    Private Sub RESPUESTA_SEGURIDADTextEdit_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles RESPUESTA_SEGURIDADTextEdit.LostFocus
+        RESPUESTA_SEGURIDADTextEdit.Text = RESPUESTA_SEGURIDADTextEdit.Text.Replace("'", "")
     End Sub
 End Class

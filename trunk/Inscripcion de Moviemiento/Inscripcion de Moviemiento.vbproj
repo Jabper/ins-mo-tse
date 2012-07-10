@@ -20,6 +20,7 @@
     <OptionInfer>On</OptionInfer>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <ApplicationIcon>tse.ico</ApplicationIcon>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -31,7 +32,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationVersion>2.5.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -89,9 +90,18 @@
     <Reference Include="DevExpress.XtraGrid.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPivotGrid.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v11.2.resources, Version=11.2.0.0, Culture=es, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\DevExpress 2011.2\Components\Bin\Framework\es\DevExpress.XtraPrinting.v11.2.resources.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.XtraReports.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraWizard.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraWizard.v11.2.resources, Version=11.2.0.0, Culture=es, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\DevExpress 2011.2\Components\Bin\Framework\es\DevExpress.XtraWizard.v11.2.resources.dll</HintPath>
+    </Reference>
     <Reference Include="Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -245,6 +255,7 @@
     <Compile Include="Clases\Data.vb" />
     <Compile Include="Clases\DxControls.vb" />
     <Compile Include="Clases\Mensajes.vb" />
+    <Compile Include="Clases\MoverArchivos.vb" />
     <Compile Include="Clases\OCN.vb" />
     <Compile Include="Clases\ORCL.vb" />
     <Compile Include="Clases\VControles.vb" />
@@ -1379,6 +1390,7 @@
     <None Include="Candidatos\DSRequisitos.xss">
       <DependentUpon>DSRequisitos.xsd</DependentUpon>
     </None>
+    <None Include="My Project\app.manifest" />
     <None Include="Procesos\Ds_procesos.xsc">
       <DependentUpon>Ds_procesos.xsd</DependentUpon>
     </None>
@@ -1671,6 +1683,7 @@
     <None Include="Resources\tselogo.png" />
     <None Include="Resources\tselogop.png" />
     <None Include="Resources\requisitos_1.png" />
+    <Content Include="Resources\tse.ico" />
     <Content Include="Resources\tselogop1.png" />
     <Content Include="tse.ico" />
     <None Include="Resources\Restadisticos.png" />

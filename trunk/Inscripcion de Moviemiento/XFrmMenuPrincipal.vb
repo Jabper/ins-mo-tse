@@ -44,10 +44,9 @@ Public Class XFrmMenuPrincipal
         e.KeyChar = S
     End Sub
     Private Sub XFrmMenuPrincipal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'verificaringreso()
-        ' verificar_permisos()
-        Me.BtnCerrarSesion.Visibility = BarItemVisibility.Always
-        Me.BtnSalir.Visibility = BarItemVisibility.Always
+        verificaringreso()
+        verificar_permisos()
+
         'Call conexion()
 
         'For i = 0 To Me.RibbonControl.Pages.Count - 1
@@ -67,8 +66,7 @@ Public Class XFrmMenuPrincipal
         '    End If
         'Next
 
-        XfrmBack.MdiParent = Me
-        XfrmBack.Show()
+
 
 
     End Sub
@@ -105,6 +103,11 @@ Public Class XFrmMenuPrincipal
                 End If
             End If
         Next
+        Me.BtnCerrarSesion.Visibility = BarItemVisibility.Always
+        Me.BtnSalir.Visibility = BarItemVisibility.Always
+
+        XfrmBack.MdiParent = Me
+        XfrmBack.Show()
     End Sub
 
     Sub Padre(ByVal formulario As DevExpress.XtraEditors.XtraForm) 'HACE HIJOS A LOS FORMULARIOS PARA MOSTRARLOS DENTRO DEL MDI

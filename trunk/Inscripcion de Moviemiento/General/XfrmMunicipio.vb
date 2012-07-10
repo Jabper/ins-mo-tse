@@ -93,12 +93,15 @@ Public Class Municipios
         Try
 
             'SE LE ASIGNA A UNA VARIABLE EL VALOR DE LA CELDA QUE SE DESEA
+            Dim view As GridView = GridView1
+
             Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
             'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
-            Me.IM_MUNICIPIOSTableAdapter.FillBy(Me.DSDeptoMuni.IM_MUNICIPIOS, cellValue)
+
+            Me.IM_MUNICIPIOSTableAdapter.FillDeptoMuni(Me.DSDeptoMuni.IM_MUNICIPIOS, view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_DEPARTAMENTO"), view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MUNICIPIO"))
             actualizar = True
-            id = cellValue
-            iddepto = Data.CapturarDatoGrid(GridView1, 1)
+            id = view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MUNICIPIO") 'cellValue
+            iddepto = view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_DEPARTAMENTO") 'Data.CapturarDatoGrid(GridView1, 1)
             BtnEliminar.Enabled = True
 
 
