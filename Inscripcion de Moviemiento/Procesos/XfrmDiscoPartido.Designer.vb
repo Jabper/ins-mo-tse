@@ -20,11 +20,7 @@ Partial Class XfrmDiscoPartido
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Me.IMPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Ds_procesos = New Inscripcion_de_Moviemientos.Ds_procesos
         Me.FbUbicacion = New System.Windows.Forms.FolderBrowserDialog
-        Me.DsprocesosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.IM_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.Ds_procesosTableAdapters.IM_PARTIDOS_POLITICOSTableAdapter
         Me.TxtRuta = New DevExpress.XtraEditors.TextEdit
         Me.BtnExplorar = New DevExpress.XtraEditors.SimpleButton
         Me.BtnEjecutar = New DevExpress.XtraEditors.SimpleButton
@@ -33,32 +29,17 @@ Partial Class XfrmDiscoPartido
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl
         Me.Panel1 = New System.Windows.Forms.Panel
         Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
-        CType(Me.IMPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Ds_procesos, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DsprocesosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.IMPARTIDOSPOLITICOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Ds_procesos = New Inscripcion_de_Moviemientos.Ds_procesos
+        Me.DsprocesosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IM_PARTIDOS_POLITICOSTableAdapter = New Inscripcion_de_Moviemientos.Ds_procesosTableAdapters.IM_PARTIDOS_POLITICOSTableAdapter
         CType(Me.TxtRuta.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LovPartido.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        CType(Me.IMPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Ds_procesos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DsprocesosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'IMPARTIDOSPOLITICOSBindingSource
-        '
-        Me.IMPARTIDOSPOLITICOSBindingSource.DataMember = "IM_PARTIDOS_POLITICOS"
-        Me.IMPARTIDOSPOLITICOSBindingSource.DataSource = Me.Ds_procesos
-        '
-        'Ds_procesos
-        '
-        Me.Ds_procesos.DataSetName = "Ds_procesos"
-        Me.Ds_procesos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'DsprocesosBindingSource
-        '
-        Me.DsprocesosBindingSource.DataSource = Me.Ds_procesos
-        Me.DsprocesosBindingSource.Position = 0
-        '
-        'IM_PARTIDOS_POLITICOSTableAdapter
-        '
-        Me.IM_PARTIDOS_POLITICOSTableAdapter.ClearBeforeFill = True
         '
         'TxtRuta
         '
@@ -142,6 +123,25 @@ Partial Class XfrmDiscoPartido
         Me.BtnSalir.TabIndex = 16
         Me.BtnSalir.Text = "Salir"
         '
+        'IMPARTIDOSPOLITICOSBindingSource
+        '
+        Me.IMPARTIDOSPOLITICOSBindingSource.DataMember = "IM_PARTIDOS_POLITICOS"
+        Me.IMPARTIDOSPOLITICOSBindingSource.DataSource = Me.Ds_procesos
+        '
+        'Ds_procesos
+        '
+        Me.Ds_procesos.DataSetName = "Ds_procesos"
+        Me.Ds_procesos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'DsprocesosBindingSource
+        '
+        Me.DsprocesosBindingSource.DataSource = Me.Ds_procesos
+        Me.DsprocesosBindingSource.Position = 0
+        '
+        'IM_PARTIDOS_POLITICOSTableAdapter
+        '
+        Me.IM_PARTIDOS_POLITICOSTableAdapter.ClearBeforeFill = True
+        '
         'XfrmDiscoPartido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -150,13 +150,13 @@ Partial Class XfrmDiscoPartido
         Me.Controls.Add(Me.Panel1)
         Me.Name = "XfrmDiscoPartido"
         Me.Text = "Generar Instalador para Partidos"
-        CType(Me.IMPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Ds_procesos, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DsprocesosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TxtRuta.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LovPartido.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.IMPARTIDOSPOLITICOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Ds_procesos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DsprocesosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
