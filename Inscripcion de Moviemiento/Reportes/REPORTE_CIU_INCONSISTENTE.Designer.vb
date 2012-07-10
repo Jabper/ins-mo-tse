@@ -49,14 +49,15 @@ Partial Public Class REPORTE_CIU_INCONSISTENTE
         Me.XrLabel12 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel11 = New DevExpress.XtraReports.UI.XRLabel
         Me.PageFooter = New DevExpress.XtraReports.UI.PageFooterBand
-        Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo
         Me.XrPageInfo2 = New DevExpress.XtraReports.UI.XRPageInfo
+        Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo
+        Me.GroupHeader2 = New DevExpress.XtraReports.UI.GroupHeaderBand
         CType(Me.DS_CIU_INCONSIS1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
         'Detail
         '
-        Me.Detail.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel10, Me.XrLabel9, Me.XrLabel8, Me.XrLabel7, Me.XrLabel6, Me.XrLabel13, Me.XrLabel14})
+        Me.Detail.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel10, Me.XrLabel9, Me.XrLabel8, Me.XrLabel7, Me.XrLabel6, Me.XrLabel14})
         Me.Detail.HeightF = 69.79166!
         Me.Detail.Name = "Detail"
         Me.Detail.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
@@ -88,7 +89,7 @@ Partial Public Class REPORTE_CIU_INCONSISTENTE
         Me.XrLabel8.LocationFloat = New DevExpress.Utils.PointFloat(276.0417!, 9.999974!)
         Me.XrLabel8.Name = "XrLabel8"
         Me.XrLabel8.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel8.SizeF = New System.Drawing.SizeF(172.9167!, 22.99999!)
+        Me.XrLabel8.SizeF = New System.Drawing.SizeF(251.0417!, 22.99999!)
         Me.XrLabel8.Text = "XrLabel8"
         '
         'XrLabel7
@@ -112,19 +113,19 @@ Partial Public Class REPORTE_CIU_INCONSISTENTE
         'XrLabel13
         '
         Me.XrLabel13.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CIU_INCONSIS.DEPARTAMENTO")})
-        Me.XrLabel13.LocationFloat = New DevExpress.Utils.PointFloat(459.375!, 9.999974!)
+        Me.XrLabel13.LocationFloat = New DevExpress.Utils.PointFloat(191.6667!, 10.00001!)
         Me.XrLabel13.Name = "XrLabel13"
         Me.XrLabel13.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel13.SizeF = New System.Drawing.SizeF(150.0!, 22.99999!)
+        Me.XrLabel13.SizeF = New System.Drawing.SizeF(269.7917!, 22.99999!)
         Me.XrLabel13.Text = "XrLabel13"
         '
         'XrLabel14
         '
         Me.XrLabel14.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CIU_INCONSIS.MUNICIPIO")})
-        Me.XrLabel14.LocationFloat = New DevExpress.Utils.PointFloat(621.875!, 9.999974!)
+        Me.XrLabel14.LocationFloat = New DevExpress.Utils.PointFloat(547.9167!, 9.999974!)
         Me.XrLabel14.Name = "XrLabel14"
         Me.XrLabel14.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel14.SizeF = New System.Drawing.SizeF(152.0834!, 23.00002!)
+        Me.XrLabel14.SizeF = New System.Drawing.SizeF(203.1251!, 23.00002!)
         Me.XrLabel14.Text = "XrLabel14"
         '
         'TopMargin
@@ -158,14 +159,14 @@ Partial Public Class REPORTE_CIU_INCONSISTENTE
         '
         'PageHeader
         '
-        Me.PageHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLine2, Me.XrLabel5, Me.XrLabel4, Me.XrLabel3, Me.XrLabel2})
-        Me.PageHeader.HeightF = 125.0!
+        Me.PageHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel5, Me.XrLabel4, Me.XrLabel3, Me.XrLabel2})
+        Me.PageHeader.HeightF = 92.70834!
         Me.PageHeader.Name = "PageHeader"
         '
         'XrLine2
         '
         Me.XrLine2.LineWidth = 3
-        Me.XrLine2.LocationFloat = New DevExpress.Utils.PointFloat(0.9999275!, 78.16664!)
+        Me.XrLine2.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 32.99999!)
         Me.XrLine2.Name = "XrLine2"
         Me.XrLine2.SizeF = New System.Drawing.SizeF(1067.0!, 23.00002!)
         '
@@ -218,7 +219,7 @@ Partial Public Class REPORTE_CIU_INCONSISTENTE
         '
         'GroupHeader1
         '
-        Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLine1, Me.XrLabel19, Me.XrLabel18, Me.XrLabel17, Me.XrLabel16, Me.XrLabel15, Me.XrLabel12, Me.XrLabel11})
+        Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLine1, Me.XrLabel19, Me.XrLabel18, Me.XrLabel17, Me.XrLabel16, Me.XrLabel15, Me.XrLabel12})
         Me.GroupHeader1.HeightF = 57.70836!
         Me.GroupHeader1.Name = "GroupHeader1"
         '
@@ -282,7 +283,7 @@ Partial Public Class REPORTE_CIU_INCONSISTENTE
         'XrLabel12
         '
         Me.XrLabel12.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel12.LocationFloat = New DevExpress.Utils.PointFloat(610.4167!, 10.00001!)
+        Me.XrLabel12.LocationFloat = New DevExpress.Utils.PointFloat(576.0417!, 9.999974!)
         Me.XrLabel12.Name = "XrLabel12"
         Me.XrLabel12.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel12.SizeF = New System.Drawing.SizeF(83.75004!, 23.00002!)
@@ -292,26 +293,18 @@ Partial Public Class REPORTE_CIU_INCONSISTENTE
         'XrLabel11
         '
         Me.XrLabel11.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel11.LocationFloat = New DevExpress.Utils.PointFloat(459.375!, 10.00007!)
+        Me.XrLabel11.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 10.00001!)
         Me.XrLabel11.Name = "XrLabel11"
         Me.XrLabel11.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel11.SizeF = New System.Drawing.SizeF(117.7083!, 22.99998!)
         Me.XrLabel11.StylePriority.UseFont = False
-        Me.XrLabel11.Text = "Departamento"
+        Me.XrLabel11.Text = "Departamento:"
         '
         'PageFooter
         '
         Me.PageFooter.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrPageInfo2, Me.XrPageInfo1})
         Me.PageFooter.HeightF = 47.91667!
         Me.PageFooter.Name = "PageFooter"
-        '
-        'XrPageInfo1
-        '
-        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 9.999974!)
-        Me.XrPageInfo1.Name = "XrPageInfo1"
-        Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
-        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(313.0!, 23.0!)
         '
         'XrPageInfo2
         '
@@ -322,9 +315,25 @@ Partial Public Class REPORTE_CIU_INCONSISTENTE
         Me.XrPageInfo2.SizeF = New System.Drawing.SizeF(313.0!, 23.0!)
         Me.XrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
         '
+        'XrPageInfo1
+        '
+        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 9.999974!)
+        Me.XrPageInfo1.Name = "XrPageInfo1"
+        Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
+        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(313.0!, 23.0!)
+        '
+        'GroupHeader2
+        '
+        Me.GroupHeader2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel11, Me.XrLabel13, Me.XrLine2})
+        Me.GroupHeader2.GroupFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("DEPARTAMENTO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
+        Me.GroupHeader2.HeightF = 61.45833!
+        Me.GroupHeader2.Level = 1
+        Me.GroupHeader2.Name = "GroupHeader2"
+        '
         'REPORTE_CIU_INCONSISTENTE
         '
-        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.ReportHeader, Me.PageHeader, Me.GroupHeader1, Me.PageFooter})
+        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.ReportHeader, Me.PageHeader, Me.GroupHeader1, Me.PageFooter, Me.GroupHeader2})
         Me.DataAdapter = Me.IM_V_CIU_INCONSISTableAdapter
         Me.DataMember = "IM_V_CIU_INCONSIS"
         Me.DataSource = Me.DS_CIU_INCONSIS1
@@ -370,4 +379,5 @@ Partial Public Class REPORTE_CIU_INCONSISTENTE
     Friend WithEvents PageFooter As DevExpress.XtraReports.UI.PageFooterBand
     Friend WithEvents XrPageInfo1 As DevExpress.XtraReports.UI.XRPageInfo
     Friend WithEvents XrPageInfo2 As DevExpress.XtraReports.UI.XRPageInfo
+    Friend WithEvents GroupHeader2 As DevExpress.XtraReports.UI.GroupHeaderBand
 End Class
