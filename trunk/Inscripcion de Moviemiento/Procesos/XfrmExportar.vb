@@ -47,7 +47,7 @@ Public Class XfrmExportar
                 Try
                     Dim startInfo As ProcessStartInfo
                     Dim pStart As New Process
-                    startInfo = New ProcessStartInfo("cmd.exe", "/C expdp TSE/TSEORACLE2012@XE directory=data_pump_dir dumpfile=Firmas_y_Planilla.dmp LOGFILE=firmas_y_planilla.log TABLES=('TMP_IM_CANDIDATOS', 'TMP_IM_CIUDADANOS_RESPALDAN', 'TMP_IM_IMAGENES_FIRMAS', 'TMP_IM_MOVIMIENTOS', 'TMP_IM_PARAMETROS_GENERALES', 'TMP_IM_REQUISITOS_X_CANDIDATO')")
+                    startInfo = New ProcessStartInfo("cmd.exe", "/C expdp TSE/TSEORACLE2012@192.168.1.171 directory=data_pump_dir dumpfile=Firmas_y_Planilla.dmp LOGFILE=firmas_y_planilla.log TABLES=('TMP_IM_CANDIDATOS', 'TMP_IM_CIUDADANOS_RESPALDAN', 'TMP_IM_IMAGENES_FIRMAS', 'TMP_IM_MOVIMIENTOS', 'TMP_IM_PARAMETROS_GENERALES', 'TMP_IM_REQUISITOS_X_CANDIDATO')")
                     'exp TSE/oracle@tsedb2 Buffer=5000000 File=" & TxtRuta.Text & "\Firmas_y_Planilla.dmp log=" & TxtRuta.Text & "\errores.log direct=Y Consistent=Y Rows=Y compress=N TABLES=tmp_im_candidatos, TMP_IM_MOVIMIENTOS, TMP_IM_REQUISITOS_X_CANDIDATO, tmp_im_ciudadanos_respaldan, tmp_im_parametros_generales, tmp_im_imagenes_firmas")
                     'Me.TextEdit1.Text = "/C exp TSE/oracle@tsedb2 Buffer=5000000 File=" & TxtRuta.Text & "\Firmas_y_Planilla.dmp log=" & TxtRuta.Text & "\errores.log direct=Y Consistent=Y Rows=Y compress=N TABLES=tmp_im_candidatos, TMP_IM_MOVIMIENTOS, TMP_IM_REQUISITOS_X_CANDIDATO, tmp_im_ciudadanos_respaldan, tmp_im_parametros_generales, tmp_im_imagenes_firmas"
                     pStart.StartInfo = startInfo

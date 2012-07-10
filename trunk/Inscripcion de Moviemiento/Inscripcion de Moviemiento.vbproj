@@ -1643,6 +1643,7 @@
     <None Include="Reportes\DS_REPORTE_DE_RESUMEN_FDP_1.xss">
       <DependentUpon>DS_REPORTE_DE_RESUMEN_FDP_1.xsd</DependentUpon>
     </None>
+    <None Include="Resources\borrar_usuario.sql" />
     <None Include="Resources\candidatos_repetidos.png" />
     <None Include="Resources\firmas.png" />
     <None Include="Resources\flecha.png" />
