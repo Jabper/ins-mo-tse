@@ -27,12 +27,19 @@ Public Class XfrmCrearRespaldo
             Try
                 Dim startInfo As ProcessStartInfo
                 Dim pStart As New Process
-                startInfo = New ProcessStartInfo("cmd.exe", "/C expdp TSE/TSEORACLE2012@XE DUMPFILE=Respaldo.dmp LOGFILE=exp_Respaldo.log DIRECTORY=DATA_PUMP_DIR FULL=Y CONTENT=ALL")
+                startInfo = New ProcessStartInfo("cmd.exe", "/C expdp TSE/TSEORACLE2012@192.168.1.171 SCHEMAS=TSE version=10 DUMPFILE=Respaldo.dmp LOGFILE=exp_Respaldo.log DIRECTORY=DATA_PUMP_DIR")
                 pStart.StartInfo = startInfo
                 pStart.Start()
                 pStart.WaitForExit()
                 If pStart.ExitCode = 0 Then
-                    MsgBox("El Respaldo ha Terminado Satisfactoriamente", MsgBoxStyle.Information)
+                    If File.Exists("C:\oraclexe\app\oracle\admin\XE\dpdump\Respaldo.dmp") Then
+                        Try
+                            System.IO.File.Copy("C:\oraclexe\app\oracle\admin\XE\dpdump\Respaldo.dmp", TxtRuta.Text & "\Respaldo.dmp", True)
+                            MsgBox("El Respaldo ha Terminado Satisfactoriamente", MsgBoxStyle.Information)
+                        Catch ex As Exception
+                            MsgBox("El Respaldo No se ha realizado Correctamente", MsgBoxStyle.Exclamation)
+                        End Try
+                    End If
                 Else
                     MsgBox("El Respaldo No se ha realizado Correctamente", MsgBoxStyle.Exclamation)
                 End If
@@ -41,9 +48,7 @@ Public Class XfrmCrearRespaldo
                 Exit Sub
             End Try
 
-            If File.Exists("C:\oraclexe\app\oracle\admin\XE\dpdump\Respaldo.dmp") Then
-                System.IO.File.Copy("C:\oraclexe\app\oracle\admin\XE\dpdump\Respaldo.dmp", TxtRuta.Text & "\Respaldo.dmp", True)
-            End If
+            
         End If
     End Sub
 
