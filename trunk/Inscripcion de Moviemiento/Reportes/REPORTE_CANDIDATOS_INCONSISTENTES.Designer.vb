@@ -25,18 +25,18 @@ Partial Public Class REPORTE_CANDIDATOS_INCONSISTENTES
         Me.XrLabel16 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel15 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel21 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel7 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel18 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel7 = New DevExpress.XtraReports.UI.XRLabel
         Me.TopMargin = New DevExpress.XtraReports.UI.TopMarginBand
         Me.BottomMargin = New DevExpress.XtraReports.UI.BottomMarginBand
         Me.ReportHeader = New DevExpress.XtraReports.UI.ReportHeaderBand
         Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel
         Me.GroupHeader1 = New DevExpress.XtraReports.UI.GroupHeaderBand
-        Me.XrLine2 = New DevExpress.XtraReports.UI.XRLine
         Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLine2 = New DevExpress.XtraReports.UI.XRLine
         Me.XrLabel6 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel20 = New DevExpress.XtraReports.UI.XRLabel
         Me.DS_CANDIDATOS_INC1 = New Inscripcion_de_Moviemientos.DS_CANDIDATOS_INC
@@ -110,15 +110,6 @@ Partial Public Class REPORTE_CANDIDATOS_INCONSISTENTES
         Me.XrLabel21.Text = "XrLabel21"
         Me.XrLabel21.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
         '
-        'XrLabel7
-        '
-        Me.XrLabel7.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS_INCONSISTENTES.DEPARTAMENTO")})
-        Me.XrLabel7.LocationFloat = New DevExpress.Utils.PointFloat(179.7917!, 10.00001!)
-        Me.XrLabel7.Name = "XrLabel7"
-        Me.XrLabel7.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel7.SizeF = New System.Drawing.SizeF(469.7916!, 22.99998!)
-        Me.XrLabel7.Text = "XrLabel7"
-        '
         'XrLabel18
         '
         Me.XrLabel18.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS_INCONSISTENTES.CARGO ELECTIVO")})
@@ -127,6 +118,15 @@ Partial Public Class REPORTE_CANDIDATOS_INCONSISTENTES
         Me.XrLabel18.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel18.SizeF = New System.Drawing.SizeF(253.1251!, 22.99999!)
         Me.XrLabel18.Text = "XrLabel18"
+        '
+        'XrLabel7
+        '
+        Me.XrLabel7.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS_INCONSISTENTES.DEPARTAMENTO")})
+        Me.XrLabel7.LocationFloat = New DevExpress.Utils.PointFloat(179.7917!, 10.00001!)
+        Me.XrLabel7.Name = "XrLabel7"
+        Me.XrLabel7.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel7.SizeF = New System.Drawing.SizeF(469.7916!, 22.99998!)
+        Me.XrLabel7.Text = "XrLabel7"
         '
         'TopMargin
         '
@@ -167,12 +167,6 @@ Partial Public Class REPORTE_CANDIDATOS_INCONSISTENTES
         Me.GroupHeader1.Level = 2
         Me.GroupHeader1.Name = "GroupHeader1"
         '
-        'XrLine2
-        '
-        Me.XrLine2.LocationFloat = New DevExpress.Utils.PointFloat(10.00004!, 43.04171!)
-        Me.XrLine2.Name = "XrLine2"
-        Me.XrLine2.SizeF = New System.Drawing.SizeF(1054.0!, 22.99998!)
-        '
         'XrLabel5
         '
         Me.XrLabel5.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS_INCONSISTENTES.MOVIMIENTO")})
@@ -210,6 +204,13 @@ Partial Public Class REPORTE_CANDIDATOS_INCONSISTENTES
         Me.XrLabel2.SizeF = New System.Drawing.SizeF(130.2083!, 23.0!)
         Me.XrLabel2.StylePriority.UseFont = False
         Me.XrLabel2.Text = "Partido Politico:"
+        '
+        'XrLine2
+        '
+        Me.XrLine2.LineWidth = 3
+        Me.XrLine2.LocationFloat = New DevExpress.Utils.PointFloat(10.00004!, 43.04171!)
+        Me.XrLine2.Name = "XrLine2"
+        Me.XrLine2.SizeF = New System.Drawing.SizeF(1054.0!, 22.99998!)
         '
         'XrLabel6
         '
