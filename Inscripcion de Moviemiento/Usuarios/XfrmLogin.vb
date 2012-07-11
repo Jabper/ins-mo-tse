@@ -116,7 +116,6 @@ Public Class XfrmLogin
 
         End If
 
-
     End Sub
 
     Private Sub Label3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label3.Click
