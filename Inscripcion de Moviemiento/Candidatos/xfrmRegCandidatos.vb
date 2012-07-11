@@ -433,7 +433,7 @@ Public Class xfrmRegCandidatos
                 Dim conn As New OracleConnection()
                 conn.ConnectionString = oradb
                 conn.Open()
-
+                'comentario
                 Dim myCMD As New OracleCommand()
                 myCMD.Connection = conn
                 myCMD.CommandText = "IM_P_INSERT_CANDIDATOS"
