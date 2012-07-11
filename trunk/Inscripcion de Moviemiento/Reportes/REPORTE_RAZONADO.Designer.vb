@@ -24,13 +24,9 @@ Partial Public Class REPORTE_RAZONADO
         Me.parla3 = New DevExpress.XtraReports.UI.XRLabel
         Me.parla2 = New DevExpress.XtraReports.UI.XRLabel
         Me.parla1 = New DevExpress.XtraReports.UI.XRLabel
-        Me.parla = New DevExpress.XtraReports.UI.XRLabel
-        Me.BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DS_RAZONADO = New Inscripcion_de_Moviemientos.DS_RAZONADO
         Me.preco3 = New DevExpress.XtraReports.UI.XRLabel
         Me.preco2 = New DevExpress.XtraReports.UI.XRLabel
         Me.preco1 = New DevExpress.XtraReports.UI.XRLabel
-        Me.PRECO = New DevExpress.XtraReports.UI.XRLabel
         Me.corporacionm = New DevExpress.XtraReports.UI.XRLabel
         Me.congresos = New DevExpress.XtraReports.UI.XRLabel
         Me.congresop = New DevExpress.XtraReports.UI.XRLabel
@@ -63,29 +59,33 @@ Partial Public Class REPORTE_RAZONADO
         Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
         Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
         Me.GroupHeader3 = New DevExpress.XtraReports.UI.GroupHeaderBand
-        Me.congre2 = New DevExpress.XtraReports.UI.XRLabel
-        Me.BindingSource5 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.congre5 = New DevExpress.XtraReports.UI.XRLabel
         Me.congre3 = New DevExpress.XtraReports.UI.XRLabel
-        Me.congre1 = New DevExpress.XtraReports.UI.XRLabel
-        Me.BindingSource4 = New System.Windows.Forms.BindingSource(Me.components)
         Me.parlas3 = New DevExpress.XtraReports.UI.XRLabel
         Me.parlas2 = New DevExpress.XtraReports.UI.XRLabel
         Me.parlas1 = New DevExpress.XtraReports.UI.XRLabel
-        Me.parlas = New DevExpress.XtraReports.UI.XRLabel
-        Me.BindingSource3 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.congre4 = New DevExpress.XtraReports.UI.XRLabel
+        Me.congres1 = New DevExpress.XtraReports.UI.XRLabel
+        Me.congres2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.congres3 = New DevExpress.XtraReports.UI.XRLabel
+        Me.corporacion1 = New DevExpress.XtraReports.UI.XRLabel
+        Me.corporacion2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.corpo3 = New DevExpress.XtraReports.UI.XRLabel
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DS_RAZONADO = New Inscripcion_de_Moviemientos.DS_RAZONADO
         Me.Nomina_presidencialTableAdapter = New Inscripcion_de_Moviemientos.DS_RAZONADOTableAdapters.nomina_presidencialTableAdapter
-        Me.Nomina_parlacen_pTableAdapter = New Inscripcion_de_Moviemientos.DS_RAZONADOTableAdapters.nomina_parlacen_pTableAdapter
-        Me.Nomina_parlacen_sTableAdapter = New Inscripcion_de_Moviemientos.DS_RAZONADOTableAdapters.nomina_parlacen_sTableAdapter
-        Me.Nomina_congreso_pTableAdapter = New Inscripcion_de_Moviemientos.DS_RAZONADOTableAdapters.nomina_congreso_pTableAdapter
-        Me.Nomina_congreso_pinTableAdapter = New Inscripcion_de_Moviemientos.DS_RAZONADOTableAdapters.nomina_congreso_pinTableAdapter
-        Me.congre5 = New DevExpress.XtraReports.UI.XRLabel
-        CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DS_RAZONADO, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingSource5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingSource4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingSource3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DS_LOG = New Inscripcion_de_Moviemientos.DS_LOG
+        Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
+        Me.BindingSource3 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IM_MOVIMIENTOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
+        Me.XrPictureBox1 = New DevExpress.XtraReports.UI.XRPictureBox
+        Me.XrPictureBox2 = New DevExpress.XtraReports.UI.XRPictureBox
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DS_RAZONADO, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
         'Detail
@@ -126,26 +126,6 @@ Partial Public Class REPORTE_RAZONADO
         Me.parla1.StylePriority.UseFont = False
         Me.parla1.Text = "parla1"
         '
-        'parla
-        '
-        Me.parla.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Me.BindingSource2, "CARGOS PARLACEN PROPIETARIOS")})
-        Me.parla.LocationFloat = New DevExpress.Utils.PointFloat(558.3332!, 35.08332!)
-        Me.parla.Name = "parla"
-        Me.parla.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.parla.SizeF = New System.Drawing.SizeF(88.54169!, 23.00002!)
-        Me.parla.Text = "parla"
-        Me.parla.Visible = False
-        '
-        'BindingSource2
-        '
-        Me.BindingSource2.DataMember = "nomina_parlacen_p"
-        Me.BindingSource2.DataSource = Me.DS_RAZONADO
-        '
-        'DS_RAZONADO
-        '
-        Me.DS_RAZONADO.DataSetName = "DS_RAZONADO"
-        Me.DS_RAZONADO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'preco3
         '
         Me.preco3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
@@ -175,18 +155,6 @@ Partial Public Class REPORTE_RAZONADO
         Me.preco1.SizeF = New System.Drawing.SizeF(93.74994!, 22.99999!)
         Me.preco1.StylePriority.UseFont = False
         Me.preco1.Text = "preco1"
-        '
-        'PRECO
-        '
-        Me.PRECO.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "CARGOS")})
-        Me.PRECO.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.PRECO.LocationFloat = New DevExpress.Utils.PointFloat(558.3332!, 12.08331!)
-        Me.PRECO.Name = "PRECO"
-        Me.PRECO.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.PRECO.SizeF = New System.Drawing.SizeF(88.54169!, 23.0!)
-        Me.PRECO.StylePriority.UseFont = False
-        Me.PRECO.Text = "PRECO"
-        Me.PRECO.Visible = False
         '
         'corporacionm
         '
@@ -324,7 +292,7 @@ Partial Public Class REPORTE_RAZONADO
         '
         'ReportHeader
         '
-        Me.ReportHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel2, Me.XrLabel1})
+        Me.ReportHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrPictureBox2, Me.XrPictureBox1, Me.XrLabel2, Me.XrLabel1})
         Me.ReportHeader.HeightF = 140.625!
         Me.ReportHeader.Name = "ReportHeader"
         '
@@ -343,14 +311,14 @@ Partial Public Class REPORTE_RAZONADO
         'XrLabel1
         '
         Me.XrLabel1.Font = New System.Drawing.Font("Times New Roman", 20.0!, CType((System.Drawing.FontStyle.Italic Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
-        Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(222.5!, 10.00001!)
+        Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(151.0417!, 10.00001!)
         Me.XrLabel1.Multiline = True
         Me.XrLabel1.Name = "XrLabel1"
         Me.XrLabel1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel1.SizeF = New System.Drawing.SizeF(629.9999!, 66.75!)
+        Me.XrLabel1.SizeF = New System.Drawing.SizeF(760.4584!, 66.75!)
         Me.XrLabel1.StylePriority.UseFont = False
         Me.XrLabel1.StylePriority.UseTextAlignment = False
-        Me.XrLabel1.Text = "TRIBUNAL SUPREMO ELECTORAL" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SISTEMA DE NOMINAS"
+        Me.XrLabel1.Text = "TRIBUNAL SUPREMO ELECTORAL" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SISTEMA DE INSCRIPCION DE MOVIMIENTOS POLITICOS"
         Me.XrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'GroupHeader1
@@ -472,25 +440,19 @@ Partial Public Class REPORTE_RAZONADO
         '
         'GroupHeader3
         '
-        Me.GroupHeader3.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.congre5, Me.congre2, Me.congre3, Me.congre1, Me.parlas3, Me.parlas2, Me.parlas1, Me.parlas, Me.XrLabel10, Me.XrLabel11, Me.XrLabel12, Me.XrLabel9, Me.XrLabel8, Me.XrLabel7, Me.parlacenp, Me.presidente, Me.parlacens, Me.congresop, Me.congresos, Me.corporacionm, Me.PRECO, Me.preco1, Me.preco2, Me.preco3, Me.parla, Me.parla1, Me.parla2, Me.parla3})
+        Me.GroupHeader3.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.corpo3, Me.corporacion2, Me.corporacion1, Me.congres3, Me.congres2, Me.congres1, Me.congre4, Me.congre5, Me.congre3, Me.parlas3, Me.parlas2, Me.parlas1, Me.XrLabel10, Me.XrLabel11, Me.XrLabel12, Me.XrLabel9, Me.XrLabel8, Me.XrLabel7, Me.parlacenp, Me.presidente, Me.parlacens, Me.congresop, Me.congresos, Me.corporacionm, Me.preco1, Me.preco2, Me.preco3, Me.parla1, Me.parla2, Me.parla3})
         Me.GroupHeader3.HeightF = 172.9167!
         Me.GroupHeader3.Name = "GroupHeader3"
         '
-        'congre2
+        'congre5
         '
-        Me.congre2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Me.BindingSource5, "TOTAL_DPN")})
-        Me.congre2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.congre2.LocationFloat = New DevExpress.Utils.PointFloat(558.3331!, 81.0833!)
-        Me.congre2.Name = "congre2"
-        Me.congre2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.congre2.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.congre2.StylePriority.UseFont = False
-        Me.congre2.Text = "congre2"
-        '
-        'BindingSource5
-        '
-        Me.BindingSource5.DataMember = "nomina_congreso_pin"
-        Me.BindingSource5.DataSource = Me.DS_RAZONADO
+        Me.congre5.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.congre5.LocationFloat = New DevExpress.Utils.PointFloat(837.5!, 81.08336!)
+        Me.congre5.Name = "congre5"
+        Me.congre5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.congre5.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.congre5.StylePriority.UseFont = False
+        Me.congre5.Text = "congre5"
         '
         'congre3
         '
@@ -501,23 +463,6 @@ Partial Public Class REPORTE_RAZONADO
         Me.congre3.SizeF = New System.Drawing.SizeF(47.91663!, 22.99999!)
         Me.congre3.StylePriority.UseFont = False
         Me.congre3.Text = "congre3"
-        '
-        'congre1
-        '
-        Me.congre1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Me.BindingSource4, "TOTAL_DP")})
-        Me.congre1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.congre1.LocationFloat = New DevExpress.Utils.PointFloat(378.1247!, 81.0833!)
-        Me.congre1.Name = "congre1"
-        Me.congre1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.congre1.SizeF = New System.Drawing.SizeF(88.54187!, 22.99999!)
-        Me.congre1.StylePriority.UseFont = False
-        Me.congre1.Text = "congre1"
-        Me.congre1.Visible = False
-        '
-        'BindingSource4
-        '
-        Me.BindingSource4.DataMember = "nomina_congreso_p"
-        Me.BindingSource4.DataSource = Me.DS_RAZONADO
         '
         'parlas3
         '
@@ -549,72 +494,146 @@ Partial Public Class REPORTE_RAZONADO
         Me.parlas1.StylePriority.UseFont = False
         Me.parlas1.Text = "parlas1"
         '
-        'parlas
+        'congre4
         '
-        Me.parlas.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Me.BindingSource3, "CARGOS PARLACEN SUPLENTES")})
-        Me.parlas.LocationFloat = New DevExpress.Utils.PointFloat(558.3331!, 58.08334!)
-        Me.parlas.Name = "parlas"
-        Me.parlas.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.parlas.SizeF = New System.Drawing.SizeF(88.54181!, 23.00002!)
-        Me.parlas.Text = "parlas"
-        Me.parlas.Visible = False
+        Me.congre4.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.congre4.LocationFloat = New DevExpress.Utils.PointFloat(680.2083!, 81.0833!)
+        Me.congre4.Name = "congre4"
+        Me.congre4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.congre4.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.congre4.StylePriority.UseFont = False
+        Me.congre4.Text = "congre4"
         '
-        'BindingSource3
+        'congres1
         '
-        Me.BindingSource3.DataMember = "nomina_parlacen_s"
-        Me.BindingSource3.DataSource = Me.DS_RAZONADO
+        Me.congres1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.congres1.LocationFloat = New DevExpress.Utils.PointFloat(680.2081!, 104.0833!)
+        Me.congres1.Name = "congres1"
+        Me.congres1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.congres1.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.congres1.StylePriority.UseFont = False
+        Me.congres1.Text = "congres1"
+        '
+        'congres2
+        '
+        Me.congres2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.congres2.LocationFloat = New DevExpress.Utils.PointFloat(837.5!, 104.0834!)
+        Me.congres2.Name = "congres2"
+        Me.congres2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.congres2.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.congres2.StylePriority.UseFont = False
+        Me.congres2.Text = "congres2"
+        '
+        'congres3
+        '
+        Me.congres3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.congres3.LocationFloat = New DevExpress.Utils.PointFloat(969.8333!, 104.0834!)
+        Me.congres3.Name = "congres3"
+        Me.congres3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.congres3.SizeF = New System.Drawing.SizeF(47.91663!, 22.99998!)
+        Me.congres3.StylePriority.UseFont = False
+        Me.congres3.Text = "congres3"
+        '
+        'corporacion1
+        '
+        Me.corporacion1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.corporacion1.LocationFloat = New DevExpress.Utils.PointFloat(680.2083!, 127.0833!)
+        Me.corporacion1.Name = "corporacion1"
+        Me.corporacion1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.corporacion1.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.corporacion1.StylePriority.UseFont = False
+        Me.corporacion1.Text = "corporacion1"
+        '
+        'corporacion2
+        '
+        Me.corporacion2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.corporacion2.LocationFloat = New DevExpress.Utils.PointFloat(837.5!, 127.0833!)
+        Me.corporacion2.Name = "corporacion2"
+        Me.corporacion2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.corporacion2.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.corporacion2.StylePriority.UseFont = False
+        Me.corporacion2.Text = "corporacion2"
+        '
+        'corpo3
+        '
+        Me.corpo3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.corpo3.LocationFloat = New DevExpress.Utils.PointFloat(969.8333!, 127.0833!)
+        Me.corpo3.Name = "corpo3"
+        Me.corpo3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.corpo3.SizeF = New System.Drawing.SizeF(47.91656!, 23.00001!)
+        Me.corpo3.StylePriority.UseFont = False
+        Me.corpo3.Text = "corpo3"
         '
         'BindingSource1
         '
         Me.BindingSource1.DataMember = "nomina_presidencial"
         Me.BindingSource1.DataSource = Me.DS_RAZONADO
         '
+        'DS_RAZONADO
+        '
+        Me.DS_RAZONADO.DataSetName = "DS_RAZONADO"
+        Me.DS_RAZONADO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'Nomina_presidencialTableAdapter
         '
         Me.Nomina_presidencialTableAdapter.ClearBeforeFill = True
         '
-        'Nomina_parlacen_pTableAdapter
+        'BindingSource2
         '
-        Me.Nomina_parlacen_pTableAdapter.ClearBeforeFill = True
+        Me.BindingSource2.DataMember = "IM_PARTIDOS_POLITICOS_imagen"
+        Me.BindingSource2.DataSource = Me.DS_LOG
         '
-        'Nomina_parlacen_sTableAdapter
+        'DS_LOG
         '
-        Me.Nomina_parlacen_sTableAdapter.ClearBeforeFill = True
+        Me.DS_LOG.DataSetName = "DS_LOG"
+        Me.DS_LOG.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'Nomina_congreso_pTableAdapter
+        'IM_PARTIDOS_POLITICOS_imagenTableAdapter
         '
-        Me.Nomina_congreso_pTableAdapter.ClearBeforeFill = True
+        Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.ClearBeforeFill = True
         '
-        'Nomina_congreso_pinTableAdapter
+        'BindingSource3
         '
-        Me.Nomina_congreso_pinTableAdapter.ClearBeforeFill = True
+        Me.BindingSource3.DataMember = "IM_MOVIMIENTOS_imagen"
+        Me.BindingSource3.DataSource = Me.DS_LOG
         '
-        'congre5
+        'IM_MOVIMIENTOS_imagenTableAdapter
         '
-        Me.congre5.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.congre5.LocationFloat = New DevExpress.Utils.PointFloat(837.5!, 81.08336!)
-        Me.congre5.Name = "congre5"
-        Me.congre5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.congre5.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.congre5.StylePriority.UseFont = False
-        Me.congre5.Text = "congre5"
+        Me.IM_MOVIMIENTOS_imagenTableAdapter.ClearBeforeFill = True
+        '
+        'XrPictureBox1
+        '
+        Me.XrPictureBox1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSource2, "IMAGEN")})
+        Me.XrPictureBox1.LocationFloat = New DevExpress.Utils.PointFloat(26.04167!, 12.5!)
+        Me.XrPictureBox1.Name = "XrPictureBox1"
+        Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(125.0!, 85.41666!)
+        Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage
+        '
+        'XrPictureBox2
+        '
+        Me.XrPictureBox2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSource3, "IMAGEN")})
+        Me.XrPictureBox2.LocationFloat = New DevExpress.Utils.PointFloat(911.5001!, 12.5!)
+        Me.XrPictureBox2.Name = "XrPictureBox2"
+        Me.XrPictureBox2.SizeF = New System.Drawing.SizeF(125.0!, 85.42!)
+        Me.XrPictureBox2.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage
         '
         'REPORTE_RAZONADO
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.ReportHeader, Me.GroupHeader1, Me.GroupHeader2, Me.GroupHeader3})
-        Me.DataSource = Me.BindingSource1
+        Me.DataAdapter = Me.Nomina_presidencialTableAdapter
+        Me.DataMember = "nomina_presidencial"
+        Me.DataSource = Me.DS_RAZONADO
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(19, 22, 18, 29)
         Me.PageHeight = 850
         Me.PageWidth = 1100
         Me.Parameters.AddRange(New DevExpress.XtraReports.Parameters.Parameter() {Me.NombrePartido, Me.NombreMovimiento})
         Me.Version = "11.2"
-        CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DS_RAZONADO, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSource5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSource4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSource3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DS_RAZONADO, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub
@@ -645,7 +664,6 @@ Partial Public Class REPORTE_RAZONADO
     Friend WithEvents congresop As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents NombrePartido As DevExpress.XtraReports.Parameters.Parameter
     Friend WithEvents NombreMovimiento As DevExpress.XtraReports.Parameters.Parameter
-    Friend WithEvents PRECO As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel15 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel14 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel13 As DevExpress.XtraReports.UI.XRLabel
@@ -660,22 +678,24 @@ Partial Public Class REPORTE_RAZONADO
     Friend WithEvents parla3 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents parla2 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents parla1 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents parla As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents GroupHeader3 As DevExpress.XtraReports.UI.GroupHeaderBand
-    Friend WithEvents BindingSource2 As System.Windows.Forms.BindingSource
-    Friend WithEvents Nomina_parlacen_pTableAdapter As Inscripcion_de_Moviemientos.DS_RAZONADOTableAdapters.nomina_parlacen_pTableAdapter
-    Friend WithEvents parlas As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents BindingSource3 As System.Windows.Forms.BindingSource
-    Friend WithEvents Nomina_parlacen_sTableAdapter As Inscripcion_de_Moviemientos.DS_RAZONADOTableAdapters.nomina_parlacen_sTableAdapter
     Friend WithEvents parlas3 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents parlas2 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents parlas1 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents congre1 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents BindingSource4 As System.Windows.Forms.BindingSource
-    Friend WithEvents Nomina_congreso_pTableAdapter As Inscripcion_de_Moviemientos.DS_RAZONADOTableAdapters.nomina_congreso_pTableAdapter
     Friend WithEvents congre3 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents congre2 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents BindingSource5 As System.Windows.Forms.BindingSource
-    Friend WithEvents Nomina_congreso_pinTableAdapter As Inscripcion_de_Moviemientos.DS_RAZONADOTableAdapters.nomina_congreso_pinTableAdapter
     Friend WithEvents congre5 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents congre4 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents congres1 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents congres3 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents congres2 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents corpo3 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents corporacion2 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents corporacion1 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents BindingSource2 As System.Windows.Forms.BindingSource
+    Friend WithEvents DS_LOG As Inscripcion_de_Moviemientos.DS_LOG
+    Friend WithEvents IM_PARTIDOS_POLITICOS_imagenTableAdapter As Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
+    Friend WithEvents BindingSource3 As System.Windows.Forms.BindingSource
+    Friend WithEvents IM_MOVIMIENTOS_imagenTableAdapter As Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
+    Friend WithEvents XrPictureBox2 As DevExpress.XtraReports.UI.XRPictureBox
+    Friend WithEvents XrPictureBox1 As DevExpress.XtraReports.UI.XRPictureBox
 End Class
