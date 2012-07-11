@@ -376,7 +376,7 @@ Public Class XFrmMenuPrincipal
         reporteciuinc.ShowPreview()
     End Sub
 
-    Private Sub BarButtonItem4_ItemClick_2(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem4.ItemClick
+    Private Sub BarButtonItem4_ItemClick_2(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNRazonado.ItemClick
         Dim reporterazo As REPORTE_RAZONADO = New REPORTE_RAZONADO
         reporterazo.ShowPreview()
     End Sub
