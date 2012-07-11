@@ -131,7 +131,7 @@ Public Class XfrmSubirRespaldo
             conn1.Open()
             Try
                 myCMD.Connection = conn1
-                myCMD.CommandText = "alter PACKAGE im_k_subir_respaldo compile;"
+                myCMD.CommandText = "alter PACKAGE im_k_subir_respaldo compile"
                 myCMD.CommandType = CommandType.Text
                 myCMD.ExecuteOracleScalar()               
             Catch ex As Exception
@@ -149,7 +149,7 @@ Public Class XfrmSubirRespaldo
             conn5.Open()
             Try
                 myCMD5.Connection = conn5
-                myCMD5.CommandText = "alter package im_k_subir_respaldo compile body;"
+                myCMD5.CommandText = "alter package im_k_subir_respaldo compile body"
                 myCMD5.CommandType = CommandType.Text
                 myCMD5.ExecuteOracleScalar()
             Catch ex As Exception
