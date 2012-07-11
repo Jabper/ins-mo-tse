@@ -939,7 +939,7 @@ Public Class xfrmRegCandidatos
         If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 9 Then
 
             mujeres_ingresadas = COracle.ObtenerDatos(String.Format("SELECT NVL(COUNT(*),  0) MUJERES FROM    im_candidatos ic, im_padron_electoral IP WHERE  ic.codigo_cargo_electivo IN (1,9)  AND  IC.CODIGO_PARTIDO = {0} AND IC.CODIGO_MOVIMIENTO = {1} AND  ic.identidad = ip.numero_identidad AND ip.sexo  = 2", id_partido, id_movimiento), "MUJERES")
-            mujeres_necesarias = COracle.ObtenerDatos("SELECT CANTIDAD_MUJERES FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO =9", "CANTIDAD_MUJERES")
+            mujeres_necesarias = COracle.ObtenerDatos("SELECT NVL(CANTIDAD_MUJERES,0) CANTIDAD_MUJERES FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO =9", "CANTIDAD_MUJERES")
 
             Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
             If faltan < 0 Then
@@ -962,7 +962,7 @@ Public Class xfrmRegCandidatos
                                 " AND      ip.sexo= 2"
 
             mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
-            mujeres_necesarias = COracle.ObtenerDatos("SELECT CANTIDAD_MUJERES FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO =2", "CANTIDAD_MUJERES")
+            mujeres_necesarias = COracle.ObtenerDatos("SELECT NVL(CANTIDAD_MUJERES,0) CANTIDAD_MUJERES FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO =2", "CANTIDAD_MUJERES")
 
 
             Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
@@ -986,7 +986,7 @@ Public Class xfrmRegCandidatos
                                " AND      ip.sexo= 2"
 
             mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
-            mujeres_necesarias = COracle.ObtenerDatos("SELECT CANTIDAD_MUJERES FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO =3", "CANTIDAD_MUJERES")
+            mujeres_necesarias = COracle.ObtenerDatos("SELECT NVL(CANTIDAD_MUJERES,0) CANTIDAD_MUJERES FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO =3", "CANTIDAD_MUJERES")
 
             Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
             If faltan < 0 Then
@@ -1061,7 +1061,7 @@ Public Class xfrmRegCandidatos
             Else
 
                 mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
-                mujeres_necesarias = COracle.ObtenerDatos("select cantidad_mujeres from im_departamentos where codigo_departamento = " & depto, "cantidad_mujeres")
+                mujeres_necesarias = COracle.ObtenerDatos("select NVL(CANTIDAD_MUJERES,0) CANTIDAD_MUJERES  from im_departamentos where codigo_departamento = " & depto, "cantidad_mujeres")
 
                 Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
                 If faltan < 0 Then
@@ -1136,7 +1136,7 @@ Public Class xfrmRegCandidatos
                                    " AND      ip.sexo= 2"
 
                 mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
-                mujeres_necesarias = COracle.ObtenerDatos("select cantidad_mujeres from im_departamentos where codigo_departamento = " & depto, "cantidad_mujeres")
+                mujeres_necesarias = COracle.ObtenerDatos("select NVL(CANTIDAD_MUJERES,0) CANTIDAD_MUJERES  from im_departamentos where codigo_departamento = " & depto, "cantidad_mujeres")
 
 
                 Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
@@ -1160,7 +1160,7 @@ Public Class xfrmRegCandidatos
                                    " AND      ip.sexo= 2"
 
                 mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
-                mujeres_necesarias = COracle.ObtenerDatos("select cantidad_mujeres from im_municipios where codigo_departamento = " & depto & " and codigo_municipio =" & muni, "cantidad_mujeres")
+            mujeres_necesarias = COracle.ObtenerDatos("select NVL(CANTIDAD_MUJERES,0) CANTIDAD_MUJERES  from im_municipios where codigo_departamento = " & depto & " and codigo_municipio =" & muni, "cantidad_mujeres")
 
                 Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
                 If faltan < 0 Then
