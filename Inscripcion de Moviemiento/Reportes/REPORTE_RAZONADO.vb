@@ -6,10 +6,6 @@ Imports DevExpress.XtraReports.UI
 Imports DevExpress.XtraReports.Parameters
 
 Public Class REPORTE_RAZONADO
-
- 
-
-
     Private Sub REPORTE_RAZONADO_ParametersRequestBeforeShow(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestEventArgs) Handles Me.ParametersRequestBeforeShow
         'carga de datos de parametros generales 
         Me.presidente.Text = "1"
@@ -53,11 +49,7 @@ Public Class REPORTE_RAZONADO
             End If
         Next
 
-
-
-
     End Sub
-
 
     Private Sub REPORTE_RAZONADO_ParametersRequestSubmit(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestEventArgs) Handles Me.ParametersRequestSubmit
         Dim oradb As String = Configuracion.verconfig
@@ -72,8 +64,6 @@ Public Class REPORTE_RAZONADO
         Dim tnivel_diputadosPARS As String = 0
         Dim tnivel_corporacionmunic As String = 0
         Dim tnivel_corporacionmunin As String = 0
-
-
 
         Me.Nomina_presidencialTableAdapter.Fill(DS_RAZONADO.nomina_presidencial, Me.NombrePartido.Value.ToString, Me.NombreMovimiento.Value.ToString)
         'Me.Nomina_parlacen_pTableAdapter.Fill(DS_RAZONADO.nomina_parlacen_p, Me.NombrePartido.Value.ToString, Me.NombreMovimiento.Value.ToString)
@@ -167,12 +157,9 @@ Public Class REPORTE_RAZONADO
             corpo3.Text = "No"
         End If
 
-
         'se envian los filtros por nombre de partido y nombre de movimiento para recuperar las respectivas imagenes
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(DS_LOG.IM_PARTIDOS_POLITICOS_imagen, NombrePartido.Value.ToString)
         Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(DS_LOG.IM_MOVIMIENTOS_imagen, NombreMovimiento.Value.ToString)
 
     End Sub
-
-
 End Class
