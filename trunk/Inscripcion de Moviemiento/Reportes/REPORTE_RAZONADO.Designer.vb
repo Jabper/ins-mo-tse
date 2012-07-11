@@ -604,7 +604,7 @@ Partial Public Class REPORTE_RAZONADO
         'XrPictureBox1
         '
         Me.XrPictureBox1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSource2, "IMAGEN")})
-        Me.XrPictureBox1.LocationFloat = New DevExpress.Utils.PointFloat(26.04167!, 12.5!)
+        Me.XrPictureBox1.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 12.50334!)
         Me.XrPictureBox1.Name = "XrPictureBox1"
         Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(125.0!, 85.41666!)
         Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage
@@ -612,7 +612,7 @@ Partial Public Class REPORTE_RAZONADO
         'XrPictureBox2
         '
         Me.XrPictureBox2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSource3, "IMAGEN")})
-        Me.XrPictureBox2.LocationFloat = New DevExpress.Utils.PointFloat(911.5001!, 12.5!)
+        Me.XrPictureBox2.LocationFloat = New DevExpress.Utils.PointFloat(924.0001!, 12.50334!)
         Me.XrPictureBox2.Name = "XrPictureBox2"
         Me.XrPictureBox2.SizeF = New System.Drawing.SizeF(125.0!, 85.42!)
         Me.XrPictureBox2.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage
