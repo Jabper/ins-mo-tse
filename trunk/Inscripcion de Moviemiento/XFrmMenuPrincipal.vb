@@ -3,6 +3,7 @@ Imports DevExpress.XtraBars
 Imports DevExpress.XtraBars.InternalItems
 Imports System.IO
 Imports DevExpress.XtraEditors
+Imports DevExpress.XtraEditors.Controls
 
 Public Class XFrmMenuPrincipal
     Public Sub New()
@@ -382,6 +383,9 @@ Public Class XFrmMenuPrincipal
     End Sub
 
     Private Sub BTNRestadisticoCE_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNRestadisticoCE.ItemClick
+
+        COracle.Im_Estadisticas()
+
         Dim reporteesta As REPORTE_DETALLE_ESTADISTICO = New REPORTE_DETALLE_ESTADISTICO
         reporteesta.ShowPreview()
 

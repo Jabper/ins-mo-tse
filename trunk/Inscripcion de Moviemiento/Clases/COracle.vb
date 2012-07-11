@@ -1,6 +1,32 @@
 ﻿Imports System.Data.OracleClient ''IMPORTANDO LIBRERIAS NECESARIAS
 Public Class COracle
 
+    Public Shared Sub Im_Estadisticas()
+        Try
+
+        
+            Dim oradb As String = Configuracion.verconfig
+            Dim conn As New OracleConnection()
+            conn.ConnectionString = oradb
+
+            If conn.State = ConnectionState.Open Then
+                conn.Close()
+            End If
+            conn.Open()
+
+            Dim myCMD As New OracleCommand()
+            myCMD.Connection = conn
+            myCMD.CommandText = "IM_P_ESTADISTICAS"
+            myCMD.CommandType = CommandType.StoredProcedure
+            myCMD.ExecuteOracleScalar()
+
+            conn.Close()
+        Catch ex As Exception
+            Mensajes.MensajeError(ex.Message)
+        End Try
+
+    End Sub
+
     Public Shared Sub GetName(ByVal Identidad As String)
         Dim consulta As String = "select NUMERO_IDENTIDAD, PRIMER_NOMBRE, SEGUNDO_NOMBRE, PRIMER_APELLIDO, SEGUNDO_APELLIDO "
         consulta &= "from Im_padron_electoral where NUMERO_IDENTIDAD='" & Identidad & "'"
