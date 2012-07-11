@@ -558,6 +558,12 @@
     <Compile Include="Reportes\REPORTE_PLANILLAS_FINALES.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\REPORTE_RAZONADO.Designer.vb">
+      <DependentUpon>REPORTE_RAZONADO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\REPORTE_RAZONADO.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Usuarios\XfrmRecuperarPass.Designer.vb">
       <DependentUpon>XfrmRecuperarPass.vb</DependentUpon>
     </Compile>
@@ -959,6 +965,9 @@
     <EmbeddedResource Include="Reportes\REPORTE_PLANILLAS_FINALES.resx">
       <DependentUpon>REPORTE_PLANILLAS_FINALES.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\REPORTE_RAZONADO.resx">
+      <DependentUpon>REPORTE_RAZONADO.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\XfrmRecuperarPass.resx">
       <DependentUpon>XfrmRecuperarPass.vb</DependentUpon>
