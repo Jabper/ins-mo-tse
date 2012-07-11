@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_REP_DETALLE_ESTADISTICA" targetNamespace="http://tempuri.org/DS_REP_DETALLE_ESTADISTICA.xsd" xmlns:mstns="http://tempuri.org/DS_REP_DETALLE_ESTADISTICA.xsd" xmlns="http://tempuri.org/DS_REP_DETALLE_ESTADISTICA.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (MySettings)" PropertyReference="ApplicationSettings.Inscripcion_de_Moviemientos.My.MySettings.GlobalReference.Default.ConnectionString" Provider="System.Data.OracleClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="IM_ESTADISTICASTableAdapter" GeneratorDataComponentClassName="IM_ESTADISTICASTableAdapter" Name="IM_ESTADISTICAS" UserDataComponentName="IM_ESTADISTICASTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        D.DESCRIPCION AS DEPARTAMENTO, E.DESCRIPCION AS MUNICIPIO, C.NOMBRE AS PARTIDO, B.NOMBRE_MOVIMIENTO, F.DESCRIPCION AS CARGO, 
+                         F.CODIGO_CARGO_ELECTIVO, A.PUESTO_REQUERIDOS, A.TOTAL_INGRESADOS, A.TOTAL_CORRECTOS, A.TOTAL_INCORRECTOS, A.MUJERES_NECESARIAS, 
+                         A.MUJERES_INGRESADAS, A.ADICIONADO_POR, A.FECHA_ADICION, A.MODIFICADO_POR, A.FECHA_MODIFICACION, A.ESTADO, A.TOTAL_FALTAN
+FROM            IM_ESTADISTICAS A, IM_CARGOS_ELECTIVOS F, IM_MUNICIPIOS E, IM_DEPARTAMENTOS D, IM_PARTIDOS_POLITICOS C, IM_MOVIMIENTOS B
+WHERE        A.CODIGO_CARGO_ELECTIVO = F.CODIGO_CARGO_ELECTIVO AND A.CODIGO_DEPARTAMENTO = E.CODIGO_DEPARTAMENTO AND 
+                         A.CODIGO_MUNICIPIO = E.CODIGO_MUNICIPIO AND A.CODIGO_DEPARTAMENTO = D.CODIGO_DEPARTAMENTO AND A.CODIGO_PARTIDO = C.CODIGO_PARTIDO AND
+                          A.CODIGO_PARTIDO = B.CODIGO_PARTIDO AND A.CODIGO_MOVIMIENTO = B.CODIGO_MOVIMIENTO
+ORDER BY PARTIDO, B.NOMBRE_MOVIMIENTO, F.CODIGO_CARGO_ELECTIVO</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PUESTO_REQUERIDOS" DataSetColumn="PUESTO_REQUERIDOS" />
+              <Mapping SourceColumn="TOTAL_INGRESADOS" DataSetColumn="TOTAL_INGRESADOS" />
+              <Mapping SourceColumn="TOTAL_CORRECTOS" DataSetColumn="TOTAL_CORRECTOS" />
+              <Mapping SourceColumn="TOTAL_INCORRECTOS" DataSetColumn="TOTAL_INCORRECTOS" />
+              <Mapping SourceColumn="MUJERES_NECESARIAS" DataSetColumn="MUJERES_NECESARIAS" />
+              <Mapping SourceColumn="MUJERES_INGRESADAS" DataSetColumn="MUJERES_INGRESADAS" />
+              <Mapping SourceColumn="ADICIONADO_POR" DataSetColumn="ADICIONADO_POR" />
+              <Mapping SourceColumn="FECHA_ADICION" DataSetColumn="FECHA_ADICION" />
+              <Mapping SourceColumn="MODIFICADO_POR" DataSetColumn="MODIFICADO_POR" />
+              <Mapping SourceColumn="FECHA_MODIFICACION" DataSetColumn="FECHA_MODIFICACION" />
+              <Mapping SourceColumn="ESTADO" DataSetColumn="ESTADO" />
+              <Mapping SourceColumn="TOTAL_FALTAN" DataSetColumn="TOTAL_FALTAN" />
+              <Mapping SourceColumn="DEPARTAMENTO" DataSetColumn="DEPARTAMENTO" />
+              <Mapping SourceColumn="MUNICIPIO" DataSetColumn="MUNICIPIO" />
+              <Mapping SourceColumn="PARTIDO" DataSetColumn="PARTIDO" />
+              <Mapping SourceColumn="NOMBRE_MOVIMIENTO" DataSetColumn="NOMBRE_MOVIMIENTO" />
+              <Mapping SourceColumn="CARGO" DataSetColumn="CARGO" />
+              <Mapping SourceColumn="CODIGO_CARGO_ELECTIVO" DataSetColumn="CODIGO_CARGO_ELECTIVO" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_REP_DETALLE_ESTADISTICA" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DS_REP_DETALLE_ESTADISTICA" msprop:Generator_DataSetName="DS_REP_DETALLE_ESTADISTICA" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="IM_ESTADISTICAS" msprop:Generator_UserTableName="IM_ESTADISTICAS" msprop:Generator_RowDeletedName="IM_ESTADISTICASRowDeleted" msprop:Generator_RowChangedName="IM_ESTADISTICASRowChanged" msprop:Generator_RowClassName="IM_ESTADISTICASRow" msprop:Generator_RowChangingName="IM_ESTADISTICASRowChanging" msprop:Generator_RowEvArgName="IM_ESTADISTICASRowChangeEvent" msprop:Generator_RowEvHandlerName="IM_ESTADISTICASRowChangeEventHandler" msprop:Generator_TableClassName="IM_ESTADISTICASDataTable" msprop:Generator_TableVarName="tableIM_ESTADISTICAS" msprop:Generator_RowDeletingName="IM_ESTADISTICASRowDeleting" msprop:Generator_TablePropName="IM_ESTADISTICAS">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PUESTO_REQUERIDOS" msprop:Generator_UserColumnName="PUESTO_REQUERIDOS" msprop:Generator_ColumnVarNameInTable="columnPUESTO_REQUERIDOS" msprop:Generator_ColumnPropNameInRow="PUESTO_REQUERIDOS" msprop:Generator_ColumnPropNameInTable="PUESTO_REQUERIDOSColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TOTAL_INGRESADOS" msprop:Generator_UserColumnName="TOTAL_INGRESADOS" msprop:Generator_ColumnVarNameInTable="columnTOTAL_INGRESADOS" msprop:Generator_ColumnPropNameInRow="TOTAL_INGRESADOS" msprop:Generator_ColumnPropNameInTable="TOTAL_INGRESADOSColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TOTAL_CORRECTOS" msprop:Generator_UserColumnName="TOTAL_CORRECTOS" msprop:Generator_ColumnVarNameInTable="columnTOTAL_CORRECTOS" msprop:Generator_ColumnPropNameInRow="TOTAL_CORRECTOS" msprop:Generator_ColumnPropNameInTable="TOTAL_CORRECTOSColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TOTAL_INCORRECTOS" msprop:Generator_UserColumnName="TOTAL_INCORRECTOS" msprop:Generator_ColumnVarNameInTable="columnTOTAL_INCORRECTOS" msprop:Generator_ColumnPropNameInRow="TOTAL_INCORRECTOS" msprop:Generator_ColumnPropNameInTable="TOTAL_INCORRECTOSColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MUJERES_NECESARIAS" msprop:Generator_UserColumnName="MUJERES_NECESARIAS" msprop:Generator_ColumnVarNameInTable="columnMUJERES_NECESARIAS" msprop:Generator_ColumnPropNameInRow="MUJERES_NECESARIAS" msprop:Generator_ColumnPropNameInTable="MUJERES_NECESARIASColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MUJERES_INGRESADAS" msprop:Generator_UserColumnName="MUJERES_INGRESADAS" msprop:Generator_ColumnVarNameInTable="columnMUJERES_INGRESADAS" msprop:Generator_ColumnPropNameInRow="MUJERES_INGRESADAS" msprop:Generator_ColumnPropNameInTable="MUJERES_INGRESADASColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ADICIONADO_POR" msprop:Generator_UserColumnName="ADICIONADO_POR" msprop:Generator_ColumnVarNameInTable="columnADICIONADO_POR" msprop:Generator_ColumnPropNameInRow="ADICIONADO_POR" msprop:Generator_ColumnPropNameInTable="ADICIONADO_PORColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FECHA_ADICION" msprop:Generator_UserColumnName="FECHA_ADICION" msprop:Generator_ColumnVarNameInTable="columnFECHA_ADICION" msprop:Generator_ColumnPropNameInRow="FECHA_ADICION" msprop:Generator_ColumnPropNameInTable="FECHA_ADICIONColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="MODIFICADO_POR" msprop:Generator_UserColumnName="MODIFICADO_POR" msprop:Generator_ColumnVarNameInTable="columnMODIFICADO_POR" msprop:Generator_ColumnPropNameInRow="MODIFICADO_POR" msprop:Generator_ColumnPropNameInTable="MODIFICADO_PORColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FECHA_MODIFICACION" msprop:Generator_UserColumnName="FECHA_MODIFICACION" msprop:Generator_ColumnVarNameInTable="columnFECHA_MODIFICACION" msprop:Generator_ColumnPropNameInRow="FECHA_MODIFICACION" msprop:Generator_ColumnPropNameInTable="FECHA_MODIFICACIONColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ESTADO" msprop:Generator_UserColumnName="ESTADO" msprop:Generator_ColumnVarNameInTable="columnESTADO" msprop:Generator_ColumnPropNameInRow="ESTADO" msprop:Generator_ColumnPropNameInTable="ESTADOColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TOTAL_FALTAN" msprop:Generator_UserColumnName="TOTAL_FALTAN" msprop:Generator_ColumnVarNameInTable="columnTOTAL_FALTAN" msprop:Generator_ColumnPropNameInRow="TOTAL_FALTAN" msprop:Generator_ColumnPropNameInTable="TOTAL_FALTANColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DEPARTAMENTO" msprop:Generator_UserColumnName="DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MUNICIPIO" msprop:Generator_UserColumnName="MUNICIPIO" msprop:Generator_ColumnPropNameInRow="MUNICIPIO" msprop:Generator_ColumnVarNameInTable="columnMUNICIPIO" msprop:Generator_ColumnPropNameInTable="MUNICIPIOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PARTIDO" msprop:Generator_UserColumnName="PARTIDO" msprop:Generator_ColumnPropNameInRow="PARTIDO" msprop:Generator_ColumnVarNameInTable="columnPARTIDO" msprop:Generator_ColumnPropNameInTable="PARTIDOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NOMBRE_MOVIMIENTO" msprop:Generator_UserColumnName="NOMBRE_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="NOMBRE_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="NOMBRE_MOVIMIENTOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CARGO" msprop:Generator_UserColumnName="CARGO" msprop:Generator_ColumnPropNameInRow="CARGO" msprop:Generator_ColumnVarNameInTable="columnCARGO" msprop:Generator_ColumnPropNameInTable="CARGOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODIGO_CARGO_ELECTIVO" msprop:Generator_UserColumnName="CODIGO_CARGO_ELECTIVO" msprop:Generator_ColumnPropNameInRow="CODIGO_CARGO_ELECTIVO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_CARGO_ELECTIVO" msprop:Generator_ColumnPropNameInTable="CODIGO_CARGO_ELECTIVOColumn" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:IM_ESTADISTICAS" />
+      <xs:field xpath="mstns:NOMBRE_MOVIMIENTO" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
