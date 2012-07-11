@@ -72,14 +72,14 @@ Partial Public Class REPORTE_DETALLE_ESTADISTICO
         'XrLabel29
         '
         Me.XrLabel29.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel29.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 66.58328!)
+        Me.XrLabel29.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 66.58325!)
         Me.XrLabel29.Name = "XrLabel29"
         Me.XrLabel29.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel29.SizeF = New System.Drawing.SizeF(910.0!, 22.99999!)
+        Me.XrLabel29.SizeF = New System.Drawing.SizeF(937.0833!, 22.99998!)
         Me.XrLabel29.StylePriority.UseFont = False
         Me.XrLabel29.StylePriority.UseTextAlignment = False
         Me.XrLabel29.Text = "_________________________________________________________________________________" & _
-            "___________________________________________________"
+            "________________________________________________________"
         Me.XrLabel29.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'XrLabel28
