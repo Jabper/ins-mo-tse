@@ -380,4 +380,8 @@ Public Class XFrmMenuPrincipal
         Dim reporterazo As REPORTE_RAZONADO = New REPORTE_RAZONADO
         reporterazo.ShowPreview()
     End Sub
+
+    Private Sub BTNRestadisticoCE_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNRestadisticoCE.ItemClick
+
+    End Sub
 End Class
