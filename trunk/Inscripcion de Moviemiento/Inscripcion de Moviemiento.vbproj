@@ -968,6 +968,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_RAZONADO.resx">
       <DependentUpon>REPORTE_RAZONADO.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\XfrmRecuperarPass.resx">
       <DependentUpon>XfrmRecuperarPass.vb</DependentUpon>

@@ -64,34 +64,42 @@ Public Class XfrmSubirRespaldo
             mensaje = "OK"
             If Trim(mensaje) = "OK" Then
                 If File.Exists("C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo) Then
-                    System.IO.File.Delete("C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo)
-                    System.IO.File.Copy(TxtRuta.Text, "C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo, True)
+                    Try
+                        System.IO.File.Delete("C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo)
+                        System.IO.File.Copy(TxtRuta.Text, "C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo, True)
+                    Catch ex As Exception
+                        MsgBox("Error al copiar el archivo DMP")
+                    End Try
                 Else
-                    System.IO.File.Copy(TxtRuta.Text, "C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo, True)
+                    Try
+                        System.IO.File.Copy(TxtRuta.Text, "C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo, True)
+                    Catch ex As Exception
+                        MsgBox("Error al copiar el archivo DMP")
+                    End Try
                 End If
 
-                Try
-                    mensaje = "Error"
-                    Dim startInfo As ProcessStartInfo
-                    Dim pStart As New Process
-                    IO.File.WriteAllText("c:\Windows\Temp\Borrar_usuario.sql", My.Resources.borrar_usuario)
-                    Dim parametro As String = "/C C:\oraclexe\app\oracle\product\10.2.0\server\BIN\SQLPLUS / AS SYSDBA @c:\Windows\Temp\Borrar_usuario.sql"
-                    'MsgBox(parametro)
-                    startInfo = New ProcessStartInfo("cmd.exe", parametro)
-                    'imp TSE/TSEORACLE2012@XE Buffer=5000000 File=" & TxtRuta.Text & " FROMUSER=TSE TOUSER=TSE ignore=Y")
-                    pStart.StartInfo = startInfo
-                    pStart.Start()
-                    pStart.WaitForExit()
-                    If pStart.ExitCode = 0 Then
-                        mensaje = "OK"
-                    Else
-                        MsgBox("La Importación No se ha realizado Correctamente verifique el archivo de origen de los datos", MsgBoxStyle.Exclamation)
-                        mensaje = "Error"
-                    End If
-                Catch ex As Exception
-                    Mensajes.MensajeError(ex.Message)
-                    Exit Sub
-                End Try                
+                'Try
+                '    mensaje = "Error"
+                '    Dim startInfo As ProcessStartInfo
+                '    Dim pStart As New Process
+                '    IO.File.WriteAllText("c:\Windows\Temp\Borrar_usuario.sql", My.Resources.borrar_usuario)
+                '    Dim parametro As String = "/C C:\oraclexe\app\oracle\product\10.2.0\server\BIN\SQLPLUS / AS SYSDBA @c:\Windows\Temp\Borrar_usuario.sql"
+                '    'MsgBox(parametro)
+                '    startInfo = New ProcessStartInfo("cmd.exe", parametro)
+                '    'imp TSE/TSEORACLE2012@XE Buffer=5000000 File=" & TxtRuta.Text & " FROMUSER=TSE TOUSER=TSE ignore=Y")
+                '    pStart.StartInfo = startInfo
+                '    pStart.Start()
+                '    pStart.WaitForExit()
+                '    If pStart.ExitCode = 0 Then
+                '        mensaje = "OK"
+                '    Else
+                '        MsgBox("La Importación No se ha realizado Correctamente verifique el archivo de origen de los datos", MsgBoxStyle.Exclamation)
+                '        mensaje = "Error"
+                '    End If
+                'Catch ex As Exception
+                '    Mensajes.MensajeError(ex.Message)
+                '    Exit Sub
+                'End Try                
 
                 If Trim(mensaje) = "OK" Then
                     Try
@@ -115,6 +123,42 @@ Public Class XfrmSubirRespaldo
                     End Try
                 End If
             End If
+
+            Dim oradb As String = Configuracion.verconfig
+            Dim conn1 As New OracleConnection()
+            Dim myCMD As New OracleCommand()
+            conn1.ConnectionString = oradb
+            conn1.Open()
+            Try
+                myCMD.Connection = conn1
+                myCMD.CommandText = "alter PACKAGE im_k_subir_respaldo compile;"
+                myCMD.CommandType = CommandType.Text
+                myCMD.ExecuteOracleScalar()               
+            Catch ex As Exception
+                conn1.Close()
+                'waitDialog.Caption = "finalizando..."
+                'waitDialog.Close()
+                Mensajes.MensajeError(ex.Message)               
+            End Try
+            conn1.Close()
+
+            Dim oradb5 As String = Configuracion.verconfig
+            Dim conn5 As New OracleConnection()
+            Dim myCMD5 As New OracleCommand()
+            conn5.ConnectionString = oradb5
+            conn5.Open()
+            Try
+                myCMD5.Connection = conn5
+                myCMD5.CommandText = "alter package im_k_subir_respaldo compile body;"
+                myCMD5.CommandType = CommandType.Text
+                myCMD5.ExecuteOracleScalar()
+            Catch ex As Exception
+                conn5.Close()
+                'waitDialog.Caption = "finalizando..."
+                'waitDialog.Close()
+                Mensajes.MensajeError(ex.Message)
+            End Try
+            conn5.Close()
 
             Dim oradb2 As String = Configuracion.verconfig
             Dim conn2 As New OracleConnection()
