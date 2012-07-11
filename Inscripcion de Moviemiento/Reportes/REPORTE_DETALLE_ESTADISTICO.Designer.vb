@@ -41,6 +41,7 @@ Partial Public Class REPORTE_DETALLE_ESTADISTICO
         Me.DS_REP_DETALLE_ESTADISTICA1 = New Inscripcion_de_Moviemientos.DS_REP_DETALLE_ESTADISTICA
         Me.IM_ESTADISTICASTableAdapter = New Inscripcion_de_Moviemientos.DS_REP_DETALLE_ESTADISTICATableAdapters.IM_ESTADISTICASTableAdapter
         Me.GroupHeader1 = New DevExpress.XtraReports.UI.GroupHeaderBand
+        Me.XrLine2 = New DevExpress.XtraReports.UI.XRLine
         Me.XrLabel6 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel
@@ -75,11 +76,11 @@ Partial Public Class REPORTE_DETALLE_ESTADISTICO
         Me.XrLabel29.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 66.58325!)
         Me.XrLabel29.Name = "XrLabel29"
         Me.XrLabel29.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel29.SizeF = New System.Drawing.SizeF(937.0833!, 22.99998!)
+        Me.XrLabel29.SizeF = New System.Drawing.SizeF(1015.208!, 22.99998!)
         Me.XrLabel29.StylePriority.UseFont = False
         Me.XrLabel29.StylePriority.UseTextAlignment = False
         Me.XrLabel29.Text = "_________________________________________________________________________________" & _
-            "________________________________________________________"
+            "__________________________________________________________________"
         Me.XrLabel29.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'XrLabel28
@@ -198,7 +199,7 @@ Partial Public Class REPORTE_DETALLE_ESTADISTICO
         Me.XrLabel24.LocationFloat = New DevExpress.Utils.PointFloat(865.2083!, 0.0!)
         Me.XrLabel24.Name = "XrLabel24"
         Me.XrLabel24.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel24.SizeF = New System.Drawing.SizeF(71.875!, 22.99999!)
+        Me.XrLabel24.SizeF = New System.Drawing.SizeF(150.0!, 22.99999!)
         Me.XrLabel24.StylePriority.UseTextAlignment = False
         Me.XrLabel24.Text = "XrLabel24"
         Me.XrLabel24.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
@@ -230,6 +231,7 @@ Partial Public Class REPORTE_DETALLE_ESTADISTICO
         'TopMargin
         '
         Me.TopMargin.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel2, Me.XrLabel1})
+        Me.TopMargin.HeightF = 150.0!
         Me.TopMargin.Name = "TopMargin"
         Me.TopMargin.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
@@ -237,7 +239,7 @@ Partial Public Class REPORTE_DETALLE_ESTADISTICO
         'XrLabel2
         '
         Me.XrLabel2.Font = New System.Drawing.Font("Times New Roman", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
-        Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(178.75!, 76.74999!)
+        Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(168.75!, 76.75002!)
         Me.XrLabel2.Name = "XrLabel2"
         Me.XrLabel2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel2.SizeF = New System.Drawing.SizeF(629.9999!, 22.99999!)
@@ -277,10 +279,17 @@ Partial Public Class REPORTE_DETALLE_ESTADISTICO
         '
         'GroupHeader1
         '
-        Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel6, Me.XrLabel5, Me.XrLabel4, Me.XrLabel3})
-        Me.GroupHeader1.HeightF = 57.29167!
+        Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLine2, Me.XrLabel6, Me.XrLabel5, Me.XrLabel4, Me.XrLabel3})
+        Me.GroupHeader1.HeightF = 80.20834!
         Me.GroupHeader1.Level = 1
         Me.GroupHeader1.Name = "GroupHeader1"
+        '
+        'XrLine2
+        '
+        Me.XrLine2.LineWidth = 3
+        Me.XrLine2.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 47.20831!)
+        Me.XrLine2.Name = "XrLine2"
+        Me.XrLine2.SizeF = New System.Drawing.SizeF(1015.208!, 23.00002!)
         '
         'XrLabel6
         '
@@ -323,7 +332,7 @@ Partial Public Class REPORTE_DETALLE_ESTADISTICO
         'GroupHeader2
         '
         Me.GroupHeader2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel15, Me.XrLabel14, Me.XrLabel13, Me.XrLabel12, Me.XrLabel11, Me.XrLabel10, Me.XrLabel9, Me.XrLabel8, Me.XrLine1, Me.XrLabel7})
-        Me.GroupHeader2.HeightF = 46.0!
+        Me.GroupHeader2.HeightF = 70.45835!
         Me.GroupHeader2.Name = "GroupHeader2"
         '
         'XrLabel15
@@ -332,7 +341,7 @@ Partial Public Class REPORTE_DETALLE_ESTADISTICO
         Me.XrLabel15.LocationFloat = New DevExpress.Utils.PointFloat(865.2083!, 0.0!)
         Me.XrLabel15.Name = "XrLabel15"
         Me.XrLabel15.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel15.SizeF = New System.Drawing.SizeF(71.875!, 36.0!)
+        Me.XrLabel15.SizeF = New System.Drawing.SizeF(150.0!, 36.0!)
         Me.XrLabel15.StylePriority.UseFont = False
         Me.XrLabel15.StylePriority.UseTextAlignment = False
         Me.XrLabel15.Text = "ESTADO"
@@ -425,9 +434,9 @@ Partial Public Class REPORTE_DETALLE_ESTADISTICO
         'XrLine1
         '
         Me.XrLine1.LineWidth = 3
-        Me.XrLine1.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 22.99999!)
+        Me.XrLine1.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 39.99999!)
         Me.XrLine1.Name = "XrLine1"
-        Me.XrLine1.SizeF = New System.Drawing.SizeF(937.0833!, 23.00002!)
+        Me.XrLine1.SizeF = New System.Drawing.SizeF(1015.208!, 23.00002!)
         '
         'XrLabel7
         '
@@ -457,7 +466,7 @@ Partial Public Class REPORTE_DETALLE_ESTADISTICO
         Me.DataSource = Me.DS_REP_DETALLE_ESTADISTICA1
         Me.FilterString = "[PARTIDO] = ?NombrePartido And [NOMBRE_MOVIMIENTO] = ?NombreMovimiento"
         Me.Landscape = True
-        Me.Margins = New System.Drawing.Printing.Margins(25, 26, 100, 100)
+        Me.Margins = New System.Drawing.Printing.Margins(25, 26, 150, 100)
         Me.PageHeight = 850
         Me.PageWidth = 1100
         Me.Parameters.AddRange(New DevExpress.XtraReports.Parameters.Parameter() {Me.NombrePartido, Me.NombreMovimiento})
@@ -505,4 +514,5 @@ Partial Public Class REPORTE_DETALLE_ESTADISTICO
     Friend WithEvents XrLabel29 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents NombrePartido As DevExpress.XtraReports.Parameters.Parameter
     Friend WithEvents NombreMovimiento As DevExpress.XtraReports.Parameters.Parameter
+    Friend WithEvents XrLine2 As DevExpress.XtraReports.UI.XRLine
 End Class

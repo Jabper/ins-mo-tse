@@ -1286,14 +1286,15 @@ Namespace DS_REP_DETALLE_ESTADISTICATableAdapters
                 "     F.CODIGO_CARGO_ELECTIVO, A.PUESTO_REQUERIDOS, A.TOTAL_INGRESADOS, A.TOTAL_C"& _ 
                 "ORRECTOS, A.TOTAL_INCORRECTOS, A.MUJERES_NECESARIAS, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         "& _ 
                 "A.MUJERES_INGRESADAS, A.ADICIONADO_POR, A.FECHA_ADICION, A.MODIFICADO_POR, A.FEC"& _ 
-                "HA_MODIFICACION, A.ESTADO, A.TOTAL_FALTAN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_ESTADISTICAS A, IM"& _ 
-                "_CARGOS_ELECTIVOS F, IM_MUNICIPIOS E, IM_DEPARTAMENTOS D, IM_PARTIDOS_POLITICOS "& _ 
-                "C, IM_MOVIMIENTOS B"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        A.CODIGO_CARGO_ELECTIVO = F.CODIGO_CARGO_ELECT"& _ 
-                "IVO AND A.CODIGO_DEPARTAMENTO = E.CODIGO_DEPARTAMENTO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
-                "     A.CODIGO_MUNICIPIO = E.CODIGO_MUNICIPIO AND A.CODIGO_DEPARTAMENTO = D.CODIG"& _ 
-                "O_DEPARTAMENTO AND A.CODIGO_PARTIDO = C.CODIGO_PARTIDO AND"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
-                "      A.CODIGO_PARTIDO = B.CODIGO_PARTIDO AND A.CODIGO_MOVIMIENTO = B.CODIGO_MOV"& _ 
-                "IMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY PARTIDO, B.NOMBRE_MOVIMIENTO, F.CODIGO_CARGO_ELECTIVO"
+                "HA_MODIFICACION, DECODE(A.ESTADO, 'C', 'COMPLETA', "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         'I"& _ 
+                "NCOMPLETA') AS ESTADO, A.TOTAL_FALTAN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_ESTADISTICAS A, IM_CAR"& _ 
+                "GOS_ELECTIVOS F, IM_MUNICIPIOS E, IM_DEPARTAMENTOS D, IM_PARTIDOS_POLITICOS C, I"& _ 
+                "M_MOVIMIENTOS B"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        A.CODIGO_CARGO_ELECTIVO = F.CODIGO_CARGO_ELECTIVO "& _ 
+                "AND A.CODIGO_DEPARTAMENTO = E.CODIGO_DEPARTAMENTO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                        "& _ 
+                " A.CODIGO_MUNICIPIO = E.CODIGO_MUNICIPIO AND A.CODIGO_DEPARTAMENTO = D.CODIGO_DE"& _ 
+                "PARTAMENTO AND A.CODIGO_PARTIDO = C.CODIGO_PARTIDO AND"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                        "& _ 
+                "  A.CODIGO_PARTIDO = B.CODIGO_PARTIDO AND A.CODIGO_MOVIMIENTO = B.CODIGO_MOVIMIE"& _ 
+                "NTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY PARTIDO, B.NOMBRE_MOVIMIENTO, F.CODIGO_CARGO_ELECTIVO"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
