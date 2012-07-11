@@ -382,6 +382,8 @@ Public Class XFrmMenuPrincipal
     End Sub
 
     Private Sub BTNRestadisticoCE_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNRestadisticoCE.ItemClick
+        Dim reporteesta As REPORTE_DETALLE_ESTADISTICO = New REPORTE_DETALLE_ESTADISTICO
+        reporteesta.ShowPreview()
 
     End Sub
 End Class
