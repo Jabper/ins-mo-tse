@@ -263,6 +263,7 @@ Public Class XFrmMenuPrincipal
     Private Sub BarButtonItem3_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnPlanilladivision.ItemClick
         Dim reporte2 As Reporte_de_PlanillaDP = New Reporte_de_PlanillaDP
         reporte2.ShowPreview()
+
     End Sub
 
     Private Sub btnConsultarFirmas_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnConsultarFirmas.ItemClick
@@ -272,10 +273,12 @@ Public Class XFrmMenuPrincipal
     Private Sub BtnFDP_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnFDP.ItemClick
         Dim reporte3 As Reporte_de__FirmasDP = New Reporte_de__FirmasDP
         reporte3.ShowPreview()
+
     End Sub
 
     Private Sub btnConsultarCandidatos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnConsultarCandidatos.ItemClick
         Padre(XfrmConCandidatos)
+
     End Sub
 
     Private Sub BarButtonItem4_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnFirmasinc.ItemClick
