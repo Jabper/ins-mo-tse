@@ -375,4 +375,9 @@ Public Class XFrmMenuPrincipal
         Dim reporteciuinc As REPORTE_CIU_INCONSISTENTE = New REPORTE_CIU_INCONSISTENTE
         reporteciuinc.ShowPreview()
     End Sub
+
+    Private Sub BarButtonItem4_ItemClick_2(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem4.ItemClick
+        Dim reporterazo As REPORTE_RAZONADO = New REPORTE_RAZONADO
+        reporterazo.ShowPreview()
+    End Sub
 End Class
