@@ -46,9 +46,9 @@ Public Class REPORTE_RAZONADO
                 LookUpEdit.Properties.Columns.Add(New  _
                     LookUpColumnInfo("NOMBRE MOVIMIENTO", 0, "NOMBRE MOVIMIENTO")) 'AGREGA EL NOMBRE DEL PARTIDO A LA LISTA 
                 info.Editor = LookUpEdit
+
             End If
         Next
-
     End Sub
 
     Private Sub REPORTE_RAZONADO_ParametersRequestSubmit(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestEventArgs) Handles Me.ParametersRequestSubmit
@@ -162,4 +162,6 @@ Public Class REPORTE_RAZONADO
         Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(DS_LOG.IM_MOVIMIENTOS_imagen, NombreMovimiento.Value.ToString)
 
     End Sub
+
+  
 End Class
