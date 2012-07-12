@@ -1154,6 +1154,11 @@ Partial Public Class DS_PLANILLA_TOTALES
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function FindByNOMBRE_MOVIMIENTO(ByVal NOMBRE_MOVIMIENTO As String) As IM_MOVIMIENTOSRow
+            Return CType(Me.Rows.Find(New Object() {NOMBRE_MOVIMIENTO}),IM_MOVIMIENTOSRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
             Dim cln As IM_MOVIMIENTOSDataTable = CType(MyBase.Clone,IM_MOVIMIENTOSDataTable)
             cln.InitVars
@@ -1177,8 +1182,10 @@ Partial Public Class DS_PLANILLA_TOTALES
             MyBase.Columns.Add(Me.columnCODIGO_MOVIMIENTO)
             Me.columnNOMBRE_MOVIMIENTO = New Global.System.Data.DataColumn("NOMBRE MOVIMIENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNOMBRE_MOVIMIENTO)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnNOMBRE_MOVIMIENTO}, true))
             Me.columnCODIGO_MOVIMIENTO.AllowDBNull = false
             Me.columnNOMBRE_MOVIMIENTO.AllowDBNull = false
+            Me.columnNOMBRE_MOVIMIENTO.Unique = true
             Me.columnNOMBRE_MOVIMIENTO.MaxLength = 200
         End Sub
         
@@ -4004,7 +4011,7 @@ Namespace DS_PLANILLA_TOTALESTableAdapters
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO AS ""NOMBRE MOVIMIENTO"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM  "& _ 
-                "          IM_MOVIMIENTOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY CODIGO_MOVIMIENTO"
+                "          IM_MOVIMIENTOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY CODIGO_MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
