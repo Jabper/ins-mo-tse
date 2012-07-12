@@ -82,15 +82,12 @@ Partial Public Class REPORTE_RAZONADO
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
         Me.IM_MOVIMIENTOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
         Me.BindingSource4 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BindingSource5 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DT_MOVTableAdapter = New Inscripcion_de_Moviemientos.DS_RAZONADOTableAdapters.DT_MOVTableAdapter
         CType(Me.BindingSource3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_RAZONADO, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingSource5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
         'Detail
@@ -622,15 +619,6 @@ Partial Public Class REPORTE_RAZONADO
         '
         Me.IM_MOVIMIENTOS_imagenTableAdapter.ClearBeforeFill = True
         '
-        'BindingSource5
-        '
-        Me.BindingSource5.DataMember = "DT_MOV"
-        Me.BindingSource5.DataSource = Me.DS_RAZONADO
-        '
-        'DT_MOVTableAdapter
-        '
-        Me.DT_MOVTableAdapter.ClearBeforeFill = True
-        '
         'REPORTE_RAZONADO
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.ReportHeader, Me.GroupHeader1, Me.GroupHeader2, Me.GroupHeader3})
@@ -649,7 +637,6 @@ Partial Public Class REPORTE_RAZONADO
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DS_RAZONADO, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSource5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub
@@ -715,6 +702,4 @@ Partial Public Class REPORTE_RAZONADO
     Friend WithEvents XrPictureBox2 As DevExpress.XtraReports.UI.XRPictureBox
     Friend WithEvents XrPictureBox1 As DevExpress.XtraReports.UI.XRPictureBox
     Friend WithEvents BindingSource4 As System.Windows.Forms.BindingSource
-    Friend WithEvents BindingSource5 As System.Windows.Forms.BindingSource
-    Friend WithEvents DT_MOVTableAdapter As Inscripcion_de_Moviemientos.DS_RAZONADOTableAdapters.DT_MOVTableAdapter
 End Class
