@@ -20,7 +20,7 @@ Public Class xfrmValidaciones
             myCMD.ExecuteOracleScalar()
 
             If IsDBNull(myCMD.Parameters("PVO_ERRORES").Value) Then
-                Mensajes.mimensaje("Validaciones Corridas Exitosamente")
+                Mensajes.mimensaje("Validaciones de Planillas Corridas Exitosamente")
             Else
                 Mensajes.MensajeError(myCMD.Parameters("PVO_ERRORES").Value)
             End If
@@ -33,8 +33,6 @@ Public Class xfrmValidaciones
 
     Private Sub BtnFirmas_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnFirmas.Click
         Try
-
-
             Dim oradb As String = Configuracion.verconfig
 
             Dim conn As New OracleConnection()
@@ -45,15 +43,8 @@ Public Class xfrmValidaciones
             myCMD.Connection = conn
             myCMD.CommandText = "IM_K_VALIDA_FIRMAS.IM_P_VALIDA"
             myCMD.CommandType = CommandType.StoredProcedure
-            'myCMD.Parameters.Add(New OracleParameter("P_ERROR", OracleType.NVarChar, 32767)).Direction = ParameterDirection.Output
-            myCMD.ExecuteOracleScalar()
-
-            'If IsDBNull(myCMD.Parameters("P_ERROR").Value) Then
-            '    Mensajes.mimensaje("Validaciones Corridas Exitosamente")
-            'Else
-            '    Mensajes.MensajeError(myCMD.Parameters("P_ERROR").Value)
-            'End If
-
+            myCMD.ExecuteOracleScalar()        
+            Mensajes.mimensaje("Validaciones de Firmas Corridas Exitosamente")
             conn.Close()
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)

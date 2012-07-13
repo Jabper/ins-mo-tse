@@ -52,7 +52,6 @@ Partial Class XfrmSubirSistExterno
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.BtnImagenesFirmas)
-        Me.Panel1.Controls.Add(Me.PictureBox2)
         Me.Panel1.Controls.Add(Me.BtnImagenes)
         Me.Panel1.Controls.Add(Me.BtnSalir)
         Me.Panel1.Controls.Add(Me.BtnFirmas)
@@ -68,6 +67,7 @@ Partial Class XfrmSubirSistExterno
         Me.Panel1.Controls.Add(Me.PictureBox3)
         Me.Panel1.Controls.Add(Me.PictureBox4)
         Me.Panel1.Controls.Add(Me.PictureBox5)
+        Me.Panel1.Controls.Add(Me.PictureBox2)
         Me.Panel1.Location = New System.Drawing.Point(12, 12)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(689, 238)
