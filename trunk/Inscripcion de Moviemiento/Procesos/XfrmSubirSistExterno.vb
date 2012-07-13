@@ -588,7 +588,7 @@ Public Class XfrmSubirSistExterno
                                 cmd1.ExecuteOracleScalar()
 
                                 i = i + 1
-                                If i Mod 1000 = 0 Then
+                                If i Mod 100 = 0 Then
                                     Dialog1.LabelControl1.Text = "Se han procesado " & i & " registros. Procesando por favor espere..."
                                     If Dialog1.Visible = False Then
                                         Dialog1.ShowDialog()
@@ -662,7 +662,7 @@ Public Class XfrmSubirSistExterno
                                 cmd1.ExecuteOracleScalar()
 
                                 i = i + 1
-                                If i Mod 1000 = 0 Then
+                                If i Mod 100 = 0 Then
                                     Dialog1.LabelControl1.Text = "Se han procesado " & i & " registros. Procesando por favor espere..."
                                     If Dialog1.Visible = False Then
                                         Dialog1.ShowDialog()
