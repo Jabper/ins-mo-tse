@@ -26,7 +26,7 @@ Partial Public Class REPORTE_DE__PLANILLA_DE_CANDIDATOS
         Me.XrLabel13 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel11 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel9 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrPictureBox1 = New DevExpress.XtraReports.UI.XRPictureBox
+        Me.imagen = New DevExpress.XtraReports.UI.XRPictureBox
         Me.TopMargin = New DevExpress.XtraReports.UI.TopMarginBand
         Me.BottomMargin = New DevExpress.XtraReports.UI.BottomMarginBand
         Me.DS_REPORTE_CANDIDATOS1 = New Inscripcion_de_Moviemientos.DS_REPORTE_CANDIDATOS
@@ -70,8 +70,8 @@ Partial Public Class REPORTE_DE__PLANILLA_DE_CANDIDATOS
         '
         'Detail
         '
-        Me.Detail.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel20, Me.XrLabel14, Me.XrLabel13, Me.XrLabel11, Me.XrLabel9, Me.XrPictureBox1})
-        Me.Detail.HeightF = 145.8333!
+        Me.Detail.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel20, Me.XrLabel14, Me.XrLabel13, Me.XrLabel11, Me.XrLabel9, Me.imagen})
+        Me.Detail.HeightF = 107.2917!
         Me.Detail.Name = "Detail"
         Me.Detail.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
@@ -123,13 +123,13 @@ Partial Public Class REPORTE_DE__PLANILLA_DE_CANDIDATOS
         Me.XrLabel9.Text = "XrLabel9"
         Me.XrLabel9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
         '
-        'XrPictureBox1
+        'imagen
         '
-        Me.XrPictureBox1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Nothing, "IM_V_MOSTRAR_CANDIDATOS2.IMAGEN")})
-        Me.XrPictureBox1.LocationFloat = New DevExpress.Utils.PointFloat(7.29154!, 9.998322!)
-        Me.XrPictureBox1.Name = "XrPictureBox1"
-        Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(117.7084!, 90.04166!)
-        Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage
+        Me.imagen.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Nothing, "IM_V_MOSTRAR_CANDIDATOS2.IMAGEN")})
+        Me.imagen.LocationFloat = New DevExpress.Utils.PointFloat(7.29154!, 9.998322!)
+        Me.imagen.Name = "imagen"
+        Me.imagen.SizeF = New System.Drawing.SizeF(117.71!, 90.04!)
+        Me.imagen.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage
         '
         'TopMargin
         '
@@ -433,7 +433,7 @@ Partial Public Class REPORTE_DE__PLANILLA_DE_CANDIDATOS
     Friend WithEvents BottomMargin As DevExpress.XtraReports.UI.BottomMarginBand
     Friend WithEvents DS_REPORTE_CANDIDATOS1 As Inscripcion_de_Moviemientos.DS_REPORTE_CANDIDATOS
     Friend WithEvents IM_V_MOSTRAR_CANDIDATOS2TableAdapter As Inscripcion_de_Moviemientos.DS_REPORTE_CANDIDATOSTableAdapters.IM_V_MOSTRAR_CANDIDATOS2TableAdapter
-    Friend WithEvents XrPictureBox1 As DevExpress.XtraReports.UI.XRPictureBox
+    Friend WithEvents imagen As DevExpress.XtraReports.UI.XRPictureBox
     Friend WithEvents ReportHeader As DevExpress.XtraReports.UI.ReportHeaderBand
     Friend WithEvents XrLabel1 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents GroupHeader1 As DevExpress.XtraReports.UI.GroupHeaderBand
