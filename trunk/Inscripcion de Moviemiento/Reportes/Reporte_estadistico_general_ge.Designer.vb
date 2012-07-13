@@ -223,7 +223,7 @@ Partial Public Class Reporte_estadistico_general_ge
         'XrLabel12
         '
         Me.XrLabel12.Font = New System.Drawing.Font("Times New Roman", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
-        Me.XrLabel12.LocationFloat = New DevExpress.Utils.PointFloat(557.2916!, 23.91666!)
+        Me.XrLabel12.LocationFloat = New DevExpress.Utils.PointFloat(515.6249!, 23.91666!)
         Me.XrLabel12.Name = "XrLabel12"
         Me.XrLabel12.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel12.SizeF = New System.Drawing.SizeF(205.2084!, 23.0!)
@@ -349,7 +349,6 @@ Partial Public Class Reporte_estadistico_general_ge
         'NPRE
         '
         Me.NPRE.Borders = DevExpress.XtraPrinting.BorderSide.None
-        Me.NPRE.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_PARTICIPACION_FE.NIVELPRE")})
         Me.NPRE.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
         Me.NPRE.ForeColor = System.Drawing.Color.Green
         Me.NPRE.LocationFloat = New DevExpress.Utils.PointFloat(940.4584!, 74.95833!)
