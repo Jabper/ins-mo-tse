@@ -430,7 +430,7 @@ Public Class XfrmSubirSistExterno
                         & "', 'S', '" & row.Item(13).ToString _
                         & "', '" & usuario & "', to_date('" & DateTime.Now.Date & "','dd/mm/yyyy'), null, null, 'S',null, 'EXTERNO','" _
                         & row.Item(14).ToString & "',null)"
-                        myCMD.CommandType = CommandType.Text
+                        myCMD.CommandType = CommandType.Text                        
                         myCMD.ExecuteOracleScalar()
                         'CoWaitForMultipleHandles(
                         i = i + 1
@@ -627,11 +627,11 @@ Public Class XfrmSubirSistExterno
         Dim Archivo As FileInfo
         Dim campos() As String
 
-        Try
+        Try            
             For Each sFichero As String In Directory.GetFiles(FolderPath, "*.jpg", SearchOption.TopDirectoryOnly)
                 Archivo = New FileInfo(sFichero)
 
-                campos = Split(Archivo.Name, ".")              
+                campos = Split(Archivo.Name, ".")
 
                 Dim oradb As String = Configuracion.verconfig
                 Dim conn As New OracleConnection()
@@ -676,7 +676,7 @@ Public Class XfrmSubirSistExterno
                         Next
                     End If
                 End If
-                conn.Close()                
+                conn.Close()
             Next
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
