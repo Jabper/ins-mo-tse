@@ -42,6 +42,26 @@ Public Class XfrmSubirSistExterno
         cmd3.ExecuteScalar()
         conn3.Close()
         Me.Close()
+
+        Try
+            Dim oradb7 As String = Configuracion.verconfig
+            Dim conn7 As New OracleConnection()
+            conn7.ConnectionString = oradb7
+            conn7.Open()
+            Dim myCMD7 As New OracleCommand()
+            myCMD7.Connection = conn7
+            myCMD7.CommandText = "IM_P_BORRAR_TABLAS_EXPORTADAS"
+            myCMD7.CommandType = CommandType.StoredProcedure
+            myCMD7.Parameters.Add(New OracleParameter("pvo_mensaje", OracleType.NVarChar, 500)).Direction = ParameterDirection.Output
+            myCMD7.ExecuteOracleScalar()
+            If Trim(myCMD7.Parameters("pvo_mensaje").Value) <> "OK" Then
+                Mensajes.MensajeError(myCMD7.Parameters("pvo_mensaje").Value)
+            End If
+            conn7.Close()
+        Catch ex As Exception
+            'conn7.Close()
+            Mensajes.MensajeError(ex.Message)
+        End Try
     End Sub
 
     Dim proceso_iniciado As Boolean = False
