@@ -169,60 +169,60 @@
         <xs:element name="IM_MOTIVOS_INHABILITACION" msprop:Generator_UserTableName="IM_MOTIVOS_INHABILITACION" msprop:Generator_RowDeletedName="IM_MOTIVOS_INHABILITACIONRowDeleted" msprop:Generator_RowChangedName="IM_MOTIVOS_INHABILITACIONRowChanged" msprop:Generator_RowClassName="IM_MOTIVOS_INHABILITACIONRow" msprop:Generator_RowChangingName="IM_MOTIVOS_INHABILITACIONRowChanging" msprop:Generator_RowEvArgName="IM_MOTIVOS_INHABILITACIONRowChangeEvent" msprop:Generator_RowEvHandlerName="IM_MOTIVOS_INHABILITACIONRowChangeEventHandler" msprop:Generator_TableClassName="IM_MOTIVOS_INHABILITACIONDataTable" msprop:Generator_TableVarName="tableIM_MOTIVOS_INHABILITACION" msprop:Generator_RowDeletingName="IM_MOTIVOS_INHABILITACIONRowDeleting" msprop:Generator_TablePropName="IM_MOTIVOS_INHABILITACION">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CODIGO_MOTIVO" msprop:Generator_UserColumnName="CODIGO_MOTIVO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOTIVO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOTIVO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOTIVOColumn" type="xs:decimal" />
-              <xs:element name="DESCRIPCION" msprop:Generator_UserColumnName="DESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn">
+              <xs:element name="CODIGO_MOTIVO" msprop:Generator_UserColumnName="CODIGO_MOTIVO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOTIVO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOTIVO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOTIVOColumn" type="xs:decimal" />
+              <xs:element name="DESCRIPCION" msprop:Generator_UserColumnName="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ADICIONADO_POR" msprop:Generator_UserColumnName="ADICIONADO_POR" msprop:Generator_ColumnPropNameInRow="ADICIONADO_POR" msprop:Generator_ColumnVarNameInTable="columnADICIONADO_POR" msprop:Generator_ColumnPropNameInTable="ADICIONADO_PORColumn" minOccurs="0">
+              <xs:element name="ADICIONADO_POR" msprop:Generator_UserColumnName="ADICIONADO_POR" msprop:Generator_ColumnVarNameInTable="columnADICIONADO_POR" msprop:Generator_ColumnPropNameInRow="ADICIONADO_POR" msprop:Generator_ColumnPropNameInTable="ADICIONADO_PORColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FECHA_ADICION" msprop:Generator_UserColumnName="FECHA_ADICION" msprop:Generator_ColumnPropNameInRow="FECHA_ADICION" msprop:Generator_ColumnVarNameInTable="columnFECHA_ADICION" msprop:Generator_ColumnPropNameInTable="FECHA_ADICIONColumn" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="MODIFICADO_POR" msprop:Generator_UserColumnName="MODIFICADO_POR" msprop:Generator_ColumnPropNameInRow="MODIFICADO_POR" msprop:Generator_ColumnVarNameInTable="columnMODIFICADO_POR" msprop:Generator_ColumnPropNameInTable="MODIFICADO_PORColumn" minOccurs="0">
+              <xs:element name="FECHA_ADICION" msprop:Generator_UserColumnName="FECHA_ADICION" msprop:Generator_ColumnVarNameInTable="columnFECHA_ADICION" msprop:Generator_ColumnPropNameInRow="FECHA_ADICION" msprop:Generator_ColumnPropNameInTable="FECHA_ADICIONColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="MODIFICADO_POR" msprop:Generator_UserColumnName="MODIFICADO_POR" msprop:Generator_ColumnVarNameInTable="columnMODIFICADO_POR" msprop:Generator_ColumnPropNameInRow="MODIFICADO_POR" msprop:Generator_ColumnPropNameInTable="MODIFICADO_PORColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FECHA_MODIFICACION" msprop:Generator_UserColumnName="FECHA_MODIFICACION" msprop:Generator_ColumnPropNameInRow="FECHA_MODIFICACION" msprop:Generator_ColumnVarNameInTable="columnFECHA_MODIFICACION" msprop:Generator_ColumnPropNameInTable="FECHA_MODIFICACIONColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FECHA_MODIFICACION" msprop:Generator_UserColumnName="FECHA_MODIFICACION" msprop:Generator_ColumnVarNameInTable="columnFECHA_MODIFICACION" msprop:Generator_ColumnPropNameInRow="FECHA_MODIFICACION" msprop:Generator_ColumnPropNameInTable="FECHA_MODIFICACIONColumn" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
         <xs:element name="TA_MOTIVOS_INHABILITACION" msprop:Generator_UserTableName="TA_MOTIVOS_INHABILITACION" msprop:Generator_RowDeletedName="TA_MOTIVOS_INHABILITACIONRowDeleted" msprop:Generator_RowChangedName="TA_MOTIVOS_INHABILITACIONRowChanged" msprop:Generator_RowClassName="TA_MOTIVOS_INHABILITACIONRow" msprop:Generator_RowChangingName="TA_MOTIVOS_INHABILITACIONRowChanging" msprop:Generator_RowEvArgName="TA_MOTIVOS_INHABILITACIONRowChangeEvent" msprop:Generator_RowEvHandlerName="TA_MOTIVOS_INHABILITACIONRowChangeEventHandler" msprop:Generator_TableClassName="TA_MOTIVOS_INHABILITACIONDataTable" msprop:Generator_TableVarName="tableTA_MOTIVOS_INHABILITACION" msprop:Generator_RowDeletingName="TA_MOTIVOS_INHABILITACIONRowDeleting" msprop:Generator_TablePropName="TA_MOTIVOS_INHABILITACION">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CODIGO_MOTIVO" msprop:Generator_UserColumnName="CODIGO_MOTIVO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOTIVO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOTIVO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOTIVOColumn" type="xs:decimal" />
-              <xs:element name="DESCRIPCION" msprop:Generator_UserColumnName="DESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn">
+              <xs:element name="CODIGO_MOTIVO" msprop:Generator_UserColumnName="CODIGO_MOTIVO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOTIVO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOTIVO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOTIVOColumn" type="xs:decimal" />
+              <xs:element name="DESCRIPCION" msprop:Generator_UserColumnName="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ADICIONADO_POR" msprop:Generator_UserColumnName="ADICIONADO_POR" msprop:Generator_ColumnPropNameInRow="ADICIONADO_POR" msprop:Generator_ColumnVarNameInTable="columnADICIONADO_POR" msprop:Generator_ColumnPropNameInTable="ADICIONADO_PORColumn">
+              <xs:element name="ADICIONADO_POR" msprop:Generator_UserColumnName="ADICIONADO_POR" msprop:Generator_ColumnVarNameInTable="columnADICIONADO_POR" msprop:Generator_ColumnPropNameInRow="ADICIONADO_POR" msprop:Generator_ColumnPropNameInTable="ADICIONADO_PORColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FECHA_ADICION" msprop:Generator_UserColumnName="FECHA_ADICION" msprop:Generator_ColumnPropNameInRow="FECHA_ADICION" msprop:Generator_ColumnVarNameInTable="columnFECHA_ADICION" msprop:Generator_ColumnPropNameInTable="FECHA_ADICIONColumn" type="xs:dateTime" />
-              <xs:element name="MODIFICADO_POR" msprop:Generator_UserColumnName="MODIFICADO_POR" msprop:Generator_ColumnPropNameInRow="MODIFICADO_POR" msprop:Generator_ColumnVarNameInTable="columnMODIFICADO_POR" msprop:Generator_ColumnPropNameInTable="MODIFICADO_PORColumn" minOccurs="0">
+              <xs:element name="FECHA_ADICION" msprop:Generator_UserColumnName="FECHA_ADICION" msprop:Generator_ColumnVarNameInTable="columnFECHA_ADICION" msprop:Generator_ColumnPropNameInRow="FECHA_ADICION" msprop:Generator_ColumnPropNameInTable="FECHA_ADICIONColumn" type="xs:dateTime" />
+              <xs:element name="MODIFICADO_POR" msprop:Generator_UserColumnName="MODIFICADO_POR" msprop:Generator_ColumnVarNameInTable="columnMODIFICADO_POR" msprop:Generator_ColumnPropNameInRow="MODIFICADO_POR" msprop:Generator_ColumnPropNameInTable="MODIFICADO_PORColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="FECHA_MODIFICACION" msprop:Generator_UserColumnName="FECHA_MODIFICACION" msprop:Generator_ColumnPropNameInRow="FECHA_MODIFICACION" msprop:Generator_ColumnVarNameInTable="columnFECHA_MODIFICACION" msprop:Generator_ColumnPropNameInTable="FECHA_MODIFICACIONColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FECHA_MODIFICACION" msprop:Generator_UserColumnName="FECHA_MODIFICACION" msprop:Generator_ColumnVarNameInTable="columnFECHA_MODIFICACION" msprop:Generator_ColumnPropNameInRow="FECHA_MODIFICACION" msprop:Generator_ColumnPropNameInTable="FECHA_MODIFICACIONColumn" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
