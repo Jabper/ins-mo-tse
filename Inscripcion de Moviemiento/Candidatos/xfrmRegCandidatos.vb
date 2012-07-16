@@ -22,6 +22,518 @@ Public Class xfrmRegCandidatos
     Dim ingreso_hombre As Integer
 
 
+    Sub Validarleyendas()
+        Dim dip_CNS As String = 0
+        Dim dip_CN As String = 0
+        Dim dip_pp As String = 0
+        Dim dip_ps As String = 0
+        Dim presidente As String = 0
+        Dim alcalde As String = 0
+        Dim vice As String = 0
+        Dim regidores As String = 0
+        Dim designados As String = 0
+
+        Dim cdip_CNS As String = 0
+        Dim cdip_CN As String = 0
+        Dim cdip_pp As String = 0
+        Dim cdip_ps As String = 0
+        Dim cregidores As String = 0
+        Dim cdesignados As String = 0
+
+        Dim mujeres_ingresadas As String
+        Dim mujeres_necesarias As String
+
+        Dim hombres_permitidos As Integer
+        Dim hombres_ingresados As Integer
+
+        id_partido = CInt(Me.lblidpartido.Text)
+        id_movimiento = CInt(Me.lblidmovimiento.Text)
+
+        Me.DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2.Rows.Clear()
+        Val_MUN_DEP()
+
+
+        presidente = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 1 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
+        designados = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 9 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
+        dip_pp = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 2 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
+        dip_ps = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 3 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
+        dip_CN = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 4 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2}", id_partido, id_movimiento, depto), "TOTAL")
+        dip_CNS = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 5 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2}", id_partido, id_movimiento, depto), "TOTAL")
+        alcalde = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 6 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2} AND CODIGO_MUNICIPIO= {3} ", id_partido, id_movimiento, depto, muni), "TOTAL")
+        vice = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 7 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2} AND CODIGO_MUNICIPIO= {3} ", id_partido, id_movimiento, depto, muni), "TOTAL")
+        regidores = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 8 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2} AND CODIGO_MUNICIPIO= {3} ", id_partido, id_movimiento, depto, muni), "TOTAL")
+
+
+        cdesignados = COracle.ObtenerDatos("SELECT CANTIDAD_CARGO  FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO = 9", "CANTIDAD_CARGO")
+        cdip_pp = COracle.ObtenerDatos("SELECT CANTIDAD_CARGO  FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO = 2", "CANTIDAD_CARGO")
+        cdip_ps = COracle.ObtenerDatos("SELECT CANTIDAD_CARGO  FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO = 3", "CANTIDAD_CARGO")
+        cdip_CN = COracle.ObtenerDatos(String.Format("SELECT CANTIDAD_DIPUTADOS FROM IM_DEPARTAMENTOS WHERE   CODIGO_DEPARTAMENTO =  {0}", depto), "CANTIDAD_DIPUTADOS")
+        cdip_CNS = COracle.ObtenerDatos(String.Format("SELECT CANTIDAD_DIPUTADOS FROM IM_DEPARTAMENTOS WHERE   CODIGO_DEPARTAMENTO =  {0}", depto), "CANTIDAD_DIPUTADOS")
+        cregidores = COracle.ObtenerDatos(String.Format("SELECT CANTIDAD_REGIDORES FROM IM_MUNICIPIOS WHERE   CODIGO_DEPARTAMENTO= {0} AND CODIGO_MUNICIPIO= {1} ", depto, muni), "CANTIDAD_REGIDORES")
+
+        lblpresidnete.Text = presidente
+        lbldesignados.Text = String.Format("{0} / {1}", designados, cdesignados)
+        lblparlacen1.Text = String.Format("{0} / {1}", dip_pp, cdip_pp)
+        lblparlacen2.Text = String.Format("{0} / {1}", dip_ps, cdip_ps)
+        lblcnr1.Text = String.Format("{0} / {1}", dip_CN, cdip_CN)
+        lblcnr2.Text = String.Format("{0} / {1}", dip_CNS, cdip_CNS)
+
+        lblcnr1.Text = String.Format("{0} / {1}", dip_CN, cdip_CN)
+        lblcnr2.Text = String.Format("{0} / {1}", dip_CNS, cdip_CNS)
+        lblalcalde.Text = alcalde
+        lblvice.Text = vice
+        lblregidores.Text = String.Format("{0} / {1}", regidores, cregidores)
+
+        load = True
+        'TODO: This line of code loads data into the 'DSInsCandidatos.IM_CANDIDATOS' table. You can move, or remove it, as needed.
+        Me.IM_V_MOSTRAR_CANDIDATOS2TableAdapter.FillBY(Me.DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2, id_movimiento, id_partido, muni, depto, Me.cboCargo.EditValue)
+
+        If Me.cboCargo.EditValue = 1 Then
+            permitir_up = 1
+            AgregarFilasGrid(CInt(1 - presidente))
+        ElseIf Me.cboCargo.EditValue = 6 Then
+            permitir_up = 1
+            AgregarFilasGrid(CInt(1 - alcalde))
+        ElseIf Me.cboCargo.EditValue = 7 Then
+            permitir_up = 1
+            AgregarFilasGrid(CInt(1 - vice))
+        ElseIf Me.cboCargo.EditValue = 2 Then
+            AgregarFilasGrid(CInt(cdip_pp) - CInt(dip_pp))
+        ElseIf Me.cboCargo.EditValue = 3 Then
+            AgregarFilasGrid(CInt(cdip_ps) - CInt(dip_ps))
+        ElseIf Me.cboCargo.EditValue = 4 Then
+            AgregarFilasGrid(CInt(cdip_CN) - CInt(dip_CN))
+        ElseIf Me.cboCargo.EditValue = 5 Then
+            AgregarFilasGrid(CInt(cdip_CNS) - CInt(dip_CNS))
+        ElseIf Me.cboCargo.EditValue = 8 Then
+            AgregarFilasGrid(CInt(cregidores) - CInt(regidores))
+        ElseIf Me.cboCargo.EditValue = 9 Then
+            AgregarFilasGrid(CInt(cdesignados) - CInt(designados))
+
+        End If
+
+        'VAlIDACIONES PARTICIPACION FEMENINA 
+        If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 9 Then
+
+            mujeres_ingresadas = COracle.ObtenerDatos(String.Format("SELECT NVL(COUNT(*),  0) MUJERES FROM    im_candidatos ic, im_padron_electoral IP WHERE  ic.codigo_cargo_electivo IN (1,9)  AND  IC.CODIGO_PARTIDO = {0} AND IC.CODIGO_MOVIMIENTO = {1} AND  ic.identidad = ip.numero_identidad AND ip.sexo  = 2", id_partido, id_movimiento), "MUJERES")
+            mujeres_necesarias = COracle.ObtenerDatos("SELECT NVL(CANTIDAD_MUJERES,0) CANTIDAD_MUJERES FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO =9", "CANTIDAD_MUJERES")
+
+            Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
+            If faltan < 0 Then
+                faltan = 0
+            End If
+
+            Me.lblmujeres.Text = String.Format("Necesarias {0} entre Presidente y Designados Faltan {1}", mujeres_necesarias, (faltan))
+
+        ElseIf Me.cboCargo.EditValue = 2 Then
+            Dim S As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
+                               "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
+                                "WHERE  iC.codigo_departamento = " & depto & _
+                                " AND      iC.codigo_municipio = " & muni & _
+                                " AND      im.codigo_departamento = ic.codigo_departamento " & _
+                                " AND      im.codigo_municipio       = ic.codigo_municipio " & _
+                                " AND      ic.codigo_cargo_electivo = 2" & _
+                                " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
+                                " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
+                                " AND      ic.identidad = ip.numero_identidad " & _
+                                " AND      ip.sexo= 2"
+
+            mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
+            mujeres_necesarias = COracle.ObtenerDatos("SELECT NVL(CANTIDAD_MUJERES,0) CANTIDAD_MUJERES FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO =2", "CANTIDAD_MUJERES")
+
+
+            Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
+            If faltan < 0 Then
+                faltan = 0
+            End If
+
+            Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (faltan))
+
+        ElseIf Me.cboCargo.EditValue = 3 Then
+            Dim S As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
+                              "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
+                               "WHERE  iC.codigo_departamento = " & depto & _
+                               " AND      iC.codigo_municipio = " & muni & _
+                               " AND      im.codigo_departamento = ic.codigo_departamento " & _
+                               " AND      im.codigo_municipio       = ic.codigo_municipio " & _
+                               " AND      ic.codigo_cargo_electivo = 3" & _
+                               " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
+                               " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
+                               " AND      ic.identidad = ip.numero_identidad " & _
+                               " AND      ip.sexo= 2"
+
+            mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
+            mujeres_necesarias = COracle.ObtenerDatos("SELECT NVL(CANTIDAD_MUJERES,0) CANTIDAD_MUJERES FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO =3", "CANTIDAD_MUJERES")
+
+            Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
+            If faltan < 0 Then
+                faltan = 0
+            End If
+
+            Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (faltan))
+
+        ElseIf Me.cboCargo.EditValue = 4 Then
+
+            Dim S As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
+                              "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
+                               "WHERE  iC.codigo_departamento = " & depto & _
+                               " AND      iC.codigo_municipio = " & muni & _
+                               " AND      im.codigo_departamento = ic.codigo_departamento " & _
+                               " AND      im.codigo_municipio       = ic.codigo_municipio " & _
+                               " AND      ic.codigo_cargo_electivo = 4" & _
+                               " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
+                               " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
+                               " AND      ic.identidad = ip.numero_identidad " & _
+                               " AND      ip.sexo= 2"
+
+
+
+            If depto = 10 Or depto = 12 Then
+
+                Dim S1 As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
+                  "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
+                   "WHERE  iC.codigo_departamento = " & depto & _
+                   " AND      iC.codigo_municipio = " & muni & _
+                   " AND      im.codigo_departamento = ic.codigo_departamento " & _
+                   " AND      im.codigo_municipio       = ic.codigo_municipio " & _
+                   " AND      ic.codigo_cargo_electivo in (4,5)" & _
+                   " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
+                   " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
+                   " AND      ic.identidad = ip.numero_identidad " & _
+                   " AND      ip.sexo= 2"
+
+                mujeres_ingresadas = COracle.ObtenerDatos(S1, "MUJERES")
+
+
+                Dim faltan As String = 3 - mujeres_ingresadas
+                If faltan < 0 Then
+                    faltan = 0
+                End If
+                Me.lblmujeres.Text = "Necesita Minimo 3 Mujeres entre Propietarias y Suplentes, Faltan " & (faltan)
+
+            ElseIf depto = 9 Or depto = 11 Then
+
+                Dim S1 As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
+                  "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
+                   "WHERE  iC.codigo_departamento = " & depto & _
+                   " AND      iC.codigo_municipio = " & muni & _
+                   " AND      im.codigo_departamento = ic.codigo_departamento " & _
+                   " AND      im.codigo_municipio       = ic.codigo_municipio " & _
+                   " AND      ic.codigo_cargo_electivo in (4,5)" & _
+                   " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
+                   " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
+                   " AND      ic.identidad = ip.numero_identidad " & _
+                   " AND      ip.sexo= 2"
+
+                mujeres_ingresadas = COracle.ObtenerDatos(S1, "MUJERES")
+
+                Dim faltan As String = 1 - mujeres_ingresadas
+                If faltan < 0 Then
+                    faltan = 0
+                End If
+
+                Me.lblmujeres.Text = "Necesita Minimo 1 Mujer entre Propietarias y Suplentes, Faltan " & (faltan)
+
+
+            Else
+
+                mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
+                mujeres_necesarias = COracle.ObtenerDatos("select NVL(CANTIDAD_MUJERES,0) CANTIDAD_MUJERES  from im_departamentos where codigo_departamento = " & depto, "cantidad_mujeres")
+
+                Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
+                If faltan < 0 Then
+                    faltan = 0
+                End If
+
+
+
+                Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (faltan))
+            End If
+
+        ElseIf Me.cboCargo.EditValue = 5 Then
+
+            If depto = 10 Or depto = 12 Then
+
+                Dim S1 As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
+                  "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
+                   "WHERE  iC.codigo_departamento = " & depto & _
+                   " AND      iC.codigo_municipio = " & muni & _
+                   " AND      im.codigo_departamento = ic.codigo_departamento " & _
+                   " AND      im.codigo_municipio       = ic.codigo_municipio " & _
+                   " AND      ic.codigo_cargo_electivo in (4,5)" & _
+                   " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
+                   " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
+                   " AND      ic.identidad = ip.numero_identidad " & _
+                   " AND      ip.sexo= 2"
+
+                mujeres_ingresadas = COracle.ObtenerDatos(S1, "MUJERES")
+
+
+                Dim faltan As String = 3 - mujeres_ingresadas
+                If faltan < 0 Then
+                    faltan = 0
+                End If
+                Me.lblmujeres.Text = "Necesita Minimo 3 Mujeres entre Propietarias y Suplentes, Faltan " & (faltan)
+
+            ElseIf depto = 9 Or depto = 11 Then
+
+                Dim S1 As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
+                  "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
+                   "WHERE  iC.codigo_departamento = " & depto & _
+                   " AND      iC.codigo_municipio = " & muni & _
+                   " AND      im.codigo_departamento = ic.codigo_departamento " & _
+                   " AND      im.codigo_municipio       = ic.codigo_municipio " & _
+                   " AND      ic.codigo_cargo_electivo in (4,5)" & _
+                   " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
+                   " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
+                   " AND      ic.identidad = ip.numero_identidad " & _
+                   " AND      ip.sexo= 2"
+
+                mujeres_ingresadas = COracle.ObtenerDatos(S1, "MUJERES")
+
+                Dim faltan As String = 1 - mujeres_ingresadas
+                If faltan < 0 Then
+                    faltan = 0
+                End If
+
+                Me.lblmujeres.Text = "Necesita Minimo 1 Mujer entre Propietarias y Suplentes, Faltan " & (faltan)
+
+
+            Else
+                Dim S As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
+                                  "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
+                                   "WHERE  iC.codigo_departamento = " & depto & _
+                                   " AND      iC.codigo_municipio = " & muni & _
+                                   " AND      im.codigo_departamento = ic.codigo_departamento " & _
+                                   " AND      im.codigo_municipio       = ic.codigo_municipio " & _
+                                   " AND      ic.codigo_cargo_electivo = 5" & _
+                                   " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
+                                   " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
+                                   " AND      ic.identidad = ip.numero_identidad " & _
+                                   " AND      ip.sexo= 2"
+
+                mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
+                mujeres_necesarias = COracle.ObtenerDatos("select NVL(CANTIDAD_MUJERES,0) CANTIDAD_MUJERES  from im_departamentos where codigo_departamento = " & depto, "cantidad_mujeres")
+
+
+                Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
+                If faltan < 0 Then
+                    faltan = 0
+                End If
+
+                Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (faltan))
+            End If
+        ElseIf Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7 Or Me.cboCargo.EditValue = 8 Then
+            Dim S As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
+                              "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
+                               "WHERE  iC.codigo_departamento = " & depto & _
+                               " AND      iC.codigo_municipio = " & muni & _
+                               " AND      im.codigo_departamento = ic.codigo_departamento " & _
+                               " AND      im.codigo_municipio       = ic.codigo_municipio " & _
+                               " AND      ic.codigo_cargo_electivo in (6,7,8) " & _
+                               " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
+                               " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
+                               " AND      ic.identidad = ip.numero_identidad " & _
+                               " AND      ip.sexo= 2"
+
+            mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
+            mujeres_necesarias = COracle.ObtenerDatos("select NVL(CANTIDAD_MUJERES,0) CANTIDAD_MUJERES  from im_municipios where codigo_departamento = " & depto & " and codigo_municipio =" & muni, "cantidad_mujeres")
+
+            Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
+            If faltan < 0 Then
+                faltan = 0
+            End If
+
+            Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (faltan))
+
+        End If
+
+        If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 9 Then
+            hombres_ingresados += 1
+        End If
+
+        Dim cargo As String
+
+        If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 9 Then
+            cargo = "IN (1,9) "
+        ElseIf Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7 Or Me.cboCargo.EditValue = 8 Then
+            cargo = "IN (6,7,8) "
+        Else
+            cargo = " = " & Me.cboCargo.EditValue
+        End If
+
+        Dim ax As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
+                              "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
+                               "WHERE  iC.codigo_departamento = " & depto & _
+                               " AND      iC.codigo_municipio = " & muni & _
+                               " AND      im.codigo_departamento = ic.codigo_departamento " & _
+                               " AND      im.codigo_municipio       = ic.codigo_municipio " & _
+                               " AND      ic.codigo_cargo_electivo  " & cargo & _
+                               " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
+                               " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
+                               " AND      ic.identidad = ip.numero_identidad " & _
+                               " AND      ip.sexo= 1"
+
+        hombres_ingresados = CInt(COracle.ObtenerDatos(ax, "MUJERES"))
+
+
+        If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 9 Then
+            hombres_permitidos = (cdesignados + 1) - mujeres_necesarias
+
+            If hombres_permitidos = hombres_ingresados Then
+                ingreso_hombre = 0
+            Else
+                ingreso_hombre = 1
+            End If
+
+        ElseIf Me.cboCargo.EditValue = 2 Then
+
+            hombres_permitidos = (cdip_pp) - mujeres_necesarias
+
+            If hombres_permitidos = hombres_ingresados Then
+                ingreso_hombre = 0
+            Else
+                ingreso_hombre = 1
+            End If
+
+        ElseIf Me.cboCargo.EditValue = 3 Then
+
+            hombres_permitidos = (cdip_ps) - mujeres_necesarias
+
+            If hombres_permitidos = hombres_ingresados Then
+                ingreso_hombre = 0
+            Else
+                ingreso_hombre = 1
+            End If
+
+        ElseIf Me.cboCargo.EditValue = 4 Then
+
+            If depto = 10 Or depto = 12 Then
+
+                Dim con1 As String = "SELECT NVL(COUNT(*),  0) HOMBRES " & _
+                      "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
+                       "WHERE  iC.codigo_departamento = " & depto & _
+                       " AND      iC.codigo_municipio = " & muni & _
+                       " AND      im.codigo_departamento = ic.codigo_departamento " & _
+                       " AND      im.codigo_municipio       = ic.codigo_municipio " & _
+                       " AND      ic.codigo_cargo_electivo = 4 " & _
+                       " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
+                       " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
+                       " AND      ic.identidad = ip.numero_identidad " & _
+                       " AND      ip.sexo= 1"
+
+                Dim con2 As String = "SELECT NVL(COUNT(*),  0) HOMBRES " & _
+                      "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
+                       "WHERE  iC.codigo_departamento = " & depto & _
+                       " AND      iC.codigo_municipio = " & muni & _
+                       " AND      im.codigo_departamento = ic.codigo_departamento " & _
+                       " AND      im.codigo_municipio       = ic.codigo_municipio " & _
+                       " AND      ic.codigo_cargo_electivo = 5 " & _
+                       " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
+                       " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
+                       " AND      ic.identidad = ip.numero_identidad " & _
+                       " AND      ip.sexo= 1"
+
+                Dim homP As Integer = COracle.ObtenerDatos(con1, "HOMBRES")
+                Dim homS As Integer = COracle.ObtenerDatos(con2, "HOMBRES")
+
+                If (homP + homS) <= 3 And (homP < 3 And homS < 3) Then
+                    ingreso_hombre = 1
+                Else
+                    ingreso_hombre = 0
+                End If
+
+            ElseIf depto = 9 Or depto = 11 Then
+
+                hombres_permitidos = (cdip_CN + cdip_CNS) - mujeres_necesarias
+
+                If hombres_permitidos = hombres_ingresados Then
+                    ingreso_hombre = 0
+                Else
+                    ingreso_hombre = 1
+                End If
+
+            Else
+                hombres_permitidos = (cdip_CN) - mujeres_necesarias
+
+                If hombres_permitidos = hombres_ingresados Then
+                    ingreso_hombre = 0
+                Else
+                    ingreso_hombre = 1
+                End If
+
+            End If
+        ElseIf Me.cboCargo.EditValue = 5 Then
+
+            If depto = 10 Or depto = 12 Then
+
+                Dim con1 As String = "SELECT NVL(COUNT(*),  0) HOMBRES " & _
+                      "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
+                       "WHERE  iC.codigo_departamento = " & depto & _
+                       " AND      iC.codigo_municipio = " & muni & _
+                       " AND      im.codigo_departamento = ic.codigo_departamento " & _
+                       " AND      im.codigo_municipio       = ic.codigo_municipio " & _
+                       " AND      ic.codigo_cargo_electivo = 4 " & _
+                       " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
+                       " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
+                       " AND      ic.identidad = ip.numero_identidad " & _
+                       " AND      ip.sexo= 1"
+
+                Dim con2 As String = "SELECT NVL(COUNT(*),  0) HOMBRES " & _
+                      "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
+                       "WHERE  iC.codigo_departamento = " & depto & _
+                       " AND      iC.codigo_municipio = " & muni & _
+                       " AND      im.codigo_departamento = ic.codigo_departamento " & _
+                       " AND      im.codigo_municipio       = ic.codigo_municipio " & _
+                       " AND      ic.codigo_cargo_electivo = 5 " & _
+                       " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
+                       " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
+                       " AND      ic.identidad = ip.numero_identidad " & _
+                       " AND      ip.sexo= 1"
+
+                Dim homP As Integer = COracle.ObtenerDatos(con1, "HOMBRES")
+                Dim homS As Integer = COracle.ObtenerDatos(con2, "HOMBRES")
+
+                If (homP + homS) <= 3 And (homP < 3 And homS < 3) Then
+                    ingreso_hombre = 0
+                Else
+                    ingreso_hombre = 1
+                End If
+
+            ElseIf depto = 9 Or depto = 11 Then
+
+                hombres_permitidos = (cdip_CN + cdip_CNS) - mujeres_necesarias
+
+                If hombres_permitidos = hombres_ingresados Then
+                    ingreso_hombre = 0
+                Else
+                    ingreso_hombre = 1
+                End If
+
+            Else
+                hombres_permitidos = (cdip_CNs) - mujeres_necesarias
+
+                If hombres_permitidos = hombres_ingresados Then
+                    ingreso_hombre = 0
+                Else
+                    ingreso_hombre = 1
+                End If
+
+            End If
+
+        ElseIf Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7 Or Me.cboCargo.EditValue = 8 Then
+            hombres_permitidos = (2 + cregidores) - mujeres_necesarias
+
+            If hombres_permitidos = hombres_ingresados Then
+                ingreso_hombre = 0
+            Else
+                ingreso_hombre = 1
+            End If
+        End If
+
+
+    End Sub
+
     Public Sub New()
         ' Llamada necesaria para el Diseñador de Windows Forms.
         InitializeComponent()
@@ -845,465 +1357,7 @@ Public Class xfrmRegCandidatos
         lblvice.Text = ""
         lblregidores.Text = ""
     End Sub
-    Sub Validarleyendas()
-        Dim dip_CNS As String = 0
-        Dim dip_CN As String = 0
-        Dim dip_pp As String = 0
-        Dim dip_ps As String = 0
-        Dim presidente As String = 0
-        Dim alcalde As String = 0
-        Dim vice As String = 0
-        Dim regidores As String = 0
-        Dim designados As String = 0
 
-        Dim cdip_CNS As String = 0
-        Dim cdip_CN As String = 0
-        Dim cdip_pp As String = 0
-        Dim cdip_ps As String = 0
-        Dim cregidores As String = 0
-        Dim cdesignados As String = 0
-
-        Dim mujeres_ingresadas As String
-        Dim mujeres_necesarias As String
-
-        Dim hombres_permitidos As Integer
-        Dim hombres_ingresados As Integer
-
-        id_partido = CInt(Me.lblidpartido.Text)
-        id_movimiento = CInt(Me.lblidmovimiento.Text)
-
-        Me.DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2.Rows.Clear()
-        Val_MUN_DEP()
-
-
-        presidente = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 1 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
-        designados = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 9 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
-        dip_pp = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 2 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
-        dip_ps = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 3 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} ", id_partido, id_movimiento), "TOTAL")
-        dip_CN = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 4 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2}", id_partido, id_movimiento, depto), "TOTAL")
-        dip_CNS = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 5 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2}", id_partido, id_movimiento, depto), "TOTAL")
-        alcalde = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 6 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2} AND CODIGO_MUNICIPIO= {3} ", id_partido, id_movimiento, depto, muni), "TOTAL")
-        vice = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 7 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2} AND CODIGO_MUNICIPIO= {3} ", id_partido, id_movimiento, depto, muni), "TOTAL")
-        regidores = COracle.ObtenerDatos(String.Format("SELECT COUNT(*) TOTAL  FROM IM_CANDIDATOS WHERE CODIGO_CARGO_ELECTIVO = 8 AND CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1} AND CODIGO_DEPARTAMENTO= {2} AND CODIGO_MUNICIPIO= {3} ", id_partido, id_movimiento, depto, muni), "TOTAL")
-
-
-        cdesignados = COracle.ObtenerDatos("SELECT CANTIDAD_CARGO  FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO = 9", "CANTIDAD_CARGO")
-        cdip_pp = COracle.ObtenerDatos("SELECT CANTIDAD_CARGO  FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO = 2", "CANTIDAD_CARGO")
-        cdip_ps = COracle.ObtenerDatos("SELECT CANTIDAD_CARGO  FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO = 3", "CANTIDAD_CARGO")
-        cdip_CN = COracle.ObtenerDatos(String.Format("SELECT CANTIDAD_DIPUTADOS FROM IM_DEPARTAMENTOS WHERE   CODIGO_DEPARTAMENTO =  {0}", depto), "CANTIDAD_DIPUTADOS")
-        cdip_CNS = COracle.ObtenerDatos(String.Format("SELECT CANTIDAD_DIPUTADOS FROM IM_DEPARTAMENTOS WHERE   CODIGO_DEPARTAMENTO =  {0}", depto), "CANTIDAD_DIPUTADOS")
-        cregidores = COracle.ObtenerDatos(String.Format("SELECT CANTIDAD_REGIDORES FROM IM_MUNICIPIOS WHERE   CODIGO_DEPARTAMENTO= {0} AND CODIGO_MUNICIPIO= {1} ", depto, muni), "CANTIDAD_REGIDORES")
-
-        lblpresidnete.Text = presidente
-        lbldesignados.Text = String.Format("{0} / {1}", designados, cdesignados)
-        lblparlacen1.Text = String.Format("{0} / {1}", dip_pp, cdip_pp)
-        lblparlacen2.Text = String.Format("{0} / {1}", dip_ps, cdip_ps)
-        lblcnr1.Text = String.Format("{0} / {1}", dip_CN, cdip_CN)
-        lblcnr2.Text = String.Format("{0} / {1}", dip_CNS, cdip_CNS)
-
-        lblcnr1.Text = String.Format("{0} / {1}", dip_CN, cdip_CN)
-        lblcnr2.Text = String.Format("{0} / {1}", dip_CNS, cdip_CNS)
-        lblalcalde.Text = alcalde
-        lblvice.Text = vice
-        lblregidores.Text = String.Format("{0} / {1}", regidores, cregidores)
-
-        load = True
-        'TODO: This line of code loads data into the 'DSInsCandidatos.IM_CANDIDATOS' table. You can move, or remove it, as needed.
-        Me.IM_V_MOSTRAR_CANDIDATOS2TableAdapter.FillBY(Me.DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2, id_movimiento, id_partido, muni, depto, Me.cboCargo.EditValue)
-
-        If Me.cboCargo.EditValue = 1 Then
-            permitir_up = 1
-            AgregarFilasGrid(CInt(1 - presidente))
-        ElseIf Me.cboCargo.EditValue = 6 Then
-            permitir_up = 1
-            AgregarFilasGrid(CInt(1 - alcalde))
-        ElseIf Me.cboCargo.EditValue = 7 Then
-            permitir_up = 1
-            AgregarFilasGrid(CInt(1 - vice))
-        ElseIf Me.cboCargo.EditValue = 2 Then
-            AgregarFilasGrid(CInt(cdip_pp) - CInt(dip_pp))
-        ElseIf Me.cboCargo.EditValue = 3 Then
-            AgregarFilasGrid(CInt(cdip_ps) - CInt(dip_ps))
-        ElseIf Me.cboCargo.EditValue = 4 Then
-            AgregarFilasGrid(CInt(cdip_CN) - CInt(dip_CN))
-        ElseIf Me.cboCargo.EditValue = 5 Then
-            AgregarFilasGrid(CInt(cdip_CNS) - CInt(dip_CNS))
-        ElseIf Me.cboCargo.EditValue = 8 Then
-            AgregarFilasGrid(CInt(cregidores) - CInt(regidores))
-        ElseIf Me.cboCargo.EditValue = 9 Then
-            AgregarFilasGrid(CInt(cdesignados) - CInt(designados))
-
-        End If
-
-        'VAlIDACIONES PARTICIPACION FEMENINA 
-        If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 9 Then
-
-            mujeres_ingresadas = COracle.ObtenerDatos(String.Format("SELECT NVL(COUNT(*),  0) MUJERES FROM    im_candidatos ic, im_padron_electoral IP WHERE  ic.codigo_cargo_electivo IN (1,9)  AND  IC.CODIGO_PARTIDO = {0} AND IC.CODIGO_MOVIMIENTO = {1} AND  ic.identidad = ip.numero_identidad AND ip.sexo  = 2", id_partido, id_movimiento), "MUJERES")
-            mujeres_necesarias = COracle.ObtenerDatos("SELECT NVL(CANTIDAD_MUJERES,0) CANTIDAD_MUJERES FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO =9", "CANTIDAD_MUJERES")
-
-            Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
-            If faltan < 0 Then
-                faltan = 0
-            End If
-
-            Me.lblmujeres.Text = String.Format("Necesarias {0} entre Presidente y Designados Faltan {1}", mujeres_necesarias, (faltan))
-
-        ElseIf Me.cboCargo.EditValue = 2 Then
-            Dim S As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
-                               "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
-                                "WHERE  iC.codigo_departamento = " & depto & _
-                                " AND      iC.codigo_municipio = " & muni & _
-                                " AND      im.codigo_departamento = ic.codigo_departamento " & _
-                                " AND      im.codigo_municipio       = ic.codigo_municipio " & _
-                                " AND      ic.codigo_cargo_electivo = 2" & _
-                                " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
-                                " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
-                                " AND      ic.identidad = ip.numero_identidad " & _
-                                " AND      ip.sexo= 2"
-
-            mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
-            mujeres_necesarias = COracle.ObtenerDatos("SELECT NVL(CANTIDAD_MUJERES,0) CANTIDAD_MUJERES FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO =2", "CANTIDAD_MUJERES")
-
-
-            Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
-            If faltan < 0 Then
-                faltan = 0
-            End If
-
-            Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (faltan))
-
-        ElseIf Me.cboCargo.EditValue = 3 Then
-            Dim S As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
-                              "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
-                               "WHERE  iC.codigo_departamento = " & depto & _
-                               " AND      iC.codigo_municipio = " & muni & _
-                               " AND      im.codigo_departamento = ic.codigo_departamento " & _
-                               " AND      im.codigo_municipio       = ic.codigo_municipio " & _
-                               " AND      ic.codigo_cargo_electivo = 3" & _
-                               " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
-                               " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
-                               " AND      ic.identidad = ip.numero_identidad " & _
-                               " AND      ip.sexo= 2"
-
-            mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
-            mujeres_necesarias = COracle.ObtenerDatos("SELECT NVL(CANTIDAD_MUJERES,0) CANTIDAD_MUJERES FROM IM_CARGOS_ELECTIVOS WHERE CODIGO_CARGO_ELECTIVO =3", "CANTIDAD_MUJERES")
-
-            Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
-            If faltan < 0 Then
-                faltan = 0
-            End If
-
-            Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (faltan))
-
-        ElseIf Me.cboCargo.EditValue = 4 Then
-
-            Dim S As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
-                              "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
-                               "WHERE  iC.codigo_departamento = " & depto & _
-                               " AND      iC.codigo_municipio = " & muni & _
-                               " AND      im.codigo_departamento = ic.codigo_departamento " & _
-                               " AND      im.codigo_municipio       = ic.codigo_municipio " & _
-                               " AND      ic.codigo_cargo_electivo = 4" & _
-                               " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
-                               " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
-                               " AND      ic.identidad = ip.numero_identidad " & _
-                               " AND      ip.sexo= 2"
-
-
-
-            If depto = 10 Or depto = 12 Then
-
-                Dim S1 As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
-                  "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
-                   "WHERE  iC.codigo_departamento = " & depto & _
-                   " AND      iC.codigo_municipio = " & muni & _
-                   " AND      im.codigo_departamento = ic.codigo_departamento " & _
-                   " AND      im.codigo_municipio       = ic.codigo_municipio " & _
-                   " AND      ic.codigo_cargo_electivo in (4,5)" & _
-                   " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
-                   " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
-                   " AND      ic.identidad = ip.numero_identidad " & _
-                   " AND      ip.sexo= 2"
-
-                mujeres_ingresadas = COracle.ObtenerDatos(S1, "MUJERES")
-
-
-                Dim faltan As String = 3 - mujeres_ingresadas
-                If faltan < 0 Then
-                    faltan = 0
-                End If
-                Me.lblmujeres.Text = "Necesita Minimo 3 Mujeres entre Propietarias y Suplentes, Faltan " & (faltan)
-
-            ElseIf depto = 9 Or depto = 11 Then
-
-                Dim S1 As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
-                  "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
-                   "WHERE  iC.codigo_departamento = " & depto & _
-                   " AND      iC.codigo_municipio = " & muni & _
-                   " AND      im.codigo_departamento = ic.codigo_departamento " & _
-                   " AND      im.codigo_municipio       = ic.codigo_municipio " & _
-                   " AND      ic.codigo_cargo_electivo in (4,5)" & _
-                   " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
-                   " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
-                   " AND      ic.identidad = ip.numero_identidad " & _
-                   " AND      ip.sexo= 2"
-
-                mujeres_ingresadas = COracle.ObtenerDatos(S1, "MUJERES")
-
-                Dim faltan As String = 1 - mujeres_ingresadas
-                If faltan < 0 Then
-                    faltan = 0
-                End If
-
-                Me.lblmujeres.Text = "Necesita Minimo 1 Mujer entre Propietarias y Suplentes, Faltan " & (faltan)
-
-
-            Else
-
-                mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
-                mujeres_necesarias = COracle.ObtenerDatos("select NVL(CANTIDAD_MUJERES,0) CANTIDAD_MUJERES  from im_departamentos where codigo_departamento = " & depto, "cantidad_mujeres")
-
-                Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
-                If faltan < 0 Then
-                    faltan = 0
-                End If
-
-
-
-                Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (faltan))
-            End If
-
-        ElseIf Me.cboCargo.EditValue = 5 Then
-
-            If depto = 10 Or depto = 12 Then
-
-                Dim S1 As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
-                  "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
-                   "WHERE  iC.codigo_departamento = " & depto & _
-                   " AND      iC.codigo_municipio = " & muni & _
-                   " AND      im.codigo_departamento = ic.codigo_departamento " & _
-                   " AND      im.codigo_municipio       = ic.codigo_municipio " & _
-                   " AND      ic.codigo_cargo_electivo in (4,5)" & _
-                   " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
-                   " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
-                   " AND      ic.identidad = ip.numero_identidad " & _
-                   " AND      ip.sexo= 2"
-
-                mujeres_ingresadas = COracle.ObtenerDatos(S1, "MUJERES")
-
-
-                Dim faltan As String = 3 - mujeres_ingresadas
-                If faltan < 0 Then
-                    faltan = 0
-                End If
-                Me.lblmujeres.Text = "Necesita Minimo 3 Mujeres entre Propietarias y Suplentes, Faltan " & (faltan)
-
-            ElseIf depto = 9 Or depto = 11 Then
-
-                Dim S1 As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
-                  "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
-                   "WHERE  iC.codigo_departamento = " & depto & _
-                   " AND      iC.codigo_municipio = " & muni & _
-                   " AND      im.codigo_departamento = ic.codigo_departamento " & _
-                   " AND      im.codigo_municipio       = ic.codigo_municipio " & _
-                   " AND      ic.codigo_cargo_electivo in (4,5)" & _
-                   " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
-                   " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
-                   " AND      ic.identidad = ip.numero_identidad " & _
-                   " AND      ip.sexo= 2"
-
-                mujeres_ingresadas = COracle.ObtenerDatos(S1, "MUJERES")
-
-                Dim faltan As String = 1 - mujeres_ingresadas
-                If faltan < 0 Then
-                    faltan = 0
-                End If
-
-                Me.lblmujeres.Text = "Necesita Minimo 1 Mujer entre Propietarias y Suplentes, Faltan " & (faltan)
-
-
-            Else
-                Dim S As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
-                                  "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
-                                   "WHERE  iC.codigo_departamento = " & depto & _
-                                   " AND      iC.codigo_municipio = " & muni & _
-                                   " AND      im.codigo_departamento = ic.codigo_departamento " & _
-                                   " AND      im.codigo_municipio       = ic.codigo_municipio " & _
-                                   " AND      ic.codigo_cargo_electivo = 5" & _
-                                   " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
-                                   " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
-                                   " AND      ic.identidad = ip.numero_identidad " & _
-                                   " AND      ip.sexo= 2"
-
-                mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
-                mujeres_necesarias = COracle.ObtenerDatos("select NVL(CANTIDAD_MUJERES,0) CANTIDAD_MUJERES  from im_departamentos where codigo_departamento = " & depto, "cantidad_mujeres")
-
-
-                Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
-                If faltan < 0 Then
-                    faltan = 0
-                End If
-
-                Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (mujeres_necesarias - mujeres_ingresadas))
-            End If
-        ElseIf Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7 Or Me.cboCargo.EditValue = 8 Then
-                Dim S As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
-                                  "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
-                                   "WHERE  iC.codigo_departamento = " & depto & _
-                                   " AND      iC.codigo_municipio = " & muni & _
-                                   " AND      im.codigo_departamento = ic.codigo_departamento " & _
-                                   " AND      im.codigo_municipio       = ic.codigo_municipio " & _
-                                   " AND      ic.codigo_cargo_electivo in (6,7,8) " & _
-                                   " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
-                                   " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
-                                   " AND      ic.identidad = ip.numero_identidad " & _
-                                   " AND      ip.sexo= 2"
-
-                mujeres_ingresadas = COracle.ObtenerDatos(S, "MUJERES")
-            mujeres_necesarias = COracle.ObtenerDatos("select NVL(CANTIDAD_MUJERES,0) CANTIDAD_MUJERES  from im_municipios where codigo_departamento = " & depto & " and codigo_municipio =" & muni, "cantidad_mujeres")
-
-                Dim faltan As String = mujeres_necesarias - mujeres_ingresadas
-                If faltan < 0 Then
-                    faltan = 0
-                End If
-
-                Me.lblmujeres.Text = String.Format("Necesarias {0} Faltan {1}", mujeres_necesarias, (faltan))
-
-        End If
-
-            If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 9 Then
-                hombres_ingresados += 1
-            End If
-
-            Dim cargo As String
-
-            If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 9 Then
-                cargo = "IN (1,9) "
-            ElseIf Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 9 Then
-                cargo = "IN (6,7,8) "
-            Else
-                cargo = " = " & Me.cboCargo.EditValue
-            End If
-
-            Dim ax As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
-                                  "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
-                                   "WHERE  iC.codigo_departamento = " & depto & _
-                                   " AND      iC.codigo_municipio = " & muni & _
-                                   " AND      im.codigo_departamento = ic.codigo_departamento " & _
-                                   " AND      im.codigo_municipio       = ic.codigo_municipio " & _
-                                   " AND      ic.codigo_cargo_electivo  " & cargo & _
-                                   " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
-                                   " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
-                                   " AND      ic.identidad = ip.numero_identidad " & _
-                                   " AND      ip.sexo= 1"
-
-            hombres_ingresados = CInt(COracle.ObtenerDatos(ax, "MUJERES"))
-
-
-            If Me.cboCargo.EditValue = 1 Or Me.cboCargo.EditValue = 9 Then
-                hombres_permitidos = (cdesignados + 1) - mujeres_necesarias
-
-                If hombres_permitidos = hombres_ingresados Then
-                    ingreso_hombre = 0
-                Else
-                    ingreso_hombre = 1
-                End If
-
-            ElseIf Me.cboCargo.EditValue = 2 Then
-
-                hombres_permitidos = (cdip_pp) - mujeres_necesarias
-
-                If hombres_permitidos = hombres_ingresados Then
-                    ingreso_hombre = 0
-                Else
-                    ingreso_hombre = 1
-                End If
-
-            ElseIf Me.cboCargo.EditValue = 3 Then
-
-                hombres_permitidos = (cdip_ps) - mujeres_necesarias
-
-                If hombres_permitidos = hombres_ingresados Then
-                    ingreso_hombre = 0
-                Else
-                    ingreso_hombre = 1
-                End If
-
-            ElseIf Me.cboCargo.EditValue = 4 Then
-
-                If depto = 10 Or depto = 12 Then
-
-                    Dim con1 As String = "SELECT NVL(COUNT(*),  0) HOMBRES " & _
-                          "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
-                           "WHERE  iC.codigo_departamento = " & depto & _
-                           " AND      iC.codigo_municipio = " & muni & _
-                           " AND      im.codigo_departamento = ic.codigo_departamento " & _
-                           " AND      im.codigo_municipio       = ic.codigo_municipio " & _
-                           " AND      ic.codigo_cargo_electivo = 4 " & _
-                           " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
-                           " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
-                           " AND      ic.identidad = ip.numero_identidad " & _
-                           " AND      ip.sexo= 1"
-
-                    Dim con2 As String = "SELECT NVL(COUNT(*),  0) HOMBRES " & _
-                          "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
-                           "WHERE  iC.codigo_departamento = " & depto & _
-                           " AND      iC.codigo_municipio = " & muni & _
-                           " AND      im.codigo_departamento = ic.codigo_departamento " & _
-                           " AND      im.codigo_municipio       = ic.codigo_municipio " & _
-                           " AND      ic.codigo_cargo_electivo = 5 " & _
-                           " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
-                           " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
-                           " AND      ic.identidad = ip.numero_identidad " & _
-                           " AND      ip.sexo= 1"
-
-                    Dim homP As Integer = COracle.ObtenerDatos(con1, "HOMBRES")
-                    Dim homS As Integer = COracle.ObtenerDatos(con2, "HOMBRES")
-
-                    If (homP + homS) <= 3 And (homP < 3 And homS) Then
-                        ingreso_hombre = 0
-                    Else
-                        ingreso_hombre = 1
-                    End If
-
-                ElseIf depto = 9 Or depto = 11 Then
-
-                    hombres_permitidos = (cdip_CN + cdip_CNS) - mujeres_necesarias
-
-                    If hombres_permitidos = hombres_ingresados Then
-                        ingreso_hombre = 0
-                    Else
-                        ingreso_hombre = 1
-                    End If
-                End If
-
-                hombres_permitidos = (cdip_CN) - mujeres_necesarias
-
-                If hombres_permitidos = hombres_ingresados Then
-                    ingreso_hombre = 0
-                Else
-                    ingreso_hombre = 1
-                End If
-            ElseIf Me.cboCargo.EditValue = 5 Then
-                hombres_permitidos = (cdip_CNS) - mujeres_necesarias
-
-                If hombres_permitidos = hombres_ingresados Then
-                    ingreso_hombre = 0
-                Else
-                    ingreso_hombre = 1
-                End If
-            ElseIf Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7 Or Me.cboCargo.EditValue = 8 Then
-                hombres_permitidos = (2 + cregidores) - mujeres_necesarias
-
-                If hombres_permitidos = hombres_ingresados Then
-                    ingreso_hombre = 0
-                Else
-                    ingreso_hombre = 1
-                End If
-            End If
-
-
-    End Sub
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.Close()
     End Sub
@@ -1350,22 +1404,24 @@ Public Class xfrmRegCandidatos
             End If
 
             Dim _row = CType(DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2.Rows(IMVMOSTRARCANDIDATOS2BindingSource.Position), DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2Row)
-
             If _row.RowState = DataRowState.Added Then
-                guardar(e.RowHandle)
+                If (Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7) And Me.cboDepartamento.EditValue = 0 Or Me.cboMunicipio.EditValue = 0 Then
+                    Mensajes.MensajeError("Seleccione el Departamento y/o Municipio")
+                Else
+                    guardar(e.RowHandle)
+                End If
             ElseIf _row.RowState = DataRowState.Unchanged Or permitir_up = 1 Then
                 Actualizar(e.RowHandle)
-
             End If
 
-            'If _row.RowState = DataRowState.Added And permitir_up = 0 Then
-            '    guardar(e.RowHandle)
-            'ElseIf _row.RowState = DataRowState.Unchanged Or permitir_up = 1 Then
-            '    Actualizar(e.RowHandle)
+                'If _row.RowState = DataRowState.Added And permitir_up = 0 Then
+                '    guardar(e.RowHandle)
+                'ElseIf _row.RowState = DataRowState.Unchanged Or permitir_up = 1 Then
+                '    Actualizar(e.RowHandle)
 
-            'End If
-
+                'End If
             End If
+
 
 
     End Sub
