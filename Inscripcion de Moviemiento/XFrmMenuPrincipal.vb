@@ -355,8 +355,10 @@ Public Class XFrmMenuPrincipal
     End Sub
 
     Private Sub BarButtonItem2_ItemClick_2(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem2.ItemClick
-        Dim reportep As REPORTE_PLANILLAS_FINALES = New REPORTE_PLANILLAS_FINALES
-        reportep.ShowPreview()
+        'Dim reportep As REPORTE_PLANILLAS_FINALES = New REPORTE_PLANILLAS_FINALES
+        'reportep.ShowPreview()
+        'Dim parametros As Parametros = New Parametros
+        Parametros.Show()
 
     End Sub
 

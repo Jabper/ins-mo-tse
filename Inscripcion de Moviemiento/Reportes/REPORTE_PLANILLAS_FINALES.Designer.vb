@@ -31,27 +31,23 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         Me.ReportHeader = New DevExpress.XtraReports.UI.ReportHeaderBand
         Me.XrLine2 = New DevExpress.XtraReports.UI.XRLine
         Me.XrPictureBox3 = New DevExpress.XtraReports.UI.XRPictureBox
+        Me.XrPictureBox2 = New DevExpress.XtraReports.UI.XRPictureBox
+        Me.partidopolitico = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel10 = New DevExpress.XtraReports.UI.XRLabel
+        Me.movimientopolitico = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel24 = New DevExpress.XtraReports.UI.XRLabel
+        Me.nivelelectivo = New DevExpress.XtraReports.UI.XRLabel
         Me.BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         Me.DS_LOG = New Inscripcion_de_Moviemientos.DS_LOG
-        Me.XrPictureBox2 = New DevExpress.XtraReports.UI.XRPictureBox
         Me.BindingSource3 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel
         Me.PageHeader = New DevExpress.XtraReports.UI.PageHeaderBand
         Me.BindingSource5 = New System.Windows.Forms.BindingSource(Me.components)
         Me.DS_PLANILLA_TOTALES = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALES
-        Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
         Me.GroupHeader1 = New DevExpress.XtraReports.UI.GroupHeaderBand
-        Me.XrLabel10 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel27 = New DevExpress.XtraReports.UI.XRLabel
-        Me.nivelelectivo = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel24 = New DevExpress.XtraReports.UI.XRLabel
-        Me.movimientopolitico = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel8 = New DevExpress.XtraReports.UI.XRLabel
-        Me.partidopolitico = New DevExpress.XtraReports.UI.XRLabel
         Me.ndepartamento = New DevExpress.XtraReports.UI.XRLabel
         Me.muniname = New DevExpress.XtraReports.UI.XRLabel
         Me.munivalor = New DevExpress.XtraReports.UI.XRLabel
-        Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
         Me.GroupHeader2 = New DevExpress.XtraReports.UI.GroupHeaderBand
         Me.XrLabel23 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel21 = New DevExpress.XtraReports.UI.XRLabel
@@ -61,8 +57,6 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         Me.XrLine1 = New DevExpress.XtraReports.UI.XRLine
         Me.DS_PLANILLA_TOTALES1 = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALES
         Me.IM_CANDIDATOSTableAdapter = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_CANDIDATOSTableAdapter
-        Me.nivel = New DevExpress.XtraReports.Parameters.Parameter
-        Me.NombreDep = New DevExpress.XtraReports.Parameters.Parameter
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_MUNICIPIOSTableAdapter = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_MUNICIPIOSTableAdapter
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
@@ -71,6 +65,7 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         Me.BindingSource4 = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_DEPARTAMENTOSTableAdapter = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_DEPARTAMENTOSTableAdapter
         Me.DT_totalTableAdapter = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.DT_totalTableAdapter
+        Me.GroupHeader4 = New DevExpress.XtraReports.UI.GroupHeaderBand
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -150,24 +145,87 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         '
         'ReportHeader
         '
-        Me.ReportHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLine2, Me.XrPictureBox3, Me.XrPictureBox2, Me.XrLabel1})
-        Me.ReportHeader.HeightF = 143.75!
+        Me.ReportHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLine2, Me.XrPictureBox3, Me.XrPictureBox2, Me.partidopolitico, Me.XrLabel10, Me.movimientopolitico, Me.XrLabel24, Me.nivelelectivo})
+        Me.ReportHeader.HeightF = 178.125!
         Me.ReportHeader.Name = "ReportHeader"
         '
         'XrLine2
         '
         Me.XrLine2.LineWidth = 4
-        Me.XrLine2.LocationFloat = New DevExpress.Utils.PointFloat(9.999998!, 102.0833!)
+        Me.XrLine2.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 145.125!)
         Me.XrLine2.Name = "XrLine2"
         Me.XrLine2.SizeF = New System.Drawing.SizeF(1041.0!, 23.0!)
         '
         'XrPictureBox3
         '
-        Me.XrPictureBox3.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSource2, "IMAGEN")})
         Me.XrPictureBox3.LocationFloat = New DevExpress.Utils.PointFloat(13.12504!, 9.998305!)
         Me.XrPictureBox3.Name = "XrPictureBox3"
         Me.XrPictureBox3.SizeF = New System.Drawing.SizeF(120.4167!, 81.0417!)
         Me.XrPictureBox3.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage
+        '
+        'XrPictureBox2
+        '
+        Me.XrPictureBox2.LocationFloat = New DevExpress.Utils.PointFloat(930.58!, 10.00001!)
+        Me.XrPictureBox2.Name = "XrPictureBox2"
+        Me.XrPictureBox2.SizeF = New System.Drawing.SizeF(120.42!, 81.04!)
+        Me.XrPictureBox2.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage
+        '
+        'partidopolitico
+        '
+        Me.partidopolitico.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS.PARTIDO")})
+        Me.partidopolitico.Font = New System.Drawing.Font("Times New Roman", 20.0!, System.Drawing.FontStyle.Italic)
+        Me.partidopolitico.LocationFloat = New DevExpress.Utils.PointFloat(256.8747!, 9.998305!)
+        Me.partidopolitico.Name = "partidopolitico"
+        Me.partidopolitico.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.partidopolitico.SizeF = New System.Drawing.SizeF(590.6249!, 38.62498!)
+        Me.partidopolitico.StylePriority.UseFont = False
+        Me.partidopolitico.StylePriority.UseTextAlignment = False
+        Me.partidopolitico.Text = "partidopolitico"
+        Me.partidopolitico.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'XrLabel10
+        '
+        Me.XrLabel10.Font = New System.Drawing.Font("Times New Roman", 20.0!, System.Drawing.FontStyle.Italic)
+        Me.XrLabel10.LocationFloat = New DevExpress.Utils.PointFloat(317.7083!, 49.28996!)
+        Me.XrLabel10.Name = "XrLabel10"
+        Me.XrLabel10.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel10.SizeF = New System.Drawing.SizeF(179.1667!, 32.37502!)
+        Me.XrLabel10.StylePriority.UseFont = False
+        Me.XrLabel10.Text = "MOVIMIENTO"
+        '
+        'movimientopolitico
+        '
+        Me.movimientopolitico.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS.NOMBRE_MOVIMIENTO")})
+        Me.movimientopolitico.Font = New System.Drawing.Font("Times New Roman", 20.0!, System.Drawing.FontStyle.Italic)
+        Me.movimientopolitico.LocationFloat = New DevExpress.Utils.PointFloat(523.5413!, 48.62328!)
+        Me.movimientopolitico.Name = "movimientopolitico"
+        Me.movimientopolitico.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.movimientopolitico.SizeF = New System.Drawing.SizeF(335.4165!, 33.0417!)
+        Me.movimientopolitico.StylePriority.UseFont = False
+        Me.movimientopolitico.StylePriority.UseTextAlignment = False
+        Me.movimientopolitico.Text = "movimientopolitico"
+        Me.movimientopolitico.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'XrLabel24
+        '
+        Me.XrLabel24.Font = New System.Drawing.Font("Times New Roman", 20.0!, System.Drawing.FontStyle.Italic)
+        Me.XrLabel24.LocationFloat = New DevExpress.Utils.PointFloat(256.8753!, 81.66498!)
+        Me.XrLabel24.Name = "XrLabel24"
+        Me.XrLabel24.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel24.SizeF = New System.Drawing.SizeF(191.666!, 34.45835!)
+        Me.XrLabel24.StylePriority.UseFont = False
+        Me.XrLabel24.Text = "PLANILLA DE"
+        '
+        'nivelelectivo
+        '
+        Me.nivelelectivo.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS.NIVEL")})
+        Me.nivelelectivo.Font = New System.Drawing.Font("Times New Roman", 20.0!, System.Drawing.FontStyle.Italic)
+        Me.nivelelectivo.LocationFloat = New DevExpress.Utils.PointFloat(467.2913!, 81.66498!)
+        Me.nivelelectivo.Name = "nivelelectivo"
+        Me.nivelelectivo.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.nivelelectivo.SizeF = New System.Drawing.SizeF(446.8748!, 33.41666!)
+        Me.nivelelectivo.StylePriority.UseFont = False
+        Me.nivelelectivo.Text = "nivelelectivo"
         '
         'BindingSource2
         '
@@ -179,31 +237,10 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         Me.DS_LOG.DataSetName = "DS_LOG"
         Me.DS_LOG.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'XrPictureBox2
-        '
-        Me.XrPictureBox2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSource3, "IMAGEN")})
-        Me.XrPictureBox2.LocationFloat = New DevExpress.Utils.PointFloat(930.58!, 10.00001!)
-        Me.XrPictureBox2.Name = "XrPictureBox2"
-        Me.XrPictureBox2.SizeF = New System.Drawing.SizeF(120.42!, 81.04!)
-        Me.XrPictureBox2.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage
-        '
         'BindingSource3
         '
         Me.BindingSource3.DataMember = "IM_MOVIMIENTOS_imagen"
         Me.BindingSource3.DataSource = Me.DS_LOG
-        '
-        'XrLabel1
-        '
-        Me.XrLabel1.Font = New System.Drawing.Font("Times New Roman", 20.0!, CType(((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic) _
-                        Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
-        Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(222.8749!, 10.00001!)
-        Me.XrLabel1.Name = "XrLabel1"
-        Me.XrLabel1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel1.SizeF = New System.Drawing.SizeF(602.75!, 56.66664!)
-        Me.XrLabel1.StylePriority.UseFont = False
-        Me.XrLabel1.StylePriority.UseTextAlignment = False
-        Me.XrLabel1.Text = "Reporte General de Planillas "
-        Me.XrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'PageHeader
         '
@@ -218,94 +255,31 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         'DS_PLANILLA_TOTALES
         '
         Me.DS_PLANILLA_TOTALES.DataSetName = "DS_PLANILLA_TOTALES"
+        Me.DS_PLANILLA_TOTALES.EnforceConstraints = False
         Me.DS_PLANILLA_TOTALES.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'NombrePartido
-        '
-        Me.NombrePartido.Description = "Partido Politico"
-        Me.NombrePartido.Name = "NombrePartido"
         '
         'GroupHeader1
         '
-        Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel10, Me.XrLabel27, Me.nivelelectivo, Me.XrLabel24, Me.movimientopolitico, Me.XrLabel8, Me.partidopolitico, Me.ndepartamento})
-        Me.GroupHeader1.HeightF = 114.5833!
-        Me.GroupHeader1.Level = 2
+        Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel27, Me.ndepartamento})
+        Me.GroupHeader1.HeightF = 45.83333!
+        Me.GroupHeader1.Level = 3
         Me.GroupHeader1.Name = "GroupHeader1"
-        '
-        'XrLabel10
-        '
-        Me.XrLabel10.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel10.LocationFloat = New DevExpress.Utils.PointFloat(13.12501!, 34.04166!)
-        Me.XrLabel10.Name = "XrLabel10"
-        Me.XrLabel10.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel10.SizeF = New System.Drawing.SizeF(243.75!, 23.00002!)
-        Me.XrLabel10.StylePriority.UseFont = False
-        Me.XrLabel10.Text = "Nombre de Movimiento Politico:"
         '
         'XrLabel27
         '
         Me.XrLabel27.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel27.LocationFloat = New DevExpress.Utils.PointFloat(13.12504!, 80.04169!)
+        Me.XrLabel27.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 10.00001!)
         Me.XrLabel27.Name = "XrLabel27"
         Me.XrLabel27.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel27.SizeF = New System.Drawing.SizeF(243.75!, 23.00002!)
         Me.XrLabel27.StylePriority.UseFont = False
         Me.XrLabel27.Text = "Departamento:"
         '
-        'nivelelectivo
-        '
-        Me.nivelelectivo.Font = New System.Drawing.Font("Times New Roman", 12.0!)
-        Me.nivelelectivo.LocationFloat = New DevExpress.Utils.PointFloat(256.875!, 57.04168!)
-        Me.nivelelectivo.Name = "nivelelectivo"
-        Me.nivelelectivo.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.nivelelectivo.SizeF = New System.Drawing.SizeF(590.6246!, 22.99999!)
-        Me.nivelelectivo.StylePriority.UseFont = False
-        Me.nivelelectivo.Text = "nivelelectivo"
-        '
-        'XrLabel24
-        '
-        Me.XrLabel24.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel24.LocationFloat = New DevExpress.Utils.PointFloat(13.12501!, 57.04168!)
-        Me.XrLabel24.Name = "XrLabel24"
-        Me.XrLabel24.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel24.SizeF = New System.Drawing.SizeF(243.75!, 23.00002!)
-        Me.XrLabel24.StylePriority.UseFont = False
-        Me.XrLabel24.Text = "Nivel Electivo:"
-        '
-        'movimientopolitico
-        '
-        Me.movimientopolitico.Font = New System.Drawing.Font("Times New Roman", 12.0!)
-        Me.movimientopolitico.LocationFloat = New DevExpress.Utils.PointFloat(256.875!, 34.04172!)
-        Me.movimientopolitico.Name = "movimientopolitico"
-        Me.movimientopolitico.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.movimientopolitico.SizeF = New System.Drawing.SizeF(590.6247!, 22.99999!)
-        Me.movimientopolitico.StylePriority.UseFont = False
-        Me.movimientopolitico.Text = "movimientopolitico"
-        '
-        'XrLabel8
-        '
-        Me.XrLabel8.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel8.LocationFloat = New DevExpress.Utils.PointFloat(13.12501!, 11.04164!)
-        Me.XrLabel8.Name = "XrLabel8"
-        Me.XrLabel8.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel8.SizeF = New System.Drawing.SizeF(243.75!, 22.99998!)
-        Me.XrLabel8.StylePriority.UseFont = False
-        Me.XrLabel8.Text = "Nombre de Partido Politico:"
-        '
-        'partidopolitico
-        '
-        Me.partidopolitico.Font = New System.Drawing.Font("Times New Roman", 12.0!)
-        Me.partidopolitico.LocationFloat = New DevExpress.Utils.PointFloat(256.875!, 11.04164!)
-        Me.partidopolitico.Name = "partidopolitico"
-        Me.partidopolitico.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.partidopolitico.SizeF = New System.Drawing.SizeF(590.6249!, 22.99998!)
-        Me.partidopolitico.StylePriority.UseFont = False
-        Me.partidopolitico.Text = "partidopolitico"
-        '
         'ndepartamento
         '
+        Me.ndepartamento.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS.DEPARTAMENTO")})
         Me.ndepartamento.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ndepartamento.LocationFloat = New DevExpress.Utils.PointFloat(256.875!, 80.04169!)
+        Me.ndepartamento.LocationFloat = New DevExpress.Utils.PointFloat(256.8753!, 10.00001!)
         Me.ndepartamento.Name = "ndepartamento"
         Me.ndepartamento.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.ndepartamento.SizeF = New System.Drawing.SizeF(590.6246!, 23.00002!)
@@ -315,7 +289,7 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         'muniname
         '
         Me.muniname.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.muniname.LocationFloat = New DevExpress.Utils.PointFloat(13.12504!, 9.999974!)
+        Me.muniname.LocationFloat = New DevExpress.Utils.PointFloat(13.12504!, 8.958308!)
         Me.muniname.Name = "muniname"
         Me.muniname.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.muniname.SizeF = New System.Drawing.SizeF(94.79168!, 23.00002!)
@@ -324,7 +298,7 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         '
         'munivalor
         '
-        Me.munivalor.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS.municipio")})
+        Me.munivalor.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_CANDIDATOS.MUNICIPIO")})
         Me.munivalor.Font = New System.Drawing.Font("Times New Roman", 12.0!)
         Me.munivalor.LocationFloat = New DevExpress.Utils.PointFloat(256.8753!, 9.999974!)
         Me.munivalor.Name = "munivalor"
@@ -333,15 +307,11 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         Me.munivalor.StylePriority.UseFont = False
         Me.munivalor.Text = "munivalor"
         '
-        'NombreMovimiento
-        '
-        Me.NombreMovimiento.Description = "Nombre Movimiento"
-        Me.NombreMovimiento.Name = "NombreMovimiento"
-        '
         'GroupHeader2
         '
         Me.GroupHeader2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel23, Me.XrLabel21, Me.XrLabel19, Me.XrLabel17, Me.XrLabel16, Me.XrLine1})
         Me.GroupHeader2.HeightF = 48.70835!
+        Me.GroupHeader2.Level = 1
         Me.GroupHeader2.Name = "GroupHeader2"
         '
         'XrLabel23
@@ -412,21 +382,12 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         'DS_PLANILLA_TOTALES1
         '
         Me.DS_PLANILLA_TOTALES1.DataSetName = "DS_PLANILLA_TOTALES"
+        Me.DS_PLANILLA_TOTALES1.EnforceConstraints = False
         Me.DS_PLANILLA_TOTALES1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'IM_CANDIDATOSTableAdapter
         '
         Me.IM_CANDIDATOSTableAdapter.ClearBeforeFill = True
-        '
-        'nivel
-        '
-        Me.nivel.Description = "Nivel Electivo"
-        Me.nivel.Name = "nivel"
-        '
-        'NombreDep
-        '
-        Me.NombreDep.Description = "Departamento"
-        Me.NombreDep.Name = "NombreDep"
         '
         'BindingSource1
         '
@@ -448,8 +409,8 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         'GroupHeader3
         '
         Me.GroupHeader3.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.muniname, Me.munivalor})
-        Me.GroupHeader3.HeightF = 55.20833!
-        Me.GroupHeader3.Level = 1
+        Me.GroupHeader3.HeightF = 41.66667!
+        Me.GroupHeader3.Level = 2
         Me.GroupHeader3.Name = "GroupHeader3"
         '
         'BindingSource4
@@ -465,9 +426,15 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         '
         Me.DT_totalTableAdapter.ClearBeforeFill = True
         '
+        'GroupHeader4
+        '
+        Me.GroupHeader4.GroupFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("municipio", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
+        Me.GroupHeader4.HeightF = 14.58333!
+        Me.GroupHeader4.Name = "GroupHeader4"
+        '
         'REPORTE_PLANILLAS_FINALES
         '
-        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.ReportHeader, Me.PageHeader, Me.GroupHeader1, Me.GroupHeader2, Me.GroupHeader3})
+        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.ReportHeader, Me.PageHeader, Me.GroupHeader1, Me.GroupHeader2, Me.GroupHeader3, Me.GroupHeader4})
         Me.DataAdapter = Me.IM_CANDIDATOSTableAdapter
         Me.DataMember = "IM_CANDIDATOS"
         Me.DataSource = Me.DS_PLANILLA_TOTALES1
@@ -475,7 +442,6 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         Me.Margins = New System.Drawing.Printing.Margins(15, 24, 15, 100)
         Me.PageHeight = 850
         Me.PageWidth = 1100
-        Me.Parameters.AddRange(New DevExpress.XtraReports.Parameters.Parameter() {Me.NombrePartido, Me.NombreMovimiento, Me.nivel, Me.NombreDep})
         Me.Version = "11.2"
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).EndInit()
@@ -493,14 +459,10 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
     Friend WithEvents BottomMargin As DevExpress.XtraReports.UI.BottomMarginBand
     Friend WithEvents ReportHeader As DevExpress.XtraReports.UI.ReportHeaderBand
     Friend WithEvents PageHeader As DevExpress.XtraReports.UI.PageHeaderBand
-    Friend WithEvents XrLabel1 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents NombrePartido As DevExpress.XtraReports.Parameters.Parameter
     Friend WithEvents GroupHeader1 As DevExpress.XtraReports.UI.GroupHeaderBand
     Friend WithEvents movimientopolitico As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel10 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents partidopolitico As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents XrLabel8 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents NombreMovimiento As DevExpress.XtraReports.Parameters.Parameter
     Friend WithEvents id As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents GroupHeader2 As DevExpress.XtraReports.UI.GroupHeaderBand
     Friend WithEvents XrLabel16 As DevExpress.XtraReports.UI.XRLabel
@@ -516,10 +478,8 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
     Friend WithEvents XrPictureBox1 As DevExpress.XtraReports.UI.XRPictureBox
     Friend WithEvents nivelelectivo As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel24 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents nivel As DevExpress.XtraReports.Parameters.Parameter
     Friend WithEvents XrPictureBox3 As DevExpress.XtraReports.UI.XRPictureBox
     Friend WithEvents XrPictureBox2 As DevExpress.XtraReports.UI.XRPictureBox
-    Friend WithEvents NombreDep As DevExpress.XtraReports.Parameters.Parameter
     Friend WithEvents ndepartamento As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel27 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLine1 As DevExpress.XtraReports.UI.XRLine
@@ -539,5 +499,6 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
     Friend WithEvents BindingSource5 As System.Windows.Forms.BindingSource
     Friend WithEvents DS_PLANILLA_TOTALES As Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALES
     Friend WithEvents DT_totalTableAdapter As Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.DT_totalTableAdapter
+    Friend WithEvents GroupHeader4 As DevExpress.XtraReports.UI.GroupHeaderBand
     '   Friend WithEvents IM_CANDIDATOSTableAdapter As Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_CANDIDATOSTableAdapter
 End Class

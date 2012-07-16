@@ -2162,9 +2162,9 @@ Namespace DS_REPORTE_DE_PNEM_1TableAdapters
             Me._commandCollection(0).CommandText = "SELECT a.""CODIGO CANDIDATO"", a.IDENTIDAD, a.""NOMBRE CANDIDATO"", a.APELLIDO, a.""NO"& _ 
                 "MBRE MOVIMIENTO "", a.""NOMBRE PARTIDO"", a.""CARGO ELECTIVO"", a.""NIVEL ELECTIVO"", "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"a.ESTADO, D.DESCRIPCION ""DEPARTAMENTO"" ,MUNI.DESCRIPCION ""MUNICIPIO"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM TSE."& _ 
                 "IM_V_PLANILLAS_X_NIVEL a, im_candidatos c, im_departamentos d, IM_MUNICIPIOS MUN"& _ 
-                "I"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where A.IDENTIDAD = C.IDENTIDAD "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C.CODIGO_DEPARTAMENTO = D.CODIGO_DEPART"& _ 
-                "AMENTO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND C.CODIGO_DEPARTAMENTO = MUNI.CODIGO_DEPARTAMENTO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND C.CODIGO_MUN"& _ 
-                "ICIPIO = MUNI.CODIGO_MUNICIPIO "
+                "I"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where A.IDENTIDAD = C.IDENTIDAD "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and A.""CODIGO CANDIDATO"" = C.CODIGO_CANDIDA"& _ 
+                "TOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C.CODIGO_DEPARTAMENTO = D.CODIGO_DEPARTAMENTO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND C.CODIGO_DEPARTAMEN"& _ 
+                "TO = MUNI.CODIGO_DEPARTAMENTO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND C.CODIGO_MUNICIPIO = MUNI.CODIGO_MUNICIPIO "
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

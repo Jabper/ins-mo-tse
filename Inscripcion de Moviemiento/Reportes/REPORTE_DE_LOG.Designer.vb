@@ -27,7 +27,10 @@ Partial Public Class REPORTE_DE_LOG
         Me.XrLabel10 = New DevExpress.XtraReports.UI.XRLabel
         Me.TopMargin = New DevExpress.XtraReports.UI.TopMarginBand
         Me.XrPictureBox2 = New DevExpress.XtraReports.UI.XRPictureBox
+        Me.BindingSourceimagen = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DS_LOG1 = New Inscripcion_de_Moviemientos.DS_LOG
         Me.XrPictureBox1 = New DevExpress.XtraReports.UI.XRPictureBox
+        Me.BindingSource_imagen_m = New System.Windows.Forms.BindingSource(Me.components)
         Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel
         Me.BottomMargin = New DevExpress.XtraReports.UI.BottomMarginBand
         Me.GroupHeader1 = New DevExpress.XtraReports.UI.GroupHeaderBand
@@ -38,7 +41,6 @@ Partial Public Class REPORTE_DE_LOG
         Me.XrLabel6 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel7 = New DevExpress.XtraReports.UI.XRLabel
-        Me.DS_LOG1 = New Inscripcion_de_Moviemientos.DS_LOG
         Me.DT_TABLE_LOGTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.DT_TABLE_LOGTableAdapter
         Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel
         Me.GroupHeader2 = New DevExpress.XtraReports.UI.GroupHeaderBand
@@ -50,14 +52,12 @@ Partial Public Class REPORTE_DE_LOG
         Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
         Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
         Me.GroupHeader3 = New DevExpress.XtraReports.UI.GroupHeaderBand
-        Me.BindingSourceimagen = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
-        Me.BindingSource_imagen_m = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_MOVIMIENTOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
         Me.DS_LOG_11 = New Inscripcion_de_Moviemientos.DS_LOG_1
         Me.DS_LOG_1TableAdapter = New Inscripcion_de_Moviemientos.DS_LOG_1TableAdapters.DS_LOG_1TableAdapter
-        CType(Me.DS_LOG1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourceimagen, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DS_LOG1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource_imagen_m, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_LOG_11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -126,6 +126,16 @@ Partial Public Class REPORTE_DE_LOG
         Me.XrPictureBox2.SizeF = New System.Drawing.SizeF(117.7083!, 68.08333!)
         Me.XrPictureBox2.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage
         '
+        'BindingSourceimagen
+        '
+        Me.BindingSourceimagen.DataMember = "IM_PARTIDOS_POLITICOS_imagen"
+        Me.BindingSourceimagen.DataSource = Me.DS_LOG1
+        '
+        'DS_LOG1
+        '
+        Me.DS_LOG1.DataSetName = "DS_LOG"
+        Me.DS_LOG1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'XrPictureBox1
         '
         Me.XrPictureBox1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSource_imagen_m, "IMAGEN")})
@@ -133,6 +143,11 @@ Partial Public Class REPORTE_DE_LOG
         Me.XrPictureBox1.Name = "XrPictureBox1"
         Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(117.71!, 68.08!)
         Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage
+        '
+        'BindingSource_imagen_m
+        '
+        Me.BindingSource_imagen_m.DataMember = "IM_MOVIMIENTOS_imagen"
+        Me.BindingSource_imagen_m.DataSource = Me.DS_LOG1
         '
         'XrLabel1
         '
@@ -220,11 +235,6 @@ Partial Public Class REPORTE_DE_LOG
         Me.XrLabel7.StylePriority.UseFont = False
         Me.XrLabel7.Text = "PROCESO :"
         '
-        'DS_LOG1
-        '
-        Me.DS_LOG1.DataSetName = "DS_LOG"
-        Me.DS_LOG1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'DT_TABLE_LOGTableAdapter
         '
         Me.DT_TABLE_LOGTableAdapter.ClearBeforeFill = True
@@ -304,19 +314,9 @@ Partial Public Class REPORTE_DE_LOG
         Me.GroupHeader3.Level = 2
         Me.GroupHeader3.Name = "GroupHeader3"
         '
-        'BindingSourceimagen
-        '
-        Me.BindingSourceimagen.DataMember = "IM_PARTIDOS_POLITICOS_imagen"
-        Me.BindingSourceimagen.DataSource = Me.DS_LOG1
-        '
         'IM_PARTIDOS_POLITICOS_imagenTableAdapter
         '
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.ClearBeforeFill = True
-        '
-        'BindingSource_imagen_m
-        '
-        Me.BindingSource_imagen_m.DataMember = "IM_MOVIMIENTOS_imagen"
-        Me.BindingSource_imagen_m.DataSource = Me.DS_LOG1
         '
         'IM_MOVIMIENTOS_imagenTableAdapter
         '
@@ -345,8 +345,8 @@ Partial Public Class REPORTE_DE_LOG
         Me.Parameters.AddRange(New DevExpress.XtraReports.Parameters.Parameter() {Me.NombrePartido, Me.NombreMovimiento})
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.Version = "11.2"
-        CType(Me.DS_LOG1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourceimagen, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DS_LOG1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource_imagen_m, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DS_LOG_11, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
