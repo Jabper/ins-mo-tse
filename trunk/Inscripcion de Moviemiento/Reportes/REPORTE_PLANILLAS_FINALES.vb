@@ -8,74 +8,108 @@ Imports DevExpress.XtraReports.Parameters
 Public Class REPORTE_PLANILLAS_FINALES
 
     Private Sub REPORTE_PLANILLAS_FINALES_ParametersRequestBeforeShow(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestEventArgs) Handles Me.ParametersRequestBeforeShow
-        Dim data As New DS_REPORTE_CANDIDATOS
-        Using data1 As New DS_REPORTE_CANDIDATOSTableAdapters.IM_DEP_CANDIDATOSTableAdapter
-            data1.Fill(data.IM_DEP_CANDIDATOS)
-        End Using
+        'Dim data As New DS_REPORTE_CANDIDATOS
+        'Using data1 As New DS_REPORTE_CANDIDATOSTableAdapters.IM_DEP_CANDIDATOSTableAdapter
+        '    data1.Fill(data.IM_DEP_CANDIDATOS)
+        'End Using
 
-        For Each info In e.ParametersInformation
-            If info.Parameter.Name = "NombreDep" Then
-                Dim LookUpEdit As New LookUpEdit()
-                LookUpEdit.Properties.DataSource = data.IM_DEP_CANDIDATOS
-                LookUpEdit.Properties.DisplayMember = "DEPARTAMENTO" 'COLOCA EL CAMPO SELECCIONADO EN EL TEXTBOX
-                LookUpEdit.Properties.ValueMember = "DEPARTAMENTO"
-                LookUpEdit.Properties.Columns.Add(New  _
-                    LookUpColumnInfo("DEPARTAMENTO", 0, "DEPARTAMENTO")) 'AGREGA EL NOMBRE DEL PARTIDO A LA LISTA 
-                info.Editor = LookUpEdit
-            End If
-        Next
+        'For Each info In e.ParametersInformation
+        '    If info.Parameter.Name = "NombreDep" Then
+        '        Dim LookUpEdit As New LookUpEdit()
+        '        LookUpEdit.Properties.DataSource = data.IM_DEP_CANDIDATOS
+        '        LookUpEdit.Properties.DisplayMember = "DEPARTAMENTO" 'COLOCA EL CAMPO SELECCIONADO EN EL TEXTBOX
+        '        LookUpEdit.Properties.ValueMember = "DEPARTAMENTO"
+        '        LookUpEdit.Properties.Columns.Add(New  _
+        '            LookUpColumnInfo("DEPARTAMENTO", 0, "DEPARTAMENTO")) 'AGREGA EL NOMBRE DEL PARTIDO A LA LISTA 
+        '        info.Editor = LookUpEdit
+        '    End If
+        'Next
 
 
-        Dim dataset As New DS_PLANILLA_TOTALES
-        Using Adapter As New DS_PLANILLA_TOTALESTableAdapters.IM_PARTIDOS_POLITICOSTableAdapter
-            Adapter.Fill(dataset.IM_PARTIDOS_POLITICOS)
-        End Using
+        'Dim dataset As New DS_PLANILLA_TOTALES
+        'Using Adapter As New DS_PLANILLA_TOTALESTableAdapters.IM_PARTIDOS_POLITICOSTableAdapter
+        '    Adapter.Fill(dataset.IM_PARTIDOS_POLITICOS)
+        'End Using
 
-        For Each info In e.ParametersInformation
-            If info.Parameter.Name = "NombrePartido" Then
-                Dim LookUpEdit As New LookUpEdit()
-                LookUpEdit.Properties.DataSource = dataset.IM_PARTIDOS_POLITICOS
-                LookUpEdit.Properties.DisplayMember = "NOMBRE PARTIDO" 'COLOCA EL CAMPO SELECCIONADO EN EL TEXTBOX
-                LookUpEdit.Properties.ValueMember = "NOMBRE PARTIDO"
-                LookUpEdit.Properties.Columns.Add(New  _
-                    LookUpColumnInfo("NOMBRE PARTIDO", 0, "NOMBRE PARTIDO")) 'AGREGA EL NOMBRE DEL PARTIDO A LA LISTA 
-                info.Editor = LookUpEdit
-            End If
-        Next
-       
-        ' ''CODIGO NECESARIO PARA AGREGAR LA LISTA DE VALOR DE LOS MOVIMIENTOS
-        Using Adapter1 As New DS_PLANILLA_TOTALESTableAdapters.IM_MOVIMIENTOSTableAdapter
-            Adapter1.Fill(dataset.IM_MOVIMIENTOS)
-        End Using
+        'For Each info In e.ParametersInformation
+        '    If info.Parameter.Name = "NombrePartido" Then
+        '        Dim LookUpEdit As New LookUpEdit()
+        '        LookUpEdit.Properties.DataSource = dataset.IM_PARTIDOS_POLITICOS
+        '        LookUpEdit.Properties.DisplayMember = "NOMBRE PARTIDO" 'COLOCA EL CAMPO SELECCIONADO EN EL TEXTBOX
+        '        LookUpEdit.Properties.ValueMember = "NOMBRE PARTIDO"
+        '        LookUpEdit.Properties.Columns.Add(New  _
+        '            LookUpColumnInfo("NOMBRE PARTIDO", 0, "NOMBRE PARTIDO")) 'AGREGA EL NOMBRE DEL PARTIDO A LA LISTA 
+        '        info.Editor = LookUpEdit
+        '    End If
+        'Next
 
-        For Each info In e.ParametersInformation
-            If info.Parameter.Name = "NombreMovimiento" Then
-                Dim LookUpEdit As New LookUpEdit()
-                LookUpEdit.Properties.DataSource = dataset.IM_MOVIMIENTOS
-                LookUpEdit.Properties.DisplayMember = "NOMBRE MOVIMIENTO" 'COLOCA EL CAMPO SELECCIONADO EN EL TEXTBOX
-                LookUpEdit.Properties.ValueMember = "NOMBRE MOVIMIENTO"
-                LookUpEdit.Properties.Columns.Add(New  _
-                    LookUpColumnInfo("NOMBRE MOVIMIENTO", 0, "NOMBRE MOVIMIENTO")) 'AGREGA EL NOMBRE DEL PARTIDO A LA LISTA 
-                info.Editor = LookUpEdit
-            End If
-        Next
+        '' ''CODIGO NECESARIO PARA AGREGAR LA LISTA DE VALOR DE LOS MOVIMIENTOS
+        'Using Adapter1 As New DS_PLANILLA_TOTALESTableAdapters.IM_MOVIMIENTOSTableAdapter
+        '    Adapter1.Fill(dataset.IM_MOVIMIENTOS)
+        'End Using
 
-        Using Adapter1 As New DS_PLANILLA_TOTALESTableAdapters.IM_NIVEL_ELECTIVOTableAdapter
-            Adapter1.Fill(dataset.IM_NIVEL_ELECTIVO)
-        End Using
+        'For Each info In e.ParametersInformation
+        '    If info.Parameter.Name = "NombreMovimiento" Then
+        '        Dim LookUpEdit As New LookUpEdit()
+        '        LookUpEdit.Properties.DataSource = dataset.IM_MOVIMIENTOS
+        '        LookUpEdit.Properties.DisplayMember = "NOMBRE MOVIMIENTO" 'COLOCA EL CAMPO SELECCIONADO EN EL TEXTBOX
+        '        LookUpEdit.Properties.ValueMember = "NOMBRE MOVIMIENTO"
+        '        LookUpEdit.Properties.Columns.Add(New  _
+        '            LookUpColumnInfo("NOMBRE MOVIMIENTO", 0, "NOMBRE MOVIMIENTO")) 'AGREGA EL NOMBRE DEL PARTIDO A LA LISTA 
+        '        info.Editor = LookUpEdit
+        '    End If
+        'Next
 
-        For Each info In e.ParametersInformation
-            If info.Parameter.Name = "nivel" Then
-                Dim LookUpEdit As New LookUpEdit()
-                LookUpEdit.Properties.DataSource = dataset.IM_NIVEL_ELECTIVO
-                LookUpEdit.Properties.DisplayMember = "NIVEL ELECTIVO" 'COLOCA EL CAMPO SELECCIONADO EN EL TEXTBOX
-                LookUpEdit.Properties.ValueMember = "NIVEL ELECTIVO"
-                LookUpEdit.Properties.Columns.Add(New  _
-                    LookUpColumnInfo("NIVEL ELECTIVO", 0, "NIVEL ELECTIVO")) 'AGREGA EL NOMBRE DEL PARTIDO A LA LISTA 
-                info.Editor = LookUpEdit
-            End If
-        Next
+        'Using Adapter1 As New DS_PLANILLA_TOTALESTableAdapters.IM_NIVEL_ELECTIVOTableAdapter
+        '    Adapter1.Fill(dataset.IM_NIVEL_ELECTIVO)
+        'End Using
 
+        'For Each info In e.ParametersInformation
+        '    If info.Parameter.Name = "nivel" Then
+        '        Dim LookUpEdit As New LookUpEdit()
+        '        LookUpEdit.Properties.DataSource = dataset.IM_NIVEL_ELECTIVO
+        '        LookUpEdit.Properties.DisplayMember = "NIVEL ELECTIVO" 'COLOCA EL CAMPO SELECCIONADO EN EL TEXTBOX
+        '        LookUpEdit.Properties.ValueMember = "NIVEL ELECTIVO"
+        '        LookUpEdit.Properties.Columns.Add(New  _
+        '            LookUpColumnInfo("NIVEL ELECTIVO", 0, "NIVEL ELECTIVO")) 'AGREGA EL NOMBRE DEL PARTIDO A LA LISTA 
+        '        info.Editor = LookUpEdit
+        '    End If
+        'Next
+
+        '**********************
+
+        'Using Adapter As New DS_PLANILLA_TOTALESTableAdapters.IM_MUNICIPIOSTableAdapter
+        '    Adapter.Fill(dataset.IM_MUNICIPIOS, "CHOLUTECA")
+        'End Using
+
+        'For Each info In e.ParametersInformation
+        '    If info.Parameter.Name = "NombreMunicipio" Then
+        '        Dim LookUpEdit As New LookUpEdit()
+        '        LookUpEdit.Properties.DataSource = dataset.IM_MUNICIPIOS
+        '        LookUpEdit.Properties.DisplayMember = "DESCRIPCION" 'COLOCA EL CAMPO SELECCIONADO EN EL TEXTBOX
+        '        LookUpEdit.Properties.ValueMember = "DESCRIPCION"
+        '        LookUpEdit.Properties.Columns.Add(New  _
+        '            LookUpColumnInfo("DESCRIPCION", 0, "DESCRIPCION")) 'AGREGA EL NOMBRE DEL PARTIDO A LA LISTA 
+        '        info.Editor = LookUpEdit
+        '    End If
+        'Next
+
+        ''Dim dataset As New DS_PLANILLA_TOTALES
+        'Using Adapter2 As New DS_PLANILLA_TOTALESTableAdapters.IM_MUNICIPIOSTableAdapter
+        '    Adapter2.Fill(dataset.IM_MUNICIPIOS)
+        'End Using
+
+        'For Each info In e.ParametersInformation
+        '    If info.Parameter.Name = "NombreMunicipio" Then
+        '        Dim LookUpEdit As New LookUpEdit()
+        '        LookUpEdit.Properties.DataSource = dataset.IM_MUNICIPIOS
+        '        LookUpEdit.Properties.DisplayMember = "DESCRIPCION" 'COLOCA EL CAMPO SELECCIONADO EN EL TEXTBOX
+        '        LookUpEdit.Properties.ValueMember = "DESCRIPCION"
+        '        LookUpEdit.Properties.Columns.Add(New  _
+        '            LookUpColumnInfo("DESCRIPCION", 0, "DESCRIPCION")) 'AGREGA EL NOMBRE DEL PARTIDO A LA LISTA 
+        '        info.Editor = LookUpEdit
+        '    End If
+        'Next
 
       
 
@@ -108,10 +142,10 @@ Public Class REPORTE_PLANILLAS_FINALES
         conn.Open()
 
         'AREA DE ASIGNACION A CAMPOS DEL FILTRO
-        Me.partidopolitico.Text = NombrePartido.Value.ToString
-        Me.movimientopolitico.Text = NombreMovimiento.Value.ToString
-        Me.nivelelectivo.Text = nivel.Value.ToString
-        Me.ndepartamento.Text = NombreDep.Value.ToString
+        'Me.partidopolitico.Text = NombrePartido.Value.ToString
+        'Me.movimientopolitico.Text = NombreMovimiento.Value.ToString
+        'Me.nivelelectivo.Text = nivel.Value.ToString
+        'Me.ndepartamento.Text = NombreDep.Value.ToString
 
         'AREA DE CONSULTAS
 
@@ -149,22 +183,22 @@ Public Class REPORTE_PLANILLAS_FINALES
 
 
         'PASO LOS PARAMETROS A MI DATA SET PARA HACER EL FILTRADO EN LA CONSULTA
-        Me.IM_CANDIDATOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES1.IM_CANDIDATOS, Me.partidopolitico.Text, Me.movimientopolitico.Text, Me.nivelelectivo.Text, Me.ndepartamento.Text)
-        Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(Me.DS_LOG.IM_PARTIDOS_POLITICOS_imagen, NombrePartido.Value.ToString)
-        Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(Me.DS_LOG.IM_MOVIMIENTOS_imagen, NombreMovimiento.Value.ToString)
-        Me.IM_DEPARTAMENTOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES1.IM_DEPARTAMENTOS, NombreDep.Value.ToString)
-        Me.DT_totalTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.DT_total, Me.NombrePartido.Value.ToString, Me.NombreMovimiento.Value.ToString, Me.NombreDep.Value.ToString, Me.nivel.Value.ToString)
+        'Me.IM_CANDIDATOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES1.IM_CANDIDATOS, Me.partidopolitico.Text, Me.movimientopolitico.Text, Me.nivelelectivo.Text, Me.ndepartamento.Text)
+        'Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(Me.DS_LOG.IM_PARTIDOS_POLITICOS_imagen, NombrePartido.Value.ToString)
+        'Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(Me.DS_LOG.IM_MOVIMIENTOS_imagen, NombreMovimiento.Value.ToString)
+        ''Me.IM_DEPARTAMENTOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES1.IM_DEPARTAMENTOS, NombreDep.Value.ToString)
+        'Me.DT_totalTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.DT_total, Me.NombrePartido.Value.ToString, Me.NombreMovimiento.Value.ToString, Me.NombreDep.Value.ToString, Me.nivel.Value.ToString)
         'cierro conexion
         conn.Close()
         'MsgBox(Me.partidopolitico.Text & Me.movimientopolitico.Text)
-        If Me.nivel.Value.ToString <> "CORPORACION MUNICIPAL" Then
-            Me.muniname.Visible = False
-            Me.munivalor.Visible = False
+        'If Me.nivel.Value.ToString <> "CORPORACION MUNICIPAL" Then
+        '    Me.muniname.Visible = False
+        '    Me.munivalor.Visible = False
 
-        Else
-            Me.muniname.Visible = True
-            Me.munivalor.Visible = True
-        End If
+        'Else
+        '    Me.muniname.Visible = True
+        '    Me.munivalor.Visible = True
+        'End If
 
         'If Me.nivel.Value.ToString <> "DIPUTADOS AL CONGRESO NACIONAL" Then
         '    Me.diputados.Visible = False

@@ -44,6 +44,8 @@ Partial Public Class DS_PLANILLA_TOTALES
     
     Private relationIM_FK1_MUNICIPIO As Global.System.Data.DataRelation
     
+    Private relationIM_FK1_MOVIMIENTOS As Global.System.Data.DataRelation
+    
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -345,6 +347,7 @@ Partial Public Class DS_PLANILLA_TOTALES
             End If
         End If
         Me.relationIM_FK1_MUNICIPIO = Me.Relations("IM_FK1_MUNICIPIO")
+        Me.relationIM_FK1_MOVIMIENTOS = Me.Relations("IM_FK1_MOVIMIENTOS")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -372,6 +375,8 @@ Partial Public Class DS_PLANILLA_TOTALES
         MyBase.Tables.Add(Me.tableDT_total)
         Me.relationIM_FK1_MUNICIPIO = New Global.System.Data.DataRelation("IM_FK1_MUNICIPIO", New Global.System.Data.DataColumn() {Me.tableIM_DEPARTAMENTOS.CODIGO_DEPARTAMENTOColumn}, New Global.System.Data.DataColumn() {Me.tableIM_MUNICIPIOS.CODIGO_DEPARTAMENTOColumn}, false)
         Me.Relations.Add(Me.relationIM_FK1_MUNICIPIO)
+        Me.relationIM_FK1_MOVIMIENTOS = New Global.System.Data.DataRelation("IM_FK1_MOVIMIENTOS", New Global.System.Data.DataColumn() {Me.tableIM_PARTIDOS_POLITICOS.CODIGO_PARTIDOColumn}, New Global.System.Data.DataColumn() {Me.tableIM_MOVIMIENTOS.CODIGO_PARTIDOColumn}, false)
+        Me.Relations.Add(Me.relationIM_FK1_MOVIMIENTOS)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -509,7 +514,13 @@ Partial Public Class DS_PLANILLA_TOTALES
         
         Private columnDEPARTAMENTO As Global.System.Data.DataColumn
         
-        Private columnmunicipio As Global.System.Data.DataColumn
+        Private columnMUNICIPIO As Global.System.Data.DataColumn
+        
+        Private columnNOMBRE_MOVIMIENTO As Global.System.Data.DataColumn
+        
+        Private columnPARTIDO As Global.System.Data.DataColumn
+        
+        Private columnNIVEL As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
@@ -593,9 +604,30 @@ Partial Public Class DS_PLANILLA_TOTALES
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property municipioColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property MUNICIPIOColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnmunicipio
+                Return Me.columnMUNICIPIO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property NOMBRE_MOVIMIENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNOMBRE_MOVIMIENTO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property PARTIDOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPARTIDO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property NIVELColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNIVEL
             End Get
         End Property
         
@@ -628,12 +660,17 @@ Partial Public Class DS_PLANILLA_TOTALES
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddIM_CANDIDATOSRow(ByVal IDENTIDAD As String, ByVal NOMBRE As String, ByVal APELLIDO As String, ByVal CARGO As String, ByVal IMAGEN() As Byte, ByVal PAR() As Byte, ByVal DEPARTAMENTO As String, ByVal municipio As String) As IM_CANDIDATOSRow
+        Public Overloads Function AddIM_CANDIDATOSRow(ByVal IDENTIDAD As String, ByVal NOMBRE As String, ByVal APELLIDO As String, ByVal CARGO As String, ByVal IMAGEN() As Byte, ByVal PAR() As Byte, ByVal DEPARTAMENTO As String, ByVal MUNICIPIO As String, ByVal NOMBRE_MOVIMIENTO As String, ByVal PARTIDO As String, ByVal NIVEL As String) As IM_CANDIDATOSRow
             Dim rowIM_CANDIDATOSRow As IM_CANDIDATOSRow = CType(Me.NewRow,IM_CANDIDATOSRow)
-            Dim columnValuesArray() As Object = New Object() {IDENTIDAD, NOMBRE, APELLIDO, CARGO, IMAGEN, PAR, DEPARTAMENTO, municipio}
+            Dim columnValuesArray() As Object = New Object() {IDENTIDAD, NOMBRE, APELLIDO, CARGO, IMAGEN, PAR, DEPARTAMENTO, MUNICIPIO, NOMBRE_MOVIMIENTO, PARTIDO, NIVEL}
             rowIM_CANDIDATOSRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowIM_CANDIDATOSRow)
             Return rowIM_CANDIDATOSRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function FindByNOMBRE_MOVIMIENTO(ByVal NOMBRE_MOVIMIENTO As String) As IM_CANDIDATOSRow
+            Return CType(Me.Rows.Find(New Object() {NOMBRE_MOVIMIENTO}),IM_CANDIDATOSRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -657,7 +694,10 @@ Partial Public Class DS_PLANILLA_TOTALES
             Me.columnIMAGEN = MyBase.Columns("IMAGEN")
             Me.columnPAR = MyBase.Columns("PAR")
             Me.columnDEPARTAMENTO = MyBase.Columns("DEPARTAMENTO")
-            Me.columnmunicipio = MyBase.Columns("municipio")
+            Me.columnMUNICIPIO = MyBase.Columns("MUNICIPIO")
+            Me.columnNOMBRE_MOVIMIENTO = MyBase.Columns("NOMBRE_MOVIMIENTO")
+            Me.columnPARTIDO = MyBase.Columns("PARTIDO")
+            Me.columnNIVEL = MyBase.Columns("NIVEL")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -676,8 +716,15 @@ Partial Public Class DS_PLANILLA_TOTALES
             MyBase.Columns.Add(Me.columnPAR)
             Me.columnDEPARTAMENTO = New Global.System.Data.DataColumn("DEPARTAMENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDEPARTAMENTO)
-            Me.columnmunicipio = New Global.System.Data.DataColumn("municipio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnmunicipio)
+            Me.columnMUNICIPIO = New Global.System.Data.DataColumn("MUNICIPIO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMUNICIPIO)
+            Me.columnNOMBRE_MOVIMIENTO = New Global.System.Data.DataColumn("NOMBRE_MOVIMIENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNOMBRE_MOVIMIENTO)
+            Me.columnPARTIDO = New Global.System.Data.DataColumn("PARTIDO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPARTIDO)
+            Me.columnNIVEL = New Global.System.Data.DataColumn("NIVEL", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNIVEL)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnNOMBRE_MOVIMIENTO}, true))
             Me.columnIDENTIDAD.MaxLength = 15
             Me.columnNOMBRE.MaxLength = 100
             Me.columnAPELLIDO.MaxLength = 100
@@ -685,8 +732,15 @@ Partial Public Class DS_PLANILLA_TOTALES
             Me.columnPAR.AllowDBNull = false
             Me.columnDEPARTAMENTO.AllowDBNull = false
             Me.columnDEPARTAMENTO.MaxLength = 100
-            Me.columnmunicipio.AllowDBNull = false
-            Me.columnmunicipio.MaxLength = 100
+            Me.columnMUNICIPIO.AllowDBNull = false
+            Me.columnMUNICIPIO.MaxLength = 100
+            Me.columnNOMBRE_MOVIMIENTO.AllowDBNull = false
+            Me.columnNOMBRE_MOVIMIENTO.Unique = true
+            Me.columnNOMBRE_MOVIMIENTO.MaxLength = 200
+            Me.columnPARTIDO.AllowDBNull = false
+            Me.columnPARTIDO.MaxLength = 100
+            Me.columnNIVEL.AllowDBNull = false
+            Me.columnNIVEL.MaxLength = 100
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1070,6 +1124,8 @@ Partial Public Class DS_PLANILLA_TOTALES
         
         Private columnNOMBRE_MOVIMIENTO As Global.System.Data.DataColumn
         
+        Private columnCODIGO_PARTIDO As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -1116,6 +1172,13 @@ Partial Public Class DS_PLANILLA_TOTALES
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CODIGO_PARTIDOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCODIGO_PARTIDO
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1145,9 +1208,12 @@ Partial Public Class DS_PLANILLA_TOTALES
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddIM_MOVIMIENTOSRow(ByVal CODIGO_MOVIMIENTO As Decimal, ByVal NOMBRE_MOVIMIENTO As String) As IM_MOVIMIENTOSRow
+        Public Overloads Function AddIM_MOVIMIENTOSRow(ByVal CODIGO_MOVIMIENTO As Decimal, ByVal NOMBRE_MOVIMIENTO As String, ByVal parentIM_PARTIDOS_POLITICOSRowByIM_FK1_MOVIMIENTOS As IM_PARTIDOS_POLITICOSRow) As IM_MOVIMIENTOSRow
             Dim rowIM_MOVIMIENTOSRow As IM_MOVIMIENTOSRow = CType(Me.NewRow,IM_MOVIMIENTOSRow)
-            Dim columnValuesArray() As Object = New Object() {CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO}
+            Dim columnValuesArray() As Object = New Object() {CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO, Nothing}
+            If (Not (parentIM_PARTIDOS_POLITICOSRowByIM_FK1_MOVIMIENTOS) Is Nothing) Then
+                columnValuesArray(2) = parentIM_PARTIDOS_POLITICOSRowByIM_FK1_MOVIMIENTOS(0)
+            End If
             rowIM_MOVIMIENTOSRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowIM_MOVIMIENTOSRow)
             Return rowIM_MOVIMIENTOSRow
@@ -1174,6 +1240,7 @@ Partial Public Class DS_PLANILLA_TOTALES
         Friend Sub InitVars()
             Me.columnCODIGO_MOVIMIENTO = MyBase.Columns("CODIGO_MOVIMIENTO")
             Me.columnNOMBRE_MOVIMIENTO = MyBase.Columns("NOMBRE MOVIMIENTO")
+            Me.columnCODIGO_PARTIDO = MyBase.Columns("CODIGO_PARTIDO")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1181,12 +1248,19 @@ Partial Public Class DS_PLANILLA_TOTALES
             Me.columnCODIGO_MOVIMIENTO = New Global.System.Data.DataColumn("CODIGO_MOVIMIENTO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCODIGO_MOVIMIENTO)
             Me.columnNOMBRE_MOVIMIENTO = New Global.System.Data.DataColumn("NOMBRE MOVIMIENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnNOMBRE_MOVIMIENTO.ExtendedProperties.Add("Generator_ColumnPropNameInRow", "NOMBRE_MOVIMIENTO")
+            Me.columnNOMBRE_MOVIMIENTO.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "NOMBRE_MOVIMIENTOColumn")
+            Me.columnNOMBRE_MOVIMIENTO.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnNOMBRE_MOVIMIENTO")
+            Me.columnNOMBRE_MOVIMIENTO.ExtendedProperties.Add("Generator_UserColumnName", "NOMBRE MOVIMIENTO")
             MyBase.Columns.Add(Me.columnNOMBRE_MOVIMIENTO)
+            Me.columnCODIGO_PARTIDO = New Global.System.Data.DataColumn("CODIGO_PARTIDO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_PARTIDO)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnNOMBRE_MOVIMIENTO}, true))
             Me.columnCODIGO_MOVIMIENTO.AllowDBNull = false
             Me.columnNOMBRE_MOVIMIENTO.AllowDBNull = false
             Me.columnNOMBRE_MOVIMIENTO.Unique = true
             Me.columnNOMBRE_MOVIMIENTO.MaxLength = 200
+            Me.columnCODIGO_PARTIDO.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -2699,12 +2773,42 @@ Partial Public Class DS_PLANILLA_TOTALES
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property municipio() As String
+        Public Property MUNICIPIO() As String
             Get
-                Return CType(Me(Me.tableIM_CANDIDATOS.municipioColumn),String)
+                Return CType(Me(Me.tableIM_CANDIDATOS.MUNICIPIOColumn),String)
             End Get
             Set
-                Me(Me.tableIM_CANDIDATOS.municipioColumn) = value
+                Me(Me.tableIM_CANDIDATOS.MUNICIPIOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property NOMBRE_MOVIMIENTO() As String
+            Get
+                Return CType(Me(Me.tableIM_CANDIDATOS.NOMBRE_MOVIMIENTOColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_CANDIDATOS.NOMBRE_MOVIMIENTOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property PARTIDO() As String
+            Get
+                Return CType(Me(Me.tableIM_CANDIDATOS.PARTIDOColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_CANDIDATOS.PARTIDOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property NIVEL() As String
+            Get
+                Return CType(Me(Me.tableIM_CANDIDATOS.NIVELColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_CANDIDATOS.NIVELColumn) = value
             End Set
         End Property
         
@@ -2793,6 +2897,15 @@ Partial Public Class DS_PLANILLA_TOTALES
                 Me(Me.tableIM_PARTIDOS_POLITICOS.NOMBRE_PARTIDOColumn) = value
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function GetIM_MOVIMIENTOSRows() As IM_MOVIMIENTOSRow()
+            If (Me.Table.ChildRelations("IM_FK1_MOVIMIENTOS") Is Nothing) Then
+                Return New IM_MOVIMIENTOSRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("IM_FK1_MOVIMIENTOS")),IM_MOVIMIENTOSRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -2827,6 +2940,26 @@ Partial Public Class DS_PLANILLA_TOTALES
             End Get
             Set
                 Me(Me.tableIM_MOVIMIENTOS.NOMBRE_MOVIMIENTOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CODIGO_PARTIDO() As Decimal
+            Get
+                Return CType(Me(Me.tableIM_MOVIMIENTOS.CODIGO_PARTIDOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIM_MOVIMIENTOS.CODIGO_PARTIDOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property IM_PARTIDOS_POLITICOSRow() As IM_PARTIDOS_POLITICOSRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("IM_FK1_MOVIMIENTOS")),IM_PARTIDOS_POLITICOSRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("IM_FK1_MOVIMIENTOS"))
             End Set
         End Property
     End Class
@@ -3507,7 +3640,10 @@ Namespace DS_PLANILLA_TOTALESTableAdapters
             tableMapping.ColumnMappings.Add("IMAGEN", "IMAGEN")
             tableMapping.ColumnMappings.Add("PAR", "PAR")
             tableMapping.ColumnMappings.Add("DEPARTAMENTO", "DEPARTAMENTO")
-            tableMapping.ColumnMappings.Add("municipio", "municipio")
+            tableMapping.ColumnMappings.Add("MUNICIPIO", "MUNICIPIO")
+            tableMapping.ColumnMappings.Add("NOMBRE_MOVIMIENTO", "NOMBRE_MOVIMIENTO")
+            tableMapping.ColumnMappings.Add("PARTIDO", "PARTIDO")
+            tableMapping.ColumnMappings.Add("NIVEL", "NIVEL")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -3519,53 +3655,53 @@ Namespace DS_PLANILLA_TOTALESTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        A.IDENTIDAD, A.NOMBRE, A.APELLIDO, A.CARGO, A.IMAGEN, PAR.IMAGEN AS"& _ 
-                " PAR,  DEP.DESCRIPCION ""DEPARTAMENTO"",MUNI.DESCRIPCION ""municipio"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM        "& _ 
-                "    IM_V_MOSTRAR_CANDIDATOS2 a, IM_CANDIDATOS c, IM_CARGOS_ELECTIVOS ca, IM_NIVE"& _ 
-                "L_ELECTIVO NE, IM_PARTIDOS_POLITICOS PAR, Im_departamentos dep,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"               "& _ 
-                "          IM_MOVIMIENTOS MOV,im_municipios muni"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (A.CODIGO_CANDIDAT"& _ 
-                "OS = C.CODIGO_CANDIDATOS) AND (A.partido = :p) AND (A.nombre_movimiento = :m) AN"& _ 
-                "D "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (A.CODIGO_CARGO_ELECTIVO = CA.CODIGO_CARGO_ELECTIVO"& _ 
-                ")  AND (NE.DESCRIPCION = :NE) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (CA.CODIGO_NIVEL_EL"& _ 
-                "ECTIVO = NE.CODIGO_NIVEL_ELECTIVO) AND (A.CODIGO_PARTIDO = PAR.CODIGO_PARTIDO) A"& _ 
-                "ND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO) and "& _ 
-                "(A.CODIGO_DEPARTAMENTO = DEP.CODIGO_DEPARTAMENTO) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND (DEP.DESCRIPCION =:dep)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and A.CODIGO_DEPARTAMENTO =MUNI.CODIGO_DEPARTAMENTO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                        a"& _ 
-                "nd A.CODIGO_MUNICIPIO = MUNI.CODIGO_MUNICIPIO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C.ESTADO ='H'"
+                " PAR, DEP.DESCRIPCION AS DEPARTAMENTO, MUNI.DESCRIPCION AS municipio, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
+                "                 MOV.NOMBRE_MOVIMIENTO, PAR.NOMBRE AS PARTIDO, NE.DESCRIPCION AS"& _ 
+                " NIVEL"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_MOSTRAR_CANDIDATOS2 a, IM_CANDIDATOS c, IM_CARGOS_E"& _ 
+                "LECTIVOS ca, IM_NIVEL_ELECTIVO NE, IM_PARTIDOS_POLITICOS PAR, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
+                "         IM_DEPARTAMENTOS dep, IM_MOVIMIENTOS MOV, IM_MUNICIPIOS muni"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE    "& _ 
+                "    (A.CODIGO_CANDIDATOS = C.CODIGO_CANDIDATOS) AND (A.CODIGO_CARGO_ELECTIVO = C"& _ 
+                "A.CODIGO_CARGO_ELECTIVO) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (CA.CODIGO_NIVEL_ELECTIV"& _ 
+                "O = NE.CODIGO_NIVEL_ELECTIVO) AND (A.CODIGO_PARTIDO = PAR.CODIGO_PARTIDO) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "                         (A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO) AND (A.CO"& _ 
+                "DIGO_DEPARTAMENTO = DEP.CODIGO_DEPARTAMENTO) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (A.C"& _ 
+                "ODIGO_DEPARTAMENTO = MUNI.CODIGO_DEPARTAMENTO) AND (A.CODIGO_MUNICIPIO = MUNI.CO"& _ 
+                "DIGO_MUNICIPIO) AND (C.ESTADO = 'H') "
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p", Global.System.Data.OracleClient.OracleType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, "", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("m", Global.System.Data.OracleClient.OracleType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, "", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NE", Global.System.Data.OracleClient.OracleType.VarChar, 100, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("dep", Global.System.Data.OracleClient.OracleType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, "DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        A.IDENTIDAD, A.NOMBRE, A.APELLIDO, A.CARGO, A.IMAGEN, PAR.IMAGEN AS"& _ 
+                " PAR, DEP.DESCRIPCION AS DEPARTAMENTO, MUNI.DESCRIPCION AS municipio, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
+                "                 MOV.NOMBRE_MOVIMIENTO, PAR.NOMBRE AS PARTIDO, NE.DESCRIPCION AS"& _ 
+                " NIVEL"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_MOSTRAR_CANDIDATOS2 a, IM_CANDIDATOS c, IM_CARGOS_E"& _ 
+                "LECTIVOS ca, IM_NIVEL_ELECTIVO NE, IM_PARTIDOS_POLITICOS PAR, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
+                "         IM_DEPARTAMENTOS dep, IM_MOVIMIENTOS MOV, IM_MUNICIPIOS muni"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE    "& _ 
+                "    (A.CODIGO_CANDIDATOS = C.CODIGO_CANDIDATOS) AND (A.CODIGO_CARGO_ELECTIVO = C"& _ 
+                "A.CODIGO_CARGO_ELECTIVO) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (CA.CODIGO_NIVEL_ELECTIV"& _ 
+                "O = NE.CODIGO_NIVEL_ELECTIVO) AND (A.CODIGO_PARTIDO = PAR.CODIGO_PARTIDO) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "                         (A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO) AND (A.CO"& _ 
+                "DIGO_DEPARTAMENTO = DEP.CODIGO_DEPARTAMENTO) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (A.C"& _ 
+                "ODIGO_DEPARTAMENTO = MUNI.CODIGO_DEPARTAMENTO) AND (A.CODIGO_MUNICIPIO = MUNI.CO"& _ 
+                "DIGO_MUNICIPIO) AND (C.ESTADO = 'H') AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (MUNI.DESCRI"& _ 
+                "PCION = :mu) AND (A.partido = :p) AND (A.nombre_movimiento = :m) AND (DEP.DESCRI"& _ 
+                "PCION = :dep) AND (NE.DESCRIPCION = :NE)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("mu", Global.System.Data.OracleClient.OracleType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, "DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p", Global.System.Data.OracleClient.OracleType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, "", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("m", Global.System.Data.OracleClient.OracleType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, "", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("dep", Global.System.Data.OracleClient.OracleType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, "DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NE", Global.System.Data.OracleClient.OracleType.VarChar, 100, Global.System.Data.ParameterDirection.Input, "NIVEL", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DS_PLANILLA_TOTALES.IM_CANDIDATOSDataTable, ByVal p As String, ByVal m As String, ByVal NE As String, ByVal dep As String) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_PLANILLA_TOTALES.IM_CANDIDATOSDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (p Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("p")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(p,String)
-            End If
-            If (m Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("m")
-            Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(m,String)
-            End If
-            If (NE Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("NE")
-            Else
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(NE,String)
-            End If
-            If (dep Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("dep")
-            Else
-                Me.Adapter.SelectCommand.Parameters(3).Value = CType(dep,String)
-            End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -3576,27 +3712,79 @@ Namespace DS_PLANILLA_TOTALESTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal p As String, ByVal m As String, ByVal NE As String, ByVal dep As String) As DS_PLANILLA_TOTALES.IM_CANDIDATOSDataTable
+        Public Overloads Overridable Function GetData() As DS_PLANILLA_TOTALES.IM_CANDIDATOSDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As DS_PLANILLA_TOTALES.IM_CANDIDATOSDataTable = New DS_PLANILLA_TOTALES.IM_CANDIDATOSDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DS_PLANILLA_TOTALES.IM_CANDIDATOSDataTable, ByVal mu As String, ByVal p As String, ByVal m As String, ByVal dep As String, ByVal NE As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (mu Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("mu")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(mu,String)
+            End If
             If (p Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("p")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(p,String)
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(p,String)
             End If
             If (m Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("m")
             Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(m,String)
-            End If
-            If (NE Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("NE")
-            Else
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(NE,String)
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(m,String)
             End If
             If (dep Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("dep")
             Else
                 Me.Adapter.SelectCommand.Parameters(3).Value = CType(dep,String)
+            End If
+            If (NE Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("NE")
+            Else
+                Me.Adapter.SelectCommand.Parameters(4).Value = CType(NE,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy(ByVal mu As String, ByVal p As String, ByVal m As String, ByVal dep As String, ByVal NE As String) As DS_PLANILLA_TOTALES.IM_CANDIDATOSDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (mu Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("mu")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(mu,String)
+            End If
+            If (p Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("p")
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(p,String)
+            End If
+            If (m Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("m")
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(m,String)
+            End If
+            If (dep Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("dep")
+            Else
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(dep,String)
+            End If
+            If (NE Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("NE")
+            Else
+                Me.Adapter.SelectCommand.Parameters(4).Value = CType(NE,String)
             End If
             Dim dataTable As DS_PLANILLA_TOTALES.IM_CANDIDATOSDataTable = New DS_PLANILLA_TOTALES.IM_CANDIDATOSDataTable
             Me.Adapter.Fill(dataTable)
@@ -3996,6 +4184,7 @@ Namespace DS_PLANILLA_TOTALESTableAdapters
             tableMapping.DataSetTable = "IM_MOVIMIENTOS"
             tableMapping.ColumnMappings.Add("CODIGO_MOVIMIENTO", "CODIGO_MOVIMIENTO")
             tableMapping.ColumnMappings.Add("NOMBRE MOVIMIENTO", "NOMBRE MOVIMIENTO")
+            tableMapping.ColumnMappings.Add("CODIGO_PARTIDO", "CODIGO_PARTIDO")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -4007,12 +4196,19 @@ Namespace DS_PLANILLA_TOTALESTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO AS ""NOMBRE MOVIMIENTO"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM  "& _ 
-                "          IM_MOVIMIENTOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY CODIGO_MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(0).CommandText = "SELECT        CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO AS ""NOMBRE MOVIMIENTO"", CODIGO"& _ 
+                "_PARTIDO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_MOVIMIENTOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO AS ""NOMBRE MOVIMIENTO"", CODIGO"& _ 
+                "_PARTIDO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_MOVIMIENTOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CODIGO_PARTIDO = :id_par"& _ 
+                "tido)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY CODIGO_MOVIMIENTO"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_partido", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4032,6 +4228,30 @@ Namespace DS_PLANILLA_TOTALESTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As DS_PLANILLA_TOTALES.IM_MOVIMIENTOSDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As DS_PLANILLA_TOTALES.IM_MOVIMIENTOSDataTable = New DS_PLANILLA_TOTALES.IM_MOVIMIENTOSDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As DS_PLANILLA_TOTALES.IM_MOVIMIENTOSDataTable, ByVal id_partido As Decimal) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_partido,Decimal)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy(ByVal id_partido As Decimal) As DS_PLANILLA_TOTALES.IM_MOVIMIENTOSDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_partido,Decimal)
             Dim dataTable As DS_PLANILLA_TOTALES.IM_MOVIMIENTOSDataTable = New DS_PLANILLA_TOTALES.IM_MOVIMIENTOSDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -4646,21 +4866,21 @@ Namespace DS_PLANILLA_TOTALESTableAdapters
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT M.DESCRIPCION, M.CODIGO_DEPARTAMENTO, M.CODIGO_MUNICIPIO FROM IM_DEPARTAME"& _ 
-                "NTOS D, IM_MUNICIPIOS M WHERE D.CODIGO_DEPARTAMENTO = M.CODIGO_DEPARTAMENTO AND "& _ 
-                "(D.DESCRIPCION = :DEP)"
+                "NTOS D, IM_MUNICIPIOS M WHERE D.CODIGO_DEPARTAMENTO = M.CODIGO_DEPARTAMENTO and "& _ 
+                "D.DESCRIPCION = :dep"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("DEP", Global.System.Data.OracleClient.OracleType.VarChar, 100, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("dep", Global.System.Data.OracleClient.OracleType.VarChar, 100, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DS_PLANILLA_TOTALES.IM_MUNICIPIOSDataTable, ByVal DEP As String) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_PLANILLA_TOTALES.IM_MUNICIPIOSDataTable, ByVal dep As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (DEP Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("DEP")
+            If (dep Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("dep")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DEP,String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(dep,String)
             End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -4672,12 +4892,12 @@ Namespace DS_PLANILLA_TOTALESTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal DEP As String) As DS_PLANILLA_TOTALES.IM_MUNICIPIOSDataTable
+        Public Overloads Overridable Function GetData(ByVal dep As String) As DS_PLANILLA_TOTALES.IM_MUNICIPIOSDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (DEP Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("DEP")
+            If (dep Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("dep")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DEP,String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(dep,String)
             End If
             Dim dataTable As DS_PLANILLA_TOTALES.IM_MUNICIPIOSDataTable = New DS_PLANILLA_TOTALES.IM_MUNICIPIOSDataTable
             Me.Adapter.Fill(dataTable)
@@ -4879,21 +5099,15 @@ Namespace DS_PLANILLA_TOTALESTableAdapters
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT CANTIDAD_DIPUTADOS, CANTIDAD_MUJERES, DESCRIPCION, CODIGO_DEPARTAMENTO FRO"& _ 
-                "M IM_DEPARTAMENTOS D WHERE (DESCRIPCION = :DE)"
+                "M IM_DEPARTAMENTOS"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("DE", Global.System.Data.OracleClient.OracleType.VarChar, 100, Global.System.Data.ParameterDirection.Input, "DESCRIPCION", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DS_PLANILLA_TOTALES.IM_DEPARTAMENTOSDataTable, ByVal DE As String) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_PLANILLA_TOTALES.IM_DEPARTAMENTOSDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (DE Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("DE")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DE,String)
-            End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -4904,13 +5118,8 @@ Namespace DS_PLANILLA_TOTALESTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal DE As String) As DS_PLANILLA_TOTALES.IM_DEPARTAMENTOSDataTable
+        Public Overloads Overridable Function GetData() As DS_PLANILLA_TOTALES.IM_DEPARTAMENTOSDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (DE Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("DE")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DE,String)
-            End If
             Dim dataTable As DS_PLANILLA_TOTALES.IM_DEPARTAMENTOSDataTable = New DS_PLANILLA_TOTALES.IM_DEPARTAMENTOSDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -5323,21 +5532,21 @@ Namespace DS_PLANILLA_TOTALESTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._iM_MUNICIPIOSTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.IM_MUNICIPIOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._iM_MUNICIPIOSTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             If (Not (Me._iM_PARTIDOS_POLITICOSTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.IM_PARTIDOS_POLITICOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._iM_PARTIDOS_POLITICOSTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._iM_MUNICIPIOSTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.IM_MUNICIPIOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._iM_MUNICIPIOSTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -5367,19 +5576,19 @@ Namespace DS_PLANILLA_TOTALESTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._iM_MUNICIPIOSTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.IM_MUNICIPIOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._iM_MUNICIPIOSTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._iM_PARTIDOS_POLITICOSTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.IM_PARTIDOS_POLITICOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._iM_PARTIDOS_POLITICOSTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._iM_MUNICIPIOSTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.IM_MUNICIPIOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._iM_MUNICIPIOSTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -5408,19 +5617,19 @@ Namespace DS_PLANILLA_TOTALESTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._iM_PARTIDOS_POLITICOSTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.IM_PARTIDOS_POLITICOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._iM_PARTIDOS_POLITICOSTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
             If (Not (Me._iM_MUNICIPIOSTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.IM_MUNICIPIOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._iM_MUNICIPIOSTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._iM_PARTIDOS_POLITICOSTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.IM_PARTIDOS_POLITICOS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._iM_PARTIDOS_POLITICOSTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
