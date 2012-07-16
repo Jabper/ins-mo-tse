@@ -122,7 +122,7 @@ Partial Class Parametros
         '
         'SimpleButton1
         '
-        Me.SimpleButton1.Location = New System.Drawing.Point(304, 111)
+        Me.SimpleButton1.Location = New System.Drawing.Point(43, 114)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(75, 23)
         Me.SimpleButton1.TabIndex = 4
@@ -135,7 +135,7 @@ Partial Class Parametros
         '
         'cbonivel
         '
-        Me.cbonivel.Location = New System.Drawing.Point(507, 111)
+        Me.cbonivel.Location = New System.Drawing.Point(43, 77)
         Me.cbonivel.Name = "cbonivel"
         Me.cbonivel.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbonivel.Properties.DataSource = Me.IMNIVELELECTIVOBindingSource

@@ -1,9 +1,10 @@
-﻿Imports Oracle.DataAccess.Client
+﻿''Imports Oracle.DataAccess.Client
 Imports DevExpress.XtraBars
 Imports DevExpress.XtraBars.InternalItems
 Imports System.IO
 Imports DevExpress.XtraEditors
 Imports DevExpress.XtraEditors.Controls
+Imports System.Data.OracleClient
 
 Public Class XFrmMenuPrincipal
     Public Sub New()
@@ -272,7 +273,26 @@ Public Class XFrmMenuPrincipal
 
     Private Sub BtnFDP_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnFDP.ItemClick
         Dim reporte3 As Reporte_de__FirmasDP = New Reporte_de__FirmasDP
-        reporte3.ShowPreview()
+        Try
+            Dim oradb As String = Configuracion.verconfig
+
+            Dim conn As New OracleConnection()
+            conn.ConnectionString = oradb
+            conn.Open()
+
+            Dim myCMD As New OracleCommand()
+            myCMD.Connection = conn
+            myCMD.CommandText = "IM_K_VALIDA_FIRMAS.IM_P_VALIDA"
+            myCMD.CommandType = CommandType.StoredProcedure
+            myCMD.ExecuteOracleScalar()
+            conn.Close()
+            reporte3.ShowPreview()
+        Catch ex As Exception
+            Mensajes.MensajeError(ex.Message)
+        End Try
+
+
+
 
     End Sub
 
@@ -283,7 +303,25 @@ Public Class XFrmMenuPrincipal
 
     Private Sub BarButtonItem4_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnFirmasinc.ItemClick
         Dim reporte4 As Reporte_de_Firmas_In = New Reporte_de_Firmas_In
-        reporte4.ShowPreview()
+
+        Try
+            Dim oradb As String = Configuracion.verconfig
+
+            Dim conn As New OracleConnection()
+            conn.ConnectionString = oradb
+            conn.Open()
+
+            Dim myCMD As New OracleCommand()
+            myCMD.Connection = conn
+            myCMD.CommandText = "IM_K_VALIDA_FIRMAS.IM_P_VALIDA"
+            myCMD.CommandType = CommandType.StoredProcedure
+            myCMD.ExecuteOracleScalar()
+            conn.Close()
+            reporte4.ShowPreview()
+        Catch ex As Exception
+            Mensajes.MensajeError(ex.Message)
+        End Try
+
     End Sub
 
     Private Sub btnJerarquico_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnJerarquico.ItemClick
@@ -293,19 +331,71 @@ Public Class XFrmMenuPrincipal
 
     Private Sub BarButtonItem5_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCrucemov.ItemClick
         Dim reporte5 As Reporte_de_cruce_FMOV = New Reporte_de_cruce_FMOV
-        reporte5.ShowPreview()
+        Try
+            Dim oradb As String = Configuracion.verconfig
+
+            Dim conn As New OracleConnection()
+            conn.ConnectionString = oradb
+            conn.Open()
+
+            Dim myCMD As New OracleCommand()
+            myCMD.Connection = conn
+            myCMD.CommandText = "IM_K_VALIDA_FIRMAS.IM_P_VALIDA"
+            myCMD.CommandType = CommandType.StoredProcedure
+            myCMD.ExecuteOracleScalar()
+            conn.Close()
+            reporte5.ShowPreview()
+        Catch ex As Exception
+            Mensajes.MensajeError(ex.Message)
+        End Try
+
 
     End Sub
 
     Private Sub BarButtonItem6_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCrucepar.ItemClick
         Dim reporte6 As Reporte_de_cruce_FPA = New Reporte_de_cruce_FPA
-        reporte6.ShowPreview()
+        Try
+            Dim oradb As String = Configuracion.verconfig
+
+            Dim conn As New OracleConnection()
+            conn.ConnectionString = oradb
+            conn.Open()
+
+            Dim myCMD As New OracleCommand()
+            myCMD.Connection = conn
+            myCMD.CommandText = "IM_K_VALIDA_FIRMAS.IM_P_VALIDA"
+            myCMD.CommandType = CommandType.StoredProcedure
+            myCMD.ExecuteOracleScalar()
+            conn.Close()
+            reporte6.ShowPreview()
+        Catch ex As Exception
+            Mensajes.MensajeError(ex.Message)
+        End Try
+
+
 
     End Sub
 
     Private Sub BarButtonItem7_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnResumenFir.ItemClick
         Dim reporte7 As Reporte_de_Resumen_Firmas_DP = New Reporte_de_Resumen_Firmas_DP
-        reporte7.ShowPreview()
+        Try
+            Dim oradb As String = Configuracion.verconfig
+
+            Dim conn As New OracleConnection()
+            conn.ConnectionString = oradb
+            conn.Open()
+
+            Dim myCMD As New OracleCommand()
+            myCMD.Connection = conn
+            myCMD.CommandText = "IM_K_VALIDA_FIRMAS.IM_P_VALIDA"
+            myCMD.CommandType = CommandType.StoredProcedure
+            myCMD.ExecuteOracleScalar()
+            conn.Close()
+            reporte7.ShowPreview()
+        Catch ex As Exception
+            Mensajes.MensajeError(ex.Message)
+        End Try
+
     End Sub
 
     Private Sub BtnSalir_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnSalir.ItemClick
@@ -322,7 +412,24 @@ Public Class XFrmMenuPrincipal
 
     Private Sub BarButtonItem8_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnEstadisticoFI.ItemClick
         Dim reporte8 As Reporte_Estadistico_general_firmas = New Reporte_Estadistico_general_firmas
-        reporte8.ShowPreview()
+        Try
+            Dim oradb As String = Configuracion.verconfig
+
+            Dim conn As New OracleConnection()
+            conn.ConnectionString = oradb
+            conn.Open()
+
+            Dim myCMD As New OracleCommand()
+            myCMD.Connection = conn
+            myCMD.CommandText = "IM_K_VALIDA_FIRMAS.IM_P_VALIDA"
+            myCMD.CommandType = CommandType.StoredProcedure
+            myCMD.ExecuteOracleScalar()
+            conn.Close()
+            reporte8.ShowPreview()
+        Catch ex As Exception
+            Mensajes.MensajeError(ex.Message)
+        End Try
+
         
     End Sub
 
