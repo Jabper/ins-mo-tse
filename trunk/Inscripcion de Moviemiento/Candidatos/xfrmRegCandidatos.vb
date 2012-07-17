@@ -1405,7 +1405,7 @@ Public Class xfrmRegCandidatos
 
             Dim _row = CType(DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2.Rows(IMVMOSTRARCANDIDATOS2BindingSource.Position), DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2Row)
             If _row.RowState = DataRowState.Added Then
-                If (Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7) And Me.cboDepartamento.EditValue = 0 Or Me.cboMunicipio.EditValue = 0 Then
+                If (Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7 Or Me.cboCargo.EditValue = 8) And Me.cboDepartamento.EditValue = 0 Or Me.cboMunicipio.EditValue = 0 Then
                     Mensajes.MensajeError("Seleccione el Departamento y/o Municipio")
                 Else
                     guardar(e.RowHandle)
