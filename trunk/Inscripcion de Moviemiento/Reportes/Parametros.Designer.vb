@@ -21,10 +21,15 @@ Partial Class Parametros
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Me.cboMovimiento = New DevExpress.XtraEditors.LookUpEdit
+        Me.BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DS_PLANILLA_TOTALES = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALES
         Me.cboDepto = New DevExpress.XtraEditors.LookUpEdit
+        Me.BindingSource4 = New System.Windows.Forms.BindingSource(Me.components)
         Me.cboMuni = New DevExpress.XtraEditors.LookUpEdit
+        Me.BindingSource5 = New System.Windows.Forms.BindingSource(Me.components)
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton
         Me.cbonivel = New DevExpress.XtraEditors.LookUpEdit
+        Me.BindingSource3 = New System.Windows.Forms.BindingSource(Me.components)
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl
@@ -34,11 +39,8 @@ Partial Class Parametros
         Me.IMFK1MOVIMIENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.cbopartido = New DevExpress.XtraEditors.LookUpEdit
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DS_PLANILLA_TOTALES = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALES
-        Me.BindingSource3 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BindingSource5 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BindingSource4 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.cbocargo = New DevExpress.XtraEditors.LookUpEdit
+        Me.BindingSource8 = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_MOVIMIENTOSTableAdapter = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_MOVIMIENTOSTableAdapter
         Me.IM_NIVEL_ELECTIVOTableAdapter = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_NIVEL_ELECTIVOTableAdapter
         Me.IM_DEPARTAMENTOSTableAdapter = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_DEPARTAMENTOSTableAdapter
@@ -48,18 +50,22 @@ Partial Class Parametros
         Me.IM_PARTIDOS_POLITICOS1TableAdapter = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_PARTIDOS_POLITICOS1TableAdapter
         Me.BindingSource7 = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_MOVIMIENTOS1TableAdapter = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_MOVIMIENTOS1TableAdapter
+        Me.IM_CARGOS_ELECTIVOSTableAdapter = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_CARGOS_ELECTIVOSTableAdapter
+        Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl
         CType(Me.cboMovimiento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DS_PLANILLA_TOTALES, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cboDepto.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cboMuni.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbonivel.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbopartido.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DS_PLANILLA_TOTALES, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingSource3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingSource5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingSource4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbocargo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -76,6 +82,16 @@ Partial Class Parametros
         Me.cboMovimiento.Size = New System.Drawing.Size(200, 20)
         Me.cboMovimiento.TabIndex = 1
         '
+        'BindingSource2
+        '
+        Me.BindingSource2.DataMember = "IM_MOVIMIENTOS"
+        Me.BindingSource2.DataSource = Me.DS_PLANILLA_TOTALES
+        '
+        'DS_PLANILLA_TOTALES
+        '
+        Me.DS_PLANILLA_TOTALES.DataSetName = "DS_PLANILLA_TOTALES"
+        Me.DS_PLANILLA_TOTALES.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'cboDepto
         '
         Me.cboDepto.Location = New System.Drawing.Point(507, 25)
@@ -87,6 +103,11 @@ Partial Class Parametros
         Me.cboDepto.Properties.ValueMember = "CODIGO_DEPARTAMENTO"
         Me.cboDepto.Size = New System.Drawing.Size(215, 20)
         Me.cboDepto.TabIndex = 2
+        '
+        'BindingSource4
+        '
+        Me.BindingSource4.DataMember = "IM_DEPARTAMENTOS"
+        Me.BindingSource4.DataSource = Me.DS_PLANILLA_TOTALES
         '
         'cboMuni
         '
@@ -100,6 +121,11 @@ Partial Class Parametros
         Me.cboMuni.Size = New System.Drawing.Size(215, 20)
         Me.cboMuni.TabIndex = 3
         '
+        'BindingSource5
+        '
+        Me.BindingSource5.DataMember = "IM_MUNICIPIOS"
+        Me.BindingSource5.DataSource = Me.DS_PLANILLA_TOTALES
+        '
         'SimpleButton1
         '
         Me.SimpleButton1.Location = New System.Drawing.Point(596, 80)
@@ -110,7 +136,7 @@ Partial Class Parametros
         '
         'cbonivel
         '
-        Me.cbonivel.Location = New System.Drawing.Point(155, 77)
+        Me.cbonivel.Location = New System.Drawing.Point(155, 103)
         Me.cbonivel.Name = "cbonivel"
         Me.cbonivel.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbonivel.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_NIVEL_ELECTIVO", "CODIGO_NIVEL_ELECTIVO", 152, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.Near), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NIVEL ELECTIVO", "NIVEL ELECTIVO", 89, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
@@ -119,6 +145,12 @@ Partial Class Parametros
         Me.cbonivel.Properties.ValueMember = "CODIGO_NIVEL_ELECTIVO"
         Me.cbonivel.Size = New System.Drawing.Size(200, 20)
         Me.cbonivel.TabIndex = 5
+        Me.cbonivel.Visible = False
+        '
+        'BindingSource3
+        '
+        Me.BindingSource3.DataMember = "IM_NIVEL_ELECTIVO"
+        Me.BindingSource3.DataSource = Me.DS_PLANILLA_TOTALES
         '
         'LabelControl1
         '
@@ -141,11 +173,12 @@ Partial Class Parametros
         'LabelControl3
         '
         Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl3.Location = New System.Drawing.Point(13, 80)
+        Me.LabelControl3.Location = New System.Drawing.Point(12, 106)
         Me.LabelControl3.Name = "LabelControl3"
         Me.LabelControl3.Size = New System.Drawing.Size(74, 13)
         Me.LabelControl3.TabIndex = 8
         Me.LabelControl3.Text = "Nivel Electivo"
+        Me.LabelControl3.Visible = False
         '
         'btnsalir
         '
@@ -190,30 +223,22 @@ Partial Class Parametros
         Me.BindingSource1.DataMember = "IM_PARTIDOS_POLITICOS"
         Me.BindingSource1.DataSource = Me.DS_PLANILLA_TOTALES
         '
-        'DS_PLANILLA_TOTALES
+        'cbocargo
         '
-        Me.DS_PLANILLA_TOTALES.DataSetName = "DS_PLANILLA_TOTALES"
-        Me.DS_PLANILLA_TOTALES.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.cbocargo.Location = New System.Drawing.Point(155, 77)
+        Me.cbocargo.Name = "cbocargo"
+        Me.cbocargo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbocargo.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_CARGO_ELECTIVO", "CODIGO_CARGO_ELECTIVO", 160, DevExpress.Utils.FormatType.Numeric, "", False, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
+        Me.cbocargo.Properties.DataSource = Me.BindingSource8
+        Me.cbocargo.Properties.DisplayMember = "DESCRIPCION"
+        Me.cbocargo.Properties.ValueMember = "CODIGO_CARGO_ELECTIVO"
+        Me.cbocargo.Size = New System.Drawing.Size(200, 20)
+        Me.cbocargo.TabIndex = 13
         '
-        'BindingSource3
+        'BindingSource8
         '
-        Me.BindingSource3.DataMember = "IM_NIVEL_ELECTIVO"
-        Me.BindingSource3.DataSource = Me.DS_PLANILLA_TOTALES
-        '
-        'BindingSource5
-        '
-        Me.BindingSource5.DataMember = "IM_MUNICIPIOS"
-        Me.BindingSource5.DataSource = Me.DS_PLANILLA_TOTALES
-        '
-        'BindingSource4
-        '
-        Me.BindingSource4.DataMember = "IM_DEPARTAMENTOS"
-        Me.BindingSource4.DataSource = Me.DS_PLANILLA_TOTALES
-        '
-        'BindingSource2
-        '
-        Me.BindingSource2.DataMember = "IM_MOVIMIENTOS"
-        Me.BindingSource2.DataSource = Me.DS_PLANILLA_TOTALES
+        Me.BindingSource8.DataMember = "IM_CARGOS_ELECTIVOS"
+        Me.BindingSource8.DataSource = Me.DS_PLANILLA_TOTALES
         '
         'IM_MOVIMIENTOSTableAdapter
         '
@@ -253,11 +278,26 @@ Partial Class Parametros
         '
         Me.IM_MOVIMIENTOS1TableAdapter.ClearBeforeFill = True
         '
+        'IM_CARGOS_ELECTIVOSTableAdapter
+        '
+        Me.IM_CARGOS_ELECTIVOSTableAdapter.ClearBeforeFill = True
+        '
+        'LabelControl6
+        '
+        Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl6.Location = New System.Drawing.Point(12, 80)
+        Me.LabelControl6.Name = "LabelControl6"
+        Me.LabelControl6.Size = New System.Drawing.Size(80, 13)
+        Me.LabelControl6.TabIndex = 14
+        Me.LabelControl6.Text = "Cargo Electivo"
+        '
         'Parametros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(725, 146)
+        Me.Controls.Add(Me.LabelControl6)
+        Me.Controls.Add(Me.cbocargo)
         Me.Controls.Add(Me.cbopartido)
         Me.Controls.Add(Me.LabelControl5)
         Me.Controls.Add(Me.LabelControl4)
@@ -273,17 +313,19 @@ Partial Class Parametros
         Me.Name = "Parametros"
         Me.Text = "Parametros del Reporte de Planillas Completas"
         CType(Me.cboMovimiento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DS_PLANILLA_TOTALES, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cboDepto.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cboMuni.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbonivel.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMFK1MOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbopartido.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DS_PLANILLA_TOTALES, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSource3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSource5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSource4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbocargo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -325,4 +367,8 @@ Partial Class Parametros
     Friend WithEvents IM_PARTIDOS_POLITICOS1TableAdapter As Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_PARTIDOS_POLITICOS1TableAdapter
     Friend WithEvents BindingSource7 As System.Windows.Forms.BindingSource
     Friend WithEvents IM_MOVIMIENTOS1TableAdapter As Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_MOVIMIENTOS1TableAdapter
+    Friend WithEvents cbocargo As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents BindingSource8 As System.Windows.Forms.BindingSource
+    Friend WithEvents IM_CARGOS_ELECTIVOSTableAdapter As Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_CARGOS_ELECTIVOSTableAdapter
+    Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
 End Class

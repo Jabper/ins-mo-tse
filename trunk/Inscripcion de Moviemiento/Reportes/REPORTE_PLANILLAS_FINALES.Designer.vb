@@ -66,7 +66,6 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         Me.BindingSource4 = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_DEPARTAMENTOSTableAdapter = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_DEPARTAMENTOSTableAdapter
         Me.DT_totalTableAdapter = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.DT_totalTableAdapter
-        Me.GroupHeader4 = New DevExpress.XtraReports.UI.GroupHeaderBand
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -80,7 +79,6 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         'Detail
         '
         Me.Detail.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrPictureBox1, Me.XrLabel22, Me.XrLabel20, Me.XrLabel18, Me.id})
-        Me.Detail.HeightF = 118.75!
         Me.Detail.Name = "Detail"
         Me.Detail.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
@@ -265,7 +263,7 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         '
         Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel27, Me.ndepartamento})
         Me.GroupHeader1.HeightF = 45.83333!
-        Me.GroupHeader1.Level = 3
+        Me.GroupHeader1.Level = 2
         Me.GroupHeader1.Name = "GroupHeader1"
         '
         'XrLabel27
@@ -314,7 +312,6 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         '
         Me.GroupHeader2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel1, Me.XrLine3, Me.XrLabel23, Me.XrLabel21, Me.XrLabel19, Me.XrLabel17, Me.XrLine1})
         Me.GroupHeader2.HeightF = 74.75001!
-        Me.GroupHeader2.Level = 1
         Me.GroupHeader2.Name = "GroupHeader2"
         '
         'XrLabel1
@@ -420,7 +417,7 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         '
         Me.GroupHeader3.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.muniname, Me.munivalor})
         Me.GroupHeader3.HeightF = 36.45833!
-        Me.GroupHeader3.Level = 2
+        Me.GroupHeader3.Level = 1
         Me.GroupHeader3.Name = "GroupHeader3"
         '
         'BindingSource4
@@ -436,15 +433,9 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
         '
         Me.DT_totalTableAdapter.ClearBeforeFill = True
         '
-        'GroupHeader4
-        '
-        Me.GroupHeader4.GroupFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("municipio", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
-        Me.GroupHeader4.HeightF = 14.58333!
-        Me.GroupHeader4.Name = "GroupHeader4"
-        '
         'REPORTE_PLANILLAS_FINALES
         '
-        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.ReportHeader, Me.PageHeader, Me.GroupHeader1, Me.GroupHeader2, Me.GroupHeader3, Me.GroupHeader4})
+        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.ReportHeader, Me.PageHeader, Me.GroupHeader1, Me.GroupHeader2, Me.GroupHeader3})
         Me.DataAdapter = Me.IM_CANDIDATOSTableAdapter
         Me.DataMember = "IM_CANDIDATOS"
         Me.DataSource = Me.DS_PLANILLA_TOTALES1
@@ -508,7 +499,6 @@ Partial Public Class REPORTE_PLANILLAS_FINALES
     Friend WithEvents BindingSource5 As System.Windows.Forms.BindingSource
     Friend WithEvents DS_PLANILLA_TOTALES As Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALES
     Friend WithEvents DT_totalTableAdapter As Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.DT_totalTableAdapter
-    Friend WithEvents GroupHeader4 As DevExpress.XtraReports.UI.GroupHeaderBand
     Friend WithEvents XrLine3 As DevExpress.XtraReports.UI.XRLine
     Friend WithEvents XrLabel1 As DevExpress.XtraReports.UI.XRLabel
     '   Friend WithEvents IM_CANDIDATOSTableAdapter As Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_CANDIDATOSTableAdapter
