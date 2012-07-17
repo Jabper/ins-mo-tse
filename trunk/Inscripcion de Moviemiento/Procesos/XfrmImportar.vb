@@ -35,6 +35,9 @@ Public Class XfrmImportar
 
             If proceso_corriendo = "N" Then
                 If File.Exists("C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo) Then
+                    System.IO.File.Delete("C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo)
+                    System.IO.File.Copy(TxtRuta.Text, "C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo, True)
+                Else
                     System.IO.File.Copy(TxtRuta.Text, "C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo, True)
                 End If
                 Try
@@ -59,29 +62,106 @@ Public Class XfrmImportar
                     pStart.Start()
                     pStart.WaitForExit()
                     If pStart.ExitCode = 0 Then
-                        MsgBox("La Importación ha Terminado Satisfactoriamente", MsgBoxStyle.Information)
+                        'MsgBox("La Importación ha Terminado Satisfactoriamente", MsgBoxStyle.Information)
                         TxtRuta.Text = Nothing
 
                         'validar datos
                         Dim conn7 As New OracleConnection()
                         Try
                             MsgBox("A continuación se ejecutarán los procesos de validación sobre los datos importados")
-                            Dim oradb7 As String = Configuracion.verconfig
-                            'Dim conn7 As New OracleConnection()
-                            conn7.ConnectionString = oradb7
-                            conn7.Open()
-                            Dim myCMD7 As New OracleCommand()
-                            myCMD7.Connection = conn7
-                            myCMD7.CommandText = "im_k_carga_datos.IM_P_CARGA_DATOS"
-                            myCMD7.CommandType = CommandType.StoredProcedure
-                            myCMD7.Parameters.Add(New OracleParameter("P_Error", OracleType.NVarChar, 500)).Direction = ParameterDirection.InputOutput
-                            myCMD7.ExecuteOracleScalar()
-                            If IsDBNull(myCMD7.Parameters("P_Error").Value) Then
-                                Mensajes.mimensaje("Proceso de validación de Datos terminado Exitosamente")
+
+                            Dim mensaje As String
+                            Dim oradb6 As String = Configuracion.verconfig
+                            Dim conn6 As New OracleConnection()
+                            Dim myCMD6 As New OracleCommand()
+                            conn6.ConnectionString = oradb6
+                            conn6.Open()
+                            Try
+                                myCMD6.Connection = conn6
+                                myCMD6.CommandText = "alter PACKAGE im_k_subir_respaldo compile"
+                                myCMD6.CommandType = CommandType.Text
+                                myCMD6.ExecuteOracleScalar()
+                                mensaje = "OK"
+                                conn6.Close()
+                            Catch ex As Exception
+                                conn6.Close()
+                                mensaje = "ERROR"
+                                'waitDialog.Caption = "finalizando..."
+                                'waitDialog.Close()
+                                Mensajes.MensajeError(ex.Message)
+                            End Try                            
+
+                            If Trim(mensaje) = "OK" Then
+                                Dim oradb5 As String = Configuracion.verconfig
+                                Dim conn5 As New OracleConnection()
+                                Dim myCMD5 As New OracleCommand()
+                                conn5.ConnectionString = oradb5
+                                conn5.Open()
+                                Try
+                                    myCMD5.Connection = conn5
+                                    myCMD5.CommandText = "alter package im_k_subir_respaldo compile body"
+                                    myCMD5.CommandType = CommandType.Text
+                                    myCMD5.ExecuteOracleScalar()
+                                    mensaje = "OK"
+                                Catch ex As Exception
+                                    conn5.Close()
+                                    mensaje = "ERROR"
+                                    'waitDialog.Caption = "finalizando..."
+                                    'waitDialog.Close()
+                                    Mensajes.MensajeError(ex.Message)
+                                End Try
+                                conn5.Close()
                             Else
-                                Mensajes.MensajeError(myCMD7.Parameters("P_Error").Value)
+                                MsgBox("Error al compilar la especificacion del paquete de compilacion")
                             End If
-                            conn7.Close()
+
+                            Dim oradb3 As String = Configuracion.verconfig
+                            Dim conn3 As New OracleConnection()
+                            Dim myCMD3 As New OracleCommand()
+                            conn3.ConnectionString = oradb3
+                            conn3.Open()
+                            If Trim(mensaje) = "OK" Then
+                                Try
+                                    mensaje = "Error"
+                                    myCMD3.Connection = conn3
+                                    myCMD3.CommandText = "IM_K_SUBIR_RESPALDO.IM_P_COMPILA_OBJETOS"
+                                    myCMD3.CommandType = CommandType.StoredProcedure
+                                    myCMD3.Parameters.Add(New OracleParameter("PVO_Error", OracleType.Char, 200)).Direction = ParameterDirection.Output
+                                    myCMD3.ExecuteOracleScalar()
+                                    mensaje = myCMD3.Parameters("PVO_Error").Value
+                                Catch ex As Exception
+                                    conn3.Close()
+                                    mensaje = "ERROR"
+                                    Mensajes.MensajeError(ex.Message)
+                                    Exit Sub
+                                End Try
+                            Else
+                                MsgBox("Error al compilar el cuerpo del paquete de compilacion")
+                            End If
+
+                            If Trim(mensaje) = "OK" Then
+                                Dim oradb7 As String = Configuracion.verconfig
+                                'Dim conn7 As New OracleConnection()
+                                conn7.ConnectionString = oradb7
+                                conn7.Open()
+                                Dim myCMD7 As New OracleCommand()
+                                myCMD7.Connection = conn7
+                                myCMD7.CommandText = "im_k_carga_datos.IM_P_CARGA_DATOS"
+                                myCMD7.CommandType = CommandType.StoredProcedure
+                                myCMD7.Parameters.Add(New OracleParameter("P_Error", OracleType.NVarChar, 500)).Direction = ParameterDirection.InputOutput
+                                myCMD7.ExecuteOracleScalar()
+                                If IsDBNull(myCMD7.Parameters("P_Error").Value) Then
+                                    Mensajes.mimensaje("Proceso de validación de Datos terminado Exitosamente")
+                                Else
+                                    Mensajes.MensajeError(myCMD7.Parameters("P_Error").Value)
+                                End If
+                                conn7.Close()
+                            Else
+                                MsgBox("Error: " & mensaje, MsgBoxStyle.Information)
+                            End If
+                            conn3.Close()
+
+
                         Catch ex As Exception
                             conn7.Close()
                             Mensajes.MensajeError(ex.Message)
