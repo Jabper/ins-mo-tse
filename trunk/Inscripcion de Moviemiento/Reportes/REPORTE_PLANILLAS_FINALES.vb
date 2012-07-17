@@ -6,8 +6,13 @@ Imports DevExpress.XtraReports.UI
 Imports DevExpress.XtraReports.Parameters
 
 Public Class REPORTE_PLANILLAS_FINALES
+    Public NombrePartido As String
+    Public NombreMovimiento As String
 
     Private Sub REPORTE_PLANILLAS_FINALES_ParametersRequestBeforeShow(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestEventArgs) Handles Me.ParametersRequestBeforeShow
+
+
+
         'Dim data As New DS_REPORTE_CANDIDATOS
         'Using data1 As New DS_REPORTE_CANDIDATOSTableAdapters.IM_DEP_CANDIDATOSTableAdapter
         '    data1.Fill(data.IM_DEP_CANDIDATOS)
@@ -28,7 +33,7 @@ Public Class REPORTE_PLANILLAS_FINALES
 
         'Dim dataset As New DS_PLANILLA_TOTALES
         'Using Adapter As New DS_PLANILLA_TOTALESTableAdapters.IM_PARTIDOS_POLITICOSTableAdapter
-        '    Adapter.Fill(dataset.IM_PARTIDOS_POLITICOS)
+        '    Adapter.FillBy(dataset.IM_PARTIDOS_POLITICOS, partido)
         'End Using
 
         'For Each info In e.ParametersInformation
@@ -110,8 +115,10 @@ Public Class REPORTE_PLANILLAS_FINALES
         '        info.Editor = LookUpEdit
         '    End If
         'Next
+        'Me.IM_CANDIDATOSTableAdapter.FillBy(Me.DS_PLANILLA_TOTALES1.IM_CANDIDATOS,
+        'Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(Me.DS_LOG.IM_PARTIDOS_POLITICOS_imagen, "PARTIDO LIBERAL DE HONDURAS")
+        'Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(Me.DS_LOG.IM_MOVIMIENTOS_imagen, NombreMovimiento)
 
-      
 
     End Sub
 
@@ -184,8 +191,6 @@ Public Class REPORTE_PLANILLAS_FINALES
 
         'PASO LOS PARAMETROS A MI DATA SET PARA HACER EL FILTRADO EN LA CONSULTA
         'Me.IM_CANDIDATOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES1.IM_CANDIDATOS, Me.partidopolitico.Text, Me.movimientopolitico.Text, Me.nivelelectivo.Text, Me.ndepartamento.Text)
-        'Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(Me.DS_LOG.IM_PARTIDOS_POLITICOS_imagen, NombrePartido.Value.ToString)
-        'Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(Me.DS_LOG.IM_MOVIMIENTOS_imagen, NombreMovimiento.Value.ToString)
         ''Me.IM_DEPARTAMENTOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES1.IM_DEPARTAMENTOS, NombreDep.Value.ToString)
         'Me.DT_totalTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.DT_total, Me.NombrePartido.Value.ToString, Me.NombreMovimiento.Value.ToString, Me.NombreDep.Value.ToString, Me.nivel.Value.ToString)
         'cierro conexion
