@@ -4868,7 +4868,7 @@ Namespace DS_PLANILLA_TOTALESTableAdapters
                 "DIGO_DEPARTAMENTO = DEP.CODIGO_DEPARTAMENTO) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (A.C"& _ 
                 "ODIGO_DEPARTAMENTO = MUNI.CODIGO_DEPARTAMENTO) AND (A.CODIGO_MUNICIPIO = MUNI.CO"& _ 
                 "DIGO_MUNICIPIO) AND (C.ESTADO = 'H') "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND A.IDENTIDAD = C.IDENTIDAD "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" ORDER BY"& _ 
-                " CA.CODIGO_CARGO_ELECTIVO ASC"
+                " C.POSICION  ASC"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(1).Connection = Me.Connection
@@ -4887,7 +4887,7 @@ Namespace DS_PLANILLA_TOTALESTableAdapters
                 "DIGO_MUNICIPIO) AND (C.ESTADO = 'H') AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (MUNI.DESCRI"& _ 
                 "PCION = :mu) AND (A.partido = :p) AND (A.nombre_movimiento = :m) AND (DEP.DESCRI"& _ 
                 "PCION = :dep) AND (CA.DESCRIPCION = :NE)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"AND A.IDENTIDAD = C.IDENTIDAD "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" ORDER"& _ 
-                " BY CA.CODIGO_CARGO_ELECTIVO ASC"
+                " BY C.POSICION  ASC"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("mu", Global.System.Data.OracleClient.OracleType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, "DEPARTAMENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p", Global.System.Data.OracleClient.OracleType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, "", Global.System.Data.DataRowVersion.Current, false, Nothing))
