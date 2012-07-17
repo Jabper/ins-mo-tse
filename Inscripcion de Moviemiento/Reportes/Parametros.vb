@@ -1,6 +1,8 @@
 ﻿Public Class Parametros 
 
     Private Sub Parametros_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DS_PLANILLA_TOTALES.IM_CARGOS_ELECTIVOS' table. You can move, or remove it, as needed.
+        Me.IM_CARGOS_ELECTIVOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.IM_CARGOS_ELECTIVOS)
         'TODO: This line of code loads data into the 'DS_PLANILLA_TOTALES.IM_PARTIDOS_POLITICOS' table. You can move, or remove it, as needed.
         Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.IM_PARTIDOS_POLITICOS)
         'TODO: This line of code loads data into the 'DS_PLANILLA_TOTALES.IM_DEPARTAMENTOS' table. You can move, or remove it, as needed.
@@ -45,7 +47,7 @@
             Dim reporte_planilla As REPORTE_PLANILLAS_FINALES = New REPORTE_PLANILLAS_FINALES
             'Me.IM_CANDIDATOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.IM_CANDIDATOS, Me.cboPartido.Text, Me.cboMovimiento.Text, Me.cbonivel.Text Me.cboDepto.Text, Me.cboMuni.Text)
             'reporte_planilla.IM_CANDIDATOSTableAdapter.FillBy(reporte_planilla.DS_PLANILLA_TOTALES1.IM_CANDIDATOS, Me.cboPartido.Text, Me.cboMovimiento.Text, Me.cbonivel.Text, Me.cboDepto.Text, Me.cboMuni.Text)
-            reporte_planilla.FilterString = "[MUNICIPIO] = '" & Me.cboMuni.Text & "' And [PARTIDO] = '" & Me.cboPartido.Text & "' And [DEPARTAMENTO] = '" & Me.cboDepto.Text & "' And [NIVEL] = '" & Me.cbonivel.Text & "' And [NOMBRE_MOVIMIENTO] = '" & Me.cboMovimiento.Text & "'"
+            reporte_planilla.FilterString = "[MUNICIPIO] = '" & Me.cboMuni.Text & "' And [PARTIDO] = '" & Me.cbopartido.Text & "' And [DEPARTAMENTO] = '" & Me.cboDepto.Text & "' And [CARGO] = '" & Me.cbocargo.Text & "' And [NOMBRE_MOVIMIENTO] = '" & Me.cboMovimiento.Text & "'"
             '  reporte_planilla.partido = Me.cboPartido.Text
             'reporte_planilla.NombrePartido = cbopartido.Text
             ' reporte_planilla.NombreMovimiento = cboMovimiento.Text
@@ -64,4 +66,8 @@
         Me.Close()
 
     End Sub
+
+
+  
+
 End Class
