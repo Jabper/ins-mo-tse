@@ -46,9 +46,7 @@ Public Class XfrmCrearRespaldo
             Catch ex As Exception
                 Mensajes.MensajeError(ex.Message)
                 Exit Sub
-            End Try
-
-            
+            End Try            
         End If
     End Sub
 
