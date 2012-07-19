@@ -8,6 +8,8 @@ Imports DevExpress.XtraGrid.Views.Base
 Imports System.Data.OracleClient
 
 
+
+
 Public Class XfrmConsultaFirmas
 
 
@@ -173,7 +175,16 @@ Public Class XfrmConsultaFirmas
         Catch ex As Exception
 
         End Try
-        
+
+        Try
+            If COracle.credenciales("BtnNivelesElectivos", "MODIFICAR") = "N" And COracle.credenciales("BtnNivelesElectivos", "INSERTAR") = "N" Then
+                DxControls.ObtenerCredencial("BtnNivelesElectivos", "MODIFICAR", Me.BtnUpdate)
+            End If
+
+            DxControls.ObtenerCredencial("BtnNivelesElectivos", "ELIMINAR", Me.BtnEliminar)
+        Catch ex As Exception
+
+        End Try
         ActivarFiltros()
 
 
@@ -677,6 +688,26 @@ Public Class XfrmConsultaFirmas
 
     End Sub
 
+    Private Sub GridView3_PopupMenuShowing(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs) Handles GridView3.PopupMenuShowing
+        Dim View As GridView = CType(sender, GridView)
+
+        Dim HitInfo As DevExpress.XtraGrid.Views.Grid.ViewInfo.GridHitInfo
+
+
+
+        HitInfo = View.CalcHitInfo(e.Point)
+
+        If HitInfo.InRow Then
+
+            View.FocusedRowHandle = HitInfo.RowHandle
+
+            ContextMenuStrip2.Show(View.GridControl, e.Point)
+
+        End If
+
+
+    End Sub
+
   
     Private Sub GridView3_ValidatingEditor(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs) Handles GridView3.ValidatingEditor
         Dim view As GridView = TryCast(sender, GridView)
@@ -753,5 +784,59 @@ Public Class XfrmConsultaFirmas
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub AgregarRegistroAConEsteNumeroDeFolioYPaginaToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AgregarRegistroAConEsteNumeroDeFolioYPaginaToolStripMenuItem.Click
+        Dim firmas As New XfrmCiudadanos
+        Dim view As GridView = GridView3
+        firmas.Show()
+        With firmas
+            .ControlBox = False
+
+            .idpartido = view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO")
+            .iddepto = view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_DEPARTAMENTO")
+            .idmovimiento = view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO")
+            .idmuni = view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MUNICIPIO")
+            .AgregarFilasGrid(1)
+            .folio = view.GetRowCellValue(view.FocusedRowHandle, "FOLIO")
+            .establecer()
+            .estadistico()
+            .mostrarimg()
+            .pagina = view.GetRowCellValue(view.FocusedRowHandle, "PAGINA")
+            .lblpagina.Text = view.GetRowCellValue(view.FocusedRowHandle, "PAGINA")
+        End With
+    End Sub
+
+    Private Sub SimpleButton6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton6.Click
+        GridView3.ActiveFilter.Clear()
+
+        Me.ChkDepto.CheckState = CheckState.Unchecked
+        Me.ChkMuni.CheckState = CheckState.Unchecked
+        If ActivarOpciones.PEstado = "PDO" Then
+
+            If Me.CmbMovimiento.EditValue Is Nothing Or IsDBNull(Me.CmbMovimiento.EditValue) Or Me.CmbMovimiento.Text = "Seleccione" Then
+                'Mensajes.mimensaje("Para filtrar la información primero seleccione un movimiento")
+            Else
+                VerFirmas()
+            End If
+
+        ElseIf ActivarOpciones.PEstado = "MOV" Then
+            VerFirmas()
+
+        ElseIf ActivarOpciones.PEstado = "TSE" Then
+            If Me.CmbPartido.EditValue Is Nothing Or IsDBNull(Me.CmbPartido.EditValue) Or Me.CmbPartido.Text = "Seleccione" Then
+                '    Mensajes.mimensaje("Para filtrar la información primero seleccione un Partido Político")
+
+            ElseIf Me.CmbMovimiento.EditValue Is Nothing Or IsDBNull(Me.CmbMovimiento.EditValue) Or Me.CmbMovimiento.Text = "Seleccione" Then
+                '    Mensajes.mimensaje("Para filtrar la información primero seleccione un movimiento")
+            Else
+
+                VerFirmas()
+
+            End If
+
+        End If
+
+
     End Sub
 End Class

@@ -204,6 +204,7 @@ Partial Class xfrmCiudadanosInha
         Me.LookUpEdit1.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MOTIVO", "CODIGO_MOTIVO", 30, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.LookUpEdit1.Properties.DataSource = Me.IMMOTIVOSINHABILITACIONBindingSource
         Me.LookUpEdit1.Properties.DisplayMember = "DESCRIPCION"
+        Me.LookUpEdit1.Properties.NullText = "Seleccione"
         Me.LookUpEdit1.Properties.ValueMember = "CODIGO_MOTIVO"
         Me.LookUpEdit1.Size = New System.Drawing.Size(204, 20)
         Me.LookUpEdit1.StyleController = Me.DataLayoutControl1
@@ -745,8 +746,11 @@ Partial Class xfrmCiudadanosInha
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
         Me.EmptySpaceItem2.Location = New System.Drawing.Point(367, 0)
+        Me.EmptySpaceItem2.MaxSize = New System.Drawing.Size(409, 312)
+        Me.EmptySpaceItem2.MinSize = New System.Drawing.Size(409, 312)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
         Me.EmptySpaceItem2.Size = New System.Drawing.Size(409, 312)
+        Me.EmptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '

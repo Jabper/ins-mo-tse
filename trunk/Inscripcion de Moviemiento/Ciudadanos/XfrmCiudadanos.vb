@@ -287,7 +287,7 @@ Public Class XfrmCiudadanos
                
                 'Comprobar que no este ingresado
 
-                Dim a As String = "select IDENTIDAD from IM_CIUDADANOS_RESPALDAN where IDENTIDAD='" & view.GetRowCellValue(i, "IDENTIDAD") & "' and CODIGO_PARTIDO=" & idpartido & " and CODIGO_MOVIMIENTO=" & idmovimiento
+                Dim a As String = "select IDENTIDAD from IM_CIUDADANOS_RESPALDAN where IDENTIDAD='" & view.GetRowCellValue(i, "IDENTIDAD") & "' and CODIGO_PARTIDO=" & idpartido & " and CODIGO_MOVIMIENTO=" & idmovimiento & " and consistente='S'"
                 If COracle.ObtenerDatos(a, "IDENTIDAD") <> "N" Then
                     'mensajeerror = "Este firmante ya existe en su lista"
                     view.SetRowCellValue(i, "Estado", False)

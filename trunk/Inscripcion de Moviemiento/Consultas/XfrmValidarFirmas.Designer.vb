@@ -199,7 +199,7 @@ Partial Class XfrmValidarFirmas
         Me.GCBusqueda.MainView = Me.GridView1
         Me.GCBusqueda.Name = "GCBusqueda"
         Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit, Me.RepositoryItemCheckEdit1, Me.RepositoryItemMemoEdit1})
-        Me.GCBusqueda.Size = New System.Drawing.Size(1309, 477)
+        Me.GCBusqueda.Size = New System.Drawing.Size(990, 477)
         Me.GCBusqueda.TabIndex = 26
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -643,7 +643,7 @@ Partial Class XfrmValidarFirmas
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 0)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(1603, 240)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(1284, 240)
         Me.FlowLayoutPanel2.TabIndex = 24
         '
         'NavegacionTableAdapter
@@ -654,7 +654,7 @@ Partial Class XfrmValidarFirmas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1603, 717)
+        Me.ClientSize = New System.Drawing.Size(1284, 717)
         Me.Controls.Add(Me.GCBusqueda)
         Me.Controls.Add(Me.FlowLayoutPanel3)
         Me.Controls.Add(Me.FlowLayoutPanel2)

@@ -488,6 +488,7 @@ Partial Class XfrmConFirmas
         Me.pbxFirma.Location = New System.Drawing.Point(3, 17)
         Me.pbxFirma.Name = "pbxFirma"
         Me.pbxFirma.Size = New System.Drawing.Size(187, 177)
+        Me.pbxFirma.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pbxFirma.TabIndex = 0
         Me.pbxFirma.TabStop = False
         '
