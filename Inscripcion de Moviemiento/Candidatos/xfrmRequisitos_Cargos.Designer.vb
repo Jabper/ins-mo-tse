@@ -573,8 +573,11 @@ Partial Class xfrmRequisitos_Cargos
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
         Me.EmptySpaceItem2.Location = New System.Drawing.Point(501, 67)
+        Me.EmptySpaceItem2.MaxSize = New System.Drawing.Size(77, 168)
+        Me.EmptySpaceItem2.MinSize = New System.Drawing.Size(77, 168)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
         Me.EmptySpaceItem2.Size = New System.Drawing.Size(77, 168)
+        Me.EmptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '

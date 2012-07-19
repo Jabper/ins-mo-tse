@@ -21,11 +21,11 @@ Partial Class XfrmCrearRespaldo
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label
         Me.Panel1 = New System.Windows.Forms.Panel
+        Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.BtnEjecutar = New DevExpress.XtraEditors.SimpleButton
         Me.BtnExplorar = New DevExpress.XtraEditors.SimpleButton
         Me.TxtRuta = New DevExpress.XtraEditors.TextEdit
         Me.FbUbicacion = New System.Windows.Forms.FolderBrowserDialog
-        Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.Panel1.SuspendLayout()
         CType(Me.TxtRuta.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -52,6 +52,18 @@ Partial Class XfrmCrearRespaldo
         Me.Panel1.Size = New System.Drawing.Size(336, 194)
         Me.Panel1.TabIndex = 11
         '
+        'BtnSalir
+        '
+        Me.BtnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnSalir.Appearance.Options.UseFont = True
+        Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
+        Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnSalir.Location = New System.Drawing.Point(13, 11)
+        Me.BtnSalir.Name = "BtnSalir"
+        Me.BtnSalir.Size = New System.Drawing.Size(55, 55)
+        Me.BtnSalir.TabIndex = 18
+        Me.BtnSalir.Text = "Salir"
+        '
         'BtnEjecutar
         '
         Me.BtnEjecutar.Location = New System.Drawing.Point(115, 146)
@@ -75,18 +87,6 @@ Partial Class XfrmCrearRespaldo
         Me.TxtRuta.Name = "TxtRuta"
         Me.TxtRuta.Size = New System.Drawing.Size(219, 20)
         Me.TxtRuta.TabIndex = 12
-        '
-        'BtnSalir
-        '
-        Me.BtnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnSalir.Appearance.Options.UseFont = True
-        Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
-        Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnSalir.Location = New System.Drawing.Point(13, 11)
-        Me.BtnSalir.Name = "BtnSalir"
-        Me.BtnSalir.Size = New System.Drawing.Size(55, 55)
-        Me.BtnSalir.TabIndex = 18
-        Me.BtnSalir.Text = "Salir"
         '
         'XfrmCrearRespaldo
         '

@@ -53,4 +53,8 @@ Public Class XfrmCrearRespaldo
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
         Me.Close()
     End Sub
+
+    Private Sub XfrmCrearRespaldo_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

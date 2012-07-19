@@ -186,7 +186,7 @@ Public Class XfrmConfigurar
 
                                         MoverArchivos.MoverArchivos()
                                         MoverArchivos.MoverCarpetas()
-
+                                        compilar()
                                     Catch ex As Exception
 
                                     End Try
@@ -367,9 +367,7 @@ Public Class XfrmConfigurar
         CONTRASENATextEdit.Text = CONTRASENATextEdit.Text.Replace("'", "")
     End Sub
 
-    Private Sub CONTRASENATextEdit_MarginChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CONTRASENATextEdit.MarginChanged
 
-    End Sub
 
     Private Sub RESPUESTA_SEGURIDADTextEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RESPUESTA_SEGURIDADTextEdit.EditValueChanged
 
@@ -377,5 +375,30 @@ Public Class XfrmConfigurar
 
     Private Sub RESPUESTA_SEGURIDADTextEdit_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles RESPUESTA_SEGURIDADTextEdit.LostFocus
         RESPUESTA_SEGURIDADTextEdit.Text = RESPUESTA_SEGURIDADTextEdit.Text.Replace("'", "")
+    End Sub
+    Sub compilar()
+        Try
+            Dim oradb As String = Configuracion.verconfig
+            Dim conn As New OracleConnection()
+            conn.ConnectionString = oradb
+            conn.Close()
+            conn.Open()
+
+            Dim myCMD As New OracleCommand()
+            myCMD.Connection = conn
+            myCMD.CommandText = "im_k_subir_respaldo.im_p_compila_objetos"
+            myCMD.CommandType = CommandType.StoredProcedure
+            myCMD.Parameters.Add(New OracleParameter("PVO_error", OracleType.NVarChar, 32767)).Direction = ParameterDirection.Output
+            myCMD.ExecuteOracleScalar()
+
+            'If Trim(myCMD.Parameters("PVO_error").Value) = "OK" Then
+            '    Mensajes.mimensaje("Validaciones de Planillas Corridas Exitosamente")
+            'Else
+            '    Mensajes.MensajeError(myCMD.Parameters("PVO_ERRORES").Value)
+            'End If
+            conn.Close()
+        Catch ex As Exception
+            'Mensajes.MensajeError(ex.Message)
+        End Try
     End Sub
 End Class

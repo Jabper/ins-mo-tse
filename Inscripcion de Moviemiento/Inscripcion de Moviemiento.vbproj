@@ -87,6 +87,10 @@
     <Reference Include="DevExpress.XtraBars.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v11.2.resources, Version=11.2.0.0, Culture=es, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\DevExpress 2011.2\Components\Bin\Framework\es\DevExpress.XtraEditors.v11.2.resources.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.XtraGrid.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPivotGrid.v11.2, Version=11.2.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -230,6 +234,12 @@
     </Compile>
     <Compile Include="Ciudadanos\DSCiudadanos.vb">
       <DependentUpon>DSCiudadanos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ciudadanos\XfrmAgregarFirmas.Designer.vb">
+      <DependentUpon>XfrmAgregarFirmas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ciudadanos\XfrmAgregarFirmas.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ciudadanos\XfrmCiudadanos.Designer.vb">
       <DependentUpon>XfrmCiudadanos.vb</DependentUpon>
@@ -407,9 +417,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_ESTADISTICO_GENERAL_GE.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\DS_ESTADISTICO_GENERAL_GE.vb">
-      <DependentUpon>DS_ESTADISTICO_GENERAL_GE.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Reportes\DS_LOG.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -512,11 +519,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_REPORTE_DE_RESUMEN_FDP_1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\DS_REP_DETALLE_ESTADISTICA.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DS_REP_DETALLE_ESTADISTICA.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="Reportes\DS_REP_DETALLE_ESTADISTICA.Designer.vb" />
     <Compile Include="Reportes\Parametros.Designer.vb">
       <DependentUpon>Parametros.vb</DependentUpon>
     </Compile>
@@ -881,6 +884,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Candidatos\xfrmSeleccionarPartidoMovimiento.resx">
       <DependentUpon>xfrmSeleccionarPartidoMovimiento.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ciudadanos\XfrmAgregarFirmas.resx">
+      <DependentUpon>XfrmAgregarFirmas.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Ciudadanos\XfrmCiudadanos.resx">
@@ -1712,11 +1719,7 @@
     <None Include="Reportes\DS_REP_DETALLE_ESTADISTICA.xsc">
       <DependentUpon>DS_REP_DETALLE_ESTADISTICA.xsd</DependentUpon>
     </None>
-    <None Include="Reportes\DS_REP_DETALLE_ESTADISTICA.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DS_REP_DETALLE_ESTADISTICA.Designer.vb</LastGenOutput>
-    </None>
+    <None Include="Reportes\DS_REP_DETALLE_ESTADISTICA.xsd" />
     <None Include="Reportes\DS_REP_DETALLE_ESTADISTICA.xss">
       <DependentUpon>DS_REP_DETALLE_ESTADISTICA.xsd</DependentUpon>
     </None>
@@ -1770,159 +1773,6 @@
     <None Include="Resources\motivo1.png" />
   </ItemGroup>
   <ItemGroup>
-    <PublishFile Include="DevExpress.BonusSkins.v11.2">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.Charts.v11.2.Core">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.Data.v11.2">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.PivotGrid.v11.2.Core">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.Printing.v11.2.Core">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.RichEdit.v11.2.Core">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.Utils.v11.2">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.XtraBars.v11.2">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.XtraCharts.v11.2">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.XtraEditors.v11.2">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.XtraGrid.v11.2">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.XtraLayout.v11.2">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.XtraNavBar.v11.2">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.XtraPivotGrid.v11.2">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.XtraReports.v11.2">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.XtraTreeList.v11.2">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="DevExpress.XtraWizard.v11.2">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <FileType>Assembly</FileType>
-    </PublishFile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

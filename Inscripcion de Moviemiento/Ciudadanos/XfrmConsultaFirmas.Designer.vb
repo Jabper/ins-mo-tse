@@ -121,6 +121,9 @@ Partial Class XfrmConsultaFirmas
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
         Me.IM_V_MOSTRAR_FIRMASTableAdapter = New Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.IM_V_MOSTRAR_FIRMASTableAdapter
+        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.AgregarRegistroAConEsteNumeroDeFolioYPaginaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.SimpleButton6 = New DevExpress.XtraEditors.SimpleButton
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -166,6 +169,7 @@ Partial Class XfrmConsultaFirmas
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip2.SuspendLayout()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -497,9 +501,9 @@ Partial Class XfrmConsultaFirmas
         Me.PanelControl2.Controls.Add(Me.LabelControl7)
         Me.PanelControl2.Controls.Add(Me.LabelControl8)
         Me.PanelControl2.Controls.Add(Me.PictureEdit1)
-        Me.PanelControl2.Location = New System.Drawing.Point(12, 626)
+        Me.PanelControl2.Location = New System.Drawing.Point(12, 625)
         Me.PanelControl2.Name = "PanelControl2"
-        Me.PanelControl2.Size = New System.Drawing.Size(775, 112)
+        Me.PanelControl2.Size = New System.Drawing.Size(775, 113)
         Me.PanelControl2.TabIndex = 15
         '
         'lbltodos
@@ -651,6 +655,7 @@ Partial Class XfrmConsultaFirmas
         Me.PanelControl3.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.PanelControl3.Appearance.Options.UseBackColor = True
         Me.PanelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl3.Controls.Add(Me.SimpleButton6)
         Me.PanelControl3.Controls.Add(Me.LabelControl16)
         Me.PanelControl3.Controls.Add(Me.CmbMovimiento)
         Me.PanelControl3.Controls.Add(Me.LabelControl15)
@@ -806,7 +811,7 @@ Partial Class XfrmConsultaFirmas
         Me.SimpleButton3.Appearance.Options.UseTextOptions = True
         Me.SimpleButton3.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.SimpleButton3.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
-        Me.SimpleButton3.Location = New System.Drawing.Point(215, 169)
+        Me.SimpleButton3.Location = New System.Drawing.Point(320, 169)
         Me.SimpleButton3.Name = "SimpleButton3"
         Me.SimpleButton3.Size = New System.Drawing.Size(96, 36)
         Me.SimpleButton3.TabIndex = 47
@@ -1001,11 +1006,11 @@ Partial Class XfrmConsultaFirmas
         '
         Me.EmptySpaceItem3.AllowHotTrack = False
         Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Location = New System.Drawing.Point(779, 614)
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(779, 613)
         Me.EmptySpaceItem3.MaxSize = New System.Drawing.Size(29, 0)
         Me.EmptySpaceItem3.MinSize = New System.Drawing.Size(29, 10)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Size = New System.Drawing.Size(29, 116)
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(29, 117)
         Me.EmptySpaceItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem3.Text = "EmptySpaceItem3"
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
@@ -1039,9 +1044,9 @@ Partial Class XfrmConsultaFirmas
         '
         Me.LayoutControlItem3.Control = Me.PanelControl2
         Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 614)
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 613)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(779, 116)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(779, 117)
         Me.LayoutControlItem3.Text = "LayoutControlItem3"
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextToControlDistance = 0
@@ -1053,7 +1058,7 @@ Partial Class XfrmConsultaFirmas
         Me.SplitterItem2.CustomizationFormText = "SplitterItem2"
         Me.SplitterItem2.Location = New System.Drawing.Point(0, 608)
         Me.SplitterItem2.Name = "SplitterItem2"
-        Me.SplitterItem2.Size = New System.Drawing.Size(808, 6)
+        Me.SplitterItem2.Size = New System.Drawing.Size(808, 5)
         '
         'LayoutControlItem1
         '
@@ -1109,6 +1114,29 @@ Partial Class XfrmConsultaFirmas
         'IM_V_MOSTRAR_FIRMASTableAdapter
         '
         Me.IM_V_MOSTRAR_FIRMASTableAdapter.ClearBeforeFill = True
+        '
+        'ContextMenuStrip2
+        '
+        Me.ContextMenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AgregarRegistroAConEsteNumeroDeFolioYPaginaToolStripMenuItem})
+        Me.ContextMenuStrip2.Name = "ContextMenuStrip2"
+        Me.ContextMenuStrip2.Size = New System.Drawing.Size(388, 26)
+        '
+        'AgregarRegistroAConEsteNumeroDeFolioYPaginaToolStripMenuItem
+        '
+        Me.AgregarRegistroAConEsteNumeroDeFolioYPaginaToolStripMenuItem.Name = "AgregarRegistroAConEsteNumeroDeFolioYPaginaToolStripMenuItem"
+        Me.AgregarRegistroAConEsteNumeroDeFolioYPaginaToolStripMenuItem.Size = New System.Drawing.Size(387, 22)
+        Me.AgregarRegistroAConEsteNumeroDeFolioYPaginaToolStripMenuItem.Text = "Agregar nuevo registro a con este número de folio y página"
+        '
+        'SimpleButton6
+        '
+        Me.SimpleButton6.Appearance.Options.UseTextOptions = True
+        Me.SimpleButton6.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.SimpleButton6.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._1340052028_system_software_update
+        Me.SimpleButton6.Location = New System.Drawing.Point(215, 169)
+        Me.SimpleButton6.Name = "SimpleButton6"
+        Me.SimpleButton6.Size = New System.Drawing.Size(96, 36)
+        Me.SimpleButton6.TabIndex = 60
+        Me.SimpleButton6.Text = "Actualizar"
         '
         'XfrmConsultaFirmas
         '
@@ -1166,6 +1194,7 @@ Partial Class XfrmConsultaFirmas
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1270,4 +1299,7 @@ Partial Class XfrmConsultaFirmas
     Friend WithEvents GridView4 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents EmptySpaceItem2 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents ContextMenuStrip2 As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents AgregarRegistroAConEsteNumeroDeFolioYPaginaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SimpleButton6 As DevExpress.XtraEditors.SimpleButton
 End Class

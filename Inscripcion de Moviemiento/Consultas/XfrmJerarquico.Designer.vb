@@ -26,22 +26,17 @@ Partial Class XfrmJerarquico
         Dim GridLevelNode4 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode
         Dim GridLevelNode5 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode
         Dim GridLevelNode6 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode
-        Me.JrPartidosPoliticosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DSConsultas = New Inscripcion_de_Moviemientos.DSConsultas
-        Me.JrPartidosPoliticosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrPartidosPoliticosTableAdapter
-        Me.JrMovimientosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrMovimientosTableAdapter
-        Me.JrNivelesElectivosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrNivelesElectivosTableAdapter
-        Me.JrCargosElectivosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrCargosElectivosTableAdapter
-        Me.JrDepartamentosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrDepartamentosTableAdapter
-        Me.JrMunicipiosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrMunicipiosTableAdapter
-        Me.JrCandidatosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrCandidatosTableAdapter
-        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
-        Me.btnSalir = New DevExpress.XtraEditors.SimpleButton
-        Me.GridControl1 = New DevExpress.XtraGrid.GridControl
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.colCODIGO_PARTIDO1 = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCODIGO_MOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colNOMBRE_MOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.GridControl1 = New DevExpress.XtraGrid.GridControl
+        Me.JrPartidosPoliticosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DSConsultas = New Inscripcion_de_Moviemientos.DSConsultas
+        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
+        Me.colCODIGO_PARTIDO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colNOMBRE = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCANTIDAD_FIRMAS = New DevExpress.XtraGrid.Columns.GridColumn
         Me.GridView3 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.colCODIGO_PARTIDO2 = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCODIGO_MOVIMIENTO1 = New DevExpress.XtraGrid.Columns.GridColumn
@@ -83,112 +78,27 @@ Partial Class XfrmJerarquico
         Me.colNOMBRE1 = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colAPELLIDO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colESTADO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
-        Me.colCODIGO_PARTIDO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colNOMBRE = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colCANTIDAD_FIRMAS = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.JrPartidosPoliticosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrPartidosPoliticosTableAdapter
+        Me.JrMovimientosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrMovimientosTableAdapter
+        Me.JrNivelesElectivosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrNivelesElectivosTableAdapter
+        Me.JrCargosElectivosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrCargosElectivosTableAdapter
+        Me.JrDepartamentosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrDepartamentosTableAdapter
+        Me.JrMunicipiosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrMunicipiosTableAdapter
+        Me.JrCandidatosTableAdapter = New Inscripcion_de_Moviemientos.DSConsultasTableAdapters.jrCandidatosTableAdapter
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
+        Me.btnSalir = New DevExpress.XtraEditors.SimpleButton
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.JrPartidosPoliticosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.FlowLayoutPanel1.SuspendLayout()
-        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView7, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FlowLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'JrPartidosPoliticosBindingSource
-        '
-        Me.JrPartidosPoliticosBindingSource.DataMember = "jrPartidosPoliticos"
-        Me.JrPartidosPoliticosBindingSource.DataSource = Me.DSConsultas
-        '
-        'DSConsultas
-        '
-        Me.DSConsultas.DataSetName = "DSConsultas"
-        Me.DSConsultas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'JrPartidosPoliticosTableAdapter
-        '
-        Me.JrPartidosPoliticosTableAdapter.ClearBeforeFill = True
-        '
-        'JrMovimientosTableAdapter
-        '
-        Me.JrMovimientosTableAdapter.ClearBeforeFill = True
-        '
-        'JrNivelesElectivosTableAdapter
-        '
-        Me.JrNivelesElectivosTableAdapter.ClearBeforeFill = True
-        '
-        'JrCargosElectivosTableAdapter
-        '
-        Me.JrCargosElectivosTableAdapter.ClearBeforeFill = True
-        '
-        'JrDepartamentosTableAdapter
-        '
-        Me.JrDepartamentosTableAdapter.ClearBeforeFill = True
-        '
-        'JrMunicipiosTableAdapter
-        '
-        Me.JrMunicipiosTableAdapter.ClearBeforeFill = True
-        '
-        'JrCandidatosTableAdapter
-        '
-        Me.JrCandidatosTableAdapter.ClearBeforeFill = True
-        '
-        'FlowLayoutPanel1
-        '
-        Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.Transparent
-        Me.FlowLayoutPanel1.Controls.Add(Me.btnSalir)
-        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1369, 64)
-        Me.FlowLayoutPanel1.TabIndex = 0
-        '
-        'btnSalir
-        '
-        Me.btnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.btnSalir.Appearance.Options.UseFont = True
-        Me.btnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
-        Me.btnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(3, 3)
-        Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(55, 55)
-        Me.btnSalir.TabIndex = 10
-        Me.btnSalir.TabStop = False
-        Me.btnSalir.Text = "Salir"
-        '
-        'GridControl1
-        '
-        Me.GridControl1.DataSource = Me.JrPartidosPoliticosBindingSource
-        Me.GridControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        GridLevelNode1.LevelTemplate = Me.GridView2
-        GridLevelNode2.LevelTemplate = Me.GridView3
-        GridLevelNode3.LevelTemplate = Me.GridView4
-        GridLevelNode4.LevelTemplate = Me.GridView5
-        GridLevelNode5.LevelTemplate = Me.GridView6
-        GridLevelNode6.LevelTemplate = Me.GridView7
-        GridLevelNode6.RelationName = "Candidatos"
-        GridLevelNode5.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode6})
-        GridLevelNode5.RelationName = "Municipios"
-        GridLevelNode4.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode5})
-        GridLevelNode4.RelationName = "Departamentos"
-        GridLevelNode3.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode4})
-        GridLevelNode3.RelationName = "Cargos Electivos"
-        GridLevelNode2.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode3})
-        GridLevelNode2.RelationName = "Niveles Electivos"
-        GridLevelNode1.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode2})
-        GridLevelNode1.RelationName = "Movimientos"
-        Me.GridControl1.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode1})
-        Me.GridControl1.Location = New System.Drawing.Point(0, 64)
-        Me.GridControl1.MainView = Me.GridView1
-        Me.GridControl1.Name = "GridControl1"
-        Me.GridControl1.Size = New System.Drawing.Size(1369, 790)
-        Me.GridControl1.TabIndex = 12
-        Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView2, Me.GridView3, Me.GridView4, Me.GridView5, Me.GridView6, Me.GridView7, Me.GridView1})
         '
         'GridView2
         '
@@ -215,6 +125,72 @@ Partial Class XfrmJerarquico
         Me.colNOMBRE_MOVIMIENTO.Name = "colNOMBRE_MOVIMIENTO"
         Me.colNOMBRE_MOVIMIENTO.Visible = True
         Me.colNOMBRE_MOVIMIENTO.VisibleIndex = 0
+        '
+        'GridControl1
+        '
+        Me.GridControl1.DataSource = Me.JrPartidosPoliticosBindingSource
+        Me.GridControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        GridLevelNode1.LevelTemplate = Me.GridView2
+        GridLevelNode2.LevelTemplate = Me.GridView3
+        GridLevelNode3.LevelTemplate = Me.GridView4
+        GridLevelNode4.LevelTemplate = Me.GridView5
+        GridLevelNode5.LevelTemplate = Me.GridView6
+        GridLevelNode6.LevelTemplate = Me.GridView7
+        GridLevelNode6.RelationName = "Candidatos"
+        GridLevelNode5.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode6})
+        GridLevelNode5.RelationName = "Municipios"
+        GridLevelNode4.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode5})
+        GridLevelNode4.RelationName = "Departamentos"
+        GridLevelNode3.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode4})
+        GridLevelNode3.RelationName = "Cargos Electivos"
+        GridLevelNode2.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode3})
+        GridLevelNode2.RelationName = "Niveles Electivos"
+        GridLevelNode1.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode2})
+        GridLevelNode1.RelationName = "Movimientos"
+        Me.GridControl1.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode1})
+        Me.GridControl1.Location = New System.Drawing.Point(0, 64)
+        Me.GridControl1.MainView = Me.GridView1
+        Me.GridControl1.Name = "GridControl1"
+        Me.GridControl1.Size = New System.Drawing.Size(1284, 790)
+        Me.GridControl1.TabIndex = 12
+        Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView3, Me.GridView4, Me.GridView5, Me.GridView6, Me.GridView7, Me.GridView2})
+        '
+        'JrPartidosPoliticosBindingSource
+        '
+        Me.JrPartidosPoliticosBindingSource.DataMember = "jrPartidosPoliticos"
+        Me.JrPartidosPoliticosBindingSource.DataSource = Me.DSConsultas
+        '
+        'DSConsultas
+        '
+        Me.DSConsultas.DataSetName = "DSConsultas"
+        Me.DSConsultas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'GridView1
+        '
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_PARTIDO, Me.colNOMBRE, Me.colCANTIDAD_FIRMAS})
+        Me.GridView1.DetailHeight = 100000
+        Me.GridView1.GridControl = Me.GridControl1
+        Me.GridView1.Name = "GridView1"
+        Me.GridView1.OptionsView.ShowGroupPanel = False
+        '
+        'colCODIGO_PARTIDO
+        '
+        Me.colCODIGO_PARTIDO.FieldName = "CODIGO_PARTIDO"
+        Me.colCODIGO_PARTIDO.Name = "colCODIGO_PARTIDO"
+        '
+        'colNOMBRE
+        '
+        Me.colNOMBRE.FieldName = "NOMBRE"
+        Me.colNOMBRE.Name = "colNOMBRE"
+        Me.colNOMBRE.Visible = True
+        Me.colNOMBRE.VisibleIndex = 0
+        '
+        'colCANTIDAD_FIRMAS
+        '
+        Me.colCANTIDAD_FIRMAS.FieldName = "CANTIDAD_FIRMAS"
+        Me.colCANTIDAD_FIRMAS.Name = "colCANTIDAD_FIRMAS"
+        Me.colCANTIDAD_FIRMAS.Visible = True
+        Me.colCANTIDAD_FIRMAS.VisibleIndex = 1
         '
         'GridView3
         '
@@ -464,53 +440,77 @@ Partial Class XfrmJerarquico
         Me.colESTADO.Visible = True
         Me.colESTADO.VisibleIndex = 5
         '
-        'GridView1
+        'JrPartidosPoliticosTableAdapter
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_PARTIDO, Me.colNOMBRE, Me.colCANTIDAD_FIRMAS})
-        Me.GridView1.DetailHeight = 100000
-        Me.GridView1.GridControl = Me.GridControl1
-        Me.GridView1.Name = "GridView1"
-        Me.GridView1.OptionsView.ShowGroupPanel = False
+        Me.JrPartidosPoliticosTableAdapter.ClearBeforeFill = True
         '
-        'colCODIGO_PARTIDO
+        'JrMovimientosTableAdapter
         '
-        Me.colCODIGO_PARTIDO.FieldName = "CODIGO_PARTIDO"
-        Me.colCODIGO_PARTIDO.Name = "colCODIGO_PARTIDO"
+        Me.JrMovimientosTableAdapter.ClearBeforeFill = True
         '
-        'colNOMBRE
+        'JrNivelesElectivosTableAdapter
         '
-        Me.colNOMBRE.FieldName = "NOMBRE"
-        Me.colNOMBRE.Name = "colNOMBRE"
-        Me.colNOMBRE.Visible = True
-        Me.colNOMBRE.VisibleIndex = 0
+        Me.JrNivelesElectivosTableAdapter.ClearBeforeFill = True
         '
-        'colCANTIDAD_FIRMAS
+        'JrCargosElectivosTableAdapter
         '
-        Me.colCANTIDAD_FIRMAS.FieldName = "CANTIDAD_FIRMAS"
-        Me.colCANTIDAD_FIRMAS.Name = "colCANTIDAD_FIRMAS"
-        Me.colCANTIDAD_FIRMAS.Visible = True
-        Me.colCANTIDAD_FIRMAS.VisibleIndex = 1
+        Me.JrCargosElectivosTableAdapter.ClearBeforeFill = True
+        '
+        'JrDepartamentosTableAdapter
+        '
+        Me.JrDepartamentosTableAdapter.ClearBeforeFill = True
+        '
+        'JrMunicipiosTableAdapter
+        '
+        Me.JrMunicipiosTableAdapter.ClearBeforeFill = True
+        '
+        'JrCandidatosTableAdapter
+        '
+        Me.JrCandidatosTableAdapter.ClearBeforeFill = True
+        '
+        'FlowLayoutPanel1
+        '
+        Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.Transparent
+        Me.FlowLayoutPanel1.Controls.Add(Me.btnSalir)
+        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1284, 64)
+        Me.FlowLayoutPanel1.TabIndex = 0
+        '
+        'btnSalir
+        '
+        Me.btnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.btnSalir.Appearance.Options.UseFont = True
+        Me.btnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
+        Me.btnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.btnSalir.Location = New System.Drawing.Point(3, 3)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(55, 55)
+        Me.btnSalir.TabIndex = 10
+        Me.btnSalir.TabStop = False
+        Me.btnSalir.Text = "Salir"
         '
         'XfrmJerarquico
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1369, 854)
+        Me.ClientSize = New System.Drawing.Size(1284, 854)
         Me.Controls.Add(Me.GridControl1)
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Name = "XfrmJerarquico"
         Me.Text = "Consulta Jerárquica de Candidatos"
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.JrPartidosPoliticosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DSConsultas, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.FlowLayoutPanel1.ResumeLayout(False)
-        CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView7, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
