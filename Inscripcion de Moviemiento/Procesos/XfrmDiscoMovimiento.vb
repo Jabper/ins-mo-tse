@@ -64,11 +64,27 @@ Public Class XfrmDiscoMovimiento
                         My.Computer.FileSystem.CopyDirectory(Application.StartupPath.ToString & "\CSIM", TxtRuta.Text & "\Archivos de Instalacion\", True)
                         If comprobararchivos() Then
                             'ejecutar(datapump)
-                            If File.Exists("C:\oraclexe\app\oracle\admin\XE\dpdump\exp_tse.dmp") Then
+
+                            Dim oradb8 As String = Configuracion.verconfig
+                            Dim conn8 As New OracleConnection()
+                            conn8.ConnectionString = oradb8
+                            conn8.Open()
+                            Dim dpdump As String
+
+                            Dim sql8 As String = "select directory_path from dba_directories where directory_name = 'DATA_PUMP_DIR'"
+                            Dim cmd8 As New OracleCommand(sql8, conn8)
+                            cmd8.CommandType = CommandType.Text
+                            Dim chek8 As OracleDataReader = cmd8.ExecuteReader()
+                            If chek8.Read Then
+                                dpdump = chek8.Item("directory_path")
+                            End If
+                            conn8.Close()
+
+                            If File.Exists(dpdump & "exp_tse.dmp") Then
                                 Try
-                                    File.Delete("C:\oraclexe\app\oracle\admin\XE\dpdump\exp_tse.dmp")
+                                    File.Delete(dpdump & "exp_tse.dmp")
                                 Catch ex As Exception
-                                    MsgBox("Error al generar archivos de la base de datos. Borre el archivo exp_tse.dmp que se encuentra en: C:\oraclexe\app\oracle\admin\XE\dpdump\ y vuelva a generar el Disco")
+                                    MsgBox("Error al generar archivos de la base de datos. Borre el archivo exp_tse.dmp que se encuentra en: " & dpdump & " y vuelva a generar el Disco")
                                 End Try
                             End If
                             Try
@@ -110,8 +126,8 @@ Public Class XfrmDiscoMovimiento
                                 Exit Sub
                             End Try
 
-                            If File.Exists("C:\oraclexe\app\oracle\admin\XE\dpdump\exp_tse.dmp") Then
-                                System.IO.File.Copy("C:\oraclexe\app\oracle\admin\XE\dpdump\exp_tse.dmp", TxtRuta.Text & "\Archivos de Instalacion\Aplicación\Componentes\exp_tse.dmp", True)
+                            If File.Exists(dpdump & "exp_tse.dmp") Then
+                                System.IO.File.Copy(dpdump & "exp_tse.dmp", TxtRuta.Text & "\Archivos de Instalacion\Aplicación\Componentes\exp_tse.dmp", True)
                             Else
                                 MsgBox("No se ha encontrado el archivo de la Base de Datos")
                                 Dim oradb3 As String = Configuracion.verconfig

@@ -62,17 +62,35 @@ Public Class XfrmSubirRespaldo
             'End If
             'conn1.Close()
             mensaje = "OK"
+            Dim oradb8 As String = Configuracion.verconfig
+            Dim conn8 As New OracleConnection()
+            conn8.ConnectionString = oradb8
+            conn8.Open()
+            Dim dpdump As String
+
+            Dim sql8 As String = "select directory_path from dba_directories where directory_name = 'DATA_PUMP_DIR'"
+            Dim cmd8 As New OracleCommand(sql8, conn8)
+            cmd8.CommandType = CommandType.Text
+            Dim chek8 As OracleDataReader = cmd8.ExecuteReader()
+            If chek8.Read Then
+                dpdump = chek8.Item("directory_path")
+            End If
+            conn8.Close()
+
             If Trim(mensaje) = "OK" Then
-                If File.Exists("C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo) Then
+                mensaje = "error"
+                If File.Exists(dpdump & archivo) Then
                     Try
-                        System.IO.File.Delete("C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo)
-                        System.IO.File.Copy(TxtRuta.Text, "C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo, True)
+                        System.IO.File.Delete(dpdump & archivo)
+                        System.IO.File.Copy(TxtRuta.Text, dpdump & archivo, True)
+                        mensaje = "OK"
                     Catch ex As Exception
                         MsgBox("Error al copiar el archivo DMP")
                     End Try
                 Else
                     Try
-                        System.IO.File.Copy(TxtRuta.Text, "C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo, True)
+                        System.IO.File.Copy(TxtRuta.Text, dpdump & archivo, True)
+                        mensaje = "OK"
                     Catch ex As Exception
                         MsgBox("Error al copiar el archivo DMP")
                     End Try
@@ -209,7 +227,7 @@ Public Class XfrmSubirRespaldo
                 MsgBox("Error: " & mensaje, MsgBoxStyle.Information)
             End If
             conn3.Close()
-            End If
+        End If
     End Sub
 
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click

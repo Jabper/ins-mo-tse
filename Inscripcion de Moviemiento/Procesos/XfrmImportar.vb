@@ -34,11 +34,26 @@ Public Class XfrmImportar
             conn.Close()
 
             If proceso_corriendo = "N" Then
-                If File.Exists("C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo) Then
-                    System.IO.File.Delete("C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo)
-                    System.IO.File.Copy(TxtRuta.Text, "C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo, True)
+                Dim oradb8 As String = Configuracion.verconfig
+                Dim conn8 As New OracleConnection()
+                conn8.ConnectionString = oradb8
+                conn8.Open()
+                Dim dpdump As String
+
+                Dim sql8 As String = "select directory_path from dba_directories where directory_name = 'DATA_PUMP_DIR'"
+                Dim cmd8 As New OracleCommand(sql8, conn8)
+                cmd8.CommandType = CommandType.Text
+                Dim chek8 As OracleDataReader = cmd8.ExecuteReader()
+                If chek8.Read Then
+                    dpdump = chek8.Item("directory_path")
+                End If
+                conn8.Close()
+
+                If File.Exists(dpdump & archivo) Then
+                    System.IO.File.Delete(dpdump & archivo)
+                    System.IO.File.Copy(TxtRuta.Text, dpdump & archivo, True)                    
                 Else
-                    System.IO.File.Copy(TxtRuta.Text, "C:\oraclexe\app\oracle\admin\XE\dpdump\" & archivo, True)
+                    System.IO.File.Copy(TxtRuta.Text, dpdump & archivo, True)
                 End If
                 Try
                     Dim oradb1 As String = Configuracion.verconfig
@@ -89,7 +104,7 @@ Public Class XfrmImportar
                                 'waitDialog.Caption = "finalizando..."
                                 'waitDialog.Close()
                                 Mensajes.MensajeError(ex.Message)
-                            End Try                            
+                            End Try
 
                             If Trim(mensaje) = "OK" Then
                                 Dim oradb5 As String = Configuracion.verconfig
@@ -140,6 +155,7 @@ Public Class XfrmImportar
                             End If
 
                             If Trim(mensaje) = "OK" Then
+                                System.Threading.Thread.Sleep(2000)
                                 Dim oradb7 As String = Configuracion.verconfig
                                 'Dim conn7 As New OracleConnection()
                                 conn7.ConnectionString = oradb7
@@ -189,7 +205,7 @@ Public Class XfrmImportar
                 Mensajes.MensajeError("Actualmente se encuentra corriendo un proceso... Favor esperar a que el proceso actual Termine")
                 Exit Sub
             End If
-        End If
+            End If
     End Sub
 
     Private Sub OpenFileDialog1_FileOk(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles OpenFileDialog1.FileOk
