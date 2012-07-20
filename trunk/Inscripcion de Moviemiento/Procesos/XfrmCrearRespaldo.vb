@@ -16,9 +16,25 @@ Public Class XfrmCrearRespaldo
         If TxtRuta.Text = Nothing Then
             Mensajes.MensajeError("Debe seleccionar una ruta para la ubicación del archivo de exportación")
         Else
-            If File.Exists("C:\oraclexe\app\oracle\admin\XE\dpdump\Respaldo.dmp") Then
+
+            Dim oradb8 As String = Configuracion.verconfig
+            Dim conn8 As New OracleConnection()
+            conn8.ConnectionString = oradb8
+            conn8.Open()
+            Dim dpdump As String
+
+            Dim sql8 As String = "select directory_path from dba_directories where directory_name = 'DATA_PUMP_DIR'"
+            Dim cmd8 As New OracleCommand(sql8, conn8)
+            cmd8.CommandType = CommandType.Text
+            Dim chek8 As OracleDataReader = cmd8.ExecuteReader()
+            If chek8.Read Then
+                dpdump = chek8.Item("directory_path")
+            End If
+            conn8.Close()
+
+            If File.Exists(dpdump & "Respaldo.dmp") Then
                 Try
-                    System.IO.File.Delete("C:\oraclexe\app\oracle\admin\XE\dpdump\Respaldo.dmp")
+                    System.IO.File.Delete(dpdump & "Respaldo.dmp")
                 Catch ex As Exception
                     MsgBox(ex.Message)
                 End Try
@@ -32,9 +48,9 @@ Public Class XfrmCrearRespaldo
                 pStart.Start()
                 pStart.WaitForExit()
                 If pStart.ExitCode = 0 Then
-                    If File.Exists("C:\oraclexe\app\oracle\admin\XE\dpdump\Respaldo.dmp") Then
+                    If File.Exists(dpdump & "Respaldo.dmp") Then
                         Try
-                            System.IO.File.Copy("C:\oraclexe\app\oracle\admin\XE\dpdump\Respaldo.dmp", TxtRuta.Text & "\Respaldo.dmp", True)
+                            System.IO.File.Copy(dpdump & "Respaldo.dmp", TxtRuta.Text & "\Respaldo.dmp", True)
                             MsgBox("El Respaldo ha Terminado Satisfactoriamente", MsgBoxStyle.Information)
                         Catch ex As Exception
                             MsgBox("El Respaldo No se ha realizado Correctamente", MsgBoxStyle.Exclamation)
@@ -46,7 +62,7 @@ Public Class XfrmCrearRespaldo
             Catch ex As Exception
                 Mensajes.MensajeError(ex.Message)
                 Exit Sub
-            End Try            
+            End Try
         End If
     End Sub
 

@@ -36,9 +36,25 @@ Public Class XfrmExportar
             conn.Close()
 
             If Trim(mensaje) = "OK" Then
-                If File.Exists("C:\oraclexe\app\oracle\admin\XE\dpdump\Firmas_y_Planilla.dmp") Then
+
+                Dim oradb8 As String = Configuracion.verconfig
+                Dim conn8 As New OracleConnection()
+                conn8.ConnectionString = oradb8
+                conn8.Open()
+                Dim dpdump As String
+
+                Dim sql8 As String = "select directory_path from dba_directories where directory_name = 'DATA_PUMP_DIR'"
+                Dim cmd8 As New OracleCommand(sql8, conn8)
+                cmd8.CommandType = CommandType.Text
+                Dim chek8 As OracleDataReader = cmd8.ExecuteReader()
+                If chek8.Read Then
+                    dpdump = chek8.Item("directory_path")
+                End If
+                conn8.Close()
+
+                If File.Exists(dpdump & "Firmas_y_Planilla.dmp") Then
                     Try
-                        System.IO.File.Delete("C:\oraclexe\app\oracle\admin\XE\dpdump\Firmas_y_Planilla.dmp")
+                        System.IO.File.Delete(dpdump & "Firmas_y_Planilla.dmp")
                     Catch ex As Exception
                         MsgBox(ex.Message)
                     End Try
@@ -64,8 +80,8 @@ Public Class XfrmExportar
                     Exit Sub
                 End Try
 
-                If File.Exists("C:\oraclexe\app\oracle\admin\XE\dpdump\Firmas_y_Planilla.dmp") Then
-                    System.IO.File.Copy("C:\oraclexe\app\oracle\admin\XE\dpdump\Firmas_y_Planilla.dmp", TxtRuta.Text & "\Firmas_y_Planilla.dmp", True)
+                If File.Exists(dpdump & "Firmas_y_Planilla.dmp") Then
+                    System.IO.File.Copy(dpdump & "Firmas_y_Planilla.dmp", TxtRuta.Text & "\Firmas_y_Planilla.dmp", True)
                 End If
 
                 Dim oradb1 As String = Configuracion.verconfig
