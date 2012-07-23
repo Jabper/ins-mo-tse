@@ -446,7 +446,10 @@ Public Class XfrmConsultaFirmas
 
         Me.ChkDepto.CheckState = CheckState.Unchecked
         Me.ChkMuni.CheckState = CheckState.Unchecked
-
+        Me.txtidentidad.Text = ""
+        Me.txtpagina.Text = ""
+        Me.txtfolio.Text = ""
+        Me.CmbFiltro.Text = "Ninguno"
     End Sub
 
     Private Sub SimpleButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEliminar.Click

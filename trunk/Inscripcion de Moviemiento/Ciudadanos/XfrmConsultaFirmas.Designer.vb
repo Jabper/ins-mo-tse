@@ -70,6 +70,7 @@ Partial Class XfrmConsultaFirmas
         Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.PanelControl3 = New DevExpress.XtraEditors.PanelControl
+        Me.SimpleButton6 = New DevExpress.XtraEditors.SimpleButton
         Me.LabelControl16 = New DevExpress.XtraEditors.LabelControl
         Me.CmbMovimiento = New DevExpress.XtraEditors.LookUpEdit
         Me.TAMOVIMIENTOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -123,7 +124,6 @@ Partial Class XfrmConsultaFirmas
         Me.IM_V_MOSTRAR_FIRMASTableAdapter = New Inscripcion_de_Moviemientos.DSCiudadanosTableAdapters.IM_V_MOSTRAR_FIRMASTableAdapter
         Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.AgregarRegistroAConEsteNumeroDeFolioYPaginaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.SimpleButton6 = New DevExpress.XtraEditors.SimpleButton
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -690,6 +690,17 @@ Partial Class XfrmConsultaFirmas
         Me.PanelControl3.Size = New System.Drawing.Size(779, 228)
         Me.PanelControl3.TabIndex = 17
         '
+        'SimpleButton6
+        '
+        Me.SimpleButton6.Appearance.Options.UseTextOptions = True
+        Me.SimpleButton6.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.SimpleButton6.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._1340052028_system_software_update
+        Me.SimpleButton6.Location = New System.Drawing.Point(215, 169)
+        Me.SimpleButton6.Name = "SimpleButton6"
+        Me.SimpleButton6.Size = New System.Drawing.Size(96, 36)
+        Me.SimpleButton6.TabIndex = 60
+        Me.SimpleButton6.Text = "Actualizar"
+        '
         'LabelControl16
         '
         Me.LabelControl16.Location = New System.Drawing.Point(14, 208)
@@ -1126,17 +1137,6 @@ Partial Class XfrmConsultaFirmas
         Me.AgregarRegistroAConEsteNumeroDeFolioYPaginaToolStripMenuItem.Name = "AgregarRegistroAConEsteNumeroDeFolioYPaginaToolStripMenuItem"
         Me.AgregarRegistroAConEsteNumeroDeFolioYPaginaToolStripMenuItem.Size = New System.Drawing.Size(387, 22)
         Me.AgregarRegistroAConEsteNumeroDeFolioYPaginaToolStripMenuItem.Text = "Agregar nuevo registro a con este número de folio y página"
-        '
-        'SimpleButton6
-        '
-        Me.SimpleButton6.Appearance.Options.UseTextOptions = True
-        Me.SimpleButton6.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.SimpleButton6.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._1340052028_system_software_update
-        Me.SimpleButton6.Location = New System.Drawing.Point(215, 169)
-        Me.SimpleButton6.Name = "SimpleButton6"
-        Me.SimpleButton6.Size = New System.Drawing.Size(96, 36)
-        Me.SimpleButton6.TabIndex = 60
-        Me.SimpleButton6.Text = "Actualizar"
         '
         'XfrmConsultaFirmas
         '
