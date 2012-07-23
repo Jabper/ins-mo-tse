@@ -582,20 +582,18 @@ Public Class xfrmRegCandidatos
     Private Sub xfrmRegCandidatos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
 
+            DxControls.ObtenerCredencial("BtnCandidatos", "ELIMINAR", Me.BtnEliminar)
+        Catch ex As Exception
+
+        End Try
+
+
+        Try
             Me.MdiParent = XFrmMenuPrincipal
-            'TryCast(Me.GCBusqueda.ViewCollection(0), DevExpress.XtraGrid.Views.Grid.GridView).Columns("CONS_VECINDAD_IMG").AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-            'TryCast(Me.GCBusqueda.ViewCollection(0), DevExpress.XtraGrid.Views.Grid.GridView).Columns("CONS_VECINDAD").AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
 
             limpiar()
 
-
-            ' Me.IM_V_MOSTRAR_CANDIDATOS2TableAdapter.Fill(Me.DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2)
-            'TODO: This line of code loads data into the 'DSInsCandidatos.IM_CARGOS_ELECTIVOS' table. You can move, or remove it, as needed.
             Me.IM_CARGOS_ELECTIVOSTableAdapter.Fill(Me.DSInsCandidatos.IM_CARGOS_ELECTIVOS)
-
-
-            'TODO: This line of code loads data into the 'DSInsCandidatos.IM_PARTIDOS_POLITICOS' table. You can move, or remove it, as needed.
-            'Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSInsCandidatos.IM_PARTIDOS_POLITICOS)
 
             Me.IM_MUNICIPIOSTableAdapter.Fill(Me.DSInsCandidatos.IM_MUNICIPIOS, 0)
             'TODO: This line of code loads data into the 'DSInsCandidatos.IM_DEPARTAMENTOS' table. You can move, or remove it, as needed.
@@ -1411,7 +1409,14 @@ Public Class xfrmRegCandidatos
                     guardar(e.RowHandle)
                 End If
             ElseIf _row.RowState = DataRowState.Unchanged Or permitir_up = 1 Then
-                Actualizar(e.RowHandle)
+                Dim credencial As String = COracle.credenciales("BtnCandidatos", "MODIFICAR")
+                If credencial = "N" Then
+                    Mensajes.mimensaje("Usuario no tiene Permiso Para Modificar")
+                    Validarleyendas()
+                ElseIf credencial = "S" Then
+                    Actualizar(e.RowHandle)
+                End If
+
             End If
 
                 'If _row.RowState = DataRowState.Added And permitir_up = 0 Then
@@ -1519,4 +1524,7 @@ Public Class xfrmRegCandidatos
         Validarleyendas()
     End Sub
 
+    Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
+
+    End Sub
 End Class
