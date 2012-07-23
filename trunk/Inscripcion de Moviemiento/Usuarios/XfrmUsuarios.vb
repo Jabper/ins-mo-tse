@@ -143,6 +143,8 @@ Public Class XfrmUsuarios
 
 
                 If actualizar = True Then
+                    borraropciones()
+                    asignarroles()
                     Mensajes.MensajeActualizar()
                     actualizar = False
                 Else
@@ -233,7 +235,9 @@ Public Class XfrmUsuarios
     Private Sub CODIGO_PARTIDOSpinEdit_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CODIGO_PARTIDOSpinEdit.TextChanged
        
     End Sub
-
+    Sub borraropciones()
+        COracle.ejecutarconsulta("delete from im_operaciones_x_usuario where codigo_usuario='" & CODIGO_USUARIOSpinEdit.Text & "'")
+    End Sub
 
     Sub asignarroles()
         Try
