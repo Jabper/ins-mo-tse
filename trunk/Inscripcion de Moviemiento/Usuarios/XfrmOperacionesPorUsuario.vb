@@ -5,6 +5,12 @@ Public Class XfrmOperacionesPorUsuario
     Dim actualizar As Boolean = False
     Dim idcodigo As String
     Dim iduser As String
+    Sub setchek()
+        ChkModificar.CheckState = CheckState.Unchecked
+        ChkEliminar.CheckState = CheckState.Unchecked
+        ChkInsertar.CheckState = CheckState.Unchecked
+
+    End Sub
     Private Sub XfrmOperacionesPorUsuario_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'DTUsuario.DT_OPERACIONES' table. You can move, or remove it, as needed.
 
@@ -25,7 +31,7 @@ Public Class XfrmOperacionesPorUsuario
         End If
         DxControls.ObtenerCredencial("BtnOperacionesUsuarios", "INSERTAR", Me.BtnNuevo)
         DxControls.ObtenerCredencial("BtnOperacionesUsuarios", "ELIMINAR", Me.BtnEliminar)
-
+        setchek()
     End Sub
 
 
@@ -35,6 +41,7 @@ Public Class XfrmOperacionesPorUsuario
             Me.IMOPERACIONESXUSUARIOBindingSource.AddNew()
             actualizar = False
             Me.BtnEliminar.Enabled = False
+            setchek()
         Catch ex As Exception
             Mensajes.mimensaje(ex.Message)
         End Try
@@ -74,6 +81,7 @@ Public Class XfrmOperacionesPorUsuario
             End If
             Me.IMOPERACIONESXUSUARIOBindingSource.AddNew()
             actualizar = False
+            setchek()
         Catch ex As Exception
             'CONTROL DE ERRORES
             Mensajes.MensajeError(ex.Message)
