@@ -215,7 +215,7 @@ Public Class XfrmCiudadanos
         Me.TA_DEPARTAMENTOSTableAdapter.Fill(Me.DSDeptoMuni.TA_DEPARTAMENTOS)
         Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
         Estado.OptionsColumn.AllowEdit = False
-
+        DxControls.ObtenerCredencial("BtnFirmas", "INSERTAR", Me.BtnGuardar)
     End Sub
 
     Sub establecer()

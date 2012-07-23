@@ -202,6 +202,7 @@ Public Class XFrmMenuPrincipal
     End Sub
 
     Private Sub BtnFirmas_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnFirmas.ItemClick
+
         Dim filas As Object = New XfrmFilas
         filas.ShowDialog(Me)
     End Sub

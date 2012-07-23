@@ -68,13 +68,12 @@
 
 
     Private Sub XfrmFilas_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
         'TODO: This line of code loads data into the 'DSPolitico.TA_PARTIDOS_POLITICOS' table. You can move, or remove it, as needed.
         Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
 
         Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
         Me.TA_DEPARTAMENTOSTableAdapter.NoCeros(Me.DSDeptoMuni.TA_DEPARTAMENTOS)
-
-
 
       
         ActivarFiltros()
