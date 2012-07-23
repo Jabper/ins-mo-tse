@@ -177,11 +177,11 @@ Public Class XfrmConsultaFirmas
         End Try
 
         Try
-            If COracle.credenciales("BtnNivelesElectivos", "MODIFICAR") = "N" And COracle.credenciales("BtnNivelesElectivos", "INSERTAR") = "N" Then
-                DxControls.ObtenerCredencial("BtnNivelesElectivos", "MODIFICAR", Me.BtnUpdate)
+            If COracle.credenciales("BtnModificarFirmas", "MODIFICAR") = "N" Then
+                DxControls.ObtenerCredencial("BtnModificarFirmas", "MODIFICAR", Me.BtnUpdate)
             End If
 
-            DxControls.ObtenerCredencial("BtnNivelesElectivos", "ELIMINAR", Me.BtnEliminar)
+            DxControls.ObtenerCredencial("BtnModificarFirmas", "ELIMINAR", Me.BtnEliminar)
         Catch ex As Exception
 
         End Try
@@ -840,6 +840,24 @@ Public Class XfrmConsultaFirmas
 
         End If
 
+
+    End Sub
+
+    Private Sub txtfolio_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtfolio.EditValueChanged
+
+    End Sub
+
+    Private Sub txtfolio_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtfolio.KeyPress
+        VControles.solonumeros(e)
+    End Sub
+
+    
+
+    Private Sub txtpagina_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtpagina.KeyPress
+        VControles.solonumeros(e)
+    End Sub
+
+    Private Sub txtidentidad_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtidentidad.EditValueChanged
 
     End Sub
 End Class

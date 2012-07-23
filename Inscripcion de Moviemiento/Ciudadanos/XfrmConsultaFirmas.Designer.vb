@@ -501,9 +501,9 @@ Partial Class XfrmConsultaFirmas
         Me.PanelControl2.Controls.Add(Me.LabelControl7)
         Me.PanelControl2.Controls.Add(Me.LabelControl8)
         Me.PanelControl2.Controls.Add(Me.PictureEdit1)
-        Me.PanelControl2.Location = New System.Drawing.Point(12, 625)
+        Me.PanelControl2.Location = New System.Drawing.Point(12, 626)
         Me.PanelControl2.Name = "PanelControl2"
-        Me.PanelControl2.Size = New System.Drawing.Size(775, 113)
+        Me.PanelControl2.Size = New System.Drawing.Size(775, 112)
         Me.PanelControl2.TabIndex = 15
         '
         'lbltodos
@@ -1017,11 +1017,11 @@ Partial Class XfrmConsultaFirmas
         '
         Me.EmptySpaceItem3.AllowHotTrack = False
         Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Location = New System.Drawing.Point(779, 613)
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(779, 614)
         Me.EmptySpaceItem3.MaxSize = New System.Drawing.Size(29, 0)
         Me.EmptySpaceItem3.MinSize = New System.Drawing.Size(29, 10)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Size = New System.Drawing.Size(29, 117)
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(29, 116)
         Me.EmptySpaceItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem3.Text = "EmptySpaceItem3"
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
@@ -1055,9 +1055,9 @@ Partial Class XfrmConsultaFirmas
         '
         Me.LayoutControlItem3.Control = Me.PanelControl2
         Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 613)
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 614)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(779, 117)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(779, 116)
         Me.LayoutControlItem3.Text = "LayoutControlItem3"
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextToControlDistance = 0
@@ -1069,7 +1069,7 @@ Partial Class XfrmConsultaFirmas
         Me.SplitterItem2.CustomizationFormText = "SplitterItem2"
         Me.SplitterItem2.Location = New System.Drawing.Point(0, 608)
         Me.SplitterItem2.Name = "SplitterItem2"
-        Me.SplitterItem2.Size = New System.Drawing.Size(808, 5)
+        Me.SplitterItem2.Size = New System.Drawing.Size(808, 6)
         '
         'LayoutControlItem1
         '

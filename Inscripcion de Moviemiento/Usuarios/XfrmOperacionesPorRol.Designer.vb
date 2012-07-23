@@ -300,6 +300,7 @@ Partial Class XfrmOperacionesPorRol
         Me.ChkEliminar.Name = "ChkEliminar"
         Me.ChkEliminar.Properties.Caption = "Eliminar"
         Me.ChkEliminar.Properties.ValueChecked = "S"
+        Me.ChkEliminar.Properties.ValueGrayed = "N"
         Me.ChkEliminar.Properties.ValueUnchecked = "N"
         Me.ChkEliminar.Size = New System.Drawing.Size(75, 19)
         Me.ChkEliminar.TabIndex = 2
@@ -316,6 +317,7 @@ Partial Class XfrmOperacionesPorRol
         Me.ChkModificar.Name = "ChkModificar"
         Me.ChkModificar.Properties.Caption = "Modificar"
         Me.ChkModificar.Properties.ValueChecked = "S"
+        Me.ChkModificar.Properties.ValueGrayed = "N"
         Me.ChkModificar.Properties.ValueUnchecked = "N"
         Me.ChkModificar.Size = New System.Drawing.Size(75, 19)
         Me.ChkModificar.TabIndex = 1
@@ -327,6 +329,7 @@ Partial Class XfrmOperacionesPorRol
         Me.ChkInsertar.Name = "ChkInsertar"
         Me.ChkInsertar.Properties.Caption = "Insertar"
         Me.ChkInsertar.Properties.ValueChecked = "S"
+        Me.ChkInsertar.Properties.ValueGrayed = "N"
         Me.ChkInsertar.Properties.ValueUnchecked = "N"
         Me.ChkInsertar.Size = New System.Drawing.Size(75, 19)
         Me.ChkInsertar.TabIndex = 0

@@ -9,7 +9,12 @@ Public Class XfrmOperacionesPorRol
         Me.IM_ROLESTableAdapter.Fill(Me.DTUsers.IM_ROLES)
         Me.IM_OPCIONESTableAdapter.Fill(Me.DTUsers.IM_OPCIONES)
     End Sub
+    Sub setchek()
+        ChkModificar.CheckState = CheckState.Unchecked
+        ChkEliminar.CheckState = CheckState.Unchecked
+        ChkInsertar.CheckState = CheckState.Unchecked
 
+    End Sub
     Private Sub XfrmOperacionesPorRol_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.IM_ROLESTableAdapter.Fill(Me.DTUsers.IM_ROLES)
         Me.IM_OPCIONESTableAdapter.Fill(Me.DTUsers.IM_OPCIONES)
@@ -26,7 +31,7 @@ Public Class XfrmOperacionesPorRol
         End If
         DxControls.ObtenerCredencial("BtnOperaciones", "INSERTAR", Me.BtnNuevo)
         DxControls.ObtenerCredencial("BtnOperaciones", "ELIMINAR", Me.BtnEliminar)
-
+        setchek()
     End Sub
 
     Sub Nuevo()
@@ -38,6 +43,7 @@ Public Class XfrmOperacionesPorRol
         Catch ex As Exception
             Mensajes.mimensaje(ex.Message)
         End Try
+        setchek()
     End Sub
 
     Sub guardar()
@@ -74,6 +80,7 @@ Public Class XfrmOperacionesPorRol
             End If
             Me.IMOPERACIONESPORROLBindingSource.AddNew()
             actualizar = False
+            setchek()
         Catch ex As Exception
             'CONTROL DE ERRORES
             Mensajes.MensajeError(ex.Message)
