@@ -1403,10 +1403,17 @@ Public Class xfrmRegCandidatos
 
             Dim _row = CType(DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2.Rows(IMVMOSTRARCANDIDATOS2BindingSource.Position), DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2Row)
             If _row.RowState = DataRowState.Added Then
-                If (Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7 Or Me.cboCargo.EditValue = 8) And (Me.cboDepartamento.EditValue = 0 Or Me.cboMunicipio.EditValue = 0) Then
-                    Mensajes.MensajeError("Seleccione el Departamento y/o Municipio")
-                Else
-                    guardar(e.RowHandle)
+                Dim credencial As String = COracle.credenciales("BtnCandidatos", "INSERTAR")
+                If credencial = "N" Then
+                    Mensajes.mimensaje("Usuario no tiene Permiso Para Insertar")
+                    Validarleyendas()
+                ElseIf credencial = "S" Then
+
+                    If (Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7 Or Me.cboCargo.EditValue = 8) And (Me.cboDepartamento.EditValue = 0 Or Me.cboMunicipio.EditValue = 0) Then
+                        Mensajes.MensajeError("Seleccione el Departamento y/o Municipio")
+                    Else
+                        guardar(e.RowHandle)
+                    End If
                 End If
             ElseIf _row.RowState = DataRowState.Unchanged Or permitir_up = 1 Then
                 Dim credencial As String = COracle.credenciales("BtnCandidatos", "MODIFICAR")
