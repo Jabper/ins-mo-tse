@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_REGISTRO_IMPORTACIONES_1" targetNamespace="http://tempuri.org/DS_REGISTRO_IMPORTACIONES_1.xsd" xmlns:mstns="http://tempuri.org/DS_REGISTRO_IMPORTACIONES_1.xsd" xmlns="http://tempuri.org/DS_REGISTRO_IMPORTACIONES_1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (MySettings)" PropertyReference="ApplicationSettings.Inscripcion_de_Moviemientos.My.MySettings.GlobalReference.Default.ConnectionString" Provider="System.Data.OracleClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="IM_REGISTRO_IMPORTACIONESTableAdapter" GeneratorDataComponentClassName="IM_REGISTRO_IMPORTACIONESTableAdapter" Name="IM_REGISTRO_IMPORTACIONES" UserDataComponentName="IM_REGISTRO_IMPORTACIONESTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="TSE.IM_V_REGISTRO_IMPOR_1" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        FECHA_ADICION, HORA_ADICION, NOMBRE_ARCHIVO, "Tarchivo", CODIGO_PARTIDO, CODIGO_MOVIMIENTO, CANTIDAD_CANDIDATOS, CANTIDAD_FIRMAS, 
+                         CANTIDAD_FOTOS, CANTIDAD_CONSTANCIAS, CANTIDAD_IMAGENES_FIRMAS, ADICIONADO_POR, DESC_PARTIDO, DESC_MOVIMIENTO, PARTIDO, 
+                         MOVIMIENTO
+FROM            IM_V_REGISTRO_IMPOR_1</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="FECHA_ADICION" DataSetColumn="FECHA_ADICION" />
+              <Mapping SourceColumn="HORA_ADICION" DataSetColumn="HORA_ADICION" />
+              <Mapping SourceColumn="NOMBRE_ARCHIVO" DataSetColumn="NOMBRE_ARCHIVO" />
+              <Mapping SourceColumn="TAMA?O_ARCHIVO" DataSetColumn="TAMA?O_ARCHIVO" />
+              <Mapping SourceColumn="CODIGO_PARTIDO" DataSetColumn="CODIGO_PARTIDO" />
+              <Mapping SourceColumn="CODIGO_MOVIMIENTO" DataSetColumn="CODIGO_MOVIMIENTO" />
+              <Mapping SourceColumn="CANTIDAD_CANDIDATOS" DataSetColumn="CANTIDAD_CANDIDATOS" />
+              <Mapping SourceColumn="CANTIDAD_FIRMAS" DataSetColumn="CANTIDAD_FIRMAS" />
+              <Mapping SourceColumn="CANTIDAD_FOTOS" DataSetColumn="CANTIDAD_FOTOS" />
+              <Mapping SourceColumn="CANTIDAD_CONSTANCIAS" DataSetColumn="CANTIDAD_CONSTANCIAS" />
+              <Mapping SourceColumn="CANTIDAD_IMAGENES_FIRMAS" DataSetColumn="CANTIDAD_IMAGENES_FIRMAS" />
+              <Mapping SourceColumn="ADICIONADO_POR" DataSetColumn="ADICIONADO_POR" />
+              <Mapping SourceColumn="DESC_PARTIDO" DataSetColumn="DESC_PARTIDO" />
+              <Mapping SourceColumn="DESC_MOVIMIENTO" DataSetColumn="DESC_MOVIMIENTO" />
+              <Mapping SourceColumn="PARTIDO" DataSetColumn="PARTIDO" />
+              <Mapping SourceColumn="MOVIMIENTO" DataSetColumn="MOVIMIENTO" />
+              <Mapping SourceColumn="Tarchivo" DataSetColumn="Tarchivo" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_REGISTRO_IMPORTACIONES_1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DS_REGISTRO_IMPORTACIONES_1" msprop:Generator_DataSetName="DS_REGISTRO_IMPORTACIONES_1" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="IM_REGISTRO_IMPORTACIONES" msprop:Generator_UserTableName="IM_REGISTRO_IMPORTACIONES" msprop:Generator_RowDeletedName="IM_REGISTRO_IMPORTACIONESRowDeleted" msprop:Generator_RowChangedName="IM_REGISTRO_IMPORTACIONESRowChanged" msprop:Generator_RowClassName="IM_REGISTRO_IMPORTACIONESRow" msprop:Generator_RowChangingName="IM_REGISTRO_IMPORTACIONESRowChanging" msprop:Generator_RowEvArgName="IM_REGISTRO_IMPORTACIONESRowChangeEvent" msprop:Generator_RowEvHandlerName="IM_REGISTRO_IMPORTACIONESRowChangeEventHandler" msprop:Generator_TableClassName="IM_REGISTRO_IMPORTACIONESDataTable" msprop:Generator_TableVarName="tableIM_REGISTRO_IMPORTACIONES" msprop:Generator_RowDeletingName="IM_REGISTRO_IMPORTACIONESRowDeleting" msprop:Generator_TablePropName="IM_REGISTRO_IMPORTACIONES">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FECHA_ADICION" msprop:Generator_UserColumnName="FECHA_ADICION" msprop:Generator_ColumnVarNameInTable="columnFECHA_ADICION" msprop:Generator_ColumnPropNameInRow="FECHA_ADICION" msprop:Generator_ColumnPropNameInTable="FECHA_ADICIONColumn" type="xs:dateTime" />
+              <xs:element name="HORA_ADICION" msprop:Generator_UserColumnName="HORA_ADICION" msprop:Generator_ColumnVarNameInTable="columnHORA_ADICION" msprop:Generator_ColumnPropNameInRow="HORA_ADICION" msprop:Generator_ColumnPropNameInTable="HORA_ADICIONColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NOMBRE_ARCHIVO" msprop:Generator_UserColumnName="NOMBRE_ARCHIVO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_ARCHIVO" msprop:Generator_ColumnPropNameInRow="NOMBRE_ARCHIVO" msprop:Generator_ColumnPropNameInTable="NOMBRE_ARCHIVOColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TAMA_x003F_O_ARCHIVO" msprop:Generator_UserColumnName="TAMA?O_ARCHIVO" msprop:Generator_ColumnVarNameInTable="_columnTAMA_O_ARCHIVO" msprop:Generator_ColumnPropNameInRow="_TAMA_O_ARCHIVO" msprop:Generator_ColumnPropNameInTable="_TAMA_O_ARCHIVOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODIGO_MOVIMIENTO" msprop:Generator_UserColumnName="CODIGO_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOVIMIENTOColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CANTIDAD_CANDIDATOS" msprop:Generator_UserColumnName="CANTIDAD_CANDIDATOS" msprop:Generator_ColumnVarNameInTable="columnCANTIDAD_CANDIDATOS" msprop:Generator_ColumnPropNameInRow="CANTIDAD_CANDIDATOS" msprop:Generator_ColumnPropNameInTable="CANTIDAD_CANDIDATOSColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CANTIDAD_FIRMAS" msprop:Generator_UserColumnName="CANTIDAD_FIRMAS" msprop:Generator_ColumnVarNameInTable="columnCANTIDAD_FIRMAS" msprop:Generator_ColumnPropNameInRow="CANTIDAD_FIRMAS" msprop:Generator_ColumnPropNameInTable="CANTIDAD_FIRMASColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CANTIDAD_FOTOS" msprop:Generator_UserColumnName="CANTIDAD_FOTOS" msprop:Generator_ColumnVarNameInTable="columnCANTIDAD_FOTOS" msprop:Generator_ColumnPropNameInRow="CANTIDAD_FOTOS" msprop:Generator_ColumnPropNameInTable="CANTIDAD_FOTOSColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CANTIDAD_CONSTANCIAS" msprop:Generator_UserColumnName="CANTIDAD_CONSTANCIAS" msprop:Generator_ColumnVarNameInTable="columnCANTIDAD_CONSTANCIAS" msprop:Generator_ColumnPropNameInRow="CANTIDAD_CONSTANCIAS" msprop:Generator_ColumnPropNameInTable="CANTIDAD_CONSTANCIASColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CANTIDAD_IMAGENES_FIRMAS" msprop:Generator_UserColumnName="CANTIDAD_IMAGENES_FIRMAS" msprop:Generator_ColumnVarNameInTable="columnCANTIDAD_IMAGENES_FIRMAS" msprop:Generator_ColumnPropNameInRow="CANTIDAD_IMAGENES_FIRMAS" msprop:Generator_ColumnPropNameInTable="CANTIDAD_IMAGENES_FIRMASColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ADICIONADO_POR" msprop:Generator_UserColumnName="ADICIONADO_POR" msprop:Generator_ColumnVarNameInTable="columnADICIONADO_POR" msprop:Generator_ColumnPropNameInRow="ADICIONADO_POR" msprop:Generator_ColumnPropNameInTable="ADICIONADO_PORColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DESC_PARTIDO" msprop:Generator_UserColumnName="DESC_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnDESC_PARTIDO" msprop:Generator_ColumnPropNameInRow="DESC_PARTIDO" msprop:Generator_ColumnPropNameInTable="DESC_PARTIDOColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DESC_MOVIMIENTO" msprop:Generator_UserColumnName="DESC_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnDESC_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="DESC_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="DESC_MOVIMIENTOColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PARTIDO" msprop:Generator_UserColumnName="PARTIDO" msprop:Generator_ColumnVarNameInTable="columnPARTIDO" msprop:Generator_ColumnPropNameInRow="PARTIDO" msprop:Generator_ColumnPropNameInTable="PARTIDOColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MOVIMIENTO" msprop:Generator_UserColumnName="MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnMOVIMIENTO" msprop:Generator_ColumnPropNameInRow="MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="MOVIMIENTOColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tarchivo" msprop:Generator_UserColumnName="Tarchivo" msprop:Generator_ColumnPropNameInRow="Tarchivo" msprop:Generator_ColumnVarNameInTable="columnTarchivo" msprop:Generator_ColumnPropNameInTable="TarchivoColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:IM_REGISTRO_IMPORTACIONES" />
+      <xs:field xpath="mstns:FECHA_ADICION" />
+      <xs:field xpath="mstns:HORA_ADICION" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

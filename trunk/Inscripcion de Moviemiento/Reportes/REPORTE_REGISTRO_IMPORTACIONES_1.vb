@@ -1,0 +1,3 @@
+﻿Public Class REPORTE_REGISTRO_IMPORTACIONES_1
+
+End Class
