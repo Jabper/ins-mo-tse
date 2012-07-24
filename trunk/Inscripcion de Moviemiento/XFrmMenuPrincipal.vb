@@ -506,4 +506,10 @@ Public Class XFrmMenuPrincipal
         reporteesta.ShowPreview()
 
     End Sub
+
+    Private Sub BarButtonItem4_ItemClick_3(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnRegistroImpo.ItemClick
+        Dim reporte_importacion As REPORTE_REGISTRO_IMPORTACIONES_2 = New REPORTE_REGISTRO_IMPORTACIONES_2
+        reporte_importacion.ShowPreview()
+
+    End Sub
 End Class
