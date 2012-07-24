@@ -68,6 +68,7 @@ Partial Class XFrmMenuPrincipal
         Me.BtnREstadistico = New DevExpress.XtraBars.BarSubItem
         Me.BtnEstadisticoFI = New DevExpress.XtraBars.BarButtonItem
         Me.BtnEstadisticopar = New DevExpress.XtraBars.BarButtonItem
+        Me.BTNRestadisticoCE = New DevExpress.XtraBars.BarButtonItem
         Me.btnConsultarCandidatos = New DevExpress.XtraBars.BarButtonItem
         Me.btnJerarquico = New DevExpress.XtraBars.BarButtonItem
         Me.TxtUser = New DevExpress.XtraBars.BarStaticItem
@@ -112,7 +113,7 @@ Partial Class XFrmMenuPrincipal
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.BarSubItem1 = New DevExpress.XtraBars.BarSubItem
         Me.RibbonPageGroup10 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
-        Me.BTNRestadisticoCE = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnRegistroImpo = New DevExpress.XtraBars.BarButtonItem
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -127,9 +128,9 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonControl.ApplicationButtonDropDownControl = Me.ApplicationMenu2
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ExpandCollapseItem.Name = ""
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion, Me.BtnMotivo, Me.btnCInhabilitados, Me.btnConsultarCenso, Me.BtnSubirOtroSistema, Me.BtnRPlanilla, Me.BtnPlanillanivel, Me.BtnPlanilladivision, Me.btnConsultarFirmas, Me.BtnRFirmas, Me.BtnFDP, Me.BtnREstadistico, Me.btnConsultarCandidatos, Me.BtnFirmasinc, Me.btnJerarquico, Me.BtnCrucemov, Me.BtnCrucepar, Me.BtnResumenFir, Me.TxtUser, Me.btnConsultarPlanilla, Me.BtnEstadisticoFI, Me.BtnRLog, Me.Btnlogproce, Me.BtnPlanillacandidatos, Me.BtnDiscoPartido, Me.BtnDiscoMovimiento, Me.BtnEstadisticopar, Me.BtnValidaciones, Me.BarButtonItem2, Me.btnValidarFirmas, Me.BarButtonItem3, Me.BtnCandidatosInha, Me.BTN_Reporteimpor, Me.BTNrepocaninc, Me.BTNrepociuinc, Me.BarStaticItem1, Me.BTNRazonado, Me.BTNRestadisticoCE})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion, Me.BtnMotivo, Me.btnCInhabilitados, Me.btnConsultarCenso, Me.BtnSubirOtroSistema, Me.BtnRPlanilla, Me.BtnPlanillanivel, Me.BtnPlanilladivision, Me.btnConsultarFirmas, Me.BtnRFirmas, Me.BtnFDP, Me.BtnREstadistico, Me.btnConsultarCandidatos, Me.BtnFirmasinc, Me.btnJerarquico, Me.BtnCrucemov, Me.BtnCrucepar, Me.BtnResumenFir, Me.TxtUser, Me.btnConsultarPlanilla, Me.BtnEstadisticoFI, Me.BtnRLog, Me.Btnlogproce, Me.BtnPlanillacandidatos, Me.BtnDiscoPartido, Me.BtnDiscoMovimiento, Me.BtnEstadisticopar, Me.BtnValidaciones, Me.BarButtonItem2, Me.btnValidarFirmas, Me.BarButtonItem3, Me.BtnCandidatosInha, Me.BTN_Reporteimpor, Me.BTNrepocaninc, Me.BTNrepociuinc, Me.BarStaticItem1, Me.BTNRazonado, Me.BTNRestadisticoCE, Me.BtnRegistroImpo})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 70
+        Me.RibbonControl.MaxItemId = 71
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5, Me.RibbonPage6})
         Me.RibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010
@@ -458,6 +459,12 @@ Partial Class XFrmMenuPrincipal
         Me.BtnEstadisticopar.Id = 56
         Me.BtnEstadisticopar.Name = "BtnEstadisticopar"
         '
+        'BTNRestadisticoCE
+        '
+        Me.BTNRestadisticoCE.Caption = "Reporte Estadistico por Cargos Electivos"
+        Me.BTNRestadisticoCE.Id = 69
+        Me.BTNRestadisticoCE.Name = "BTNRestadisticoCE"
+        '
         'btnConsultarCandidatos
         '
         Me.btnConsultarCandidatos.Caption = "Consultar Candidatos"
@@ -543,7 +550,7 @@ Partial Class XFrmMenuPrincipal
         Me.BTN_Reporteimpor.Caption = "Reportes de Importaciones"
         Me.BTN_Reporteimpor.Id = 63
         Me.BTN_Reporteimpor.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.import1
-        Me.BTN_Reporteimpor.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BTNrepocaninc), New DevExpress.XtraBars.LinkPersistInfo(Me.BTNrepociuinc)})
+        Me.BTN_Reporteimpor.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BTNrepocaninc), New DevExpress.XtraBars.LinkPersistInfo(Me.BTNrepociuinc), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnRegistroImpo)})
         Me.BTN_Reporteimpor.Name = "BTN_Reporteimpor"
         '
         'BTNrepocaninc
@@ -792,11 +799,11 @@ Partial Class XFrmMenuPrincipal
         '
         Me.RibbonPageGroup10.Name = "RibbonPageGroup10"
         '
-        'BTNRestadisticoCE
+        'BtnRegistroImpo
         '
-        Me.BTNRestadisticoCE.Caption = "Reporte Estadistico por Cargos Electivos"
-        Me.BTNRestadisticoCE.Id = 69
-        Me.BTNRestadisticoCE.Name = "BTNRestadisticoCE"
+        Me.BtnRegistroImpo.Caption = "Reporte de Registro de Importaciones"
+        Me.BtnRegistroImpo.Id = 70
+        Me.BtnRegistroImpo.Name = "BtnRegistroImpo"
         '
         'XFrmMenuPrincipal
         '
@@ -917,6 +924,7 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents BarStaticItem1 As DevExpress.XtraBars.BarStaticItem
     Friend WithEvents BTNRazonado As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BTNRestadisticoCE As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnRegistroImpo As DevExpress.XtraBars.BarButtonItem
 
 
 End Class
