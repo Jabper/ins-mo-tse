@@ -22,6 +22,7 @@ Public Class XfrmConPlanilla
         Me.cbxMunicipio.Enabled = False
 
         Filtrar()
+        ActivarOpciones.ReestriccionUsuarios(cbxPartido, cbxMovimiento)
     End Sub
 
     Private Sub GridView1_RowCellClick(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs) Handles GridView1.RowCellClick

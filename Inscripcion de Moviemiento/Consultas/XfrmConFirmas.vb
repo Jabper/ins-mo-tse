@@ -21,6 +21,7 @@ Public Class XfrmConFirmas
         If fTodos2 > 0 Then Me.cbxPartido.SelectedIndex = fTodos2
 
         fillGrid()
+        ActivarOpciones.ReestriccionUsuarios(cbxPartido, cbxMovimiento)
     End Sub
 
     Private Sub btnFiltro_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFiltro.Click
