@@ -26,9 +26,9 @@ Partial Public Class REPORTE_REGISTRO_IMPORTACIONES_1
         Me.DS_REGISTRO_IMPORTACIONES_11 = New Inscripcion_de_Moviemientos.DS_REGISTRO_IMPORTACIONES_1
         Me.IM_REGISTRO_IMPORTACIONESTableAdapter = New Inscripcion_de_Moviemientos.DS_REGISTRO_IMPORTACIONES_1TableAdapters.IM_REGISTRO_IMPORTACIONESTableAdapter
         Me.ReportHeader = New DevExpress.XtraReports.UI.ReportHeaderBand
+        Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel28 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel25 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel
         Me.GroupHeader1 = New DevExpress.XtraReports.UI.GroupHeaderBand
         Me.XrLabel12 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel11 = New DevExpress.XtraReports.UI.XRLabel
@@ -53,14 +53,14 @@ Partial Public Class REPORTE_REGISTRO_IMPORTACIONES_1
         Me.XrLabel15 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel14 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel13 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel24 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel20 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel21 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel23 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel22 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel21 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel20 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel24 = New DevExpress.XtraReports.UI.XRLabel
         Me.ReportFooter = New DevExpress.XtraReports.UI.ReportFooterBand
-        Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo
         Me.XrPageInfo2 = New DevExpress.XtraReports.UI.XRPageInfo
+        Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo
         CType(Me.DS_REGISTRO_IMPORTACIONES_11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrRichText3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrRichText2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -76,7 +76,7 @@ Partial Public Class REPORTE_REGISTRO_IMPORTACIONES_1
         '
         'TopMargin
         '
-        Me.TopMargin.HeightF = 86.0!
+        Me.TopMargin.HeightF = 79.75!
         Me.TopMargin.Name = "TopMargin"
         Me.TopMargin.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
@@ -100,9 +100,21 @@ Partial Public Class REPORTE_REGISTRO_IMPORTACIONES_1
         '
         'ReportHeader
         '
-        Me.ReportHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel28, Me.XrLabel25, Me.XrLabel1})
+        Me.ReportHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel1, Me.XrLabel28, Me.XrLabel25})
         Me.ReportHeader.HeightF = 145.8333!
         Me.ReportHeader.Name = "ReportHeader"
+        '
+        'XrLabel1
+        '
+        Me.XrLabel1.Font = New System.Drawing.Font("Times New Roman", 21.75!, CType((System.Drawing.FontStyle.Italic Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
+        Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(7.000001!, 10.00001!)
+        Me.XrLabel1.Name = "XrLabel1"
+        Me.XrLabel1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel1.SizeF = New System.Drawing.SizeF(778.0!, 52.16667!)
+        Me.XrLabel1.StylePriority.UseFont = False
+        Me.XrLabel1.StylePriority.UseTextAlignment = False
+        Me.XrLabel1.Text = "Recibo de Entrega de Datos "
+        Me.XrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'XrLabel28
         '
@@ -129,18 +141,6 @@ Partial Public Class REPORTE_REGISTRO_IMPORTACIONES_1
         Me.XrLabel25.StylePriority.UseTextAlignment = False
         Me.XrLabel25.Text = "XrLabel25"
         Me.XrLabel25.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'XrLabel1
-        '
-        Me.XrLabel1.Font = New System.Drawing.Font("Times New Roman", 21.75!, CType((System.Drawing.FontStyle.Italic Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
-        Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 10.00001!)
-        Me.XrLabel1.Name = "XrLabel1"
-        Me.XrLabel1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel1.SizeF = New System.Drawing.SizeF(778.0!, 52.16667!)
-        Me.XrLabel1.StylePriority.UseFont = False
-        Me.XrLabel1.StylePriority.UseTextAlignment = False
-        Me.XrLabel1.Text = "Recibo de Entrega de Datos "
-        Me.XrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'GroupHeader1
         '
@@ -371,16 +371,25 @@ Partial Public Class REPORTE_REGISTRO_IMPORTACIONES_1
         Me.XrLabel13.StylePriority.UseFont = False
         Me.XrLabel13.Text = "Datos de Candidatos"
         '
-        'XrLabel24
+        'XrLabel20
         '
-        Me.XrLabel24.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_REGISTRO_IMPORTACIONES.CANTIDAD_IMAGENES_FIRMAS")})
-        Me.XrLabel24.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel24.LocationFloat = New DevExpress.Utils.PointFloat(589.5832!, 74.00004!)
-        Me.XrLabel24.Name = "XrLabel24"
-        Me.XrLabel24.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel24.SizeF = New System.Drawing.SizeF(182.2916!, 23.00002!)
-        Me.XrLabel24.StylePriority.UseFont = False
-        Me.XrLabel24.Text = "XrLabel24"
+        Me.XrLabel20.Font = New System.Drawing.Font("Times New Roman", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel20.LocationFloat = New DevExpress.Utils.PointFloat(451.6667!, 10.00001!)
+        Me.XrLabel20.Name = "XrLabel20"
+        Me.XrLabel20.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel20.SizeF = New System.Drawing.SizeF(210.8334!, 23.00002!)
+        Me.XrLabel20.StylePriority.UseFont = False
+        Me.XrLabel20.Text = "Datos Firmas"
+        '
+        'XrLabel21
+        '
+        Me.XrLabel21.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel21.LocationFloat = New DevExpress.Utils.PointFloat(451.6667!, 51.00002!)
+        Me.XrLabel21.Name = "XrLabel21"
+        Me.XrLabel21.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel21.SizeF = New System.Drawing.SizeF(137.9167!, 23.00002!)
+        Me.XrLabel21.StylePriority.UseFont = False
+        Me.XrLabel21.Text = "Cantidad Firmas:"
         '
         'XrLabel23
         '
@@ -403,39 +412,22 @@ Partial Public Class REPORTE_REGISTRO_IMPORTACIONES_1
         Me.XrLabel22.StylePriority.UseFont = False
         Me.XrLabel22.Text = "Cantidad Imagenes:"
         '
-        'XrLabel21
+        'XrLabel24
         '
-        Me.XrLabel21.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel21.LocationFloat = New DevExpress.Utils.PointFloat(451.6667!, 51.00002!)
-        Me.XrLabel21.Name = "XrLabel21"
-        Me.XrLabel21.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel21.SizeF = New System.Drawing.SizeF(137.9167!, 23.00002!)
-        Me.XrLabel21.StylePriority.UseFont = False
-        Me.XrLabel21.Text = "Cantidad Firmas:"
-        '
-        'XrLabel20
-        '
-        Me.XrLabel20.Font = New System.Drawing.Font("Times New Roman", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel20.LocationFloat = New DevExpress.Utils.PointFloat(451.6667!, 10.00001!)
-        Me.XrLabel20.Name = "XrLabel20"
-        Me.XrLabel20.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel20.SizeF = New System.Drawing.SizeF(210.8334!, 23.00002!)
-        Me.XrLabel20.StylePriority.UseFont = False
-        Me.XrLabel20.Text = "Datos Firmas"
+        Me.XrLabel24.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_REGISTRO_IMPORTACIONES.CANTIDAD_IMAGENES_FIRMAS")})
+        Me.XrLabel24.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel24.LocationFloat = New DevExpress.Utils.PointFloat(589.5832!, 74.00004!)
+        Me.XrLabel24.Name = "XrLabel24"
+        Me.XrLabel24.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel24.SizeF = New System.Drawing.SizeF(182.2916!, 23.00002!)
+        Me.XrLabel24.StylePriority.UseFont = False
+        Me.XrLabel24.Text = "XrLabel24"
         '
         'ReportFooter
         '
         Me.ReportFooter.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrPageInfo2, Me.XrPageInfo1})
         Me.ReportFooter.HeightF = 53.125!
         Me.ReportFooter.Name = "ReportFooter"
-        '
-        'XrPageInfo1
-        '
-        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 9.999974!)
-        Me.XrPageInfo1.Name = "XrPageInfo1"
-        Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
-        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(313.0!, 23.0!)
         '
         'XrPageInfo2
         '
@@ -446,13 +438,21 @@ Partial Public Class REPORTE_REGISTRO_IMPORTACIONES_1
         Me.XrPageInfo2.SizeF = New System.Drawing.SizeF(313.0!, 23.0!)
         Me.XrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
         '
+        'XrPageInfo1
+        '
+        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 9.999974!)
+        Me.XrPageInfo1.Name = "XrPageInfo1"
+        Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
+        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(313.0!, 23.0!)
+        '
         'REPORTE_REGISTRO_IMPORTACIONES_1
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.ReportHeader, Me.GroupHeader1, Me.PageHeader, Me.GroupHeader2, Me.ReportFooter})
         Me.DataAdapter = Me.IM_REGISTRO_IMPORTACIONESTableAdapter
         Me.DataMember = "IM_REGISTRO_IMPORTACIONES"
         Me.DataSource = Me.DS_REGISTRO_IMPORTACIONES_11
-        Me.Margins = New System.Drawing.Printing.Margins(28, 27, 86, 11)
+        Me.Margins = New System.Drawing.Printing.Margins(28, 27, 80, 11)
         Me.Version = "11.2"
         CType(Me.DS_REGISTRO_IMPORTACIONES_11, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XrRichText3, System.ComponentModel.ISupportInitialize).EndInit()

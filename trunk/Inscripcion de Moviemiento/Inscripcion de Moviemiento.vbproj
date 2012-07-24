@@ -445,6 +445,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_REGISTRO_IMPORTACIONES_1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\DS_REGISTRO_IMPORTACIONES_2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_REGISTRO_IMPORTACIONES_2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DS_REPORTE_CANDIDATOS.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -601,6 +606,12 @@
       <DependentUpon>REPORTE_REGISTRO_IMPORTACIONES_1.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\REPORTE_REGISTRO_IMPORTACIONES_1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\REPORTE_REGISTRO_IMPORTACIONES_2.Designer.vb">
+      <DependentUpon>REPORTE_REGISTRO_IMPORTACIONES_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\REPORTE_REGISTRO_IMPORTACIONES_2.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Usuarios\XfrmRecuperarPass.Designer.vb">
@@ -1023,6 +1034,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_REGISTRO_IMPORTACIONES_1.resx">
       <DependentUpon>REPORTE_REGISTRO_IMPORTACIONES_1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\REPORTE_REGISTRO_IMPORTACIONES_2.resx">
+      <DependentUpon>REPORTE_REGISTRO_IMPORTACIONES_2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\XfrmRecuperarPass.resx">
       <DependentUpon>XfrmRecuperarPass.vb</DependentUpon>
@@ -1586,6 +1600,17 @@
     </None>
     <None Include="Reportes\DS_REGISTRO_IMPORTACIONES_1.xss">
       <DependentUpon>DS_REGISTRO_IMPORTACIONES_1.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REGISTRO_IMPORTACIONES_2.xsc">
+      <DependentUpon>DS_REGISTRO_IMPORTACIONES_2.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REGISTRO_IMPORTACIONES_2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_REGISTRO_IMPORTACIONES_2.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reportes\DS_REGISTRO_IMPORTACIONES_2.xss">
+      <DependentUpon>DS_REGISTRO_IMPORTACIONES_2.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DS_REPORTE_CANDIDATOS.xsc">
       <DependentUpon>DS_REPORTE_CANDIDATOS.xsd</DependentUpon>
