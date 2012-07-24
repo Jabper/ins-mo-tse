@@ -14,7 +14,13 @@ Public Class XfrmValidarFirmas
         Me.MovimientosTableAdapter.Fill(Me.DSConsultas.Movimientos)
         'TODO: This line of code loads data into the 'DSConsultas.Partidos' table. You can move, or remove it, as needed.
         Me.PartidosTableAdapter.Fill(Me.DSConsultas.Partidos)
-        FillGrid()
+        Try
+            FillGrid()
+        Catch ex As Exception
+
+        End Try
+
+        ActivarOpciones.ReestriccionUsuarios(cbxPartido, cbxMovimiento)
     End Sub
 
     Private Sub btnFiltro_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFiltro.Click
@@ -35,7 +41,7 @@ Public Class XfrmValidarFirmas
             Me.NavegacionBindingSource.Filter = _filter
             setFilter()
         Catch ex As Exception
-            Mensajes.mimensaje(ex.Message)
+            'Mensajes.mimensaje(ex.Message)
         End Try
 
     End Sub

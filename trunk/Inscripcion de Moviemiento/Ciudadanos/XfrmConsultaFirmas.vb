@@ -12,7 +12,7 @@ Imports System.Data.OracleClient
 
 Public Class XfrmConsultaFirmas
 
-
+    Dim bfolio As Integer = 0
     Dim vi As Integer = 1
     Dim errores As Integer = 0
     Public iddepto As Integer
@@ -101,7 +101,7 @@ Public Class XfrmConsultaFirmas
 
     Sub ActivarFiltros()
         If ActivarOpciones.PEstado = "PDO" Then
-            Dim idp As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
+            Dim idp As String = COracle.ObtenerDatos("select codigo_partido from im_usuarios where codigo_usuario ='" & usuario & "'", "CODIGO_PARTIDO") 'COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
             Me.CmbPartido.Enabled = False
 
 
@@ -116,8 +116,10 @@ Public Class XfrmConsultaFirmas
             End Try
 
         ElseIf ActivarOpciones.PEstado = "MOV" Then
-            Dim idp As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
-            Dim idmov As String = COracle.ObtenerDatos("SELECT CODIGO_MOVIMIENTO FROM IM_PARAMETROS_GENERALES", "CODIGO_MOVIMIENTO")
+            'Dim idp As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
+            'Dim idmov As String = COracle.ObtenerDatos("SELECT CODIGO_MOVIMIENTO FROM IM_PARAMETROS_GENERALES", "CODIGO_MOVIMIENTO")
+            Dim idp As String = COracle.ObtenerDatos("select codigo_partido from im_usuarios where codigo_usuario ='" & usuario & "'", "CODIGO_PARTIDO")
+            Dim idmov As String = COracle.ObtenerDatos("select codigo_movimiento from im_usuarios where codigo_usuario ='" & usuario & "'", "CODIGO_MOVIMIENTO")
 
             Me.CmbPartido.Enabled = False
             Me.CmbMovimiento.Enabled = False
@@ -671,15 +673,41 @@ Public Class XfrmConsultaFirmas
     End Sub
 
     Private Sub GridView3_FocusedRowChanged(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles GridView3.FocusedRowChanged
-        If e.PrevFocusedRowHandle <> e.FocusedRowHandle Then
+        Try
+            If bfolio <> GridView3.GetRowCellValue(GridView3.FocusedRowHandle, "FOLIO") Then
+                Dim sfolio As String
+                Dim view As GridView = GridView3
+                bfolio = view.GetRowCellValue(view.FocusedRowHandle, "FOLIO")
+                If CStr(bfolio) = "" Then
+                    sfolio = "NULL"
+                Else
+                    sfolio = bfolio
+                End If
+                Dim sq As String = "SELECT IMAGEN FROM IM_IMAGENES_FIRMAS where  CODIGO_PARTIDO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO") & " and CODIGO_MOVIMIENTO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO") & " and PAGINA=" & view.GetRowCellValue(view.FocusedRowHandle, "PAGINA") & " AND MAQUINA='" & view.GetRowCellValue(view.FocusedRowHandle, "MAQUINA") & "' AND FOLIO=" & sfolio
+                If COracle.ObtenerImagen(sq, "IMAGEN") Is Nothing Then
+                    Me.img.Image = Nothing
+                Else
+                    Me.img.Image = COracle.ObtenerImagen(sq, "IMAGEN")
+                End If
+            End If
+        Catch ex As Exception
+            Dim sfolio As String
             Dim view As GridView = GridView3
-            Dim sq As String = "SELECT IMAGEN FROM IM_IMAGENES_FIRMAS where  CODIGO_PARTIDO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO") & " and CODIGO_MOVIMIENTO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO") & " and PAGINA=" & view.GetRowCellValue(view.FocusedRowHandle, "PAGINA")
+            sfolio = view.GetRowCellValue(view.FocusedRowHandle, "FOLIO").ToString
+            If sfolio = "" Then
+
+                sfolio = "NULL"
+            Else
+                sfolio = view.GetRowCellValue(view.FocusedRowHandle, "FOLIO")
+            End If
+            Dim sq As String = "SELECT IMAGEN FROM IM_IMAGENES_FIRMAS where  CODIGO_PARTIDO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO") & " and CODIGO_MOVIMIENTO=" & view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO") & " and PAGINA=" & view.GetRowCellValue(view.FocusedRowHandle, "PAGINA") & " AND MAQUINA='" & view.GetRowCellValue(view.FocusedRowHandle, "MAQUINA") & "' AND FOLIO IS " & sfolio
             If COracle.ObtenerImagen(sq, "IMAGEN") Is Nothing Then
                 Me.img.Image = Nothing
             Else
                 Me.img.Image = COracle.ObtenerImagen(sq, "IMAGEN")
             End If
-        End If
+        End Try
+        
 
     End Sub
 
@@ -859,5 +887,35 @@ Public Class XfrmConsultaFirmas
 
     Private Sub txtidentidad_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtidentidad.EditValueChanged
 
+    End Sub
+
+    Private Sub GCBusqueda_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GCBusqueda.Click
+
+    End Sub
+
+    Private Sub img_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles img.Click
+        If Me.img.Image IsNot Nothing Then
+
+            Try
+                Dim view As GridView = GridView3
+                XfrmAgregarFirmas.pbxImagen.Image = img.Image
+                XfrmAgregarFirmas.Text = String.Format("Folio: {0} Pagina: {1}", View.GetRowCellValue(View.FocusedRowHandle, "FOLIO").ToString, View.GetRowCellValue(View.FocusedRowHandle, "PAGINA").ToString)
+                XfrmAgregarFirmas.ShowDialog(Me)
+            Catch ex As Exception
+
+            End Try
+
+            'frmImagenFirmaModal.codigoPartido = view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_PARTIDO")
+            'frmImagenFirmaModal.codigoMovimiento = view.GetRowCellValue(view.FocusedRowHandle, "CODIGO_MOVIMIENTO")
+            'frmImagenFirmaModal.folio = view.GetRowCellValue(view.FocusedRowHandle, "FOLIO").ToString
+            'frmImagenFirmaModal.pagina = view.GetRowCellValue(view.FocusedRowHandle, "PAGINA")
+            'frmImagenFirmaModal.maquina = view.GetRowCellValue(view.FocusedRowHandle, "MAQUINA")
+           
+        End If
+    End Sub
+
+    Private Sub img_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles img.EditValueChanged
+
+      
     End Sub
 End Class
