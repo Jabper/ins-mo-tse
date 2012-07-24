@@ -21,6 +21,7 @@
         Dim fTodos2 As Integer = Me.cbxPartido.FindStringExact("TODOS")
         If fTodos2 > 0 Then Me.cbxPartido.SelectedIndex = fTodos2
         Me.cbxEstado.SelectedIndex = 0
+        ActivarOpciones.ReestriccionUsuarios(cbxPartido, cbxMovimiento)
     End Sub
 
     Private Sub btnFiltro_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFiltro.Click
