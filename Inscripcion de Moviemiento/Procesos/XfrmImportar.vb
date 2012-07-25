@@ -73,7 +73,7 @@ Public Class XfrmImportar
 
                     Dim startInfo As ProcessStartInfo
                     Dim pStart As New Process
-                    startInfo = New ProcessStartInfo("cmd.exe", "/C impdp TSE/ORACLE@TSEDB2 directory=data_pump_dir dumpfile=" & archivo & " LOGFILE=imp_firmas_y_planilla.log TABLE_EXISTS_ACTION=REPLACE")
+                    startInfo = New ProcessStartInfo("cmd.exe", "/C impdp TSE/TSEORACLE2012@XE directory=data_pump_dir dumpfile=" & archivo & " LOGFILE=imp_firmas_y_planilla.log TABLE_EXISTS_ACTION=REPLACE")
                     'imp TSE/TSEORACLE2012@XE Buffer=5000000 File=" & TxtRuta.Text & " FROMUSER=TSE TOUSER=TSE ignore=Y TABLES=tmp_im_candidatos, TMP_IM_MOVIMIENTOS, TMP_IM_REQUISITOS_X_CANDIDATO, tmp_im_ciudadanos_respaldan, tmp_im_imagenes_firmas, tmp_im_parametros_generales")
                     pStart.StartInfo = startInfo
                     pStart.Start()
