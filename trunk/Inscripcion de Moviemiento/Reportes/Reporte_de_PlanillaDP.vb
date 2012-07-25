@@ -9,6 +9,15 @@ Public Class Reporte_de_PlanillaDP
 
     Private Sub Reporte_de_PlanillaDP_ParametersRequestBeforeShow(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestEventArgs) Handles Me.ParametersRequestBeforeShow
         Dim dataset As New DS_REPORTE_DE_DP_1
+        Dim nombrem As String
+        Dim idp As String = COracle.ObtenerDatos("select codigo_partido from im_usuarios where codigo_usuario ='" & usuario & "'", "CODIGO_PARTIDO")
+        Dim nombrep As String = COracle.ObtenerDatos("select nombre from im_partidos_politicos where codigo_partido=" & idp, "nombre")
+        Dim idmov As String = COracle.ObtenerDatos("select codigo_movimiento from im_usuarios where codigo_usuario ='" & usuario & "'", "CODIGO_MOVIMIENTO")
+        If idmov = "" Then
+        Else
+            nombrem = COracle.ObtenerDatos("select NOMBRE_MOVIMIENTO from im_movimientos where codigo_movimiento =" & idmov & " and codigo_partido=" & idp, "NOMBRE_MOVIMIENTO")
+        End If
+
 
         Using Adapter As New DS_REPORTE_DE_DP_1TableAdapters.IM_PARTIDOS_POLITICOSTableAdapter
 
@@ -23,13 +32,37 @@ Public Class Reporte_de_PlanillaDP
                 LookUpEdit.Properties.ValueMember = "NOMBRE PARTIDO"
                 LookUpEdit.Properties.Columns.Add(New  _
                     LookUpColumnInfo("NOMBRE PARTIDO", 0, "NOMBRE PARTIDO")) 'AGREGA EL NOMBRE DEL PARTIDO A LA LISTA 
+
+                '-------------------------------------------------------------
+                'BLOQUEAR SELECCION DEL COMBO PARA USUARIOS DE PARTIDO Y MOVIMIENTO
+                If ActivarOpciones.PEstado = "PDO" Or ActivarOpciones.PEstado = "MOV" Then
+                    LookUpEdit.Enabled = False
+                End If
+                '-------------------------------------------------------------
                 info.Editor = LookUpEdit
             End If
         Next
 
+        '-------------------------------------------------------------
+        '       ESTABLECER EL PARTIDO DE ACUERDO AL USUARIO
+        If ActivarOpciones.PEstado = "PDO" Or ActivarOpciones.PEstado = "MOV" Then
+
+            NombrePartido.Value = nombrep
+        End If
+        '-------------------------------------------------------------
+
         ''CODIGO NECESARIO PARA AGREGAR LA LISTA DE VALOR DE LOS MOVIMIENTOS
         Using Adapter1 As New DS_REPORTE_DE_DP_1TableAdapters.IM_MOVIMIENTOSTableAdapter
-            Adapter1.Fill(dataset.IM_MOVIMIENTOS)
+            '-------------------------------------------------------------
+            'ESTABLECIENDO VALORES PARA EL COMBO MOVIMIENTO
+            If ActivarOpciones.PEstado = "PDO" Or ActivarOpciones.PEstado = "MOV" Or ActivarOpciones.PEstado = "TSE" Then
+
+                Adapter1.FillCod_Partido(dataset.IM_MOVIMIENTOS, CType(idp, Integer))
+                'Else
+                '    Adapter1.Fill(dataset.IM_MOVIMIENTOS)
+            End If
+
+            'Adapter1.Fill(dataset.IM_MOVIMIENTOS)
         End Using
 
         For Each info In e.ParametersInformation
@@ -40,9 +73,20 @@ Public Class Reporte_de_PlanillaDP
                 LookUpEdit.Properties.ValueMember = "NOMBRE MOVIMIENTO"
                 LookUpEdit.Properties.Columns.Add(New  _
                     LookUpColumnInfo("NOMBRE MOVIMIENTO", 0, "NOMBRE MOVIMIENTO")) 'AGREGA EL NOMBRE DEL PARTIDO A LA LISTA 
+                'BLOQUEAR COMBO DE ACUERDO AL USUARIO
+                If ActivarOpciones.PEstado = "MOV" Then
+                    LookUpEdit.Enabled = False
+                End If
                 info.Editor = LookUpEdit
             End If
+
         Next
+
+        'ESTABLECER MOVIMIENTO DE ACUERDO AL USUARIO
+        If ActivarOpciones.PEstado = "PDO" Or ActivarOpciones.PEstado = "MOV" Then
+
+            NombreMovimiento.Value = nombrem
+        End If
 
         ''CODIGO NECESARIO PARA AGREGAR LA LISTA DE VALORES DEL NIVEL ELECTIVO
         Using Adapter2 As New DS_REPORTE_DE_DP_1TableAdapters.IM_NIVEL_ELECTIVOTableAdapter
