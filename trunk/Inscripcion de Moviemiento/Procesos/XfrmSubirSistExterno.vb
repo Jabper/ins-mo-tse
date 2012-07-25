@@ -1,6 +1,5 @@
 ﻿Imports System.Data.OleDb
 Imports System.Data.OracleClient
-Imports DevExpress.Utils
 Imports System.IO
 
 Public Class XfrmSubirSistExterno
@@ -203,7 +202,85 @@ Public Class XfrmSubirSistExterno
                     End If
                 ElseIf Me.BtnImagenesFirmas.Enabled = True Then
                     retorno = subir_imagenes_firmas(Me.TxtRuta.Text)
-                    If retorno = True Then
+                    If retorno = True Then                        
+
+                        Dim partido As String
+                        Dim movimiento As String
+                        Dim cantidad_candidatos As Integer
+                        Dim cantidad_firmas As Integer
+                        Dim cantidad_fotos As Integer
+                        Dim cantidad_constancias As Integer
+                        Dim cantidad_imagenes_firmas As Integer
+                        Dim desc_partido As String
+                        Dim desc_movimiento As String
+
+                        Dim oradb9 As String = Configuracion.verconfig
+                        Dim conn9 As New OracleConnection()
+                        Dim myCMD9 As New OracleCommand()
+                        conn9.ConnectionString = oradb9
+                        conn9.Open()
+                        Try
+                            myCMD9.Connection = conn9
+                            myCMD9.CommandText = "im_p_cantidades_en_temporales"
+                            myCMD9.CommandType = CommandType.StoredProcedure
+                            myCMD9.Parameters.Add(New OracleParameter("partido", OracleType.Char, 2)).Direction = ParameterDirection.Output
+                            myCMD9.Parameters.Add(New OracleParameter("movimiento", OracleType.Char, 3)).Direction = ParameterDirection.Output
+                            myCMD9.Parameters.Add(New OracleParameter("desc_partido", OracleType.Char, 100)).Direction = ParameterDirection.Output
+                            myCMD9.Parameters.Add(New OracleParameter("desc_movimiento", OracleType.Char, 200)).Direction = ParameterDirection.Output
+                            myCMD9.Parameters.Add(New OracleParameter("cantidad_candidatos", OracleType.Number)).Direction = ParameterDirection.Output
+                            myCMD9.Parameters.Add(New OracleParameter("cantidad_firmas", OracleType.Number)).Direction = ParameterDirection.Output
+                            myCMD9.Parameters.Add(New OracleParameter("cantidad_fotos", OracleType.Number)).Direction = ParameterDirection.Output
+                            myCMD9.Parameters.Add(New OracleParameter("cantidad_constancias", OracleType.Number)).Direction = ParameterDirection.Output
+                            myCMD9.Parameters.Add(New OracleParameter("cantidad_imagenes_firmas", OracleType.Number)).Direction = ParameterDirection.Output
+                            myCMD9.ExecuteOracleScalar()
+                            If IsDBNull(myCMD9.Parameters("partido").Value) Then
+                                partido = "NULL"
+                            Else
+                                partido = "'" & myCMD9.Parameters("partido").Value & "'"
+                            End If
+                            movimiento = Trim(myCMD9.Parameters("movimiento").Value)
+                            desc_partido = Trim(myCMD9.Parameters("desc_partido").Value)
+                            desc_movimiento = Trim(myCMD9.Parameters("desc_movimiento").Value)
+                            cantidad_candidatos = Trim(myCMD9.Parameters("cantidad_candidatos").Value)
+                            cantidad_firmas = Trim(myCMD9.Parameters("cantidad_firmas").Value)
+                            cantidad_fotos = Trim(myCMD9.Parameters("cantidad_fotos").Value)
+                            cantidad_constancias = Trim(myCMD9.Parameters("cantidad_constancias").Value)
+                            cantidad_imagenes_firmas = Trim(myCMD9.Parameters("cantidad_imagenes_firmas").Value)
+                            conn9.Close()
+                        Catch ex As Exception
+                            conn9.Close()
+                            'mensaje = "ERROR"
+                            Mensajes.MensajeError(ex.Message)
+                            Exit Sub
+                        End Try
+
+                        Dim oradb10 As String = Configuracion.verconfig
+                        Dim conn10 As New OracleConnection()
+                        Dim myCMD10 As New OracleCommand()
+                        conn10.ConnectionString = oradb10
+                        conn10.Open()
+                        Dim reporte As String
+                        Try
+                            myCMD10.Connection = conn10
+                            myCMD10.CommandText = "Insert into im_registro_importaciones (FECHA_ADICION, HORA_ADICION, " _
+                            & "NOMBRE_ARCHIVO, TAMAÑO_ARCHIVO, CODIGO_PARTIDO, CODIGO_MOVIMIENTO, CANTIDAD_CANDIDATOS, " _
+                            & "CANTIDAD_FIRMAS, CANTIDAD_FOTOS, CANTIDAD_CONSTANCIAS, CANTIDAD_IMAGENES_FIRMAS, adicionado_por, desc_partido, desc_movimiento ) VALUES (" _
+                            & "to_date('" & DateTime.Now.Date & "','dd/mm/yyyy'),'" & DateTime.Now.ToLongTimeString & "', 'SISTEMA EXTERNO'" _
+                            & "," & 0 & "," & partido & ",'" & movimiento & "'," & cantidad_candidatos _
+                            & "," & cantidad_firmas & "," & cantidad_fotos & "," & cantidad_constancias & "," & cantidad_imagenes_firmas _
+                            & ",'" & usuario & "','" & desc_partido & "','" & desc_movimiento & "')"
+                            myCMD10.CommandType = CommandType.Text
+                            myCMD10.ExecuteOracleScalar()
+                            reporte = "OK"
+                        Catch ex As Exception
+                            reporte = "ERROR"
+                            conn10.Close()
+                            'waitDialog.Caption = "finalizando..."
+                            'waitDialog.Close()
+                            Mensajes.MensajeError(ex.Message)
+                        End Try
+                        conn10.Close()
+
                         Dim conn7 As New OracleConnection()
                         Try
                             MsgBox("A continuación se ejecutarán los procesos de validación sobre los datos importados")
@@ -227,6 +304,14 @@ Public Class XfrmSubirSistExterno
                             conn7.Close()
                             Mensajes.MensajeError(ex.Message)
                         End Try
+
+                        If reporte = "OK" Then
+                            'llamar reporte
+                            Dim reporte_import As REPORTE_REGISTRO_IMPORTACIONES_1 = New REPORTE_REGISTRO_IMPORTACIONES_1
+                            reporte_import.ShowPreview()
+                        Else
+                            MsgBox("New se pudo generar el recibo de importacion de datos")
+                        End If
 
                         Dim oradb3 As String = Configuracion.verconfig
                         Dim conn3 As New OracleConnection()
@@ -717,6 +802,7 @@ Public Class XfrmSubirSistExterno
 
     Private Sub OpenFileDialog1_FileOk(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles OpenFileDialog1.FileOk
         Me.TxtRuta.Text = OpenFileDialog1.FileName
+        Path = OpenFileDialog1.FileName
     End Sub
 
     Private Sub BtnCandidatos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnCandidatos.Click
