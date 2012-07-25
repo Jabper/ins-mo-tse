@@ -435,6 +435,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_PLANILLA_TOTALES.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\DS_PLANILLA_TOTALES.vb">
+      <DependentUpon>DS_PLANILLA_TOTALES.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DS_RAZONADO.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

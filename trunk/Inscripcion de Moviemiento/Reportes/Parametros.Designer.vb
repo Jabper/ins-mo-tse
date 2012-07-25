@@ -20,7 +20,6 @@ Partial Class Parametros
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Me.cboMovimiento = New DevExpress.XtraEditors.LookUpEdit
         Me.BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         Me.DS_PLANILLA_TOTALES = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALES
         Me.cboDepto = New DevExpress.XtraEditors.LookUpEdit
@@ -52,7 +51,7 @@ Partial Class Parametros
         Me.IM_MOVIMIENTOS1TableAdapter = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_MOVIMIENTOS1TableAdapter
         Me.IM_CARGOS_ELECTIVOSTableAdapter = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_CARGOS_ELECTIVOSTableAdapter
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl
-        CType(Me.cboMovimiento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.CmbMovimiento = New DevExpress.XtraEditors.LookUpEdit
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_PLANILLA_TOTALES, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cboDepto.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -68,19 +67,8 @@ Partial Class Parametros
         CType(Me.BindingSource8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CmbMovimiento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'cboMovimiento
-        '
-        Me.cboMovimiento.Location = New System.Drawing.Point(155, 51)
-        Me.cboMovimiento.Name = "cboMovimiento"
-        Me.cboMovimiento.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cboMovimiento.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MOVIMIENTO", "CODIGO_MOVIMIENTO", 135, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.Near), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE MOVIMIENTO", "NOMBRE MOVIMIENTO", 120, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
-        Me.cboMovimiento.Properties.DataSource = Me.BindingSource2
-        Me.cboMovimiento.Properties.DisplayMember = "NOMBRE MOVIMIENTO"
-        Me.cboMovimiento.Properties.ValueMember = "CODIGO_MOVIMIENTO"
-        Me.cboMovimiento.Size = New System.Drawing.Size(200, 20)
-        Me.cboMovimiento.TabIndex = 1
         '
         'BindingSource2
         '
@@ -100,6 +88,7 @@ Partial Class Parametros
         Me.cboDepto.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_DEPARTAMENTO", "CODIGO_DEPARTAMENTO", 151, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.Near), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.cboDepto.Properties.DataSource = Me.BindingSource4
         Me.cboDepto.Properties.DisplayMember = "DESCRIPCION"
+        Me.cboDepto.Properties.NullText = "Seleccione..."
         Me.cboDepto.Properties.ValueMember = "CODIGO_DEPARTAMENTO"
         Me.cboDepto.Size = New System.Drawing.Size(215, 20)
         Me.cboDepto.TabIndex = 2
@@ -117,6 +106,7 @@ Partial Class Parametros
         Me.cboMuni.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MUNICIPIO", "CODIGO_MUNICIPIO", 125, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.Near), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.cboMuni.Properties.DataSource = Me.BindingSource5
         Me.cboMuni.Properties.DisplayMember = "DESCRIPCION"
+        Me.cboMuni.Properties.NullText = "Seleccione..."
         Me.cboMuni.Properties.ValueMember = "CODIGO_MUNICIPIO"
         Me.cboMuni.Size = New System.Drawing.Size(215, 20)
         Me.cboMuni.TabIndex = 3
@@ -142,6 +132,7 @@ Partial Class Parametros
         Me.cbonivel.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_NIVEL_ELECTIVO", "CODIGO_NIVEL_ELECTIVO", 152, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.Near), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NIVEL ELECTIVO", "NIVEL ELECTIVO", 89, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.cbonivel.Properties.DataSource = Me.BindingSource3
         Me.cbonivel.Properties.DisplayMember = "NIVEL ELECTIVO"
+        Me.cbonivel.Properties.NullText = "Seleccione..."
         Me.cbonivel.Properties.ValueMember = "CODIGO_NIVEL_ELECTIVO"
         Me.cbonivel.Size = New System.Drawing.Size(200, 20)
         Me.cbonivel.TabIndex = 5
@@ -214,6 +205,7 @@ Partial Class Parametros
         Me.cbopartido.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_PARTIDO", "CODIGO_PARTIDO", 115, DevExpress.Utils.FormatType.Numeric, "", False, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE PARTIDO", "NOMBRE PARTIDO", 100, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("IMAGEN", "IMAGEN", 49, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.Near)})
         Me.cbopartido.Properties.DataSource = Me.BindingSource1
         Me.cbopartido.Properties.DisplayMember = "NOMBRE PARTIDO"
+        Me.cbopartido.Properties.NullText = "Seleccione..."
         Me.cbopartido.Properties.ValueMember = "CODIGO_PARTIDO"
         Me.cbopartido.Size = New System.Drawing.Size(200, 20)
         Me.cbopartido.TabIndex = 12
@@ -231,6 +223,7 @@ Partial Class Parametros
         Me.cbocargo.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_CARGO_ELECTIVO", "CODIGO_CARGO_ELECTIVO", 160, DevExpress.Utils.FormatType.Numeric, "", False, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.cbocargo.Properties.DataSource = Me.BindingSource8
         Me.cbocargo.Properties.DisplayMember = "DESCRIPCION"
+        Me.cbocargo.Properties.NullText = "Seleccione..."
         Me.cbocargo.Properties.ValueMember = "CODIGO_CARGO_ELECTIVO"
         Me.cbocargo.Size = New System.Drawing.Size(200, 20)
         Me.cbocargo.TabIndex = 13
@@ -291,11 +284,25 @@ Partial Class Parametros
         Me.LabelControl6.TabIndex = 14
         Me.LabelControl6.Text = "Cargo Electivo"
         '
+        'CmbMovimiento
+        '
+        Me.CmbMovimiento.Location = New System.Drawing.Point(155, 47)
+        Me.CmbMovimiento.Name = "CmbMovimiento"
+        Me.CmbMovimiento.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CmbMovimiento.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MOVIMIENTO", "CODIGO_MOVIMIENTO", 10, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE_MOVIMIENTO", "NOMBRE_MOVIMIENTO", 123, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
+        Me.CmbMovimiento.Properties.DataSource = Me.BindingSource2
+        Me.CmbMovimiento.Properties.DisplayMember = "NOMBRE_MOVIMIENTO"
+        Me.CmbMovimiento.Properties.NullText = "Seleccione"
+        Me.CmbMovimiento.Properties.ValueMember = "CODIGO_MOVIMIENTO"
+        Me.CmbMovimiento.Size = New System.Drawing.Size(200, 20)
+        Me.CmbMovimiento.TabIndex = 15
+        '
         'Parametros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(725, 146)
+        Me.Controls.Add(Me.CmbMovimiento)
         Me.Controls.Add(Me.LabelControl6)
         Me.Controls.Add(Me.cbocargo)
         Me.Controls.Add(Me.cbopartido)
@@ -309,10 +316,8 @@ Partial Class Parametros
         Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.cboMuni)
         Me.Controls.Add(Me.cboDepto)
-        Me.Controls.Add(Me.cboMovimiento)
         Me.Name = "Parametros"
         Me.Text = "Parametros del Reporte de Planillas Completas"
-        CType(Me.cboMovimiento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DS_PLANILLA_TOTALES, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cboDepto.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -328,13 +333,13 @@ Partial Class Parametros
         CType(Me.BindingSource8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CmbMovimiento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents DSPLANILLATOTALESBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents IMPARTIDOSPOLITICOSBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents cboMovimiento As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents IMMOVIMIENTOSBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents cboDepto As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents IMDEPARTAMENTOSBindingSource As System.Windows.Forms.BindingSource
@@ -371,4 +376,5 @@ Partial Class Parametros
     Friend WithEvents BindingSource8 As System.Windows.Forms.BindingSource
     Friend WithEvents IM_CARGOS_ELECTIVOSTableAdapter As Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_CARGOS_ELECTIVOSTableAdapter
     Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents CmbMovimiento As DevExpress.XtraEditors.LookUpEdit
 End Class
