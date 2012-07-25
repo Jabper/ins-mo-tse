@@ -188,7 +188,7 @@ Partial Public Class REPORTE_REGISTRO_IMPORTACIONES_2
         '
         'XrLabel9
         '
-        Me.XrLabel9.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Me.DS_REGISTRO_IMPORTACIONES_21, "IM_V_REGISTRO_IMPOR_2.DESC_MOVIMIENTO")})
+        Me.XrLabel9.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_REGISTRO_IMPOR_2.DESC_MOVIMIENTO")})
         Me.XrLabel9.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrLabel9.LocationFloat = New DevExpress.Utils.PointFloat(482.2918!, 10.00001!)
         Me.XrLabel9.Name = "XrLabel9"

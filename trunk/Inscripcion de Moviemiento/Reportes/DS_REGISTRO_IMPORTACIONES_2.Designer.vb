@@ -2712,15 +2712,36 @@ Namespace DS_REGISTRO_IMPORTACIONES_2TableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT *"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM IM_V_REGISTRO_IMPOR_2 b"
+            Me._commandCollection(0).CommandText = "SELECT *"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM IM_V_REGISTRO_IMPOR_2 b"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where B.DESC_PARTIDO =:p"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and B.DESC_MOVI"& _ 
+                "MIENTO =:M"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and B.FECHA_ADICION =:f"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and B.HORA_ADICION =:H"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("p", Global.System.Data.OracleClient.OracleType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, "DESC_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("M", Global.System.Data.OracleClient.OracleType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, "DESC_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("f", Global.System.Data.OracleClient.OracleType.DateTime, 0, Global.System.Data.ParameterDirection.Input, "FECHA_ADICION", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("H", Global.System.Data.OracleClient.OracleType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, "HORA_ADICION", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DS_REGISTRO_IMPORTACIONES_2.IM_V_REGISTRO_IMPOR_2DataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_REGISTRO_IMPORTACIONES_2.IM_V_REGISTRO_IMPOR_2DataTable, ByVal p As String, ByVal M As String, ByVal f As Date, ByVal H As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (p Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("p")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(p,String)
+            End If
+            If (M Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("M")
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(M,String)
+            End If
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(f,Date)
+            If (H Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("H")
+            Else
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(H,String)
+            End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -2731,8 +2752,24 @@ Namespace DS_REGISTRO_IMPORTACIONES_2TableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DS_REGISTRO_IMPORTACIONES_2.IM_V_REGISTRO_IMPOR_2DataTable
+        Public Overloads Overridable Function GetData(ByVal p As String, ByVal M As String, ByVal f As Date, ByVal H As String) As DS_REGISTRO_IMPORTACIONES_2.IM_V_REGISTRO_IMPOR_2DataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (p Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("p")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(p,String)
+            End If
+            If (M Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("M")
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(M,String)
+            End If
+            Me.Adapter.SelectCommand.Parameters(2).Value = CType(f,Date)
+            If (H Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("H")
+            Else
+                Me.Adapter.SelectCommand.Parameters(3).Value = CType(H,String)
+            End If
             Dim dataTable As DS_REGISTRO_IMPORTACIONES_2.IM_V_REGISTRO_IMPOR_2DataTable = New DS_REGISTRO_IMPORTACIONES_2.IM_V_REGISTRO_IMPOR_2DataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
