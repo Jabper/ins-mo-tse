@@ -7,7 +7,49 @@ Public Class XfrmUsuarios
     Private Sub XfrmUsuarios_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.GotFocus
         'Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
      End Sub
+    Sub ActivarFiltros()
+        If activaropciones.PEstado = "PDO" Then
+            Dim idp As String = COracle.ObtenerDatos("select codigo_partido from im_usuarios where codigo_usuario ='" & usuario & "'", "CODIGO_PARTIDO") 'COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
+            Me.CODIGO_PARTIDOSpinEdit.Enabled = False
 
+
+            'Partido
+            Dim p As Integer = Me.CODIGO_PARTIDOSpinEdit.Properties.GetDataSourceRowIndex(Me.CODIGO_PARTIDOSpinEdit.Properties.Columns("CODIGO_PARTIDO"), idp)
+            Me.CODIGO_PARTIDOSpinEdit.EditValue = Me.CODIGO_PARTIDOSpinEdit.Properties.GetDataSourceValue(Me.CODIGO_PARTIDOSpinEdit.Properties.ValueMember, p)
+            Try
+                Me.TA_MOVIMIENTOTableAdapter.FillBy1(Me.DSPolitico.TA_MOVIMIENTO, idp)
+
+            Catch ex As Exception
+
+            End Try
+            Me.CODIGO_MOVIMIENTOSpinEdit.Enabled = True
+
+        ElseIf activaropciones.PEstado = "MOV" Then
+            'Dim idp As String = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
+            'Dim idmov As String = COracle.ObtenerDatos("SELECT CODIGO_MOVIMIENTO FROM IM_PARAMETROS_GENERALES", "CODIGO_MOVIMIENTO")
+            Dim idp As String = COracle.ObtenerDatos("select codigo_partido from im_usuarios where codigo_usuario ='" & usuario & "'", "CODIGO_PARTIDO")
+            Dim idmov As String = COracle.ObtenerDatos("select codigo_movimiento from im_usuarios where codigo_usuario ='" & usuario & "'", "CODIGO_MOVIMIENTO")
+
+            Me.CODIGO_PARTIDOSpinEdit.Enabled = False
+            Me.CODIGO_MOVIMIENTOSpinEdit.Enabled = False
+
+            'Partido
+            Dim p As Integer = Me.CODIGO_PARTIDOSpinEdit.Properties.GetDataSourceRowIndex(Me.CODIGO_PARTIDOSpinEdit.Properties.Columns("CODIGO_PARTIDO"), idp)
+            Me.CODIGO_PARTIDOSpinEdit.EditValue = Me.CODIGO_PARTIDOSpinEdit.Properties.GetDataSourceValue(Me.CODIGO_PARTIDOSpinEdit.Properties.ValueMember, p)
+            Try
+                Me.TA_MOVIMIENTOTableAdapter.FillBy1(Me.DSPolitico.TA_MOVIMIENTO, idp)
+
+            Catch ex As Exception
+
+            End Try
+            'Movimiento
+            Dim m As Integer = Me.CODIGO_MOVIMIENTOSpinEdit.Properties.GetDataSourceRowIndex(Me.CODIGO_MOVIMIENTOSpinEdit.Properties.Columns("CODIGO_MOVIMIENTO"), idmov)
+            Me.CODIGO_MOVIMIENTOSpinEdit.EditValue = Me.CODIGO_MOVIMIENTOSpinEdit.Properties.GetDataSourceValue(Me.CODIGO_MOVIMIENTOSpinEdit.Properties.ValueMember, m)
+
+        Else
+            ' limpiar()
+        End If
+    End Sub
     Private Sub XfrmUsuarios_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'DSPolitico.TA_MOVIMIENTO' table. You can move, or remove it, as needed.
 
@@ -38,7 +80,7 @@ Public Class XfrmUsuarios
             DxControls.ObtenerCredencial("BtnUsuarios", "MODIFICAR", Me.BtnGuardar)
         End If
         DxControls.ObtenerCredencial("BtnUsuarios", "INSERTAR", Me.BtnNuevo)
-
+        ActivarFiltros()
 
     End Sub
     Sub PreguntasDeSeguridad() 'SE CREA UN DATA TABLE PARA ENLAZARLO AL CONTROL Y MOSTRAR LAS PREGUNTAS DE SEGURIDAD
@@ -129,6 +171,9 @@ Public Class XfrmUsuarios
                         _datar.FECHA_ADICION = DateTime.Now
                         'SI EL REGISTRO SE MODIFICA
                     ElseIf _datar.RowState = DataRowState.Modified Then
+                        If Me.CODIGO_MOVIMIENTOSpinEdit.Text = "" Then
+                            _datar.CODIGO_MOVIMIENTO = Nothing
+                        End If
                         _datar.MODIFICADO_POR = usuario
                         _datar.FECHA_MODIFICACION = DateTime.Now
                     End If
@@ -176,7 +221,6 @@ Public Class XfrmUsuarios
     End Sub
 
     Sub ActualizarGrid()
-
         Select Case NivelUsuario
             Case 3
                 Me.DT_USUARIOSTableAdapter.Nivel3(Me.DTUsers.DT_USUARIOS)
@@ -186,6 +230,22 @@ Public Class XfrmUsuarios
                 Me.DT_USUARIOSTableAdapter.Fill(Me.DTUsers.DT_USUARIOS)
 
         End Select
+
+
+        Dim idp As String = COracle.ObtenerDatos("select codigo_partido from im_usuarios where codigo_usuario ='" & usuario & "'", "CODIGO_PARTIDO")
+        Dim idmov As String = COracle.ObtenerDatos("select codigo_movimiento from im_usuarios where codigo_usuario ='" & usuario & "'", "CODIGO_MOVIMIENTO")
+        If ActivarOpciones.PEstado = "PDO" Then
+            Me.colCODIGO_PARTIDO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_PARTIDO=" & idp)
+        ElseIf ActivarOpciones.PEstado = "MOV" Then
+            Me.colCODIGO_PARTIDO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_PARTIDO=" & idp)
+            Me.colCODIGO_MOVIMIENTO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("CODIGO_MOVIMIENTO=" & idmov)
+
+        End If
+
+
+
+
+
     End Sub
 
     Private Sub CODIGO_PARTIDOSpinEdit_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CODIGO_PARTIDOSpinEdit.EditValueChanged

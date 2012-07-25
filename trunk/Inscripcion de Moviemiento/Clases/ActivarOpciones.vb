@@ -8,7 +8,7 @@
 
         If (idp = "99") And (idmov = "N" Or idmov = "" Or idmov = "99") Then
             Return "TSE"
-        ElseIf (idp <> "99") And (idmov = "N" Or idmov = "") Then
+        ElseIf (idp <> "99") And (idmov = "N" Or idmov = "" Or idmov = "0") Then
             Return "PDO"
 
         ElseIf (idp <> "99") And (idmov <> "N" Or idmov <> "" Or idmov <> "99") Then
