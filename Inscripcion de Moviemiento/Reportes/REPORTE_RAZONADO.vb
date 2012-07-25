@@ -28,6 +28,7 @@ Public Class REPORTE_RAZONADO
                 LookUpEdit.Properties.ValueMember = "NOMBRE PARTIDO"
                 LookUpEdit.Properties.Columns.Add(New  _
                     LookUpColumnInfo("NOMBRE PARTIDO", 0, "NOMBRE PARTIDO")) 'AGREGA EL NOMBRE DEL PARTIDO A LA LISTA 
+
                 info.Editor = LookUpEdit
             End If
         Next

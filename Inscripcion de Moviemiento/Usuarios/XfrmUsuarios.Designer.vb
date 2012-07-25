@@ -86,6 +86,8 @@ Partial Class XfrmUsuarios
         Me.colROL = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colIDENTIDAD = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colNIVEL = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCODIGO_MOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCODIGO_PARTIDO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem
@@ -771,7 +773,7 @@ Partial Class XfrmUsuarios
         '
         'GridView1
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_USUARIO, Me.colNOMBRE, Me.colESTADO, Me.colNOMBRE_MOVIMIENTO, Me.colPARTIDO, Me.colROL, Me.colIDENTIDAD, Me.colNIVEL})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_USUARIO, Me.colNOMBRE, Me.colESTADO, Me.colNOMBRE_MOVIMIENTO, Me.colPARTIDO, Me.colROL, Me.colIDENTIDAD, Me.colNIVEL, Me.colCODIGO_MOVIMIENTO, Me.colCODIGO_PARTIDO})
         Me.GridView1.GridControl = Me.GCBusqueda
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.[False]
@@ -780,6 +782,7 @@ Partial Class XfrmUsuarios
         Me.GridView1.OptionsBehavior.Editable = False
         Me.GridView1.OptionsView.ColumnAutoWidth = False
         Me.GridView1.OptionsView.ShowDetailButtons = False
+        Me.GridView1.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never
         Me.GridView1.OptionsView.ShowGroupPanel = False
         Me.GridView1.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.colNOMBRE, DevExpress.Data.ColumnSortOrder.Descending)})
         '
@@ -863,6 +866,16 @@ Partial Class XfrmUsuarios
         Me.colNIVEL.Visible = True
         Me.colNIVEL.VisibleIndex = 6
         Me.colNIVEL.Width = 33
+        '
+        'colCODIGO_MOVIMIENTO
+        '
+        Me.colCODIGO_MOVIMIENTO.FieldName = "CODIGO_MOVIMIENTO"
+        Me.colCODIGO_MOVIMIENTO.Name = "colCODIGO_MOVIMIENTO"
+        '
+        'colCODIGO_PARTIDO
+        '
+        Me.colCODIGO_PARTIDO.FieldName = "CODIGO_PARTIDO"
+        Me.colCODIGO_PARTIDO.Name = "colCODIGO_PARTIDO"
         '
         'GridView2
         '
@@ -1113,4 +1126,6 @@ Partial Class XfrmUsuarios
     Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents TAMOVIMIENTOBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents TA_MOVIMIENTOTableAdapter As Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_MOVIMIENTOTableAdapter
+    Friend WithEvents colCODIGO_MOVIMIENTO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colCODIGO_PARTIDO As DevExpress.XtraGrid.Columns.GridColumn
 End Class

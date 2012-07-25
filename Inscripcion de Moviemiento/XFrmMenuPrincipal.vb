@@ -75,14 +75,14 @@ Public Class XFrmMenuPrincipal
    
 
     Sub verificaringreso()
-        'If File.Exists(Application.StartupPath.ToString & "\Cnf.ini") Then
-        Me.Visible = False
-        XfrmLogin.ShowDialog(Me)
+        If File.Exists(Application.StartupPath.ToString & "\Cnf.ini") Then
+            Me.Visible = False
+            XfrmLogin.ShowDialog(Me)
 
-        'Else
-        'Me.Visible = False
-        'XfrmConfigurar.ShowDialog(Me)
-        'End If
+        Else
+            Me.Visible = False
+            XfrmConfigurar.ShowDialog(Me)
+        End If
     End Sub
 
     Public Sub verificar_permisos()

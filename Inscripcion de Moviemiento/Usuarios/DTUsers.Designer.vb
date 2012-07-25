@@ -2775,6 +2775,10 @@ Partial Public Class DTUsers
         
         Private columnNIVEL As Global.System.Data.DataColumn
         
+        Private columnCODIGO_PARTIDO As Global.System.Data.DataColumn
+        
+        Private columnCODIGO_MOVIMIENTO As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -2863,6 +2867,20 @@ Partial Public Class DTUsers
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CODIGO_PARTIDOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCODIGO_PARTIDO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CODIGO_MOVIMIENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCODIGO_MOVIMIENTO
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2892,9 +2910,9 @@ Partial Public Class DTUsers
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddDT_USUARIOSRow(ByVal CODIGO_USUARIO As String, ByVal NOMBRE As String, ByVal ESTADO As String, ByVal NOMBRE_MOVIMIENTO As String, ByVal PARTIDO As String, ByVal ROL As String, ByVal IDENTIDAD As String, ByVal NIVEL As Decimal) As DT_USUARIOSRow
+        Public Overloads Function AddDT_USUARIOSRow(ByVal CODIGO_USUARIO As String, ByVal NOMBRE As String, ByVal ESTADO As String, ByVal NOMBRE_MOVIMIENTO As String, ByVal PARTIDO As String, ByVal ROL As String, ByVal IDENTIDAD As String, ByVal NIVEL As Decimal, ByVal CODIGO_PARTIDO As Decimal, ByVal CODIGO_MOVIMIENTO As Decimal) As DT_USUARIOSRow
             Dim rowDT_USUARIOSRow As DT_USUARIOSRow = CType(Me.NewRow,DT_USUARIOSRow)
-            Dim columnValuesArray() As Object = New Object() {CODIGO_USUARIO, NOMBRE, ESTADO, NOMBRE_MOVIMIENTO, PARTIDO, ROL, IDENTIDAD, NIVEL}
+            Dim columnValuesArray() As Object = New Object() {CODIGO_USUARIO, NOMBRE, ESTADO, NOMBRE_MOVIMIENTO, PARTIDO, ROL, IDENTIDAD, NIVEL, CODIGO_PARTIDO, CODIGO_MOVIMIENTO}
             rowDT_USUARIOSRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDT_USUARIOSRow)
             Return rowDT_USUARIOSRow
@@ -2927,6 +2945,8 @@ Partial Public Class DTUsers
             Me.columnROL = MyBase.Columns("ROL")
             Me.columnIDENTIDAD = MyBase.Columns("IDENTIDAD")
             Me.columnNIVEL = MyBase.Columns("NIVEL")
+            Me.columnCODIGO_PARTIDO = MyBase.Columns("CODIGO_PARTIDO")
+            Me.columnCODIGO_MOVIMIENTO = MyBase.Columns("CODIGO_MOVIMIENTO")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -2947,6 +2967,10 @@ Partial Public Class DTUsers
             MyBase.Columns.Add(Me.columnIDENTIDAD)
             Me.columnNIVEL = New Global.System.Data.DataColumn("NIVEL", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNIVEL)
+            Me.columnCODIGO_PARTIDO = New Global.System.Data.DataColumn("CODIGO_PARTIDO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_PARTIDO)
+            Me.columnCODIGO_MOVIMIENTO = New Global.System.Data.DataColumn("CODIGO_MOVIMIENTO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_MOVIMIENTO)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_USUARIO}, true))
             Me.columnCODIGO_USUARIO.AllowDBNull = false
             Me.columnCODIGO_USUARIO.Unique = true
@@ -2963,6 +2987,7 @@ Partial Public Class DTUsers
             Me.columnIDENTIDAD.AllowDBNull = false
             Me.columnIDENTIDAD.MaxLength = 15
             Me.columnNIVEL.AllowDBNull = false
+            Me.columnCODIGO_PARTIDO.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -4376,6 +4401,30 @@ Partial Public Class DTUsers
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CODIGO_PARTIDO() As Decimal
+            Get
+                Return CType(Me(Me.tableDT_USUARIOS.CODIGO_PARTIDOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableDT_USUARIOS.CODIGO_PARTIDOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CODIGO_MOVIMIENTO() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableDT_USUARIOS.CODIGO_MOVIMIENTOColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CODIGO_MOVIMIENTO' in table 'DT_USUARIOS' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDT_USUARIOS.CODIGO_MOVIMIENTOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsNOMBRE_MOVIMIENTONull() As Boolean
             Return Me.IsNull(Me.tableDT_USUARIOS.NOMBRE_MOVIMIENTOColumn)
         End Function
@@ -4383,6 +4432,16 @@ Partial Public Class DTUsers
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetNOMBRE_MOVIMIENTONull()
             Me(Me.tableDT_USUARIOS.NOMBRE_MOVIMIENTOColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsCODIGO_MOVIMIENTONull() As Boolean
+            Return Me.IsNull(Me.tableDT_USUARIOS.CODIGO_MOVIMIENTOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetCODIGO_MOVIMIENTONull()
+            Me(Me.tableDT_USUARIOS.CODIGO_MOVIMIENTOColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -7924,6 +7983,8 @@ Namespace DTUsersTableAdapters
             tableMapping.ColumnMappings.Add("ROL", "ROL")
             tableMapping.ColumnMappings.Add("IDENTIDAD", "IDENTIDAD")
             tableMapping.ColumnMappings.Add("NIVEL", "NIVEL")
+            tableMapping.ColumnMappings.Add("CODIGO_PARTIDO", "CODIGO_PARTIDO")
+            tableMapping.ColumnMappings.Add("CODIGO_MOVIMIENTO", "CODIGO_MOVIMIENTO")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -7938,30 +7999,30 @@ Namespace DTUsersTableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT       us.CODIGO_USUARIO, us.IDENTIDAD, us.NIVEL, us.NOMBRE, us.ESTADO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
-                "                        roles.DESCRIPCION AS ROL, pol.NOMBRE AS PARTIDO, mov.NOM"& _ 
-                "BRE_MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_USUARIOS us "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"join  IM_ROLES  roles on us.COD"& _ 
-                "IGO_ROL=ROLES.CODIGO_ROL"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"left join IM_MOVIMIENTOS mov on us.CODIGO_MOVIMIENTO=M"& _ 
-                "OV.CODIGO_MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"join IM_PARTIDOS_POLITICOS pol on us.CODIGO_PARTIDO=POL.CO"& _ 
-                "DIGO_PARTIDO"
+            Me._commandCollection(0).CommandText = "SELECT       us.CODIGO_USUARIO, us.IDENTIDAD, us.NIVEL, us.NOMBRE, us.ESTADO, US."& _ 
+                "CODIGO_PARTIDO,US.CODIGO_MOVIMIENTO,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         rol.DESCRIPCION A"& _ 
+                "S ROL, pol.NOMBRE AS PARTIDO, mov.NOMBRE_MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_USUARIOS"& _ 
+                " us"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"join  IM_ROLES  rol on us.CODIGO_ROL=rol.CODIGO_ROL"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"left join IM_MOVIMIENT"& _ 
+                "OS mov on us.CODIGO_MOVIMIENTO=MOV.CODIGO_MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"join IM_PARTIDOS_POLITICOS"& _ 
+                " pol on us.CODIGO_PARTIDO=POL.CODIGO_PARTIDO"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT       us.CODIGO_USUARIO, us.IDENTIDAD, us.NIVEL, us.NOMBRE, us.ESTADO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
-                "                        roles.DESCRIPCION AS ROL, pol.NOMBRE AS PARTIDO, mov.NOM"& _ 
-                "BRE_MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_USUARIOS us "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"join  IM_ROLES  roles on us.COD"& _ 
-                "IGO_ROL=ROLES.CODIGO_ROL"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"left join IM_MOVIMIENTOS mov on us.CODIGO_MOVIMIENTO=M"& _ 
-                "OV.CODIGO_MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"join IM_PARTIDOS_POLITICOS pol on us.CODIGO_PARTIDO=POL.CO"& _ 
-                "DIGO_PARTIDO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where US.NIVEL=2 or US.NIVEL=3 "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(1).CommandText = "SELECT       us.CODIGO_USUARIO, us.IDENTIDAD, us.NIVEL, us.NOMBRE, us.ESTADO, US."& _ 
+                "CODIGO_PARTIDO,US.CODIGO_MOVIMIENTO,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         rol.DESCRIPCION A"& _ 
+                "S ROL, pol.NOMBRE AS PARTIDO, mov.NOMBRE_MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_USUARIOS"& _ 
+                " us"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"join  IM_ROLES  rol on us.CODIGO_ROL=rol.CODIGO_ROL"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"left join IM_MOVIMIENT"& _ 
+                "OS mov on us.CODIGO_MOVIMIENTO=MOV.CODIGO_MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"join IM_PARTIDOS_POLITICOS"& _ 
+                " pol on us.CODIGO_PARTIDO=POL.CODIGO_PARTIDO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where US.NIVEL=2 or US.NIVEL=3 "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT       us.CODIGO_USUARIO, us.IDENTIDAD, us.NIVEL, us.NOMBRE, us.ESTADO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
-                "                        roles.DESCRIPCION AS ROL, pol.NOMBRE AS PARTIDO, mov.NOM"& _ 
-                "BRE_MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_USUARIOS us "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"join  IM_ROLES  roles on us.COD"& _ 
-                "IGO_ROL=ROLES.CODIGO_ROL"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"left join IM_MOVIMIENTOS mov on us.CODIGO_MOVIMIENTO=M"& _ 
-                "OV.CODIGO_MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"join IM_PARTIDOS_POLITICOS pol on us.CODIGO_PARTIDO=POL.CO"& _ 
-                "DIGO_PARTIDO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where US.NIVEL=3 "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(2).CommandText = "SELECT       us.CODIGO_USUARIO, us.IDENTIDAD, us.NIVEL, us.NOMBRE, us.ESTADO, US."& _ 
+                "CODIGO_PARTIDO,US.CODIGO_MOVIMIENTO,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         rol.DESCRIPCION A"& _ 
+                "S ROL, pol.NOMBRE AS PARTIDO, mov.NOMBRE_MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_USUARIOS"& _ 
+                " us"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"join  IM_ROLES  rol on us.CODIGO_ROL=rol.CODIGO_ROL"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"left join IM_MOVIMIENT"& _ 
+                "OS mov on us.CODIGO_MOVIMIENTO=MOV.CODIGO_MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"join IM_PARTIDOS_POLITICOS"& _ 
+                " pol on us.CODIGO_PARTIDO=POL.CODIGO_PARTIDO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where US.NIVEL=3 "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
