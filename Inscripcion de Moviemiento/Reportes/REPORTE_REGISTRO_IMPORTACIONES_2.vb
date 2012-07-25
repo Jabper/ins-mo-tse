@@ -6,9 +6,6 @@ Imports DevExpress.XtraReports.UI
 Imports DevExpress.XtraReports.Parameters
 
 Public Class REPORTE_REGISTRO_IMPORTACIONES_2
-
-
-
     Private Sub REPORTE_REGISTRO_IMPORTACIONES_2_ParametersRequestBeforeShow(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestEventArgs) Handles Me.ParametersRequestBeforeShow
         Dim dataset As New DS_REGISTRO_IMPORTACIONES_2
 
@@ -52,7 +49,7 @@ Public Class REPORTE_REGISTRO_IMPORTACIONES_2
         For Each info In e.ParametersInformation
             If info.Parameter.Name = "FechaA" Then
                 Dim LookUpEdit As New LookUpEdit()
-                LookUpEdit.Properties.DataSource = dataset.IM_MOVIMIENTOS
+                LookUpEdit.Properties.DataSource = dataset.IM_REGISTRO_IMPORTACIONES
                 LookUpEdit.Properties.DisplayMember = "FECHA_ADICION" 'COLOCA EL CAMPO SELECCIONADO EN EL TEXTBOX
                 LookUpEdit.Properties.ValueMember = "FECHA_ADICION"
                 LookUpEdit.Properties.Columns.Add(New  _
@@ -68,7 +65,7 @@ Public Class REPORTE_REGISTRO_IMPORTACIONES_2
         For Each info In e.ParametersInformation
             If info.Parameter.Name = "HoraA" Then
                 Dim LookUpEdit As New LookUpEdit()
-                LookUpEdit.Properties.DataSource = dataset.IM_MOVIMIENTOS
+                LookUpEdit.Properties.DataSource = dataset.IM_REGISTRO_IMPORTACIONES1
                 LookUpEdit.Properties.DisplayMember = "HORA_ADICION" 'COLOCA EL CAMPO SELECCIONADO EN EL TEXTBOX
                 LookUpEdit.Properties.ValueMember = "HORA_ADICION"
                 LookUpEdit.Properties.Columns.Add(New  _
@@ -76,6 +73,11 @@ Public Class REPORTE_REGISTRO_IMPORTACIONES_2
                 info.Editor = LookUpEdit
             End If
         Next
+
+    End Sub
+
+    Private Sub REPORTE_REGISTRO_IMPORTACIONES_2_ParametersRequestSubmit(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestEventArgs) Handles Me.ParametersRequestSubmit
+        Me.IM_V_REGISTRO_IMPOR_2TableAdapter.Fill(Me.DS_REGISTRO_IMPORTACIONES_22.IM_V_REGISTRO_IMPOR_2, Me.NombrePartido.Value.ToString, Me.NombreMovimiento.Value.ToString, Me.FechaA.Value.ToString, Me.HoraA.Value.ToString)
 
     End Sub
 End Class
