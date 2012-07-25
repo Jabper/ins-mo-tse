@@ -42,20 +42,35 @@ Public Class XfrmImportar
                 conn8.Open()
                 Dim dpdump As String
 
-                Dim sql8 As String = "select directory_path from dba_directories where directory_name = 'DATA_PUMP_DIR'"
-                Dim cmd8 As New OracleCommand(sql8, conn8)
-                cmd8.CommandType = CommandType.Text
-                Dim chek8 As OracleDataReader = cmd8.ExecuteReader()
-                If chek8.Read Then
-                    dpdump = chek8.Item("directory_path")
-                End If
+                Try
+                    Dim sql8 As String = "select directory_path from sys.dba_directories where directory_name = 'DATA_PUMP_DIR'"
+                    Dim cmd8 As New OracleCommand(sql8, conn8)
+                    cmd8.CommandType = CommandType.Text
+                    Dim chek8 As OracleDataReader = cmd8.ExecuteReader()
+                    If chek8.Read Then
+                        dpdump = chek8.Item("directory_path")
+                    End If
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                    Exit Sub
+                End Try
                 conn8.Close()
 
                 If File.Exists(dpdump & archivo) Then
-                    System.IO.File.Delete(dpdump & archivo)
-                    System.IO.File.Copy(TxtRuta.Text, dpdump & archivo, True)
+                    Try
+                        System.IO.File.Delete(dpdump & archivo)
+                        System.IO.File.Copy(TxtRuta.Text, dpdump & archivo, True)
+                    Catch ex As Exception
+                        MsgBox(ex.Message)
+                        Exit Sub
+                    End Try
                 Else
-                    System.IO.File.Copy(TxtRuta.Text, dpdump & archivo, True)
+                    Try
+                        System.IO.File.Copy(TxtRuta.Text, dpdump & archivo, True)
+                    Catch ex As Exception
+                        MsgBox(ex.Message)
+                        Exit Sub
+                    End Try
                 End If
                 Try
                     Dim oradb1 As String = Configuracion.verconfig
@@ -173,10 +188,10 @@ Public Class XfrmImportar
                             Dim myCMD9 As New OracleCommand()
                             conn9.ConnectionString = oradb9
                             conn9.Open()
-                            Try                                
+                            Try
                                 myCMD9.Connection = conn9
                                 myCMD9.CommandText = "im_p_cantidades_en_temporales"
-                                myCMD9.CommandType = CommandType.StoredProcedure   
+                                myCMD9.CommandType = CommandType.StoredProcedure
                                 myCMD9.Parameters.Add(New OracleParameter("partido", OracleType.Char, 2)).Direction = ParameterDirection.Output
                                 myCMD9.Parameters.Add(New OracleParameter("movimiento", OracleType.Char, 3)).Direction = ParameterDirection.Output
                                 myCMD9.Parameters.Add(New OracleParameter("desc_partido", OracleType.Char, 100)).Direction = ParameterDirection.Output
@@ -207,7 +222,7 @@ Public Class XfrmImportar
                                 Mensajes.MensajeError(ex.Message)
                                 Exit Sub
                             End Try
-                            
+
 
                             Dim oradb10 As String = Configuracion.verconfig
                             Dim conn10 As New OracleConnection()
@@ -216,7 +231,7 @@ Public Class XfrmImportar
                             conn10.Open()
                             Dim reporte As String
                             Try
-                                myCMD10.Connection = conn10                                
+                                myCMD10.Connection = conn10
                                 myCMD10.CommandText = "Insert into im_registro_importaciones (FECHA_ADICION, HORA_ADICION, " _
                                 & "NOMBRE_ARCHIVO, TAMAÑO_ARCHIVO, CODIGO_PARTIDO, CODIGO_MOVIMIENTO, CANTIDAD_CANDIDATOS, " _
                                 & "CANTIDAD_FIRMAS, CANTIDAD_FOTOS, CANTIDAD_CONSTANCIAS, CANTIDAD_IMAGENES_FIRMAS, adicionado_por, desc_partido, desc_movimiento ) VALUES (" _
