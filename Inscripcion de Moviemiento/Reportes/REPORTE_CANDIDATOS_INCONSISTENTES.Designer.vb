@@ -52,6 +52,8 @@ Partial Public Class REPORTE_CANDIDATOS_INCONSISTENTES
         Me.XrPageInfo2 = New DevExpress.XtraReports.UI.XRPageInfo
         Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo
         Me.GroupHeader3 = New DevExpress.XtraReports.UI.GroupHeaderBand
+        Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
+        Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
         CType(Me.DS_CANDIDATOS_INC1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
@@ -339,16 +341,28 @@ Partial Public Class REPORTE_CANDIDATOS_INCONSISTENTES
         Me.GroupHeader3.Level = 1
         Me.GroupHeader3.Name = "GroupHeader3"
         '
+        'NombrePartido
+        '
+        Me.NombrePartido.Description = "Nombre Partido"
+        Me.NombrePartido.Name = "NombrePartido"
+        '
+        'NombreMovimiento
+        '
+        Me.NombreMovimiento.Description = "Nombre Movimiento"
+        Me.NombreMovimiento.Name = "NombreMovimiento"
+        '
         'REPORTE_CANDIDATOS_INCONSISTENTES
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.ReportHeader, Me.GroupHeader1, Me.GroupHeader2, Me.PageFooter, Me.GroupHeader3})
         Me.DataAdapter = Me.IM_CANDIDATOS_INCONSISTENTESTableAdapter
         Me.DataMember = "IM_CANDIDATOS_INCONSISTENTES"
         Me.DataSource = Me.DS_CANDIDATOS_INC1
+        Me.FilterString = "[PARTIDO] = ?NombrePartido And [MOVIMIENTO] = ?NombreMovimiento"
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(12, 14, 14, 19)
         Me.PageHeight = 850
         Me.PageWidth = 1100
+        Me.Parameters.AddRange(New DevExpress.XtraReports.Parameters.Parameter() {Me.NombrePartido, Me.NombreMovimiento})
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.Version = "11.2"
         CType(Me.DS_CANDIDATOS_INC1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -388,4 +402,6 @@ Partial Public Class REPORTE_CANDIDATOS_INCONSISTENTES
     Friend WithEvents XrPageInfo1 As DevExpress.XtraReports.UI.XRPageInfo
     Friend WithEvents XrPageInfo2 As DevExpress.XtraReports.UI.XRPageInfo
     Friend WithEvents GroupHeader3 As DevExpress.XtraReports.UI.GroupHeaderBand
+    Friend WithEvents NombrePartido As DevExpress.XtraReports.Parameters.Parameter
+    Friend WithEvents NombreMovimiento As DevExpress.XtraReports.Parameters.Parameter
 End Class
