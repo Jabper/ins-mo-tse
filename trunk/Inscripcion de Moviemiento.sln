@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Inscripcion de Moviemiento", "Inscripcion de Moviemiento\Inscripcion de Moviemiento.vbproj", "{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Inscripción de Movimientos TSE", "Inscripción de Movimientos TSE\Inscripción de Movimientos TSE.vdproj", "{8E4D3A74-65E4-460A-826D-CC260DB705EA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,18 +25,6 @@ Global
 		{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}.Release|x64.Build.0 = Release|x64
 		{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}.Release|x86.ActiveCfg = Release|x86
 		{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}.Release|x86.Build.0 = Release|x86
-		{8E4D3A74-65E4-460A-826D-CC260DB705EA}.Debug|Any CPU.ActiveCfg = Debug
-		{8E4D3A74-65E4-460A-826D-CC260DB705EA}.Debug|Any CPU.Build.0 = Debug
-		{8E4D3A74-65E4-460A-826D-CC260DB705EA}.Debug|x64.ActiveCfg = Debug
-		{8E4D3A74-65E4-460A-826D-CC260DB705EA}.Debug|x64.Build.0 = Debug
-		{8E4D3A74-65E4-460A-826D-CC260DB705EA}.Debug|x86.ActiveCfg = Debug
-		{8E4D3A74-65E4-460A-826D-CC260DB705EA}.Debug|x86.Build.0 = Debug
-		{8E4D3A74-65E4-460A-826D-CC260DB705EA}.Release|Any CPU.ActiveCfg = Release
-		{8E4D3A74-65E4-460A-826D-CC260DB705EA}.Release|Any CPU.Build.0 = Release
-		{8E4D3A74-65E4-460A-826D-CC260DB705EA}.Release|x64.ActiveCfg = Release
-		{8E4D3A74-65E4-460A-826D-CC260DB705EA}.Release|x64.Build.0 = Release
-		{8E4D3A74-65E4-460A-826D-CC260DB705EA}.Release|x86.ActiveCfg = Release
-		{8E4D3A74-65E4-460A-826D-CC260DB705EA}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
