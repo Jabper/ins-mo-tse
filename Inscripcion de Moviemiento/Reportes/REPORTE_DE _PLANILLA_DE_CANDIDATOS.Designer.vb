@@ -78,7 +78,7 @@ Partial Public Class REPORTE_DE__PLANILLA_DE_CANDIDATOS
         '
         'XrLabel20
         '
-        Me.XrLabel20.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_MOSTRAR_CANDIDATOS2.NIVEL ELECTIVO")})
+        Me.XrLabel20.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_MOSTRAR_CANDIDATOS2.CARGO")})
         Me.XrLabel20.LocationFloat = New DevExpress.Utils.PointFloat(775.0!, 9.998322!)
         Me.XrLabel20.Name = "XrLabel20"
         Me.XrLabel20.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
