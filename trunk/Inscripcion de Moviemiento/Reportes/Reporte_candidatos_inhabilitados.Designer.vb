@@ -21,6 +21,7 @@ Partial Public Class Reporte_candidatos_inhabilitados
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Me.Detail = New DevExpress.XtraReports.UI.DetailBand
+        Me.XrLabel20 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel11 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel13 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel14 = New DevExpress.XtraReports.UI.XRLabel
@@ -29,11 +30,15 @@ Partial Public Class Reporte_candidatos_inhabilitados
         Me.TopMargin = New DevExpress.XtraReports.UI.TopMarginBand
         Me.BottomMargin = New DevExpress.XtraReports.UI.BottomMarginBand
         Me.ReportHeader = New DevExpress.XtraReports.UI.ReportHeaderBand
+        Me.XrPictureBox2 = New DevExpress.XtraReports.UI.XRPictureBox
+        Me.BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DS_LOG = New Inscripcion_de_Moviemientos.DS_LOG
         Me.XrPictureBox1 = New DevExpress.XtraReports.UI.XRPictureBox
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DS_LOG = New Inscripcion_de_Moviemientos.DS_LOG
         Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel
         Me.GroupHeader1 = New DevExpress.XtraReports.UI.GroupHeaderBand
+        Me.XrLabel18 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel19 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel16 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel17 = New DevExpress.XtraReports.UI.XRLabel
@@ -41,6 +46,8 @@ Partial Public Class Reporte_candidatos_inhabilitados
         Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel
         Me.GroupHeader2 = New DevExpress.XtraReports.UI.GroupHeaderBand
+        Me.XrLabel7 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLine2 = New DevExpress.XtraReports.UI.XRLine
         Me.XrLabel12 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel15 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLine1 = New DevExpress.XtraReports.UI.XRLine
@@ -53,19 +60,12 @@ Partial Public Class Reporte_candidatos_inhabilitados
         Me.NombreDepartamento = New DevExpress.XtraReports.Parameters.Parameter
         Me.NombreNivel = New DevExpress.XtraReports.Parameters.Parameter
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
-        Me.XrLabel19 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel18 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLine2 = New DevExpress.XtraReports.UI.XRLine
-        Me.XrLabel7 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel20 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrPictureBox2 = New DevExpress.XtraReports.UI.XRPictureBox
         Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
-        Me.BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_MOVIMIENTOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DS_CANDIDATOS_INHABILITADOS1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DS_CANDIDATOS_INHABILITADOS1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
         'Detail
@@ -75,6 +75,15 @@ Partial Public Class Reporte_candidatos_inhabilitados
         Me.Detail.Name = "Detail"
         Me.Detail.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
+        '
+        'XrLabel20
+        '
+        Me.XrLabel20.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CANDIDATOS_INHA.NIVELELECTIVO")})
+        Me.XrLabel20.LocationFloat = New DevExpress.Utils.PointFloat(828.7085!, 21.12497!)
+        Me.XrLabel20.Name = "XrLabel20"
+        Me.XrLabel20.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel20.SizeF = New System.Drawing.SizeF(208.2914!, 23.00002!)
+        Me.XrLabel20.Text = "XrLabel20"
         '
         'XrLabel11
         '
@@ -141,6 +150,24 @@ Partial Public Class Reporte_candidatos_inhabilitados
         Me.ReportHeader.HeightF = 159.375!
         Me.ReportHeader.Name = "ReportHeader"
         '
+        'XrPictureBox2
+        '
+        Me.XrPictureBox2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSource2, "IMAGEN")})
+        Me.XrPictureBox2.LocationFloat = New DevExpress.Utils.PointFloat(913.0399!, 9.99999!)
+        Me.XrPictureBox2.Name = "XrPictureBox2"
+        Me.XrPictureBox2.SizeF = New System.Drawing.SizeF(123.96!, 80.0!)
+        Me.XrPictureBox2.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage
+        '
+        'BindingSource2
+        '
+        Me.BindingSource2.DataMember = "IM_MOVIMIENTOS_imagen"
+        Me.BindingSource2.DataSource = Me.DS_LOG
+        '
+        'DS_LOG
+        '
+        Me.DS_LOG.DataSetName = "DS_LOG"
+        Me.DS_LOG.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'XrPictureBox1
         '
         Me.XrPictureBox1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSource1, "IMAGEN")})
@@ -153,11 +180,6 @@ Partial Public Class Reporte_candidatos_inhabilitados
         '
         Me.BindingSource1.DataMember = "IM_PARTIDOS_POLITICOS_imagen"
         Me.BindingSource1.DataSource = Me.DS_LOG
-        '
-        'DS_LOG
-        '
-        Me.DS_LOG.DataSetName = "DS_LOG"
-        Me.DS_LOG.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'XrLabel1
         '
@@ -177,6 +199,25 @@ Partial Public Class Reporte_candidatos_inhabilitados
         Me.GroupHeader1.HeightF = 148.9583!
         Me.GroupHeader1.Level = 1
         Me.GroupHeader1.Name = "GroupHeader1"
+        '
+        'XrLabel18
+        '
+        Me.XrLabel18.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel18.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 44.22916!)
+        Me.XrLabel18.Name = "XrLabel18"
+        Me.XrLabel18.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel18.SizeF = New System.Drawing.SizeF(156.2501!, 22.99998!)
+        Me.XrLabel18.StylePriority.UseFont = False
+        Me.XrLabel18.Text = "Movimiento Político:"
+        '
+        'XrLabel19
+        '
+        Me.XrLabel19.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CANDIDATOS_INHA.NOMBRE MOVIMIENTO")})
+        Me.XrLabel19.LocationFloat = New DevExpress.Utils.PointFloat(172.9166!, 44.22916!)
+        Me.XrLabel19.Name = "XrLabel19"
+        Me.XrLabel19.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel19.SizeF = New System.Drawing.SizeF(547.9166!, 22.99998!)
+        Me.XrLabel19.Text = "XrLabel19"
         '
         'XrLabel5
         '
@@ -240,6 +281,27 @@ Partial Public Class Reporte_candidatos_inhabilitados
         Me.GroupHeader2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel7, Me.XrLine2, Me.XrLabel12, Me.XrLabel15, Me.XrLine1, Me.XrLabel10, Me.XrLabel6, Me.XrLabel8})
         Me.GroupHeader2.HeightF = 56.25!
         Me.GroupHeader2.Name = "GroupHeader2"
+        '
+        'XrLabel7
+        '
+        Me.XrLabel7.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel7.LocationFloat = New DevExpress.Utils.PointFloat(842.7083!, 11.37501!)
+        Me.XrLabel7.Name = "XrLabel7"
+        Me.XrLabel7.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel7.SizeF = New System.Drawing.SizeF(194.2916!, 22.99998!)
+        Me.XrLabel7.StylePriority.UseFont = False
+        Me.XrLabel7.StylePriority.UseTextAlignment = False
+        Me.XrLabel7.Text = "CARGO ELECTIVO"
+        Me.XrLabel7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'XrLine2
+        '
+        Me.XrLine2.BorderWidth = 4
+        Me.XrLine2.LineWidth = 3
+        Me.XrLine2.LocationFloat = New DevExpress.Utils.PointFloat(5.333201!, 3.333282!)
+        Me.XrLine2.Name = "XrLine2"
+        Me.XrLine2.SizeF = New System.Drawing.SizeF(1031.667!, 6.666692!)
+        Me.XrLine2.StylePriority.UseBorderWidth = False
         '
         'XrLabel12
         '
@@ -331,72 +393,10 @@ Partial Public Class Reporte_candidatos_inhabilitados
         '
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.ClearBeforeFill = True
         '
-        'XrLabel19
-        '
-        Me.XrLabel19.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CANDIDATOS_INHA.NOMBRE MOVIMIENTO")})
-        Me.XrLabel19.LocationFloat = New DevExpress.Utils.PointFloat(172.9166!, 44.22916!)
-        Me.XrLabel19.Name = "XrLabel19"
-        Me.XrLabel19.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel19.SizeF = New System.Drawing.SizeF(547.9166!, 22.99998!)
-        Me.XrLabel19.Text = "XrLabel19"
-        '
-        'XrLabel18
-        '
-        Me.XrLabel18.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel18.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 44.22916!)
-        Me.XrLabel18.Name = "XrLabel18"
-        Me.XrLabel18.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel18.SizeF = New System.Drawing.SizeF(156.2501!, 22.99998!)
-        Me.XrLabel18.StylePriority.UseFont = False
-        Me.XrLabel18.Text = "Movimiento Político:"
-        '
-        'XrLine2
-        '
-        Me.XrLine2.BorderWidth = 4
-        Me.XrLine2.LineWidth = 3
-        Me.XrLine2.LocationFloat = New DevExpress.Utils.PointFloat(5.333201!, 3.333282!)
-        Me.XrLine2.Name = "XrLine2"
-        Me.XrLine2.SizeF = New System.Drawing.SizeF(1031.667!, 6.666692!)
-        Me.XrLine2.StylePriority.UseBorderWidth = False
-        '
-        'XrLabel7
-        '
-        Me.XrLabel7.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel7.LocationFloat = New DevExpress.Utils.PointFloat(842.7083!, 11.37501!)
-        Me.XrLabel7.Name = "XrLabel7"
-        Me.XrLabel7.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel7.SizeF = New System.Drawing.SizeF(194.2916!, 22.99998!)
-        Me.XrLabel7.StylePriority.UseFont = False
-        Me.XrLabel7.StylePriority.UseTextAlignment = False
-        Me.XrLabel7.Text = "CARGO ELECTIVO"
-        Me.XrLabel7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'XrLabel20
-        '
-        Me.XrLabel20.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CANDIDATOS_INHA.NIVELELECTIVO")})
-        Me.XrLabel20.LocationFloat = New DevExpress.Utils.PointFloat(828.7085!, 21.12497!)
-        Me.XrLabel20.Name = "XrLabel20"
-        Me.XrLabel20.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel20.SizeF = New System.Drawing.SizeF(208.2914!, 23.00002!)
-        Me.XrLabel20.Text = "XrLabel20"
-        '
-        'XrPictureBox2
-        '
-        Me.XrPictureBox2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSource2, "IMAGEN")})
-        Me.XrPictureBox2.LocationFloat = New DevExpress.Utils.PointFloat(913.0399!, 9.99999!)
-        Me.XrPictureBox2.Name = "XrPictureBox2"
-        Me.XrPictureBox2.SizeF = New System.Drawing.SizeF(123.96!, 80.0!)
-        Me.XrPictureBox2.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage
-        '
         'NombreMovimiento
         '
         Me.NombreMovimiento.Description = "Movimiento Político"
         Me.NombreMovimiento.Name = "NombreMovimiento"
-        '
-        'BindingSource2
-        '
-        Me.BindingSource2.DataMember = "IM_MOVIMIENTOS_imagen"
-        Me.BindingSource2.DataSource = Me.DS_LOG
         '
         'IM_MOVIMIENTOS_imagenTableAdapter
         '
@@ -417,10 +417,10 @@ Partial Public Class Reporte_candidatos_inhabilitados
         Me.Parameters.AddRange(New DevExpress.XtraReports.Parameters.Parameter() {Me.NombrePartido, Me.NombreDepartamento, Me.NombreNivel, Me.NombreMovimiento})
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.Version = "11.2"
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DS_CANDIDATOS_INHABILITADOS1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DS_CANDIDATOS_INHABILITADOS1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub

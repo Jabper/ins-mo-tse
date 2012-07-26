@@ -4588,7 +4588,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Inscripción de Movimientos TSE"
         "ProductCode" = "8:{AF350CBC-458A-4949-AEBD-8539B4F1B904}"
-        "PackageCode" = "8:{3B4168CD-CA9C-42FE-92ED-7D6714FDAED8}"
+        "PackageCode" = "8:{739E230E-5292-4AE1-8AA7-F8E6DAD2996E}"
         "UpgradeCode" = "8:{AF350CBC-458A-4949-AEBD-8539B4F1B904}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
@@ -5150,7 +5150,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_DC706A810980414FA2BD106B47236021"
             {
-            "SourcePath" = "8:..\\Inscripcion de Moviemiento\\obj\\x86\\Debug\\Inscripción de Moviemientos.exe"
+            "SourcePath" = "8:..\\Inscripcion de Moviemiento\\obj\\x86\\Release\\Inscripción de Moviemientos.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4F29ADDC0E0E4CFE838EAF99E42CFA2D"

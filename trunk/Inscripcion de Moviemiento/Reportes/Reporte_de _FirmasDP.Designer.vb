@@ -20,6 +20,7 @@ Partial Public Class Reporte_de__FirmasDP
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Detail = New DevExpress.XtraReports.UI.DetailBand
+        Me.XrLabel19 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel13 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel14 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel15 = New DevExpress.XtraReports.UI.XRLabel
@@ -36,6 +37,7 @@ Partial Public Class Reporte_de__FirmasDP
         Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel6 = New DevExpress.XtraReports.UI.XRLabel
         Me.GroupHeaderBand3 = New DevExpress.XtraReports.UI.GroupHeaderBand
+        Me.XrLabel18 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel9 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel10 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel11 = New DevExpress.XtraReports.UI.XRLabel
@@ -56,8 +58,6 @@ Partial Public Class Reporte_de__FirmasDP
         Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
         Me.DS_REPORTE_DE_FDP_11 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FDP_1
         Me.IM_V_FIRMAS_DIVISION_POLITICATableAdapter = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FDP_1TableAdapters.IM_V_FIRMAS_DIVISION_POLITICATableAdapter
-        Me.XrLabel18 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel19 = New DevExpress.XtraReports.UI.XRLabel
         CType(Me.DS_REPORTE_DE_FDP_11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
@@ -69,6 +69,17 @@ Partial Public Class Reporte_de__FirmasDP
         Me.Detail.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.Detail.StyleName = "DataField"
         Me.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
+        '
+        'XrLabel19
+        '
+        Me.XrLabel19.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_DIVISION_POLITICA.FOLIO")})
+        Me.XrLabel19.LocationFloat = New DevExpress.Utils.PointFloat(778.6785!, 0.0!)
+        Me.XrLabel19.Name = "XrLabel19"
+        Me.XrLabel19.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel19.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.XrLabel19.StylePriority.UseTextAlignment = False
+        Me.XrLabel19.Text = "XrLabel19"
+        Me.XrLabel19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'XrLabel13
         '
@@ -211,6 +222,16 @@ Partial Public Class Reporte_de__FirmasDP
         Me.GroupHeaderBand3.HeightF = 37.41671!
         Me.GroupHeaderBand3.Name = "GroupHeaderBand3"
         Me.GroupHeaderBand3.StyleName = "FieldCaption"
+        '
+        'XrLabel18
+        '
+        Me.XrLabel18.LocationFloat = New DevExpress.Utils.PointFloat(773.4166!, 6.999969!)
+        Me.XrLabel18.Name = "XrLabel18"
+        Me.XrLabel18.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel18.SizeF = New System.Drawing.SizeF(100.0!, 14.99996!)
+        Me.XrLabel18.StylePriority.UseTextAlignment = False
+        Me.XrLabel18.Text = "FOLIO"
+        Me.XrLabel18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'XrLabel9
         '
@@ -367,27 +388,6 @@ Partial Public Class Reporte_de__FirmasDP
         'IM_V_FIRMAS_DIVISION_POLITICATableAdapter
         '
         Me.IM_V_FIRMAS_DIVISION_POLITICATableAdapter.ClearBeforeFill = True
-        '
-        'XrLabel18
-        '
-        Me.XrLabel18.LocationFloat = New DevExpress.Utils.PointFloat(773.4166!, 6.999969!)
-        Me.XrLabel18.Name = "XrLabel18"
-        Me.XrLabel18.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel18.SizeF = New System.Drawing.SizeF(100.0!, 14.99996!)
-        Me.XrLabel18.StylePriority.UseTextAlignment = False
-        Me.XrLabel18.Text = "FOLIO"
-        Me.XrLabel18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'XrLabel19
-        '
-        Me.XrLabel19.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_DIVISION_POLITICA.FOLIO")})
-        Me.XrLabel19.LocationFloat = New DevExpress.Utils.PointFloat(778.6785!, 0.0!)
-        Me.XrLabel19.Name = "XrLabel19"
-        Me.XrLabel19.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel19.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.XrLabel19.StylePriority.UseTextAlignment = False
-        Me.XrLabel19.Text = "XrLabel19"
-        Me.XrLabel19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'Reporte_de__FirmasDP
         '

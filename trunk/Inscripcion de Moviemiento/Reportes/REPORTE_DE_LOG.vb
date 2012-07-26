@@ -169,4 +169,30 @@ Public Class REPORTE_DE_LOG
         Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(DS_LOG1.IM_MOVIMIENTOS_imagen, NombreMovimiento.Value.ToString)
 
     End Sub
+
+    Private Sub REPORTE_DE_LOG_ParametersRequestValueChanged(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestValueChangedEventArgs) Handles Me.ParametersRequestValueChanged
+        Dim dataset As New DS_REPORTE_DE_PNEM_1
+
+        If ActivarOpciones.PEstado = "TSE" Then
+            'If NombrePartido..ToString <> "" Or NombrePartido.Value.ToString <> Nothing Then
+
+            ''CODIGO NECESARIO PARA AGREGAR LA LISTA DE VALOR DE LOS MOVIMIENTOS
+            Using Adapter1 As New DS_REPORTE_DE_PNEM_1TableAdapters.IM_MOVIMIENTOSTableAdapter
+
+
+                Dim idp As String = COracle.ObtenerDatos("select codigo_partido from im_partidos_politicos where Nombre='" & e.ParametersInformation(0).Editor.Text & "'", "CODIGO_PARTIDO")
+                If idp <> "N" Then
+                    Adapter1.FillCodPartido(dataset.IM_MOVIMIENTOS, CType(idp, Integer))
+                    DirectCast(e.ParametersInformation(1).Editor, DevExpress.XtraEditors.LookUpEdit).Properties.DataSource = Nothing
+                    DirectCast(e.ParametersInformation(1).Editor, DevExpress.XtraEditors.LookUpEdit).Properties.DataSource = dataset.IM_MOVIMIENTOS
+                    'Adapter1.FillCodPartido(dataset.IM_MOVIMIENTOS, CType(idp, Integer))
+
+                    e.ParametersInformation(1).Editor.Update()
+                    e.ParametersInformation(1).Editor.Refresh()
+                End If
+
+            End Using
+
+        End If
+    End Sub
 End Class
