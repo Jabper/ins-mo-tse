@@ -12,15 +12,18 @@
               <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="TSE.IM_V_PLANILLA_CANDIDATOS" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        a.IMAGEN, a.CONSTANCIA, a.IDENTIDAD, a.NOMBRE, a.APELLIDO, a.POSICION, a.PARTIDO, a.DEPARTAMENTO, "NIVEL ELECTIVO", M.NOMBRE_MOVIMIENTO "NOMBRE MOVIMIENTO", N.DESCRIPCION "NIVEL"
-FROM            IM_V_PLANILLA_CANDIDATOS a, im_candidatos c, im_movimientos m, im_nivel_electivo n, im_cargos_electivos ca
-where A.IDENTIDAD = C.IDENTIDAD
-and C.ESTADO ='H'
-and C.CODIGO_PARTIDO = M.CODIGO_PARTIDO
-and C.CODIGO_MOVIMIENTO = M.CODIGO_MOVIMIENTO
-and C.CODIGO_CARGO_ELECTIVO = CA.CODIGO_CARGO_ELECTIVO 
-and CA.CODIGO_NIVEL_ELECTIVO = N.CODIGO_NIVEL_ELECTIVO 
-order by posicion </CommandText>
+                    <CommandText>SELECT        a.IMAGEN, a.CONSTANCIA, a.IDENTIDAD, a.NOMBRE, a.APELLIDO, a.POSICION, a.PARTIDO, a.DEPARTAMENTO, a."NIVELELECTIVO", CA.DESCRIPCION "CARGO",
+                         M.NOMBRE_MOVIMIENTO AS "NOMBRE MOVIMIENTO", N.DESCRIPCION AS NIVEL
+FROM            IM_V_PLANILLA_CANDIDATOS a, IM_CANDIDATOS c, IM_MOVIMIENTOS m, IM_NIVEL_ELECTIVO n, IM_CARGOS_ELECTIVOS ca, IM_PARTIDOS_Politicos pa
+WHERE  (A.IDENTIDAD = C.IDENTIDAD) 
+AND (C.ESTADO = 'H') 
+AND (C.CODIGO_PARTIDO = PA.CODIGO_PARTIDO )
+AND (C.CODIGO_PARTIDO = M.CODIGO_PARTIDO) 
+AND (A.CODIGOMOVIMIENTO = C.CODIGO_MOVIMIENTO )
+AND (C.CODIGO_MOVIMIENTO = M.CODIGO_MOVIMIENTO)  
+AND (C.CODIGO_CARGO_ELECTIVO = CA.CODIGO_CARGO_ELECTIVO) 
+AND (CA.CODIGO_NIVEL_ELECTIVO = N.CODIGO_NIVEL_ELECTIVO) 
+ORDER BY a.POSICION</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -33,11 +36,12 @@ order by posicion </CommandText>
               <Mapping SourceColumn="POSICION" DataSetColumn="POSICION" />
               <Mapping SourceColumn="PARTIDO" DataSetColumn="PARTIDO" />
               <Mapping SourceColumn="DEPARTAMENTO" DataSetColumn="DEPARTAMENTO" />
-              <Mapping SourceColumn="NIVEL ELECTIVO" DataSetColumn="NIVEL ELECTIVO" />
               <Mapping SourceColumn="NOMBRE" DataSetColumn="NOMBRE" />
               <Mapping SourceColumn="APELLIDO" DataSetColumn="APELLIDO" />
               <Mapping SourceColumn="NOMBRE MOVIMIENTO" DataSetColumn="NOMBRE MOVIMIENTO" />
               <Mapping SourceColumn="NIVEL" DataSetColumn="NIVEL" />
+              <Mapping SourceColumn="NIVELELECTIVO" DataSetColumn="NIVELELECTIVO" />
+              <Mapping SourceColumn="CARGO" DataSetColumn="CARGO" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -245,59 +249,66 @@ ORDER BY CODIGO_MOVIMIENTO</CommandText>
         <xs:element name="IM_V_MOSTRAR_CANDIDATOS2" msprop:Generator_UserTableName="IM_V_MOSTRAR_CANDIDATOS2" msprop:Generator_RowDeletedName="IM_V_MOSTRAR_CANDIDATOS2RowDeleted" msprop:Generator_RowChangedName="IM_V_MOSTRAR_CANDIDATOS2RowChanged" msprop:Generator_RowClassName="IM_V_MOSTRAR_CANDIDATOS2Row" msprop:Generator_RowChangingName="IM_V_MOSTRAR_CANDIDATOS2RowChanging" msprop:Generator_RowEvArgName="IM_V_MOSTRAR_CANDIDATOS2RowChangeEvent" msprop:Generator_RowEvHandlerName="IM_V_MOSTRAR_CANDIDATOS2RowChangeEventHandler" msprop:Generator_TableClassName="IM_V_MOSTRAR_CANDIDATOS2DataTable" msprop:Generator_TableVarName="tableIM_V_MOSTRAR_CANDIDATOS2" msprop:Generator_RowDeletingName="IM_V_MOSTRAR_CANDIDATOS2RowDeleting" msprop:Generator_TablePropName="IM_V_MOSTRAR_CANDIDATOS2">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="IMAGEN" msprop:Generator_UserColumnName="IMAGEN" msprop:Generator_ColumnPropNameInRow="IMAGEN" msprop:Generator_ColumnVarNameInTable="columnIMAGEN" msprop:Generator_ColumnPropNameInTable="IMAGENColumn" type="xs:base64Binary" minOccurs="0" />
-              <xs:element name="CONSTANCIA" msprop:Generator_UserColumnName="CONSTANCIA" msprop:Generator_ColumnPropNameInRow="CONSTANCIA" msprop:Generator_ColumnVarNameInTable="columnCONSTANCIA" msprop:Generator_ColumnPropNameInTable="CONSTANCIAColumn" type="xs:base64Binary" minOccurs="0" />
-              <xs:element name="IDENTIDAD" msprop:Generator_UserColumnName="IDENTIDAD" msprop:Generator_ColumnPropNameInRow="IDENTIDAD" msprop:Generator_ColumnVarNameInTable="columnIDENTIDAD" msprop:Generator_ColumnPropNameInTable="IDENTIDADColumn" minOccurs="0">
+              <xs:element name="IMAGEN" msprop:Generator_UserColumnName="IMAGEN" msprop:Generator_ColumnVarNameInTable="columnIMAGEN" msprop:Generator_ColumnPropNameInRow="IMAGEN" msprop:Generator_ColumnPropNameInTable="IMAGENColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="CONSTANCIA" msprop:Generator_UserColumnName="CONSTANCIA" msprop:Generator_ColumnVarNameInTable="columnCONSTANCIA" msprop:Generator_ColumnPropNameInRow="CONSTANCIA" msprop:Generator_ColumnPropNameInTable="CONSTANCIAColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="IDENTIDAD" msprop:Generator_UserColumnName="IDENTIDAD" msprop:Generator_ColumnVarNameInTable="columnIDENTIDAD" msprop:Generator_ColumnPropNameInRow="IDENTIDAD" msprop:Generator_ColumnPropNameInTable="IDENTIDADColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="15" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="POSICION" msprop:Generator_UserColumnName="POSICION" msprop:Generator_ColumnPropNameInRow="POSICION" msprop:Generator_ColumnVarNameInTable="columnPOSICION" msprop:Generator_ColumnPropNameInTable="POSICIONColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="PARTIDO" msprop:Generator_UserColumnName="PARTIDO" msprop:Generator_ColumnPropNameInRow="PARTIDO" msprop:Generator_ColumnVarNameInTable="columnPARTIDO" msprop:Generator_ColumnPropNameInTable="PARTIDOColumn" minOccurs="0">
+              <xs:element name="POSICION" msprop:Generator_UserColumnName="POSICION" msprop:Generator_ColumnVarNameInTable="columnPOSICION" msprop:Generator_ColumnPropNameInRow="POSICION" msprop:Generator_ColumnPropNameInTable="POSICIONColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PARTIDO" msprop:Generator_UserColumnName="PARTIDO" msprop:Generator_ColumnVarNameInTable="columnPARTIDO" msprop:Generator_ColumnPropNameInRow="PARTIDO" msprop:Generator_ColumnPropNameInTable="PARTIDOColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DEPARTAMENTO" msprop:Generator_UserColumnName="DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTOColumn" minOccurs="0">
+              <xs:element name="DEPARTAMENTO" msprop:Generator_UserColumnName="DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTOColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NIVEL_x0020_ELECTIVO" msprop:Generator_UserColumnName="NIVEL ELECTIVO" msprop:Generator_ColumnPropNameInRow="NIVEL_ELECTIVO" msprop:Generator_ColumnVarNameInTable="columnNIVEL_ELECTIVO" msprop:Generator_ColumnPropNameInTable="NIVEL_ELECTIVOColumn" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" minOccurs="0">
+              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="201" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="APELLIDO" msprop:Generator_UserColumnName="APELLIDO" msprop:Generator_ColumnPropNameInRow="APELLIDO" msprop:Generator_ColumnVarNameInTable="columnAPELLIDO" msprop:Generator_ColumnPropNameInTable="APELLIDOColumn" minOccurs="0">
+              <xs:element name="APELLIDO" msprop:Generator_UserColumnName="APELLIDO" msprop:Generator_ColumnVarNameInTable="columnAPELLIDO" msprop:Generator_ColumnPropNameInRow="APELLIDO" msprop:Generator_ColumnPropNameInTable="APELLIDOColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="201" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NOMBRE_x0020_MOVIMIENTO" msprop:Generator_UserColumnName="NOMBRE MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="NOMBRE_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="NOMBRE_MOVIMIENTOColumn">
+              <xs:element name="NOMBRE_x0020_MOVIMIENTO" msprop:Generator_UserColumnName="NOMBRE MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="NOMBRE_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="NOMBRE_MOVIMIENTOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NIVEL" msprop:Generator_UserColumnName="NIVEL" msprop:Generator_ColumnVarNameInTable="columnNIVEL" msprop:Generator_ColumnPropNameInRow="NIVEL" msprop:Generator_ColumnPropNameInTable="NIVELColumn">
+              <xs:element name="NIVEL" msprop:Generator_UserColumnName="NIVEL" msprop:Generator_ColumnPropNameInRow="NIVEL" msprop:Generator_ColumnVarNameInTable="columnNIVEL" msprop:Generator_ColumnPropNameInTable="NIVELColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NIVELELECTIVO" msprop:Generator_UserColumnName="NIVELELECTIVO" msprop:Generator_ColumnPropNameInRow="NIVELELECTIVO" msprop:Generator_ColumnVarNameInTable="columnNIVELELECTIVO" msprop:Generator_ColumnPropNameInTable="NIVELELECTIVOColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CARGO" msprop:Generator_UserColumnName="CARGO" msprop:Generator_ColumnPropNameInRow="CARGO" msprop:Generator_ColumnVarNameInTable="columnCARGO" msprop:Generator_ColumnPropNameInTable="CARGOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
@@ -310,8 +321,8 @@ ORDER BY CODIGO_MOVIMIENTO</CommandText>
         <xs:element name="IM_PP_CANDIDATOS" msprop:Generator_UserTableName="IM_PP_CANDIDATOS" msprop:Generator_RowDeletedName="IM_PP_CANDIDATOSRowDeleted" msprop:Generator_RowChangedName="IM_PP_CANDIDATOSRowChanged" msprop:Generator_RowClassName="IM_PP_CANDIDATOSRow" msprop:Generator_RowChangingName="IM_PP_CANDIDATOSRowChanging" msprop:Generator_RowEvArgName="IM_PP_CANDIDATOSRowChangeEvent" msprop:Generator_RowEvHandlerName="IM_PP_CANDIDATOSRowChangeEventHandler" msprop:Generator_TableClassName="IM_PP_CANDIDATOSDataTable" msprop:Generator_TableVarName="tableIM_PP_CANDIDATOS" msprop:Generator_RowDeletingName="IM_PP_CANDIDATOSRowDeleting" msprop:Generator_TablePropName="IM_PP_CANDIDATOS">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" type="xs:decimal" />
-              <xs:element name="NOMBRE_x0020_PARTIDO" msprop:Generator_UserColumnName="NOMBRE PARTIDO" msprop:Generator_ColumnPropNameInRow="NOMBRE_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_PARTIDO" msprop:Generator_ColumnPropNameInTable="NOMBRE_PARTIDOColumn">
+              <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" type="xs:decimal" />
+              <xs:element name="NOMBRE_x0020_PARTIDO" msprop:Generator_UserColumnName="NOMBRE PARTIDO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_PARTIDO" msprop:Generator_ColumnPropNameInRow="NOMBRE_PARTIDO" msprop:Generator_ColumnPropNameInTable="NOMBRE_PARTIDOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
@@ -324,8 +335,8 @@ ORDER BY CODIGO_MOVIMIENTO</CommandText>
         <xs:element name="IM_NE_CANDIDATOS" msprop:Generator_UserTableName="IM_NE_CANDIDATOS" msprop:Generator_RowDeletedName="IM_NE_CANDIDATOSRowDeleted" msprop:Generator_RowChangedName="IM_NE_CANDIDATOSRowChanged" msprop:Generator_RowClassName="IM_NE_CANDIDATOSRow" msprop:Generator_RowChangingName="IM_NE_CANDIDATOSRowChanging" msprop:Generator_RowEvArgName="IM_NE_CANDIDATOSRowChangeEvent" msprop:Generator_RowEvHandlerName="IM_NE_CANDIDATOSRowChangeEventHandler" msprop:Generator_TableClassName="IM_NE_CANDIDATOSDataTable" msprop:Generator_TableVarName="tableIM_NE_CANDIDATOS" msprop:Generator_RowDeletingName="IM_NE_CANDIDATOSRowDeleting" msprop:Generator_TablePropName="IM_NE_CANDIDATOS">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CODIGO_NIVEL_ELECTIVO" msprop:Generator_UserColumnName="CODIGO_NIVEL_ELECTIVO" msprop:Generator_ColumnPropNameInRow="CODIGO_NIVEL_ELECTIVO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_NIVEL_ELECTIVO" msprop:Generator_ColumnPropNameInTable="CODIGO_NIVEL_ELECTIVOColumn" type="xs:decimal" />
-              <xs:element name="NIVEL_x0020_ELECTIVO" msprop:Generator_UserColumnName="NIVEL ELECTIVO" msprop:Generator_ColumnPropNameInRow="NIVEL_ELECTIVO" msprop:Generator_ColumnVarNameInTable="columnNIVEL_ELECTIVO" msprop:Generator_ColumnPropNameInTable="NIVEL_ELECTIVOColumn">
+              <xs:element name="CODIGO_NIVEL_ELECTIVO" msprop:Generator_UserColumnName="CODIGO_NIVEL_ELECTIVO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_NIVEL_ELECTIVO" msprop:Generator_ColumnPropNameInRow="CODIGO_NIVEL_ELECTIVO" msprop:Generator_ColumnPropNameInTable="CODIGO_NIVEL_ELECTIVOColumn" type="xs:decimal" />
+              <xs:element name="NIVEL_x0020_ELECTIVO" msprop:Generator_UserColumnName="NIVEL ELECTIVO" msprop:Generator_ColumnVarNameInTable="columnNIVEL_ELECTIVO" msprop:Generator_ColumnPropNameInRow="NIVEL_ELECTIVO" msprop:Generator_ColumnPropNameInTable="NIVEL_ELECTIVOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
@@ -338,8 +349,8 @@ ORDER BY CODIGO_MOVIMIENTO</CommandText>
         <xs:element name="IM_DEP_CANDIDATOS" msprop:Generator_UserTableName="IM_DEP_CANDIDATOS" msprop:Generator_RowDeletedName="IM_DEP_CANDIDATOSRowDeleted" msprop:Generator_RowChangedName="IM_DEP_CANDIDATOSRowChanged" msprop:Generator_RowClassName="IM_DEP_CANDIDATOSRow" msprop:Generator_RowChangingName="IM_DEP_CANDIDATOSRowChanging" msprop:Generator_RowEvArgName="IM_DEP_CANDIDATOSRowChangeEvent" msprop:Generator_RowEvHandlerName="IM_DEP_CANDIDATOSRowChangeEventHandler" msprop:Generator_TableClassName="IM_DEP_CANDIDATOSDataTable" msprop:Generator_TableVarName="tableIM_DEP_CANDIDATOS" msprop:Generator_RowDeletingName="IM_DEP_CANDIDATOSRowDeleting" msprop:Generator_TablePropName="IM_DEP_CANDIDATOS">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CODIGO_DEPARTAMENTO" msprop:Generator_UserColumnName="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_DEPARTAMENTOColumn" type="xs:decimal" />
-              <xs:element name="DEPARTAMENTO" msprop:Generator_UserColumnName="DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTOColumn">
+              <xs:element name="CODIGO_DEPARTAMENTO" msprop:Generator_UserColumnName="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_DEPARTAMENTOColumn" type="xs:decimal" />
+              <xs:element name="DEPARTAMENTO" msprop:Generator_UserColumnName="DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
@@ -352,8 +363,8 @@ ORDER BY CODIGO_MOVIMIENTO</CommandText>
         <xs:element name="IM_CARGO_ELECTIVO" msprop:Generator_UserTableName="IM_CARGO_ELECTIVO" msprop:Generator_RowDeletedName="IM_CARGO_ELECTIVORowDeleted" msprop:Generator_RowChangedName="IM_CARGO_ELECTIVORowChanged" msprop:Generator_RowClassName="IM_CARGO_ELECTIVORow" msprop:Generator_RowChangingName="IM_CARGO_ELECTIVORowChanging" msprop:Generator_RowEvArgName="IM_CARGO_ELECTIVORowChangeEvent" msprop:Generator_RowEvHandlerName="IM_CARGO_ELECTIVORowChangeEventHandler" msprop:Generator_TableClassName="IM_CARGO_ELECTIVODataTable" msprop:Generator_TableVarName="tableIM_CARGO_ELECTIVO" msprop:Generator_RowDeletingName="IM_CARGO_ELECTIVORowDeleting" msprop:Generator_TablePropName="IM_CARGO_ELECTIVO">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CARGO" msprop:Generator_UserColumnName="CARGO" msprop:Generator_ColumnVarNameInTable="columnCARGO" msprop:Generator_ColumnPropNameInRow="CARGO" msprop:Generator_ColumnPropNameInTable="CARGOColumn" type="xs:decimal" />
-              <xs:element name="DESCRIPCION" msprop:Generator_UserColumnName="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn">
+              <xs:element name="CARGO" msprop:Generator_UserColumnName="CARGO" msprop:Generator_ColumnPropNameInRow="CARGO" msprop:Generator_ColumnVarNameInTable="columnCARGO" msprop:Generator_ColumnPropNameInTable="CARGOColumn" type="xs:decimal" />
+              <xs:element name="DESCRIPCION" msprop:Generator_UserColumnName="DESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
@@ -366,22 +377,26 @@ ORDER BY CODIGO_MOVIMIENTO</CommandText>
         <xs:element name="IM_MOVIMIENTOS" msprop:Generator_UserTableName="IM_MOVIMIENTOS" msprop:Generator_RowDeletedName="IM_MOVIMIENTOSRowDeleted" msprop:Generator_RowChangedName="IM_MOVIMIENTOSRowChanged" msprop:Generator_RowClassName="IM_MOVIMIENTOSRow" msprop:Generator_RowChangingName="IM_MOVIMIENTOSRowChanging" msprop:Generator_RowEvArgName="IM_MOVIMIENTOSRowChangeEvent" msprop:Generator_RowEvHandlerName="IM_MOVIMIENTOSRowChangeEventHandler" msprop:Generator_TableClassName="IM_MOVIMIENTOSDataTable" msprop:Generator_TableVarName="tableIM_MOVIMIENTOS" msprop:Generator_RowDeletingName="IM_MOVIMIENTOSRowDeleting" msprop:Generator_TablePropName="IM_MOVIMIENTOS">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CODIGO_MOVIMIENTO" msprop:Generator_UserColumnName="CODIGO_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOVIMIENTOColumn" type="xs:decimal" />
-              <xs:element name="NOMBRE_x0020_MOVIMIENTO" msprop:Generator_UserColumnName="NOMBRE MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="NOMBRE_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="NOMBRE_MOVIMIENTOColumn">
+              <xs:element name="CODIGO_MOVIMIENTO" msprop:Generator_UserColumnName="CODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOVIMIENTOColumn" type="xs:decimal" />
+              <xs:element name="NOMBRE_x0020_MOVIMIENTO" msprop:Generator_UserColumnName="NOMBRE MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="NOMBRE_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="NOMBRE_MOVIMIENTOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="IMAGEN" msprop:Generator_UserColumnName="IMAGEN" msprop:Generator_ColumnVarNameInTable="columnIMAGEN" msprop:Generator_ColumnPropNameInRow="IMAGEN" msprop:Generator_ColumnPropNameInTable="IMAGENColumn" type="xs:base64Binary" minOccurs="0" />
-              <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" type="xs:decimal" />
+              <xs:element name="IMAGEN" msprop:Generator_UserColumnName="IMAGEN" msprop:Generator_ColumnPropNameInRow="IMAGEN" msprop:Generator_ColumnVarNameInTable="columnIMAGEN" msprop:Generator_ColumnPropNameInTable="IMAGENColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" type="xs:decimal" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:IM_V_MOSTRAR_CANDIDATOS2" />
+      <xs:field xpath="mstns:NOMBRE_x0020_MOVIMIENTO" />
+    </xs:unique>
+    <xs:unique name="IM_PP_CANDIDATOS_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:IM_PP_CANDIDATOS" />
       <xs:field xpath="mstns:CODIGO_PARTIDO" />
     </xs:unique>
