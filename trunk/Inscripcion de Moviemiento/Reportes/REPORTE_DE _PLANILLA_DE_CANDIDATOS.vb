@@ -126,6 +126,7 @@ Public Class REPORTE_DE__PLANILLA_DE_CANDIDATOS
     Private Sub REPORTE_DE__PLANILLA_DE_CANDIDATOS_ParametersRequestSubmit(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestEventArgs) Handles Me.ParametersRequestSubmit
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(Me.DS_LOG.IM_PARTIDOS_POLITICOS_imagen, NombrePartido.Value.ToString)
         Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(Me.DS_LOG.IM_MOVIMIENTOS_imagen, NombreMovimiento.Value.ToString)
+        'Me.IM_V_MOSTRAR_CANDIDATOS2TableAdapter.Fill(Me.DS_REPORTE_CANDIDATOS1.IM_V_MOSTRAR_CANDIDATOS2, Me.NombreMovimiento.Value.ToString)
     End Sub
 
     Private Sub REPORTE_DE__PLANILLA_DE_CANDIDATOS_ParametersRequestValueChanged(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestValueChangedEventArgs) Handles Me.ParametersRequestValueChanged
