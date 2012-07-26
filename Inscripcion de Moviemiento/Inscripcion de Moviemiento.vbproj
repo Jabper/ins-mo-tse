@@ -1775,7 +1775,8 @@
       <DependentUpon>DS_REP_DETALLE_ESTADISTICA.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DS_REP_DETALLE_ESTADISTICA.xsd">
-      <SubType>Designer</SubType>
+      <SubType>
+      </SubType>
     </None>
     <None Include="Reportes\DS_REP_DETALLE_ESTADISTICA.xss">
       <DependentUpon>DS_REP_DETALLE_ESTADISTICA.xsd</DependentUpon>
