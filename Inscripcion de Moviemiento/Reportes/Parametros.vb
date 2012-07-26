@@ -1,4 +1,8 @@
 ﻿Public Class Parametros 
+    Public partido As String
+    Public movimiento As String
+    Public nivel As String
+
 
     Private Sub Parametros_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'DS_PLANILLA_TOTALES.IM_CARGOS_ELECTIVOS' table. You can move, or remove it, as needed.
@@ -92,6 +96,10 @@
             reporte_planilla.IM_MOVIMIENTOS_imagenTableAdapter.Fill(reporte_planilla.DS_LOG.IM_MOVIMIENTOS_imagen, CmbMovimiento.Text)
             reporte_planilla.ShowPreview()
             Me.Close()
+            Me.partido = Me.cbopartido.Text
+            Me.nivel = Me.cbocargo.Text
+            movimiento = (Me.CmbMovimiento.Text)
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -115,4 +123,6 @@
         End Try
 
     End Sub
+
+  
 End Class

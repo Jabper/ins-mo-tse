@@ -9,6 +9,8 @@ Public Class REPORTE_PLANILLAS_FINALES
     Public NombrePartido As String
     Public NombreMovimiento As String
 
+   
+   
     Private Sub REPORTE_PLANILLAS_FINALES_ParametersRequestBeforeShow(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestEventArgs) Handles Me.ParametersRequestBeforeShow
 
 
@@ -212,8 +214,6 @@ Public Class REPORTE_PLANILLAS_FINALES
         '    Me.diputados.Visible = True
         '    Me.diputadosactuales.Visible = True
         'End If
+
     End Sub
-
-
-
 End Class
