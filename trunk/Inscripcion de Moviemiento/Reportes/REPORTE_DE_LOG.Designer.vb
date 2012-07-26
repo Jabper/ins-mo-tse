@@ -163,6 +163,7 @@ Partial Public Class REPORTE_DE_LOG
         '
         'BottomMargin
         '
+        Me.BottomMargin.HeightF = 44.37497!
         Me.BottomMargin.Name = "BottomMargin"
         Me.BottomMargin.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
@@ -339,7 +340,7 @@ Partial Public Class REPORTE_DE_LOG
         Me.DataSource = Me.DS_LOG_11
         Me.FilterString = "[PARTIDO] = ?NombrePartido And [MOVIMIENTO] = ?NombreMovimiento"
         Me.Landscape = True
-        Me.Margins = New System.Drawing.Printing.Margins(14, 22, 102, 100)
+        Me.Margins = New System.Drawing.Printing.Margins(14, 22, 102, 44)
         Me.PageHeight = 850
         Me.PageWidth = 1100
         Me.Parameters.AddRange(New DevExpress.XtraReports.Parameters.Parameter() {Me.NombrePartido, Me.NombreMovimiento})
