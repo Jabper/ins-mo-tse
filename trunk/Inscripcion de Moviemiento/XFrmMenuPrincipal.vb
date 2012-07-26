@@ -275,18 +275,18 @@ Public Class XFrmMenuPrincipal
     Private Sub BtnFDP_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnFDP.ItemClick
         Dim reporte3 As Reporte_de__FirmasDP = New Reporte_de__FirmasDP
         Try
-            Dim oradb As String = Configuracion.verconfig
+            'Dim oradb As String = Configuracion.verconfig
 
-            Dim conn As New OracleConnection()
-            conn.ConnectionString = oradb
-            conn.Open()
+            'Dim conn As New OracleConnection()
+            'conn.ConnectionString = oradb
+            'conn.Open()
 
-            Dim myCMD As New OracleCommand()
-            myCMD.Connection = conn
-            myCMD.CommandText = "IM_K_VALIDA_FIRMAS.IM_P_VALIDA"
-            myCMD.CommandType = CommandType.StoredProcedure
-            myCMD.ExecuteOracleScalar()
-            conn.Close()
+            'Dim myCMD As New OracleCommand()
+            'myCMD.Connection = conn
+            'myCMD.CommandText = "IM_K_VALIDA_FIRMAS.IM_P_VALIDA"
+            'myCMD.CommandType = CommandType.StoredProcedure
+            'myCMD.ExecuteOracleScalar()
+            'conn.Close()
             reporte3.ShowPreview()
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
@@ -306,18 +306,18 @@ Public Class XFrmMenuPrincipal
         Dim reporte4 As Reporte_de_Firmas_In = New Reporte_de_Firmas_In
 
         Try
-            Dim oradb As String = Configuracion.verconfig
+            'Dim oradb As String = Configuracion.verconfig
 
-            Dim conn As New OracleConnection()
-            conn.ConnectionString = oradb
-            conn.Open()
+            'Dim conn As New OracleConnection()
+            'conn.ConnectionString = oradb
+            'conn.Open()
 
-            Dim myCMD As New OracleCommand()
-            myCMD.Connection = conn
-            myCMD.CommandText = "IM_K_VALIDA_FIRMAS.IM_P_VALIDA"
-            myCMD.CommandType = CommandType.StoredProcedure
-            myCMD.ExecuteOracleScalar()
-            conn.Close()
+            'Dim myCMD As New OracleCommand()
+            'myCMD.Connection = conn
+            'myCMD.CommandText = "IM_K_VALIDA_FIRMAS.IM_P_VALIDA"
+            'myCMD.CommandType = CommandType.StoredProcedure
+            'myCMD.ExecuteOracleScalar()
+            'conn.Close()
             reporte4.ShowPreview()
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
@@ -333,18 +333,18 @@ Public Class XFrmMenuPrincipal
     Private Sub BarButtonItem5_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCrucemov.ItemClick
         Dim reporte5 As Reporte_de_cruce_FMOV = New Reporte_de_cruce_FMOV
         Try
-            Dim oradb As String = Configuracion.verconfig
+            'Dim oradb As String = Configuracion.verconfig
 
-            Dim conn As New OracleConnection()
-            conn.ConnectionString = oradb
-            conn.Open()
+            'Dim conn As New OracleConnection()
+            'conn.ConnectionString = oradb
+            'conn.Open()
 
-            Dim myCMD As New OracleCommand()
-            myCMD.Connection = conn
-            myCMD.CommandText = "IM_K_VALIDA_FIRMAS.IM_P_VALIDA"
-            myCMD.CommandType = CommandType.StoredProcedure
-            myCMD.ExecuteOracleScalar()
-            conn.Close()
+            'Dim myCMD As New OracleCommand()
+            'myCMD.Connection = conn
+            'myCMD.CommandText = "IM_K_VALIDA_FIRMAS.IM_P_VALIDA"
+            'myCMD.CommandType = CommandType.StoredProcedure
+            'myCMD.ExecuteOracleScalar()
+            'conn.Close()
             reporte5.ShowPreview()
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
@@ -356,18 +356,18 @@ Public Class XFrmMenuPrincipal
     Private Sub BarButtonItem6_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCrucepar.ItemClick
         Dim reporte6 As Reporte_de_cruce_FPA = New Reporte_de_cruce_FPA
         Try
-            Dim oradb As String = Configuracion.verconfig
+            'Dim oradb As String = Configuracion.verconfig
 
-            Dim conn As New OracleConnection()
-            conn.ConnectionString = oradb
-            conn.Open()
+            'Dim conn As New OracleConnection()
+            'conn.ConnectionString = oradb
+            'conn.Open()
 
-            Dim myCMD As New OracleCommand()
-            myCMD.Connection = conn
-            myCMD.CommandText = "IM_K_VALIDA_FIRMAS.IM_P_VALIDA"
-            myCMD.CommandType = CommandType.StoredProcedure
-            myCMD.ExecuteOracleScalar()
-            conn.Close()
+            'Dim myCMD As New OracleCommand()
+            'myCMD.Connection = conn
+            'myCMD.CommandText = "IM_K_VALIDA_FIRMAS.IM_P_VALIDA"
+            'myCMD.CommandType = CommandType.StoredProcedure
+            'myCMD.ExecuteOracleScalar()
+            'conn.Close()
             reporte6.ShowPreview()
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
@@ -380,18 +380,18 @@ Public Class XFrmMenuPrincipal
     Private Sub BarButtonItem7_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnResumenFir.ItemClick
         Dim reporte7 As Reporte_de_Resumen_Firmas_DP = New Reporte_de_Resumen_Firmas_DP
         Try
-            Dim oradb As String = Configuracion.verconfig
+            'Dim oradb As String = Configuracion.verconfig
 
-            Dim conn As New OracleConnection()
-            conn.ConnectionString = oradb
-            conn.Open()
+            'Dim conn As New OracleConnection()
+            'conn.ConnectionString = oradb
+            'conn.Open()
 
-            Dim myCMD As New OracleCommand()
-            myCMD.Connection = conn
-            myCMD.CommandText = "IM_K_VALIDA_FIRMAS.IM_P_VALIDA"
-            myCMD.CommandType = CommandType.StoredProcedure
-            myCMD.ExecuteOracleScalar()
-            conn.Close()
+            'Dim myCMD As New OracleCommand()
+            'myCMD.Connection = conn
+            'myCMD.CommandText = "IM_K_VALIDA_FIRMAS.IM_P_VALIDA"
+            'myCMD.CommandType = CommandType.StoredProcedure
+            'myCMD.ExecuteOracleScalar()
+            'conn.Close()
             reporte7.ShowPreview()
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
@@ -414,18 +414,18 @@ Public Class XFrmMenuPrincipal
     Private Sub BarButtonItem8_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnEstadisticoFI.ItemClick
         Dim reporte8 As Reporte_Estadistico_general_firmas = New Reporte_Estadistico_general_firmas
         Try
-            Dim oradb As String = Configuracion.verconfig
+            'Dim oradb As String = Configuracion.verconfig
 
-            Dim conn As New OracleConnection()
-            conn.ConnectionString = oradb
-            conn.Open()
+            'Dim conn As New OracleConnection()
+            'conn.ConnectionString = oradb
+            'conn.Open()
 
-            Dim myCMD As New OracleCommand()
-            myCMD.Connection = conn
-            myCMD.CommandText = "IM_K_VALIDA_FIRMAS.IM_P_VALIDA"
-            myCMD.CommandType = CommandType.StoredProcedure
-            myCMD.ExecuteOracleScalar()
-            conn.Close()
+            'Dim myCMD As New OracleCommand()
+            'myCMD.Connection = conn
+            'myCMD.CommandText = "IM_K_VALIDA_FIRMAS.IM_P_VALIDA"
+            'myCMD.CommandType = CommandType.StoredProcedure
+            'myCMD.ExecuteOracleScalar()
+            'conn.Close()
             reporte8.ShowPreview()
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
