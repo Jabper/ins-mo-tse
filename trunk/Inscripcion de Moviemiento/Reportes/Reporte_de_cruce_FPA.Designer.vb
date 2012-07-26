@@ -20,15 +20,10 @@ Partial Public Class Reporte_de_cruce_FPA
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Detail = New DevExpress.XtraReports.UI.DetailBand
-        Me.XrLabel9 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel14 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel10 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel11 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel12 = New DevExpress.XtraReports.UI.XRLabel
-        Me.GroupHeaderBand1 = New DevExpress.XtraReports.UI.GroupHeaderBand
-        Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel2 = New DevExpress.XtraReports.UI.XRLabel
         Me.GroupHeaderBand2 = New DevExpress.XtraReports.UI.GroupHeaderBand
         Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel6 = New DevExpress.XtraReports.UI.XRLabel
@@ -50,40 +45,48 @@ Partial Public Class Reporte_de_cruce_FPA
         Me.NombreDepartamento = New DevExpress.XtraReports.Parameters.Parameter
         Me.DS_REPORTE_DE_FPAR_11 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FPAR_1
         Me.IM_V_CRUCE_FIRMAS_PARTableAdapter = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FPAR_1TableAdapters.IM_V_CRUCE_FIRMAS_PARTableAdapter
+        Me.XrLabel15 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel9 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel
+        Me.GroupHeaderBand1 = New DevExpress.XtraReports.UI.GroupHeaderBand
+        Me.GroupHeader1 = New DevExpress.XtraReports.UI.GroupHeaderBand
         CType(Me.DS_REPORTE_DE_FPAR_11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
         'Detail
         '
-        Me.Detail.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel9, Me.XrLabel10, Me.XrLabel11, Me.XrLabel12})
-        Me.Detail.HeightF = 19.87495!
+        Me.Detail.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel14, Me.XrLabel10, Me.XrLabel11, Me.XrLabel12})
+        Me.Detail.HeightF = 23.0!
         Me.Detail.Name = "Detail"
         Me.Detail.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.Detail.StyleName = "DataField"
         Me.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
         '
-        'XrLabel9
+        'XrLabel14
         '
-        Me.XrLabel9.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CRUCE_FIRMAS_PAR.PARTIDO")})
-        Me.XrLabel9.LocationFloat = New DevExpress.Utils.PointFloat(6.000002!, 0.0!)
-        Me.XrLabel9.Name = "XrLabel9"
-        Me.XrLabel9.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel9.SizeF = New System.Drawing.SizeF(267.2511!, 14.99999!)
-        Me.XrLabel9.Text = "XrLabel9"
+        Me.XrLabel14.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CRUCE_FIRMAS_PAR.MOVIMIENTO")})
+        Me.XrLabel14.LocationFloat = New DevExpress.Utils.PointFloat(13.04591!, 0.0!)
+        Me.XrLabel14.Name = "XrLabel14"
+        Me.XrLabel14.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel14.SizeF = New System.Drawing.SizeF(313.0!, 14.99999!)
+        Me.XrLabel14.Text = "XrLabel14"
         '
         'XrLabel10
         '
         Me.XrLabel10.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CRUCE_FIRMAS_PAR.IDENTIDAD")})
-        Me.XrLabel10.LocationFloat = New DevExpress.Utils.PointFloat(284.7094!, 0.0!)
+        Me.XrLabel10.LocationFloat = New DevExpress.Utils.PointFloat(396.4135!, 0.0!)
         Me.XrLabel10.Name = "XrLabel10"
         Me.XrLabel10.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel10.SizeF = New System.Drawing.SizeF(175.7115!, 15.0!)
+        Me.XrLabel10.SizeF = New System.Drawing.SizeF(126.7531!, 15.0!)
         Me.XrLabel10.Text = "XrLabel10"
         '
         'XrLabel11
         '
         Me.XrLabel11.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CRUCE_FIRMAS_PAR.NOMBRE")})
-        Me.XrLabel11.LocationFloat = New DevExpress.Utils.PointFloat(536.4625!, 0.0!)
+        Me.XrLabel11.LocationFloat = New DevExpress.Utils.PointFloat(588.4208!, 0.0!)
         Me.XrLabel11.Name = "XrLabel11"
         Me.XrLabel11.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel11.SizeF = New System.Drawing.SizeF(231.8175!, 15.0!)
@@ -92,76 +95,30 @@ Partial Public Class Reporte_de_cruce_FPA
         'XrLabel12
         '
         Me.XrLabel12.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CRUCE_FIRMAS_PAR.APELLIDOS")})
-        Me.XrLabel12.LocationFloat = New DevExpress.Utils.PointFloat(798.9883!, 0.0!)
+        Me.XrLabel12.LocationFloat = New DevExpress.Utils.PointFloat(869.1967!, 0.0!)
         Me.XrLabel12.Name = "XrLabel12"
         Me.XrLabel12.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel12.SizeF = New System.Drawing.SizeF(248.0118!, 14.99999!)
+        Me.XrLabel12.SizeF = New System.Drawing.SizeF(177.8033!, 14.99999!)
         Me.XrLabel12.Text = "XrLabel12"
-        '
-        'GroupHeaderBand1
-        '
-        Me.GroupHeaderBand1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel3, Me.XrLabel4, Me.XrLabel1, Me.XrLabel2})
-        Me.GroupHeaderBand1.GroupFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("DEPARTAMENTO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending), New DevExpress.XtraReports.UI.GroupField("MUNICIPIO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
-        Me.GroupHeaderBand1.HeightF = 64.125!
-        Me.GroupHeaderBand1.Level = 1
-        Me.GroupHeaderBand1.Name = "GroupHeaderBand1"
-        '
-        'XrLabel3
-        '
-        Me.XrLabel3.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CRUCE_FIRMAS_PAR.DEPARTAMENTO")})
-        Me.XrLabel3.LocationFloat = New DevExpress.Utils.PointFloat(182.0417!, 0.0!)
-        Me.XrLabel3.Name = "XrLabel3"
-        Me.XrLabel3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel3.SizeF = New System.Drawing.SizeF(461.9584!, 14.125!)
-        Me.XrLabel3.StyleName = "DataField"
-        Me.XrLabel3.Text = "XrLabel3"
-        '
-        'XrLabel4
-        '
-        Me.XrLabel4.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CRUCE_FIRMAS_PAR.MUNICIPIO")})
-        Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(182.0417!, 21.45834!)
-        Me.XrLabel4.Name = "XrLabel4"
-        Me.XrLabel4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel4.SizeF = New System.Drawing.SizeF(461.9583!, 14.54166!)
-        Me.XrLabel4.StyleName = "DataField"
-        Me.XrLabel4.Text = "XrLabel4"
-        '
-        'XrLabel1
-        '
-        Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(6.000002!, 0.0!)
-        Me.XrLabel1.Name = "XrLabel1"
-        Me.XrLabel1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel1.SizeF = New System.Drawing.SizeF(158.375!, 14.125!)
-        Me.XrLabel1.StyleName = "FieldCaption"
-        Me.XrLabel1.Text = "DEPARTAMENTO:"
-        '
-        'XrLabel2
-        '
-        Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(6.000002!, 21.45834!)
-        Me.XrLabel2.Name = "XrLabel2"
-        Me.XrLabel2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel2.SizeF = New System.Drawing.SizeF(106.9583!, 14.54166!)
-        Me.XrLabel2.StyleName = "FieldCaption"
-        Me.XrLabel2.Text = "MUNICIPIO:"
         '
         'GroupHeaderBand2
         '
-        Me.GroupHeaderBand2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel5, Me.XrLabel6, Me.XrLabel7, Me.XrLabel8, Me.XrLine1, Me.XrLine2})
+        Me.GroupHeaderBand2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel15, Me.XrLabel6, Me.XrLabel7, Me.XrLabel8, Me.XrLine1, Me.XrLine2})
         Me.GroupHeaderBand2.HeightF = 34.29171!
         Me.GroupHeaderBand2.Name = "GroupHeaderBand2"
         Me.GroupHeaderBand2.StyleName = "FieldCaption"
         '
         'XrLabel5
         '
-        Me.XrLabel5.LocationFloat = New DevExpress.Utils.PointFloat(6.0!, 7.0!)
+        Me.XrLabel5.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 14.70833!)
         Me.XrLabel5.Name = "XrLabel5"
         Me.XrLabel5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel5.SizeF = New System.Drawing.SizeF(144.3344!, 18.0!)
-        Me.XrLabel5.Text = "PARTIDO"
+        Me.XrLabel5.Text = "PARTIDO POLITICO:"
         '
         'XrLabel6
         '
-        Me.XrLabel6.LocationFloat = New DevExpress.Utils.PointFloat(284.7094!, 7.000001!)
+        Me.XrLabel6.LocationFloat = New DevExpress.Utils.PointFloat(396.4135!, 6.291708!)
         Me.XrLabel6.Name = "XrLabel6"
         Me.XrLabel6.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel6.SizeF = New System.Drawing.SizeF(175.7115!, 18.0!)
@@ -169,7 +126,7 @@ Partial Public Class Reporte_de_cruce_FPA
         '
         'XrLabel7
         '
-        Me.XrLabel7.LocationFloat = New DevExpress.Utils.PointFloat(550.7243!, 7.000001!)
+        Me.XrLabel7.LocationFloat = New DevExpress.Utils.PointFloat(625.7243!, 7.000001!)
         Me.XrLabel7.Name = "XrLabel7"
         Me.XrLabel7.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel7.SizeF = New System.Drawing.SizeF(140.1508!, 18.0!)
@@ -177,7 +134,7 @@ Partial Public Class Reporte_de_cruce_FPA
         '
         'XrLabel8
         '
-        Me.XrLabel8.LocationFloat = New DevExpress.Utils.PointFloat(798.9883!, 7.000001!)
+        Me.XrLabel8.LocationFloat = New DevExpress.Utils.PointFloat(869.1967!, 6.291708!)
         Me.XrLabel8.Name = "XrLabel8"
         Me.XrLabel8.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel8.SizeF = New System.Drawing.SizeF(177.8033!, 18.0!)
@@ -185,7 +142,7 @@ Partial Public Class Reporte_de_cruce_FPA
         '
         'XrLine1
         '
-        Me.XrLine1.LocationFloat = New DevExpress.Utils.PointFloat(6.0!, 5.0!)
+        Me.XrLine1.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 4.291693!)
         Me.XrLine1.Name = "XrLine1"
         Me.XrLine1.SizeF = New System.Drawing.SizeF(1030.0!, 2.0!)
         '
@@ -303,9 +260,76 @@ Partial Public Class Reporte_de_cruce_FPA
         '
         Me.IM_V_CRUCE_FIRMAS_PARTableAdapter.ClearBeforeFill = True
         '
+        'XrLabel15
+        '
+        Me.XrLabel15.LocationFloat = New DevExpress.Utils.PointFloat(20.04061!, 6.291708!)
+        Me.XrLabel15.Name = "XrLabel15"
+        Me.XrLabel15.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel15.SizeF = New System.Drawing.SizeF(144.3344!, 18.0!)
+        Me.XrLabel15.Text = "MOVIMIENTO"
+        '
+        'XrLabel9
+        '
+        Me.XrLabel9.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CRUCE_FIRMAS_PAR.PARTIDO")})
+        Me.XrLabel9.LocationFloat = New DevExpress.Utils.PointFloat(182.0417!, 17.70833!)
+        Me.XrLabel9.Name = "XrLabel9"
+        Me.XrLabel9.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel9.SizeF = New System.Drawing.SizeF(461.9583!, 14.99999!)
+        Me.XrLabel9.Text = "XrLabel9"
+        '
+        'XrLabel2
+        '
+        Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(6.000002!, 21.45834!)
+        Me.XrLabel2.Name = "XrLabel2"
+        Me.XrLabel2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel2.SizeF = New System.Drawing.SizeF(106.9583!, 14.54166!)
+        Me.XrLabel2.Text = "MUNICIPIO:"
+        '
+        'XrLabel1
+        '
+        Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(6.000002!, 0.0!)
+        Me.XrLabel1.Name = "XrLabel1"
+        Me.XrLabel1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel1.SizeF = New System.Drawing.SizeF(158.375!, 14.125!)
+        Me.XrLabel1.Text = "DEPARTAMENTO:"
+        '
+        'XrLabel4
+        '
+        Me.XrLabel4.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CRUCE_FIRMAS_PAR.MUNICIPIO")})
+        Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(182.0417!, 21.45834!)
+        Me.XrLabel4.Name = "XrLabel4"
+        Me.XrLabel4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel4.SizeF = New System.Drawing.SizeF(461.9583!, 14.54166!)
+        Me.XrLabel4.Text = "XrLabel4"
+        '
+        'XrLabel3
+        '
+        Me.XrLabel3.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CRUCE_FIRMAS_PAR.DEPARTAMENTO")})
+        Me.XrLabel3.LocationFloat = New DevExpress.Utils.PointFloat(182.0417!, 0.0!)
+        Me.XrLabel3.Name = "XrLabel3"
+        Me.XrLabel3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel3.SizeF = New System.Drawing.SizeF(461.9584!, 14.125!)
+        Me.XrLabel3.Text = "XrLabel3"
+        '
+        'GroupHeaderBand1
+        '
+        Me.GroupHeaderBand1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel3, Me.XrLabel4, Me.XrLabel1, Me.XrLabel2})
+        Me.GroupHeaderBand1.GroupFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("DEPARTAMENTO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending), New DevExpress.XtraReports.UI.GroupField("MUNICIPIO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
+        Me.GroupHeaderBand1.HeightF = 76.625!
+        Me.GroupHeaderBand1.Level = 2
+        Me.GroupHeaderBand1.Name = "GroupHeaderBand1"
+        '
+        'GroupHeader1
+        '
+        Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel9, Me.XrLabel5})
+        Me.GroupHeader1.GroupFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("PARTIDO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
+        Me.GroupHeader1.HeightF = 42.70833!
+        Me.GroupHeader1.Level = 1
+        Me.GroupHeader1.Name = "GroupHeader1"
+        '
         'Reporte_de_cruce_FPA
         '
-        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.GroupHeaderBand1, Me.GroupHeaderBand2, Me.PageFooterBand1, Me.ReportHeaderBand1, Me.TopMarginBand1, Me.BottomMarginBand1})
+        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.GroupHeaderBand1, Me.GroupHeaderBand2, Me.PageFooterBand1, Me.ReportHeaderBand1, Me.TopMarginBand1, Me.BottomMarginBand1, Me.GroupHeader1})
         Me.DataAdapter = Me.IM_V_CRUCE_FIRMAS_PARTableAdapter
         Me.DataMember = "IM_V_CRUCE_FIRMAS_PAR"
         Me.DataSource = Me.DS_REPORTE_DE_FPAR_11
@@ -323,15 +347,9 @@ Partial Public Class Reporte_de_cruce_FPA
 
     End Sub
     Friend WithEvents Detail As DevExpress.XtraReports.UI.DetailBand
-    Friend WithEvents XrLabel9 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel10 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel11 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel12 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents GroupHeaderBand1 As DevExpress.XtraReports.UI.GroupHeaderBand
-    Friend WithEvents XrLabel3 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents XrLabel4 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents XrLabel1 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents XrLabel2 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents GroupHeaderBand2 As DevExpress.XtraReports.UI.GroupHeaderBand
     Friend WithEvents XrLabel5 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel6 As DevExpress.XtraReports.UI.XRLabel
@@ -353,4 +371,13 @@ Partial Public Class Reporte_de_cruce_FPA
     Friend WithEvents NombreDepartamento As DevExpress.XtraReports.Parameters.Parameter
     Friend WithEvents DS_REPORTE_DE_FPAR_11 As Inscripcion_de_Moviemientos.DS_REPORTE_DE_FPAR_1
     Friend WithEvents IM_V_CRUCE_FIRMAS_PARTableAdapter As Inscripcion_de_Moviemientos.DS_REPORTE_DE_FPAR_1TableAdapters.IM_V_CRUCE_FIRMAS_PARTableAdapter
+    Friend WithEvents XrLabel14 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel15 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel9 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel2 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel1 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel4 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel3 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents GroupHeaderBand1 As DevExpress.XtraReports.UI.GroupHeaderBand
+    Friend WithEvents GroupHeader1 As DevExpress.XtraReports.UI.GroupHeaderBand
 End Class
