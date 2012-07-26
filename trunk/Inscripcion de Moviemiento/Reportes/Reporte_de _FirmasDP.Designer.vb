@@ -19,6 +19,7 @@ Partial Public Class Reporte_de__FirmasDP
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container
         Me.Detail = New DevExpress.XtraReports.UI.DetailBand
         Me.XrLabel19 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel13 = New DevExpress.XtraReports.UI.XRLabel
@@ -58,7 +59,18 @@ Partial Public Class Reporte_de__FirmasDP
         Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
         Me.DS_REPORTE_DE_FDP_11 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FDP_1
         Me.IM_V_FIRMAS_DIVISION_POLITICATableAdapter = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FDP_1TableAdapters.IM_V_FIRMAS_DIVISION_POLITICATableAdapter
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DS_LOG = New Inscripcion_de_Moviemientos.DS_LOG
+        Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
+        Me.BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IM_MOVIMIENTOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
+        Me.XrPictureBox1 = New DevExpress.XtraReports.UI.XRPictureBox
+        Me.XrPictureBox2 = New DevExpress.XtraReports.UI.XRPictureBox
+        Me.NombreDepartamento = New DevExpress.XtraReports.Parameters.Parameter
         CType(Me.DS_REPORTE_DE_FDP_11, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
         'Detail
@@ -133,7 +145,7 @@ Partial Public Class Reporte_de__FirmasDP
         Me.XrLabel3.LocationFloat = New DevExpress.Utils.PointFloat(185.8389!, 0.0!)
         Me.XrLabel3.Name = "XrLabel3"
         Me.XrLabel3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel3.SizeF = New System.Drawing.SizeF(189.1667!, 17.25!)
+        Me.XrLabel3.SizeF = New System.Drawing.SizeF(562.0834!, 17.25!)
         Me.XrLabel3.StyleName = "DataField"
         Me.XrLabel3.Text = "XrLabel3"
         '
@@ -143,7 +155,7 @@ Partial Public Class Reporte_de__FirmasDP
         Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(185.8389!, 36.29166!)
         Me.XrLabel4.Name = "XrLabel4"
         Me.XrLabel4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel4.SizeF = New System.Drawing.SizeF(390.5416!, 19.33334!)
+        Me.XrLabel4.SizeF = New System.Drawing.SizeF(562.0834!, 19.33335!)
         Me.XrLabel4.StyleName = "DataField"
         Me.XrLabel4.Text = "XrLabel4"
         '
@@ -184,7 +196,7 @@ Partial Public Class Reporte_de__FirmasDP
         Me.XrLabel7.LocationFloat = New DevExpress.Utils.PointFloat(185.8389!, 0.0!)
         Me.XrLabel7.Name = "XrLabel7"
         Me.XrLabel7.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel7.SizeF = New System.Drawing.SizeF(299.2499!, 17.25!)
+        Me.XrLabel7.SizeF = New System.Drawing.SizeF(562.0834!, 17.25!)
         Me.XrLabel7.StyleName = "DataField"
         Me.XrLabel7.Text = "XrLabel7"
         '
@@ -194,7 +206,7 @@ Partial Public Class Reporte_de__FirmasDP
         Me.XrLabel8.LocationFloat = New DevExpress.Utils.PointFloat(185.8389!, 36.87499!)
         Me.XrLabel8.Name = "XrLabel8"
         Me.XrLabel8.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel8.SizeF = New System.Drawing.SizeF(338.2083!, 19.33333!)
+        Me.XrLabel8.SizeF = New System.Drawing.SizeF(562.0835!, 19.33333!)
         Me.XrLabel8.StyleName = "DataField"
         Me.XrLabel8.Text = "XrLabel8"
         '
@@ -308,17 +320,17 @@ Partial Public Class Reporte_de__FirmasDP
         '
         'ReportHeaderBand1
         '
-        Me.ReportHeaderBand1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel17})
+        Me.ReportHeaderBand1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrPictureBox2, Me.XrPictureBox1, Me.XrLabel17})
         Me.ReportHeaderBand1.HeightF = 103.875!
         Me.ReportHeaderBand1.Name = "ReportHeaderBand1"
         '
         'XrLabel17
         '
         Me.XrLabel17.Font = New System.Drawing.Font("Times New Roman", 24.0!, System.Drawing.FontStyle.Italic)
-        Me.XrLabel17.LocationFloat = New DevExpress.Utils.PointFloat(6.000002!, 6.00001!)
+        Me.XrLabel17.LocationFloat = New DevExpress.Utils.PointFloat(203.9167!, 6.00001!)
         Me.XrLabel17.Name = "XrLabel17"
         Me.XrLabel17.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel17.SizeF = New System.Drawing.SizeF(1020.0!, 39.0!)
+        Me.XrLabel17.SizeF = New System.Drawing.SizeF(669.4999!, 39.0!)
         Me.XrLabel17.StyleName = "Title"
         Me.XrLabel17.StylePriority.UseFont = False
         Me.XrLabel17.StylePriority.UseTextAlignment = False
@@ -389,22 +401,70 @@ Partial Public Class Reporte_de__FirmasDP
         '
         Me.IM_V_FIRMAS_DIVISION_POLITICATableAdapter.ClearBeforeFill = True
         '
+        'BindingSource1
+        '
+        Me.BindingSource1.DataMember = "IM_PARTIDOS_POLITICOS_imagen"
+        Me.BindingSource1.DataSource = Me.DS_LOG
+        '
+        'DS_LOG
+        '
+        Me.DS_LOG.DataSetName = "DS_LOG"
+        Me.DS_LOG.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'IM_PARTIDOS_POLITICOS_imagenTableAdapter
+        '
+        Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.ClearBeforeFill = True
+        '
+        'BindingSource2
+        '
+        Me.BindingSource2.DataMember = "IM_MOVIMIENTOS_imagen"
+        Me.BindingSource2.DataSource = Me.DS_LOG
+        '
+        'IM_MOVIMIENTOS_imagenTableAdapter
+        '
+        Me.IM_MOVIMIENTOS_imagenTableAdapter.ClearBeforeFill = True
+        '
+        'XrPictureBox1
+        '
+        Me.XrPictureBox1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSource1, "IMAGEN")})
+        Me.XrPictureBox1.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 6.00001!)
+        Me.XrPictureBox1.Name = "XrPictureBox1"
+        Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(117.7083!, 75.08334!)
+        Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze
+        '
+        'XrPictureBox2
+        '
+        Me.XrPictureBox2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSource2, "IMAGEN")})
+        Me.XrPictureBox2.LocationFloat = New DevExpress.Utils.PointFloat(908.29!, 6.00001!)
+        Me.XrPictureBox2.Name = "XrPictureBox2"
+        Me.XrPictureBox2.SizeF = New System.Drawing.SizeF(117.71!, 75.08!)
+        Me.XrPictureBox2.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze
+        '
+        'NombreDepartamento
+        '
+        Me.NombreDepartamento.Description = "Departamento"
+        Me.NombreDepartamento.Name = "NombreDepartamento"
+        '
         'Reporte_de__FirmasDP
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.GroupHeaderBand1, Me.GroupHeaderBand2, Me.GroupHeaderBand3, Me.PageFooterBand1, Me.ReportHeaderBand1, Me.TopMarginBand1, Me.BottomMarginBand1})
         Me.DataAdapter = Me.IM_V_FIRMAS_DIVISION_POLITICATableAdapter
         Me.DataMember = "IM_V_FIRMAS_DIVISION_POLITICA"
         Me.DataSource = Me.DS_REPORTE_DE_FDP_11
-        Me.FilterString = "[NOMBRE PARTIDO] = ?NombrePartido And [NOMBRE MOVIMIENTO] = ?NombreMovimiento"
+        Me.FilterString = "[NOMBRE PARTIDO] = ?NombrePartido And [NOMBRE MOVIMIENTO] = ?NombreMovimiento And" & _
+            " [NOMBRE DEPARTAMENTO] = ?NombreDepartamento"
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(23, 41, 31, 100)
         Me.PageHeight = 850
         Me.PageWidth = 1100
-        Me.Parameters.AddRange(New DevExpress.XtraReports.Parameters.Parameter() {Me.NombrePartido, Me.NombreMovimiento})
+        Me.Parameters.AddRange(New DevExpress.XtraReports.Parameters.Parameter() {Me.NombrePartido, Me.NombreMovimiento, Me.NombreDepartamento})
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.StyleSheet.AddRange(New DevExpress.XtraReports.UI.XRControlStyle() {Me.Title, Me.FieldCaption, Me.PageInfo, Me.DataField})
         Me.Version = "11.2"
         CType(Me.DS_REPORTE_DE_FDP_11, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub
@@ -447,4 +507,12 @@ Partial Public Class Reporte_de__FirmasDP
     Friend WithEvents IM_V_FIRMAS_DIVISION_POLITICATableAdapter As Inscripcion_de_Moviemientos.DS_REPORTE_DE_FDP_1TableAdapters.IM_V_FIRMAS_DIVISION_POLITICATableAdapter
     Friend WithEvents XrLabel19 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel18 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents BindingSource1 As System.Windows.Forms.BindingSource
+    Friend WithEvents DS_LOG As Inscripcion_de_Moviemientos.DS_LOG
+    Friend WithEvents IM_PARTIDOS_POLITICOS_imagenTableAdapter As Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
+    Friend WithEvents BindingSource2 As System.Windows.Forms.BindingSource
+    Friend WithEvents IM_MOVIMIENTOS_imagenTableAdapter As Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
+    Friend WithEvents XrPictureBox2 As DevExpress.XtraReports.UI.XRPictureBox
+    Friend WithEvents XrPictureBox1 As DevExpress.XtraReports.UI.XRPictureBox
+    Friend WithEvents NombreDepartamento As DevExpress.XtraReports.Parameters.Parameter
 End Class

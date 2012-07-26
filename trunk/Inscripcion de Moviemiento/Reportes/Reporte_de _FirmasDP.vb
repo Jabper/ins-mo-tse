@@ -87,22 +87,22 @@ Public Class Reporte_de__FirmasDP
         End If
 
 
-        'Using adapter As New DS_REPORTE_DE_FDPTableAdapters.IM_DEPARTAMENTOS_FDPTableAdapter
-        '    adapter.Fill(dataset.IM_DEPARTAMENTOS_FDP)
+        Using adapter2 As New DS_REPORTE_DE_FDP_1TableAdapters.IM_DEPARTAMENTOSTableAdapter
+            adapter2.Fill(dataset.IM_DEPARTAMENTOS)
 
-        'End Using
+        End Using
 
-        'For Each info In e.ParametersInformation
-        '    If info.Parameter.Name = "NombreDepartamento" Then
-        '        Dim LookUpEdit As New LookUpEdit()
-        '        LookUpEdit.Properties.DataSource = dataset.IM_DEPARTAMENTOS_FDP
-        '        LookUpEdit.Properties.DisplayMember = "NOMBRE DEPARTAMENTO" 'COLOCA EL CAMPO SELECCIONADO EN EL TEXTBOX
-        '        LookUpEdit.Properties.ValueMember = "NOMBRE DEPARTAMENTO"
-        '        LookUpEdit.Properties.Columns.Add(New  _
-        '            LookUpColumnInfo("NOMBRE DEPARTAMENTO", 0, "DEPARTAMENTO")) 'AGREGA EL NOMBRE DEL PARTIDO A LA LISTA 
-        '        info.Editor = LookUpEdit
-        '    End If
-        'Next
+        For Each info In e.ParametersInformation
+            If info.Parameter.Name = "NombreDepartamento" Then
+                Dim LookUpEdit As New LookUpEdit()
+                LookUpEdit.Properties.DataSource = dataset.IM_DEPARTAMENTOS
+                LookUpEdit.Properties.DisplayMember = "NOMBRE DEPARTAMENTO" 'COLOCA EL CAMPO SELECCIONADO EN EL TEXTBOX
+                LookUpEdit.Properties.ValueMember = "NOMBRE DEPARTAMENTO"
+                LookUpEdit.Properties.Columns.Add(New  _
+                    LookUpColumnInfo("NOMBRE DEPARTAMENTO", 0, "DEPARTAMENTO")) 'AGREGA EL NOMBRE DEL PARTIDO A LA LISTA 
+                info.Editor = LookUpEdit
+            End If
+        Next
 
     End Sub
 
@@ -113,6 +113,11 @@ Public Class Reporte_de__FirmasDP
         '    Me.IM_V_FIRMAS_DIVISION_POLITICAAdapter1.Fill(Me.DS_REPORTE_DE_FDP1.IM_V_FIRMAS_DIVISION_POLITICA, Me.NombrePartido.Value.ToString)
         'End If
         Me.IM_V_FIRMAS_DIVISION_POLITICATableAdapter.Fill(Me.DS_REPORTE_DE_FDP_11.IM_V_FIRMAS_DIVISION_POLITICA, Me.NombrePartido.Value.ToString)
+
+        'se envian los filtros por nombre de partido y nombre de movimiento para recuperar las respectivas imagenes
+        Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(DS_LOG.IM_PARTIDOS_POLITICOS_imagen, NombrePartido.Value.ToString)
+        Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(DS_LOG.IM_MOVIMIENTOS_imagen, NombreMovimiento.Value.ToString)
+
     End Sub
 
     Private Sub Reporte_de__FirmasDP_ParametersRequestValueChanged(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestValueChangedEventArgs) Handles Me.ParametersRequestValueChanged
