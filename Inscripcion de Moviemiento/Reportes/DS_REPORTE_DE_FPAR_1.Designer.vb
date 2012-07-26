@@ -342,6 +342,8 @@ Partial Public Class DS_REPORTE_DE_FPAR_1
         
         Private columnMUNICIPIO As Global.System.Data.DataColumn
         
+        Private columnMOVIMIENTO As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -416,6 +418,13 @@ Partial Public Class DS_REPORTE_DE_FPAR_1
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property MOVIMIENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMOVIMIENTO
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -445,9 +454,9 @@ Partial Public Class DS_REPORTE_DE_FPAR_1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddIM_V_CRUCE_FIRMAS_PARRow(ByVal PARTIDO As String, ByVal IDENTIDAD As String, ByVal NOMBRE As String, ByVal APELLIDOS As String, ByVal DEPARTAMENTO As String, ByVal MUNICIPIO As String) As IM_V_CRUCE_FIRMAS_PARRow
+        Public Overloads Function AddIM_V_CRUCE_FIRMAS_PARRow(ByVal PARTIDO As String, ByVal IDENTIDAD As String, ByVal NOMBRE As String, ByVal APELLIDOS As String, ByVal DEPARTAMENTO As String, ByVal MUNICIPIO As String, ByVal MOVIMIENTO As String) As IM_V_CRUCE_FIRMAS_PARRow
             Dim rowIM_V_CRUCE_FIRMAS_PARRow As IM_V_CRUCE_FIRMAS_PARRow = CType(Me.NewRow,IM_V_CRUCE_FIRMAS_PARRow)
-            Dim columnValuesArray() As Object = New Object() {PARTIDO, IDENTIDAD, NOMBRE, APELLIDOS, DEPARTAMENTO, MUNICIPIO}
+            Dim columnValuesArray() As Object = New Object() {PARTIDO, IDENTIDAD, NOMBRE, APELLIDOS, DEPARTAMENTO, MUNICIPIO, MOVIMIENTO}
             rowIM_V_CRUCE_FIRMAS_PARRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowIM_V_CRUCE_FIRMAS_PARRow)
             Return rowIM_V_CRUCE_FIRMAS_PARRow
@@ -473,6 +482,7 @@ Partial Public Class DS_REPORTE_DE_FPAR_1
             Me.columnAPELLIDOS = MyBase.Columns("APELLIDOS")
             Me.columnDEPARTAMENTO = MyBase.Columns("DEPARTAMENTO")
             Me.columnMUNICIPIO = MyBase.Columns("MUNICIPIO")
+            Me.columnMOVIMIENTO = MyBase.Columns("MOVIMIENTO")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -489,6 +499,8 @@ Partial Public Class DS_REPORTE_DE_FPAR_1
             MyBase.Columns.Add(Me.columnDEPARTAMENTO)
             Me.columnMUNICIPIO = New Global.System.Data.DataColumn("MUNICIPIO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMUNICIPIO)
+            Me.columnMOVIMIENTO = New Global.System.Data.DataColumn("MOVIMIENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMOVIMIENTO)
             Me.columnPARTIDO.AllowDBNull = false
             Me.columnPARTIDO.MaxLength = 100
             Me.columnIDENTIDAD.AllowDBNull = false
@@ -499,6 +511,8 @@ Partial Public Class DS_REPORTE_DE_FPAR_1
             Me.columnDEPARTAMENTO.MaxLength = 100
             Me.columnMUNICIPIO.AllowDBNull = false
             Me.columnMUNICIPIO.MaxLength = 100
+            Me.columnMOVIMIENTO.AllowDBNull = false
+            Me.columnMOVIMIENTO.MaxLength = 200
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1203,6 +1217,16 @@ Partial Public Class DS_REPORTE_DE_FPAR_1
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property MOVIMIENTO() As String
+            Get
+                Return CType(Me(Me.tableIM_V_CRUCE_FIRMAS_PAR.MOVIMIENTOColumn),String)
+            End Get
+            Set
+                Me(Me.tableIM_V_CRUCE_FIRMAS_PAR.MOVIMIENTOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsNOMBRENull() As Boolean
             Return Me.IsNull(Me.tableIM_V_CRUCE_FIRMAS_PAR.NOMBREColumn)
         End Function
@@ -1524,6 +1548,7 @@ Namespace DS_REPORTE_DE_FPAR_1TableAdapters
             tableMapping.ColumnMappings.Add("APELLIDOS", "APELLIDOS")
             tableMapping.ColumnMappings.Add("DEPARTAMENTO", "DEPARTAMENTO")
             tableMapping.ColumnMappings.Add("MUNICIPIO", "MUNICIPIO")
+            tableMapping.ColumnMappings.Add("MOVIMIENTO", "MOVIMIENTO")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -1538,8 +1563,8 @@ Namespace DS_REPORTE_DE_FPAR_1TableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT PARTIDO, IDENTIDAD, NOMBRE, APELLIDOS, DEPARTAMENTO, MUNICIPIO FROM TSE.IM"& _ 
-                "_V_CRUCE_FIRMAS_PAR"
+            Me._commandCollection(0).CommandText = "SELECT PARTIDO, IDENTIDAD, NOMBRE, APELLIDOS, DEPARTAMENTO, MUNICIPIO, MOVIMIENTO"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM TSE.IM_V_CRUCE_FIRMAS_PAR"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
