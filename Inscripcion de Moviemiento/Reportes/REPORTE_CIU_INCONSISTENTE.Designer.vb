@@ -25,18 +25,18 @@ Partial Public Class REPORTE_CIU_INCONSISTENTE
         Me.XrLabel8 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel7 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel6 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel13 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel14 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel13 = New DevExpress.XtraReports.UI.XRLabel
         Me.TopMargin = New DevExpress.XtraReports.UI.TopMarginBand
         Me.BottomMargin = New DevExpress.XtraReports.UI.BottomMarginBand
         Me.ReportHeader = New DevExpress.XtraReports.UI.ReportHeaderBand
         Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel
         Me.PageHeader = New DevExpress.XtraReports.UI.PageHeaderBand
-        Me.XrLine2 = New DevExpress.XtraReports.UI.XRLine
         Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLine2 = New DevExpress.XtraReports.UI.XRLine
         Me.DS_CIU_INCONSIS1 = New Inscripcion_de_Moviemientos.DS_CIU_INCONSIS
         Me.IM_V_CIU_INCONSISTableAdapter = New Inscripcion_de_Moviemientos.DS_CIU_INCONSISTableAdapters.IM_V_CIU_INCONSISTableAdapter
         Me.GroupHeader1 = New DevExpress.XtraReports.UI.GroupHeaderBand
@@ -52,6 +52,8 @@ Partial Public Class REPORTE_CIU_INCONSISTENTE
         Me.XrPageInfo2 = New DevExpress.XtraReports.UI.XRPageInfo
         Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo
         Me.GroupHeader2 = New DevExpress.XtraReports.UI.GroupHeaderBand
+        Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
+        Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
         CType(Me.DS_CIU_INCONSIS1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
@@ -110,15 +112,6 @@ Partial Public Class REPORTE_CIU_INCONSISTENTE
         Me.XrLabel6.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
         Me.XrLabel6.Text = "XrLabel6"
         '
-        'XrLabel13
-        '
-        Me.XrLabel13.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CIU_INCONSIS.DEPARTAMENTO")})
-        Me.XrLabel13.LocationFloat = New DevExpress.Utils.PointFloat(191.6667!, 10.00001!)
-        Me.XrLabel13.Name = "XrLabel13"
-        Me.XrLabel13.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel13.SizeF = New System.Drawing.SizeF(269.7917!, 22.99999!)
-        Me.XrLabel13.Text = "XrLabel13"
-        '
         'XrLabel14
         '
         Me.XrLabel14.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CIU_INCONSIS.MUNICIPIO")})
@@ -127,6 +120,15 @@ Partial Public Class REPORTE_CIU_INCONSISTENTE
         Me.XrLabel14.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel14.SizeF = New System.Drawing.SizeF(203.1251!, 23.00002!)
         Me.XrLabel14.Text = "XrLabel14"
+        '
+        'XrLabel13
+        '
+        Me.XrLabel13.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CIU_INCONSIS.DEPARTAMENTO")})
+        Me.XrLabel13.LocationFloat = New DevExpress.Utils.PointFloat(191.6667!, 10.00001!)
+        Me.XrLabel13.Name = "XrLabel13"
+        Me.XrLabel13.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel13.SizeF = New System.Drawing.SizeF(269.7917!, 22.99999!)
+        Me.XrLabel13.Text = "XrLabel13"
         '
         'TopMargin
         '
@@ -162,13 +164,6 @@ Partial Public Class REPORTE_CIU_INCONSISTENTE
         Me.PageHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel5, Me.XrLabel4, Me.XrLabel3, Me.XrLabel2})
         Me.PageHeader.HeightF = 92.70834!
         Me.PageHeader.Name = "PageHeader"
-        '
-        'XrLine2
-        '
-        Me.XrLine2.LineWidth = 3
-        Me.XrLine2.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 32.99999!)
-        Me.XrLine2.Name = "XrLine2"
-        Me.XrLine2.SizeF = New System.Drawing.SizeF(1067.0!, 23.00002!)
         '
         'XrLabel5
         '
@@ -207,6 +202,13 @@ Partial Public Class REPORTE_CIU_INCONSISTENTE
         Me.XrLabel2.SizeF = New System.Drawing.SizeF(144.1667!, 23.0!)
         Me.XrLabel2.StylePriority.UseFont = False
         Me.XrLabel2.Text = "Partido Político:"
+        '
+        'XrLine2
+        '
+        Me.XrLine2.LineWidth = 3
+        Me.XrLine2.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 32.99999!)
+        Me.XrLine2.Name = "XrLine2"
+        Me.XrLine2.SizeF = New System.Drawing.SizeF(1067.0!, 23.00002!)
         '
         'DS_CIU_INCONSIS1
         '
@@ -331,16 +333,28 @@ Partial Public Class REPORTE_CIU_INCONSISTENTE
         Me.GroupHeader2.Level = 1
         Me.GroupHeader2.Name = "GroupHeader2"
         '
+        'NombrePartido
+        '
+        Me.NombrePartido.Description = "Partido Político"
+        Me.NombrePartido.Name = "NombrePartido"
+        '
+        'NombreMovimiento
+        '
+        Me.NombreMovimiento.Description = "Movimiento Político"
+        Me.NombreMovimiento.Name = "NombreMovimiento"
+        '
         'REPORTE_CIU_INCONSISTENTE
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.ReportHeader, Me.PageHeader, Me.GroupHeader1, Me.PageFooter, Me.GroupHeader2})
         Me.DataAdapter = Me.IM_V_CIU_INCONSISTableAdapter
         Me.DataMember = "IM_V_CIU_INCONSIS"
         Me.DataSource = Me.DS_CIU_INCONSIS1
+        Me.FilterString = "[PARTIDO] = ?NombrePartido And [MOVIMIENTO] = ?NombreMovimiento"
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(15, 8, 12, 27)
         Me.PageHeight = 850
         Me.PageWidth = 1100
+        Me.Parameters.AddRange(New DevExpress.XtraReports.Parameters.Parameter() {Me.NombrePartido, Me.NombreMovimiento})
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.Version = "11.2"
         CType(Me.DS_CIU_INCONSIS1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -380,4 +394,6 @@ Partial Public Class REPORTE_CIU_INCONSISTENTE
     Friend WithEvents XrPageInfo1 As DevExpress.XtraReports.UI.XRPageInfo
     Friend WithEvents XrPageInfo2 As DevExpress.XtraReports.UI.XRPageInfo
     Friend WithEvents GroupHeader2 As DevExpress.XtraReports.UI.GroupHeaderBand
+    Friend WithEvents NombrePartido As DevExpress.XtraReports.Parameters.Parameter
+    Friend WithEvents NombreMovimiento As DevExpress.XtraReports.Parameters.Parameter
 End Class
