@@ -41,8 +41,6 @@ Public Class REPORTE_DE__PLANILLA_DE_CANDIDATOS
                 info.Editor = LookUpEdit
             End If
         Next
-
-
         '-------------------------------------------------------------
         '       ESTABLECER EL PARTIDO DE ACUERDO AL USUARIO
         If ActivarOpciones.PEstado = "PDO" Or ActivarOpciones.PEstado = "MOV" Then
@@ -50,8 +48,6 @@ Public Class REPORTE_DE__PLANILLA_DE_CANDIDATOS
             NombrePartido.Value = nombrep
         End If
         '-------------------------------------------------------------
-
-
         Using Adapter1 As New DS_REPORTE_CANDIDATOSTableAdapters.IM_NE_CANDIDATOSTableAdapter
             Adapter1.Fill(dataset.IM_NE_CANDIDATOS)
         End Using
@@ -65,8 +61,6 @@ Public Class REPORTE_DE__PLANILLA_DE_CANDIDATOS
                 LookUpEdit.Properties.Columns.Add(New  _
                     LookUpColumnInfo("NIVEL ELECTIVO", 0, "NIVEL ELECTIVO")) 'AGREGA EL NOMBRE DEL PARTIDO A LA LISTA 
                 info.Editor = LookUpEdit
-                
-
             End If
         Next
 
