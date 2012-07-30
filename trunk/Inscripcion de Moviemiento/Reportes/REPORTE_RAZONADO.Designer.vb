@@ -493,7 +493,7 @@ Partial Public Class REPORTE_RAZONADO
         'corporacion2
         '
         Me.corporacion2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.corporacion2.LocationFloat = New DevExpress.Utils.PointFloat(837.5!, 127.0833!)
+        Me.corporacion2.LocationFloat = New DevExpress.Utils.PointFloat(837.5!, 127.0834!)
         Me.corporacion2.Name = "corporacion2"
         Me.corporacion2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.corporacion2.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
