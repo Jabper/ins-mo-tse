@@ -512,4 +512,10 @@ Public Class XFrmMenuPrincipal
         reporte_importacion.ShowPreview()
 
     End Sub
+
+    Private Sub BTNduplicadosMov_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNduplicadosMov.ItemClick
+        Dim reporte_duplicados As REPORTE_CANDIDATOS_DUPLICADOS_MOV = New REPORTE_CANDIDATOS_DUPLICADOS_MOV
+        reporte_duplicados.ShowPreview()
+
+    End Sub
 End Class
