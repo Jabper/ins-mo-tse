@@ -31,8 +31,12 @@ Partial Public Class Reporte_estadistico_general_ge
         Dim SideBySideBarSeriesLabel4 As DevExpress.XtraCharts.SideBySideBarSeriesLabel = New DevExpress.XtraCharts.SideBySideBarSeriesLabel
         Dim SideBySideBarSeriesLabel5 As DevExpress.XtraCharts.SideBySideBarSeriesLabel = New DevExpress.XtraCharts.SideBySideBarSeriesLabel
         Dim ChartTitle1 As DevExpress.XtraCharts.ChartTitle = New DevExpress.XtraCharts.ChartTitle
-        Me.DSESTADISTICOGENERALGE1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BindingSource4 = New System.Windows.Forms.BindingSource(Me.components)
         Me.DS_ESTADISTICO_GENERAL_GE1 = New Inscripcion_de_Moviemientos.DS_ESTADISTICO_GENERAL_GE
+        Me.BindingSource5 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BindingSource6 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BindingSource7 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DSESTADISTICOGENERALGE1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Detail = New DevExpress.XtraReports.UI.DetailBand
         Me.XrChart1 = New DevExpress.XtraReports.UI.XRChart
         Me.IM_V_PARTICIPACION_FETableAdapter = New Inscripcion_de_Moviemientos.DS_ESTADISTICO_GENERAL_GETableAdapters.IM_V_PARTICIPACION_FETableAdapter
@@ -69,16 +73,22 @@ Partial Public Class Reporte_estadistico_general_ge
         Me.IM_MOVIMIENTOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
         Me.BindingSource3 = New System.Windows.Forms.BindingSource(Me.components)
         Me.DT_TOTALTableAdapter = New Inscripcion_de_Moviemientos.DS_ESTADISTICO_GENERAL_GETableAdapters.DT_TOTALTableAdapter
-        Me.BindingSource4 = New System.Windows.Forms.BindingSource(Me.components)
         Me.DT_PRESIDENCIALTableAdapter = New Inscripcion_de_Moviemientos.DS_ESTADISTICO_GENERAL_GETableAdapters.DT_PRESIDENCIALTableAdapter
-        Me.BindingSource5 = New System.Windows.Forms.BindingSource(Me.components)
         Me.DT_PARLACENTableAdapter = New Inscripcion_de_Moviemientos.DS_ESTADISTICO_GENERAL_GETableAdapters.DT_PARLACENTableAdapter
-        Me.BindingSource6 = New System.Windows.Forms.BindingSource(Me.components)
         Me.DT_CONGRESOTableAdapter = New Inscripcion_de_Moviemientos.DS_ESTADISTICO_GENERAL_GETableAdapters.DT_CONGRESOTableAdapter
-        Me.BindingSource7 = New System.Windows.Forms.BindingSource(Me.components)
         Me.DT_CORPORACIONTableAdapter = New Inscripcion_de_Moviemientos.DS_ESTADISTICO_GENERAL_GETableAdapters.DT_CORPORACIONTableAdapter
-        CType(Me.DSESTADISTICOGENERALGE1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel7 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel9 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel11 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel13 = New DevExpress.XtraReports.UI.XRLabel
+        CType(Me.BindingSource4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_ESTADISTICO_GENERAL_GE1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DSESTADISTICOGENERALGE1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrChart1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(XyDiagram1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Series1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -94,25 +104,41 @@ Partial Public Class Reporte_estadistico_general_ge
         CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingSource4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingSource5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingSource6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingSource7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
-        'DSESTADISTICOGENERALGE1BindingSource
+        'BindingSource4
         '
-        Me.DSESTADISTICOGENERALGE1BindingSource.DataSource = Me.DS_ESTADISTICO_GENERAL_GE1
-        Me.DSESTADISTICOGENERALGE1BindingSource.Position = 0
+        Me.BindingSource4.DataMember = "DT_PRESIDENCIAL"
+        Me.BindingSource4.DataSource = Me.DS_ESTADISTICO_GENERAL_GE1
         '
         'DS_ESTADISTICO_GENERAL_GE1
         '
         Me.DS_ESTADISTICO_GENERAL_GE1.DataSetName = "DS_ESTADISTICO_GENERAL_GE"
         Me.DS_ESTADISTICO_GENERAL_GE1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'BindingSource5
+        '
+        Me.BindingSource5.DataMember = "DT_PARLACEN"
+        Me.BindingSource5.DataSource = Me.DS_ESTADISTICO_GENERAL_GE1
+        '
+        'BindingSource6
+        '
+        Me.BindingSource6.DataMember = "DT_CONGRESO"
+        Me.BindingSource6.DataSource = Me.DS_ESTADISTICO_GENERAL_GE1
+        '
+        'BindingSource7
+        '
+        Me.BindingSource7.DataMember = "DT_CORPORACION"
+        Me.BindingSource7.DataSource = Me.DS_ESTADISTICO_GENERAL_GE1
+        '
+        'DSESTADISTICOGENERALGE1BindingSource
+        '
+        Me.DSESTADISTICOGENERALGE1BindingSource.DataSource = Me.DS_ESTADISTICO_GENERAL_GE1
+        Me.DSESTADISTICOGENERALGE1BindingSource.Position = 0
+        '
         'Detail
         '
-        Me.Detail.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrChart1, Me.XrLabel16, Me.XrLabel15, Me.XrLabel14, Me.XrLabel12, Me.PC, Me.XrLabel10, Me.TCM, Me.XrLabel8, Me.TCN, Me.XrLabel6, Me.NP, Me.XrLabel4, Me.TOTAL, Me.XrLabel2, Me.NPRE, Me.XrPageInfo1, Me.XrPageInfo2})
+        Me.Detail.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel13, Me.XrLabel11, Me.XrLabel9, Me.XrLabel7, Me.XrLabel5, Me.XrLabel3, Me.XrChart1, Me.XrLabel16, Me.XrLabel15, Me.XrLabel14, Me.XrLabel12, Me.PC, Me.XrLabel10, Me.TCM, Me.XrLabel8, Me.TCN, Me.XrLabel6, Me.NP, Me.XrLabel4, Me.TOTAL, Me.XrLabel2, Me.NPRE, Me.XrPageInfo1, Me.XrPageInfo2})
         Me.Detail.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.Detail.HeightF = 682.7084!
         Me.Detail.Name = "Detail"
@@ -229,7 +255,7 @@ Partial Public Class Reporte_estadistico_general_ge
         Me.XrLabel12.SizeF = New System.Drawing.SizeF(205.2084!, 23.0!)
         Me.XrLabel12.StylePriority.UseFont = False
         Me.XrLabel12.StylePriority.UseTextAlignment = False
-        Me.XrLabel12.Text = " Participación"
+        Me.XrLabel12.Text = " Participación Actual"
         Me.XrLabel12.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'PC
@@ -474,41 +500,91 @@ Partial Public Class Reporte_estadistico_general_ge
         '
         Me.DT_TOTALTableAdapter.ClearBeforeFill = True
         '
-        'BindingSource4
-        '
-        Me.BindingSource4.DataMember = "DT_PRESIDENCIAL"
-        Me.BindingSource4.DataSource = Me.DS_ESTADISTICO_GENERAL_GE1
-        '
         'DT_PRESIDENCIALTableAdapter
         '
         Me.DT_PRESIDENCIALTableAdapter.ClearBeforeFill = True
-        '
-        'BindingSource5
-        '
-        Me.BindingSource5.DataMember = "DT_PARLACEN"
-        Me.BindingSource5.DataSource = Me.DS_ESTADISTICO_GENERAL_GE1
         '
         'DT_PARLACENTableAdapter
         '
         Me.DT_PARLACENTableAdapter.ClearBeforeFill = True
         '
-        'BindingSource6
-        '
-        Me.BindingSource6.DataMember = "DT_CONGRESO"
-        Me.BindingSource6.DataSource = Me.DS_ESTADISTICO_GENERAL_GE1
-        '
         'DT_CONGRESOTableAdapter
         '
         Me.DT_CONGRESOTableAdapter.ClearBeforeFill = True
         '
-        'BindingSource7
-        '
-        Me.BindingSource7.DataMember = "DT_CORPORACION"
-        Me.BindingSource7.DataSource = Me.DS_ESTADISTICO_GENERAL_GE1
-        '
         'DT_CORPORACIONTableAdapter
         '
         Me.DT_CORPORACIONTableAdapter.ClearBeforeFill = True
+        '
+        'XrLabel3
+        '
+        Me.XrLabel3.Font = New System.Drawing.Font("Times New Roman", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
+        Me.XrLabel3.LocationFloat = New DevExpress.Utils.PointFloat(776.9166!, 23.91666!)
+        Me.XrLabel3.Name = "XrLabel3"
+        Me.XrLabel3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
+        Me.XrLabel3.SizeF = New System.Drawing.SizeF(193.375!, 23.0!)
+        Me.XrLabel3.StylePriority.UseFont = False
+        Me.XrLabel3.Text = "Participación Requerida"
+        '
+        'XrLabel5
+        '
+        Me.XrLabel5.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.XrLabel5.LocationFloat = New DevExpress.Utils.PointFloat(838.5416!, 74.95833!)
+        Me.XrLabel5.Name = "XrLabel5"
+        Me.XrLabel5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
+        Me.XrLabel5.SizeF = New System.Drawing.SizeF(43.74994!, 22.99998!)
+        Me.XrLabel5.StylePriority.UseFont = False
+        Me.XrLabel5.StylePriority.UseForeColor = False
+        Me.XrLabel5.Text = "2"
+        '
+        'XrLabel7
+        '
+        Me.XrLabel7.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.XrLabel7.LocationFloat = New DevExpress.Utils.PointFloat(838.5417!, 109.3333!)
+        Me.XrLabel7.Name = "XrLabel7"
+        Me.XrLabel7.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
+        Me.XrLabel7.SizeF = New System.Drawing.SizeF(43.74988!, 22.99999!)
+        Me.XrLabel7.StylePriority.UseFont = False
+        Me.XrLabel7.StylePriority.UseForeColor = False
+        Me.XrLabel7.Text = "16"
+        '
+        'XrLabel9
+        '
+        Me.XrLabel9.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.XrLabel9.LocationFloat = New DevExpress.Utils.PointFloat(838.5416!, 148.25!)
+        Me.XrLabel9.Name = "XrLabel9"
+        Me.XrLabel9.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
+        Me.XrLabel9.SizeF = New System.Drawing.SizeF(43.75!, 23.0!)
+        Me.XrLabel9.StylePriority.UseFont = False
+        Me.XrLabel9.StylePriority.UseForeColor = False
+        Me.XrLabel9.Text = "114"
+        '
+        'XrLabel11
+        '
+        Me.XrLabel11.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.XrLabel11.LocationFloat = New DevExpress.Utils.PointFloat(838.5417!, 187.8333!)
+        Me.XrLabel11.Name = "XrLabel11"
+        Me.XrLabel11.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
+        Me.XrLabel11.SizeF = New System.Drawing.SizeF(43.75!, 23.0!)
+        Me.XrLabel11.StylePriority.UseFont = False
+        Me.XrLabel11.StylePriority.UseForeColor = False
+        Me.XrLabel11.Text = "1157"
+        '
+        'XrLabel13
+        '
+        Me.XrLabel13.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel13.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.XrLabel13.LocationFloat = New DevExpress.Utils.PointFloat(838.5416!, 241.625!)
+        Me.XrLabel13.Name = "XrLabel13"
+        Me.XrLabel13.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
+        Me.XrLabel13.SizeF = New System.Drawing.SizeF(43.75006!, 23.0!)
+        Me.XrLabel13.StylePriority.UseFont = False
+        Me.XrLabel13.StylePriority.UseForeColor = False
+        Me.XrLabel13.Text = "1289"
         '
         'Reporte_estadistico_general_ge
         '
@@ -523,8 +599,12 @@ Partial Public Class Reporte_estadistico_general_ge
         Me.Parameters.AddRange(New DevExpress.XtraReports.Parameters.Parameter() {Me.NombrePartido, Me.NombreMovimiento})
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.Version = "11.2"
-        CType(Me.DSESTADISTICOGENERALGE1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DS_ESTADISTICO_GENERAL_GE1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DSESTADISTICOGENERALGE1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(XyDiagram1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(SideBySideBarSeriesLabel1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Series1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -540,10 +620,6 @@ Partial Public Class Reporte_estadistico_general_ge
         CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSource4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSource5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSource6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSource7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub
@@ -593,4 +669,10 @@ Partial Public Class Reporte_estadistico_general_ge
     Friend WithEvents DT_CONGRESOTableAdapter As Inscripcion_de_Moviemientos.DS_ESTADISTICO_GENERAL_GETableAdapters.DT_CONGRESOTableAdapter
     Friend WithEvents BindingSource7 As System.Windows.Forms.BindingSource
     Friend WithEvents DT_CORPORACIONTableAdapter As Inscripcion_de_Moviemientos.DS_ESTADISTICO_GENERAL_GETableAdapters.DT_CORPORACIONTableAdapter
+    Friend WithEvents XrLabel9 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel7 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel5 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel3 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel11 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel13 As DevExpress.XtraReports.UI.XRLabel
 End Class
