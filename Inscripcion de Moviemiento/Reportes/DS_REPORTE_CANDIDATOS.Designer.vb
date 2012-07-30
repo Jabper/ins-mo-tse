@@ -609,11 +609,6 @@ Partial Public Class DS_REPORTE_CANDIDATOS
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function FindByNOMBRE_MOVIMIENTO(ByVal NOMBRE_MOVIMIENTO As String) As IM_V_MOSTRAR_CANDIDATOS2Row
-            Return CType(Me.Rows.Find(New Object() {NOMBRE_MOVIMIENTO}),IM_V_MOSTRAR_CANDIDATOS2Row)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
             Dim cln As IM_V_MOSTRAR_CANDIDATOS2DataTable = CType(MyBase.Clone,IM_V_MOSTRAR_CANDIDATOS2DataTable)
             cln.InitVars
@@ -667,14 +662,12 @@ Partial Public Class DS_REPORTE_CANDIDATOS
             MyBase.Columns.Add(Me.columnNIVELELECTIVO)
             Me.columnCARGO = New Global.System.Data.DataColumn("CARGO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCARGO)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnNOMBRE_MOVIMIENTO}, true))
             Me.columnIDENTIDAD.MaxLength = 15
             Me.columnPARTIDO.MaxLength = 100
             Me.columnDEPARTAMENTO.MaxLength = 100
             Me.columnNOMBRE.MaxLength = 201
             Me.columnAPELLIDO.MaxLength = 201
             Me.columnNOMBRE_MOVIMIENTO.AllowDBNull = false
-            Me.columnNOMBRE_MOVIMIENTO.Unique = true
             Me.columnNOMBRE_MOVIMIENTO.MaxLength = 200
             Me.columnNIVEL.AllowDBNull = false
             Me.columnNIVEL.MaxLength = 100
