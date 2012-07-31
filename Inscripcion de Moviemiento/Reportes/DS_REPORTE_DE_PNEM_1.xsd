@@ -173,6 +173,25 @@ ORDER BY CODIGO_NIVEL_ELECTIVO</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="IM_CARGO_ELECTIVOTableAdapter" GeneratorDataComponentClassName="IM_CARGO_ELECTIVOTableAdapter" Name="IM_CARGO_ELECTIVO" UserDataComponentName="IM_CARGO_ELECTIVOTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select CE.CODIGO_CARGO_ELECTIVO, CE.DESCRIPCION "CARGO" 
+from im_cargos_electivos ce
+order by CE.CODIGO_CARGO_ELECTIVO</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CODIGO_CARGO_ELECTIVO" DataSetColumn="CODIGO_CARGO_ELECTIVO" />
+              <Mapping SourceColumn="CARGO" DataSetColumn="CARGO" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -301,6 +320,20 @@ ORDER BY CODIGO_NIVEL_ELECTIVO</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="IM_CARGO_ELECTIVO" msprop:Generator_UserTableName="IM_CARGO_ELECTIVO" msprop:Generator_RowDeletedName="IM_CARGO_ELECTIVORowDeleted" msprop:Generator_RowChangedName="IM_CARGO_ELECTIVORowChanged" msprop:Generator_RowClassName="IM_CARGO_ELECTIVORow" msprop:Generator_RowChangingName="IM_CARGO_ELECTIVORowChanging" msprop:Generator_RowEvArgName="IM_CARGO_ELECTIVORowChangeEvent" msprop:Generator_RowEvHandlerName="IM_CARGO_ELECTIVORowChangeEventHandler" msprop:Generator_TableClassName="IM_CARGO_ELECTIVODataTable" msprop:Generator_TableVarName="tableIM_CARGO_ELECTIVO" msprop:Generator_RowDeletingName="IM_CARGO_ELECTIVORowDeleting" msprop:Generator_TablePropName="IM_CARGO_ELECTIVO">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CODIGO_CARGO_ELECTIVO" msprop:Generator_UserColumnName="CODIGO_CARGO_ELECTIVO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_CARGO_ELECTIVO" msprop:Generator_ColumnPropNameInRow="CODIGO_CARGO_ELECTIVO" msprop:Generator_ColumnPropNameInTable="CODIGO_CARGO_ELECTIVOColumn" type="xs:decimal" />
+              <xs:element name="CARGO" msprop:Generator_UserColumnName="CARGO" msprop:Generator_ColumnVarNameInTable="columnCARGO" msprop:Generator_ColumnPropNameInRow="CARGO" msprop:Generator_ColumnPropNameInTable="CARGOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -315,6 +348,10 @@ ORDER BY CODIGO_NIVEL_ELECTIVO</CommandText>
     <xs:unique name="IM_NIVEL_ELECTIVO_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:IM_NIVEL_ELECTIVO" />
       <xs:field xpath="mstns:CODIGO_NIVEL_ELECTIVO" />
+    </xs:unique>
+    <xs:unique name="IM_CARGO_ELECTIVO_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:IM_CARGO_ELECTIVO" />
+      <xs:field xpath="mstns:CODIGO_CARGO_ELECTIVO" />
     </xs:unique>
   </xs:element>
   <xs:annotation>
