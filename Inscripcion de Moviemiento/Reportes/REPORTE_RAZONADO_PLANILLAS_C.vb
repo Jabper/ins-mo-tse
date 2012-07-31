@@ -89,7 +89,7 @@ Public Class REPORTE_RAZONADO_PLANILLAS_C
         End Using
 
         For Each info In e.ParametersInformation
-            If info.Parameter.Name = "NombreNivel" Then
+            If info.Parameter.Name = "NivelElectivo" Then
                 Dim LookUpEdit As New LookUpEdit()
                 LookUpEdit.Properties.DataSource = dataset.IM_NIVEL_ELECTIVO
                 LookUpEdit.Properties.DisplayMember = "NIVEL ELECTIVO" 'COLOCA EL CAMPO SELECCIONADO EN EL TEXTBOX
@@ -110,7 +110,7 @@ Public Class REPORTE_RAZONADO_PLANILLAS_C
     End Sub
 
     Private Sub REPORTE_RAZONADO_PLANILLAS_C_ParametersRequestSubmit(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestEventArgs) Handles Me.ParametersRequestSubmit
-        Me.PLANILLATableAdapter.Fill(DS_PLANILLAS_RAZONADO_C1.PLANILLA, Me.NombrePartido.Value.ToString, Me.NombreMovimiento.Value.ToString, Me.NivelElectivo.Value.ToString)
+        'Me.PLANILLATableAdapter.Fillby(DS_PLANILLAS_RAZONADO_C1.PLANILLA, Me.NombrePartido.Value.ToString, Me.NombreMovimiento.Value.ToString, Me.NivelElectivo.Value.ToString)
 
 
     End Sub
