@@ -518,4 +518,8 @@ Public Class XFrmMenuPrincipal
         reporte_duplicados.ShowPreview()
 
     End Sub
+
+    Private Sub btnIncompleta_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnIncompleta.ItemClick
+        Parametros2.Show()
+    End Sub
 End Class

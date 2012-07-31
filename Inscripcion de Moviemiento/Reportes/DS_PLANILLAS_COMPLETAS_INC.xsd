@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_PLANILLAS_COMPLETAS_INC" targetNamespace="http://tempuri.org/DS_PLANILLAS_COMPLETAS_INC.xsd" xmlns:mstns="http://tempuri.org/DS_PLANILLAS_COMPLETAS_INC.xsd" xmlns="http://tempuri.org/DS_PLANILLAS_COMPLETAS_INC.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (MySettings)" PropertyReference="ApplicationSettings.Inscripcion_de_Moviemientos.My.MySettings.GlobalReference.Default.ConnectionString" Provider="System.Data.OracleClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CANDIDATOS_INCOMPLETOSTableAdapter" GeneratorDataComponentClassName="CANDIDATOS_INCOMPLETOSTableAdapter" Name="CANDIDATOS_INCOMPLETOS" UserDataComponentName="CANDIDATOS_INCOMPLETOSTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        A.IDENTIDAD, A.NOMBRE, A.APELLIDO, A.CARGO, A.IMAGEN, PAR.IMAGEN AS PAR, DEP.DESCRIPCION AS DEPARTAMENTO, MUNI.DESCRIPCION AS municipio, 
+                         MOV.NOMBRE_MOVIMIENTO, PAR.NOMBRE AS PARTIDO, NE.DESCRIPCION AS NIVEL
+FROM            IM_V_MOSTRAR_CANDIDATOS2 a, IM_CANDIDATOS c, IM_CARGOS_ELECTIVOS ca, IM_NIVEL_ELECTIVO NE, IM_PARTIDOS_POLITICOS PAR, 
+                         IM_DEPARTAMENTOS dep, IM_MOVIMIENTOS MOV, IM_MUNICIPIOS muni
+WHERE        (A.CODIGO_CANDIDATOS = C.CODIGO_CANDIDATOS) AND (A.CODIGO_CARGO_ELECTIVO = CA.CODIGO_CARGO_ELECTIVO) AND 
+                         (CA.CODIGO_NIVEL_ELECTIVO = NE.CODIGO_NIVEL_ELECTIVO) AND (A.CODIGO_PARTIDO = PAR.CODIGO_PARTIDO) AND 
+                         (A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO) AND (A.CODIGO_DEPARTAMENTO = DEP.CODIGO_DEPARTAMENTO) AND 
+                         (A.CODIGO_DEPARTAMENTO = MUNI.CODIGO_DEPARTAMENTO) AND (A.CODIGO_MUNICIPIO = MUNI.CODIGO_MUNICIPIO) AND (C.ESTADO = 'I') AND 
+                         (A.IDENTIDAD = C.IDENTIDAD)
+ORDER BY C.POSICION</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IDENTIDAD" DataSetColumn="IDENTIDAD" />
+              <Mapping SourceColumn="NOMBRE" DataSetColumn="NOMBRE" />
+              <Mapping SourceColumn="APELLIDO" DataSetColumn="APELLIDO" />
+              <Mapping SourceColumn="CARGO" DataSetColumn="CARGO" />
+              <Mapping SourceColumn="IMAGEN" DataSetColumn="IMAGEN" />
+              <Mapping SourceColumn="DEPARTAMENTO" DataSetColumn="DEPARTAMENTO" />
+              <Mapping SourceColumn="MUNICIPIO" DataSetColumn="MUNICIPIO" />
+              <Mapping SourceColumn="NOMBRE_MOVIMIENTO" DataSetColumn="NOMBRE_MOVIMIENTO" />
+              <Mapping SourceColumn="PARTIDO" DataSetColumn="PARTIDO" />
+              <Mapping SourceColumn="NIVEL" DataSetColumn="NIVEL" />
+              <Mapping SourceColumn="PAR" DataSetColumn="PAR" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_PLANILLAS_COMPLETAS_INC" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DS_PLANILLAS_COMPLETAS_INC" msprop:Generator_DataSetName="DS_PLANILLAS_COMPLETAS_INC" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CANDIDATOS_INCOMPLETOS" msprop:Generator_UserTableName="CANDIDATOS_INCOMPLETOS" msprop:Generator_RowDeletedName="CANDIDATOS_INCOMPLETOSRowDeleted" msprop:Generator_RowChangedName="CANDIDATOS_INCOMPLETOSRowChanged" msprop:Generator_RowClassName="CANDIDATOS_INCOMPLETOSRow" msprop:Generator_RowChangingName="CANDIDATOS_INCOMPLETOSRowChanging" msprop:Generator_RowEvArgName="CANDIDATOS_INCOMPLETOSRowChangeEvent" msprop:Generator_RowEvHandlerName="CANDIDATOS_INCOMPLETOSRowChangeEventHandler" msprop:Generator_TableClassName="CANDIDATOS_INCOMPLETOSDataTable" msprop:Generator_TableVarName="tableCANDIDATOS_INCOMPLETOS" msprop:Generator_RowDeletingName="CANDIDATOS_INCOMPLETOSRowDeleting" msprop:Generator_TablePropName="CANDIDATOS_INCOMPLETOS">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IDENTIDAD" msprop:Generator_UserColumnName="IDENTIDAD" msprop:Generator_ColumnVarNameInTable="columnIDENTIDAD" msprop:Generator_ColumnPropNameInRow="IDENTIDAD" msprop:Generator_ColumnPropNameInTable="IDENTIDADColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="APELLIDO" msprop:Generator_UserColumnName="APELLIDO" msprop:Generator_ColumnVarNameInTable="columnAPELLIDO" msprop:Generator_ColumnPropNameInRow="APELLIDO" msprop:Generator_ColumnPropNameInTable="APELLIDOColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CARGO" msprop:Generator_UserColumnName="CARGO" msprop:Generator_ColumnVarNameInTable="columnCARGO" msprop:Generator_ColumnPropNameInRow="CARGO" msprop:Generator_ColumnPropNameInTable="CARGOColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IMAGEN" msprop:Generator_UserColumnName="IMAGEN" msprop:Generator_ColumnVarNameInTable="columnIMAGEN" msprop:Generator_ColumnPropNameInRow="IMAGEN" msprop:Generator_ColumnPropNameInTable="IMAGENColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="DEPARTAMENTO" msprop:Generator_UserColumnName="DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MUNICIPIO" msprop:Generator_UserColumnName="MUNICIPIO" msprop:Generator_ColumnVarNameInTable="columnMUNICIPIO" msprop:Generator_ColumnPropNameInRow="MUNICIPIO" msprop:Generator_ColumnPropNameInTable="MUNICIPIOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NOMBRE_MOVIMIENTO" msprop:Generator_UserColumnName="NOMBRE_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="NOMBRE_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="NOMBRE_MOVIMIENTOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PARTIDO" msprop:Generator_UserColumnName="PARTIDO" msprop:Generator_ColumnVarNameInTable="columnPARTIDO" msprop:Generator_ColumnPropNameInRow="PARTIDO" msprop:Generator_ColumnPropNameInTable="PARTIDOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NIVEL" msprop:Generator_UserColumnName="NIVEL" msprop:Generator_ColumnVarNameInTable="columnNIVEL" msprop:Generator_ColumnPropNameInRow="NIVEL" msprop:Generator_ColumnPropNameInTable="NIVELColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PAR" msprop:Generator_UserColumnName="PAR" msprop:Generator_ColumnVarNameInTable="columnPAR" msprop:Generator_ColumnPropNameInRow="PAR" msprop:Generator_ColumnPropNameInTable="PARColumn" type="xs:base64Binary" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

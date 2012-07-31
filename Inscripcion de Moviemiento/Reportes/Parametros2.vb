@@ -12,7 +12,7 @@
         ' Me.IM_MOVIMIENTOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.IM_MOVIMIENTOS)
         'TODO: This line of code loads data into the 'DS_PLANILLA_TOTALES.IM_PARTIDOS_POLITICOS' table. You can move, or remove it, as needed.
         Me.IM_PARTIDOS_POLITICOS1TableAdapter.FillBy(Me.DS_PLANILLA_TOTALES.IM_PARTIDOS_POLITICOS1)
-
+        ActivarFiltros()
     End Sub
     Sub ActivarFiltros()
 
@@ -72,7 +72,7 @@
         Try
             'Me.IM_CANDIDATOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.IM_CANDIDATOS, Me.cboPartido.Text, Me.cboMovimiento.Text, Me.cbonivel.Text, Me.cboDepto.Text, Me.cboMuni.Text)
 
-            Dim reporte_planilla As REPORTE_PLANILLA_INCOMPLETAS = New REPORTE_PLANILLA_INCOMPLETAS
+            Dim reporte_planilla As REPORTE_PLANILLA_INCOMPLETA = New REPORTE_PLANILLA_INCOMPLETA
             'Me.IM_CANDIDATOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.IM_CANDIDATOS, Me.cboPartido.Text, Me.cboMovimiento.Text, Me.cbonivel.Text Me.cboDepto.Text, Me.cboMuni.Text)
             'reporte_planilla.IM_CANDIDATOSTableAdapter.FillBy(reporte_planilla.DS_PLANILLA_TOTALES1.IM_CANDIDATOS, Me.cboPartido.Text, Me.cboMovimiento.Text, Me.cbonivel.Text, Me.cboDepto.Text, Me.cboMuni.Text)
             reporte_planilla.FilterString = "[MUNICIPIO] = '" & Me.cboMuni.Text & "' And [PARTIDO] = '" & Me.cbopartido.Text & "' And [DEPARTAMENTO] = '" & Me.cboDepto.Text & "' And [NIVEL] = '" & Me.cbonivel.Text & "' And [NOMBRE_MOVIMIENTO] = '" & Me.CmbMovimiento.Text & "'"
