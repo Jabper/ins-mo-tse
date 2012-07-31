@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_CANDIDATOS_DUPLICADOS_MOV" targetNamespace="http://tempuri.org/DS_CANDIDATOS_DUPLICADOS_MOV.xsd" xmlns:mstns="http://tempuri.org/DS_CANDIDATOS_DUPLICADOS_MOV.xsd" xmlns="http://tempuri.org/DS_CANDIDATOS_DUPLICADOS_MOV.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (MySettings)" PropertyReference="ApplicationSettings.Inscripcion_de_Moviemientos.My.MySettings.GlobalReference.Default.ConnectionString" Provider="System.Data.OracleClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CANDIDATOS_DUPLICADOSTableAdapter" GeneratorDataComponentClassName="CANDIDATOS_DUPLICADOSTableAdapter" Name="CANDIDATOS_DUPLICADOS" UserDataComponentName="CANDIDATOS_DUPLICADOSTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        LP.CODIGO_LOG AS INCONSISTENCIA, LP.DESCRIPCION_ERROR AS DESCRIPCION, LP.CODIGO_PARTIDO, P.NOMBRE AS PARTIDO, 
+                         M.NOMBRE_MOVIMIENTO AS MOVIMIENTO, LP.CODIGO_MOVIMIENTO, LP.CODIGO_OPERACION
+FROM            IM_LOG_PROCESOS lp, IM_PARTIDOS_POLITICOS p, IM_MOVIMIENTOS m
+WHERE        (LP.CODIGO_OPERACION = 56) AND (P.CODIGO_PARTIDO = LP.CODIGO_PARTIDO) AND (LP.CODIGO_PARTIDO = M.CODIGO_PARTIDO) AND 
+                         (LP.CODIGO_MOVIMIENTO = M.CODIGO_MOVIMIENTO)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="INCONSISTENCIA" DataSetColumn="INCONSISTENCIA" />
+              <Mapping SourceColumn="DESCRIPCION" DataSetColumn="DESCRIPCION" />
+              <Mapping SourceColumn="CODIGO_PARTIDO" DataSetColumn="CODIGO_PARTIDO" />
+              <Mapping SourceColumn="PARTIDO" DataSetColumn="PARTIDO" />
+              <Mapping SourceColumn="MOVIMIENTO" DataSetColumn="MOVIMIENTO" />
+              <Mapping SourceColumn="CODIGO_MOVIMIENTO" DataSetColumn="CODIGO_MOVIMIENTO" />
+              <Mapping SourceColumn="CODIGO_OPERACION" DataSetColumn="CODIGO_OPERACION" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_CANDIDATOS_DUPLICADOS_MOV" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DS_CANDIDATOS_DUPLICADOS_MOV" msprop:Generator_DataSetName="DS_CANDIDATOS_DUPLICADOS_MOV" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CANDIDATOS_DUPLICADOS" msprop:Generator_UserTableName="CANDIDATOS_DUPLICADOS" msprop:Generator_RowDeletedName="CANDIDATOS_DUPLICADOSRowDeleted" msprop:Generator_RowChangedName="CANDIDATOS_DUPLICADOSRowChanged" msprop:Generator_RowClassName="CANDIDATOS_DUPLICADOSRow" msprop:Generator_RowChangingName="CANDIDATOS_DUPLICADOSRowChanging" msprop:Generator_RowEvArgName="CANDIDATOS_DUPLICADOSRowChangeEvent" msprop:Generator_RowEvHandlerName="CANDIDATOS_DUPLICADOSRowChangeEventHandler" msprop:Generator_TableClassName="CANDIDATOS_DUPLICADOSDataTable" msprop:Generator_TableVarName="tableCANDIDATOS_DUPLICADOS" msprop:Generator_RowDeletingName="CANDIDATOS_DUPLICADOSRowDeleting" msprop:Generator_TablePropName="CANDIDATOS_DUPLICADOS">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="INCONSISTENCIA" msprop:Generator_UserColumnName="INCONSISTENCIA" msprop:Generator_ColumnVarNameInTable="columnINCONSISTENCIA" msprop:Generator_ColumnPropNameInRow="INCONSISTENCIA" msprop:Generator_ColumnPropNameInTable="INCONSISTENCIAColumn" type="xs:decimal" />
+              <xs:element name="DESCRIPCION" msprop:Generator_UserColumnName="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" type="xs:decimal" />
+              <xs:element name="PARTIDO" msprop:Generator_UserColumnName="PARTIDO" msprop:Generator_ColumnVarNameInTable="columnPARTIDO" msprop:Generator_ColumnPropNameInRow="PARTIDO" msprop:Generator_ColumnPropNameInTable="PARTIDOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MOVIMIENTO" msprop:Generator_UserColumnName="MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnMOVIMIENTO" msprop:Generator_ColumnPropNameInRow="MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="MOVIMIENTOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODIGO_MOVIMIENTO" msprop:Generator_UserColumnName="CODIGO_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOVIMIENTOColumn" type="xs:decimal" />
+              <xs:element name="CODIGO_OPERACION" msprop:Generator_UserColumnName="CODIGO_OPERACION" msprop:Generator_ColumnVarNameInTable="columnCODIGO_OPERACION" msprop:Generator_ColumnPropNameInRow="CODIGO_OPERACION" msprop:Generator_ColumnPropNameInTable="CODIGO_OPERACIONColumn" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:CANDIDATOS_DUPLICADOS" />
+      <xs:field xpath="mstns:INCONSISTENCIA" />
+      <xs:field xpath="mstns:MOVIMIENTO" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
