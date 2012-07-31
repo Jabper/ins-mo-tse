@@ -1,0 +1,3 @@
+﻿Public Class REPORTE_PLANILLA_INCOMPLETA
+
+End Class

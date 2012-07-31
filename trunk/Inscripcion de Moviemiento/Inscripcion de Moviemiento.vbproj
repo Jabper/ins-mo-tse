@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -435,6 +435,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_LOG_1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\DS_PLANILLAS_COMPLETAS_INC.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_PLANILLAS_COMPLETAS_INC.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DS_PLANILLA_TOTALES.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -547,6 +552,12 @@
     <Compile Include="Reportes\Parametros.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\Parametros2.Designer.vb">
+      <DependentUpon>Parametros2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Parametros2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\REPORTE_CANDIDATOS_DUPLICADOS_MOV.Designer.vb">
       <DependentUpon>REPORTE_CANDIDATOS_DUPLICADOS_MOV.vb</DependentUpon>
     </Compile>
@@ -611,6 +622,12 @@
       <DependentUpon>REPORTE_PLANILLAS_FINALES.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\REPORTE_PLANILLAS_FINALES.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\REPORTE_PLANILLA_INCOMPLETA.Designer.vb">
+      <DependentUpon>REPORTE_PLANILLA_INCOMPLETA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\REPORTE_PLANILLA_INCOMPLETA.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\REPORTE_RAZONADO.Designer.vb">
@@ -1005,8 +1022,13 @@
       <DependentUpon>Parametros.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Parametros2.resx">
+      <DependentUpon>Parametros2.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_CANDIDATOS_DUPLICADOS_MOV.resx">
       <DependentUpon>REPORTE_CANDIDATOS_DUPLICADOS_MOV.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_CANDIDATOS_INCONSISTENTES.resx">
       <DependentUpon>REPORTE_CANDIDATOS_INCONSISTENTES.vb</DependentUpon>
@@ -1046,6 +1068,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_PLANILLAS_FINALES.resx">
       <DependentUpon>REPORTE_PLANILLAS_FINALES.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\REPORTE_PLANILLA_INCOMPLETA.resx">
+      <DependentUpon>REPORTE_PLANILLA_INCOMPLETA.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_RAZONADO.resx">
@@ -1600,6 +1626,17 @@
     </None>
     <None Include="Reportes\DS_LOG_1.xss">
       <DependentUpon>DS_LOG_1.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_PLANILLAS_COMPLETAS_INC.xsc">
+      <DependentUpon>DS_PLANILLAS_COMPLETAS_INC.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_PLANILLAS_COMPLETAS_INC.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_PLANILLAS_COMPLETAS_INC.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reportes\DS_PLANILLAS_COMPLETAS_INC.xss">
+      <DependentUpon>DS_PLANILLAS_COMPLETAS_INC.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DS_PLANILLA_TOTALES.xsc">
       <DependentUpon>DS_PLANILLA_TOTALES.xsd</DependentUpon>

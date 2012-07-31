@@ -638,10 +638,18 @@ Public Class xfrmRegCandidatos
 
             End If
 
-            Dim a As String = "select NUMERO_IDENTIDAD,SEXO from IM_PADRON_ELECTORAL where NUMERO_IDENTIDAD='" & e.Value.ToString & "'"
+            Dim a As String = "select NUMERO_IDENTIDAD,CODIGO_HABI_INHA, SEXO from IM_PADRON_ELECTORAL where NUMERO_IDENTIDAD='" & e.Value.ToString & "'"
 
-            If COracle.ObtenerDatos(a, "NUMERO_IDENTIDAD") = "N" Then
-                mensajeerror = "Candidato No Existe en el Padron Electoral"
+            If COracle.ObtenerDatos(a, "CODIGO_HABI_INHA") = "N" Then
+                mensajeerror = "Ciudadano No Existe en el Padron Electoral"
+                e.Valid = False
+                view.FocusedColumn.FieldName = "IDENTIDAD"
+            ElseIf COracle.ObtenerDatos(a, "CODIGO_HABI_INHA") = "E01" Then
+                mensajeerror = "Ciudadano Inhabilitado contacte al TSE"
+                e.Valid = False
+                view.FocusedColumn.FieldName = "IDENTIDAD"
+            ElseIf COracle.ObtenerDatos(a, "CODIGO_HABI_INHA") = "E03" Then
+                mensajeerror = "Ciudadano Inhabilitado contacte al TSE"
                 e.Valid = False
                 view.FocusedColumn.FieldName = "IDENTIDAD"
             Else
