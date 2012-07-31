@@ -524,7 +524,7 @@ Public Class XFrmMenuPrincipal
     End Sub
 
     Private Sub BTNRazonadoPlaC_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNRazonadoPlaC.ItemClick
-        Dim reporte_razonadoPC As REPORTE_RAZONADO_PLANILLAS_C = New REPORTE_RAZONADO_PLANILLAS_C
+        Dim reporte_razonadoPC As REPORTE_PLANILLAS_COMPLETAS_1 = New REPORTE_PLANILLAS_COMPLETAS_1
         reporte_razonadoPC.ShowPreview()
 
     End Sub
