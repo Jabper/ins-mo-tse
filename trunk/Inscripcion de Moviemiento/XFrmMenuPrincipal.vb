@@ -522,4 +522,10 @@ Public Class XFrmMenuPrincipal
     Private Sub btnIncompleta_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnIncompleta.ItemClick
         Parametros2.Show()
     End Sub
+
+    Private Sub BTNRazonadoPlaC_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNRazonadoPlaC.ItemClick
+        Dim reporte_razonadoPC As REPORTE_RAZONADO_PLANILLAS_C = New REPORTE_RAZONADO_PLANILLAS_C
+        reporte_razonadoPC.ShowPreview()
+
+    End Sub
 End Class
