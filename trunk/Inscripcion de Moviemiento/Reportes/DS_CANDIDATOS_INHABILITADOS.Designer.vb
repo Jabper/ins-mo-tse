@@ -290,6 +290,8 @@ Partial Public Class DS_CANDIDATOS_INHABILITADOS
         
         Private columnESTADO As Global.System.Data.DataColumn
         
+        Private columnOBSERVACION As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -406,6 +408,13 @@ Partial Public Class DS_CANDIDATOS_INHABILITADOS
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property OBSERVACIONColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnOBSERVACION
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -435,9 +444,9 @@ Partial Public Class DS_CANDIDATOS_INHABILITADOS
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddIM_V_CANDIDATOS_INHARow(ByVal IMAGEN() As Byte, ByVal CONSTANCIA() As Byte, ByVal IDENTIDAD As String, ByVal NOMBRE As String, ByVal APELLIDO As String, ByVal POSICION As Decimal, ByVal PARTIDO As String, ByVal DEPARTAMENTO As String, ByVal NIVELELECTIVO As String, ByVal NOMBRE_MOVIMIENTO As String, ByVal NIVEL As String, ByVal ESTADO As String) As IM_V_CANDIDATOS_INHARow
+        Public Overloads Function AddIM_V_CANDIDATOS_INHARow(ByVal IMAGEN() As Byte, ByVal CONSTANCIA() As Byte, ByVal IDENTIDAD As String, ByVal NOMBRE As String, ByVal APELLIDO As String, ByVal POSICION As Decimal, ByVal PARTIDO As String, ByVal DEPARTAMENTO As String, ByVal NIVELELECTIVO As String, ByVal NOMBRE_MOVIMIENTO As String, ByVal NIVEL As String, ByVal ESTADO As String, ByVal OBSERVACION As String) As IM_V_CANDIDATOS_INHARow
             Dim rowIM_V_CANDIDATOS_INHARow As IM_V_CANDIDATOS_INHARow = CType(Me.NewRow,IM_V_CANDIDATOS_INHARow)
-            Dim columnValuesArray() As Object = New Object() {IMAGEN, CONSTANCIA, IDENTIDAD, NOMBRE, APELLIDO, POSICION, PARTIDO, DEPARTAMENTO, NIVELELECTIVO, NOMBRE_MOVIMIENTO, NIVEL, ESTADO}
+            Dim columnValuesArray() As Object = New Object() {IMAGEN, CONSTANCIA, IDENTIDAD, NOMBRE, APELLIDO, POSICION, PARTIDO, DEPARTAMENTO, NIVELELECTIVO, NOMBRE_MOVIMIENTO, NIVEL, ESTADO, OBSERVACION}
             rowIM_V_CANDIDATOS_INHARow.ItemArray = columnValuesArray
             Me.Rows.Add(rowIM_V_CANDIDATOS_INHARow)
             Return rowIM_V_CANDIDATOS_INHARow
@@ -469,6 +478,7 @@ Partial Public Class DS_CANDIDATOS_INHABILITADOS
             Me.columnNOMBRE_MOVIMIENTO = MyBase.Columns("NOMBRE MOVIMIENTO")
             Me.columnNIVEL = MyBase.Columns("NIVEL")
             Me.columnESTADO = MyBase.Columns("ESTADO")
+            Me.columnOBSERVACION = MyBase.Columns("OBSERVACION")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -497,6 +507,8 @@ Partial Public Class DS_CANDIDATOS_INHABILITADOS
             MyBase.Columns.Add(Me.columnNIVEL)
             Me.columnESTADO = New Global.System.Data.DataColumn("ESTADO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnESTADO)
+            Me.columnOBSERVACION = New Global.System.Data.DataColumn("OBSERVACION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnOBSERVACION)
             Me.columnIDENTIDAD.MaxLength = 15
             Me.columnNOMBRE.MaxLength = 201
             Me.columnAPELLIDO.MaxLength = 201
@@ -508,6 +520,7 @@ Partial Public Class DS_CANDIDATOS_INHABILITADOS
             Me.columnNIVEL.AllowDBNull = false
             Me.columnNIVEL.MaxLength = 100
             Me.columnESTADO.MaxLength = 1
+            Me.columnOBSERVACION.MaxLength = 1000
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -804,6 +817,20 @@ Partial Public Class DS_CANDIDATOS_INHABILITADOS
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property OBSERVACION() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_CANDIDATOS_INHA.OBSERVACIONColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'OBSERVACION' in table 'IM_V_CANDIDATOS_INHA' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_CANDIDATOS_INHA.OBSERVACIONColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsIMAGENNull() As Boolean
             Return Me.IsNull(Me.tableIM_V_CANDIDATOS_INHA.IMAGENColumn)
         End Function
@@ -901,6 +928,16 @@ Partial Public Class DS_CANDIDATOS_INHABILITADOS
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetESTADONull()
             Me(Me.tableIM_V_CANDIDATOS_INHA.ESTADOColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsOBSERVACIONNull() As Boolean
+            Return Me.IsNull(Me.tableIM_V_CANDIDATOS_INHA.OBSERVACIONColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetOBSERVACIONNull()
+            Me(Me.tableIM_V_CANDIDATOS_INHA.OBSERVACIONColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1073,6 +1110,7 @@ Namespace DS_CANDIDATOS_INHABILITADOSTableAdapters
             tableMapping.ColumnMappings.Add("NOMBRE MOVIMIENTO", "NOMBRE MOVIMIENTO")
             tableMapping.ColumnMappings.Add("NIVEL", "NIVEL")
             tableMapping.ColumnMappings.Add("ESTADO", "ESTADO")
+            tableMapping.ColumnMappings.Add("OBSERVACION", "OBSERVACION")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -1089,12 +1127,12 @@ Namespace DS_CANDIDATOS_INHABILITADOSTableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT        a.IMAGEN, a.CONSTANCIA, a.IDENTIDAD, a.NOMBRE, a.APELLIDO, a.POSI"& _ 
                 "CION, a.PARTIDO, a.DEPARTAMENTO, a.NIVELELECTIVO, M.NOMBRE_MOVIMIENTO ""NOMBRE MO"& _ 
-                "VIMIENTO"", N.DESCRIPCION ""NIVEL"",C.ESTADO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_CANDIDATOS_INHA"& _ 
-                " a, im_candidatos c, im_movimientos m, im_nivel_electivo n, im_cargos_electivos "& _ 
-                "ca"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where A.IDENTIDAD = C.IDENTIDAD"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C.ESTADO ='I'"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C.CODIGO_PARTIDO = M"& _ 
-                ".CODIGO_PARTIDO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C.CODIGO_MOVIMIENTO = M.CODIGO_MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C.CODIGO_CAR"& _ 
-                "GO_ELECTIVO = CA.CODIGO_CARGO_ELECTIVO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and CA.CODIGO_NIVEL_ELECTIVO = N.CODIGO"& _ 
-                "_NIVEL_ELECTIVO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"order by a.posicion "
+                "VIMIENTO"", N.DESCRIPCION ""NIVEL"",C.ESTADO ,c.OBSERVACION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_C"& _ 
+                "ANDIDATOS_INHA a, im_candidatos c, im_movimientos m, im_nivel_electivo n, im_car"& _ 
+                "gos_electivos ca"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where A.IDENTIDAD = C.IDENTIDAD"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C.ESTADO ='I'"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C.CODI"& _ 
+                "GO_PARTIDO = M.CODIGO_PARTIDO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C.CODIGO_MOVIMIENTO = M.CODIGO_MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"an"& _ 
+                "d C.CODIGO_CARGO_ELECTIVO = CA.CODIGO_CARGO_ELECTIVO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and CA.CODIGO_NIVEL_ELECT"& _ 
+                "IVO = N.CODIGO_NIVEL_ELECTIVO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"order by a.posicion "
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
