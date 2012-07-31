@@ -58,40 +58,40 @@ order by codigo_departamento</CommandText>
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DS_PLANILLAS_RAZONADO_C" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="DS_PLANILLAS_RAZONADO_C" msprop:Generator_UserDSName="DS_PLANILLAS_RAZONADO_C" msprop:EnableTableAdapterManager="true">
+  <xs:element name="DS_PLANILLAS_RAZONADO_C" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DS_PLANILLAS_RAZONADO_C" msprop:Generator_DataSetName="DS_PLANILLAS_RAZONADO_C" msprop:EnableTableAdapterManager="true">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="PLANILLA" msprop:Generator_UserTableName="PLANILLA" msprop:Generator_RowDeletedName="PLANILLARowDeleted" msprop:Generator_TableClassName="PLANILLADataTable" msprop:Generator_RowChangedName="PLANILLARowChanged" msprop:Generator_RowClassName="PLANILLARow" msprop:Generator_RowChangingName="PLANILLARowChanging" msprop:Generator_RowEvArgName="PLANILLARowChangeEvent" msprop:Generator_RowEvHandlerName="PLANILLARowChangeEventHandler" msprop:Generator_TablePropName="PLANILLA" msprop:Generator_TableVarName="tablePLANILLA" msprop:Generator_RowDeletingName="PLANILLARowDeleting">
+        <xs:element name="PLANILLA" msprop:Generator_UserTableName="PLANILLA" msprop:Generator_RowDeletedName="PLANILLARowDeleted" msprop:Generator_RowChangedName="PLANILLARowChanged" msprop:Generator_RowClassName="PLANILLARow" msprop:Generator_RowChangingName="PLANILLARowChanging" msprop:Generator_RowEvArgName="PLANILLARowChangeEvent" msprop:Generator_RowEvHandlerName="PLANILLARowChangeEventHandler" msprop:Generator_TableClassName="PLANILLADataTable" msprop:Generator_TableVarName="tablePLANILLA" msprop:Generator_RowDeletingName="PLANILLARowDeleting" msprop:Generator_TablePropName="PLANILLA">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CARGO_ACTUAL" msprop:Generator_UserColumnName="CARGO_ACTUAL" msprop:Generator_ColumnPropNameInRow="CARGO_ACTUAL" msprop:Generator_ColumnVarNameInTable="columnCARGO_ACTUAL" msprop:Generator_ColumnPropNameInTable="CARGO_ACTUALColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="CODIGO_CARGO_ELECTIVO" msprop:Generator_UserColumnName="CODIGO_CARGO_ELECTIVO" msprop:Generator_ColumnPropNameInRow="CODIGO_CARGO_ELECTIVO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_CARGO_ELECTIVO" msprop:Generator_ColumnPropNameInTable="CODIGO_CARGO_ELECTIVOColumn" type="xs:decimal" />
-              <xs:element name="CARGO" msprop:Generator_UserColumnName="CARGO" msprop:Generator_ColumnPropNameInRow="CARGO" msprop:Generator_ColumnVarNameInTable="columnCARGO" msprop:Generator_ColumnPropNameInTable="CARGOColumn">
+              <xs:element name="CARGO_ACTUAL" msprop:Generator_UserColumnName="CARGO_ACTUAL" msprop:Generator_ColumnVarNameInTable="columnCARGO_ACTUAL" msprop:Generator_ColumnPropNameInRow="CARGO_ACTUAL" msprop:Generator_ColumnPropNameInTable="CARGO_ACTUALColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CODIGO_CARGO_ELECTIVO" msprop:Generator_UserColumnName="CODIGO_CARGO_ELECTIVO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_CARGO_ELECTIVO" msprop:Generator_ColumnPropNameInRow="CODIGO_CARGO_ELECTIVO" msprop:Generator_ColumnPropNameInTable="CODIGO_CARGO_ELECTIVOColumn" type="xs:decimal" />
+              <xs:element name="CARGO" msprop:Generator_UserColumnName="CARGO" msprop:Generator_ColumnVarNameInTable="columnCARGO" msprop:Generator_ColumnPropNameInRow="CARGO" msprop:Generator_ColumnPropNameInTable="CARGOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CODIGO_DEPARTAMENTO" msprop:Generator_UserColumnName="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_DEPARTAMENTOColumn" type="xs:decimal" />
-              <xs:element name="DEPARTAMENTO" msprop:Generator_UserColumnName="DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTOColumn">
+              <xs:element name="CODIGO_DEPARTAMENTO" msprop:Generator_UserColumnName="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_DEPARTAMENTOColumn" type="xs:decimal" />
+              <xs:element name="DEPARTAMENTO" msprop:Generator_UserColumnName="DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MUNICIPIO" msprop:Generator_UserColumnName="MUNICIPIO" msprop:Generator_ColumnPropNameInRow="MUNICIPIO" msprop:Generator_ColumnVarNameInTable="columnMUNICIPIO" msprop:Generator_ColumnPropNameInTable="MUNICIPIOColumn">
+              <xs:element name="MUNICIPIO" msprop:Generator_UserColumnName="MUNICIPIO" msprop:Generator_ColumnVarNameInTable="columnMUNICIPIO" msprop:Generator_ColumnPropNameInRow="MUNICIPIO" msprop:Generator_ColumnPropNameInTable="MUNICIPIOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CANTIDAD_CARGO" msprop:Generator_UserColumnName="CANTIDAD_CARGO" msprop:Generator_ColumnPropNameInRow="CANTIDAD_CARGO" msprop:Generator_ColumnVarNameInTable="columnCANTIDAD_CARGO" msprop:Generator_ColumnPropNameInTable="CANTIDAD_CARGOColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="CANTIDAD_DIPUTADOS" msprop:Generator_UserColumnName="CANTIDAD_DIPUTADOS" msprop:Generator_ColumnPropNameInRow="CANTIDAD_DIPUTADOS" msprop:Generator_ColumnVarNameInTable="columnCANTIDAD_DIPUTADOS" msprop:Generator_ColumnPropNameInTable="CANTIDAD_DIPUTADOSColumn" type="xs:decimal" />
-              <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" type="xs:decimal" />
-              <xs:element name="CODIGO_MOVIMIENTO" msprop:Generator_UserColumnName="CODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOVIMIENTOColumn" type="xs:decimal" />
+              <xs:element name="CANTIDAD_CARGO" msprop:Generator_UserColumnName="CANTIDAD_CARGO" msprop:Generator_ColumnVarNameInTable="columnCANTIDAD_CARGO" msprop:Generator_ColumnPropNameInRow="CANTIDAD_CARGO" msprop:Generator_ColumnPropNameInTable="CANTIDAD_CARGOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CANTIDAD_DIPUTADOS" msprop:Generator_UserColumnName="CANTIDAD_DIPUTADOS" msprop:Generator_ColumnVarNameInTable="columnCANTIDAD_DIPUTADOS" msprop:Generator_ColumnPropNameInRow="CANTIDAD_DIPUTADOS" msprop:Generator_ColumnPropNameInTable="CANTIDAD_DIPUTADOSColumn" type="xs:decimal" />
+              <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" type="xs:decimal" />
+              <xs:element name="CODIGO_MOVIMIENTO" msprop:Generator_UserColumnName="CODIGO_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOVIMIENTOColumn" type="xs:decimal" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
