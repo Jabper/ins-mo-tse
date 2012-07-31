@@ -198,7 +198,7 @@ Public Class REPORTE_RAZONADO
             Me.congres3.Text = "No"
         End If
         'corporacion municipal
-        If tnivel_corporacionmunic >= 10 Then
+        If tnivel_corporacionmunic >= 150 Then
             corpo3.Text = "Si"
         Else
             corpo3.Text = "No"
