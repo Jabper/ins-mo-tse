@@ -52,6 +52,7 @@ Partial Class Parametros
         Me.IM_CARGOS_ELECTIVOSTableAdapter = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_CARGOS_ELECTIVOSTableAdapter
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl
         Me.CmbMovimiento = New DevExpress.XtraEditors.LookUpEdit
+        Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_PLANILLA_TOTALES, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cboDepto.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -118,7 +119,7 @@ Partial Class Parametros
         '
         'SimpleButton1
         '
-        Me.SimpleButton1.Location = New System.Drawing.Point(596, 80)
+        Me.SimpleButton1.Location = New System.Drawing.Point(464, 111)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(126, 23)
         Me.SimpleButton1.TabIndex = 4
@@ -126,7 +127,7 @@ Partial Class Parametros
         '
         'cbonivel
         '
-        Me.cbonivel.Location = New System.Drawing.Point(155, 103)
+        Me.cbonivel.Location = New System.Drawing.Point(155, 73)
         Me.cbonivel.Name = "cbonivel"
         Me.cbonivel.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbonivel.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_NIVEL_ELECTIVO", "CODIGO_NIVEL_ELECTIVO", 152, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.Near), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NIVEL ELECTIVO", "NIVEL ELECTIVO", 89, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
@@ -164,7 +165,7 @@ Partial Class Parametros
         'LabelControl3
         '
         Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl3.Location = New System.Drawing.Point(12, 106)
+        Me.LabelControl3.Location = New System.Drawing.Point(13, 80)
         Me.LabelControl3.Name = "LabelControl3"
         Me.LabelControl3.Size = New System.Drawing.Size(74, 13)
         Me.LabelControl3.TabIndex = 8
@@ -217,7 +218,7 @@ Partial Class Parametros
         '
         'cbocargo
         '
-        Me.cbocargo.Location = New System.Drawing.Point(155, 77)
+        Me.cbocargo.Location = New System.Drawing.Point(507, 77)
         Me.cbocargo.Name = "cbocargo"
         Me.cbocargo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbocargo.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_CARGO_ELECTIVO", "CODIGO_CARGO_ELECTIVO", 160, DevExpress.Utils.FormatType.Numeric, "", False, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 79, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
@@ -225,7 +226,7 @@ Partial Class Parametros
         Me.cbocargo.Properties.DisplayMember = "DESCRIPCION"
         Me.cbocargo.Properties.NullText = "Seleccione..."
         Me.cbocargo.Properties.ValueMember = "CODIGO_CARGO_ELECTIVO"
-        Me.cbocargo.Size = New System.Drawing.Size(200, 20)
+        Me.cbocargo.Size = New System.Drawing.Size(215, 20)
         Me.cbocargo.TabIndex = 13
         '
         'BindingSource8
@@ -278,7 +279,7 @@ Partial Class Parametros
         'LabelControl6
         '
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl6.Location = New System.Drawing.Point(12, 80)
+        Me.LabelControl6.Location = New System.Drawing.Point(384, 80)
         Me.LabelControl6.Name = "LabelControl6"
         Me.LabelControl6.Size = New System.Drawing.Size(80, 13)
         Me.LabelControl6.TabIndex = 14
@@ -297,11 +298,21 @@ Partial Class Parametros
         Me.CmbMovimiento.Size = New System.Drawing.Size(200, 20)
         Me.CmbMovimiento.TabIndex = 15
         '
+        'SimpleButton2
+        '
+        Me.SimpleButton2.Location = New System.Drawing.Point(332, 111)
+        Me.SimpleButton2.Name = "SimpleButton2"
+        Me.SimpleButton2.Size = New System.Drawing.Size(126, 23)
+        Me.SimpleButton2.TabIndex = 16
+        Me.SimpleButton2.Text = "IMPRIMIR REPORTE"
+        Me.SimpleButton2.Visible = False
+        '
         'Parametros
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(725, 146)
+        Me.Controls.Add(Me.SimpleButton2)
         Me.Controls.Add(Me.CmbMovimiento)
         Me.Controls.Add(Me.LabelControl6)
         Me.Controls.Add(Me.cbocargo)
@@ -377,4 +388,5 @@ Partial Class Parametros
     Friend WithEvents IM_CARGOS_ELECTIVOSTableAdapter As Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_CARGOS_ELECTIVOSTableAdapter
     Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents CmbMovimiento As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents SimpleButton2 As DevExpress.XtraEditors.SimpleButton
 End Class
