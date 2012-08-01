@@ -125,4 +125,7 @@
     End Sub
 
   
+    Private Sub SimpleButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton2.Click
+        MsgBox("hola")
+    End Sub
 End Class

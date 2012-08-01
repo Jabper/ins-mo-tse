@@ -539,4 +539,17 @@ Public Class XFrmMenuPrincipal
     Private Sub btnEstadisticasDP_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnEstadisticasDP.ItemClick
         xfrmParametros3.Show()
     End Sub
+
+    Private Sub BarButtonItem5_ItemClick_1(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem5.ItemClick
+       
+        Parametros.cbonivel.Visible = True
+        Parametros.LabelControl3.Visible = True
+        Parametros.LabelControl6.Visible = False
+        Parametros.cbocargo.Visible = False
+        Parametros.SimpleButton1.Visible = False
+        Parametros.SimpleButton2.Visible = True
+        Parametros.SimpleButton2.Location = New Point(464, 111)
+
+        Parametros.Show()
+    End Sub
 End Class
