@@ -72,6 +72,7 @@ Partial Class XFrmMenuPrincipal
         Me.BtnEstadisticoFI = New DevExpress.XtraBars.BarButtonItem
         Me.BtnEstadisticopar = New DevExpress.XtraBars.BarButtonItem
         Me.BTNRestadisticoCE = New DevExpress.XtraBars.BarButtonItem
+        Me.btnEstadisticasDP = New DevExpress.XtraBars.BarButtonItem
         Me.btnConsultarCandidatos = New DevExpress.XtraBars.BarButtonItem
         Me.btnJerarquico = New DevExpress.XtraBars.BarButtonItem
         Me.TxtUser = New DevExpress.XtraBars.BarStaticItem
@@ -90,6 +91,8 @@ Partial Class XFrmMenuPrincipal
         Me.BtnRegistroImpo = New DevExpress.XtraBars.BarButtonItem
         Me.BarStaticItem1 = New DevExpress.XtraBars.BarStaticItem
         Me.BarStaticItem2 = New DevExpress.XtraBars.BarStaticItem
+        Me.BarButtonItem4 = New DevExpress.XtraBars.BarButtonItem
+        Me.btnEstadistico = New DevExpress.XtraBars.BarButtonItem
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage
@@ -133,9 +136,9 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonControl.ApplicationButtonDropDownControl = Me.ApplicationMenu2
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ExpandCollapseItem.Name = ""
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion, Me.BtnMotivo, Me.btnCInhabilitados, Me.btnConsultarCenso, Me.BtnSubirOtroSistema, Me.BtnRPlanilla, Me.BtnPlanillanivel, Me.BtnPlanilladivision, Me.btnConsultarFirmas, Me.BtnRFirmas, Me.BtnFDP, Me.BtnREstadistico, Me.btnConsultarCandidatos, Me.BtnFirmasinc, Me.btnJerarquico, Me.BtnCrucemov, Me.BtnCrucepar, Me.BtnResumenFir, Me.TxtUser, Me.btnConsultarPlanilla, Me.BtnEstadisticoFI, Me.BtnRLog, Me.Btnlogproce, Me.BtnPlanillacandidatos, Me.BtnDiscoPartido, Me.BtnDiscoMovimiento, Me.BtnEstadisticopar, Me.BtnValidaciones, Me.BarButtonItem2, Me.btnValidarFirmas, Me.BarButtonItem3, Me.BtnCandidatosInha, Me.BTN_Reporteimpor, Me.BTNrepocaninc, Me.BTNrepociuinc, Me.BarStaticItem1, Me.BTNRazonado, Me.BTNRestadisticoCE, Me.BtnRegistroImpo, Me.BarStaticItem2, Me.BTNduplicadosMov, Me.btnIncompleta, Me.BTNRazonadoPlaC, Me.BTNRazonadoPlanI})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion, Me.BtnMotivo, Me.btnCInhabilitados, Me.btnConsultarCenso, Me.BtnSubirOtroSistema, Me.BtnRPlanilla, Me.BtnPlanillanivel, Me.BtnPlanilladivision, Me.btnConsultarFirmas, Me.BtnRFirmas, Me.BtnFDP, Me.BtnREstadistico, Me.btnConsultarCandidatos, Me.BtnFirmasinc, Me.btnJerarquico, Me.BtnCrucemov, Me.BtnCrucepar, Me.BtnResumenFir, Me.TxtUser, Me.btnConsultarPlanilla, Me.BtnEstadisticoFI, Me.BtnRLog, Me.Btnlogproce, Me.BtnPlanillacandidatos, Me.BtnDiscoPartido, Me.BtnDiscoMovimiento, Me.BtnEstadisticopar, Me.BtnValidaciones, Me.BarButtonItem2, Me.btnValidarFirmas, Me.BarButtonItem3, Me.BtnCandidatosInha, Me.BTN_Reporteimpor, Me.BTNrepocaninc, Me.BTNrepociuinc, Me.BarStaticItem1, Me.BTNRazonado, Me.BTNRestadisticoCE, Me.BtnRegistroImpo, Me.BarStaticItem2, Me.BTNduplicadosMov, Me.btnIncompleta, Me.BTNRazonadoPlaC, Me.BTNRazonadoPlanI, Me.BarButtonItem4, Me.btnEstadistico, Me.btnEstadisticasDP})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 76
+        Me.RibbonControl.MaxItemId = 79
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.PageHeaderItemLinks.Add(Me.BarStaticItem2)
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5, Me.RibbonPage6})
@@ -469,7 +472,7 @@ Partial Class XFrmMenuPrincipal
         Me.BtnREstadistico.Caption = "Reportes Estadisticos"
         Me.BtnREstadistico.Id = 38
         Me.BtnREstadistico.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Restadisticos
-        Me.BtnREstadistico.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BtnEstadisticoFI), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnEstadisticopar), New DevExpress.XtraBars.LinkPersistInfo(Me.BTNRestadisticoCE)})
+        Me.BtnREstadistico.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BtnEstadisticoFI), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnEstadisticopar), New DevExpress.XtraBars.LinkPersistInfo(Me.BTNRestadisticoCE), New DevExpress.XtraBars.LinkPersistInfo(Me.btnEstadisticasDP)})
         Me.BtnREstadistico.Name = "BtnREstadistico"
         '
         'BtnEstadisticoFI
@@ -489,6 +492,12 @@ Partial Class XFrmMenuPrincipal
         Me.BTNRestadisticoCE.Caption = "Reporte Estadistico por Cargos Electivos"
         Me.BTNRestadisticoCE.Id = 69
         Me.BTNRestadisticoCE.Name = "BTNRestadisticoCE"
+        '
+        'btnEstadisticasDP
+        '
+        Me.btnEstadisticasDP.Caption = "Reporte Estadistico por Division Politica"
+        Me.btnEstadisticasDP.Id = 78
+        Me.btnEstadisticasDP.Name = "btnEstadisticasDP"
         '
         'btnConsultarCandidatos
         '
@@ -618,6 +627,18 @@ Partial Class XFrmMenuPrincipal
         Me.BarStaticItem2.Id = 71
         Me.BarStaticItem2.Name = "BarStaticItem2"
         Me.BarStaticItem2.TextAlignment = System.Drawing.StringAlignment.Near
+        '
+        'BarButtonItem4
+        '
+        Me.BarButtonItem4.Caption = "btnEstadistico"
+        Me.BarButtonItem4.Id = 76
+        Me.BarButtonItem4.Name = "BarButtonItem4"
+        '
+        'btnEstadistico
+        '
+        Me.btnEstadistico.Caption = "Reporte Estadistico por Nivel Electivo y Division Politica"
+        Me.btnEstadistico.Id = 77
+        Me.btnEstadistico.Name = "btnEstadistico"
         '
         'RibbonPage1
         '
@@ -969,6 +990,9 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents btnIncompleta As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BTNRazonadoPlaC As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BTNRazonadoPlanI As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem4 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents btnEstadistico As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents btnEstadisticasDP As DevExpress.XtraBars.BarButtonItem
 
 
 End Class

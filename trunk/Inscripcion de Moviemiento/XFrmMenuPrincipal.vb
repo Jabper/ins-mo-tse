@@ -535,4 +535,8 @@ Public Class XFrmMenuPrincipal
         Dim reporte_razonadoPI As REPORTE_RAZONADO_PLANILLAS_2 = New REPORTE_RAZONADO_PLANILLAS_2
         reporte_razonadoPI.ShowPreview()
     End Sub
+
+    Private Sub btnEstadisticasDP_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnEstadisticasDP.ItemClick
+        xfrmParametros3.Show()
+    End Sub
 End Class
