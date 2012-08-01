@@ -62,19 +62,24 @@
 
             COracle.Im_Estadisticas()
 
-            Dim cargo As String
-
-            If Me.cbonivel.EditValue = 3 Then
-                cargo = " 6 or [CARGO] = 7 or [CARGO] = 8 "
-            Else
-                cargo = Me.cbonivel.EditValue
-            End If
 
 
 
-            Dim reporte_planilla As REPORTE_DETALLE_ESTADISTICO = New REPORTE_DETALLE_ESTADISTICO
-            reporte_planilla.FilterString = "[MUNICIPIO] = '" & Me.cboMuni.Text & "' And [PARTIDO] = '" & Me.cbopartido.Text & "' And [DEPARTAMENTO] = '" & Me.cboDepto.Text & "' And ( [CARGO] = '" & Me.cbonivel.Text & "' )And [NOMBRE_MOVIMIENTO] = '" & Me.CmbMovimiento.Text & "'"
-            
+            'Dim cargo As String
+
+            'If Me.cbonivel.Text = "CORPORACION MUNICIPAL" Then
+            '    cargo = " 'REGIDORES' or [CARGO] = 'VICEALCALDE' or [CARGO] = 'ALCALDES CORPORACION MUNICIPAL'"
+            'ElseIf Me.cbonivel.Text = "DIPUTADOS AL CONGRESO NACIONAL" Then
+            '    cargo = " 'DIPUTADO (A) AL CONGRESO NACIONAL PROPIETARIOS' or [CARGO] = 'DIPUTADOS (A) AL CONGRESO NACIONAL SUPLENTES'"
+            'ElseIf Me.cbonivel.Text = "PRESIDENCIAL" Then
+            '    cargo = "'PRESIDENTE (A)' or [CARGO] ='DESIGNADOS' or [CARGO] ='DIPUTADOS (A) AL PARLACEN PROPIETARIOS' or [CARGO] ='DIPUTADOS (A) AL PARLACEN SUPLENTES' "
+
+            'End If
+
+
+
+            Dim reporte_planilla As REPORTE_DETALLADO_ESTADISTICO_FILLBY = New REPORTE_DETALLADO_ESTADISTICO_FILLBY
+            reporte_planilla.IM_ESTADISTICASTableAdapter.Fill(reporte_planilla.DS_REPORTE_ESTADISTICO_DP1.IM_ESTADISTICAS, Me.cbopartido.EditValue, Me.CmbMovimiento.EditValue, Me.cbonivel.EditValue, Me.cboDepto.EditValue, Me.cboMuni.EditValue)
             reporte_planilla.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(reporte_planilla.DS_LOG.IM_PARTIDOS_POLITICOS_imagen, cbopartido.Text)
             reporte_planilla.IM_MOVIMIENTOS_imagenTableAdapter.Fill(reporte_planilla.DS_LOG.IM_MOVIMIENTOS_imagen, CmbMovimiento.Text)
             reporte_planilla.ShowPreview()
@@ -115,9 +120,17 @@
         'TODO: This line of code loads data into the 'DS_PLANILLA_TOTALES.IM_NIVEL_ELECTIVO' table. You can move, or remove it, as needed.
         Me.IM_NIVEL_ELECTIVOTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.IM_NIVEL_ELECTIVO)
         'TODO: This line of code loads data into the 'DS_PLANILLA_TOTALES.IM_MOVIMIENTOS' table. You can move, or remove it, as needed.
+        Me.IM_MOVIMIENTOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.IM_MOVIMIENTOS)
+        'TODO: This line of code loads data into the 'DS_PLANILLA_TOTALES.IM_PARTIDOS_POLITICOS' table. You can move, or remove it, as needed.
+        Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.IM_PARTIDOS_POLITICOS)
+        'TODO: This line of code loads data into the 'DS_PLANILLA_TOTALES.IM_DEPARTAMENTOS' table. You can move, or remove it, as needed.
+        Me.IM_DEPARTAMENTOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.IM_DEPARTAMENTOS)
+        'TODO: This line of code loads data into the 'DS_PLANILLA_TOTALES.IM_NIVEL_ELECTIVO' table. You can move, or remove it, as needed.
+        Me.IM_NIVEL_ELECTIVOTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.IM_NIVEL_ELECTIVO)
+        'TODO: This line of code loads data into the 'DS_PLANILLA_TOTALES.IM_MOVIMIENTOS' table. You can move, or remove it, as needed.
         ' Me.IM_MOVIMIENTOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.IM_MOVIMIENTOS)
         'TODO: This line of code loads data into the 'DS_PLANILLA_TOTALES.IM_PARTIDOS_POLITICOS' table. You can move, or remove it, as needed.
-        Me.IM_PARTIDOS_POLITICOS1TableAdapter.FillBy(Me.DS_PLANILLA_TOTALES.IM_PARTIDOS_POLITICOS1)
+        Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.IM_PARTIDOS_POLITICOS)
         ActivarFiltros()
     End Sub
 End Class
