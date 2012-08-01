@@ -250,7 +250,8 @@ Partial Class xfrmParametros3
         Me.Controls.Add(Me.cboMuni)
         Me.Controls.Add(Me.cboDepto)
         Me.Name = "xfrmParametros3"
-        Me.Text = "xfrmParametros3"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Reporte Estadístico por División Política"
         CType(Me.CmbMovimiento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMMOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DS_PLANILLA_TOTALES, System.ComponentModel.ISupportInitialize).EndInit()
