@@ -126,6 +126,29 @@
 
   
     Private Sub SimpleButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton2.Click
-        MsgBox("hola")
+        ' Dim NIVELPRESIDENCIAL As String
+
+
+        Try
+            Dim reporte_planilla_RI As REPORTE_RAZONADO_PLANILLAS_INCOMPLETAS_NE = New REPORTE_RAZONADO_PLANILLAS_INCOMPLETAS_NE
+            'If cbonivel.Text = 
+
+            'Me.IM_CANDIDATOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.IM_CANDIDATOS, Me.cboPartido.Text, Me.cboMovimiento.Text, Me.cbonivel.Text Me.cboDepto.Text, Me.cboMuni.Text)
+            'reporte_planilla.IM_CANDIDATOSTableAdapter.FillBy(reporte_planilla.DS_PLANILLA_TOTALES1.IM_CANDIDATOS, Me.cboPartido.Text, Me.cboMovimiento.Text, Me.cbonivel.Text, Me.cboDepto.Text, Me.cboMuni.Text)
+            reporte_planilla_RI.FilterString = "[MUNICIPIO] = '" & Me.cboMuni.Text & "' And [PARTIDO] = '" & Me.cbopartido.Text & "' And [DEPARTAMENTO] = '" & Me.cboDepto.Text & "' And [NIVEL] = '" & Me.cbonivel.Text & "' And [MOVIMIENTO] = '" & Me.CmbMovimiento.Text & "'"
+            '  reporte_planilla.partido = Me.cboPartido.Text
+            'reporte_planilla.NombrePartido = cbopartido.Text
+            ' reporte_planilla.NombreMovimiento = cboMovimiento.Text
+            reporte_planilla_RI.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(reporte_planilla_RI.DS_LOG.IM_PARTIDOS_POLITICOS_imagen, cbopartido.Text)
+            reporte_planilla_RI.IM_MOVIMIENTOS_imagenTableAdapter.Fill(reporte_planilla_RI.DS_LOG.IM_MOVIMIENTOS_imagen, CmbMovimiento.Text)
+            reporte_planilla_RI.ShowPreview()
+            Me.Close()
+            Me.partido = Me.cbopartido.Text
+            Me.nivel = Me.cbocargo.Text
+            movimiento = (Me.CmbMovimiento.Text)
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 End Class

@@ -549,7 +549,7 @@ Public Class XFrmMenuPrincipal
         Parametros.SimpleButton1.Visible = False
         Parametros.SimpleButton2.Visible = True
         Parametros.SimpleButton2.Location = New Point(464, 111)
-
+        COracle.Im_Estadisticas()
         Parametros.Show()
     End Sub
 End Class
