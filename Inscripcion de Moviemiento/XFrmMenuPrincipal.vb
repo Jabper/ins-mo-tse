@@ -540,8 +540,8 @@ Public Class XFrmMenuPrincipal
         xfrmParametros3.Show()
     End Sub
 
-    Private Sub BarButtonItem5_ItemClick_1(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem5.ItemClick
-       
+    Private Sub BarButtonItem5_ItemClick_1(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNRazonadoPINE.ItemClick
+
         Parametros.cbonivel.Visible = True
         Parametros.LabelControl3.Visible = True
         Parametros.LabelControl6.Visible = False
