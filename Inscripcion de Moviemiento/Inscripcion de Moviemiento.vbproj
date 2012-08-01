@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -588,6 +588,12 @@
     <Compile Include="Reportes\REPORTE_DE _PLANILLA_DE_CANDIDATOS.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\REPORTE_DETALLADO_ESTADISTICO_FILLBY.Designer.vb">
+      <DependentUpon>REPORTE_DETALLADO_ESTADISTICO_FILLBY.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\REPORTE_DETALLADO_ESTADISTICO_FILLBY.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\REPORTE_DETALLE_ESTADISTICO.Designer.vb">
       <DependentUpon>REPORTE_DETALLE_ESTADISTICO.vb</DependentUpon>
     </Compile>
@@ -659,6 +665,12 @@
     </Compile>
     <Compile Include="Reportes\REPORTE_REGISTRO_IMPORTACIONES_2.vb">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\xfrmParametros3.Designer.vb">
+      <DependentUpon>xfrmParametros3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\xfrmParametros3.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Usuarios\XfrmRecuperarPass.Designer.vb">
       <DependentUpon>XfrmRecuperarPass.vb</DependentUpon>
@@ -1058,6 +1070,10 @@
       <DependentUpon>REPORTE_DE _PLANILLA_DE_CANDIDATOS.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\REPORTE_DETALLADO_ESTADISTICO_FILLBY.resx">
+      <DependentUpon>REPORTE_DETALLADO_ESTADISTICO_FILLBY.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_DETALLE_ESTADISTICO.resx">
       <DependentUpon>REPORTE_DETALLE_ESTADISTICO.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -1080,6 +1096,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_PLANILLAS_COMPLETAS_1.resx">
       <DependentUpon>REPORTE_PLANILLAS_COMPLETAS_1.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_PLANILLAS_FINALES.resx">
       <DependentUpon>REPORTE_PLANILLAS_FINALES.vb</DependentUpon>
@@ -1095,6 +1112,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_RAZONADO_PLANILLAS_2.resx">
       <DependentUpon>REPORTE_RAZONADO_PLANILLAS_2.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_REGISTRO_IMPORTACIONES_1.resx">
       <DependentUpon>REPORTE_REGISTRO_IMPORTACIONES_1.vb</DependentUpon>
@@ -1102,6 +1120,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_REGISTRO_IMPORTACIONES_2.resx">
       <DependentUpon>REPORTE_REGISTRO_IMPORTACIONES_2.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\xfrmParametros3.resx">
+      <DependentUpon>xfrmParametros3.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\XfrmRecuperarPass.resx">
