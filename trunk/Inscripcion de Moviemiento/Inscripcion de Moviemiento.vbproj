@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -440,12 +440,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_PLANILLAS_COMPLETAS_INC.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\DS_PLANILLAS_RAZONADO_C.Designer.vb" />
-    <Compile Include="Reportes\DS_PLANILLAS_RAZONADO_C1.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DS_PLANILLAS_RAZONADO_C.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Reportes\DS_PLANILLA_TOTALES.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -640,12 +634,6 @@
       <DependentUpon>REPORTE_RAZONADO.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\REPORTE_RAZONADO.vb">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reportes\REPORTE_RAZONADO_PLANILLAS_C.Designer.vb">
-      <DependentUpon>REPORTE_RAZONADO_PLANILLAS_C.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\REPORTE_RAZONADO_PLANILLAS_C.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\REPORTE_REGISTRO_IMPORTACIONES_1.Designer.vb">
@@ -1089,9 +1077,6 @@
     <EmbeddedResource Include="Reportes\REPORTE_RAZONADO.resx">
       <DependentUpon>REPORTE_RAZONADO.vb</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\REPORTE_RAZONADO_PLANILLAS_C.resx">
-      <DependentUpon>REPORTE_RAZONADO_PLANILLAS_C.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_REGISTRO_IMPORTACIONES_1.resx">
       <DependentUpon>REPORTE_REGISTRO_IMPORTACIONES_1.vb</DependentUpon>
@@ -1652,17 +1637,6 @@
     </None>
     <None Include="Reportes\DS_PLANILLAS_COMPLETAS_INC.xss">
       <DependentUpon>DS_PLANILLAS_COMPLETAS_INC.xsd</DependentUpon>
-    </None>
-    <None Include="Reportes\DS_PLANILLAS_RAZONADO_C.xsc">
-      <DependentUpon>DS_PLANILLAS_RAZONADO_C.xsd</DependentUpon>
-    </None>
-    <None Include="Reportes\DS_PLANILLAS_RAZONADO_C.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DS_PLANILLAS_RAZONADO_C1.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Reportes\DS_PLANILLAS_RAZONADO_C.xss">
-      <DependentUpon>DS_PLANILLAS_RAZONADO_C.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DS_PLANILLA_TOTALES.xsc">
       <DependentUpon>DS_PLANILLA_TOTALES.xsd</DependentUpon>
