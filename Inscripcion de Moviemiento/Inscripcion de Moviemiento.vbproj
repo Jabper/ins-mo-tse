@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -549,6 +549,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_REPORTE_DE_RESUMEN_FDP_1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DS_REPORTE_ESTADISTICO_DP.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_REPORTE_ESTADISTICO_DP.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reportes\DS_REP_DETALLE_ESTADISTICA.Designer.vb" />
     <Compile Include="Reportes\Parametros.Designer.vb">
@@ -1127,6 +1132,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_RAZONADO_PLANILLAS_INCOMPLETAS_NE.resx">
       <DependentUpon>REPORTE_RAZONADO_PLANILLAS_INCOMPLETAS_NE.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_REGISTRO_IMPORTACIONES_1.resx">
       <DependentUpon>REPORTE_REGISTRO_IMPORTACIONES_1.vb</DependentUpon>
@@ -1900,6 +1906,17 @@
     </None>
     <None Include="Reportes\DS_REPORTE_DE_RESUMEN_FDP_1.xss">
       <DependentUpon>DS_REPORTE_DE_RESUMEN_FDP_1.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORTE_ESTADISTICO_DP.xsc">
+      <DependentUpon>DS_REPORTE_ESTADISTICO_DP.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORTE_ESTADISTICO_DP.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_REPORTE_ESTADISTICO_DP.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DS_REPORTE_ESTADISTICO_DP.xss">
+      <DependentUpon>DS_REPORTE_ESTADISTICO_DP.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DS_REP_DETALLE_ESTADISTICA.xsc">
       <DependentUpon>DS_REP_DETALLE_ESTADISTICA.xsd</DependentUpon>
