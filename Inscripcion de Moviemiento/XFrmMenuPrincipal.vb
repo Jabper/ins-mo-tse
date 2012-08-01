@@ -524,8 +524,15 @@ Public Class XFrmMenuPrincipal
     End Sub
 
     Private Sub BTNRazonadoPlaC_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNRazonadoPlaC.ItemClick
-        'Dim reporte_razonadoPC As REPORTE_PLANILLAS_COMPLETAS_1 = New REPORTE_PLANILLAS_COMPLETAS_1
-        'reporte_razonadoPC.ShowPreview()
+        COracle.Im_Estadisticas()
+        Dim reporte_razonadoPC As REPORTE_PLANILLAS_COMPLETAS_1 = New REPORTE_PLANILLAS_COMPLETAS_1
+        reporte_razonadoPC.ShowPreview()
 
+    End Sub
+
+    Private Sub BTNRazonadoPlanI_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNRazonadoPlanI.ItemClick
+        COracle.Im_Estadisticas()
+        Dim reporte_razonadoPI As REPORTE_RAZONADO_PLANILLAS_2 = New REPORTE_RAZONADO_PLANILLAS_2
+        reporte_razonadoPI.ShowPreview()
     End Sub
 End Class
