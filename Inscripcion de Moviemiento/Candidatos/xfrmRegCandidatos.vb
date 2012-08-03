@@ -233,7 +233,7 @@ Public Class xfrmRegCandidatos
                 End If
 
                 Me.lblmujeres.Text = "Necesita Minimo 1 Mujer entre Propietarias y Suplentes, Faltan " & (faltan)
-
+                mujeres_necesarias = 1
 
             Else
 
@@ -297,7 +297,7 @@ Public Class xfrmRegCandidatos
                 End If
 
                 Me.lblmujeres.Text = "Necesita Minimo 1 Mujer entre Propietarias y Suplentes, Faltan " & (faltan)
-
+                mujeres_necesarias = 1
 
             Else
                 Dim S As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
@@ -437,17 +437,36 @@ Public Class xfrmRegCandidatos
                 Dim homP As Integer = COracle.ObtenerDatos(con1, "HOMBRES")
                 Dim homS As Integer = COracle.ObtenerDatos(con2, "HOMBRES")
 
-                If (homP + homS) <= 3 And (homP < 3 And homS < 3) Then
-                    ingreso_hombre = 1
-                Else
+                If homP >= 2 Then
                     ingreso_hombre = 0
+                ElseIf homP >= 1 And homS >= 2 Then
+                    ingreso_hombre = 0
+                ElseIf homP >= 2 And homS >= 1 Then
+                    ingreso_hombre = 0
+                Else
+                    ingreso_hombre = 1
                 End If
 
             ElseIf depto = 9 Or depto = 11 Then
 
-                hombres_permitidos = (cdip_CN + cdip_CNS) - mujeres_necesarias
+                Dim p As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
+                      "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
+                       "WHERE  iC.codigo_departamento = " & depto & _
+                       " AND      iC.codigo_municipio = " & muni & _
+                       " AND      im.codigo_departamento = ic.codigo_departamento " & _
+                       " AND      im.codigo_municipio       = ic.codigo_municipio " & _
+                       " AND      ic.codigo_cargo_electivo in (4,5) " & _
+                       " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
+                       " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
+                       " AND      ic.identidad = ip.numero_identidad " & _
+                       " AND      ip.sexo= 1"
 
-                If hombres_permitidos = hombres_ingresados Then
+                hombres_ingresados = CInt(COracle.ObtenerDatos(p, "MUJERES"))
+
+                'hombres_permitidos = (cdip_CN + cdip_CNS) - mujeres_necesarias
+                hombres_permitidos = 1
+
+                If hombres_permitidos <= hombres_ingresados Then
                     ingreso_hombre = 0
                 Else
                     ingreso_hombre = 1
@@ -494,7 +513,17 @@ Public Class xfrmRegCandidatos
                 Dim homP As Integer = COracle.ObtenerDatos(con1, "HOMBRES")
                 Dim homS As Integer = COracle.ObtenerDatos(con2, "HOMBRES")
 
-                If (homP + homS) <= 3 And (homP < 3 And homS < 3) Then
+                'If (homP + homS) <= 3 And (homP < 3 And homS < 3) Then
+                '    ingreso_hombre = 0
+                'Else
+                '    ingreso_hombre = 1
+                'End If
+
+                If homS >= 2 Then
+                    ingreso_hombre = 0
+                ElseIf homP >= 1 And homS >= 2 Then
+                    ingreso_hombre = 0
+                ElseIf homP >= 2 And homS >= 1 Then
                     ingreso_hombre = 0
                 Else
                     ingreso_hombre = 1
@@ -502,9 +531,24 @@ Public Class xfrmRegCandidatos
 
             ElseIf depto = 9 Or depto = 11 Then
 
-                hombres_permitidos = (cdip_CN + cdip_CNS) - mujeres_necesarias
+                Dim p As String = "SELECT NVL(COUNT(*),  0) MUJERES " & _
+               "FROM    im_candidatos ic, im_padron_electoral ip, im_municipios im " & _
+                "WHERE  iC.codigo_departamento = " & depto & _
+                " AND      iC.codigo_municipio = " & muni & _
+                " AND      im.codigo_departamento = ic.codigo_departamento " & _
+                " AND      im.codigo_municipio       = ic.codigo_municipio " & _
+                " AND      ic.codigo_cargo_electivo in (4,5) " & _
+                " AND      IC.CODIGO_PARTIDO =  " & id_partido & _
+                " AND      IC.CODIGO_MOVIMIENTO = " & id_movimiento & _
+                " AND      ic.identidad = ip.numero_identidad " & _
+                " AND      ip.sexo= 1"
 
-                If hombres_permitidos = hombres_ingresados Then
+                hombres_ingresados = CInt(COracle.ObtenerDatos(p, "MUJERES"))
+
+                'hombres_permitidos = (cdip_CN + cdip_CNS) - mujeres_necesarias
+                hombres_permitidos = 1
+
+                If hombres_permitidos <= hombres_ingresados Then
                     ingreso_hombre = 0
                 Else
                     ingreso_hombre = 1
