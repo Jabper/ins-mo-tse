@@ -841,7 +841,7 @@ Namespace DS_CANDIDATOS_DUPLICADOS_MOVTableAdapters
                 "N, LP.CODIGO_PARTIDO, P.NOMBRE AS PARTIDO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         M.NOMBRE_M"& _ 
                 "OVIMIENTO AS MOVIMIENTO, LP.CODIGO_MOVIMIENTO, LP.CODIGO_OPERACION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM        "& _ 
                 "    IM_LOG_PROCESOS lp, IM_PARTIDOS_POLITICOS p, IM_MOVIMIENTOS m"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        "& _ 
-                "(LP.CODIGO_OPERACION = 56) AND (P.CODIGO_PARTIDO = LP.CODIGO_PARTIDO) AND (LP.CO"& _ 
+                "(LP.CODIGO_OPERACION = 51) AND (P.CODIGO_PARTIDO = LP.CODIGO_PARTIDO) AND (LP.CO"& _ 
                 "DIGO_PARTIDO = M.CODIGO_PARTIDO) AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (LP.CODIGO_MOVIM"& _ 
                 "IENTO = M.CODIGO_MOVIMIENTO)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
