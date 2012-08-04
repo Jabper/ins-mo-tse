@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -1127,6 +1127,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_PLANILLAS_FALTANTES.resx">
       <DependentUpon>REPORTE_PLANILLAS_FALTANTES.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_PLANILLAS_FINALES.resx">
       <DependentUpon>REPORTE_PLANILLAS_FINALES.vb</DependentUpon>
@@ -1947,8 +1948,7 @@
       <DependentUpon>DS_REP_DETALLE_ESTADISTICA.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DS_REP_DETALLE_ESTADISTICA.xsd">
-      <SubType>
-      </SubType>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Reportes\DS_REP_DETALLE_ESTADISTICA.xss">
       <DependentUpon>DS_REP_DETALLE_ESTADISTICA.xsd</DependentUpon>
