@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -422,6 +422,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_ESTADISTICO_GENERAL_GE.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\DS_FALTANTES.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_FALTANTES.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DS_LOG.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -638,6 +643,12 @@
       <DependentUpon>REPORTE_PLANILLAS_COMPLETAS_1.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\REPORTE_PLANILLAS_COMPLETAS_1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\REPORTE_PLANILLAS_FALTANTES.Designer.vb">
+      <DependentUpon>REPORTE_PLANILLAS_FALTANTES.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\REPORTE_PLANILLAS_FALTANTES.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\REPORTE_PLANILLAS_FINALES.Designer.vb">
@@ -1113,6 +1124,9 @@
     <EmbeddedResource Include="Reportes\REPORTE_PLANILLAS_COMPLETAS_1.resx">
       <DependentUpon>REPORTE_PLANILLAS_COMPLETAS_1.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\REPORTE_PLANILLAS_FALTANTES.resx">
+      <DependentUpon>REPORTE_PLANILLAS_FALTANTES.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_PLANILLAS_FINALES.resx">
       <DependentUpon>REPORTE_PLANILLAS_FINALES.vb</DependentUpon>
@@ -1664,6 +1678,17 @@
     </None>
     <None Include="Reportes\DS_ESTADISTICO_GENERAL_GE.xss">
       <DependentUpon>DS_ESTADISTICO_GENERAL_GE.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_FALTANTES.xsc">
+      <DependentUpon>DS_FALTANTES.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_FALTANTES.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_FALTANTES.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DS_FALTANTES.xss">
+      <DependentUpon>DS_FALTANTES.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DS_LOG.xsc">
       <DependentUpon>DS_LOG.xsd</DependentUpon>

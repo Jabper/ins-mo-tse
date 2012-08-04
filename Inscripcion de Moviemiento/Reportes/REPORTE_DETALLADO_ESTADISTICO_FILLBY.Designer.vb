@@ -49,13 +49,13 @@ Partial Public Class REPORTE_DETALLADO_ESTADISTICO_FILLBY
         Me.XrLabel11 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel2 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrPictureBox1 = New DevExpress.XtraReports.UI.XRPictureBox
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel6 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel7 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel
-        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.BottomMargin = New DevExpress.XtraReports.UI.BottomMarginBand
         Me.DetailBand1 = New DevExpress.XtraReports.UI.DetailBand
         Me.DetailBand2 = New DevExpress.XtraReports.UI.DetailBand
@@ -70,6 +70,8 @@ Partial Public Class REPORTE_DETALLADO_ESTADISTICO_FILLBY
         Me.IM_CANDIDATOSTableAdapter = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_CANDIDATOSTableAdapter
         Me.DS_REPORTE_ESTADISTICO_DP1 = New Inscripcion_de_Moviemientos.DS_REPORTE_ESTADISTICO_DP
         Me.IM_ESTADISTICASTableAdapter = New Inscripcion_de_Moviemientos.DS_REPORTE_ESTADISTICO_DPTableAdapters.IM_ESTADISTICASTableAdapter
+        Me.XrLabel10 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel15 = New DevExpress.XtraReports.UI.XRLabel
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -247,7 +249,7 @@ Partial Public Class REPORTE_DETALLADO_ESTADISTICO_FILLBY
         '
         'TopMargin
         '
-        Me.TopMargin.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel9, Me.XrPictureBox2, Me.XrLine2, Me.XrLabel8, Me.XrLabel14, Me.XrLabel12, Me.XrLine1, Me.XrLabel13, Me.XrLabel11, Me.XrLabel2, Me.XrPictureBox1, Me.XrLabel1, Me.XrLabel3, Me.XrLabel6, Me.XrLabel7, Me.XrLabel4, Me.XrLabel5})
+        Me.TopMargin.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel15, Me.XrLabel10, Me.XrLabel9, Me.XrPictureBox2, Me.XrLine2, Me.XrLabel8, Me.XrLabel14, Me.XrLabel12, Me.XrLine1, Me.XrLabel13, Me.XrLabel11, Me.XrLabel2, Me.XrPictureBox1, Me.XrLabel1, Me.XrLabel3, Me.XrLabel6, Me.XrLabel7, Me.XrLabel4, Me.XrLabel5})
         Me.TopMargin.HeightF = 233.9375!
         Me.TopMargin.Name = "TopMargin"
         Me.TopMargin.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
@@ -377,6 +379,11 @@ Partial Public Class REPORTE_DETALLADO_ESTADISTICO_FILLBY
         Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(143.75!, 66.75001!)
         Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze
         '
+        'BindingSource1
+        '
+        Me.BindingSource1.DataMember = "IM_PARTIDOS_POLITICOS_imagen"
+        Me.BindingSource1.DataSource = Me.DS_LOG
+        '
         'XrLabel1
         '
         Me.XrLabel1.Font = New System.Drawing.Font("Times New Roman", 20.0!, CType((System.Drawing.FontStyle.Italic Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
@@ -437,11 +444,6 @@ Partial Public Class REPORTE_DETALLADO_ESTADISTICO_FILLBY
         Me.XrLabel5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel5.SizeF = New System.Drawing.SizeF(449.3749!, 23.0!)
         Me.XrLabel5.Text = "XrLabel5"
-        '
-        'BindingSource1
-        '
-        Me.BindingSource1.DataMember = "IM_PARTIDOS_POLITICOS_imagen"
-        Me.BindingSource1.DataSource = Me.DS_LOG
         '
         'BottomMargin
         '
@@ -522,6 +524,30 @@ Partial Public Class REPORTE_DETALLADO_ESTADISTICO_FILLBY
         '
         Me.IM_ESTADISTICASTableAdapter.ClearBeforeFill = True
         '
+        'XrLabel10
+        '
+        Me.XrLabel10.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel10.LocationFloat = New DevExpress.Utils.PointFloat(298.8643!, 164.6875!)
+        Me.XrLabel10.Name = "XrLabel10"
+        Me.XrLabel10.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel10.SizeF = New System.Drawing.SizeF(93.74997!, 39.99999!)
+        Me.XrLabel10.StylePriority.UseFont = False
+        Me.XrLabel10.StylePriority.UseTextAlignment = False
+        Me.XrLabel10.Text = "TOTAL INGRESADOS"
+        Me.XrLabel10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
+        '
+        'XrLabel15
+        '
+        Me.XrLabel15.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel15.LocationFloat = New DevExpress.Utils.PointFloat(392.6142!, 164.6875!)
+        Me.XrLabel15.Name = "XrLabel15"
+        Me.XrLabel15.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel15.SizeF = New System.Drawing.SizeF(94.79175!, 36.0!)
+        Me.XrLabel15.StylePriority.UseFont = False
+        Me.XrLabel15.StylePriority.UseTextAlignment = False
+        Me.XrLabel15.Text = "INGRESADOS CORRECTOS"
+        Me.XrLabel15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
+        '
         'REPORTE_DETALLADO_ESTADISTICO_FILLBY
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.PageFooter})
@@ -592,4 +618,6 @@ Partial Public Class REPORTE_DETALLADO_ESTADISTICO_FILLBY
     Friend WithEvents IM_ESTADISTICASTableAdapter As Inscripcion_de_Moviemientos.DS_REPORTE_ESTADISTICO_DPTableAdapters.IM_ESTADISTICASTableAdapter
     Friend WithEvents XrPictureBox2 As DevExpress.XtraReports.UI.XRPictureBox
     Friend WithEvents XrLabel9 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel10 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel15 As DevExpress.XtraReports.UI.XRLabel
 End Class

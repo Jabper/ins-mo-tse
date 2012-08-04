@@ -339,6 +339,7 @@ Partial Public Class REPORTE_DE_LOG
         Me.DataMember = "DS_LOG_1"
         Me.DataSource = Me.DS_LOG_11
         Me.FilterString = "[PARTIDO] = ?NombrePartido And [MOVIMIENTO] = ?NombreMovimiento"
+        Me.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Italic)
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(14, 22, 102, 44)
         Me.PageHeight = 850
