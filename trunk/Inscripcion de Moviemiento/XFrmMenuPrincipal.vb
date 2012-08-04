@@ -552,4 +552,10 @@ Public Class XFrmMenuPrincipal
         COracle.Im_Estadisticas()
         Parametros.Show()
     End Sub
+
+    Private Sub BarButtonItem5_ItemClick_2(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNFaltantes.ItemClick
+        Dim reporte_faltantes As REPORTE_PLANILLAS_FALTANTES = New REPORTE_PLANILLAS_FALTANTES
+        reporte_faltantes.ShowPreview()
+
+    End Sub
 End Class

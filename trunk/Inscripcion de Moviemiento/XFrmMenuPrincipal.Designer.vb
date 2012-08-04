@@ -61,6 +61,8 @@ Partial Class XFrmMenuPrincipal
         Me.BTNRazonado = New DevExpress.XtraBars.BarButtonItem
         Me.BTNRazonadoPlaC = New DevExpress.XtraBars.BarButtonItem
         Me.BTNRazonadoPlanI = New DevExpress.XtraBars.BarButtonItem
+        Me.BTNRazonadoPINE = New DevExpress.XtraBars.BarButtonItem
+        Me.BTNFaltantes = New DevExpress.XtraBars.BarButtonItem
         Me.btnConsultarFirmas = New DevExpress.XtraBars.BarButtonItem
         Me.BtnRFirmas = New DevExpress.XtraBars.BarSubItem
         Me.BtnFDP = New DevExpress.XtraBars.BarButtonItem
@@ -122,7 +124,6 @@ Partial Class XFrmMenuPrincipal
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.BarSubItem1 = New DevExpress.XtraBars.BarSubItem
         Me.RibbonPageGroup10 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
-        Me.BTNRazonadoPINE = New DevExpress.XtraBars.BarButtonItem
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -137,9 +138,9 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonControl.ApplicationButtonDropDownControl = Me.ApplicationMenu2
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ExpandCollapseItem.Name = ""
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion, Me.BtnMotivo, Me.btnCInhabilitados, Me.btnConsultarCenso, Me.BtnSubirOtroSistema, Me.BtnRPlanilla, Me.BtnPlanillanivel, Me.BtnPlanilladivision, Me.btnConsultarFirmas, Me.BtnRFirmas, Me.BtnFDP, Me.BtnREstadistico, Me.btnConsultarCandidatos, Me.BtnFirmasinc, Me.btnJerarquico, Me.BtnCrucemov, Me.BtnCrucepar, Me.BtnResumenFir, Me.TxtUser, Me.btnConsultarPlanilla, Me.BtnEstadisticoFI, Me.BtnRLog, Me.Btnlogproce, Me.BtnPlanillacandidatos, Me.BtnDiscoPartido, Me.BtnDiscoMovimiento, Me.BtnEstadisticopar, Me.BtnValidaciones, Me.BarButtonItem2, Me.btnValidarFirmas, Me.BarButtonItem3, Me.BtnCandidatosInha, Me.BTN_Reporteimpor, Me.BTNrepocaninc, Me.BTNrepociuinc, Me.BarStaticItem1, Me.BTNRazonado, Me.BTNRestadisticoCE, Me.BtnRegistroImpo, Me.BarStaticItem2, Me.BTNduplicadosMov, Me.btnIncompleta, Me.BTNRazonadoPlaC, Me.BTNRazonadoPlanI, Me.BarButtonItem4, Me.btnEstadistico, Me.btnEstadisticasDP, Me.BTNRazonadoPINE})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion, Me.BtnMotivo, Me.btnCInhabilitados, Me.btnConsultarCenso, Me.BtnSubirOtroSistema, Me.BtnRPlanilla, Me.BtnPlanillanivel, Me.BtnPlanilladivision, Me.btnConsultarFirmas, Me.BtnRFirmas, Me.BtnFDP, Me.BtnREstadistico, Me.btnConsultarCandidatos, Me.BtnFirmasinc, Me.btnJerarquico, Me.BtnCrucemov, Me.BtnCrucepar, Me.BtnResumenFir, Me.TxtUser, Me.btnConsultarPlanilla, Me.BtnEstadisticoFI, Me.BtnRLog, Me.Btnlogproce, Me.BtnPlanillacandidatos, Me.BtnDiscoPartido, Me.BtnDiscoMovimiento, Me.BtnEstadisticopar, Me.BtnValidaciones, Me.BarButtonItem2, Me.btnValidarFirmas, Me.BarButtonItem3, Me.BtnCandidatosInha, Me.BTN_Reporteimpor, Me.BTNrepocaninc, Me.BTNrepociuinc, Me.BarStaticItem1, Me.BTNRazonado, Me.BTNRestadisticoCE, Me.BtnRegistroImpo, Me.BarStaticItem2, Me.BTNduplicadosMov, Me.btnIncompleta, Me.BTNRazonadoPlaC, Me.BTNRazonadoPlanI, Me.BarButtonItem4, Me.btnEstadistico, Me.btnEstadisticasDP, Me.BTNRazonadoPINE, Me.BTNFaltantes})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 80
+        Me.RibbonControl.MaxItemId = 81
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.PageHeaderItemLinks.Add(Me.BarStaticItem2)
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5, Me.RibbonPage6})
@@ -365,7 +366,7 @@ Partial Class XFrmMenuPrincipal
         Me.BtnRPlanilla.Caption = "Reportes de Planilla"
         Me.BtnRPlanilla.Id = 31
         Me.BtnRPlanilla.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Reporte
-        Me.BtnRPlanilla.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BtnPlanillanivel), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnPlanilladivision), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnPlanillacandidatos), New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem2), New DevExpress.XtraBars.LinkPersistInfo(Me.btnIncompleta), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnCandidatosInha), New DevExpress.XtraBars.LinkPersistInfo(Me.BTNRazonado), New DevExpress.XtraBars.LinkPersistInfo(Me.BTNRazonadoPlaC), New DevExpress.XtraBars.LinkPersistInfo(Me.BTNRazonadoPlanI), New DevExpress.XtraBars.LinkPersistInfo(Me.BTNRazonadoPINE)})
+        Me.BtnRPlanilla.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BtnPlanillanivel), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnPlanilladivision), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnPlanillacandidatos), New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem2), New DevExpress.XtraBars.LinkPersistInfo(Me.btnIncompleta), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnCandidatosInha), New DevExpress.XtraBars.LinkPersistInfo(Me.BTNRazonado), New DevExpress.XtraBars.LinkPersistInfo(Me.BTNRazonadoPlaC), New DevExpress.XtraBars.LinkPersistInfo(Me.BTNRazonadoPlanI), New DevExpress.XtraBars.LinkPersistInfo(Me.BTNRazonadoPINE), New DevExpress.XtraBars.LinkPersistInfo(Me.BTNFaltantes)})
         Me.BtnRPlanilla.Name = "BtnRPlanilla"
         '
         'BtnPlanillanivel
@@ -421,6 +422,18 @@ Partial Class XFrmMenuPrincipal
         Me.BTNRazonadoPlanI.Caption = "Reporte Razonado de Planillas Incompletas"
         Me.BTNRazonadoPlanI.Id = 75
         Me.BTNRazonadoPlanI.Name = "BTNRazonadoPlanI"
+        '
+        'BTNRazonadoPINE
+        '
+        Me.BTNRazonadoPINE.Caption = "Reporte de Razonado de Planillas Incompletas por Nivel Electivo"
+        Me.BTNRazonadoPINE.Id = 79
+        Me.BTNRazonadoPINE.Name = "BTNRazonadoPINE"
+        '
+        'BTNFaltantes
+        '
+        Me.BTNFaltantes.Caption = "Reporte de Candidatos Faltantes en Planillas"
+        Me.BTNFaltantes.Id = 80
+        Me.BTNFaltantes.Name = "BTNFaltantes"
         '
         'btnConsultarFirmas
         '
@@ -866,12 +879,6 @@ Partial Class XFrmMenuPrincipal
         '
         Me.RibbonPageGroup10.Name = "RibbonPageGroup10"
         '
-        'BTNRazonadoPINE
-        '
-        Me.BTNRazonadoPINE.Caption = "Reporte de Razonado de Planillas Incompletas por Nivel Electivo"
-        Me.BTNRazonadoPINE.Id = 79
-        Me.BTNRazonadoPINE.Name = "BTNRazonadoPINE"
-        '
         'XFrmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1001,6 +1008,7 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents btnEstadistico As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents btnEstadisticasDP As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BTNRazonadoPINE As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BTNFaltantes As DevExpress.XtraBars.BarButtonItem
 
 
 End Class
