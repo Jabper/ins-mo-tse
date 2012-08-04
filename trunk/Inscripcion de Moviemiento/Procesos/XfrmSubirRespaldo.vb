@@ -124,7 +124,7 @@ Public Class XfrmSubirRespaldo
                         mensaje = "Error"
                         Dim startInfo As ProcessStartInfo
                         Dim pStart As New Process
-                        startInfo = New ProcessStartInfo("cmd.exe", "/C impdp TSE/TSEORACLE2012@XE DUMPFILE=" & archivo & " LOGFILE=imp_Respaldo.log DIRECTORY=DATA_PUMP_DIR CONTENT=ALL TABLE_EXISTS_ACTION=REPLACE")
+                        startInfo = New ProcessStartInfo("cmd.exe", "/C impdp TSE/ORACLE@XE DUMPFILE=" & archivo & " LOGFILE=imp_Respaldo.log DIRECTORY=DATA_PUMP_DIR CONTENT=ALL TABLE_EXISTS_ACTION=REPLACE")
                         'imp TSE/TSEORACLE2012@XE Buffer=5000000 File=" & TxtRuta.Text & " FROMUSER=TSE TOUSER=TSE ignore=Y")
                         pStart.StartInfo = startInfo
                         pStart.Start()

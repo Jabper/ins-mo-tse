@@ -96,7 +96,7 @@ Public Class XfrmDiscoPartido
                         Try
                             Dim startInfo As ProcessStartInfo
                             Dim pStart As New Process
-                            startInfo = New ProcessStartInfo("cmd.exe", "/C expdp TSE/TSEORACLE2012@XE directory=data_pump_dir dumpfile=exp_tse.dmp logfile=exp_partido.log schemas=tse version=10 query=im_partidos_politicos:\""WHERE codigo_partido = (SELECT codigo_partido FROM im_parametros_generales)\"" query=im_usuarios:\""where codigo_usuario = 'TSE'\"" query=im_roles:\""where codigo_rol in (2,3)\"" query=IM_OPERACIONES_POR_ROL:\""where  codigo_rol in (2,3)\"" query=IM_OPERACIONES_X_USUARIO:\""where codigo_usuario = 'TSE'\"" query=im_log_procesos:\""where 1 =2\"" query=im_candidatos:\""where codigo_candidatos = 0\"" query=im_requisitos_x_candidato:\""where codigo_candidato = 0\"" query=im_ciudadanos_respaldan:\""where 1 > 2\"" query=im_ciudadanos_inhabilitados:\""where 1 = 2\"" query=im_movimientos:\""WHERE codigo_partido = (SELECT codigo_partido FROM im_parametros_generales)\"" query=im_candidatos_repetidos:\""where 1 = 2\"" query=im_imagenes_candidato:\""where 1 = 2 \"" query=im_imagenes_firmas:\""where 1 = 2\""")
+                            startInfo = New ProcessStartInfo("cmd.exe", "/C expdp TSE/ORACLE@XE directory=data_pump_dir dumpfile=exp_tse.dmp logfile=exp_partido.log schemas=tse version=10 query=im_partidos_politicos:\""WHERE codigo_partido = (SELECT codigo_partido FROM im_parametros_generales)\"" query=im_usuarios:\""where codigo_usuario = 'TSE'\"" query=im_roles:\""where codigo_rol in (2,3)\"" query=IM_OPERACIONES_POR_ROL:\""where  codigo_rol in (2,3)\"" query=IM_OPERACIONES_X_USUARIO:\""where codigo_usuario = 'TSE'\"" query=im_log_procesos:\""where 1 =2\"" query=im_candidatos:\""where codigo_candidatos = 0\"" query=im_requisitos_x_candidato:\""where codigo_candidato = 0\"" query=im_ciudadanos_respaldan:\""where 1 > 2\"" query=im_ciudadanos_inhabilitados:\""where 1 = 2\"" query=im_movimientos:\""WHERE codigo_partido = (SELECT codigo_partido FROM im_parametros_generales)\"" query=im_candidatos_repetidos:\""where 1 = 2\"" query=im_imagenes_candidato:\""where 1 = 2 \"" query=im_imagenes_firmas:\""where 1 = 2\""")
                             pStart.StartInfo = startInfo
                             pStart.Start()
                             pStart.WaitForExit()
@@ -203,7 +203,7 @@ Public Class XfrmDiscoPartido
     End Sub
 
     Function comprobararchivos() As Boolean
-        Dim poracle As String = TxtRuta.Text & "\Archivos de Instalacion\Aplicación\Componentes\OracleXEUniv.exe"
+        Dim poracle As String = TxtRuta.Text & "\Archivos de Instalacion\Aplicación\Componentes\setup.exe"
         'Dim psetup As String = TxtRuta.Text & "\CSIM\Aplicacion\Componentes\setup.exe"
         Dim psetup2 As String = TxtRuta.Text & "\Archivos de Instalacion\Aplicación\Componentes\Inscripción de Movimientos TSE.msi"
         'Dim backupo As String = TxtRuta.Text & "\CSIM\Componentes\exp_tse.dmp"
