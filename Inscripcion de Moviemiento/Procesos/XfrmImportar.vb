@@ -56,22 +56,25 @@ Public Class XfrmImportar
                 End Try
                 conn8.Close()
 
-                If File.Exists(dpdump & archivo) Then
-                    Try
-                        System.IO.File.Delete(dpdump & archivo)
-                        System.IO.File.Copy(TxtRuta.Text, dpdump & archivo, True)
-                    Catch ex As Exception
-                        MsgBox(ex.Message)
-                        Exit Sub
-                    End Try
-                Else
-                    Try
-                        System.IO.File.Copy(TxtRuta.Text, dpdump & archivo, True)
-                    Catch ex As Exception
-                        MsgBox(ex.Message)
-                        Exit Sub
-                    End Try
+                If MsgBox("¿Copiar el archivo en el directorio de importacion de forma manual?", MsgBoxStyle.YesNo) = MsgBoxResult.No Then
+                    If File.Exists(dpdump & archivo) Then
+                        Try
+                            System.IO.File.Delete(dpdump & archivo)
+                            System.IO.File.Copy(TxtRuta.Text, dpdump & archivo, True)
+                        Catch ex As Exception
+                            MsgBox(ex.Message)
+                            Exit Sub
+                        End Try
+                    Else
+                        Try
+                            System.IO.File.Copy(TxtRuta.Text, dpdump & archivo, True)
+                        Catch ex As Exception
+                            MsgBox(ex.Message)
+                            Exit Sub
+                        End Try
+                    End If
                 End If
+
                 Try
                     Dim oradb1 As String = Configuracion.verconfig
                     Dim conn1 As New OracleConnection()
