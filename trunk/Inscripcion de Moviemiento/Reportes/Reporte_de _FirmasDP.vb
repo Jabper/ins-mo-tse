@@ -121,27 +121,26 @@ Public Class Reporte_de__FirmasDP
     End Sub
 
     Private Sub Reporte_de__FirmasDP_ParametersRequestValueChanged(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestValueChangedEventArgs) Handles Me.ParametersRequestValueChanged
-        Dim dataset As New DS_REPORTE_DE_PNEM_1
+        Dim dataset4 As New DS_REPORTE_DE_FDP_1
 
         If ActivarOpciones.PEstado = "TSE" Then
-            'If NombrePartido..ToString <> "" Or NombrePartido.Value.ToString <> Nothing Then
 
-            ''CODIGO NECESARIO PARA AGREGAR LA LISTA DE VALOR DE LOS MOVIMIENTOS
-            Using Adapter1 As New DS_REPORTE_DE_PNEM_1TableAdapters.IM_MOVIMIENTOSTableAdapter
+            Using adapter1 As New DS_REPORTE_DE_FDP_1TableAdapters.IM_MOVIMIENTOSTableAdapter
+               Dim idp As String = COracle.ObtenerDatos("select codigo_partido from im_partidos_politicos where Nombre='" & e.ParametersInformation(0).Editor.Text & "'", "CODIGO_PARTIDO")
 
+                adapter1.FillCod_partido(dataset4.IM_MOVIMIENTOS, CType(idp, Integer))
+                DirectCast(e.ParametersInformation(1).Editor, DevExpress.XtraEditors.LookUpEdit).Properties.DataSource = Nothing
+                DirectCast(e.ParametersInformation(1).Editor, DevExpress.XtraEditors.LookUpEdit).Properties.DataSource = dataset4.IM_MOVIMIENTOS
+                DirectCast(e.ParametersInformation(1).Editor, DevExpress.XtraEditors.LookUpEdit).Properties.DisplayMember = "NOMBRE_MOVIMIENTO"
+                DirectCast(e.ParametersInformation(1).Editor, DevExpress.XtraEditors.LookUpEdit).Properties.ValueMember = "NOMBRE_MOVIMIENTO"
 
-                Dim idp As String = COracle.ObtenerDatos("select codigo_partido from im_partidos_politicos where Nombre='" & e.ParametersInformation(0).Editor.Text & "'", "CODIGO_PARTIDO")
-                If idp <> "N" Then
-                    Adapter1.FillCodPartido(dataset.IM_MOVIMIENTOS, CType(idp, Integer))
-                    DirectCast(e.ParametersInformation(1).Editor, DevExpress.XtraEditors.LookUpEdit).Properties.DataSource = Nothing
-                    DirectCast(e.ParametersInformation(1).Editor, DevExpress.XtraEditors.LookUpEdit).Properties.DataSource = dataset.IM_MOVIMIENTOS
-                    'Adapter1.FillCodPartido(dataset.IM_MOVIMIENTOS, CType(idp, Integer))
-
-                    e.ParametersInformation(1).Editor.Update()
-                    e.ParametersInformation(1).Editor.Refresh()
-                End If
-
+                e.ParametersInformation(1).Editor.Update()
+                e.ParametersInformation(1).Editor.Refresh()
+                
             End Using
+
+
+
 
         End If
     End Sub
