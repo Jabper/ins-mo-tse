@@ -165,11 +165,12 @@ Public Class XfrmMovimientos
 
             Dim cnx As New OracleConnection(Configuracion.verconfig)
             Dim sqlstring As String
-            sqlstring = "UPDATE IM_MOVIMIENTOS SET INSIGNIA=:ft WHERE CODIGO_MOVIMIENTO=:cod"
+            sqlstring = "UPDATE IM_MOVIMIENTOS SET INSIGNIA=:ft WHERE CODIGO_MOVIMIENTO=:cod and CODIGO_PARTIDO=:cp"
             Dim cmd As New OracleCommand(sqlstring, cnx)
             cmd.Parameters.Add(":ft", OracleType.Blob).Value = Data.ConvertImageToByteArray(Me.EMBLEMAPictureEdit.Image)
-            'cmd.Parameters.Add(":em", OracleType.Blob).Value = Data.ConvertImageToByteArray(Me.EMBLEMAPictureEdit.Image)
+
             cmd.Parameters.Add(":cod", OracleType.Number).Value = Me.CODIGO_MOVIMIENTOSpinEdit.EditValue
+            cmd.Parameters.Add(":cp", OracleType.Blob).Value = Me.CODIGO_PARTIDOSpinEdit.EditValue
             cnx.Open()
             cmd.ExecuteNonQuery()
             cnx.Close()
