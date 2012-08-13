@@ -1,6 +1,9 @@
 ﻿Imports System.IO
 Imports DevExpress.XtraEditors
 Imports System.Data.OracleClient
+Imports DevExpress.XtraGrid.Views.Grid
+Imports DevExpress.XtraGrid.Columns
+imports DevExpress.XtraEditors.Controls
 
 Public Class XfrmMovimientos
     Public UrlInsignia As String
@@ -29,6 +32,7 @@ Public Class XfrmMovimientos
         End If
         DxControls.ObtenerCredencial("BtnMovimientos", "INSERTAR", Me.BtnNuevo)
         DxControls.ObtenerCredencial("BtnMovimientos", "ELIMINAR", Me.BtnEliminar)
+
     End Sub
     Sub limpiarValidador()
         DxValidationProvider1.RemoveControlError(Me.INSIGNIAPictureEdit)
@@ -287,4 +291,20 @@ Public Class XfrmMovimientos
     End Sub
 
     
+    Private Sub GridView1_InvalidRowException(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs) Handles GridView1.InvalidRowException
+        e.ExceptionMode = ExceptionMode.NoAction
+    End Sub
+
+    Private Sub GridView1_InvalidValueException(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs) Handles GridView1.InvalidValueException
+        e.ExceptionMode = ExceptionMode.NoAction
+    
+    End Sub
+
+    Private Sub GridView1_ValidateRow(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs) Handles GridView1.ValidateRow
+       
+    End Sub
+
+    Private Sub GridView1_ValidatingEditor(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs) Handles GridView1.ValidatingEditor
+
+    End Sub
 End Class
