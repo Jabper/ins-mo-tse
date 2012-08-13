@@ -598,10 +598,10 @@ Public Class XfrmCiudadanos
     Sub mostrarimg()
         Dim consulta As String = "SELECT IMAGEN FROM IM_PARTIDOS_POLITICOS WHERE CODIGO_PARTIDO=" & idpartido
         Me.imgpartido.Image = COracle.ObtenerImagen(consulta, "IMAGEN")
-        Dim consulta2 As String = "SELECT * FROM IM_MOVIMIENTOS WHERE CODIGO_MOVIMIENTO=" & idmovimiento
+        Dim consulta2 As String = "SELECT * FROM IM_MOVIMIENTOS WHERE CODIGO_MOVIMIENTO=" & idmovimiento & "AND CODIGO_PARTIDO=" & idpartido
         Me.imgmov.Image = COracle.ObtenerImagen(consulta2, "INSIGNIA")
         lblpartido.Text = COracle.ObtenerDatos("SELECT NOMBRE FROM IM_PARTIDOS_POLITICOS WHERE CODIGO_PARTIDO=" & idpartido, "NOMBRE")
-        lblmovimiento.Text = COracle.ObtenerDatos("SELECT NOMBRE_MOVIMIENTO FROM IM_MOVIMIENTOS WHERE CODIGO_MOVIMIENTO=" & idmovimiento, "NOMBRE_MOVIMIENTO")
+        lblmovimiento.Text = COracle.ObtenerDatos("SELECT NOMBRE_MOVIMIENTO FROM IM_MOVIMIENTOS WHERE CODIGO_MOVIMIENTO=" & idmovimiento & "AND CODIGO_PARTIDO=" & idpartido, "NOMBRE_MOVIMIENTO")
 
     End Sub
 
