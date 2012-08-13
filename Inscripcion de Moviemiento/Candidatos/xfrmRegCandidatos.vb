@@ -439,9 +439,9 @@ Public Class xfrmRegCandidatos
 
                 If homP >= 2 Then
                     ingreso_hombre = 0
-                ElseIf homP >= 1 And homS >= 2 Then
+                ElseIf homP >= 2 And homS >= 2 Then
                     ingreso_hombre = 0
-                ElseIf homP >= 2 And homS >= 1 Then
+                ElseIf homP >= 2 And homS >= 2 Then
                     ingreso_hombre = 0
                 Else
                     ingreso_hombre = 1
@@ -521,9 +521,9 @@ Public Class xfrmRegCandidatos
 
                 If homS >= 2 Then
                     ingreso_hombre = 0
-                ElseIf homP >= 1 And homS >= 2 Then
+                ElseIf homP >= 2 And homS >= 2 Then
                     ingreso_hombre = 0
-                ElseIf homP >= 2 And homS >= 1 Then
+                ElseIf homP >= 2 And homS >= 2 Then
                     ingreso_hombre = 0
                 Else
                     ingreso_hombre = 1
@@ -588,7 +588,7 @@ Public Class xfrmRegCandidatos
     Sub mostrarimg()
         Dim consulta As String = "SELECT IMAGEN FROM IM_PARTIDOS_POLITICOS WHERE CODIGO_PARTIDO=" & CType(Me.lblidpartido.Text, Integer)
         Me.imgpartido.Image = COracle.ObtenerImagen(consulta, "IMAGEN")
-        Dim consulta2 As String = "SELECT * FROM IM_MOVIMIENTOS WHERE CODIGO_MOVIMIENTO=" & CType(Me.lblidmovimiento.Text, Integer)
+        Dim consulta2 As String = "SELECT * FROM IM_MOVIMIENTOS WHERE CODIGO_MOVIMIENTO=" & CType(Me.lblidmovimiento.Text, Integer) & " AND CODIGO_PARTIDO=" & CType(Me.lblidpartido.Text, Integer)
         Me.imgmov.Image = COracle.ObtenerImagen(consulta2, "INSIGNIA")
     End Sub
     Sub AgregarFilasGrid(ByVal NumeroCeldas As Integer)
