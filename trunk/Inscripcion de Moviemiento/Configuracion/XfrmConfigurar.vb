@@ -89,7 +89,7 @@ Public Class XfrmConfigurar
         If (e.Page.Name = "WizardPage1") Then
             'MsgBox(Configuracion.verconfig)
 
-            If ActivarOpciones.PEstado = "MOV" Then
+            If ActivarOpciones.PEstadoC = "MOV" Then
 
 
 
@@ -239,8 +239,8 @@ Public Class XfrmConfigurar
         tbl.Rows.Add(1, "¿Nombre de mi mascosta?")
         tbl.Rows.Add(2, "¿Lugar de Nacimiento?")
         tbl.Rows.Add(3, "¿Color Favorito?")
-        tbl.Rows.Add(4, "¿Lugar de nacimiento?")
-        tbl.Rows.Add(5, "¿Lugar de nacimiento?")
+        tbl.Rows.Add(4, "¿Nombre de mi abuela materna?")
+        tbl.Rows.Add(5, "¿Nombre de mi amigo de la infancia?")
         'SE ENLAZA EL DATATABLE CREADO PARA MOSTRARLO EN EL CONTROL
         With PREGUNTA_SEGURIDADTextEdit
             .Properties.DataSource = tbl
@@ -280,19 +280,19 @@ Public Class XfrmConfigurar
                 .CONTRASENA = CONTRASENATextEdit.Text
 
                 .ESTADO = "A"
-                If ActivarOpciones.PEstado = "MOV" Then
+                If ActivarOpciones.PEstadoC = "MOV" Then
                     .CODIGO_MOVIMIENTO = idmov
                     .NIVEL = 3
                     .CODIGO_ROL = 3
                     .CODIGO_PARTIDO = id
                     vrol = 3
-                ElseIf ActivarOpciones.PEstado = "PDO" Then
+                ElseIf ActivarOpciones.PEstadoC = "PDO" Then
                     .CODIGO_PARTIDO = COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
 
                     .NIVEL = 2
                     .CODIGO_ROL = 2
                     vrol = 2
-                ElseIf ActivarOpciones.PEstado = "TSE" Then
+                ElseIf ActivarOpciones.PEstadoC = "TSE" Then
 
                     .CODIGO_PARTIDO = 99
                     .NIVEL = 1
