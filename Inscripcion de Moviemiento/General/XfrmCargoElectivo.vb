@@ -205,4 +205,8 @@ Public Class XfrmCargoElectivo
             e.Handled = True
         End If
     End Sub
+
+    Private Sub GBusqueda_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GBusqueda.Click
+
+    End Sub
 End Class

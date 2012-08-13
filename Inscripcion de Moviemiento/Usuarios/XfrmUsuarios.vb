@@ -4,9 +4,7 @@ Imports System.Data.OracleClient
 
 Public Class XfrmUsuarios
     Dim actualizar As Boolean = False
-    Private Sub XfrmUsuarios_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.GotFocus
-        'Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
-     End Sub
+    
     Sub ActivarFiltros()
         If activaropciones.PEstado = "PDO" Then
             Dim idp As String = COracle.ObtenerDatos("select codigo_partido from im_usuarios where codigo_usuario ='" & usuario & "'", "CODIGO_PARTIDO") 'COracle.ObtenerDatos("SELECT CODIGO_PARTIDO FROM IM_PARAMETROS_GENERALES", "CODIGO_PARTIDO")
@@ -50,39 +48,7 @@ Public Class XfrmUsuarios
             ' limpiar()
         End If
     End Sub
-    Private Sub XfrmUsuarios_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DSPolitico.TA_MOVIMIENTO' table. You can move, or remove it, as needed.
-
-        '******************************************
-        ActualizarGrid()
-
-        'Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
-        'TODO: This line of code loads data into the 'DSPolitico.IM_MOVIMIENTOS' table. You can move, or remove it, as needed.
-        If RolUsuario = "1" Then
-            Me.TA_ROLESTableAdapter.Fill(Me.DTUsers.TA_ROLES)
-        ElseIf RolUsuario = "2" Then
-            Me.TA_ROLESTableAdapter.FillBy(Me.DTUsers.TA_ROLES)
-        ElseIf RolUsuario = "3" Then
-            Me.TA_ROLESTableAdapter.FillBy1(Me.DTUsers.TA_ROLES)
-
-        End If
-
-
-        Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
-
-        PreguntasDeSeguridad()
-        niveles()
-        Me.IMUSUARIOSBindingSource.AddNew()
-        '*******************************************
-
-        ESTADOTextEdit.Checked = False
-        If COracle.credenciales("BtnUsuarios", "MODIFICAR") = "N" And COracle.credenciales("BtnUsuarios", "INSERTAR") = "N" Then
-            DxControls.ObtenerCredencial("BtnUsuarios", "MODIFICAR", Me.BtnGuardar)
-        End If
-        DxControls.ObtenerCredencial("BtnUsuarios", "INSERTAR", Me.BtnNuevo)
-        ActivarFiltros()
-
-    End Sub
+   
     Sub PreguntasDeSeguridad() 'SE CREA UN DATA TABLE PARA ENLAZARLO AL CONTROL Y MOSTRAR LAS PREGUNTAS DE SEGURIDAD
         Dim tbl As New DataTable()
         'SE CREAN LAS COLUMNAS DEL DATA TABLE
@@ -150,6 +116,7 @@ Public Class XfrmUsuarios
             Me.IMUSUARIOSBindingSource.CancelEdit()
             Me.IMUSUARIOSBindingSource.AddNew()
             actualizar = False
+            Me.btnpass.Enabled = False
         Catch ex As Exception
             Mensajes.mimensaje(ex.Message)
         End Try
@@ -197,6 +164,7 @@ Public Class XfrmUsuarios
                     Mensajes.MensajeGuardar()
                 End If
                 Me.IMUSUARIOSBindingSource.AddNew()
+                Me.btnpass.Enabled = False
             Catch ex As Exception
                 'CONTROL DE ERRORES
                 Mensajes.MensajeError(ex.Message)
@@ -212,7 +180,7 @@ Public Class XfrmUsuarios
             Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
             'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
             Me.IM_USUARIOSTableAdapter.FillBy(Me.DTUsers.IM_USUARIOS, cellValue)
-
+            Me.btnpass.Enabled = True
             'OBTENEMOS LA INFORMACION PARA LA BUSQUEDA DE LA IMAGEN
 
         Catch ex As System.Exception
@@ -339,5 +307,50 @@ Public Class XfrmUsuarios
 
     Private Sub CONTRASENATextEdit_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles CONTRASENATextEdit.LostFocus
         CONTRASENATextEdit.Text = CONTRASENATextEdit.Text.Replace("'", "")
+    End Sub
+
+    Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnpass.Click
+        Try
+            Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 0)
+            COracle.ejecutarconsulta("update im_usuarios set modificado_por='' where codigo_usuario='" & cellValue & "'")
+            Mensajes.mimensaje("Proceso realizado correctamente" & vbCrLf & "La próxima vez que el usuario inicie al sistema se le pedirá reestablecer su contraseña")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub XfrmUsuarios_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DSPolitico.TA_MOVIMIENTO' table. You can move, or remove it, as needed.
+
+        '******************************************
+        Me.btnpass.Enabled = False
+        'Me.IM_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.IM_PARTIDOS_POLITICOS)
+        'TODO: This line of code loads data into the 'DSPolitico.IM_MOVIMIENTOS' table. You can move, or remove it, as needed.
+        If RolUsuario = "1" Then
+            Me.TA_ROLESTableAdapter.Fill(Me.DTUsers.TA_ROLES)
+        ElseIf RolUsuario = "2" Then
+            Me.TA_ROLESTableAdapter.FillBy(Me.DTUsers.TA_ROLES)
+        ElseIf RolUsuario = "3" Then
+            Me.TA_ROLESTableAdapter.FillBy1(Me.DTUsers.TA_ROLES)
+
+        End If
+
+
+        Me.TA_PARTIDOS_POLITICOSTableAdapter.Fill(Me.DSPolitico.TA_PARTIDOS_POLITICOS)
+
+        PreguntasDeSeguridad()
+        niveles()
+        Me.IMUSUARIOSBindingSource.AddNew()
+        '*******************************************
+
+        ESTADOTextEdit.Checked = False
+        If COracle.credenciales("BtnUsuarios", "MODIFICAR") = "N" And COracle.credenciales("BtnUsuarios", "INSERTAR") = "N" Then
+            DxControls.ObtenerCredencial("BtnUsuarios", "MODIFICAR", Me.BtnGuardar)
+        End If
+        DxControls.ObtenerCredencial("BtnUsuarios", "INSERTAR", Me.BtnNuevo)
+        ActivarFiltros()
+        Me.btnpass.Enabled = False
+        ActualizarGrid()
+       
     End Sub
 End Class

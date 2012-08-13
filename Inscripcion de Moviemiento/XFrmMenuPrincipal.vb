@@ -107,7 +107,7 @@ Public Class XFrmMenuPrincipal
         Next
         Me.BtnCerrarSesion.Visibility = BarItemVisibility.Always
         Me.BtnSalir.Visibility = BarItemVisibility.Always
-
+        BtnCambiarPass.Visibility = BarItemVisibility.Always
         XfrmBack.MdiParent = Me
         XfrmBack.Show()
     End Sub
@@ -557,5 +557,9 @@ Public Class XFrmMenuPrincipal
         Dim reporte_faltantes As REPORTE_PLANILLAS_FALTANTES = New REPORTE_PLANILLAS_FALTANTES
         reporte_faltantes.ShowPreview()
 
+    End Sub
+
+    Private Sub BtnCambiarPass_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCambiarPass.ItemClick
+        Padre(xfrmCambioUserPass)
     End Sub
 End Class

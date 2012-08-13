@@ -20,9 +20,9 @@ Partial Class XfrmCambiarPass
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
+        Dim ConditionValidationRule3 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
+        Dim CompareAgainstControlValidationRule2 As DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule = New DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule
         Dim ConditionValidationRule1 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
-        Dim CompareAgainstControlValidationRule1 As DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule = New DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule
-        Dim ConditionValidationRule2 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Me.txtpass2 = New DevExpress.XtraEditors.TextEdit
         Me.txtpass1 = New DevExpress.XtraEditors.TextEdit
         Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
@@ -45,9 +45,9 @@ Partial Class XfrmCambiarPass
         Me.txtpass2.Properties.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtpass2.Size = New System.Drawing.Size(170, 20)
         Me.txtpass2.TabIndex = 1
-        ConditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule1.ErrorText = "El valor no puede estar en blanco"
-        Me.DxValidationProvider1.SetValidationRule(Me.txtpass2, ConditionValidationRule1)
+        ConditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule3.ErrorText = "El valor no puede estar en blanco"
+        Me.DxValidationProvider1.SetValidationRule(Me.txtpass2, ConditionValidationRule3)
         '
         'txtpass1
         '
@@ -56,13 +56,13 @@ Partial Class XfrmCambiarPass
         Me.txtpass1.Properties.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtpass1.Size = New System.Drawing.Size(170, 20)
         Me.txtpass1.TabIndex = 0
-        CompareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.Equals
-        CompareAgainstControlValidationRule1.Control = Me.txtpass2
-        CompareAgainstControlValidationRule1.ErrorText = "Las Contraseñas no concuerdan"
-        Me.DxValidationProvider2.SetValidationRule(Me.txtpass1, CompareAgainstControlValidationRule1)
-        ConditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule2.ErrorText = "El valor no puede estar en blanco"
-        Me.DxValidationProvider1.SetValidationRule(Me.txtpass1, ConditionValidationRule2)
+        CompareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.Equals
+        CompareAgainstControlValidationRule2.Control = Me.txtpass2
+        CompareAgainstControlValidationRule2.ErrorText = "Las Contraseñas no concuerdan"
+        Me.DxValidationProvider2.SetValidationRule(Me.txtpass1, CompareAgainstControlValidationRule2)
+        ConditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule1.ErrorText = "El valor no puede estar en blanco"
+        Me.DxValidationProvider1.SetValidationRule(Me.txtpass1, ConditionValidationRule1)
         '
         'LabelControl1
         '
@@ -92,7 +92,7 @@ Partial Class XfrmCambiarPass
         '
         Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical
-        Me.LabelControl3.Location = New System.Drawing.Point(0, 0)
+        Me.LabelControl3.Location = New System.Drawing.Point(34, 26)
         Me.LabelControl3.Name = "LabelControl3"
         Me.LabelControl3.Size = New System.Drawing.Size(304, 42)
         Me.LabelControl3.TabIndex = 6

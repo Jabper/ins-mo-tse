@@ -20,11 +20,11 @@ Partial Class XfrmFilas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim ConditionValidationRule6 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Dim ConditionValidationRule1 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Dim ConditionValidationRule2 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Dim ConditionValidationRule3 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Dim ConditionValidationRule4 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
+        Dim ConditionValidationRule5 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Me.TxtFilas = New DevExpress.XtraEditors.TextEdit
         Me.Label2 = New System.Windows.Forms.Label
         Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
@@ -83,9 +83,9 @@ Partial Class XfrmFilas
         Me.TxtFilas.Properties.MaxLength = 3
         Me.TxtFilas.Size = New System.Drawing.Size(37, 20)
         Me.TxtFilas.TabIndex = 0
-        ConditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule6.ErrorText = "Valor Inválido"
-        Me.DxValidationProvider1.SetValidationRule(Me.TxtFilas, ConditionValidationRule6)
+        ConditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule1.ErrorText = "Valor Inválido"
+        Me.DxValidationProvider1.SetValidationRule(Me.TxtFilas, ConditionValidationRule1)
         '
         'Label2
         '
@@ -110,9 +110,9 @@ Partial Class XfrmFilas
         Me.CmbDepartamento.Properties.ValueMember = "CODIGO_DEPARTAMENTO"
         Me.CmbDepartamento.Size = New System.Drawing.Size(135, 20)
         Me.CmbDepartamento.TabIndex = 5
-        ConditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule1.ErrorText = "Valor Inválido"
-        Me.DxValidationProvider1.SetValidationRule(Me.CmbDepartamento, ConditionValidationRule1)
+        ConditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule2.ErrorText = "Valor Inválido"
+        Me.DxValidationProvider1.SetValidationRule(Me.CmbDepartamento, ConditionValidationRule2)
         '
         'TADEPARTAMENTOSBindingSource
         '
@@ -137,9 +137,9 @@ Partial Class XfrmFilas
         Me.CmbMunicipio.Properties.ValueMember = "CODIGO_MUNICIPIO"
         Me.CmbMunicipio.Size = New System.Drawing.Size(144, 20)
         Me.CmbMunicipio.TabIndex = 6
-        ConditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule2.ErrorText = "Valor Inválido"
-        Me.DxValidationProvider1.SetValidationRule(Me.CmbMunicipio, ConditionValidationRule2)
+        ConditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule3.ErrorText = "Valor Inválido"
+        Me.DxValidationProvider1.SetValidationRule(Me.CmbMunicipio, ConditionValidationRule3)
         '
         'TAMUNICIPIOSBindingSource
         '
@@ -159,9 +159,9 @@ Partial Class XfrmFilas
         Me.CmbMovimiento.Properties.ValueMember = "CODIGO_MOVIMIENTO"
         Me.CmbMovimiento.Size = New System.Drawing.Size(144, 20)
         Me.CmbMovimiento.TabIndex = 4
-        ConditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule3.ErrorText = "Valor Inválido"
-        Me.DxValidationProvider1.SetValidationRule(Me.CmbMovimiento, ConditionValidationRule3)
+        ConditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule4.ErrorText = "Valor Inválido"
+        Me.DxValidationProvider1.SetValidationRule(Me.CmbMovimiento, ConditionValidationRule4)
         '
         'TAMOVIMIENTOBindingSource
         '
@@ -185,9 +185,9 @@ Partial Class XfrmFilas
         Me.CmbPartido.Properties.ValueMember = "CODIGO_PARTIDO"
         Me.CmbPartido.Size = New System.Drawing.Size(135, 20)
         Me.CmbPartido.TabIndex = 20
-        ConditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule4.ErrorText = "Valor Inválido"
-        Me.DxValidationProvider1.SetValidationRule(Me.CmbPartido, ConditionValidationRule4)
+        ConditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule5.ErrorText = "Valor Inválido"
+        Me.DxValidationProvider1.SetValidationRule(Me.CmbPartido, ConditionValidationRule5)
         '
         'TAPARTIDOSPOLITICOSBindingSource
         '

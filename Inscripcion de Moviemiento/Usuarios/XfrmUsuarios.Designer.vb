@@ -26,6 +26,7 @@ Partial Class XfrmUsuarios
         Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
         Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
         Me.DataLayoutControl1 = New DevExpress.XtraDataLayout.DataLayoutControl
+        Me.btnpass = New DevExpress.XtraEditors.SimpleButton
         Me.NOMBRETextEdit = New DevExpress.XtraEditors.TextEdit
         Me.IMUSUARIOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DTUsers = New Inscripcion_de_Moviemientos.DTUsers
@@ -74,6 +75,7 @@ Partial Class XfrmUsuarios
         Me.ItemForESTADO = New DevExpress.XtraLayout.LayoutControlItem
         Me.EmptySpaceItem11 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem
         Me.GCBusqueda = New DevExpress.XtraGrid.GridControl
         Me.DTUSUARIOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
@@ -155,6 +157,7 @@ Partial Class XfrmUsuarios
         CType(Me.ItemForESTADO, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DTUSUARIOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -231,6 +234,7 @@ Partial Class XfrmUsuarios
         '
         'DataLayoutControl1
         '
+        Me.DataLayoutControl1.Controls.Add(Me.btnpass)
         Me.DataLayoutControl1.Controls.Add(Me.NOMBRETextEdit)
         Me.DataLayoutControl1.Controls.Add(Me.IDENTIDADTextEdit)
         Me.DataLayoutControl1.Controls.Add(Me.CONTRASENATextEdit)
@@ -256,13 +260,28 @@ Partial Class XfrmUsuarios
         Me.DataLayoutControl1.TabIndex = 4
         Me.DataLayoutControl1.Text = "DataLayoutControl1"
         '
+        'btnpass
+        '
+        Me.btnpass.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.btnpass.Appearance.Options.UseFont = True
+        Me.btnpass.Appearance.Options.UseTextOptions = True
+        Me.btnpass.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.btnpass.Enabled = False
+        Me.btnpass.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.btnpass.Location = New System.Drawing.Point(260, 251)
+        Me.btnpass.Name = "btnpass"
+        Me.btnpass.Size = New System.Drawing.Size(212, 22)
+        Me.btnpass.StyleController = Me.DataLayoutControl1
+        Me.btnpass.TabIndex = 12
+        Me.btnpass.Text = "Pedir Restablecer Contraseña"
+        '
         'NOMBRETextEdit
         '
         Me.NOMBRETextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMUSUARIOSBindingSource, "NOMBRE", True))
         Me.NOMBRETextEdit.Location = New System.Drawing.Point(133, 36)
         Me.NOMBRETextEdit.Name = "NOMBRETextEdit"
         Me.NOMBRETextEdit.Properties.MaxLength = 100
-        Me.NOMBRETextEdit.Size = New System.Drawing.Size(166, 20)
+        Me.NOMBRETextEdit.Size = New System.Drawing.Size(170, 20)
         Me.NOMBRETextEdit.StyleController = Me.DataLayoutControl1
         Me.NOMBRETextEdit.TabIndex = 6
         '
@@ -283,7 +302,7 @@ Partial Class XfrmUsuarios
         Me.IDENTIDADTextEdit.Name = "IDENTIDADTextEdit"
         Me.IDENTIDADTextEdit.Properties.Mask.BeepOnError = True
         Me.IDENTIDADTextEdit.Properties.MaxLength = 13
-        Me.IDENTIDADTextEdit.Size = New System.Drawing.Size(167, 20)
+        Me.IDENTIDADTextEdit.Size = New System.Drawing.Size(171, 20)
         Me.IDENTIDADTextEdit.StyleController = Me.DataLayoutControl1
         Me.IDENTIDADTextEdit.TabIndex = 7
         '
@@ -294,7 +313,7 @@ Partial Class XfrmUsuarios
         Me.CONTRASENATextEdit.Name = "CONTRASENATextEdit"
         Me.CONTRASENATextEdit.Properties.MaxLength = 15
         Me.CONTRASENATextEdit.Properties.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.CONTRASENATextEdit.Size = New System.Drawing.Size(167, 20)
+        Me.CONTRASENATextEdit.Size = New System.Drawing.Size(171, 20)
         Me.CONTRASENATextEdit.StyleController = Me.DataLayoutControl1
         Me.CONTRASENATextEdit.TabIndex = 8
         '
@@ -304,7 +323,7 @@ Partial Class XfrmUsuarios
         Me.RESPUESTA_SEGURIDADTextEdit.Location = New System.Drawing.Point(133, 204)
         Me.RESPUESTA_SEGURIDADTextEdit.Name = "RESPUESTA_SEGURIDADTextEdit"
         Me.RESPUESTA_SEGURIDADTextEdit.Properties.MaxLength = 100
-        Me.RESPUESTA_SEGURIDADTextEdit.Size = New System.Drawing.Size(167, 20)
+        Me.RESPUESTA_SEGURIDADTextEdit.Size = New System.Drawing.Size(171, 20)
         Me.RESPUESTA_SEGURIDADTextEdit.StyleController = Me.DataLayoutControl1
         Me.RESPUESTA_SEGURIDADTextEdit.TabIndex = 12
         '
@@ -367,7 +386,7 @@ Partial Class XfrmUsuarios
         Me.CODIGO_ROLSpinEdit.Properties.NullText = ""
         Me.CODIGO_ROLSpinEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
         Me.CODIGO_ROLSpinEdit.Properties.ValueMember = "CODIGO_ROL"
-        Me.CODIGO_ROLSpinEdit.Size = New System.Drawing.Size(168, 20)
+        Me.CODIGO_ROLSpinEdit.Size = New System.Drawing.Size(172, 20)
         Me.CODIGO_ROLSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_ROLSpinEdit.TabIndex = 5
         '
@@ -389,7 +408,7 @@ Partial Class XfrmUsuarios
         Me.CODIGO_PARTIDOSpinEdit.Properties.NullText = "Seleccione"
         Me.CODIGO_PARTIDOSpinEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
         Me.CODIGO_PARTIDOSpinEdit.Properties.ValueMember = "CODIGO_PARTIDO"
-        Me.CODIGO_PARTIDOSpinEdit.Size = New System.Drawing.Size(168, 20)
+        Me.CODIGO_PARTIDOSpinEdit.Size = New System.Drawing.Size(172, 20)
         Me.CODIGO_PARTIDOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_PARTIDOSpinEdit.TabIndex = 14
         '
@@ -411,7 +430,7 @@ Partial Class XfrmUsuarios
         Me.PREGUNTA_SEGURIDADTextEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.PREGUNTA_SEGURIDADTextEdit.Properties.NullText = "Seleccione"
         Me.PREGUNTA_SEGURIDADTextEdit.Properties.PopupSizeable = False
-        Me.PREGUNTA_SEGURIDADTextEdit.Size = New System.Drawing.Size(168, 20)
+        Me.PREGUNTA_SEGURIDADTextEdit.Size = New System.Drawing.Size(172, 20)
         Me.PREGUNTA_SEGURIDADTextEdit.StyleController = Me.DataLayoutControl1
         Me.PREGUNTA_SEGURIDADTextEdit.TabIndex = 11
         '
@@ -422,7 +441,7 @@ Partial Class XfrmUsuarios
         Me.CODIGO_USUARIOSpinEdit.Name = "CODIGO_USUARIOSpinEdit"
         Me.CODIGO_USUARIOSpinEdit.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered
         Me.CODIGO_USUARIOSpinEdit.Properties.MaxLength = 10
-        Me.CODIGO_USUARIOSpinEdit.Size = New System.Drawing.Size(107, 20)
+        Me.CODIGO_USUARIOSpinEdit.Size = New System.Drawing.Size(111, 20)
         Me.CODIGO_USUARIOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_USUARIOSpinEdit.TabIndex = 4
         '
@@ -439,7 +458,7 @@ Partial Class XfrmUsuarios
         Me.CODIGO_MOVIMIENTOSpinEdit.Properties.NullText = "Seleccione"
         Me.CODIGO_MOVIMIENTOSpinEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
         Me.CODIGO_MOVIMIENTOSpinEdit.Properties.ValueMember = "CODIGO_MOVIMIENTO"
-        Me.CODIGO_MOVIMIENTOSpinEdit.Size = New System.Drawing.Size(168, 20)
+        Me.CODIGO_MOVIMIENTOSpinEdit.Size = New System.Drawing.Size(172, 20)
         Me.CODIGO_MOVIMIENTOSpinEdit.StyleController = Me.DataLayoutControl1
         Me.CODIGO_MOVIMIENTOSpinEdit.TabIndex = 10
         '
@@ -452,14 +471,14 @@ Partial Class XfrmUsuarios
         '
         Me.ESTADOTextEdit.DataBindings.Add(New System.Windows.Forms.Binding("EditValue", Me.IMUSUARIOSBindingSource, "ESTADO", True))
         Me.ESTADOTextEdit.EditValue = "I"
-        Me.ESTADOTextEdit.Location = New System.Drawing.Point(257, 228)
+        Me.ESTADOTextEdit.Location = New System.Drawing.Point(260, 228)
         Me.ESTADOTextEdit.Name = "ESTADOTextEdit"
         Me.ESTADOTextEdit.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
         Me.ESTADOTextEdit.Properties.Caption = "Activar Usuario"
         Me.ESTADOTextEdit.Properties.ValueChecked = "A"
         Me.ESTADOTextEdit.Properties.ValueGrayed = "I"
         Me.ESTADOTextEdit.Properties.ValueUnchecked = "I"
-        Me.ESTADOTextEdit.Size = New System.Drawing.Size(215, 19)
+        Me.ESTADOTextEdit.Size = New System.Drawing.Size(212, 19)
         Me.ESTADOTextEdit.StyleController = Me.DataLayoutControl1
         Me.ESTADOTextEdit.TabIndex = 9
         '
@@ -472,7 +491,7 @@ Partial Class XfrmUsuarios
         Me.NIVELSpinEdit.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.NIVELSpinEdit.Properties.NullText = ""
         Me.NIVELSpinEdit.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
-        Me.NIVELSpinEdit.Size = New System.Drawing.Size(110, 20)
+        Me.NIVELSpinEdit.Size = New System.Drawing.Size(113, 20)
         Me.NIVELSpinEdit.StyleController = Me.DataLayoutControl1
         Me.NIVELSpinEdit.TabIndex = 13
         '
@@ -537,7 +556,7 @@ Partial Class XfrmUsuarios
         Me.LayoutControlGroup2.AllowDrawBackground = False
         Me.LayoutControlGroup2.CustomizationFormText = "autoGeneratedGroup0"
         Me.LayoutControlGroup2.GroupBordersVisible = False
-        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForCODIGO_USUARIO, Me.ItemForCODIGO_ROL, Me.ItemForPREGUNTA_SEGURIDAD, Me.ItemForRESPUESTA_SEGURIDAD, Me.ItemForNOMBRE, Me.ItemForIDENTIDAD, Me.ItemForCONTRASENA, Me.ItemForCODIGO_PARTIDO, Me.EmptySpaceItem1, Me.EmptySpaceItem3, Me.EmptySpaceItem4, Me.EmptySpaceItem5, Me.EmptySpaceItem6, Me.ItemForCODIGO_MOVIMIENTO, Me.EmptySpaceItem7, Me.EmptySpaceItem8, Me.EmptySpaceItem9, Me.EmptySpaceItem10, Me.ItemForESTADO, Me.EmptySpaceItem11, Me.LayoutControlItem4})
+        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.ItemForCODIGO_USUARIO, Me.ItemForCODIGO_ROL, Me.ItemForPREGUNTA_SEGURIDAD, Me.ItemForRESPUESTA_SEGURIDAD, Me.ItemForNOMBRE, Me.ItemForIDENTIDAD, Me.ItemForCONTRASENA, Me.ItemForCODIGO_PARTIDO, Me.EmptySpaceItem1, Me.EmptySpaceItem3, Me.EmptySpaceItem4, Me.EmptySpaceItem5, Me.EmptySpaceItem6, Me.ItemForCODIGO_MOVIMIENTO, Me.EmptySpaceItem7, Me.EmptySpaceItem8, Me.EmptySpaceItem9, Me.EmptySpaceItem10, Me.ItemForESTADO, Me.EmptySpaceItem11, Me.LayoutControlItem4, Me.LayoutControlItem5})
         Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "autoGeneratedGroup0"
         Me.LayoutControlGroup2.Size = New System.Drawing.Size(464, 266)
@@ -549,7 +568,7 @@ Partial Class XfrmUsuarios
         Me.ItemForCODIGO_USUARIO.CustomizationFormText = "CODIGO_USUARIO"
         Me.ItemForCODIGO_USUARIO.Location = New System.Drawing.Point(0, 0)
         Me.ItemForCODIGO_USUARIO.Name = "ItemForCODIGO_USUARIO"
-        Me.ItemForCODIGO_USUARIO.Size = New System.Drawing.Size(232, 24)
+        Me.ItemForCODIGO_USUARIO.Size = New System.Drawing.Size(236, 24)
         Me.ItemForCODIGO_USUARIO.Text = "Usuario"
         Me.ItemForCODIGO_USUARIO.TextSize = New System.Drawing.Size(117, 13)
         '
@@ -559,7 +578,7 @@ Partial Class XfrmUsuarios
         Me.ItemForCODIGO_ROL.CustomizationFormText = "CODIGO_ROL"
         Me.ItemForCODIGO_ROL.Location = New System.Drawing.Point(0, 96)
         Me.ItemForCODIGO_ROL.Name = "ItemForCODIGO_ROL"
-        Me.ItemForCODIGO_ROL.Size = New System.Drawing.Size(293, 24)
+        Me.ItemForCODIGO_ROL.Size = New System.Drawing.Size(297, 24)
         Me.ItemForCODIGO_ROL.Text = "Rol Usuario"
         Me.ItemForCODIGO_ROL.TextSize = New System.Drawing.Size(117, 13)
         '
@@ -569,7 +588,7 @@ Partial Class XfrmUsuarios
         Me.ItemForPREGUNTA_SEGURIDAD.CustomizationFormText = "PREGUNTA_SEGURIDAD"
         Me.ItemForPREGUNTA_SEGURIDAD.Location = New System.Drawing.Point(0, 168)
         Me.ItemForPREGUNTA_SEGURIDAD.Name = "ItemForPREGUNTA_SEGURIDAD"
-        Me.ItemForPREGUNTA_SEGURIDAD.Size = New System.Drawing.Size(293, 24)
+        Me.ItemForPREGUNTA_SEGURIDAD.Size = New System.Drawing.Size(297, 24)
         Me.ItemForPREGUNTA_SEGURIDAD.Text = "Pregunta de Seguridad"
         Me.ItemForPREGUNTA_SEGURIDAD.TextSize = New System.Drawing.Size(117, 13)
         '
@@ -579,7 +598,7 @@ Partial Class XfrmUsuarios
         Me.ItemForRESPUESTA_SEGURIDAD.CustomizationFormText = "RESPUESTA_SEGURIDAD"
         Me.ItemForRESPUESTA_SEGURIDAD.Location = New System.Drawing.Point(0, 192)
         Me.ItemForRESPUESTA_SEGURIDAD.Name = "ItemForRESPUESTA_SEGURIDAD"
-        Me.ItemForRESPUESTA_SEGURIDAD.Size = New System.Drawing.Size(292, 24)
+        Me.ItemForRESPUESTA_SEGURIDAD.Size = New System.Drawing.Size(296, 24)
         Me.ItemForRESPUESTA_SEGURIDAD.Text = "Respuesta de Seguridad"
         Me.ItemForRESPUESTA_SEGURIDAD.TextSize = New System.Drawing.Size(117, 13)
         '
@@ -589,7 +608,7 @@ Partial Class XfrmUsuarios
         Me.ItemForNOMBRE.CustomizationFormText = "NOMBRE"
         Me.ItemForNOMBRE.Location = New System.Drawing.Point(0, 24)
         Me.ItemForNOMBRE.Name = "ItemForNOMBRE"
-        Me.ItemForNOMBRE.Size = New System.Drawing.Size(291, 24)
+        Me.ItemForNOMBRE.Size = New System.Drawing.Size(295, 24)
         Me.ItemForNOMBRE.Text = "Nombre Completo"
         Me.ItemForNOMBRE.TextSize = New System.Drawing.Size(117, 13)
         '
@@ -599,7 +618,7 @@ Partial Class XfrmUsuarios
         Me.ItemForIDENTIDAD.CustomizationFormText = "IDENTIDAD"
         Me.ItemForIDENTIDAD.Location = New System.Drawing.Point(0, 48)
         Me.ItemForIDENTIDAD.Name = "ItemForIDENTIDAD"
-        Me.ItemForIDENTIDAD.Size = New System.Drawing.Size(292, 24)
+        Me.ItemForIDENTIDAD.Size = New System.Drawing.Size(296, 24)
         Me.ItemForIDENTIDAD.Text = "Identidad"
         Me.ItemForIDENTIDAD.TextSize = New System.Drawing.Size(117, 13)
         '
@@ -609,7 +628,7 @@ Partial Class XfrmUsuarios
         Me.ItemForCONTRASENA.CustomizationFormText = "CONTRASENA"
         Me.ItemForCONTRASENA.Location = New System.Drawing.Point(0, 72)
         Me.ItemForCONTRASENA.Name = "ItemForCONTRASENA"
-        Me.ItemForCONTRASENA.Size = New System.Drawing.Size(292, 24)
+        Me.ItemForCONTRASENA.Size = New System.Drawing.Size(296, 24)
         Me.ItemForCONTRASENA.Text = "Contraseña"
         Me.ItemForCONTRASENA.TextSize = New System.Drawing.Size(117, 13)
         '
@@ -619,7 +638,7 @@ Partial Class XfrmUsuarios
         Me.ItemForCODIGO_PARTIDO.CustomizationFormText = "CODIGO_PARTIDO"
         Me.ItemForCODIGO_PARTIDO.Location = New System.Drawing.Point(0, 120)
         Me.ItemForCODIGO_PARTIDO.Name = "ItemForCODIGO_PARTIDO"
-        Me.ItemForCODIGO_PARTIDO.Size = New System.Drawing.Size(293, 24)
+        Me.ItemForCODIGO_PARTIDO.Size = New System.Drawing.Size(297, 24)
         Me.ItemForCODIGO_PARTIDO.Text = "Partido Político"
         Me.ItemForCODIGO_PARTIDO.TextSize = New System.Drawing.Size(117, 13)
         '
@@ -627,9 +646,9 @@ Partial Class XfrmUsuarios
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(232, 0)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(236, 0)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(232, 24)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(228, 24)
         Me.EmptySpaceItem1.Text = "EmptySpaceItem1"
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -637,9 +656,9 @@ Partial Class XfrmUsuarios
         '
         Me.EmptySpaceItem3.AllowHotTrack = False
         Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Location = New System.Drawing.Point(291, 24)
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(295, 24)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Size = New System.Drawing.Size(173, 24)
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(169, 24)
         Me.EmptySpaceItem3.Text = "EmptySpaceItem3"
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -647,9 +666,9 @@ Partial Class XfrmUsuarios
         '
         Me.EmptySpaceItem4.AllowHotTrack = False
         Me.EmptySpaceItem4.CustomizationFormText = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Location = New System.Drawing.Point(292, 48)
+        Me.EmptySpaceItem4.Location = New System.Drawing.Point(296, 48)
         Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Size = New System.Drawing.Size(172, 24)
+        Me.EmptySpaceItem4.Size = New System.Drawing.Size(168, 24)
         Me.EmptySpaceItem4.Text = "EmptySpaceItem4"
         Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -657,9 +676,9 @@ Partial Class XfrmUsuarios
         '
         Me.EmptySpaceItem5.AllowHotTrack = False
         Me.EmptySpaceItem5.CustomizationFormText = "EmptySpaceItem5"
-        Me.EmptySpaceItem5.Location = New System.Drawing.Point(292, 72)
+        Me.EmptySpaceItem5.Location = New System.Drawing.Point(296, 72)
         Me.EmptySpaceItem5.Name = "EmptySpaceItem5"
-        Me.EmptySpaceItem5.Size = New System.Drawing.Size(172, 24)
+        Me.EmptySpaceItem5.Size = New System.Drawing.Size(168, 24)
         Me.EmptySpaceItem5.Text = "EmptySpaceItem5"
         Me.EmptySpaceItem5.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -667,9 +686,9 @@ Partial Class XfrmUsuarios
         '
         Me.EmptySpaceItem6.AllowHotTrack = False
         Me.EmptySpaceItem6.CustomizationFormText = "EmptySpaceItem6"
-        Me.EmptySpaceItem6.Location = New System.Drawing.Point(293, 96)
+        Me.EmptySpaceItem6.Location = New System.Drawing.Point(297, 96)
         Me.EmptySpaceItem6.Name = "EmptySpaceItem6"
-        Me.EmptySpaceItem6.Size = New System.Drawing.Size(171, 24)
+        Me.EmptySpaceItem6.Size = New System.Drawing.Size(167, 24)
         Me.EmptySpaceItem6.Text = "EmptySpaceItem6"
         Me.EmptySpaceItem6.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -679,7 +698,7 @@ Partial Class XfrmUsuarios
         Me.ItemForCODIGO_MOVIMIENTO.CustomizationFormText = "CODIGO_MOVIMIENTO"
         Me.ItemForCODIGO_MOVIMIENTO.Location = New System.Drawing.Point(0, 144)
         Me.ItemForCODIGO_MOVIMIENTO.Name = "ItemForCODIGO_MOVIMIENTO"
-        Me.ItemForCODIGO_MOVIMIENTO.Size = New System.Drawing.Size(293, 24)
+        Me.ItemForCODIGO_MOVIMIENTO.Size = New System.Drawing.Size(297, 24)
         Me.ItemForCODIGO_MOVIMIENTO.Text = "Movimiento"
         Me.ItemForCODIGO_MOVIMIENTO.TextSize = New System.Drawing.Size(117, 13)
         '
@@ -687,9 +706,9 @@ Partial Class XfrmUsuarios
         '
         Me.EmptySpaceItem7.AllowHotTrack = False
         Me.EmptySpaceItem7.CustomizationFormText = "EmptySpaceItem7"
-        Me.EmptySpaceItem7.Location = New System.Drawing.Point(293, 120)
+        Me.EmptySpaceItem7.Location = New System.Drawing.Point(297, 120)
         Me.EmptySpaceItem7.Name = "EmptySpaceItem7"
-        Me.EmptySpaceItem7.Size = New System.Drawing.Size(171, 24)
+        Me.EmptySpaceItem7.Size = New System.Drawing.Size(167, 24)
         Me.EmptySpaceItem7.Text = "EmptySpaceItem7"
         Me.EmptySpaceItem7.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -697,9 +716,9 @@ Partial Class XfrmUsuarios
         '
         Me.EmptySpaceItem8.AllowHotTrack = False
         Me.EmptySpaceItem8.CustomizationFormText = "EmptySpaceItem8"
-        Me.EmptySpaceItem8.Location = New System.Drawing.Point(293, 144)
+        Me.EmptySpaceItem8.Location = New System.Drawing.Point(297, 144)
         Me.EmptySpaceItem8.Name = "EmptySpaceItem8"
-        Me.EmptySpaceItem8.Size = New System.Drawing.Size(171, 24)
+        Me.EmptySpaceItem8.Size = New System.Drawing.Size(167, 24)
         Me.EmptySpaceItem8.Text = "EmptySpaceItem8"
         Me.EmptySpaceItem8.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -707,9 +726,9 @@ Partial Class XfrmUsuarios
         '
         Me.EmptySpaceItem9.AllowHotTrack = False
         Me.EmptySpaceItem9.CustomizationFormText = "EmptySpaceItem9"
-        Me.EmptySpaceItem9.Location = New System.Drawing.Point(293, 168)
+        Me.EmptySpaceItem9.Location = New System.Drawing.Point(297, 168)
         Me.EmptySpaceItem9.Name = "EmptySpaceItem9"
-        Me.EmptySpaceItem9.Size = New System.Drawing.Size(171, 24)
+        Me.EmptySpaceItem9.Size = New System.Drawing.Size(167, 24)
         Me.EmptySpaceItem9.Text = "EmptySpaceItem9"
         Me.EmptySpaceItem9.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -717,9 +736,9 @@ Partial Class XfrmUsuarios
         '
         Me.EmptySpaceItem10.AllowHotTrack = False
         Me.EmptySpaceItem10.CustomizationFormText = "EmptySpaceItem10"
-        Me.EmptySpaceItem10.Location = New System.Drawing.Point(292, 192)
+        Me.EmptySpaceItem10.Location = New System.Drawing.Point(296, 192)
         Me.EmptySpaceItem10.Name = "EmptySpaceItem10"
-        Me.EmptySpaceItem10.Size = New System.Drawing.Size(172, 24)
+        Me.EmptySpaceItem10.Size = New System.Drawing.Size(168, 24)
         Me.EmptySpaceItem10.Text = "EmptySpaceItem10"
         Me.EmptySpaceItem10.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -727,9 +746,9 @@ Partial Class XfrmUsuarios
         '
         Me.ItemForESTADO.Control = Me.ESTADOTextEdit
         Me.ItemForESTADO.CustomizationFormText = "ESTADO"
-        Me.ItemForESTADO.Location = New System.Drawing.Point(245, 216)
+        Me.ItemForESTADO.Location = New System.Drawing.Point(248, 216)
         Me.ItemForESTADO.Name = "ItemForESTADO"
-        Me.ItemForESTADO.Size = New System.Drawing.Size(219, 50)
+        Me.ItemForESTADO.Size = New System.Drawing.Size(216, 23)
         Me.ItemForESTADO.Text = "Estado"
         Me.ItemForESTADO.TextSize = New System.Drawing.Size(0, 0)
         Me.ItemForESTADO.TextToControlDistance = 0
@@ -739,7 +758,7 @@ Partial Class XfrmUsuarios
         '
         Me.EmptySpaceItem11.AllowHotTrack = False
         Me.EmptySpaceItem11.CustomizationFormText = "EmptySpaceItem11"
-        Me.EmptySpaceItem11.Location = New System.Drawing.Point(235, 216)
+        Me.EmptySpaceItem11.Location = New System.Drawing.Point(238, 216)
         Me.EmptySpaceItem11.Name = "EmptySpaceItem11"
         Me.EmptySpaceItem11.Size = New System.Drawing.Size(10, 50)
         Me.EmptySpaceItem11.Text = "Nivel"
@@ -751,9 +770,21 @@ Partial Class XfrmUsuarios
         Me.LayoutControlItem4.CustomizationFormText = "Nivel"
         Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 216)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(235, 50)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(238, 50)
         Me.LayoutControlItem4.Text = "Nivel"
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(117, 13)
+        '
+        'LayoutControlItem5
+        '
+        Me.LayoutControlItem5.Control = Me.btnpass
+        Me.LayoutControlItem5.CustomizationFormText = "LayoutControlItem5"
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(248, 239)
+        Me.LayoutControlItem5.Name = "LayoutControlItem5"
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(216, 27)
+        Me.LayoutControlItem5.Text = "LayoutControlItem5"
+        Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem5.TextToControlDistance = 0
+        Me.LayoutControlItem5.TextVisible = False
         '
         'GCBusqueda
         '
@@ -1036,6 +1067,7 @@ Partial Class XfrmUsuarios
         CType(Me.ItemForESTADO, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem11, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GCBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DTUSUARIOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1128,4 +1160,6 @@ Partial Class XfrmUsuarios
     Friend WithEvents TA_MOVIMIENTOTableAdapter As Inscripcion_de_Moviemientos.DSPoliticoTableAdapters.TA_MOVIMIENTOTableAdapter
     Friend WithEvents colCODIGO_MOVIMIENTO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents colCODIGO_PARTIDO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents btnpass As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LayoutControlItem5 As DevExpress.XtraLayout.LayoutControlItem
 End Class
