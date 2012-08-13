@@ -127,7 +127,7 @@ Public Class XfrmMovimientos
 
             End Try
             
-            Dim consulta As String = "SELECT INSIGNIA FROM IM_MOVIMIENTOS WHERE CODIGO_MOVIMIENTO=" & CODIGO_MOVIMIENTOSpinEdit.EditValue
+            Dim consulta As String = "SELECT INSIGNIA FROM IM_MOVIMIENTOS WHERE CODIGO_MOVIMIENTO=" & idmov & "and codigo_partido=" & idpart
             EMBLEMAPictureEdit.Image = COracle.ObtenerImagen(consulta, "INSIGNIA")
             'Dim consulta2 As String = "SELECT EMBLEMA FROM IM_MOVIMIENTOS WHERE CODIGO_MOVIMIENTO=" & CODIGO_MOVIMIENTOSpinEdit.EditValue
             'Me.EMBLEMAPictureEdit.Image = COracle.ObtenerImagen(consulta2, "EMBLEMA")
@@ -165,13 +165,13 @@ Public Class XfrmMovimientos
 
             Dim cnx As New OracleConnection(Configuracion.verconfig)
             Dim sqlstring As String
-            sqlstring = "UPDATE IM_MOVIMIENTOS SET INSIGNIA=:ft WHERE CODIGO_MOVIMIENTO=:cod and CODIGO_PARTIDO=:cp"
+            sqlstring = "UPDATE IM_MOVIMIENTOS SET INSIGNIA=:ft WHERE  CODIGO_PARTIDO=:cp and CODIGO_MOVIMIENTO=:cod"
             Dim cmd As New OracleCommand(sqlstring, cnx)
             cmd.Parameters.Add(":ft", OracleType.Blob).Value = Data.ConvertImageToByteArray(Me.EMBLEMAPictureEdit.Image)
+            cmd.Parameters.Add(":cp", OracleType.Number).Value = Me.CODIGO_PARTIDOSpinEdit.EditValue
 
             cmd.Parameters.Add(":cod", OracleType.Number).Value = Me.CODIGO_MOVIMIENTOSpinEdit.EditValue
-            cmd.Parameters.Add(":cp", OracleType.Blob).Value = Me.CODIGO_PARTIDOSpinEdit.EditValue
-            cnx.Open()
+           cnx.Open()
             cmd.ExecuteNonQuery()
             cnx.Close()
 
