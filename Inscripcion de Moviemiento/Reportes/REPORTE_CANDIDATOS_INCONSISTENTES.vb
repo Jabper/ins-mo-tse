@@ -113,4 +113,29 @@ Public Class REPORTE_CANDIDATOS_INCONSISTENTES
     Private Sub REPORTE_CANDIDATOS_INCONSISTENTES_ParametersRequestSubmit(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestEventArgs) Handles Me.ParametersRequestSubmit
 
     End Sub
+
+    Private Sub REPORTE_CANDIDATOS_INCONSISTENTES_ParametersRequestValueChanged(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestValueChangedEventArgs) Handles Me.ParametersRequestValueChanged
+        Dim dataset As New DS_REPORTE_DE_PNEM_1
+
+        If ActivarOpciones.PEstado = "TSE" Then
+            Using Adapter1 As New DS_REPORTE_DE_PNEM_1TableAdapters.IM_MOVIMIENTOSTableAdapter
+
+
+                Dim idp As String = COracle.ObtenerDatos("select codigo_partido from im_partidos_politicos where Nombre='" & e.ParametersInformation(0).Editor.Text & "'", "CODIGO_PARTIDO")
+                If idp <> "N" Then
+                    Adapter1.FillCodPartido(dataset.IM_MOVIMIENTOS, CType(idp, Integer))
+                    Adapter1.FillCodPartido(dataset.IM_MOVIMIENTOS, CType(idp, Integer))
+                    DirectCast(e.ParametersInformation(1).Editor, DevExpress.XtraEditors.LookUpEdit).Properties.DataSource = Nothing
+                    DirectCast(e.ParametersInformation(1).Editor, DevExpress.XtraEditors.LookUpEdit).Properties.DataSource = dataset.IM_MOVIMIENTOS
+                    'Adapter1.FillCodPartido(dataset.IM_MOVIMIENTOS, CType(idp, Integer))
+
+                    e.ParametersInformation(1).Editor.Update()
+                    e.ParametersInformation(1).Editor.Refresh()
+                End If
+
+
+
+            End Using
+        End If
+    End Sub
 End Class
