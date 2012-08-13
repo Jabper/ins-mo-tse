@@ -26,8 +26,14 @@ Public Class XfrmConFirmas
 
     Private Sub btnFiltro_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFiltro.Click
         fillGrid()
-    End Sub
 
+    End Sub
+    Sub filtrargrid()
+        GridView1.ActiveFilter.Clear()
+        Me.colPARTIDO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("PARTIDO='" & cbxPartido.Text & "'")
+        Me.colMOVIMIENTO.FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo("MOVIMIENTO='" & cbxMovimiento.Text & "'")
+
+    End Sub
     Private Sub btnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalir.Click
         Me.Close()
     End Sub
@@ -78,6 +84,7 @@ Public Class XfrmConFirmas
         Catch Myex As Exception
             MessageBox.Show(Myex.Message.ToString)
         End Try
+        filtrargrid()
     End Sub
 
     Private Sub GridView1_FocusedRowChanged(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles GridView1.FocusedRowChanged
