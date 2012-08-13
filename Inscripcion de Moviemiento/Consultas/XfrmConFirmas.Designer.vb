@@ -519,6 +519,7 @@ Partial Class XfrmConFirmas
         Me.GridView1.OptionsBehavior.Editable = False
         Me.GridView1.OptionsView.ColumnAutoWidth = False
         Me.GridView1.OptionsView.ShowDetailButtons = False
+        Me.GridView1.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never
         Me.GridView1.OptionsView.ShowGroupPanel = False
         '
         'colCODIGO_CUIDADANOS_RESPALDAN
