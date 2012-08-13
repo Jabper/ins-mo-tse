@@ -19,21 +19,30 @@ Public Class XfrmLogin
 
             If COracle.Login(Me.TxtUsuario, Me.TxtPassword) = True Then
 
+                If COracle.ObtenerDatos("select modificado_por from im_usuarios where codigo_usuario='" & usuario & "'", "modificado_por") = "" Or COracle.ObtenerDatos("select modificado_por from im_usuarios where codigo_usuario='" & usuario & "'", "modificado_por") = " " Then
 
-                'config()
-                'DESDE ACA PUEDO MANDAR A DESHABILITAR LAS OPCIONES DE VISUALIZACION DEL FORMULARIO PRINCIPAL
+                    Me.Visible = False
+                    XfrmCambiarPass.BringToFront()
 
-                'CREAR EN EL MENU PRINCIPAL UN PROCEDIMIENTO QUE ME MUESTRE EL USUARIO CONECTADO
-                'XFrmMenuPrincipal.showuser(NombreUsuario)
-                Me.TxtUsuario.Text = Nothing
-                Me.TxtUsuario.Text = Nothing
-                XFrmMenuPrincipal.TxtUser.Caption = NombreUsuario
-                XFrmMenuPrincipal.verificar_permisos()
+                    XfrmCambiarPass.Show()
 
-                XFrmMenuPrincipal.Visible = True
 
-                XFrmMenuPrincipal.Focus()
-                Me.Close()
+                Else
+                    'config()
+                    'DESDE ACA PUEDO MANDAR A DESHABILITAR LAS OPCIONES DE VISUALIZACION DEL FORMULARIO PRINCIPAL
+
+                    'CREAR EN EL MENU PRINCIPAL UN PROCEDIMIENTO QUE ME MUESTRE EL USUARIO CONECTADO
+                    'XFrmMenuPrincipal.showuser(NombreUsuario)
+                    Me.TxtUsuario.Text = Nothing
+                    Me.TxtUsuario.Text = Nothing
+                    XFrmMenuPrincipal.TxtUser.Caption = NombreUsuario
+                    XFrmMenuPrincipal.verificar_permisos()
+
+                    XFrmMenuPrincipal.Visible = True
+
+                    XFrmMenuPrincipal.Focus()
+                    Me.Close()
+                End If
             Else
                 Mensajes.MensajeError("Usuario o Contraseña Inválidos")
 
