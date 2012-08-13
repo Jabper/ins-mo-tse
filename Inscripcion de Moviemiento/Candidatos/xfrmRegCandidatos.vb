@@ -205,7 +205,7 @@ Public Class xfrmRegCandidatos
                 mujeres_ingresadas = COracle.ObtenerDatos(S1, "MUJERES")
 
 
-                Dim faltan As String = 3 - mujeres_ingresadas
+                Dim faltan As String = 2 - mujeres_ingresadas
                 If faltan < 0 Then
                     faltan = 0
                 End If
