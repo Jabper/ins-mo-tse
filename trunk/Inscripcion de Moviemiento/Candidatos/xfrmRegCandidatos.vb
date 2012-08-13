@@ -209,7 +209,7 @@ Public Class xfrmRegCandidatos
                 If faltan < 0 Then
                     faltan = 0
                 End If
-                Me.lblmujeres.Text = "Necesita Minimo 3 Mujeres entre Propietarias y Suplentes, Faltan " & (faltan)
+                Me.lblmujeres.Text = "Necesita Minimo 2 Mujeres entre Propietarias y Suplentes, Faltan " & (faltan)
 
             ElseIf depto = 9 Or depto = 11 Then
 
@@ -273,7 +273,7 @@ Public Class xfrmRegCandidatos
                 If faltan < 0 Then
                     faltan = 0
                 End If
-                Me.lblmujeres.Text = "Necesita Minimo 3 Mujeres entre Propietarias y Suplentes, Faltan " & (faltan)
+                Me.lblmujeres.Text = "Necesita Minimo 2 Mujeres entre Propietarias y Suplentes, Faltan " & (faltan)
 
             ElseIf depto = 9 Or depto = 11 Then
 
