@@ -1661,8 +1661,8 @@ Partial Public Class DSPolitico
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function FindByCODIGO_MOVIMIENTO(ByVal CODIGO_MOVIMIENTO As Decimal) As TA_MOVIMIENTORow
-            Return CType(Me.Rows.Find(New Object() {CODIGO_MOVIMIENTO}),TA_MOVIMIENTORow)
+        Public Function FindByCODIGO_MOVIMIENTOCODIGO_PARTIDO(ByVal CODIGO_MOVIMIENTO As Decimal, ByVal CODIGO_PARTIDO As Decimal) As TA_MOVIMIENTORow
+            Return CType(Me.Rows.Find(New Object() {CODIGO_MOVIMIENTO, CODIGO_PARTIDO}),TA_MOVIMIENTORow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1695,9 +1695,8 @@ Partial Public Class DSPolitico
             MyBase.Columns.Add(Me.columnCODIGO_PARTIDO)
             Me.columnNOMBRE = New Global.System.Data.DataColumn("NOMBRE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNOMBRE)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_MOVIMIENTO}, true))
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_MOVIMIENTO, Me.columnCODIGO_PARTIDO}, true))
             Me.columnCODIGO_MOVIMIENTO.AllowDBNull = false
-            Me.columnCODIGO_MOVIMIENTO.Unique = true
             Me.columnNOMBRE_MOVIMIENTO.AllowDBNull = false
             Me.columnNOMBRE_MOVIMIENTO.MaxLength = 200
             Me.columnCODIGO_PARTIDO.AllowDBNull = false
