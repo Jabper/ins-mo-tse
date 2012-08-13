@@ -1996,6 +1996,7 @@
     <None Include="Resources\instalador1.png" />
     <None Include="Resources\import1.png" />
     <Content Include="Resources\lockusr.png" />
+    <None Include="Resources\lockusuario.png" />
     <Content Include="Resources\logprocess1.png" />
     <Content Include="Resources\motivo.png" />
     <None Include="Resources\tse_logo.gif" />

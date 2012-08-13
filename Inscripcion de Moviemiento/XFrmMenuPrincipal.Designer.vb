@@ -638,7 +638,7 @@ Partial Class XFrmMenuPrincipal
         'BarStaticItem2
         '
         Me.BarStaticItem2.AllowRightClickInMenu = False
-        Me.BarStaticItem2.Caption = "Version 3.8 CS"
+        Me.BarStaticItem2.Caption = "Version 3.9 CS"
         Me.BarStaticItem2.Id = 71
         Me.BarStaticItem2.Name = "BarStaticItem2"
         Me.BarStaticItem2.TextAlignment = System.Drawing.StringAlignment.Near
@@ -659,7 +659,7 @@ Partial Class XFrmMenuPrincipal
         '
         Me.BtnCambiarPass.Caption = "Cambiar Mi Contraseña"
         Me.BtnCambiarPass.Id = 81
-        'Me.BtnCambiarPass.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.lockusr
+        Me.BtnCambiarPass.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.lockusuario
         Me.BtnCambiarPass.Name = "BtnCambiarPass"
         '
         'RibbonPage1
