@@ -10,7 +10,7 @@
 
     Public Shared Sub MoverArchivos()
         Try
-            My.Computer.FileSystem.MoveFile("C:\oraclexe\OracleXEUniv.exe", Application.StartupPath.ToString & "\CSIM\Aplicación\Componentes\OracleXEUniv.exe")
+            My.Computer.FileSystem.MoveFile("C:\oraclexe\setup.exe", Application.StartupPath.ToString & "\CSIM\Aplicación\Componentes\setup.exe")
             My.Computer.FileSystem.MoveFile("C:\oraclexe\Inscripción de Movimientos TSE.msi", Application.StartupPath.ToString & "\CSIM\Aplicación\Componentes\Inscripción de Movimientos TSE.msi")
 
         Catch ex As Exception

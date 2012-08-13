@@ -49,4 +49,20 @@
         
     End Sub
 
+
+    Public Shared Function PEstadoC() As String
+        Dim idp As String = COracle.ObtenerDatos("select codigo_partido from im_parametros_generales", "CODIGO_PARTIDO")
+        Dim idmov As String = COracle.ObtenerDatos("select codigo_movimiento from im_parametros_generales", "CODIGO_MOVIMIENTO")
+
+        If (idp = "N" Or idmov = "" Or idp = "0") And (idmov = "N" Or idmov = "" Or idmov = "0") Then
+            Return "TSE"
+        ElseIf (idp <> "N") And (idmov = "N" Or idmov = "" Or idmov = "0") Then
+            Return "PDO"
+
+        ElseIf (idp <> "N") And (idmov <> "N" Or idmov <> "" Or idmov <> "0") Then
+            Return "MOV"
+        End If
+
+    End Function
+
 End Class
