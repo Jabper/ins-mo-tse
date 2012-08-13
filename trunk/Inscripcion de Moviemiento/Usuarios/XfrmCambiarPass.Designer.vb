@@ -29,14 +29,12 @@ Partial Class XfrmCambiarPass
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl
         Me.Cancelar = New DevExpress.XtraEditors.SimpleButton
         Me.DxValidationProvider2 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
         CType(Me.txtpass2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtpass1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DxValidationProvider2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -90,23 +88,13 @@ Partial Class XfrmCambiarPass
         Me.SimpleButton1.TabIndex = 4
         Me.SimpleButton1.Text = "Cambiar mi Contraseña"
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.lockusr
-        Me.PictureBox1.Location = New System.Drawing.Point(26, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(68, 60)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 5
-        Me.PictureBox1.TabStop = False
-        '
         'LabelControl3
         '
         Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical
-        Me.LabelControl3.Location = New System.Drawing.Point(100, 21)
+        Me.LabelControl3.Location = New System.Drawing.Point(0, 0)
         Me.LabelControl3.Name = "LabelControl3"
-        Me.LabelControl3.Size = New System.Drawing.Size(238, 42)
+        Me.LabelControl3.Size = New System.Drawing.Size(304, 42)
         Me.LabelControl3.TabIndex = 6
         Me.LabelControl3.Text = "Para poder utilizar el sistema usted necesita cambiar su contraseña" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "a continuaci" & _
             "ón ingrese su contraseña" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
@@ -127,7 +115,6 @@ Partial Class XfrmCambiarPass
         Me.ControlBox = False
         Me.Controls.Add(Me.Cancelar)
         Me.Controls.Add(Me.LabelControl3)
-        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.LabelControl2)
         Me.Controls.Add(Me.LabelControl1)
@@ -142,7 +129,6 @@ Partial Class XfrmCambiarPass
         CType(Me.txtpass2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtpass1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DxValidationProvider2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -154,7 +140,6 @@ Partial Class XfrmCambiarPass
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents Cancelar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents DxValidationProvider2 As DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider
