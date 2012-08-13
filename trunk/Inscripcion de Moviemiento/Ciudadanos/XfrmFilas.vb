@@ -103,8 +103,10 @@
     Sub mostrar()
 
         If VControles.ComprobarFormAbierto(XfrmCiudadanos) Then
-
+            'If MsgBox("Ya existe una pantalla abierta de transcripción de firmas, para continuar co", MsgBoxStyle.Critical, "mensaje") = MsgBoxResult.Yes Then
             XfrmCiudadanos.Close()
+            'End If
+
         End If
 
         XfrmCiudadanos.Show()

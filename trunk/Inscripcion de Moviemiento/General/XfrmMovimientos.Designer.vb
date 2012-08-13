@@ -260,7 +260,7 @@ Partial Class XfrmMovimientos
         Me.GridView1.OptionsBehavior.Editable = False
         Me.GridView1.OptionsView.ShowDetailButtons = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
-        Me.GridView1.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.colCODIGO_MOVIMIENTO, DevExpress.Data.ColumnSortOrder.Ascending)})
+        Me.GridView1.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.colCODIGO_PARTIDO, DevExpress.Data.ColumnSortOrder.Ascending)})
         '
         'colCODIGO_MOVIMIENTO
         '
