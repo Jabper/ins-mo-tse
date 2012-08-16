@@ -111,6 +111,9 @@ Partial Public Class REPORTE_ENTREGA_PLANILLA_FIRMAS
         Me.ALCALDE3 = New DevExpress.XtraReports.UI.XRLabel
         Me.VICE3ADD = New DevExpress.XtraReports.UI.XRLabel
         Me.REGIDOR3 = New DevExpress.XtraReports.UI.XRLabel
+        Me.ReportFooter = New DevExpress.XtraReports.UI.ReportFooterBand
+        Me.XrPageInfo2 = New DevExpress.XtraReports.UI.XRPageInfo
+        Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -118,6 +121,7 @@ Partial Public Class REPORTE_ENTREGA_PLANILLA_FIRMAS
         '
         'Detail
         '
+        Me.Detail.HeightF = 3.476295!
         Me.Detail.Name = "Detail"
         Me.Detail.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
@@ -291,7 +295,7 @@ Partial Public Class REPORTE_ENTREGA_PLANILLA_FIRMAS
         'GroupHeader4
         '
         Me.GroupHeader4.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.ALCALDE3, Me.CONGRESOS3, Me.REGIDOR3, Me.VICE3ADD, Me.CONGRESOP3, Me.DESIGNADO3, Me.PRESIDENTE3, Me.PARLACENS3, Me.PARLACENP3, Me.REGIDOR2, Me.VICE3, Me.ALCALDE2, Me.CONGRESOS2, Me.CONGRESOP2, Me.PARLACENS2, Me.PARLACENP2, Me.DESIGNADO2, Me.PRESIDENTE2, Me.XrLabel28, Me.XrLabel27, Me.XrLabel26, Me.XrLabel25, Me.XrLabel24, Me.XrLabel23, Me.XrLabel22, Me.XrLabel21, Me.XrLabel20, Me.REGIDOR1, Me.VICE2, Me.REGIDOR, Me.VICE, Me.ALCALDE1, Me.ALCALDE, Me.CONGRESOS1, Me.CONGRESOS, Me.CONGRESOP1, Me.CONGRESOP, Me.PARLACENS1, Me.PARLACENS, Me.PARLACENP1, Me.PARLACENP, Me.DESIGNADO1, Me.DESIGNADO, Me.PRESIDENTE1, Me.PRESIDENTE, Me.XrLabel18, Me.XrLabel17, Me.XrLabel16, Me.XrLabel15, Me.XrLabel14, Me.XrLabel13, Me.XrLabel12, Me.XrLabel11, Me.XrLabel10})
-        Me.GroupHeader4.HeightF = 746.589!
+        Me.GroupHeader4.HeightF = 387.1216!
         Me.GroupHeader4.Name = "GroupHeader4"
         Me.GroupHeader4.StylePriority.UseTextAlignment = False
         '
@@ -1089,9 +1093,32 @@ Partial Public Class REPORTE_ENTREGA_PLANILLA_FIRMAS
         Me.REGIDOR3.Text = "REGIDOR3"
         Me.REGIDOR3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
+        'ReportFooter
+        '
+        Me.ReportFooter.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrPageInfo1, Me.XrPageInfo2})
+        Me.ReportFooter.HeightF = 60.05914!
+        Me.ReportFooter.Name = "ReportFooter"
+        '
+        'XrPageInfo2
+        '
+        Me.XrPageInfo2.Format = "Page {0} of {1}"
+        Me.XrPageInfo2.LocationFloat = New DevExpress.Utils.PointFloat(712.0002!, 9.999969!)
+        Me.XrPageInfo2.Name = "XrPageInfo2"
+        Me.XrPageInfo2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrPageInfo2.SizeF = New System.Drawing.SizeF(313.0!, 23.0!)
+        Me.XrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
+        '
+        'XrPageInfo1
+        '
+        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(10.0!, 9.999969!)
+        Me.XrPageInfo1.Name = "XrPageInfo1"
+        Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
+        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(313.0!, 23.0!)
+        '
         'REPORTE_ENTREGA_PLANILLA_FIRMAS
         '
-        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.GroupHeader1, Me.GroupHeader2, Me.GroupHeader3, Me.GroupHeader4})
+        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.GroupHeader1, Me.GroupHeader2, Me.GroupHeader3, Me.GroupHeader4, Me.ReportFooter})
         Me.DataSource = Me.BindingSource1
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(33, 25, 127, 40)
@@ -1197,4 +1224,7 @@ Partial Public Class REPORTE_ENTREGA_PLANILLA_FIRMAS
     Friend WithEvents PRESIDENTE3 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents PARLACENS3 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents PARLACENP3 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents ReportFooter As DevExpress.XtraReports.UI.ReportFooterBand
+    Friend WithEvents XrPageInfo1 As DevExpress.XtraReports.UI.XRPageInfo
+    Friend WithEvents XrPageInfo2 As DevExpress.XtraReports.UI.XRPageInfo
 End Class
