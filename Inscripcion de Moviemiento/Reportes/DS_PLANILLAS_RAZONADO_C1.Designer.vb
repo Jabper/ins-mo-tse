@@ -286,6 +286,14 @@ Partial Public Class DS_PLANILLAS_RAZONADO_C
         
         Private columnCODIGO_MOVIMIENTO As Global.System.Data.DataColumn
         
+        Private columnPARTIDO As Global.System.Data.DataColumn
+        
+        Private columnMOVIMIENTO As Global.System.Data.DataColumn
+        
+        Private columnNIVEL As Global.System.Data.DataColumn
+        
+        Private columnCANTIDAD_REGIDORES As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -388,6 +396,34 @@ Partial Public Class DS_PLANILLAS_RAZONADO_C
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property PARTIDOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPARTIDO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property MOVIMIENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMOVIMIENTO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property NIVELColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNIVEL
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CANTIDAD_REGIDORESColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCANTIDAD_REGIDORES
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -417,17 +453,12 @@ Partial Public Class DS_PLANILLAS_RAZONADO_C
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddPLANILLARow(ByVal CARGO_ACTUAL As Decimal, ByVal CODIGO_CARGO_ELECTIVO As Decimal, ByVal CARGO As String, ByVal CODIGO_DEPARTAMENTO As Decimal, ByVal DEPARTAMENTO As String, ByVal MUNICIPIO As String, ByVal CANTIDAD_CARGO As Decimal, ByVal CANTIDAD_DIPUTADOS As Decimal, ByVal CODIGO_PARTIDO As Decimal, ByVal CODIGO_MOVIMIENTO As Decimal) As PLANILLARow
+        Public Overloads Function AddPLANILLARow(ByVal CARGO_ACTUAL As Decimal, ByVal CODIGO_CARGO_ELECTIVO As Decimal, ByVal CARGO As String, ByVal CODIGO_DEPARTAMENTO As Decimal, ByVal DEPARTAMENTO As String, ByVal MUNICIPIO As String, ByVal CANTIDAD_CARGO As Decimal, ByVal CANTIDAD_DIPUTADOS As Decimal, ByVal CODIGO_PARTIDO As Decimal, ByVal CODIGO_MOVIMIENTO As Decimal, ByVal PARTIDO As String, ByVal MOVIMIENTO As String, ByVal NIVEL As String, ByVal CANTIDAD_REGIDORES As Decimal) As PLANILLARow
             Dim rowPLANILLARow As PLANILLARow = CType(Me.NewRow,PLANILLARow)
-            Dim columnValuesArray() As Object = New Object() {CARGO_ACTUAL, CODIGO_CARGO_ELECTIVO, CARGO, CODIGO_DEPARTAMENTO, DEPARTAMENTO, MUNICIPIO, CANTIDAD_CARGO, CANTIDAD_DIPUTADOS, CODIGO_PARTIDO, CODIGO_MOVIMIENTO}
+            Dim columnValuesArray() As Object = New Object() {CARGO_ACTUAL, CODIGO_CARGO_ELECTIVO, CARGO, CODIGO_DEPARTAMENTO, DEPARTAMENTO, MUNICIPIO, CANTIDAD_CARGO, CANTIDAD_DIPUTADOS, CODIGO_PARTIDO, CODIGO_MOVIMIENTO, PARTIDO, MOVIMIENTO, NIVEL, CANTIDAD_REGIDORES}
             rowPLANILLARow.ItemArray = columnValuesArray
             Me.Rows.Add(rowPLANILLARow)
             Return rowPLANILLARow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function FindByCODIGO_CARGO_ELECTIVO(ByVal CODIGO_CARGO_ELECTIVO As Decimal) As PLANILLARow
-            Return CType(Me.Rows.Find(New Object() {CODIGO_CARGO_ELECTIVO}),PLANILLARow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -454,6 +485,10 @@ Partial Public Class DS_PLANILLAS_RAZONADO_C
             Me.columnCANTIDAD_DIPUTADOS = MyBase.Columns("CANTIDAD_DIPUTADOS")
             Me.columnCODIGO_PARTIDO = MyBase.Columns("CODIGO_PARTIDO")
             Me.columnCODIGO_MOVIMIENTO = MyBase.Columns("CODIGO_MOVIMIENTO")
+            Me.columnPARTIDO = MyBase.Columns("PARTIDO")
+            Me.columnMOVIMIENTO = MyBase.Columns("MOVIMIENTO")
+            Me.columnNIVEL = MyBase.Columns("NIVEL")
+            Me.columnCANTIDAD_REGIDORES = MyBase.Columns("CANTIDAD_REGIDORES")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -478,9 +513,15 @@ Partial Public Class DS_PLANILLAS_RAZONADO_C
             MyBase.Columns.Add(Me.columnCODIGO_PARTIDO)
             Me.columnCODIGO_MOVIMIENTO = New Global.System.Data.DataColumn("CODIGO_MOVIMIENTO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCODIGO_MOVIMIENTO)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCODIGO_CARGO_ELECTIVO}, true))
+            Me.columnPARTIDO = New Global.System.Data.DataColumn("PARTIDO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPARTIDO)
+            Me.columnMOVIMIENTO = New Global.System.Data.DataColumn("MOVIMIENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMOVIMIENTO)
+            Me.columnNIVEL = New Global.System.Data.DataColumn("NIVEL", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNIVEL)
+            Me.columnCANTIDAD_REGIDORES = New Global.System.Data.DataColumn("CANTIDAD_REGIDORES", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCANTIDAD_REGIDORES)
             Me.columnCODIGO_CARGO_ELECTIVO.AllowDBNull = false
-            Me.columnCODIGO_CARGO_ELECTIVO.Unique = true
             Me.columnCARGO.AllowDBNull = false
             Me.columnCARGO.MaxLength = 100
             Me.columnCODIGO_DEPARTAMENTO.AllowDBNull = false
@@ -491,6 +532,13 @@ Partial Public Class DS_PLANILLAS_RAZONADO_C
             Me.columnCANTIDAD_DIPUTADOS.AllowDBNull = false
             Me.columnCODIGO_PARTIDO.AllowDBNull = false
             Me.columnCODIGO_MOVIMIENTO.AllowDBNull = false
+            Me.columnPARTIDO.AllowDBNull = false
+            Me.columnPARTIDO.MaxLength = 100
+            Me.columnMOVIMIENTO.AllowDBNull = false
+            Me.columnMOVIMIENTO.MaxLength = 200
+            Me.columnNIVEL.AllowDBNull = false
+            Me.columnNIVEL.MaxLength = 100
+            Me.columnCANTIDAD_REGIDORES.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -735,6 +783,46 @@ Partial Public Class DS_PLANILLAS_RAZONADO_C
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property PARTIDO() As String
+            Get
+                Return CType(Me(Me.tablePLANILLA.PARTIDOColumn),String)
+            End Get
+            Set
+                Me(Me.tablePLANILLA.PARTIDOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property MOVIMIENTO() As String
+            Get
+                Return CType(Me(Me.tablePLANILLA.MOVIMIENTOColumn),String)
+            End Get
+            Set
+                Me(Me.tablePLANILLA.MOVIMIENTOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property NIVEL() As String
+            Get
+                Return CType(Me(Me.tablePLANILLA.NIVELColumn),String)
+            End Get
+            Set
+                Me(Me.tablePLANILLA.NIVELColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CANTIDAD_REGIDORES() As Decimal
+            Get
+                Return CType(Me(Me.tablePLANILLA.CANTIDAD_REGIDORESColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tablePLANILLA.CANTIDAD_REGIDORESColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsCARGO_ACTUALNull() As Boolean
             Return Me.IsNull(Me.tablePLANILLA.CARGO_ACTUALColumn)
         End Function
@@ -922,6 +1010,10 @@ Namespace DS_PLANILLAS_RAZONADO_CTableAdapters
             tableMapping.ColumnMappings.Add("CANTIDAD_DIPUTADOS", "CANTIDAD_DIPUTADOS")
             tableMapping.ColumnMappings.Add("CODIGO_PARTIDO", "CODIGO_PARTIDO")
             tableMapping.ColumnMappings.Add("CODIGO_MOVIMIENTO", "CODIGO_MOVIMIENTO")
+            tableMapping.ColumnMappings.Add("PARTIDO", "PARTIDO")
+            tableMapping.ColumnMappings.Add("MOVIMIENTO", "MOVIMIENTO")
+            tableMapping.ColumnMappings.Add("NIVEL", "NIVEL")
+            tableMapping.ColumnMappings.Add("CANTIDAD_REGIDORES", "CANTIDAD_REGIDORES")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -936,47 +1028,30 @@ Namespace DS_PLANILLAS_RAZONADO_CTableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "select count(1)cargo_actual,CE.CODIGO_CARGO_ELECTIVO,CE.DESCRIPCION""CARGO"","&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"C1.C"& _ 
-                "ODIGO_DEPARTAMENTO, D.DESCRIPCION""DEPARTAMENTO"",MUNI.DESCRIPCION""MUNICIPIO"", CE."& _ 
-                "CANTIDAD_CARGO ,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"D.CANTIDAD_DIPUTADOS, C1.CODIGO_PARTIDO , C1.CODIGO_MOVIMIENTO"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"from im_candidatos c1, im_departamentos d,  im_partidos_politicos pa, im_movim"& _ 
-                "ientos mov, im_cargos_electivos ce, im_nivel_electivo ne, im_municipios muni"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"wh"& _ 
-                "ere C1.CODIGO_CARGO_ELECTIVO = CE.CODIGO_CARGO_ELECTIVO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and CE.CODIGO_NIVEL_EL"& _ 
-                "ECTIVO = NE.CODIGO_NIVEL_ELECTIVO   "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and NE.DESCRIPCION = :NE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and PA.NOMBRE =:"& _ 
-                "PA"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and MOV.NOMBRE_MOVIMIENTO =:mov"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C1.CODIGO_DEPARTAMENTO = D.CODIGO_DEPAR"& _ 
-                "TAMENTO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C1.CODIGO_DEPARTAMENTO = MUNI.CODIGO_DEPARTAMENTO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C1.CODIGO_"& _ 
-                "MUNICIPIO = MUNI.CODIGO_MUNICIPIO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and  C1.ESTADO = 'H'"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C1.CODIGO_PARTIDO "& _ 
-                "= PA.CODIGO_PARTIDO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C1.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C1.CODIGO"& _ 
-                "_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"group by C1.CODIGO_DEPARTAMENTO,D.DESCRIPC"& _ 
-                "ION,D.CANTIDAD_DIPUTADOS ,C1.CODIGO_PARTIDO , C1.CODIGO_MOVIMIENTO,CE.CANTIDAD_C"& _ 
-                "ARGO,CE.CODIGO_CARGO_ELECTIVO,CE.DESCRIPCION,MUNI.DESCRIPCION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"order by codigo_d"& _ 
-                "epartamento"
+            Me._commandCollection(0).CommandText = ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"select count(1)cargo_actual,CE.CODIGO_CARGO_ELECTIVO,CE.DESCRIPCION""CARGO"","&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"C1"& _ 
+                ".CODIGO_DEPARTAMENTO, D.DESCRIPCION""DEPARTAMENTO"",MUNI.DESCRIPCION""MUNICIPIO"", C"& _ 
+                "E.CANTIDAD_CARGO,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"D.CANTIDAD_DIPUTADOS,MUNI.CANTIDAD_REGIDORES, C1.CODIGO_PARTI"& _ 
+                "DO , C1.CODIGO_MOVIMIENTO,PA.NOMBRE ""PARTIDO"", MOV.NOMBRE_MOVIMIENTO ""MOVIMIENTO"& _ 
+                """,NE.DESCRIPCION ""NIVEL"""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"from im_candidatos c1, im_departamentos d,  im_partido"& _ 
+                "s_politicos pa, im_movimientos mov, im_cargos_electivos ce, im_nivel_electivo ne"& _ 
+                ", im_municipios muni"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where C1.CODIGO_CARGO_ELECTIVO = CE.CODIGO_CARGO_ELECTIVO "& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and CE.CODIGO_NIVEL_ELECTIVO = NE.CODIGO_NIVEL_ELECTIVO   "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C1.CODIGO_DEPA"& _ 
+                "RTAMENTO = D.CODIGO_DEPARTAMENTO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C1.CODIGO_DEPARTAMENTO = MUNI.CODIGO_DEPA"& _ 
+                "RTAMENTO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C1.CODIGO_MUNICIPIO = MUNI.CODIGO_MUNICIPIO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and  C1.ESTADO = 'H"& _ 
+                "'"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C1.CODIGO_PARTIDO = PA.CODIGO_PARTIDO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C1.CODIGO_PARTIDO = MOV.CODIG"& _ 
+                "O_PARTIDO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and C1.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"group by C1.CODIG"& _ 
+                "O_DEPARTAMENTO,D.DESCRIPCION,D.CANTIDAD_DIPUTADOS ,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"C1.CODIGO_PARTIDO , C1.CODI"& _ 
+                "GO_MOVIMIENTO,CE.CANTIDAD_CARGO,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"CE.CODIGO_CARGO_ELECTIVO,CE.DESCRIPCION,MUNI.D"& _ 
+                "ESCRIPCION,PA.NOMBRE,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"MOV.NOMBRE_MOVIMIENTO,NE.DESCRIPCION,MUNI.CANTIDAD_REGIDO"& _ 
+                "RES "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"order by codigo_departamento"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("NE", Global.System.Data.OracleClient.OracleType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, "CARGO", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("PA", Global.System.Data.OracleClient.OracleType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, "", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("mov", Global.System.Data.OracleClient.OracleType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, "", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DS_PLANILLAS_RAZONADO_C.PLANILLADataTable, ByVal NE As String, ByVal PA As String, ByVal mov As String) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DS_PLANILLAS_RAZONADO_C.PLANILLADataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (NE Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("NE")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(NE,String)
-            End If
-            If (PA Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("PA")
-            Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(PA,String)
-            End If
-            If (mov Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("mov")
-            Else
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(mov,String)
-            End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -987,23 +1062,8 @@ Namespace DS_PLANILLAS_RAZONADO_CTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal NE As String, ByVal PA As String, ByVal mov As String) As DS_PLANILLAS_RAZONADO_C.PLANILLADataTable
+        Public Overloads Overridable Function GetData() As DS_PLANILLAS_RAZONADO_C.PLANILLADataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (NE Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("NE")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(NE,String)
-            End If
-            If (PA Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("PA")
-            Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(PA,String)
-            End If
-            If (mov Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("mov")
-            Else
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(mov,String)
-            End If
             Dim dataTable As DS_PLANILLAS_RAZONADO_C.PLANILLADataTable = New DS_PLANILLAS_RAZONADO_C.PLANILLADataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
