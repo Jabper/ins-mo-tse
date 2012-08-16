@@ -688,16 +688,17 @@ Public Class xfrmRegCandidatos
                 mensajeerror = "Ciudadano No Existe en el Padron Electoral"
                 e.Valid = False
                 view.FocusedColumn.FieldName = "IDENTIDAD"
-            ElseIf COracle.ObtenerDatos(a, "CODIGO_HABI_INHA") = "E01" Then
-                mensajeerror = "Ciudadano Inhabilitado contacte al TSE"
-                e.Valid = False
-                view.FocusedColumn.FieldName = "IDENTIDAD"
-            ElseIf COracle.ObtenerDatos(a, "CODIGO_HABI_INHA") = "E03" Then
-                mensajeerror = "Ciudadano Inhabilitado contacte al TSE"
-                e.Valid = False
-                view.FocusedColumn.FieldName = "IDENTIDAD"
+                'ElseIf COracle.ObtenerDatos(a, "CODIGO_HABI_INHA") = "E01" Then
+                '    mensajeerror = "Ciudadano Inhabilitado contacte al TSE"
+                '    e.Valid = False
+                '    view.FocusedColumn.FieldName = "IDENTIDAD"
+                'ElseIf COracle.ObtenerDatos(a, "CODIGO_HABI_INHA") = "E03" Then
+                '    mensajeerror = "Ciudadano Inhabilitado contacte al TSE"
+                '    e.Valid = False
+                '    view.FocusedColumn.FieldName = "IDENTIDAD"
             Else
-
+                'deja ingresar sin importanr la equidad de genero
+                ingreso_hombre = 1
                 If ingreso_hombre = 0 Then
                     Dim SEXO As String = COracle.ObtenerDatos(a, "SEXO")
                     If SEXO = "1" Then
