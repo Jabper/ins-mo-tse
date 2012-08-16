@@ -39,7 +39,7 @@
     End Sub
     Sub CambiarContraseña()
         'If COracle.ObtenerDatos("select modificado_por from im_usuarios where codigo_usuario='" & usuario & "'", "modificado_por") = "N" Then
-        COracle.ejecutarconsulta("update im_usuarios set contrasena='" & Me.txtpass1.Text & "', fecha_modificacion=TO_DATE('" & DateTime.Now.ToString("MM/dd/yyyy") & "','DD/MM/YYYY'), modificado_por='" & usuario & "' where codigo_usuario='" & usuario & "'")
+        COracle.ejecutarconsulta("update im_usuarios set contrasena='" & Me.txtpass1.Text & "', fecha_modificacion=TO_DATE('" & DateTime.Now.ToString("dd/MM/yyyy") & "','DD/MM/YYYY'), modificado_por='" & usuario & "' where codigo_usuario='" & usuario & "'")
         'End If
     End Sub
 
