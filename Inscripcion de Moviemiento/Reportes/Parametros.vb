@@ -82,28 +82,37 @@
     End Sub
 
     Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton1.Click
-        Try
-            'Me.IM_CANDIDATOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.IM_CANDIDATOS, Me.cboPartido.Text, Me.cboMovimiento.Text, Me.cbonivel.Text, Me.cboDepto.Text, Me.cboMuni.Text)
+        'Try
+        '    'Me.IM_CANDIDATOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.IM_CANDIDATOS, Me.cboPartido.Text, Me.cboMovimiento.Text, Me.cbonivel.Text, Me.cboDepto.Text, Me.cboMuni.Text)
 
-            Dim reporte_planilla As REPORTE_PLANILLAS_FINALES = New REPORTE_PLANILLAS_FINALES
-            'Me.IM_CANDIDATOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.IM_CANDIDATOS, Me.cboPartido.Text, Me.cboMovimiento.Text, Me.cbonivel.Text Me.cboDepto.Text, Me.cboMuni.Text)
-            'reporte_planilla.IM_CANDIDATOSTableAdapter.FillBy(reporte_planilla.DS_PLANILLA_TOTALES1.IM_CANDIDATOS, Me.cboPartido.Text, Me.cboMovimiento.Text, Me.cbonivel.Text, Me.cboDepto.Text, Me.cboMuni.Text)
-            reporte_planilla.FilterString = "[MUNICIPIO] = '" & Me.cboMuni.Text & "' And [PARTIDO] = '" & Me.cbopartido.Text & "' And [DEPARTAMENTO] = '" & Me.cboDepto.Text & "' And [CARGO] = '" & Me.cbocargo.Text & "' And [NOMBRE_MOVIMIENTO] = '" & Me.CmbMovimiento.Text & "'"
-            '  reporte_planilla.partido = Me.cboPartido.Text
-            'reporte_planilla.NombrePartido = cbopartido.Text
-            ' reporte_planilla.NombreMovimiento = cboMovimiento.Text
-            reporte_planilla.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(reporte_planilla.DS_LOG.IM_PARTIDOS_POLITICOS_imagen, cbopartido.Text)
-            reporte_planilla.IM_MOVIMIENTOS_imagenTableAdapter.Fill(reporte_planilla.DS_LOG.IM_MOVIMIENTOS_imagen, CmbMovimiento.Text)
-            reporte_planilla.ShowPreview()
-            Me.Close()
-            Me.partido = Me.cbopartido.Text
-            Me.nivel = Me.cbocargo.Text
-            movimiento = (Me.CmbMovimiento.Text)
+        '    Dim reporte_planilla As REPORTE_PLANILLAS_FINALES = New REPORTE_PLANILLAS_FINALES
+        '    'Me.IM_CANDIDATOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.IM_CANDIDATOS, Me.cboPartido.Text, Me.cboMovimiento.Text, Me.cbonivel.Text Me.cboDepto.Text, Me.cboMuni.Text)
+        '    'reporte_planilla.IM_CANDIDATOSTableAdapter.FillBy(reporte_planilla.DS_PLANILLA_TOTALES1.IM_CANDIDATOS, Me.cboPartido.Text, Me.cboMovimiento.Text, Me.cbonivel.Text, Me.cboDepto.Text, Me.cboMuni.Text)
+        '    reporte_planilla.FilterString = "[MUNICIPIO] = '" & Me.cboMuni.Text & "' And [PARTIDO] = '" & Me.cbopartido.Text & "' And [DEPARTAMENTO] = '" & Me.cboDepto.Text & "' And [CARGO] = '" & Me.cbocargo.Text & "' And [NOMBRE_MOVIMIENTO] = '" & Me.CmbMovimiento.Text & "'"
+        '    '  reporte_planilla.partido = Me.cboPartido.Text
+        '    'reporte_planilla.NombrePartido = cbopartido.Text
+        '    ' reporte_planilla.NombreMovimiento = cboMovimiento.Text
+        '    reporte_planilla.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(reporte_planilla.DS_LOG.IM_PARTIDOS_POLITICOS_imagen, cbopartido.Text)
+        '    reporte_planilla.IM_MOVIMIENTOS_imagenTableAdapter.Fill(reporte_planilla.DS_LOG.IM_MOVIMIENTOS_imagen, CmbMovimiento.Text)
+        '    reporte_planilla.ShowPreview()
+        '    Me.Close()
+        '    Me.partido = Me.cbopartido.Text
+        '    Me.nivel = Me.cbocargo.Text
+        '    movimiento = (Me.CmbMovimiento.Text)
 
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-     
+        'Catch ex As Exception
+        '    MsgBox(ex.Message)
+        'End Try
+        Dim report As xrptPlanilla = New xrptPlanilla
+        report.txtpartido.Text = Me.cbopartido.Text
+        report.txtmovimiento.Text = Me.CmbMovimiento.Text
+        report.txtcargo.Text = Me.cbocargo.Text
+        report.txtusuario.Text = NombreUsuario
+        report.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(report.DS_LOG.IM_PARTIDOS_POLITICOS_imagen, cbopartido.Text)
+        report.IM_MOVIMIENTOS_imagenTableAdapter.Fill(report.DS_LOG.IM_MOVIMIENTOS_imagen, CmbMovimiento.Text)
+
+        report.filtrar(Me.CmbMovimiento.EditValue, Me.cbopartido.EditValue, Me.cboMuni.EditValue, Me.cboDepto.EditValue, Me.cbocargo.EditValue)
+        report.ShowPreview()
 
     End Sub
 

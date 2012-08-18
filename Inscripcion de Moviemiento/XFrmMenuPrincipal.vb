@@ -566,6 +566,6 @@ Public Class XFrmMenuPrincipal
     Private Sub BTNRepplanifirm_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNRepplanifirm.ItemClick
         Dim REPORTE_ENTREGA As REPORTE_ENTREGA_PLANILLA_FIRMAS = New REPORTE_ENTREGA_PLANILLA_FIRMAS
         REPORTE_ENTREGA.ShowPreview()
-
+        
     End Sub
 End Class
