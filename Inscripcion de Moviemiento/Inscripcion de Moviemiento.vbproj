@@ -282,16 +282,16 @@
     <Compile Include="Configuracion\XtraForm1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Consultas\DSConsultas.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSConsultas.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Consultas\frmImagenFirmaModal.Designer.vb">
       <DependentUpon>frmImagenFirmaModal.vb</DependentUpon>
     </Compile>
     <Compile Include="Consultas\frmImagenFirmaModal.vb">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Consultas\DSConsultas.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DSConsultas.xsd</DependentUpon>
     </Compile>
     <Compile Include="Consultas\DSConsultas.vb">
       <DependentUpon>DSConsultas.xsd</DependentUpon>
@@ -2037,8 +2037,8 @@
     </None>
     <None Include="Consultas\DSConsultas.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSConsultas.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>DSConsultas.Designer.vb</LastGenOutput>
     </None>
     <None Include="Consultas\DSConsultas.xss">
       <DependentUpon>DSConsultas.xsd</DependentUpon>

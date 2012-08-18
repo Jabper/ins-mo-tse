@@ -14,3 +14,9 @@ Partial Public Class DSConsultas
     End Class
 
 End Class
+
+Namespace DSConsultasTableAdapters
+    
+    Partial Public Class IM_V_PLANILLA_REQUISITOTableAdapter
+    End Class
+End Namespace

@@ -50,9 +50,13 @@ Public Class XfrmConPlanilla
     End Sub
 
     Private Sub Filtrar()
-        Me.IM_V_PLANILLA_REQUISITOTableAdapter.FillBy(Me.DSConsultas.IM_V_PLANILLA_REQUISITO, Me.cbxPartido.SelectedValue, _
+        Me.IM_V_PLANILLA_REQUISITOTableAdapter.FillBy1(Me.DSConsultas.IM_V_PLANILLA_REQUISITO, Me.cbxPartido.SelectedValue, _
                                                   Me.cbxMovimiento.SelectedValue, Me.cbxNivel.SelectedValue, _
-                                                  Me.cbxCargo.SelectedValue)
+                                                  Me.cbxCargo.SelectedValue, Me.cbxDepartamento.SelectedValue, Me.cbxMunicipio.SelectedValue)
+
+
+
+
 
         Dim filtro As String = String.Empty
 
