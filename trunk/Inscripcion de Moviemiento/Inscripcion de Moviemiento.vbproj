@@ -711,6 +711,12 @@
     <Compile Include="Reportes\xfrmParametros3.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\xrptPlanilla.Designer.vb">
+      <DependentUpon>xrptPlanilla.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\xrptPlanilla.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Usuarios\XfrmCambiarPass.Designer.vb">
       <DependentUpon>XfrmCambiarPass.vb</DependentUpon>
     </Compile>
@@ -1191,6 +1197,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\xfrmParametros3.resx">
       <DependentUpon>xfrmParametros3.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\xrptPlanilla.resx">
+      <DependentUpon>xrptPlanilla.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\XfrmCambiarPass.resx">
