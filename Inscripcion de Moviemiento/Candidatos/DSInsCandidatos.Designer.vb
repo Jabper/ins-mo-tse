@@ -10425,7 +10425,7 @@ Namespace DSInsCandidatosTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(1) {}
+            Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO, CODIGO_PARTIDO, PARTIDO, CODI"& _ 
@@ -10454,6 +10454,17 @@ Namespace DSInsCandidatosTableAdapters
                 "UNDO_APELLIDO, IMAGEN, CONS_VECINDAD, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONS_VECINDAD_I"& _ 
                 "MAGEN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_MOSTRAR_CANDIDATOS2"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2) = New Global.System.Data.OracleClient.OracleCommand
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT        POSICION, IDENTIDAD, NOMBRE, APELLIDO, CARGO, IMAGEN, decode(CODIGO"& _ 
+                "_CARGO_ELECTIVO, 1, 1, 9, 2, 2, 3, 3, 4) AS codigo_cargo, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
+                "     CODIGO_DEPARTAMENTO, DEPARTAMENTO, CODIGO_MUNICIPIO, MUNICIPIO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM       "& _ 
+                "     IM_V_MOSTRAR_CANDIDATOS2"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CODIGO_CARGO_ELECTIVO IN (1, 2, 3, "& _ 
+                "9)) AND (CODIGO_PARTIDO = :id_par) AND (CODIGO_MOVIMIENTO = :id_mov)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY c"& _ 
+                "odigo_cargo"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_par", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_mov", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10545,6 +10556,48 @@ Namespace DSInsCandidatosTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataBy() As DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2DataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Dim dataTable As DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2DataTable = New DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2DataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillPresidencial(ByVal dataTable As DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2DataTable, ByVal id_par As Global.System.Nullable(Of Decimal), ByVal id_mov As Global.System.Nullable(Of Decimal)) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (id_par.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_par.Value,Decimal)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (id_mov.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_mov.Value,Decimal)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy1(ByVal id_par As Global.System.Nullable(Of Decimal), ByVal id_mov As Global.System.Nullable(Of Decimal)) As DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2DataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (id_par.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(id_par.Value,Decimal)
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (id_mov.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(id_mov.Value,Decimal)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
             Dim dataTable As DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2DataTable = New DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2DataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
