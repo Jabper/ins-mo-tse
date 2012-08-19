@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -580,6 +580,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_DUPLICADOS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\NUEVOS\REPORTE_DE_CUMPLIMIENTO_1.Designer.vb">
+      <DependentUpon>REPORTE_DE_CUMPLIMIENTO_1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\NUEVOS\REPORTE_DE_CUMPLIMIENTO_1.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\NUEVOS\REPORTE_REQUISITOS_CANDIDATOS.Designer.vb">
       <DependentUpon>REPORTE_REQUISITOS_CANDIDATOS.vb</DependentUpon>
     </Compile>
@@ -650,6 +656,12 @@
       <DependentUpon>REPORTE_DETALLE_ESTADISTICO.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\REPORTE_DETALLE_ESTADISTICO.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\REPORTE_DE_CUMPLIMIENTO.Designer.vb">
+      <DependentUpon>REPORTE_DE_CUMPLIMIENTO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\REPORTE_DE_CUMPLIMIENTO.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\REPORTE_DE_LOG.Designer.vb">
@@ -1136,6 +1148,9 @@
       <DependentUpon>xfrmValidaciones.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\NUEVOS\REPORTE_DE_CUMPLIMIENTO_1.resx">
+      <DependentUpon>REPORTE_DE_CUMPLIMIENTO_1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\NUEVOS\Parametros3.resx">
       <DependentUpon>Parametros3.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -1187,6 +1202,9 @@
     <EmbeddedResource Include="Reportes\REPORTE_DETALLE_ESTADISTICO.resx">
       <DependentUpon>REPORTE_DETALLE_ESTADISTICO.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\REPORTE_DE_CUMPLIMIENTO.resx">
+      <DependentUpon>REPORTE_DE_CUMPLIMIENTO.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_DE_LOG.resx">
       <DependentUpon>REPORTE_DE_LOG.vb</DependentUpon>

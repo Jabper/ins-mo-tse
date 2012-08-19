@@ -98,6 +98,8 @@ Partial Class XFrmMenuPrincipal
         Me.BtnCambiarPass = New DevExpress.XtraBars.BarButtonItem
         Me.BTNREPTSE = New DevExpress.XtraBars.BarSubItem
         Me.BTNRepplanifirm = New DevExpress.XtraBars.BarButtonItem
+        Me.BTNcumplimiento = New DevExpress.XtraBars.BarButtonItem
+        Me.BTNcumplimiento1 = New DevExpress.XtraBars.BarButtonItem
         Me.BarSubItem2 = New DevExpress.XtraBars.BarSubItem
         Me.BtnRepCumplimiento = New DevExpress.XtraBars.BarButtonItem
         Me.BtnRepCumplimientoCifras = New DevExpress.XtraBars.BarButtonItem
@@ -137,8 +139,6 @@ Partial Class XFrmMenuPrincipal
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.BarSubItem1 = New DevExpress.XtraBars.BarSubItem
         Me.RibbonPageGroup10 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
-        Me.BTNcumplimiento = New DevExpress.XtraBars.BarButtonItem
-        Me.BTNcumplimiento1 = New DevExpress.XtraBars.BarButtonItem
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -690,6 +690,18 @@ Partial Class XFrmMenuPrincipal
         Me.BTNRepplanifirm.Id = 86
         Me.BTNRepplanifirm.Name = "BTNRepplanifirm"
         '
+        'BTNcumplimiento
+        '
+        Me.BTNcumplimiento.Caption = "Reporte de Cumplimiento de Requisitos"
+        Me.BTNcumplimiento.Id = 97
+        Me.BTNcumplimiento.Name = "BTNcumplimiento"
+        '
+        'BTNcumplimiento1
+        '
+        Me.BTNcumplimiento1.Caption = "Reporte de Cumplimiento de Requisitos en Cantidades"
+        Me.BTNcumplimiento1.Id = 98
+        Me.BTNcumplimiento1.Name = "BTNcumplimiento1"
+        '
         'BarSubItem2
         '
         Me.BarSubItem2.Caption = "Reportes Básicos de Cumplimiento"
@@ -975,18 +987,6 @@ Partial Class XFrmMenuPrincipal
         'RibbonPageGroup10
         '
         Me.RibbonPageGroup10.Name = "RibbonPageGroup10"
-        '
-        'BTNcumplimiento
-        '
-        Me.BTNcumplimiento.Caption = "Reporte de Cumplimiento de Requisitos"
-        Me.BTNcumplimiento.Id = 97
-        Me.BTNcumplimiento.Name = "BTNcumplimiento"
-        '
-        'BTNcumplimiento1
-        '
-        Me.BTNcumplimiento1.Caption = "Reporte de Cumplimiento de Requisitos en Cantidades"
-        Me.BTNcumplimiento1.Id = 98
-        Me.BTNcumplimiento1.Name = "BTNcumplimiento1"
         '
         'XFrmMenuPrincipal
         '

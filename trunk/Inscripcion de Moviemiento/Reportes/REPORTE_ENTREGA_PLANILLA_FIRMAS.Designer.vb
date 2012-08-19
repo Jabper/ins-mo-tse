@@ -22,6 +22,10 @@ Partial Public Class REPORTE_ENTREGA_PLANILLA_FIRMAS
         Me.components = New System.ComponentModel.Container
         Me.Detail = New DevExpress.XtraReports.UI.DetailBand
         Me.TopMargin = New DevExpress.XtraReports.UI.TopMarginBand
+        Me.XrPictureBox2 = New DevExpress.XtraReports.UI.XRPictureBox
+        Me.BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DS_LOG = New Inscripcion_de_Moviemientos.DS_LOG
+        Me.XrPictureBox1 = New DevExpress.XtraReports.UI.XRPictureBox
         Me.XrLabel6 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel
         Me.BottomMargin = New DevExpress.XtraReports.UI.BottomMarginBand
@@ -31,14 +35,68 @@ Partial Public Class REPORTE_ENTREGA_PLANILLA_FIRMAS
         Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel2 = New DevExpress.XtraReports.UI.XRLabel
         Me.GroupHeader2 = New DevExpress.XtraReports.UI.GroupHeaderBand
+        Me.firmasdigital = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel32 = New DevExpress.XtraReports.UI.XRLabel
+        Me.firmasact = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel31 = New DevExpress.XtraReports.UI.XRLabel
+        Me.firmasagre = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel30 = New DevExpress.XtraReports.UI.XRLabel
         Me.firmaspre = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel
         Me.GroupHeader3 = New DevExpress.XtraReports.UI.GroupHeaderBand
+        Me.XrLabel33 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel29 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel19 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLine1 = New DevExpress.XtraReports.UI.XRLine
         Me.XrLabel9 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel8 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel7 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel
+        Me.candidatospre = New DevExpress.XtraReports.UI.XRLabel
         Me.GroupHeader4 = New DevExpress.XtraReports.UI.GroupHeaderBand
+        Me.ALCALDE3 = New DevExpress.XtraReports.UI.XRLabel
+        Me.CONGRESOS3 = New DevExpress.XtraReports.UI.XRLabel
+        Me.REGIDOR3 = New DevExpress.XtraReports.UI.XRLabel
+        Me.VICE3ADD = New DevExpress.XtraReports.UI.XRLabel
+        Me.CONGRESOP3 = New DevExpress.XtraReports.UI.XRLabel
+        Me.DESIGNADO3 = New DevExpress.XtraReports.UI.XRLabel
+        Me.PRESIDENTE3 = New DevExpress.XtraReports.UI.XRLabel
+        Me.PARLACENS3 = New DevExpress.XtraReports.UI.XRLabel
+        Me.PARLACENP3 = New DevExpress.XtraReports.UI.XRLabel
+        Me.REGIDOR2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.VICE3 = New DevExpress.XtraReports.UI.XRLabel
+        Me.ALCALDE2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.CONGRESOS2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.CONGRESOP2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.PARLACENS2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.PARLACENP2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.DESIGNADO2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.PRESIDENTE2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel28 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel27 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel26 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel25 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel24 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel23 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel22 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel21 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel20 = New DevExpress.XtraReports.UI.XRLabel
+        Me.REGIDOR1 = New DevExpress.XtraReports.UI.XRLabel
+        Me.VICE2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.REGIDOR = New DevExpress.XtraReports.UI.XRLabel
+        Me.VICE = New DevExpress.XtraReports.UI.XRLabel
+        Me.ALCALDE1 = New DevExpress.XtraReports.UI.XRLabel
+        Me.ALCALDE = New DevExpress.XtraReports.UI.XRLabel
+        Me.CONGRESOS1 = New DevExpress.XtraReports.UI.XRLabel
+        Me.CONGRESOS = New DevExpress.XtraReports.UI.XRLabel
+        Me.CONGRESOP1 = New DevExpress.XtraReports.UI.XRLabel
+        Me.CONGRESOP = New DevExpress.XtraReports.UI.XRLabel
+        Me.PARLACENS1 = New DevExpress.XtraReports.UI.XRLabel
+        Me.PARLACENS = New DevExpress.XtraReports.UI.XRLabel
+        Me.PARLACENP1 = New DevExpress.XtraReports.UI.XRLabel
+        Me.PARLACENP = New DevExpress.XtraReports.UI.XRLabel
+        Me.DESIGNADO1 = New DevExpress.XtraReports.UI.XRLabel
+        Me.DESIGNADO = New DevExpress.XtraReports.UI.XRLabel
         Me.PRESIDENTE1 = New DevExpress.XtraReports.UI.XRLabel
         Me.PRESIDENTE = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel18 = New DevExpress.XtraReports.UI.XRLabel
@@ -52,73 +110,15 @@ Partial Public Class REPORTE_ENTREGA_PLANILLA_FIRMAS
         Me.XrLabel10 = New DevExpress.XtraReports.UI.XRLabel
         Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
         Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
-        Me.DESIGNADO = New DevExpress.XtraReports.UI.XRLabel
-        Me.DESIGNADO1 = New DevExpress.XtraReports.UI.XRLabel
-        Me.PARLACENP = New DevExpress.XtraReports.UI.XRLabel
-        Me.PARLACENP1 = New DevExpress.XtraReports.UI.XRLabel
-        Me.PARLACENS = New DevExpress.XtraReports.UI.XRLabel
-        Me.PARLACENS1 = New DevExpress.XtraReports.UI.XRLabel
-        Me.CONGRESOP = New DevExpress.XtraReports.UI.XRLabel
-        Me.CONGRESOP1 = New DevExpress.XtraReports.UI.XRLabel
-        Me.CONGRESOS = New DevExpress.XtraReports.UI.XRLabel
-        Me.CONGRESOS1 = New DevExpress.XtraReports.UI.XRLabel
-        Me.ALCALDE = New DevExpress.XtraReports.UI.XRLabel
-        Me.ALCALDE1 = New DevExpress.XtraReports.UI.XRLabel
-        Me.VICE = New DevExpress.XtraReports.UI.XRLabel
-        Me.REGIDOR = New DevExpress.XtraReports.UI.XRLabel
-        Me.VICE2 = New DevExpress.XtraReports.UI.XRLabel
-        Me.REGIDOR1 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel19 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel20 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel21 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel22 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel23 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel24 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel25 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel26 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel27 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel28 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel29 = New DevExpress.XtraReports.UI.XRLabel
-        Me.PRESIDENTE2 = New DevExpress.XtraReports.UI.XRLabel
-        Me.DESIGNADO2 = New DevExpress.XtraReports.UI.XRLabel
-        Me.PARLACENP2 = New DevExpress.XtraReports.UI.XRLabel
-        Me.PARLACENS2 = New DevExpress.XtraReports.UI.XRLabel
-        Me.CONGRESOP2 = New DevExpress.XtraReports.UI.XRLabel
-        Me.CONGRESOS2 = New DevExpress.XtraReports.UI.XRLabel
-        Me.ALCALDE2 = New DevExpress.XtraReports.UI.XRLabel
-        Me.VICE3 = New DevExpress.XtraReports.UI.XRLabel
-        Me.REGIDOR2 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel30 = New DevExpress.XtraReports.UI.XRLabel
-        Me.candidatospre = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel
-        Me.firmasagre = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel31 = New DevExpress.XtraReports.UI.XRLabel
-        Me.firmasact = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel32 = New DevExpress.XtraReports.UI.XRLabel
-        Me.firmasdigital = New DevExpress.XtraReports.UI.XRLabel
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DS_LOG = New Inscripcion_de_Moviemientos.DS_LOG
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
-        Me.BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_MOVIMIENTOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
-        Me.XrLabel33 = New DevExpress.XtraReports.UI.XRLabel
-        Me.PRESIDENTE3 = New DevExpress.XtraReports.UI.XRLabel
-        Me.DESIGNADO3 = New DevExpress.XtraReports.UI.XRLabel
-        Me.PARLACENP3 = New DevExpress.XtraReports.UI.XRLabel
-        Me.PARLACENS3 = New DevExpress.XtraReports.UI.XRLabel
-        Me.CONGRESOP3 = New DevExpress.XtraReports.UI.XRLabel
-        Me.CONGRESOS3 = New DevExpress.XtraReports.UI.XRLabel
-        Me.ALCALDE3 = New DevExpress.XtraReports.UI.XRLabel
-        Me.VICE3ADD = New DevExpress.XtraReports.UI.XRLabel
-        Me.REGIDOR3 = New DevExpress.XtraReports.UI.XRLabel
         Me.ReportFooter = New DevExpress.XtraReports.UI.ReportFooterBand
-        Me.XrPageInfo2 = New DevExpress.XtraReports.UI.XRPageInfo
         Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo
-        Me.XrPictureBox1 = New DevExpress.XtraReports.UI.XRPictureBox
-        Me.XrPictureBox2 = New DevExpress.XtraReports.UI.XRPictureBox
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.XrPageInfo2 = New DevExpress.XtraReports.UI.XRPageInfo
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
         'Detail
@@ -135,6 +135,32 @@ Partial Public Class REPORTE_ENTREGA_PLANILLA_FIRMAS
         Me.TopMargin.Name = "TopMargin"
         Me.TopMargin.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
+        '
+        'XrPictureBox2
+        '
+        Me.XrPictureBox2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSource2, "IMAGEN")})
+        Me.XrPictureBox2.LocationFloat = New DevExpress.Utils.PointFloat(924.9997!, 20.12499!)
+        Me.XrPictureBox2.Name = "XrPictureBox2"
+        Me.XrPictureBox2.SizeF = New System.Drawing.SizeF(108.88!, 69.88!)
+        Me.XrPictureBox2.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze
+        '
+        'BindingSource2
+        '
+        Me.BindingSource2.DataMember = "IM_MOVIMIENTOS_imagen"
+        Me.BindingSource2.DataSource = Me.DS_LOG
+        '
+        'DS_LOG
+        '
+        Me.DS_LOG.DataSetName = "DS_LOG"
+        Me.DS_LOG.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'XrPictureBox1
+        '
+        Me.XrPictureBox1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Nothing, "IMAGEN")})
+        Me.XrPictureBox1.LocationFloat = New DevExpress.Utils.PointFloat(9.999987!, 20.12499!)
+        Me.XrPictureBox1.Name = "XrPictureBox1"
+        Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(108.8757!, 69.87501!)
+        Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze
         '
         'XrLabel6
         '
@@ -214,14 +240,85 @@ Partial Public Class REPORTE_ENTREGA_PLANILLA_FIRMAS
         'GroupHeader2
         '
         Me.GroupHeader2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.firmasdigital, Me.XrLabel32, Me.firmasact, Me.XrLabel31, Me.firmasagre, Me.XrLabel30, Me.firmaspre, Me.XrLabel5})
-        Me.GroupHeader2.HeightF = 100.0!
         Me.GroupHeader2.Level = 2
         Me.GroupHeader2.Name = "GroupHeader2"
+        '
+        'firmasdigital
+        '
+        Me.firmasdigital.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.firmasdigital.LocationFloat = New DevExpress.Utils.PointFloat(751.0417!, 49.66666!)
+        Me.firmasdigital.Name = "firmasdigital"
+        Me.firmasdigital.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.firmasdigital.SizeF = New System.Drawing.SizeF(290.9583!, 22.99998!)
+        Me.firmasdigital.StylePriority.UseFont = False
+        Me.firmasdigital.StylePriority.UseTextAlignment = False
+        Me.firmasdigital.Text = "firmasdigital"
+        Me.firmasdigital.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'XrLabel32
+        '
+        Me.XrLabel32.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel32.LocationFloat = New DevExpress.Utils.PointFloat(751.0417!, 9.999974!)
+        Me.XrLabel32.Name = "XrLabel32"
+        Me.XrLabel32.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel32.SizeF = New System.Drawing.SizeF(290.9583!, 22.99999!)
+        Me.XrLabel32.StylePriority.UseFont = False
+        Me.XrLabel32.StylePriority.UseTextAlignment = False
+        Me.XrLabel32.Text = "FIRMAS SIN RESPALDO FISICO"
+        Me.XrLabel32.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'firmasact
+        '
+        Me.firmasact.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.firmasact.LocationFloat = New DevExpress.Utils.PointFloat(465.625!, 49.66666!)
+        Me.firmasact.Name = "firmasact"
+        Me.firmasact.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.firmasact.SizeF = New System.Drawing.SizeF(261.875!, 22.99999!)
+        Me.firmasact.StylePriority.UseFont = False
+        Me.firmasact.StylePriority.UseTextAlignment = False
+        Me.firmasact.Text = "firmasact"
+        Me.firmasact.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'XrLabel31
+        '
+        Me.XrLabel31.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel31.LocationFloat = New DevExpress.Utils.PointFloat(465.625!, 10.00001!)
+        Me.XrLabel31.Name = "XrLabel31"
+        Me.XrLabel31.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel31.SizeF = New System.Drawing.SizeF(261.875!, 39.66665!)
+        Me.XrLabel31.StylePriority.UseFont = False
+        Me.XrLabel31.StylePriority.UseTextAlignment = False
+        Me.XrLabel31.Text = "CONSOLIDACION DE FIRMAS FISICAS CON ELECTRONICAS "
+        Me.XrLabel31.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'firmasagre
+        '
+        Me.firmasagre.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.firmasagre.LocationFloat = New DevExpress.Utils.PointFloat(199.375!, 49.66666!)
+        Me.firmasagre.Name = "firmasagre"
+        Me.firmasagre.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.firmasagre.SizeF = New System.Drawing.SizeF(242.7084!, 23.00002!)
+        Me.firmasagre.StylePriority.UseFont = False
+        Me.firmasagre.StylePriority.UseTextAlignment = False
+        Me.firmasagre.Text = "firmasagre"
+        Me.firmasagre.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'XrLabel30
+        '
+        Me.XrLabel30.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel30.LocationFloat = New DevExpress.Utils.PointFloat(199.375!, 10.00001!)
+        Me.XrLabel30.Name = "XrLabel30"
+        Me.XrLabel30.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel30.SizeF = New System.Drawing.SizeF(242.7084!, 22.99998!)
+        Me.XrLabel30.StylePriority.UseFont = False
+        Me.XrLabel30.StylePriority.UseTextAlignment = False
+        Me.XrLabel30.Text = "FIRMAS TRANSCRITAS"
+        Me.XrLabel30.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'firmaspre
         '
         Me.firmaspre.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.firmaspre.LocationFloat = New DevExpress.Utils.PointFloat(10.00002!, 32.99999!)
+        Me.firmaspre.LocationFloat = New DevExpress.Utils.PointFloat(10.00002!, 49.66666!)
         Me.firmaspre.Name = "firmaspre"
         Me.firmaspre.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.firmaspre.SizeF = New System.Drawing.SizeF(167.7083!, 22.99998!)
@@ -234,12 +331,13 @@ Partial Public Class REPORTE_ENTREGA_PLANILLA_FIRMAS
         '
         Me.XrLabel5.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrLabel5.LocationFloat = New DevExpress.Utils.PointFloat(10.00002!, 10.00001!)
+        Me.XrLabel5.Multiline = True
         Me.XrLabel5.Name = "XrLabel5"
         Me.XrLabel5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel5.SizeF = New System.Drawing.SizeF(167.7083!, 22.99998!)
+        Me.XrLabel5.SizeF = New System.Drawing.SizeF(167.7083!, 39.66665!)
         Me.XrLabel5.StylePriority.UseFont = False
         Me.XrLabel5.StylePriority.UseTextAlignment = False
-        Me.XrLabel5.Text = "FIRMAS PRESENTADAS"
+        Me.XrLabel5.Text = "FIRMAS PRESENTADAS" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " EN CD"
         Me.XrLabel5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'GroupHeader3
@@ -248,6 +346,45 @@ Partial Public Class REPORTE_ENTREGA_PLANILLA_FIRMAS
         Me.GroupHeader3.HeightF = 71.875!
         Me.GroupHeader3.Level = 1
         Me.GroupHeader3.Name = "GroupHeader3"
+        '
+        'XrLabel33
+        '
+        Me.XrLabel33.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel33.LocationFloat = New DevExpress.Utils.PointFloat(631.2842!, 0.0!)
+        Me.XrLabel33.Multiline = True
+        Me.XrLabel33.Name = "XrLabel33"
+        Me.XrLabel33.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel33.SizeF = New System.Drawing.SizeF(134.7017!, 59.29163!)
+        Me.XrLabel33.StylePriority.UseFont = False
+        Me.XrLabel33.StylePriority.UseTextAlignment = False
+        Me.XrLabel33.Text = "CANDIDATOS" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " TRANSCRITOS DE LAS NOMIMAS FISICAS"
+        Me.XrLabel33.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'XrLabel29
+        '
+        Me.XrLabel29.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel29.LocationFloat = New DevExpress.Utils.PointFloat(924.9998!, 0.0!)
+        Me.XrLabel29.Multiline = True
+        Me.XrLabel29.Name = "XrLabel29"
+        Me.XrLabel29.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel29.SizeF = New System.Drawing.SizeF(100.0002!, 59.29164!)
+        Me.XrLabel29.StylePriority.UseFont = False
+        Me.XrLabel29.StylePriority.UseTextAlignment = False
+        Me.XrLabel29.Text = "PRESENTADOS " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNICAMENTE " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "EN CD"
+        Me.XrLabel29.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'XrLabel19
+        '
+        Me.XrLabel19.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel19.LocationFloat = New DevExpress.Utils.PointFloat(412.2658!, 0.0!)
+        Me.XrLabel19.Multiline = True
+        Me.XrLabel19.Name = "XrLabel19"
+        Me.XrLabel19.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel19.SizeF = New System.Drawing.SizeF(92.20428!, 59.29163!)
+        Me.XrLabel19.StylePriority.UseFont = False
+        Me.XrLabel19.StylePriority.UseTextAlignment = False
+        Me.XrLabel19.Text = "CARGOS CONFORME A LEY"
+        Me.XrLabel19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'XrLine1
         '
@@ -258,28 +395,28 @@ Partial Public Class REPORTE_ENTREGA_PLANILLA_FIRMAS
         '
         'XrLabel9
         '
-        Me.XrLabel9.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel9.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrLabel9.LocationFloat = New DevExpress.Utils.PointFloat(778.19!, 0.0!)
         Me.XrLabel9.Multiline = True
         Me.XrLabel9.Name = "XrLabel9"
         Me.XrLabel9.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel9.SizeF = New System.Drawing.SizeF(134.7017!, 46.24999!)
+        Me.XrLabel9.SizeF = New System.Drawing.SizeF(134.7017!, 59.29163!)
         Me.XrLabel9.StylePriority.UseFont = False
         Me.XrLabel9.StylePriority.UseTextAlignment = False
-        Me.XrLabel9.Text = "CANDIDATOS" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " ACTUALIZADOS POR EL TSE"
+        Me.XrLabel9.Text = "CONSOLIDACION DE CANDIDATOS FISICOS Y ELECTRONICOS"
         Me.XrLabel9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'XrLabel8
         '
-        Me.XrLabel8.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel8.LocationFloat = New DevExpress.Utils.PointFloat(525.4166!, 0.0!)
+        Me.XrLabel8.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel8.LocationFloat = New DevExpress.Utils.PointFloat(504.4702!, 0.0!)
         Me.XrLabel8.Multiline = True
         Me.XrLabel8.Name = "XrLabel8"
         Me.XrLabel8.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel8.SizeF = New System.Drawing.SizeF(101.1588!, 46.24999!)
+        Me.XrLabel8.SizeF = New System.Drawing.SizeF(122.1053!, 59.29163!)
         Me.XrLabel8.StylePriority.UseFont = False
         Me.XrLabel8.StylePriority.UseTextAlignment = False
-        Me.XrLabel8.Text = "CANDIDATOS" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " PRESENTADOS"
+        Me.XrLabel8.Text = "CANDIDATOS" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " RECIBIDOS EN MEDIO ELECTRONICO"
         Me.XrLabel8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'XrLabel7
@@ -294,12 +431,548 @@ Partial Public Class REPORTE_ENTREGA_PLANILLA_FIRMAS
         Me.XrLabel7.Text = "CARGO ELECTIVO"
         Me.XrLabel7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
         '
+        'XrLabel4
+        '
+        Me.XrLabel4.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(10.00002!, 0.0!)
+        Me.XrLabel4.Name = "XrLabel4"
+        Me.XrLabel4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel4.SizeF = New System.Drawing.SizeF(236.4583!, 22.99998!)
+        Me.XrLabel4.StylePriority.UseFont = False
+        Me.XrLabel4.Text = "CANDIDATOS PRESENTADOS:"
+        '
+        'candidatospre
+        '
+        Me.candidatospre.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.candidatospre.LocationFloat = New DevExpress.Utils.PointFloat(248.3334!, 0.0!)
+        Me.candidatospre.Name = "candidatospre"
+        Me.candidatospre.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.candidatospre.SizeF = New System.Drawing.SizeF(141.6667!, 22.99998!)
+        Me.candidatospre.StylePriority.UseFont = False
+        Me.candidatospre.Text = "candidatospre"
+        '
         'GroupHeader4
         '
         Me.GroupHeader4.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.ALCALDE3, Me.CONGRESOS3, Me.REGIDOR3, Me.VICE3ADD, Me.CONGRESOP3, Me.DESIGNADO3, Me.PRESIDENTE3, Me.PARLACENS3, Me.PARLACENP3, Me.REGIDOR2, Me.VICE3, Me.ALCALDE2, Me.CONGRESOS2, Me.CONGRESOP2, Me.PARLACENS2, Me.PARLACENP2, Me.DESIGNADO2, Me.PRESIDENTE2, Me.XrLabel28, Me.XrLabel27, Me.XrLabel26, Me.XrLabel25, Me.XrLabel24, Me.XrLabel23, Me.XrLabel22, Me.XrLabel21, Me.XrLabel20, Me.REGIDOR1, Me.VICE2, Me.REGIDOR, Me.VICE, Me.ALCALDE1, Me.ALCALDE, Me.CONGRESOS1, Me.CONGRESOS, Me.CONGRESOP1, Me.CONGRESOP, Me.PARLACENS1, Me.PARLACENS, Me.PARLACENP1, Me.PARLACENP, Me.DESIGNADO1, Me.DESIGNADO, Me.PRESIDENTE1, Me.PRESIDENTE, Me.XrLabel18, Me.XrLabel17, Me.XrLabel16, Me.XrLabel15, Me.XrLabel14, Me.XrLabel13, Me.XrLabel12, Me.XrLabel11, Me.XrLabel10})
         Me.GroupHeader4.HeightF = 387.1216!
         Me.GroupHeader4.Name = "GroupHeader4"
         Me.GroupHeader4.StylePriority.UseTextAlignment = False
+        '
+        'ALCALDE3
+        '
+        Me.ALCALDE3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.ALCALDE3.LocationFloat = New DevExpress.Utils.PointFloat(631.2842!, 258.4998!)
+        Me.ALCALDE3.Name = "ALCALDE3"
+        Me.ALCALDE3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.ALCALDE3.SizeF = New System.Drawing.SizeF(134.7014!, 22.99998!)
+        Me.ALCALDE3.StylePriority.UseFont = False
+        Me.ALCALDE3.StylePriority.UseTextAlignment = False
+        Me.ALCALDE3.Text = "ALCALDE3"
+        Me.ALCALDE3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'CONGRESOS3
+        '
+        Me.CONGRESOS3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.CONGRESOS3.LocationFloat = New DevExpress.Utils.PointFloat(631.2842!, 214.6667!)
+        Me.CONGRESOS3.Name = "CONGRESOS3"
+        Me.CONGRESOS3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.CONGRESOS3.SizeF = New System.Drawing.SizeF(134.7018!, 23.00005!)
+        Me.CONGRESOS3.StylePriority.UseFont = False
+        Me.CONGRESOS3.StylePriority.UseTextAlignment = False
+        Me.CONGRESOS3.Text = "CONGRESOS3"
+        Me.CONGRESOS3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'REGIDOR3
+        '
+        Me.REGIDOR3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.REGIDOR3.LocationFloat = New DevExpress.Utils.PointFloat(631.2842!, 343.0416!)
+        Me.REGIDOR3.Name = "REGIDOR3"
+        Me.REGIDOR3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.REGIDOR3.SizeF = New System.Drawing.SizeF(134.7013!, 23.0!)
+        Me.REGIDOR3.StylePriority.UseFont = False
+        Me.REGIDOR3.StylePriority.UseTextAlignment = False
+        Me.REGIDOR3.Text = "REGIDOR3"
+        Me.REGIDOR3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'VICE3ADD
+        '
+        Me.VICE3ADD.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.VICE3ADD.LocationFloat = New DevExpress.Utils.PointFloat(631.2842!, 301.2915!)
+        Me.VICE3ADD.Name = "VICE3ADD"
+        Me.VICE3ADD.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.VICE3ADD.SizeF = New System.Drawing.SizeF(134.7018!, 23.00006!)
+        Me.VICE3ADD.StylePriority.UseFont = False
+        Me.VICE3ADD.StylePriority.UseTextAlignment = False
+        Me.VICE3ADD.Text = "VICE3"
+        Me.VICE3ADD.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'CONGRESOP3
+        '
+        Me.CONGRESOP3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.CONGRESOP3.LocationFloat = New DevExpress.Utils.PointFloat(631.2842!, 170.8331!)
+        Me.CONGRESOP3.Name = "CONGRESOP3"
+        Me.CONGRESOP3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.CONGRESOP3.SizeF = New System.Drawing.SizeF(134.7018!, 22.99998!)
+        Me.CONGRESOP3.StylePriority.UseFont = False
+        Me.CONGRESOP3.StylePriority.UseTextAlignment = False
+        Me.CONGRESOP3.Text = "CONGRESOP3"
+        Me.CONGRESOP3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'DESIGNADO3
+        '
+        Me.DESIGNADO3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.DESIGNADO3.LocationFloat = New DevExpress.Utils.PointFloat(631.2842!, 47.58335!)
+        Me.DESIGNADO3.Name = "DESIGNADO3"
+        Me.DESIGNADO3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.DESIGNADO3.SizeF = New System.Drawing.SizeF(134.7017!, 23.00002!)
+        Me.DESIGNADO3.StylePriority.UseFont = False
+        Me.DESIGNADO3.StylePriority.UseTextAlignment = False
+        Me.DESIGNADO3.Text = "DESIGNADO3"
+        Me.DESIGNADO3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'PRESIDENTE3
+        '
+        Me.PRESIDENTE3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.PRESIDENTE3.LocationFloat = New DevExpress.Utils.PointFloat(631.2842!, 9.999936!)
+        Me.PRESIDENTE3.Name = "PRESIDENTE3"
+        Me.PRESIDENTE3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.PRESIDENTE3.SizeF = New System.Drawing.SizeF(134.7017!, 23.00002!)
+        Me.PRESIDENTE3.StylePriority.UseFont = False
+        Me.PRESIDENTE3.StylePriority.UseTextAlignment = False
+        Me.PRESIDENTE3.Text = "PRESIDENTE3"
+        Me.PRESIDENTE3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'PARLACENS3
+        '
+        Me.PARLACENS3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.PARLACENS3.LocationFloat = New DevExpress.Utils.PointFloat(631.2842!, 130.1247!)
+        Me.PARLACENS3.Name = "PARLACENS3"
+        Me.PARLACENS3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.PARLACENS3.SizeF = New System.Drawing.SizeF(134.7015!, 23.00005!)
+        Me.PARLACENS3.StylePriority.UseFont = False
+        Me.PARLACENS3.StylePriority.UseTextAlignment = False
+        Me.PARLACENS3.Text = "PARLACENS3"
+        Me.PARLACENS3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'PARLACENP3
+        '
+        Me.PARLACENP3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.PARLACENP3.LocationFloat = New DevExpress.Utils.PointFloat(631.2842!, 87.33318!)
+        Me.PARLACENP3.Name = "PARLACENP3"
+        Me.PARLACENP3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.PARLACENP3.SizeF = New System.Drawing.SizeF(134.7015!, 23.00005!)
+        Me.PARLACENP3.StylePriority.UseFont = False
+        Me.PARLACENP3.StylePriority.UseTextAlignment = False
+        Me.PARLACENP3.Text = "PARLACENP3"
+        Me.PARLACENP3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'REGIDOR2
+        '
+        Me.REGIDOR2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.REGIDOR2.LocationFloat = New DevExpress.Utils.PointFloat(924.9997!, 343.0417!)
+        Me.REGIDOR2.Name = "REGIDOR2"
+        Me.REGIDOR2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.REGIDOR2.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.REGIDOR2.StylePriority.UseFont = False
+        Me.REGIDOR2.StylePriority.UseTextAlignment = False
+        Me.REGIDOR2.Text = "REGIDOR2"
+        Me.REGIDOR2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'VICE3
+        '
+        Me.VICE3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.VICE3.LocationFloat = New DevExpress.Utils.PointFloat(924.9997!, 301.2917!)
+        Me.VICE3.Name = "VICE3"
+        Me.VICE3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.VICE3.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.VICE3.StylePriority.UseFont = False
+        Me.VICE3.StylePriority.UseTextAlignment = False
+        Me.VICE3.Text = "VICE3"
+        Me.VICE3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'ALCALDE2
+        '
+        Me.ALCALDE2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.ALCALDE2.LocationFloat = New DevExpress.Utils.PointFloat(924.9997!, 258.5!)
+        Me.ALCALDE2.Name = "ALCALDE2"
+        Me.ALCALDE2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.ALCALDE2.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.ALCALDE2.StylePriority.UseFont = False
+        Me.ALCALDE2.StylePriority.UseTextAlignment = False
+        Me.ALCALDE2.Text = "ALCALDE2"
+        Me.ALCALDE2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'CONGRESOS2
+        '
+        Me.CONGRESOS2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.CONGRESOS2.LocationFloat = New DevExpress.Utils.PointFloat(925.0001!, 214.6667!)
+        Me.CONGRESOS2.Name = "CONGRESOS2"
+        Me.CONGRESOS2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.CONGRESOS2.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.CONGRESOS2.StylePriority.UseFont = False
+        Me.CONGRESOS2.StylePriority.UseTextAlignment = False
+        Me.CONGRESOS2.Text = "CONGRESOS2"
+        Me.CONGRESOS2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'CONGRESOP2
+        '
+        Me.CONGRESOP2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.CONGRESOP2.LocationFloat = New DevExpress.Utils.PointFloat(925.0001!, 170.8331!)
+        Me.CONGRESOP2.Name = "CONGRESOP2"
+        Me.CONGRESOP2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.CONGRESOP2.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.CONGRESOP2.StylePriority.UseFont = False
+        Me.CONGRESOP2.StylePriority.UseTextAlignment = False
+        Me.CONGRESOP2.Text = "CONGRESOP2"
+        Me.CONGRESOP2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'PARLACENS2
+        '
+        Me.PARLACENS2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.PARLACENS2.LocationFloat = New DevExpress.Utils.PointFloat(924.9998!, 130.1248!)
+        Me.PARLACENS2.Name = "PARLACENS2"
+        Me.PARLACENS2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.PARLACENS2.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.PARLACENS2.StylePriority.UseFont = False
+        Me.PARLACENS2.StylePriority.UseTextAlignment = False
+        Me.PARLACENS2.Text = "PARLACENS2"
+        Me.PARLACENS2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'PARLACENP2
+        '
+        Me.PARLACENP2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.PARLACENP2.LocationFloat = New DevExpress.Utils.PointFloat(925.0001!, 87.33318!)
+        Me.PARLACENP2.Name = "PARLACENP2"
+        Me.PARLACENP2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.PARLACENP2.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.PARLACENP2.StylePriority.UseFont = False
+        Me.PARLACENP2.StylePriority.UseTextAlignment = False
+        Me.PARLACENP2.Text = "PARLACENP2"
+        Me.PARLACENP2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'DESIGNADO2
+        '
+        Me.DESIGNADO2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.DESIGNADO2.LocationFloat = New DevExpress.Utils.PointFloat(925.0001!, 47.58339!)
+        Me.DESIGNADO2.Name = "DESIGNADO2"
+        Me.DESIGNADO2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.DESIGNADO2.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.DESIGNADO2.StylePriority.UseFont = False
+        Me.DESIGNADO2.StylePriority.UseTextAlignment = False
+        Me.DESIGNADO2.Text = "DESIGNADO2"
+        Me.DESIGNADO2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'PRESIDENTE2
+        '
+        Me.PRESIDENTE2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.PRESIDENTE2.LocationFloat = New DevExpress.Utils.PointFloat(924.9999!, 10.0!)
+        Me.PRESIDENTE2.Name = "PRESIDENTE2"
+        Me.PRESIDENTE2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.PRESIDENTE2.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.PRESIDENTE2.StylePriority.UseFont = False
+        Me.PRESIDENTE2.StylePriority.UseTextAlignment = False
+        Me.PRESIDENTE2.Text = "PRESIDENTE2"
+        Me.PRESIDENTE2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'XrLabel28
+        '
+        Me.XrLabel28.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel28.LocationFloat = New DevExpress.Utils.PointFloat(412.2658!, 343.0416!)
+        Me.XrLabel28.Name = "XrLabel28"
+        Me.XrLabel28.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel28.SizeF = New System.Drawing.SizeF(92.20432!, 23.00003!)
+        Me.XrLabel28.StylePriority.UseFont = False
+        Me.XrLabel28.StylePriority.UseTextAlignment = False
+        Me.XrLabel28.Text = "XrLabel28"
+        Me.XrLabel28.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'XrLabel27
+        '
+        Me.XrLabel27.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel27.LocationFloat = New DevExpress.Utils.PointFloat(412.2658!, 301.2917!)
+        Me.XrLabel27.Name = "XrLabel27"
+        Me.XrLabel27.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel27.SizeF = New System.Drawing.SizeF(92.20432!, 23.00006!)
+        Me.XrLabel27.StylePriority.UseFont = False
+        Me.XrLabel27.StylePriority.UseTextAlignment = False
+        Me.XrLabel27.Text = "XrLabel27"
+        Me.XrLabel27.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'XrLabel26
+        '
+        Me.XrLabel26.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel26.LocationFloat = New DevExpress.Utils.PointFloat(412.2658!, 258.5!)
+        Me.XrLabel26.Name = "XrLabel26"
+        Me.XrLabel26.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel26.SizeF = New System.Drawing.SizeF(92.20416!, 22.99997!)
+        Me.XrLabel26.StylePriority.UseFont = False
+        Me.XrLabel26.StylePriority.UseTextAlignment = False
+        Me.XrLabel26.Text = "XrLabel26"
+        Me.XrLabel26.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'XrLabel25
+        '
+        Me.XrLabel25.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel25.LocationFloat = New DevExpress.Utils.PointFloat(412.2658!, 214.6667!)
+        Me.XrLabel25.Name = "XrLabel25"
+        Me.XrLabel25.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel25.SizeF = New System.Drawing.SizeF(92.20416!, 23.00002!)
+        Me.XrLabel25.StylePriority.UseFont = False
+        Me.XrLabel25.StylePriority.UseTextAlignment = False
+        Me.XrLabel25.Text = "XrLabel25"
+        Me.XrLabel25.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'XrLabel24
+        '
+        Me.XrLabel24.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel24.LocationFloat = New DevExpress.Utils.PointFloat(412.2658!, 170.8331!)
+        Me.XrLabel24.Name = "XrLabel24"
+        Me.XrLabel24.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel24.SizeF = New System.Drawing.SizeF(92.20416!, 23.00002!)
+        Me.XrLabel24.StylePriority.UseFont = False
+        Me.XrLabel24.StylePriority.UseTextAlignment = False
+        Me.XrLabel24.Text = "XrLabel24"
+        Me.XrLabel24.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'XrLabel23
+        '
+        Me.XrLabel23.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel23.LocationFloat = New DevExpress.Utils.PointFloat(412.2658!, 130.1248!)
+        Me.XrLabel23.Name = "XrLabel23"
+        Me.XrLabel23.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel23.SizeF = New System.Drawing.SizeF(92.20416!, 23.00003!)
+        Me.XrLabel23.StylePriority.UseFont = False
+        Me.XrLabel23.StylePriority.UseTextAlignment = False
+        Me.XrLabel23.Text = "XrLabel23"
+        Me.XrLabel23.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'XrLabel22
+        '
+        Me.XrLabel22.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel22.LocationFloat = New DevExpress.Utils.PointFloat(412.2658!, 87.33318!)
+        Me.XrLabel22.Name = "XrLabel22"
+        Me.XrLabel22.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel22.SizeF = New System.Drawing.SizeF(92.20416!, 23.00002!)
+        Me.XrLabel22.StylePriority.UseFont = False
+        Me.XrLabel22.StylePriority.UseTextAlignment = False
+        Me.XrLabel22.Text = "XrLabel22"
+        Me.XrLabel22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'XrLabel21
+        '
+        Me.XrLabel21.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel21.LocationFloat = New DevExpress.Utils.PointFloat(412.2658!, 47.58328!)
+        Me.XrLabel21.Name = "XrLabel21"
+        Me.XrLabel21.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel21.SizeF = New System.Drawing.SizeF(92.20416!, 23.00002!)
+        Me.XrLabel21.StylePriority.UseFont = False
+        Me.XrLabel21.StylePriority.UseTextAlignment = False
+        Me.XrLabel21.Text = "XrLabel21"
+        Me.XrLabel21.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'XrLabel20
+        '
+        Me.XrLabel20.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel20.LocationFloat = New DevExpress.Utils.PointFloat(412.2658!, 9.999969!)
+        Me.XrLabel20.Name = "XrLabel20"
+        Me.XrLabel20.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel20.SizeF = New System.Drawing.SizeF(92.20416!, 22.99998!)
+        Me.XrLabel20.StylePriority.UseFont = False
+        Me.XrLabel20.StylePriority.UseTextAlignment = False
+        Me.XrLabel20.Text = "XrLabel20"
+        Me.XrLabel20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'REGIDOR1
+        '
+        Me.REGIDOR1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.REGIDOR1.LocationFloat = New DevExpress.Utils.PointFloat(778.19!, 343.0416!)
+        Me.REGIDOR1.Name = "REGIDOR1"
+        Me.REGIDOR1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.REGIDOR1.SizeF = New System.Drawing.SizeF(134.7013!, 23.0!)
+        Me.REGIDOR1.StylePriority.UseFont = False
+        Me.REGIDOR1.StylePriority.UseTextAlignment = False
+        Me.REGIDOR1.Text = "REGIDOR1"
+        Me.REGIDOR1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'VICE2
+        '
+        Me.VICE2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.VICE2.LocationFloat = New DevExpress.Utils.PointFloat(778.19!, 301.2915!)
+        Me.VICE2.Name = "VICE2"
+        Me.VICE2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.VICE2.SizeF = New System.Drawing.SizeF(134.7018!, 23.00006!)
+        Me.VICE2.StylePriority.UseFont = False
+        Me.VICE2.StylePriority.UseTextAlignment = False
+        Me.VICE2.Text = "VICE2"
+        Me.VICE2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'REGIDOR
+        '
+        Me.REGIDOR.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.REGIDOR.LocationFloat = New DevExpress.Utils.PointFloat(525.4166!, 343.0416!)
+        Me.REGIDOR.Name = "REGIDOR"
+        Me.REGIDOR.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.REGIDOR.SizeF = New System.Drawing.SizeF(101.1588!, 23.0!)
+        Me.REGIDOR.StylePriority.UseFont = False
+        Me.REGIDOR.StylePriority.UseTextAlignment = False
+        Me.REGIDOR.Text = "REGIDOR"
+        Me.REGIDOR.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'VICE
+        '
+        Me.VICE.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.VICE.LocationFloat = New DevExpress.Utils.PointFloat(525.4166!, 301.2915!)
+        Me.VICE.Name = "VICE"
+        Me.VICE.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.VICE.SizeF = New System.Drawing.SizeF(101.1586!, 23.00003!)
+        Me.VICE.StylePriority.UseFont = False
+        Me.VICE.StylePriority.UseTextAlignment = False
+        Me.VICE.Text = "VICE"
+        Me.VICE.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'ALCALDE1
+        '
+        Me.ALCALDE1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.ALCALDE1.LocationFloat = New DevExpress.Utils.PointFloat(778.19!, 258.4998!)
+        Me.ALCALDE1.Name = "ALCALDE1"
+        Me.ALCALDE1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.ALCALDE1.SizeF = New System.Drawing.SizeF(134.7014!, 22.99998!)
+        Me.ALCALDE1.StylePriority.UseFont = False
+        Me.ALCALDE1.StylePriority.UseTextAlignment = False
+        Me.ALCALDE1.Text = "ALCALDE1"
+        Me.ALCALDE1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'ALCALDE
+        '
+        Me.ALCALDE.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.ALCALDE.LocationFloat = New DevExpress.Utils.PointFloat(525.4166!, 258.5!)
+        Me.ALCALDE.Name = "ALCALDE"
+        Me.ALCALDE.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.ALCALDE.SizeF = New System.Drawing.SizeF(101.1586!, 23.00006!)
+        Me.ALCALDE.StylePriority.UseFont = False
+        Me.ALCALDE.StylePriority.UseTextAlignment = False
+        Me.ALCALDE.Text = "ALCALDE"
+        Me.ALCALDE.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'CONGRESOS1
+        '
+        Me.CONGRESOS1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.CONGRESOS1.LocationFloat = New DevExpress.Utils.PointFloat(778.19!, 214.6667!)
+        Me.CONGRESOS1.Name = "CONGRESOS1"
+        Me.CONGRESOS1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.CONGRESOS1.SizeF = New System.Drawing.SizeF(134.7018!, 23.00005!)
+        Me.CONGRESOS1.StylePriority.UseFont = False
+        Me.CONGRESOS1.StylePriority.UseTextAlignment = False
+        Me.CONGRESOS1.Text = "CONGRESOS1"
+        Me.CONGRESOS1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'CONGRESOS
+        '
+        Me.CONGRESOS.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.CONGRESOS.LocationFloat = New DevExpress.Utils.PointFloat(525.4166!, 214.6667!)
+        Me.CONGRESOS.Name = "CONGRESOS"
+        Me.CONGRESOS.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.CONGRESOS.SizeF = New System.Drawing.SizeF(101.1586!, 22.99998!)
+        Me.CONGRESOS.StylePriority.UseFont = False
+        Me.CONGRESOS.StylePriority.UseTextAlignment = False
+        Me.CONGRESOS.Text = "CONGRESOS"
+        Me.CONGRESOS.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'CONGRESOP1
+        '
+        Me.CONGRESOP1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.CONGRESOP1.LocationFloat = New DevExpress.Utils.PointFloat(778.19!, 170.8331!)
+        Me.CONGRESOP1.Name = "CONGRESOP1"
+        Me.CONGRESOP1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.CONGRESOP1.SizeF = New System.Drawing.SizeF(134.7018!, 22.99998!)
+        Me.CONGRESOP1.StylePriority.UseFont = False
+        Me.CONGRESOP1.StylePriority.UseTextAlignment = False
+        Me.CONGRESOP1.Text = "CONGRESOP1"
+        Me.CONGRESOP1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'CONGRESOP
+        '
+        Me.CONGRESOP.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.CONGRESOP.LocationFloat = New DevExpress.Utils.PointFloat(525.4166!, 170.8331!)
+        Me.CONGRESOP.Name = "CONGRESOP"
+        Me.CONGRESOP.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.CONGRESOP.SizeF = New System.Drawing.SizeF(101.1588!, 22.99998!)
+        Me.CONGRESOP.StylePriority.UseFont = False
+        Me.CONGRESOP.StylePriority.UseTextAlignment = False
+        Me.CONGRESOP.Text = "CONGRESOP"
+        Me.CONGRESOP.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'PARLACENS1
+        '
+        Me.PARLACENS1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.PARLACENS1.LocationFloat = New DevExpress.Utils.PointFloat(778.19!, 130.1247!)
+        Me.PARLACENS1.Name = "PARLACENS1"
+        Me.PARLACENS1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.PARLACENS1.SizeF = New System.Drawing.SizeF(134.7015!, 23.00005!)
+        Me.PARLACENS1.StylePriority.UseFont = False
+        Me.PARLACENS1.StylePriority.UseTextAlignment = False
+        Me.PARLACENS1.Text = "PARLACENS1"
+        Me.PARLACENS1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'PARLACENS
+        '
+        Me.PARLACENS.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.PARLACENS.LocationFloat = New DevExpress.Utils.PointFloat(525.4166!, 130.1247!)
+        Me.PARLACENS.Name = "PARLACENS"
+        Me.PARLACENS.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.PARLACENS.SizeF = New System.Drawing.SizeF(101.1586!, 23.00006!)
+        Me.PARLACENS.StylePriority.UseFont = False
+        Me.PARLACENS.StylePriority.UseTextAlignment = False
+        Me.PARLACENS.Text = "PARLACENS"
+        Me.PARLACENS.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'PARLACENP1
+        '
+        Me.PARLACENP1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.PARLACENP1.LocationFloat = New DevExpress.Utils.PointFloat(778.19!, 87.33318!)
+        Me.PARLACENP1.Name = "PARLACENP1"
+        Me.PARLACENP1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.PARLACENP1.SizeF = New System.Drawing.SizeF(134.7015!, 23.00005!)
+        Me.PARLACENP1.StylePriority.UseFont = False
+        Me.PARLACENP1.StylePriority.UseTextAlignment = False
+        Me.PARLACENP1.Text = "PARLACENP1"
+        Me.PARLACENP1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'PARLACENP
+        '
+        Me.PARLACENP.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.PARLACENP.LocationFloat = New DevExpress.Utils.PointFloat(525.4166!, 87.33318!)
+        Me.PARLACENP.Name = "PARLACENP"
+        Me.PARLACENP.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.PARLACENP.SizeF = New System.Drawing.SizeF(101.1586!, 23.00005!)
+        Me.PARLACENP.StylePriority.UseFont = False
+        Me.PARLACENP.StylePriority.UseTextAlignment = False
+        Me.PARLACENP.Text = "PARLACENP"
+        Me.PARLACENP.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'DESIGNADO1
+        '
+        Me.DESIGNADO1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.DESIGNADO1.LocationFloat = New DevExpress.Utils.PointFloat(778.19!, 47.58335!)
+        Me.DESIGNADO1.Name = "DESIGNADO1"
+        Me.DESIGNADO1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.DESIGNADO1.SizeF = New System.Drawing.SizeF(134.7017!, 23.00002!)
+        Me.DESIGNADO1.StylePriority.UseFont = False
+        Me.DESIGNADO1.StylePriority.UseTextAlignment = False
+        Me.DESIGNADO1.Text = "DESIGNADO1"
+        Me.DESIGNADO1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'DESIGNADO
+        '
+        Me.DESIGNADO.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.DESIGNADO.LocationFloat = New DevExpress.Utils.PointFloat(525.4166!, 47.58335!)
+        Me.DESIGNADO.Name = "DESIGNADO"
+        Me.DESIGNADO.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.DESIGNADO.SizeF = New System.Drawing.SizeF(101.1586!, 23.00002!)
+        Me.DESIGNADO.StylePriority.UseFont = False
+        Me.DESIGNADO.StylePriority.UseTextAlignment = False
+        Me.DESIGNADO.Text = "DESIGNADO"
+        Me.DESIGNADO.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'PRESIDENTE1
         '
@@ -425,690 +1098,24 @@ Partial Public Class REPORTE_ENTREGA_PLANILLA_FIRMAS
         Me.NombreMovimiento.Description = "Movimiento Político"
         Me.NombreMovimiento.Name = "NombreMovimiento"
         '
-        'DESIGNADO
-        '
-        Me.DESIGNADO.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.DESIGNADO.LocationFloat = New DevExpress.Utils.PointFloat(525.4166!, 47.58335!)
-        Me.DESIGNADO.Name = "DESIGNADO"
-        Me.DESIGNADO.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.DESIGNADO.SizeF = New System.Drawing.SizeF(101.1586!, 23.00002!)
-        Me.DESIGNADO.StylePriority.UseFont = False
-        Me.DESIGNADO.StylePriority.UseTextAlignment = False
-        Me.DESIGNADO.Text = "DESIGNADO"
-        Me.DESIGNADO.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'DESIGNADO1
-        '
-        Me.DESIGNADO1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.DESIGNADO1.LocationFloat = New DevExpress.Utils.PointFloat(778.19!, 47.58335!)
-        Me.DESIGNADO1.Name = "DESIGNADO1"
-        Me.DESIGNADO1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.DESIGNADO1.SizeF = New System.Drawing.SizeF(134.7017!, 23.00002!)
-        Me.DESIGNADO1.StylePriority.UseFont = False
-        Me.DESIGNADO1.StylePriority.UseTextAlignment = False
-        Me.DESIGNADO1.Text = "DESIGNADO1"
-        Me.DESIGNADO1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'PARLACENP
-        '
-        Me.PARLACENP.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.PARLACENP.LocationFloat = New DevExpress.Utils.PointFloat(525.4166!, 87.33318!)
-        Me.PARLACENP.Name = "PARLACENP"
-        Me.PARLACENP.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.PARLACENP.SizeF = New System.Drawing.SizeF(101.1586!, 23.00005!)
-        Me.PARLACENP.StylePriority.UseFont = False
-        Me.PARLACENP.StylePriority.UseTextAlignment = False
-        Me.PARLACENP.Text = "PARLACENP"
-        Me.PARLACENP.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'PARLACENP1
-        '
-        Me.PARLACENP1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.PARLACENP1.LocationFloat = New DevExpress.Utils.PointFloat(778.19!, 87.33318!)
-        Me.PARLACENP1.Name = "PARLACENP1"
-        Me.PARLACENP1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.PARLACENP1.SizeF = New System.Drawing.SizeF(134.7015!, 23.00005!)
-        Me.PARLACENP1.StylePriority.UseFont = False
-        Me.PARLACENP1.StylePriority.UseTextAlignment = False
-        Me.PARLACENP1.Text = "PARLACENP1"
-        Me.PARLACENP1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'PARLACENS
-        '
-        Me.PARLACENS.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.PARLACENS.LocationFloat = New DevExpress.Utils.PointFloat(525.4166!, 130.1247!)
-        Me.PARLACENS.Name = "PARLACENS"
-        Me.PARLACENS.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.PARLACENS.SizeF = New System.Drawing.SizeF(101.1586!, 23.00006!)
-        Me.PARLACENS.StylePriority.UseFont = False
-        Me.PARLACENS.StylePriority.UseTextAlignment = False
-        Me.PARLACENS.Text = "PARLACENS"
-        Me.PARLACENS.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'PARLACENS1
-        '
-        Me.PARLACENS1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.PARLACENS1.LocationFloat = New DevExpress.Utils.PointFloat(778.19!, 130.1247!)
-        Me.PARLACENS1.Name = "PARLACENS1"
-        Me.PARLACENS1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.PARLACENS1.SizeF = New System.Drawing.SizeF(134.7015!, 23.00005!)
-        Me.PARLACENS1.StylePriority.UseFont = False
-        Me.PARLACENS1.StylePriority.UseTextAlignment = False
-        Me.PARLACENS1.Text = "PARLACENS1"
-        Me.PARLACENS1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'CONGRESOP
-        '
-        Me.CONGRESOP.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.CONGRESOP.LocationFloat = New DevExpress.Utils.PointFloat(525.4166!, 170.8331!)
-        Me.CONGRESOP.Name = "CONGRESOP"
-        Me.CONGRESOP.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.CONGRESOP.SizeF = New System.Drawing.SizeF(101.1588!, 22.99998!)
-        Me.CONGRESOP.StylePriority.UseFont = False
-        Me.CONGRESOP.StylePriority.UseTextAlignment = False
-        Me.CONGRESOP.Text = "CONGRESOP"
-        Me.CONGRESOP.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'CONGRESOP1
-        '
-        Me.CONGRESOP1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.CONGRESOP1.LocationFloat = New DevExpress.Utils.PointFloat(778.19!, 170.8331!)
-        Me.CONGRESOP1.Name = "CONGRESOP1"
-        Me.CONGRESOP1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.CONGRESOP1.SizeF = New System.Drawing.SizeF(134.7018!, 22.99998!)
-        Me.CONGRESOP1.StylePriority.UseFont = False
-        Me.CONGRESOP1.StylePriority.UseTextAlignment = False
-        Me.CONGRESOP1.Text = "CONGRESOP1"
-        Me.CONGRESOP1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'CONGRESOS
-        '
-        Me.CONGRESOS.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.CONGRESOS.LocationFloat = New DevExpress.Utils.PointFloat(525.4166!, 214.6667!)
-        Me.CONGRESOS.Name = "CONGRESOS"
-        Me.CONGRESOS.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.CONGRESOS.SizeF = New System.Drawing.SizeF(101.1586!, 22.99998!)
-        Me.CONGRESOS.StylePriority.UseFont = False
-        Me.CONGRESOS.StylePriority.UseTextAlignment = False
-        Me.CONGRESOS.Text = "CONGRESOS"
-        Me.CONGRESOS.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'CONGRESOS1
-        '
-        Me.CONGRESOS1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.CONGRESOS1.LocationFloat = New DevExpress.Utils.PointFloat(778.19!, 214.6667!)
-        Me.CONGRESOS1.Name = "CONGRESOS1"
-        Me.CONGRESOS1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.CONGRESOS1.SizeF = New System.Drawing.SizeF(134.7018!, 23.00005!)
-        Me.CONGRESOS1.StylePriority.UseFont = False
-        Me.CONGRESOS1.StylePriority.UseTextAlignment = False
-        Me.CONGRESOS1.Text = "CONGRESOS1"
-        Me.CONGRESOS1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'ALCALDE
-        '
-        Me.ALCALDE.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.ALCALDE.LocationFloat = New DevExpress.Utils.PointFloat(525.4166!, 258.5!)
-        Me.ALCALDE.Name = "ALCALDE"
-        Me.ALCALDE.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.ALCALDE.SizeF = New System.Drawing.SizeF(101.1586!, 23.00006!)
-        Me.ALCALDE.StylePriority.UseFont = False
-        Me.ALCALDE.StylePriority.UseTextAlignment = False
-        Me.ALCALDE.Text = "ALCALDE"
-        Me.ALCALDE.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'ALCALDE1
-        '
-        Me.ALCALDE1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.ALCALDE1.LocationFloat = New DevExpress.Utils.PointFloat(778.19!, 258.4998!)
-        Me.ALCALDE1.Name = "ALCALDE1"
-        Me.ALCALDE1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.ALCALDE1.SizeF = New System.Drawing.SizeF(134.7014!, 22.99998!)
-        Me.ALCALDE1.StylePriority.UseFont = False
-        Me.ALCALDE1.StylePriority.UseTextAlignment = False
-        Me.ALCALDE1.Text = "ALCALDE1"
-        Me.ALCALDE1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'VICE
-        '
-        Me.VICE.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.VICE.LocationFloat = New DevExpress.Utils.PointFloat(525.4166!, 301.2915!)
-        Me.VICE.Name = "VICE"
-        Me.VICE.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.VICE.SizeF = New System.Drawing.SizeF(101.1586!, 23.00003!)
-        Me.VICE.StylePriority.UseFont = False
-        Me.VICE.StylePriority.UseTextAlignment = False
-        Me.VICE.Text = "VICE"
-        Me.VICE.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'REGIDOR
-        '
-        Me.REGIDOR.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.REGIDOR.LocationFloat = New DevExpress.Utils.PointFloat(525.4166!, 343.0416!)
-        Me.REGIDOR.Name = "REGIDOR"
-        Me.REGIDOR.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.REGIDOR.SizeF = New System.Drawing.SizeF(101.1588!, 23.0!)
-        Me.REGIDOR.StylePriority.UseFont = False
-        Me.REGIDOR.StylePriority.UseTextAlignment = False
-        Me.REGIDOR.Text = "REGIDOR"
-        Me.REGIDOR.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'VICE2
-        '
-        Me.VICE2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.VICE2.LocationFloat = New DevExpress.Utils.PointFloat(778.19!, 301.2915!)
-        Me.VICE2.Name = "VICE2"
-        Me.VICE2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.VICE2.SizeF = New System.Drawing.SizeF(134.7018!, 23.00006!)
-        Me.VICE2.StylePriority.UseFont = False
-        Me.VICE2.StylePriority.UseTextAlignment = False
-        Me.VICE2.Text = "VICE2"
-        Me.VICE2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'REGIDOR1
-        '
-        Me.REGIDOR1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.REGIDOR1.LocationFloat = New DevExpress.Utils.PointFloat(778.19!, 343.0416!)
-        Me.REGIDOR1.Name = "REGIDOR1"
-        Me.REGIDOR1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.REGIDOR1.SizeF = New System.Drawing.SizeF(134.7013!, 23.0!)
-        Me.REGIDOR1.StylePriority.UseFont = False
-        Me.REGIDOR1.StylePriority.UseTextAlignment = False
-        Me.REGIDOR1.Text = "REGIDOR1"
-        Me.REGIDOR1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'XrLabel19
-        '
-        Me.XrLabel19.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel19.LocationFloat = New DevExpress.Utils.PointFloat(412.2658!, 0.0!)
-        Me.XrLabel19.Multiline = True
-        Me.XrLabel19.Name = "XrLabel19"
-        Me.XrLabel19.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel19.SizeF = New System.Drawing.SizeF(92.20428!, 48.87497!)
-        Me.XrLabel19.StylePriority.UseFont = False
-        Me.XrLabel19.StylePriority.UseTextAlignment = False
-        Me.XrLabel19.Text = "MAXIMO" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "DE" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "CANDIDATOS"
-        Me.XrLabel19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'XrLabel20
-        '
-        Me.XrLabel20.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel20.LocationFloat = New DevExpress.Utils.PointFloat(412.2658!, 9.999969!)
-        Me.XrLabel20.Name = "XrLabel20"
-        Me.XrLabel20.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel20.SizeF = New System.Drawing.SizeF(92.20416!, 22.99998!)
-        Me.XrLabel20.StylePriority.UseFont = False
-        Me.XrLabel20.StylePriority.UseTextAlignment = False
-        Me.XrLabel20.Text = "XrLabel20"
-        Me.XrLabel20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'XrLabel21
-        '
-        Me.XrLabel21.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel21.LocationFloat = New DevExpress.Utils.PointFloat(412.2658!, 47.58328!)
-        Me.XrLabel21.Name = "XrLabel21"
-        Me.XrLabel21.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel21.SizeF = New System.Drawing.SizeF(92.20416!, 23.00002!)
-        Me.XrLabel21.StylePriority.UseFont = False
-        Me.XrLabel21.StylePriority.UseTextAlignment = False
-        Me.XrLabel21.Text = "XrLabel21"
-        Me.XrLabel21.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'XrLabel22
-        '
-        Me.XrLabel22.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel22.LocationFloat = New DevExpress.Utils.PointFloat(412.2658!, 87.33318!)
-        Me.XrLabel22.Name = "XrLabel22"
-        Me.XrLabel22.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel22.SizeF = New System.Drawing.SizeF(92.20416!, 23.00002!)
-        Me.XrLabel22.StylePriority.UseFont = False
-        Me.XrLabel22.StylePriority.UseTextAlignment = False
-        Me.XrLabel22.Text = "XrLabel22"
-        Me.XrLabel22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'XrLabel23
-        '
-        Me.XrLabel23.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel23.LocationFloat = New DevExpress.Utils.PointFloat(412.2658!, 130.1248!)
-        Me.XrLabel23.Name = "XrLabel23"
-        Me.XrLabel23.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel23.SizeF = New System.Drawing.SizeF(92.20416!, 23.00003!)
-        Me.XrLabel23.StylePriority.UseFont = False
-        Me.XrLabel23.StylePriority.UseTextAlignment = False
-        Me.XrLabel23.Text = "XrLabel23"
-        Me.XrLabel23.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'XrLabel24
-        '
-        Me.XrLabel24.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel24.LocationFloat = New DevExpress.Utils.PointFloat(412.2658!, 170.8331!)
-        Me.XrLabel24.Name = "XrLabel24"
-        Me.XrLabel24.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel24.SizeF = New System.Drawing.SizeF(92.20416!, 23.00002!)
-        Me.XrLabel24.StylePriority.UseFont = False
-        Me.XrLabel24.StylePriority.UseTextAlignment = False
-        Me.XrLabel24.Text = "XrLabel24"
-        Me.XrLabel24.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'XrLabel25
-        '
-        Me.XrLabel25.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel25.LocationFloat = New DevExpress.Utils.PointFloat(412.2658!, 214.6667!)
-        Me.XrLabel25.Name = "XrLabel25"
-        Me.XrLabel25.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel25.SizeF = New System.Drawing.SizeF(92.20416!, 23.00002!)
-        Me.XrLabel25.StylePriority.UseFont = False
-        Me.XrLabel25.StylePriority.UseTextAlignment = False
-        Me.XrLabel25.Text = "XrLabel25"
-        Me.XrLabel25.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'XrLabel26
-        '
-        Me.XrLabel26.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel26.LocationFloat = New DevExpress.Utils.PointFloat(412.2658!, 258.5!)
-        Me.XrLabel26.Name = "XrLabel26"
-        Me.XrLabel26.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel26.SizeF = New System.Drawing.SizeF(92.20416!, 22.99997!)
-        Me.XrLabel26.StylePriority.UseFont = False
-        Me.XrLabel26.StylePriority.UseTextAlignment = False
-        Me.XrLabel26.Text = "XrLabel26"
-        Me.XrLabel26.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'XrLabel27
-        '
-        Me.XrLabel27.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel27.LocationFloat = New DevExpress.Utils.PointFloat(412.2658!, 301.2917!)
-        Me.XrLabel27.Name = "XrLabel27"
-        Me.XrLabel27.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel27.SizeF = New System.Drawing.SizeF(92.20432!, 23.00006!)
-        Me.XrLabel27.StylePriority.UseFont = False
-        Me.XrLabel27.StylePriority.UseTextAlignment = False
-        Me.XrLabel27.Text = "XrLabel27"
-        Me.XrLabel27.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'XrLabel28
-        '
-        Me.XrLabel28.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel28.LocationFloat = New DevExpress.Utils.PointFloat(412.2658!, 343.0416!)
-        Me.XrLabel28.Name = "XrLabel28"
-        Me.XrLabel28.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel28.SizeF = New System.Drawing.SizeF(92.20432!, 23.00003!)
-        Me.XrLabel28.StylePriority.UseFont = False
-        Me.XrLabel28.StylePriority.UseTextAlignment = False
-        Me.XrLabel28.Text = "XrLabel28"
-        Me.XrLabel28.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'XrLabel29
-        '
-        Me.XrLabel29.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel29.LocationFloat = New DevExpress.Utils.PointFloat(924.9998!, 0.0!)
-        Me.XrLabel29.Multiline = True
-        Me.XrLabel29.Name = "XrLabel29"
-        Me.XrLabel29.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel29.SizeF = New System.Drawing.SizeF(100.0002!, 59.29164!)
-        Me.XrLabel29.StylePriority.UseFont = False
-        Me.XrLabel29.StylePriority.UseTextAlignment = False
-        Me.XrLabel29.Text = "PRESENTADOS " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "UNICAMENTE" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "EN DIGITAL"
-        Me.XrLabel29.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'PRESIDENTE2
-        '
-        Me.PRESIDENTE2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.PRESIDENTE2.LocationFloat = New DevExpress.Utils.PointFloat(924.9999!, 10.0!)
-        Me.PRESIDENTE2.Name = "PRESIDENTE2"
-        Me.PRESIDENTE2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.PRESIDENTE2.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.PRESIDENTE2.StylePriority.UseFont = False
-        Me.PRESIDENTE2.StylePriority.UseTextAlignment = False
-        Me.PRESIDENTE2.Text = "PRESIDENTE2"
-        Me.PRESIDENTE2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'DESIGNADO2
-        '
-        Me.DESIGNADO2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.DESIGNADO2.LocationFloat = New DevExpress.Utils.PointFloat(925.0001!, 47.58339!)
-        Me.DESIGNADO2.Name = "DESIGNADO2"
-        Me.DESIGNADO2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.DESIGNADO2.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.DESIGNADO2.StylePriority.UseFont = False
-        Me.DESIGNADO2.StylePriority.UseTextAlignment = False
-        Me.DESIGNADO2.Text = "DESIGNADO2"
-        Me.DESIGNADO2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'PARLACENP2
-        '
-        Me.PARLACENP2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.PARLACENP2.LocationFloat = New DevExpress.Utils.PointFloat(925.0001!, 87.33318!)
-        Me.PARLACENP2.Name = "PARLACENP2"
-        Me.PARLACENP2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.PARLACENP2.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.PARLACENP2.StylePriority.UseFont = False
-        Me.PARLACENP2.StylePriority.UseTextAlignment = False
-        Me.PARLACENP2.Text = "PARLACENP2"
-        Me.PARLACENP2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'PARLACENS2
-        '
-        Me.PARLACENS2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.PARLACENS2.LocationFloat = New DevExpress.Utils.PointFloat(924.9998!, 130.1248!)
-        Me.PARLACENS2.Name = "PARLACENS2"
-        Me.PARLACENS2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.PARLACENS2.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.PARLACENS2.StylePriority.UseFont = False
-        Me.PARLACENS2.StylePriority.UseTextAlignment = False
-        Me.PARLACENS2.Text = "PARLACENS2"
-        Me.PARLACENS2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'CONGRESOP2
-        '
-        Me.CONGRESOP2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.CONGRESOP2.LocationFloat = New DevExpress.Utils.PointFloat(925.0001!, 170.8331!)
-        Me.CONGRESOP2.Name = "CONGRESOP2"
-        Me.CONGRESOP2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.CONGRESOP2.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.CONGRESOP2.StylePriority.UseFont = False
-        Me.CONGRESOP2.StylePriority.UseTextAlignment = False
-        Me.CONGRESOP2.Text = "CONGRESOP2"
-        Me.CONGRESOP2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'CONGRESOS2
-        '
-        Me.CONGRESOS2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.CONGRESOS2.LocationFloat = New DevExpress.Utils.PointFloat(925.0001!, 214.6667!)
-        Me.CONGRESOS2.Name = "CONGRESOS2"
-        Me.CONGRESOS2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.CONGRESOS2.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.CONGRESOS2.StylePriority.UseFont = False
-        Me.CONGRESOS2.StylePriority.UseTextAlignment = False
-        Me.CONGRESOS2.Text = "CONGRESOS2"
-        Me.CONGRESOS2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'ALCALDE2
-        '
-        Me.ALCALDE2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.ALCALDE2.LocationFloat = New DevExpress.Utils.PointFloat(924.9997!, 258.5!)
-        Me.ALCALDE2.Name = "ALCALDE2"
-        Me.ALCALDE2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.ALCALDE2.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.ALCALDE2.StylePriority.UseFont = False
-        Me.ALCALDE2.StylePriority.UseTextAlignment = False
-        Me.ALCALDE2.Text = "ALCALDE2"
-        Me.ALCALDE2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'VICE3
-        '
-        Me.VICE3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.VICE3.LocationFloat = New DevExpress.Utils.PointFloat(924.9997!, 301.2917!)
-        Me.VICE3.Name = "VICE3"
-        Me.VICE3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.VICE3.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.VICE3.StylePriority.UseFont = False
-        Me.VICE3.StylePriority.UseTextAlignment = False
-        Me.VICE3.Text = "VICE3"
-        Me.VICE3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'REGIDOR2
-        '
-        Me.REGIDOR2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.REGIDOR2.LocationFloat = New DevExpress.Utils.PointFloat(924.9997!, 343.0417!)
-        Me.REGIDOR2.Name = "REGIDOR2"
-        Me.REGIDOR2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.REGIDOR2.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.REGIDOR2.StylePriority.UseFont = False
-        Me.REGIDOR2.StylePriority.UseTextAlignment = False
-        Me.REGIDOR2.Text = "REGIDOR2"
-        Me.REGIDOR2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'XrLabel30
-        '
-        Me.XrLabel30.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel30.LocationFloat = New DevExpress.Utils.PointFloat(199.375!, 10.00001!)
-        Me.XrLabel30.Name = "XrLabel30"
-        Me.XrLabel30.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel30.SizeF = New System.Drawing.SizeF(242.7084!, 22.99998!)
-        Me.XrLabel30.StylePriority.UseFont = False
-        Me.XrLabel30.StylePriority.UseTextAlignment = False
-        Me.XrLabel30.Text = "FIRMAS AGREGADAS POR EL TSE"
-        Me.XrLabel30.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'candidatospre
-        '
-        Me.candidatospre.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.candidatospre.LocationFloat = New DevExpress.Utils.PointFloat(248.3334!, 0.0!)
-        Me.candidatospre.Name = "candidatospre"
-        Me.candidatospre.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.candidatospre.SizeF = New System.Drawing.SizeF(141.6667!, 22.99998!)
-        Me.candidatospre.StylePriority.UseFont = False
-        Me.candidatospre.Text = "candidatospre"
-        '
-        'XrLabel4
-        '
-        Me.XrLabel4.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(10.00002!, 0.0!)
-        Me.XrLabel4.Name = "XrLabel4"
-        Me.XrLabel4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel4.SizeF = New System.Drawing.SizeF(236.4583!, 22.99998!)
-        Me.XrLabel4.StylePriority.UseFont = False
-        Me.XrLabel4.Text = "CANDIDATOS PRESENTADOS:"
-        '
-        'firmasagre
-        '
-        Me.firmasagre.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.firmasagre.LocationFloat = New DevExpress.Utils.PointFloat(199.375!, 32.99999!)
-        Me.firmasagre.Name = "firmasagre"
-        Me.firmasagre.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.firmasagre.SizeF = New System.Drawing.SizeF(242.7084!, 23.00002!)
-        Me.firmasagre.StylePriority.UseFont = False
-        Me.firmasagre.StylePriority.UseTextAlignment = False
-        Me.firmasagre.Text = "firmasagre"
-        Me.firmasagre.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'XrLabel31
-        '
-        Me.XrLabel31.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel31.LocationFloat = New DevExpress.Utils.PointFloat(465.625!, 10.00001!)
-        Me.XrLabel31.Name = "XrLabel31"
-        Me.XrLabel31.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel31.SizeF = New System.Drawing.SizeF(261.875!, 22.99998!)
-        Me.XrLabel31.StylePriority.UseFont = False
-        Me.XrLabel31.StylePriority.UseTextAlignment = False
-        Me.XrLabel31.Text = "FIRMAS ACTUALIZADAS POR EL TSE"
-        Me.XrLabel31.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'firmasact
-        '
-        Me.firmasact.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.firmasact.LocationFloat = New DevExpress.Utils.PointFloat(465.625!, 33.00002!)
-        Me.firmasact.Name = "firmasact"
-        Me.firmasact.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.firmasact.SizeF = New System.Drawing.SizeF(261.875!, 22.99999!)
-        Me.firmasact.StylePriority.UseFont = False
-        Me.firmasact.StylePriority.UseTextAlignment = False
-        Me.firmasact.Text = "firmasact"
-        Me.firmasact.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'XrLabel32
-        '
-        Me.XrLabel32.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel32.LocationFloat = New DevExpress.Utils.PointFloat(751.0417!, 9.999974!)
-        Me.XrLabel32.Name = "XrLabel32"
-        Me.XrLabel32.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel32.SizeF = New System.Drawing.SizeF(290.9583!, 22.99999!)
-        Me.XrLabel32.StylePriority.UseFont = False
-        Me.XrLabel32.StylePriority.UseTextAlignment = False
-        Me.XrLabel32.Text = "PRESENTADAS UNICAMENTE EN DIGITAL"
-        Me.XrLabel32.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'firmasdigital
-        '
-        Me.firmasdigital.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.firmasdigital.LocationFloat = New DevExpress.Utils.PointFloat(751.0417!, 32.99996!)
-        Me.firmasdigital.Name = "firmasdigital"
-        Me.firmasdigital.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.firmasdigital.SizeF = New System.Drawing.SizeF(290.9583!, 22.99998!)
-        Me.firmasdigital.StylePriority.UseFont = False
-        Me.firmasdigital.StylePriority.UseTextAlignment = False
-        Me.firmasdigital.Text = "firmasdigital"
-        Me.firmasdigital.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
         'BindingSource1
         '
         Me.BindingSource1.DataMember = "IM_PARTIDOS_POLITICOS_imagen"
         Me.BindingSource1.DataSource = Me.DS_LOG
         '
-        'DS_LOG
-        '
-        Me.DS_LOG.DataSetName = "DS_LOG"
-        Me.DS_LOG.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'IM_PARTIDOS_POLITICOS_imagenTableAdapter
         '
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.ClearBeforeFill = True
         '
-        'BindingSource2
-        '
-        Me.BindingSource2.DataMember = "IM_MOVIMIENTOS_imagen"
-        Me.BindingSource2.DataSource = Me.DS_LOG
-        '
         'IM_MOVIMIENTOS_imagenTableAdapter
         '
         Me.IM_MOVIMIENTOS_imagenTableAdapter.ClearBeforeFill = True
-        '
-        'XrLabel33
-        '
-        Me.XrLabel33.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel33.LocationFloat = New DevExpress.Utils.PointFloat(631.2842!, 0.0!)
-        Me.XrLabel33.Multiline = True
-        Me.XrLabel33.Name = "XrLabel33"
-        Me.XrLabel33.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel33.SizeF = New System.Drawing.SizeF(134.7017!, 46.24999!)
-        Me.XrLabel33.StylePriority.UseFont = False
-        Me.XrLabel33.StylePriority.UseTextAlignment = False
-        Me.XrLabel33.Text = "CANDIDATOS" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " AGREGADOS POR EL TSE"
-        Me.XrLabel33.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'PRESIDENTE3
-        '
-        Me.PRESIDENTE3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.PRESIDENTE3.LocationFloat = New DevExpress.Utils.PointFloat(631.2842!, 9.999936!)
-        Me.PRESIDENTE3.Name = "PRESIDENTE3"
-        Me.PRESIDENTE3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.PRESIDENTE3.SizeF = New System.Drawing.SizeF(134.7017!, 23.00002!)
-        Me.PRESIDENTE3.StylePriority.UseFont = False
-        Me.PRESIDENTE3.StylePriority.UseTextAlignment = False
-        Me.PRESIDENTE3.Text = "PRESIDENTE3"
-        Me.PRESIDENTE3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'DESIGNADO3
-        '
-        Me.DESIGNADO3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.DESIGNADO3.LocationFloat = New DevExpress.Utils.PointFloat(631.2842!, 47.58335!)
-        Me.DESIGNADO3.Name = "DESIGNADO3"
-        Me.DESIGNADO3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.DESIGNADO3.SizeF = New System.Drawing.SizeF(134.7017!, 23.00002!)
-        Me.DESIGNADO3.StylePriority.UseFont = False
-        Me.DESIGNADO3.StylePriority.UseTextAlignment = False
-        Me.DESIGNADO3.Text = "DESIGNADO3"
-        Me.DESIGNADO3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'PARLACENP3
-        '
-        Me.PARLACENP3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.PARLACENP3.LocationFloat = New DevExpress.Utils.PointFloat(631.2842!, 87.33318!)
-        Me.PARLACENP3.Name = "PARLACENP3"
-        Me.PARLACENP3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.PARLACENP3.SizeF = New System.Drawing.SizeF(134.7015!, 23.00005!)
-        Me.PARLACENP3.StylePriority.UseFont = False
-        Me.PARLACENP3.StylePriority.UseTextAlignment = False
-        Me.PARLACENP3.Text = "PARLACENP3"
-        Me.PARLACENP3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'PARLACENS3
-        '
-        Me.PARLACENS3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.PARLACENS3.LocationFloat = New DevExpress.Utils.PointFloat(631.2842!, 130.1247!)
-        Me.PARLACENS3.Name = "PARLACENS3"
-        Me.PARLACENS3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.PARLACENS3.SizeF = New System.Drawing.SizeF(134.7015!, 23.00005!)
-        Me.PARLACENS3.StylePriority.UseFont = False
-        Me.PARLACENS3.StylePriority.UseTextAlignment = False
-        Me.PARLACENS3.Text = "PARLACENS3"
-        Me.PARLACENS3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'CONGRESOP3
-        '
-        Me.CONGRESOP3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.CONGRESOP3.LocationFloat = New DevExpress.Utils.PointFloat(631.2842!, 170.8331!)
-        Me.CONGRESOP3.Name = "CONGRESOP3"
-        Me.CONGRESOP3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.CONGRESOP3.SizeF = New System.Drawing.SizeF(134.7018!, 22.99998!)
-        Me.CONGRESOP3.StylePriority.UseFont = False
-        Me.CONGRESOP3.StylePriority.UseTextAlignment = False
-        Me.CONGRESOP3.Text = "CONGRESOP3"
-        Me.CONGRESOP3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'CONGRESOS3
-        '
-        Me.CONGRESOS3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.CONGRESOS3.LocationFloat = New DevExpress.Utils.PointFloat(631.2842!, 214.6667!)
-        Me.CONGRESOS3.Name = "CONGRESOS3"
-        Me.CONGRESOS3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.CONGRESOS3.SizeF = New System.Drawing.SizeF(134.7018!, 23.00005!)
-        Me.CONGRESOS3.StylePriority.UseFont = False
-        Me.CONGRESOS3.StylePriority.UseTextAlignment = False
-        Me.CONGRESOS3.Text = "CONGRESOS3"
-        Me.CONGRESOS3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'ALCALDE3
-        '
-        Me.ALCALDE3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.ALCALDE3.LocationFloat = New DevExpress.Utils.PointFloat(631.2842!, 258.4998!)
-        Me.ALCALDE3.Name = "ALCALDE3"
-        Me.ALCALDE3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.ALCALDE3.SizeF = New System.Drawing.SizeF(134.7014!, 22.99998!)
-        Me.ALCALDE3.StylePriority.UseFont = False
-        Me.ALCALDE3.StylePriority.UseTextAlignment = False
-        Me.ALCALDE3.Text = "ALCALDE3"
-        Me.ALCALDE3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'VICE3ADD
-        '
-        Me.VICE3ADD.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.VICE3ADD.LocationFloat = New DevExpress.Utils.PointFloat(631.2842!, 301.2915!)
-        Me.VICE3ADD.Name = "VICE3ADD"
-        Me.VICE3ADD.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.VICE3ADD.SizeF = New System.Drawing.SizeF(134.7018!, 23.00006!)
-        Me.VICE3ADD.StylePriority.UseFont = False
-        Me.VICE3ADD.StylePriority.UseTextAlignment = False
-        Me.VICE3ADD.Text = "VICE3"
-        Me.VICE3ADD.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'REGIDOR3
-        '
-        Me.REGIDOR3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.REGIDOR3.LocationFloat = New DevExpress.Utils.PointFloat(631.2842!, 343.0416!)
-        Me.REGIDOR3.Name = "REGIDOR3"
-        Me.REGIDOR3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.REGIDOR3.SizeF = New System.Drawing.SizeF(134.7013!, 23.0!)
-        Me.REGIDOR3.StylePriority.UseFont = False
-        Me.REGIDOR3.StylePriority.UseTextAlignment = False
-        Me.REGIDOR3.Text = "REGIDOR3"
-        Me.REGIDOR3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'ReportFooter
         '
         Me.ReportFooter.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrPageInfo1, Me.XrPageInfo2})
         Me.ReportFooter.HeightF = 60.05914!
         Me.ReportFooter.Name = "ReportFooter"
-        '
-        'XrPageInfo2
-        '
-        Me.XrPageInfo2.Format = "Page {0} of {1}"
-        Me.XrPageInfo2.LocationFloat = New DevExpress.Utils.PointFloat(712.0002!, 9.999969!)
-        Me.XrPageInfo2.Name = "XrPageInfo2"
-        Me.XrPageInfo2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrPageInfo2.SizeF = New System.Drawing.SizeF(313.0!, 23.0!)
-        Me.XrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
         '
         'XrPageInfo1
         '
@@ -1118,21 +1125,14 @@ Partial Public Class REPORTE_ENTREGA_PLANILLA_FIRMAS
         Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
         Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(313.0!, 23.0!)
         '
-        'XrPictureBox1
+        'XrPageInfo2
         '
-        Me.XrPictureBox1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Nothing, "IMAGEN")})
-        Me.XrPictureBox1.LocationFloat = New DevExpress.Utils.PointFloat(9.999987!, 20.12499!)
-        Me.XrPictureBox1.Name = "XrPictureBox1"
-        Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(108.8757!, 69.87501!)
-        Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze
-        '
-        'XrPictureBox2
-        '
-        Me.XrPictureBox2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSource2, "IMAGEN")})
-        Me.XrPictureBox2.LocationFloat = New DevExpress.Utils.PointFloat(924.9997!, 20.12499!)
-        Me.XrPictureBox2.Name = "XrPictureBox2"
-        Me.XrPictureBox2.SizeF = New System.Drawing.SizeF(108.88!, 69.88!)
-        Me.XrPictureBox2.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze
+        Me.XrPageInfo2.Format = "Page {0} of {1}"
+        Me.XrPageInfo2.LocationFloat = New DevExpress.Utils.PointFloat(712.0002!, 9.999969!)
+        Me.XrPageInfo2.Name = "XrPageInfo2"
+        Me.XrPageInfo2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrPageInfo2.SizeF = New System.Drawing.SizeF(313.0!, 23.0!)
+        Me.XrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
         '
         'REPORTE_ENTREGA_PLANILLA_FIRMAS
         '
@@ -1145,9 +1145,9 @@ Partial Public Class REPORTE_ENTREGA_PLANILLA_FIRMAS
         Me.Parameters.AddRange(New DevExpress.XtraReports.Parameters.Parameter() {Me.NombrePartido, Me.NombreMovimiento})
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.Version = "11.2"
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub
