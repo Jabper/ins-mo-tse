@@ -578,6 +578,12 @@
     <Compile Include="Reportes\NUEVOS\REPORTE_REQUISITOS_CANDIDATOS.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\NUEVOS\xrptPlanillaNivel2.Designer.vb">
+      <DependentUpon>xrptPlanillaNivel2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\NUEVOS\xrptPlanillaNivel2.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\Parametros.Designer.vb">
       <DependentUpon>Parametros.vb</DependentUpon>
     </Compile>
@@ -1122,6 +1128,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\NUEVOS\REPORTE_REQUISITOS_CANDIDATOS.resx">
       <DependentUpon>REPORTE_REQUISITOS_CANDIDATOS.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\NUEVOS\xrptPlanillaNivel2.resx">
+      <DependentUpon>xrptPlanillaNivel2.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Parametros.resx">

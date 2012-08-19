@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Public Class xrptPlanillaNivel
+Partial Public Class xrptPlanillaNivel2
     Inherits DevExpress.XtraReports.UI.XtraReport
 
     'XtraReport overrides dispose to clean up the component list.
@@ -31,7 +31,6 @@ Partial Public Class xrptPlanillaNivel
         Me.TopMargin = New DevExpress.XtraReports.UI.TopMarginBand
         Me.BottomMargin = New DevExpress.XtraReports.UI.BottomMarginBand
         Me.ReportHeader = New DevExpress.XtraReports.UI.ReportHeaderBand
-        Me.XrLabel20 = New DevExpress.XtraReports.UI.XRLabel
         Me.txtnivel = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel7 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrPictureBox2 = New DevExpress.XtraReports.UI.XRPictureBox
@@ -75,6 +74,7 @@ Partial Public Class xrptPlanillaNivel
         Me.XrLabel15 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel14 = New DevExpress.XtraReports.UI.XRLabel
         Me.PageFooter = New DevExpress.XtraReports.UI.PageFooterBand
+        Me.XrLabel20 = New DevExpress.XtraReports.UI.XRLabel
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -84,7 +84,7 @@ Partial Public Class xrptPlanillaNivel
         'Detail
         '
         Me.Detail.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel6, Me.XrLabel5, Me.XrLabel4, Me.XrLabel2, Me.XrLabel11, Me.XrLabel9})
-        Me.Detail.HeightF = 50.71497!
+        Me.Detail.HeightF = 76.90214!
         Me.Detail.Name = "Detail"
         Me.Detail.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.Detail.SortFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("CODIGO_CARGO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending), New DevExpress.XtraReports.UI.GroupField("POSICION", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
@@ -93,7 +93,7 @@ Partial Public Class xrptPlanillaNivel
         'XrLabel6
         '
         Me.XrLabel6.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CANDIDATOS_NIVEL.APELLIDO")})
-        Me.XrLabel6.LocationFloat = New DevExpress.Utils.PointFloat(643.2192!, 10.0!)
+        Me.XrLabel6.LocationFloat = New DevExpress.Utils.PointFloat(647.7669!, 23.06874!)
         Me.XrLabel6.Name = "XrLabel6"
         Me.XrLabel6.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel6.SizeF = New System.Drawing.SizeF(185.7469!, 23.00001!)
@@ -102,7 +102,7 @@ Partial Public Class xrptPlanillaNivel
         'XrLabel5
         '
         Me.XrLabel5.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CANDIDATOS_NIVEL.NOMBRE")})
-        Me.XrLabel5.LocationFloat = New DevExpress.Utils.PointFloat(436.3331!, 10.00004!)
+        Me.XrLabel5.LocationFloat = New DevExpress.Utils.PointFloat(440.8808!, 23.06878!)
         Me.XrLabel5.Name = "XrLabel5"
         Me.XrLabel5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel5.SizeF = New System.Drawing.SizeF(185.7469!, 23.0!)
@@ -111,7 +111,7 @@ Partial Public Class xrptPlanillaNivel
         'XrLabel4
         '
         Me.XrLabel4.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CANDIDATOS_NIVEL.IDENTIDAD")})
-        Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(298.1282!, 10.00004!)
+        Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(302.6759!, 23.06878!)
         Me.XrLabel4.Name = "XrLabel4"
         Me.XrLabel4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel4.SizeF = New System.Drawing.SizeF(126.2957!, 23.0!)
@@ -120,7 +120,7 @@ Partial Public Class xrptPlanillaNivel
         'XrLabel2
         '
         Me.XrLabel2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CANDIDATOS_NIVEL.CARGO")})
-        Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(10.0!, 10.0!)
+        Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(14.54776!, 23.06875!)
         Me.XrLabel2.Name = "XrLabel2"
         Me.XrLabel2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel2.SizeF = New System.Drawing.SizeF(266.9441!, 23.00002!)
@@ -129,7 +129,7 @@ Partial Public Class xrptPlanillaNivel
         'XrLabel11
         '
         Me.XrLabel11.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CANDIDATOS_NIVEL.CONSTANCIA")})
-        Me.XrLabel11.LocationFloat = New DevExpress.Utils.PointFloat(938.7826!, 10.00004!)
+        Me.XrLabel11.LocationFloat = New DevExpress.Utils.PointFloat(943.3303!, 23.06878!)
         Me.XrLabel11.Name = "XrLabel11"
         Me.XrLabel11.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel11.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
@@ -140,7 +140,7 @@ Partial Public Class xrptPlanillaNivel
         'XrLabel9
         '
         Me.XrLabel9.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CANDIDATOS_NIVEL.IMAGEN_CANDIDATO")})
-        Me.XrLabel9.LocationFloat = New DevExpress.Utils.PointFloat(838.7407!, 10.0!)
+        Me.XrLabel9.LocationFloat = New DevExpress.Utils.PointFloat(843.2885!, 23.06874!)
         Me.XrLabel9.Name = "XrLabel9"
         Me.XrLabel9.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel9.SizeF = New System.Drawing.SizeF(85.02191!, 22.99999!)
@@ -167,21 +167,6 @@ Partial Public Class xrptPlanillaNivel
         Me.ReportHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel20, Me.txtnivel, Me.XrLabel7, Me.XrPictureBox2, Me.XrPictureBox3, Me.XrLabel16, Me.txtmovimiento, Me.txtpartido, Me.XrLabel18, Me.XrLabel10, Me.partidopolitico})
         Me.ReportHeader.HeightF = 232.4155!
         Me.ReportHeader.Name = "ReportHeader"
-        '
-        'XrLabel20
-        '
-        Me.XrLabel20.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CANDIDATOS_NIVEL.IDENTIDAD")})
-        Me.XrLabel20.LocationFloat = New DevExpress.Utils.PointFloat(752.0416!, 199.4155!)
-        Me.XrLabel20.Name = "XrLabel20"
-        Me.XrLabel20.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel20.SizeF = New System.Drawing.SizeF(283.9584!, 23.00003!)
-        Me.XrLabel20.StylePriority.UseTextAlignment = False
-        XrSummary1.FormatString = "TOTAL CANDIDATOS: {0}"
-        XrSummary1.Func = DevExpress.XtraReports.UI.SummaryFunc.Count
-        XrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Report
-        Me.XrLabel20.Summary = XrSummary1
-        Me.XrLabel20.Text = "XrLabel20"
-        Me.XrLabel20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
         '
         'txtnivel
         '
@@ -542,6 +527,21 @@ Partial Public Class xrptPlanillaNivel
         Me.PageFooter.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.txtusuario, Me.XrPageInfo1, Me.XrPageInfo2, Me.XrLabel22})
         Me.PageFooter.HeightF = 51.04167!
         Me.PageFooter.Name = "PageFooter"
+        '
+        'XrLabel20
+        '
+        Me.XrLabel20.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CANDIDATOS_NIVEL.IDENTIDAD")})
+        Me.XrLabel20.LocationFloat = New DevExpress.Utils.PointFloat(752.0416!, 199.4155!)
+        Me.XrLabel20.Name = "XrLabel20"
+        Me.XrLabel20.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel20.SizeF = New System.Drawing.SizeF(283.9584!, 23.00003!)
+        Me.XrLabel20.StylePriority.UseTextAlignment = False
+        XrSummary1.FormatString = "TOTAL CANDIDATOS: {0}"
+        XrSummary1.Func = DevExpress.XtraReports.UI.SummaryFunc.Count
+        XrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Report
+        Me.XrLabel20.Summary = XrSummary1
+        Me.XrLabel20.Text = "XrLabel20"
+        Me.XrLabel20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
         '
         'xrptPlanillaNivel
         '

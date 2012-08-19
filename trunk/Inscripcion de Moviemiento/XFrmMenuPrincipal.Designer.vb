@@ -98,6 +98,10 @@ Partial Class XFrmMenuPrincipal
         Me.BtnCambiarPass = New DevExpress.XtraBars.BarButtonItem
         Me.BTNREPTSE = New DevExpress.XtraBars.BarSubItem
         Me.BTNRepplanifirm = New DevExpress.XtraBars.BarButtonItem
+        Me.BarSubItem2 = New DevExpress.XtraBars.BarSubItem
+        Me.BtnRepCumplimiento = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnRepCumplimientoCifras = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnReporteIncosistencias = New DevExpress.XtraBars.BarButtonItem
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage
@@ -115,6 +119,8 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonPageGroup11 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.BTN_Rimport = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.REPTSE = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
+        Me.RibbonPage7 = New DevExpress.XtraBars.Ribbon.RibbonPage
+        Me.RibbonPageGroup13 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage6 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup2 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonStatusBar = New DevExpress.XtraBars.Ribbon.RibbonStatusBar
@@ -128,6 +134,9 @@ Partial Class XFrmMenuPrincipal
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.BarSubItem1 = New DevExpress.XtraBars.BarSubItem
         Me.RibbonPageGroup10 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
+        Me.BtnRepCandidatosRepetidos = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnRepPlanillasCompletas = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnRepPlanillasCompletasNivel = New DevExpress.XtraBars.BarButtonItem
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -142,12 +151,12 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonControl.ApplicationButtonDropDownControl = Me.ApplicationMenu2
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ExpandCollapseItem.Name = ""
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion, Me.BtnMotivo, Me.btnCInhabilitados, Me.btnConsultarCenso, Me.BtnSubirOtroSistema, Me.BtnRPlanilla, Me.BtnPlanillanivel, Me.BtnPlanilladivision, Me.btnConsultarFirmas, Me.BtnRFirmas, Me.BtnFDP, Me.BtnREstadistico, Me.btnConsultarCandidatos, Me.BtnFirmasinc, Me.btnJerarquico, Me.BtnCrucemov, Me.BtnCrucepar, Me.BtnResumenFir, Me.TxtUser, Me.btnConsultarPlanilla, Me.BtnEstadisticoFI, Me.BtnRLog, Me.Btnlogproce, Me.BtnPlanillacandidatos, Me.BtnDiscoPartido, Me.BtnDiscoMovimiento, Me.BtnEstadisticopar, Me.BtnValidaciones, Me.BarButtonItem2, Me.btnValidarFirmas, Me.BarButtonItem3, Me.BtnCandidatosInha, Me.BTN_Reporteimpor, Me.BTNrepocaninc, Me.BTNrepociuinc, Me.BarStaticItem1, Me.BTNRazonado, Me.BTNRestadisticoCE, Me.BtnRegistroImpo, Me.BarStaticItem2, Me.BTNduplicadosMov, Me.btnIncompleta, Me.BTNRazonadoPlaC, Me.BTNRazonadoPlanI, Me.BarButtonItem4, Me.btnEstadistico, Me.btnEstadisticasDP, Me.BTNRazonadoPINE, Me.BTNFaltantes, Me.BtnCambiarPass, Me.BTNREPTSE, Me.BTNRepplanifirm})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion, Me.BtnMotivo, Me.btnCInhabilitados, Me.btnConsultarCenso, Me.BtnSubirOtroSistema, Me.BtnRPlanilla, Me.BtnPlanillanivel, Me.BtnPlanilladivision, Me.btnConsultarFirmas, Me.BtnRFirmas, Me.BtnFDP, Me.BtnREstadistico, Me.btnConsultarCandidatos, Me.BtnFirmasinc, Me.btnJerarquico, Me.BtnCrucemov, Me.BtnCrucepar, Me.BtnResumenFir, Me.TxtUser, Me.btnConsultarPlanilla, Me.BtnEstadisticoFI, Me.BtnRLog, Me.Btnlogproce, Me.BtnPlanillacandidatos, Me.BtnDiscoPartido, Me.BtnDiscoMovimiento, Me.BtnEstadisticopar, Me.BtnValidaciones, Me.BarButtonItem2, Me.btnValidarFirmas, Me.BarButtonItem3, Me.BtnCandidatosInha, Me.BTN_Reporteimpor, Me.BTNrepocaninc, Me.BTNrepociuinc, Me.BarStaticItem1, Me.BTNRazonado, Me.BTNRestadisticoCE, Me.BtnRegistroImpo, Me.BarStaticItem2, Me.BTNduplicadosMov, Me.btnIncompleta, Me.BTNRazonadoPlaC, Me.BTNRazonadoPlanI, Me.BarButtonItem4, Me.btnEstadistico, Me.btnEstadisticasDP, Me.BTNRazonadoPINE, Me.BTNFaltantes, Me.BtnCambiarPass, Me.BTNREPTSE, Me.BTNRepplanifirm, Me.BarSubItem2, Me.BtnRepCumplimiento, Me.BtnRepCumplimientoCifras, Me.BtnReporteIncosistencias, Me.BtnRepCandidatosRepetidos, Me.BtnRepPlanillasCompletas, Me.BtnRepPlanillasCompletasNivel})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 87
+        Me.RibbonControl.MaxItemId = 96
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.PageHeaderItemLinks.Add(Me.BarStaticItem2)
-        Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5, Me.RibbonPage6})
+        Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5, Me.RibbonPage7, Me.RibbonPage6})
         Me.RibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010
         Me.RibbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.[True]
         Me.RibbonControl.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.[False]
@@ -641,7 +650,7 @@ Partial Class XFrmMenuPrincipal
         'BarStaticItem2
         '
         Me.BarStaticItem2.AllowRightClickInMenu = False
-        Me.BarStaticItem2.Caption = "Version 3.9 CS"
+        Me.BarStaticItem2.Caption = "Version 4.1 CS"
         Me.BarStaticItem2.Id = 71
         Me.BarStaticItem2.Name = "BarStaticItem2"
         Me.BarStaticItem2.TextAlignment = System.Drawing.StringAlignment.Near
@@ -678,6 +687,32 @@ Partial Class XFrmMenuPrincipal
         Me.BTNRepplanifirm.Caption = "Reporte de Entrega de Planillas y Firmas"
         Me.BTNRepplanifirm.Id = 86
         Me.BTNRepplanifirm.Name = "BTNRepplanifirm"
+        '
+        'BarSubItem2
+        '
+        Me.BarSubItem2.Caption = "Reportes Básicos de Cumplimiento"
+        Me.BarSubItem2.Id = 89
+        Me.BarSubItem2.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.requisitos_1
+        Me.BarSubItem2.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BtnRepCumplimiento), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnRepCumplimientoCifras), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnReporteIncosistencias), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnRepCandidatosRepetidos), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnRepPlanillasCompletasNivel), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnRepPlanillasCompletas)})
+        Me.BarSubItem2.Name = "BarSubItem2"
+        '
+        'BtnRepCumplimiento
+        '
+        Me.BtnRepCumplimiento.Caption = "Reporte de Cumplimientos"
+        Me.BtnRepCumplimiento.Id = 90
+        Me.BtnRepCumplimiento.Name = "BtnRepCumplimiento"
+        '
+        'BtnRepCumplimientoCifras
+        '
+        Me.BtnRepCumplimientoCifras.Caption = "Reporte de Cumplimientos en Cifras"
+        Me.BtnRepCumplimientoCifras.Id = 91
+        Me.BtnRepCumplimientoCifras.Name = "BtnRepCumplimientoCifras"
+        '
+        'BtnReporteIncosistencias
+        '
+        Me.BtnReporteIncosistencias.Caption = "Reporte de Inconsistencias por Nivel "
+        Me.BtnReporteIncosistencias.Id = 92
+        Me.BtnReporteIncosistencias.Name = "BtnReporteIncosistencias"
         '
         'RibbonPage1
         '
@@ -798,6 +833,17 @@ Partial Class XFrmMenuPrincipal
         Me.REPTSE.ItemLinks.Add(Me.BTNREPTSE)
         Me.REPTSE.Name = "REPTSE"
         '
+        'RibbonPage7
+        '
+        Me.RibbonPage7.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup13})
+        Me.RibbonPage7.Name = "RibbonPage7"
+        Me.RibbonPage7.Text = "Reportes Básicos"
+        '
+        'RibbonPageGroup13
+        '
+        Me.RibbonPageGroup13.ItemLinks.Add(Me.BarSubItem2)
+        Me.RibbonPageGroup13.Name = "RibbonPageGroup13"
+        '
         'RibbonPage6
         '
         Me.RibbonPage6.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup2})
@@ -909,6 +955,24 @@ Partial Class XFrmMenuPrincipal
         'RibbonPageGroup10
         '
         Me.RibbonPageGroup10.Name = "RibbonPageGroup10"
+        '
+        'BtnRepCandidatosRepetidos
+        '
+        Me.BtnRepCandidatosRepetidos.Caption = "Reporte de Candidatos Repetidos"
+        Me.BtnRepCandidatosRepetidos.Id = 93
+        Me.BtnRepCandidatosRepetidos.Name = "BtnRepCandidatosRepetidos"
+        '
+        'BtnRepPlanillasCompletas
+        '
+        Me.BtnRepPlanillasCompletas.Caption = "Reporte de Planillas Completas por Cargo"
+        Me.BtnRepPlanillasCompletas.Id = 94
+        Me.BtnRepPlanillasCompletas.Name = "BtnRepPlanillasCompletas"
+        '
+        'BtnRepPlanillasCompletasNivel
+        '
+        Me.BtnRepPlanillasCompletasNivel.Caption = "Reporte de Planillas Completas por Nivel Electivo"
+        Me.BtnRepPlanillasCompletasNivel.Id = 95
+        Me.BtnRepPlanillasCompletasNivel.Name = "BtnRepPlanillasCompletasNivel"
         '
         'XFrmMenuPrincipal
         '
@@ -1044,6 +1108,15 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents REPTSE As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents BTNREPTSE As DevExpress.XtraBars.BarSubItem
     Friend WithEvents BTNRepplanifirm As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonPage7 As DevExpress.XtraBars.Ribbon.RibbonPage
+    Friend WithEvents RibbonPageGroup13 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents BarSubItem2 As DevExpress.XtraBars.BarSubItem
+    Friend WithEvents BtnRepCumplimiento As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnRepCumplimientoCifras As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnReporteIncosistencias As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnRepCandidatosRepetidos As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnRepPlanillasCompletas As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnRepPlanillasCompletasNivel As DevExpress.XtraBars.BarButtonItem
 
 
 End Class
