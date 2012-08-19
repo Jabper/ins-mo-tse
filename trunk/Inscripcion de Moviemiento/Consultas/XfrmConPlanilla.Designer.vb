@@ -162,11 +162,12 @@ Partial Class XfrmConPlanilla
         '
         Me.GCBusqueda.DataSource = Me.IMVPLANILLAREQUISITOBindingSource
         Me.GCBusqueda.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GCBusqueda.Location = New System.Drawing.Point(0, 198)
+        Me.GCBusqueda.Location = New System.Drawing.Point(0, 244)
         Me.GCBusqueda.MainView = Me.GridView1
+        Me.GCBusqueda.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GCBusqueda.Name = "GCBusqueda"
         Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit, Me.RepositoryItemPictureEdit, Me.RepositoryItemCheckEdit1})
-        Me.GCBusqueda.Size = New System.Drawing.Size(1207, 477)
+        Me.GCBusqueda.Size = New System.Drawing.Size(1408, 587)
         Me.GCBusqueda.TabIndex = 7
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -363,7 +364,7 @@ Partial Class XfrmConPlanilla
         '
         Me.colREC2.AppearanceHeader.Options.UseTextOptions = True
         Me.colREC2.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.colREC2.Caption = "Existencia CNE"
+        Me.colREC2.Caption = "Existencia o Habilitado CNE"
         Me.colREC2.ColumnEdit = Me.RepositoryItemCheckEdit
         Me.colREC2.FieldName = "REC2"
         Me.colREC2.Name = "colREC2"
@@ -374,7 +375,7 @@ Partial Class XfrmConPlanilla
         Me.colREC2.OptionsColumn.TabStop = False
         Me.colREC2.Visible = True
         Me.colREC2.VisibleIndex = 9
-        Me.colREC2.Width = 60
+        Me.colREC2.Width = 93
         '
         'colREC3
         '
@@ -565,8 +566,9 @@ Partial Class XfrmConPlanilla
         Me.FlowLayoutPanel2.Controls.Add(Me.GroupBox1)
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 0)
+        Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(1207, 198)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(1408, 244)
         Me.FlowLayoutPanel2.TabIndex = 22
         '
         'FlowLayoutPanel1
@@ -575,9 +577,10 @@ Partial Class XfrmConPlanilla
         Me.FlowLayoutPanel1.Controls.Add(Me.btnFiltro)
         Me.FlowLayoutPanel1.Controls.Add(Me.BtnGuardar)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnSalir)
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 3)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 4)
+        Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1204, 64)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1405, 79)
         Me.FlowLayoutPanel1.TabIndex = 20
         '
         'btnFiltro
@@ -586,9 +589,10 @@ Partial Class XfrmConPlanilla
         Me.btnFiltro.Appearance.Options.UseFont = True
         Me.btnFiltro.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Filtro
         Me.btnFiltro.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.btnFiltro.Location = New System.Drawing.Point(3, 3)
+        Me.btnFiltro.Location = New System.Drawing.Point(3, 4)
+        Me.btnFiltro.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnFiltro.Name = "btnFiltro"
-        Me.btnFiltro.Size = New System.Drawing.Size(55, 55)
+        Me.btnFiltro.Size = New System.Drawing.Size(64, 68)
         Me.btnFiltro.TabIndex = 0
         Me.btnFiltro.TabStop = False
         Me.btnFiltro.Text = "Filtrar"
@@ -599,9 +603,10 @@ Partial Class XfrmConPlanilla
         Me.BtnGuardar.Appearance.Options.UseFont = True
         Me.BtnGuardar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.guardar1
         Me.BtnGuardar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnGuardar.Location = New System.Drawing.Point(64, 3)
+        Me.BtnGuardar.Location = New System.Drawing.Point(73, 4)
+        Me.BtnGuardar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.BtnGuardar.Name = "BtnGuardar"
-        Me.BtnGuardar.Size = New System.Drawing.Size(55, 55)
+        Me.BtnGuardar.Size = New System.Drawing.Size(64, 68)
         Me.BtnGuardar.TabIndex = 1
         Me.BtnGuardar.Text = "Guardar"
         '
@@ -611,9 +616,10 @@ Partial Class XfrmConPlanilla
         Me.btnSalir.Appearance.Options.UseFont = True
         Me.btnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
         Me.btnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.btnSalir.Location = New System.Drawing.Point(125, 3)
+        Me.btnSalir.Location = New System.Drawing.Point(143, 4)
+        Me.btnSalir.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(55, 55)
+        Me.btnSalir.Size = New System.Drawing.Size(64, 68)
         Me.btnSalir.TabIndex = 2
         Me.btnSalir.TabStop = False
         Me.btnSalir.Text = "Salir"
@@ -632,9 +638,11 @@ Partial Class XfrmConPlanilla
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Location = New System.Drawing.Point(3, 73)
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 91)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(863, 114)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(1007, 140)
         Me.GroupBox1.TabIndex = 21
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filtros"
@@ -642,9 +650,9 @@ Partial Class XfrmConPlanilla
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(523, 26)
+        Me.Label1.Location = New System.Drawing.Point(610, 32)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(36, 13)
+        Me.Label1.Size = New System.Drawing.Size(45, 17)
         Me.Label1.TabIndex = 36
         Me.Label1.Text = "Cargo"
         '
@@ -654,9 +662,10 @@ Partial Class XfrmConPlanilla
         Me.cbxCargo.DisplayMember = "DESCRIPCION"
         Me.cbxCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxCargo.FormattingEnabled = True
-        Me.cbxCargo.Location = New System.Drawing.Point(565, 23)
+        Me.cbxCargo.Location = New System.Drawing.Point(659, 28)
+        Me.cbxCargo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbxCargo.Name = "cbxCargo"
-        Me.cbxCargo.Size = New System.Drawing.Size(275, 21)
+        Me.cbxCargo.Size = New System.Drawing.Size(320, 24)
         Me.cbxCargo.TabIndex = 35
         Me.cbxCargo.ValueMember = "CODIGO_CARGO_ELECTIVO"
         '
@@ -668,9 +677,9 @@ Partial Class XfrmConPlanilla
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(58, 80)
+        Me.Label8.Location = New System.Drawing.Point(68, 98)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(30, 13)
+        Me.Label8.Size = New System.Drawing.Size(36, 17)
         Me.Label8.TabIndex = 34
         Me.Label8.Text = "Nivel"
         '
@@ -680,18 +689,19 @@ Partial Class XfrmConPlanilla
         Me.cbxNivel.DisplayMember = "DESCRIPCION"
         Me.cbxNivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxNivel.FormattingEnabled = True
-        Me.cbxNivel.Location = New System.Drawing.Point(94, 77)
+        Me.cbxNivel.Location = New System.Drawing.Point(110, 95)
+        Me.cbxNivel.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbxNivel.Name = "cbxNivel"
-        Me.cbxNivel.Size = New System.Drawing.Size(275, 21)
+        Me.cbxNivel.Size = New System.Drawing.Size(320, 24)
         Me.cbxNivel.TabIndex = 4
         Me.cbxNivel.ValueMember = "CODIGO_NIVEL_ELECTIVO"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(47, 26)
+        Me.Label4.Location = New System.Drawing.Point(55, 32)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(41, 13)
+        Me.Label4.Size = New System.Drawing.Size(51, 17)
         Me.Label4.TabIndex = 31
         Me.Label4.Text = "Partido"
         '
@@ -701,9 +711,10 @@ Partial Class XfrmConPlanilla
         Me.cbxMovimiento.DisplayMember = "NOMBRE_MOVIMIENTO"
         Me.cbxMovimiento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxMovimiento.FormattingEnabled = True
-        Me.cbxMovimiento.Location = New System.Drawing.Point(94, 50)
+        Me.cbxMovimiento.Location = New System.Drawing.Point(110, 62)
+        Me.cbxMovimiento.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbxMovimiento.Name = "cbxMovimiento"
-        Me.cbxMovimiento.Size = New System.Drawing.Size(351, 21)
+        Me.cbxMovimiento.Size = New System.Drawing.Size(409, 24)
         Me.cbxMovimiento.TabIndex = 3
         Me.cbxMovimiento.ValueMember = "CODIGO_MOVIMIENTO"
         '
@@ -713,9 +724,10 @@ Partial Class XfrmConPlanilla
         Me.cbxMunicipio.DisplayMember = "DESCRIPCION"
         Me.cbxMunicipio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxMunicipio.FormattingEnabled = True
-        Me.cbxMunicipio.Location = New System.Drawing.Point(565, 77)
+        Me.cbxMunicipio.Location = New System.Drawing.Point(659, 95)
+        Me.cbxMunicipio.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbxMunicipio.Name = "cbxMunicipio"
-        Me.cbxMunicipio.Size = New System.Drawing.Size(275, 21)
+        Me.cbxMunicipio.Size = New System.Drawing.Size(320, 24)
         Me.cbxMunicipio.TabIndex = 6
         Me.cbxMunicipio.ValueMember = "CODIGO_MUNICIPIO"
         '
@@ -725,9 +737,10 @@ Partial Class XfrmConPlanilla
         Me.cbxDepartamento.DisplayMember = "DESCRIPCION"
         Me.cbxDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxDepartamento.FormattingEnabled = True
-        Me.cbxDepartamento.Location = New System.Drawing.Point(565, 50)
+        Me.cbxDepartamento.Location = New System.Drawing.Point(659, 62)
+        Me.cbxDepartamento.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbxDepartamento.Name = "cbxDepartamento"
-        Me.cbxDepartamento.Size = New System.Drawing.Size(275, 21)
+        Me.cbxDepartamento.Size = New System.Drawing.Size(320, 24)
         Me.cbxDepartamento.TabIndex = 5
         Me.cbxDepartamento.ValueMember = "CODIGO_DEPARTAMENTO"
         '
@@ -737,36 +750,37 @@ Partial Class XfrmConPlanilla
         Me.cbxPartido.DisplayMember = "NOMBRE"
         Me.cbxPartido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbxPartido.FormattingEnabled = True
-        Me.cbxPartido.Location = New System.Drawing.Point(94, 23)
+        Me.cbxPartido.Location = New System.Drawing.Point(110, 28)
+        Me.cbxPartido.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbxPartido.Name = "cbxPartido"
-        Me.cbxPartido.Size = New System.Drawing.Size(351, 21)
+        Me.cbxPartido.Size = New System.Drawing.Size(409, 24)
         Me.cbxPartido.TabIndex = 2
         Me.cbxPartido.ValueMember = "CODIGO_PARTIDO"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(27, 53)
+        Me.Label7.Location = New System.Drawing.Point(31, 65)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(61, 13)
+        Me.Label7.Size = New System.Drawing.Size(78, 17)
         Me.Label7.TabIndex = 26
         Me.Label7.Text = "Movimiento"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(509, 80)
+        Me.Label6.Location = New System.Drawing.Point(594, 98)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(50, 13)
+        Me.Label6.Size = New System.Drawing.Size(63, 17)
         Me.Label6.TabIndex = 25
         Me.Label6.Text = "Municipio"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(483, 53)
+        Me.Label2.Location = New System.Drawing.Point(563, 65)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(76, 13)
+        Me.Label2.Size = New System.Drawing.Size(97, 17)
         Me.Label2.TabIndex = 16
         Me.Label2.Text = "Departamento"
         '
@@ -776,11 +790,12 @@ Partial Class XfrmConPlanilla
         '
         'XfrmConPlanilla
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1207, 675)
+        Me.ClientSize = New System.Drawing.Size(1408, 831)
         Me.Controls.Add(Me.GCBusqueda)
         Me.Controls.Add(Me.FlowLayoutPanel2)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "XfrmConPlanilla"
         Me.Text = "Validar Planillas"
         CType(Me.NivelesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
