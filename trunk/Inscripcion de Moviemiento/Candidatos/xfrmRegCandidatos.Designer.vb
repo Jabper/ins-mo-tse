@@ -108,6 +108,7 @@ Partial Class xfrmRegCandidatos
         Me.lblmujeres = New DevExpress.XtraEditors.LabelControl
         Me.LabelControl16 = New DevExpress.XtraEditors.LabelControl
         Me.PanelControl5 = New DevExpress.XtraEditors.PanelControl
+        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
@@ -153,8 +154,9 @@ Partial Class xfrmRegCandidatos
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
         Me.PanelControl1.Controls.Add(Me.FlowLayoutPanel1)
         Me.PanelControl1.Location = New System.Drawing.Point(1, 1)
+        Me.PanelControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(271, 58)
+        Me.PanelControl1.Size = New System.Drawing.Size(316, 71)
         Me.PanelControl1.TabIndex = 0
         '
         'FlowLayoutPanel1
@@ -164,9 +166,10 @@ Partial Class xfrmRegCandidatos
         Me.FlowLayoutPanel1.Controls.Add(Me.BtnGuardar)
         Me.FlowLayoutPanel1.Controls.Add(Me.BtnEliminar)
         Me.FlowLayoutPanel1.Controls.Add(Me.BtnSalir)
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(11, 5)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(13, 6)
+        Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(248, 48)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(289, 59)
         Me.FlowLayoutPanel1.TabIndex = 10
         '
         'BtnNuevo
@@ -175,9 +178,10 @@ Partial Class xfrmRegCandidatos
         Me.BtnNuevo.Appearance.Options.UseFont = True
         Me.BtnNuevo.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
         Me.BtnNuevo.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomCenter
-        Me.BtnNuevo.Location = New System.Drawing.Point(3, 3)
+        Me.BtnNuevo.Location = New System.Drawing.Point(3, 4)
+        Me.BtnNuevo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.BtnNuevo.Name = "BtnNuevo"
-        Me.BtnNuevo.Size = New System.Drawing.Size(55, 39)
+        Me.BtnNuevo.Size = New System.Drawing.Size(64, 48)
         Me.BtnNuevo.TabIndex = 0
         Me.BtnNuevo.Text = "Nuevo"
         '
@@ -187,9 +191,10 @@ Partial Class xfrmRegCandidatos
         Me.BtnGuardar.Appearance.Options.UseFont = True
         Me.BtnGuardar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.guardar1
         Me.BtnGuardar.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomCenter
-        Me.BtnGuardar.Location = New System.Drawing.Point(64, 3)
+        Me.BtnGuardar.Location = New System.Drawing.Point(73, 4)
+        Me.BtnGuardar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.BtnGuardar.Name = "BtnGuardar"
-        Me.BtnGuardar.Size = New System.Drawing.Size(55, 39)
+        Me.BtnGuardar.Size = New System.Drawing.Size(64, 48)
         Me.BtnGuardar.TabIndex = 1
         Me.BtnGuardar.Text = "Nuevo"
         Me.BtnGuardar.ToolTip = "Presione para Guardar la información ingresada"
@@ -200,9 +205,10 @@ Partial Class xfrmRegCandidatos
         Me.BtnEliminar.Appearance.Options.UseFont = True
         Me.BtnEliminar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.eliminar
         Me.BtnEliminar.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomCenter
-        Me.BtnEliminar.Location = New System.Drawing.Point(125, 3)
+        Me.BtnEliminar.Location = New System.Drawing.Point(143, 4)
+        Me.BtnEliminar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.BtnEliminar.Name = "BtnEliminar"
-        Me.BtnEliminar.Size = New System.Drawing.Size(55, 39)
+        Me.BtnEliminar.Size = New System.Drawing.Size(64, 48)
         Me.BtnEliminar.TabIndex = 2
         Me.BtnEliminar.Text = "Nuevo"
         Me.BtnEliminar.ToolTip = "Presione para eliminar el candidato seleccionado en la tabla inferior"
@@ -213,9 +219,10 @@ Partial Class xfrmRegCandidatos
         Me.BtnSalir.Appearance.Options.UseFont = True
         Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
         Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomCenter
-        Me.BtnSalir.Location = New System.Drawing.Point(186, 3)
+        Me.BtnSalir.Location = New System.Drawing.Point(213, 4)
+        Me.BtnSalir.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.BtnSalir.Name = "BtnSalir"
-        Me.BtnSalir.Size = New System.Drawing.Size(55, 39)
+        Me.BtnSalir.Size = New System.Drawing.Size(64, 48)
         Me.BtnSalir.TabIndex = 35
         Me.BtnSalir.Text = "Nuevo"
         Me.BtnSalir.ToolTip = " Presione para salir  de este formulario"
@@ -236,7 +243,8 @@ Partial Class xfrmRegCandidatos
         '
         'cboDepartamento
         '
-        Me.cboDepartamento.Location = New System.Drawing.Point(106, 115)
+        Me.cboDepartamento.Location = New System.Drawing.Point(124, 142)
+        Me.cboDepartamento.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cboDepartamento.Name = "cboDepartamento"
         Me.cboDepartamento.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cboDepartamento.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_DEPARTAMENTO", "CODIGO", 35, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 150, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
@@ -244,13 +252,14 @@ Partial Class xfrmRegCandidatos
         Me.cboDepartamento.Properties.DisplayMember = "DESCRIPCION"
         Me.cboDepartamento.Properties.NullText = "Seleccione"
         Me.cboDepartamento.Properties.ValueMember = "CODIGO_DEPARTAMENTO"
-        Me.cboDepartamento.Size = New System.Drawing.Size(215, 20)
+        Me.cboDepartamento.Size = New System.Drawing.Size(251, 22)
         Me.cboDepartamento.TabIndex = 17
         Me.cboDepartamento.ToolTip = "Seleccione  el Departamento para el representaran los candidatos ingresados"
         '
         'cboMunicipio
         '
-        Me.cboMunicipio.Location = New System.Drawing.Point(400, 115)
+        Me.cboMunicipio.Location = New System.Drawing.Point(467, 142)
+        Me.cboMunicipio.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cboMunicipio.Name = "cboMunicipio"
         Me.cboMunicipio.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cboMunicipio.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MUNICIPIO", "MUNICIPIO", 35, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 150, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
@@ -258,7 +267,7 @@ Partial Class xfrmRegCandidatos
         Me.cboMunicipio.Properties.DisplayMember = "DESCRIPCION"
         Me.cboMunicipio.Properties.NullText = "Seleccione"
         Me.cboMunicipio.Properties.ValueMember = "CODIGO_MUNICIPIO"
-        Me.cboMunicipio.Size = New System.Drawing.Size(215, 20)
+        Me.cboMunicipio.Size = New System.Drawing.Size(251, 22)
         Me.cboMunicipio.TabIndex = 18
         '
         'IMMUNICIPIOSBindingSource
@@ -268,17 +277,19 @@ Partial Class xfrmRegCandidatos
         '
         'LabelControl1
         '
-        Me.LabelControl1.Location = New System.Drawing.Point(15, 118)
+        Me.LabelControl1.Location = New System.Drawing.Point(17, 145)
+        Me.LabelControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(81, 13)
+        Me.LabelControl1.Size = New System.Drawing.Size(96, 16)
         Me.LabelControl1.TabIndex = 19
         Me.LabelControl1.Text = "DEPARTAMENTO"
         '
         'LabelControl2
         '
-        Me.LabelControl2.Location = New System.Drawing.Point(329, 118)
+        Me.LabelControl2.Location = New System.Drawing.Point(384, 145)
+        Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(55, 13)
+        Me.LabelControl2.Size = New System.Drawing.Size(62, 16)
         Me.LabelControl2.TabIndex = 20
         Me.LabelControl2.Text = "MUNICIPIO"
         '
@@ -306,15 +317,17 @@ Partial Class xfrmRegCandidatos
         '
         'LabelControl5
         '
-        Me.LabelControl5.Location = New System.Drawing.Point(15, 92)
+        Me.LabelControl5.Location = New System.Drawing.Point(17, 113)
+        Me.LabelControl5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl5.Name = "LabelControl5"
-        Me.LabelControl5.Size = New System.Drawing.Size(87, 13)
+        Me.LabelControl5.Size = New System.Drawing.Size(102, 16)
         Me.LabelControl5.TabIndex = 26
         Me.LabelControl5.Text = "CARGO ELECTIVO"
         '
         'cboCargo
         '
-        Me.cboCargo.Location = New System.Drawing.Point(106, 89)
+        Me.cboCargo.Location = New System.Drawing.Point(124, 110)
+        Me.cboCargo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cboCargo.Name = "cboCargo"
         Me.cboCargo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cboCargo.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_CARGO_ELECTIVO", "CODIGO", 35, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "CARGO ELECTIVO", 250, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
@@ -322,7 +335,7 @@ Partial Class xfrmRegCandidatos
         Me.cboCargo.Properties.DisplayMember = "DESCRIPCION"
         Me.cboCargo.Properties.NullText = "Seleccione"
         Me.cboCargo.Properties.ValueMember = "CODIGO_CARGO_ELECTIVO"
-        Me.cboCargo.Size = New System.Drawing.Size(509, 20)
+        Me.cboCargo.Size = New System.Drawing.Size(594, 22)
         Me.cboCargo.TabIndex = 25
         Me.cboCargo.ToolTip = "Seleccione  un cargo electivo para el cual desea agregar candidatos"
         '
@@ -340,9 +353,10 @@ Partial Class xfrmRegCandidatos
         Me.lblidmovimiento.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblidmovimiento.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblidmovimiento.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.lblidmovimiento.Location = New System.Drawing.Point(552, 62)
+        Me.lblidmovimiento.Location = New System.Drawing.Point(644, 76)
+        Me.lblidmovimiento.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lblidmovimiento.Name = "lblidmovimiento"
-        Me.lblidmovimiento.Size = New System.Drawing.Size(34, 13)
+        Me.lblidmovimiento.Size = New System.Drawing.Size(41, 17)
         Me.lblidmovimiento.TabIndex = 38
         Me.lblidmovimiento.Text = "<sdfsa"
         Me.lblidmovimiento.Visible = False
@@ -353,9 +367,10 @@ Partial Class xfrmRegCandidatos
         Me.BtnSalirold.Appearance.Options.UseFont = True
         Me.BtnSalirold.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
         Me.BtnSalirold.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnSalirold.Location = New System.Drawing.Point(959, 24)
+        Me.BtnSalirold.Location = New System.Drawing.Point(1119, 30)
+        Me.BtnSalirold.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.BtnSalirold.Name = "BtnSalirold"
-        Me.BtnSalirold.Size = New System.Drawing.Size(55, 55)
+        Me.BtnSalirold.Size = New System.Drawing.Size(64, 68)
         Me.BtnSalirold.TabIndex = 55
         Me.BtnSalirold.Text = "Salir"
         Me.BtnSalirold.Visible = False
@@ -365,9 +380,10 @@ Partial Class xfrmRegCandidatos
         Me.lblidpartido.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblidpartido.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblidpartido.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.lblidpartido.Location = New System.Drawing.Point(615, 58)
+        Me.lblidpartido.Location = New System.Drawing.Point(717, 71)
+        Me.lblidpartido.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lblidpartido.Name = "lblidpartido"
-        Me.lblidpartido.Size = New System.Drawing.Size(6, 13)
+        Me.lblidpartido.Size = New System.Drawing.Size(8, 17)
         Me.lblidpartido.TabIndex = 37
         Me.lblidpartido.Text = "1"
         Me.lblidpartido.Visible = False
@@ -379,9 +395,10 @@ Partial Class xfrmRegCandidatos
         Me.BtnEliminariold.Enabled = False
         Me.BtnEliminariold.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.eliminar
         Me.BtnEliminariold.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnEliminariold.Location = New System.Drawing.Point(959, 77)
+        Me.BtnEliminariold.Location = New System.Drawing.Point(1119, 95)
+        Me.BtnEliminariold.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.BtnEliminariold.Name = "BtnEliminariold"
-        Me.BtnEliminariold.Size = New System.Drawing.Size(51, 39)
+        Me.BtnEliminariold.Size = New System.Drawing.Size(59, 48)
         Me.BtnEliminariold.TabIndex = 54
         Me.BtnEliminariold.Text = "Eliminar"
         Me.BtnEliminariold.Visible = False
@@ -392,9 +409,10 @@ Partial Class xfrmRegCandidatos
         Me.btnguardarold.Appearance.Options.UseFont = True
         Me.btnguardarold.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.guardar1
         Me.btnguardarold.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomCenter
-        Me.btnguardarold.Location = New System.Drawing.Point(1026, 63)
+        Me.btnguardarold.Location = New System.Drawing.Point(1197, 78)
+        Me.btnguardarold.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnguardarold.Name = "btnguardarold"
-        Me.btnguardarold.Size = New System.Drawing.Size(55, 39)
+        Me.btnguardarold.Size = New System.Drawing.Size(64, 48)
         Me.btnguardarold.TabIndex = 53
         Me.btnguardarold.Text = "Guardar"
         Me.btnguardarold.Visible = False
@@ -404,9 +422,10 @@ Partial Class xfrmRegCandidatos
         Me.lblregidores.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblregidores.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lblregidores.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.lblregidores.Location = New System.Drawing.Point(6, 270)
+        Me.lblregidores.Location = New System.Drawing.Point(7, 332)
+        Me.lblregidores.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lblregidores.Name = "lblregidores"
-        Me.lblregidores.Size = New System.Drawing.Size(38, 14)
+        Me.lblregidores.Size = New System.Drawing.Size(48, 18)
         Me.lblregidores.TabIndex = 52
         Me.lblregidores.Text = "100%"
         '
@@ -415,9 +434,10 @@ Partial Class xfrmRegCandidatos
         Me.LabelControl35.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.LabelControl35.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.LabelControl35.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.LabelControl35.Location = New System.Drawing.Point(6, 251)
+        Me.LabelControl35.Location = New System.Drawing.Point(7, 309)
+        Me.LabelControl35.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl35.Name = "LabelControl35"
-        Me.LabelControl35.Size = New System.Drawing.Size(61, 14)
+        Me.LabelControl35.Size = New System.Drawing.Size(76, 18)
         Me.LabelControl35.TabIndex = 51
         Me.LabelControl35.Text = "Regidores"
         '
@@ -426,9 +446,10 @@ Partial Class xfrmRegCandidatos
         Me.lblvice.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblvice.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lblvice.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.lblvice.Location = New System.Drawing.Point(76, 230)
+        Me.lblvice.Location = New System.Drawing.Point(89, 283)
+        Me.lblvice.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lblvice.Name = "lblvice"
-        Me.lblvice.Size = New System.Drawing.Size(38, 14)
+        Me.lblvice.Size = New System.Drawing.Size(48, 18)
         Me.lblvice.TabIndex = 50
         Me.lblvice.Text = "100%"
         '
@@ -437,9 +458,10 @@ Partial Class xfrmRegCandidatos
         Me.LabelControl32.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.LabelControl32.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.LabelControl32.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.LabelControl32.Location = New System.Drawing.Point(76, 210)
+        Me.LabelControl32.Location = New System.Drawing.Point(89, 258)
+        Me.LabelControl32.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl32.Name = "LabelControl32"
-        Me.LabelControl32.Size = New System.Drawing.Size(65, 14)
+        Me.LabelControl32.Size = New System.Drawing.Size(86, 18)
         Me.LabelControl32.TabIndex = 49
         Me.LabelControl32.Text = "Vicealcalde"
         '
@@ -448,9 +470,10 @@ Partial Class xfrmRegCandidatos
         Me.lblalcalde.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblalcalde.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lblalcalde.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.lblalcalde.Location = New System.Drawing.Point(6, 230)
+        Me.lblalcalde.Location = New System.Drawing.Point(7, 283)
+        Me.lblalcalde.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lblalcalde.Name = "lblalcalde"
-        Me.lblalcalde.Size = New System.Drawing.Size(38, 14)
+        Me.lblalcalde.Size = New System.Drawing.Size(48, 18)
         Me.lblalcalde.TabIndex = 48
         Me.lblalcalde.Text = "100%"
         '
@@ -459,9 +482,10 @@ Partial Class xfrmRegCandidatos
         Me.LabelControl34.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.LabelControl34.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.LabelControl34.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.LabelControl34.Location = New System.Drawing.Point(6, 210)
+        Me.LabelControl34.Location = New System.Drawing.Point(7, 258)
+        Me.LabelControl34.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl34.Name = "LabelControl34"
-        Me.LabelControl34.Size = New System.Drawing.Size(43, 14)
+        Me.LabelControl34.Size = New System.Drawing.Size(55, 18)
         Me.LabelControl34.TabIndex = 47
         Me.LabelControl34.Text = "Alcalde"
         '
@@ -470,9 +494,10 @@ Partial Class xfrmRegCandidatos
         Me.lblcnr2.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblcnr2.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lblcnr2.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.lblcnr2.Location = New System.Drawing.Point(6, 193)
+        Me.lblcnr2.Location = New System.Drawing.Point(7, 238)
+        Me.lblcnr2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lblcnr2.Name = "lblcnr2"
-        Me.lblcnr2.Size = New System.Drawing.Size(38, 14)
+        Me.lblcnr2.Size = New System.Drawing.Size(48, 18)
         Me.lblcnr2.TabIndex = 42
         Me.lblcnr2.Text = "100%"
         '
@@ -481,9 +506,10 @@ Partial Class xfrmRegCandidatos
         Me.LabelControl24.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.LabelControl24.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.LabelControl24.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.LabelControl24.Location = New System.Drawing.Point(6, 173)
+        Me.LabelControl24.Location = New System.Drawing.Point(7, 213)
+        Me.LabelControl24.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl24.Name = "LabelControl24"
-        Me.LabelControl24.Size = New System.Drawing.Size(109, 14)
+        Me.LabelControl24.Size = New System.Drawing.Size(136, 18)
         Me.LabelControl24.TabIndex = 41
         Me.LabelControl24.Text = "Dip. al CNR Suple."
         '
@@ -492,9 +518,10 @@ Partial Class xfrmRegCandidatos
         Me.lblcnr1.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblcnr1.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lblcnr1.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.lblcnr1.Location = New System.Drawing.Point(6, 153)
+        Me.lblcnr1.Location = New System.Drawing.Point(7, 188)
+        Me.lblcnr1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lblcnr1.Name = "lblcnr1"
-        Me.lblcnr1.Size = New System.Drawing.Size(38, 14)
+        Me.lblcnr1.Size = New System.Drawing.Size(48, 18)
         Me.lblcnr1.TabIndex = 40
         Me.lblcnr1.Text = "100%"
         '
@@ -503,9 +530,10 @@ Partial Class xfrmRegCandidatos
         Me.LabelControl26.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.LabelControl26.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.LabelControl26.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.LabelControl26.Location = New System.Drawing.Point(6, 133)
+        Me.LabelControl26.Location = New System.Drawing.Point(7, 164)
+        Me.LabelControl26.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl26.Name = "LabelControl26"
-        Me.LabelControl26.Size = New System.Drawing.Size(104, 14)
+        Me.LabelControl26.Size = New System.Drawing.Size(129, 18)
         Me.LabelControl26.TabIndex = 39
         Me.LabelControl26.Text = "Dip. al CNR Prop."
         '
@@ -514,9 +542,10 @@ Partial Class xfrmRegCandidatos
         Me.lblparlacen2.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblparlacen2.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lblparlacen2.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.lblparlacen2.Location = New System.Drawing.Point(5, 113)
+        Me.lblparlacen2.Location = New System.Drawing.Point(6, 139)
+        Me.lblparlacen2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lblparlacen2.Name = "lblparlacen2"
-        Me.lblparlacen2.Size = New System.Drawing.Size(38, 14)
+        Me.lblparlacen2.Size = New System.Drawing.Size(48, 18)
         Me.lblparlacen2.TabIndex = 38
         Me.lblparlacen2.Text = "100%"
         '
@@ -525,9 +554,10 @@ Partial Class xfrmRegCandidatos
         Me.LabelControl15.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.LabelControl15.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.LabelControl15.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.LabelControl15.Location = New System.Drawing.Point(5, 93)
+        Me.LabelControl15.Location = New System.Drawing.Point(6, 114)
+        Me.LabelControl15.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl15.Name = "LabelControl15"
-        Me.LabelControl15.Size = New System.Drawing.Size(135, 14)
+        Me.LabelControl15.Size = New System.Drawing.Size(169, 18)
         Me.LabelControl15.TabIndex = 37
         Me.LabelControl15.Text = "Dip. al Parlacen Suple."
         '
@@ -536,9 +566,10 @@ Partial Class xfrmRegCandidatos
         Me.lblparlacen1.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblparlacen1.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lblparlacen1.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.lblparlacen1.Location = New System.Drawing.Point(5, 73)
+        Me.lblparlacen1.Location = New System.Drawing.Point(6, 90)
+        Me.lblparlacen1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lblparlacen1.Name = "lblparlacen1"
-        Me.lblparlacen1.Size = New System.Drawing.Size(38, 14)
+        Me.lblparlacen1.Size = New System.Drawing.Size(48, 18)
         Me.lblparlacen1.TabIndex = 36
         Me.lblparlacen1.Text = "100%"
         '
@@ -547,9 +578,10 @@ Partial Class xfrmRegCandidatos
         Me.labler23455.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.labler23455.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.labler23455.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.labler23455.Location = New System.Drawing.Point(5, 53)
+        Me.labler23455.Location = New System.Drawing.Point(6, 65)
+        Me.labler23455.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.labler23455.Name = "labler23455"
-        Me.labler23455.Size = New System.Drawing.Size(130, 14)
+        Me.labler23455.Size = New System.Drawing.Size(162, 18)
         Me.labler23455.TabIndex = 35
         Me.labler23455.Text = "Dip. al Parlacen Prop."
         '
@@ -558,9 +590,10 @@ Partial Class xfrmRegCandidatos
         Me.lbldesignados.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lbldesignados.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lbldesignados.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.lbldesignados.Location = New System.Drawing.Point(76, 34)
+        Me.lbldesignados.Location = New System.Drawing.Point(89, 42)
+        Me.lbldesignados.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lbldesignados.Name = "lbldesignados"
-        Me.lbldesignados.Size = New System.Drawing.Size(38, 14)
+        Me.lbldesignados.Size = New System.Drawing.Size(48, 18)
         Me.lbldesignados.TabIndex = 34
         Me.lbldesignados.Text = "100%"
         '
@@ -569,9 +602,10 @@ Partial Class xfrmRegCandidatos
         Me.label234.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.label234.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.label234.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.label234.Location = New System.Drawing.Point(75, 14)
+        Me.label234.Location = New System.Drawing.Point(87, 17)
+        Me.label234.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.label234.Name = "label234"
-        Me.label234.Size = New System.Drawing.Size(70, 14)
+        Me.label234.Size = New System.Drawing.Size(86, 18)
         Me.label234.TabIndex = 33
         Me.label234.Text = "Designados"
         '
@@ -580,9 +614,10 @@ Partial Class xfrmRegCandidatos
         Me.lblpresidnete.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblpresidnete.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lblpresidnete.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.lblpresidnete.Location = New System.Drawing.Point(5, 34)
+        Me.lblpresidnete.Location = New System.Drawing.Point(6, 42)
+        Me.lblpresidnete.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lblpresidnete.Name = "lblpresidnete"
-        Me.lblpresidnete.Size = New System.Drawing.Size(38, 14)
+        Me.lblpresidnete.Size = New System.Drawing.Size(48, 18)
         Me.lblpresidnete.TabIndex = 32
         Me.lblpresidnete.Text = "100%"
         '
@@ -591,20 +626,22 @@ Partial Class xfrmRegCandidatos
         Me.LabelControl21.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.LabelControl21.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.LabelControl21.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.LabelControl21.Location = New System.Drawing.Point(5, 14)
+        Me.LabelControl21.Location = New System.Drawing.Point(6, 17)
+        Me.LabelControl21.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl21.Name = "LabelControl21"
-        Me.LabelControl21.Size = New System.Drawing.Size(65, 14)
+        Me.LabelControl21.Size = New System.Drawing.Size(81, 18)
         Me.LabelControl21.TabIndex = 31
         Me.LabelControl21.Text = "Presidente"
         '
         'GCBusqueda
         '
         Me.GCBusqueda.DataSource = Me.IMVMOSTRARCANDIDATOS2BindingSource
-        Me.GCBusqueda.Location = New System.Drawing.Point(15, 146)
+        Me.GCBusqueda.Location = New System.Drawing.Point(17, 180)
         Me.GCBusqueda.MainView = Me.GridView1
+        Me.GCBusqueda.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GCBusqueda.Name = "GCBusqueda"
         Me.GCBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RIChkCoincide, Me.RIChkFima, Me.RPIImgen, Me.RepositoryItemComboBox1, Me.ChkEstado, Me.RepositoryItemTextEdit1, Me.RepositoryItemTextEdit2, Me.RepositoryItemTextEdit3, Me.chkConstancia, Me.PICImagenConstancia, Me.RepositoryItemTextEdit4, Me.RepositoryItemTextEdit5, Me.RepositoryItemTextEdit6, Me.txtIdentidad, Me.RepositoryItemTextEdit8})
-        Me.GCBusqueda.Size = New System.Drawing.Size(932, 265)
+        Me.GCBusqueda.Size = New System.Drawing.Size(1087, 326)
         Me.GCBusqueda.TabIndex = 30
         Me.GCBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1, Me.GridView2})
         '
@@ -852,9 +889,10 @@ Partial Class xfrmRegCandidatos
         Me.lblPartido.Appearance.ForeColor = System.Drawing.Color.Black
         Me.lblPartido.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.lblPartido.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.lblPartido.Location = New System.Drawing.Point(222, 58)
+        Me.lblPartido.Location = New System.Drawing.Point(259, 71)
+        Me.lblPartido.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lblPartido.Name = "lblPartido"
-        Me.lblPartido.Size = New System.Drawing.Size(346, 21)
+        Me.lblPartido.Size = New System.Drawing.Size(404, 26)
         Me.lblPartido.TabIndex = 33
         Me.lblPartido.Text = "Partido Politico"
         '
@@ -865,9 +903,10 @@ Partial Class xfrmRegCandidatos
         Me.lblMovimiento.Appearance.ForeColor = System.Drawing.Color.Black
         Me.lblMovimiento.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.lblMovimiento.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.lblMovimiento.Location = New System.Drawing.Point(574, 58)
+        Me.lblMovimiento.Location = New System.Drawing.Point(670, 71)
+        Me.lblMovimiento.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lblMovimiento.Name = "lblMovimiento"
-        Me.lblMovimiento.Size = New System.Drawing.Size(344, 21)
+        Me.lblMovimiento.Size = New System.Drawing.Size(401, 26)
         Me.lblMovimiento.TabIndex = 34
         Me.lblMovimiento.Text = "Inscripcion de Candidatos"
         '
@@ -908,26 +947,28 @@ Partial Class xfrmRegCandidatos
         '
         'imgmov
         '
-        Me.imgmov.Location = New System.Drawing.Point(729, 6)
+        Me.imgmov.Location = New System.Drawing.Point(850, 7)
+        Me.imgmov.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.imgmov.Name = "imgmov"
         Me.imgmov.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.imgmov.Properties.Appearance.Options.UseBackColor = True
         Me.imgmov.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
         Me.imgmov.Properties.ShowMenu = False
         Me.imgmov.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
-        Me.imgmov.Size = New System.Drawing.Size(68, 55)
+        Me.imgmov.Size = New System.Drawing.Size(79, 68)
         Me.imgmov.TabIndex = 36
         '
         'imgpartido
         '
-        Me.imgpartido.Location = New System.Drawing.Point(356, 4)
+        Me.imgpartido.Location = New System.Drawing.Point(415, 5)
+        Me.imgpartido.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.imgpartido.Name = "imgpartido"
         Me.imgpartido.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.imgpartido.Properties.Appearance.Options.UseBackColor = True
         Me.imgpartido.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
         Me.imgpartido.Properties.ShowMenu = False
         Me.imgpartido.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
-        Me.imgpartido.Size = New System.Drawing.Size(68, 55)
+        Me.imgpartido.Size = New System.Drawing.Size(79, 68)
         Me.imgpartido.TabIndex = 35
         '
         'lblmujeres
@@ -935,9 +976,10 @@ Partial Class xfrmRegCandidatos
         Me.lblmujeres.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.lblmujeres.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.lblmujeres.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.lblmujeres.Location = New System.Drawing.Point(672, 110)
+        Me.lblmujeres.Location = New System.Drawing.Point(784, 135)
+        Me.lblmujeres.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lblmujeres.Name = "lblmujeres"
-        Me.lblmujeres.Size = New System.Drawing.Size(0, 14)
+        Me.lblmujeres.Size = New System.Drawing.Size(0, 18)
         Me.lblmujeres.TabIndex = 57
         '
         'LabelControl16
@@ -945,9 +987,10 @@ Partial Class xfrmRegCandidatos
         Me.LabelControl16.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.LabelControl16.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.LabelControl16.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.LabelControl16.Location = New System.Drawing.Point(672, 91)
+        Me.LabelControl16.Location = New System.Drawing.Point(784, 112)
+        Me.LabelControl16.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl16.Name = "LabelControl16"
-        Me.LabelControl16.Size = New System.Drawing.Size(139, 14)
+        Me.LabelControl16.Size = New System.Drawing.Size(175, 18)
         Me.LabelControl16.TabIndex = 56
         Me.LabelControl16.Text = "Participación Femenina"
         '
@@ -971,20 +1014,36 @@ Partial Class xfrmRegCandidatos
         Me.PanelControl5.Controls.Add(Me.lblcnr1)
         Me.PanelControl5.Controls.Add(Me.LabelControl24)
         Me.PanelControl5.Controls.Add(Me.lblcnr2)
-        Me.PanelControl5.Location = New System.Drawing.Point(953, 146)
+        Me.PanelControl5.Location = New System.Drawing.Point(1112, 180)
+        Me.PanelControl5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.PanelControl5.Name = "PanelControl5"
-        Me.PanelControl5.Size = New System.Drawing.Size(150, 293)
+        Me.PanelControl5.Size = New System.Drawing.Size(175, 361)
         Me.PanelControl5.TabIndex = 58
+        '
+        'SimpleButton1
+        '
+        Me.SimpleButton1.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.SimpleButton1.Appearance.Options.UseFont = True
+        Me.SimpleButton1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._1345396919_txt2
+        Me.SimpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomCenter
+        Me.SimpleButton1.Location = New System.Drawing.Point(323, 11)
+        Me.SimpleButton1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.SimpleButton1.Name = "SimpleButton1"
+        Me.SimpleButton1.Size = New System.Drawing.Size(64, 48)
+        Me.SimpleButton1.TabIndex = 36
+        Me.SimpleButton1.Text = "Nuevo"
+        Me.SimpleButton1.ToolTip = " Presione para salir  de este formulario"
         '
         'xfrmRegCandidatos
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1106, 456)
+        Me.ClientSize = New System.Drawing.Size(1290, 561)
         Me.Controls.Add(Me.lblidpartido)
         Me.Controls.Add(Me.BtnSalirold)
         Me.Controls.Add(Me.lblidmovimiento)
         Me.Controls.Add(Me.BtnEliminariold)
+        Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.PanelControl5)
         Me.Controls.Add(Me.btnguardarold)
         Me.Controls.Add(Me.lblmujeres)
@@ -1001,6 +1060,7 @@ Partial Class xfrmRegCandidatos
         Me.Controls.Add(Me.cboMunicipio)
         Me.Controls.Add(Me.cboDepartamento)
         Me.Controls.Add(Me.PanelControl1)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "xfrmRegCandidatos"
         Me.Text = "Inscripción de Planilla"
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1132,4 +1192,5 @@ Partial Class xfrmRegCandidatos
     Friend WithEvents lblmujeres As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl16 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents PanelControl5 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
 End Class
