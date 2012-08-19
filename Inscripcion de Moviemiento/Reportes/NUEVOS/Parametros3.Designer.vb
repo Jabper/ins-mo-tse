@@ -20,6 +20,9 @@ Partial Class Parametros3
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
+        Dim ConditionValidationRule1 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
+        Dim ConditionValidationRule2 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
+        Dim ConditionValidationRule3 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Me.CmbMovimiento = New DevExpress.XtraEditors.LookUpEdit
         Me.IMMOVIMIENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DSPLANILLATOTALESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -47,6 +50,7 @@ Partial Class Parametros3
         Me.IM_DEPARTAMENTOSTableAdapter = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_DEPARTAMENTOSTableAdapter
         Me.IM_MUNICIPIOSTableAdapter = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_MUNICIPIOSTableAdapter
         Me.IM_PARTIDOS_POLITICOS1TableAdapter = New Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_PARTIDOS_POLITICOS1TableAdapter
+        Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
         CType(Me.CmbMovimiento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMMOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DSPLANILLATOTALESBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -61,6 +65,7 @@ Partial Class Parametros3
         CType(Me.IMMOVIMIENTOSBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cboDepto.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMDEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'CmbMovimiento
@@ -75,6 +80,9 @@ Partial Class Parametros3
         Me.CmbMovimiento.Properties.ValueMember = "CODIGO_MOVIMIENTO"
         Me.CmbMovimiento.Size = New System.Drawing.Size(200, 20)
         Me.CmbMovimiento.TabIndex = 29
+        ConditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule1.ErrorText = "El valor no puede estar en blanco"
+        Me.DxValidationProvider1.SetValidationRule(Me.CmbMovimiento, ConditionValidationRule1)
         '
         'IMMOVIMIENTOSBindingSource
         '
@@ -103,6 +111,9 @@ Partial Class Parametros3
         Me.cbopartido.Properties.ValueMember = "CODIGO_PARTIDO"
         Me.cbopartido.Size = New System.Drawing.Size(200, 20)
         Me.cbopartido.TabIndex = 26
+        ConditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule2.ErrorText = "El valor no puede estar en blanco"
+        Me.DxValidationProvider1.SetValidationRule(Me.cbopartido, ConditionValidationRule2)
         '
         'IMPARTIDOSPOLITICOS1BindingSource
         '
@@ -179,6 +190,9 @@ Partial Class Parametros3
         Me.cbonivel.Properties.ValueMember = "CODIGO_NIVEL_ELECTIVO"
         Me.cbonivel.Size = New System.Drawing.Size(200, 20)
         Me.cbonivel.TabIndex = 19
+        ConditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule3.ErrorText = "El valor no puede estar en blanco"
+        Me.DxValidationProvider1.SetValidationRule(Me.cbonivel, ConditionValidationRule3)
         '
         'IMNIVELELECTIVOBindingSource
         '
@@ -195,6 +209,7 @@ Partial Class Parametros3
         '
         'cboMuni
         '
+        Me.cboMuni.Enabled = False
         Me.cboMuni.Location = New System.Drawing.Point(508, 38)
         Me.cboMuni.Name = "cboMuni"
         Me.cboMuni.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -218,6 +233,7 @@ Partial Class Parametros3
         '
         'cboDepto
         '
+        Me.cboDepto.Enabled = False
         Me.cboDepto.Location = New System.Drawing.Point(508, 11)
         Me.cboDepto.Name = "cboDepto"
         Me.cboDepto.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -291,6 +307,7 @@ Partial Class Parametros3
         CType(Me.IMMOVIMIENTOSBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cboDepto.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMDEPARTAMENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -322,4 +339,5 @@ Partial Class Parametros3
     Friend WithEvents IM_MUNICIPIOSTableAdapter As Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_MUNICIPIOSTableAdapter
     Friend WithEvents IMPARTIDOSPOLITICOS1BindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents IM_PARTIDOS_POLITICOS1TableAdapter As Inscripcion_de_Moviemientos.DS_PLANILLA_TOTALESTableAdapters.IM_PARTIDOS_POLITICOS1TableAdapter
+    Friend WithEvents DxValidationProvider1 As DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider
 End Class

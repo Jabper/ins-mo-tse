@@ -12,7 +12,7 @@
         ' Me.IM_MOVIMIENTOSTableAdapter.Fill(Me.DS_PLANILLA_TOTALES.IM_MOVIMIENTOS)
         'TODO: This line of code loads data into the 'DS_PLANILLA_TOTALES.IM_PARTIDOS_POLITICOS' table. You can move, or remove it, as needed.
         Me.IM_PARTIDOS_POLITICOS1TableAdapter.FillBy(Me.DS_PLANILLA_TOTALES.IM_PARTIDOS_POLITICOS1)
-        ActivarFiltros()
+        'ActivarFiltros()
     End Sub
     Sub ActivarFiltros()
 
@@ -90,17 +90,38 @@
         'Catch ex As Exception
         '    MsgBox(ex.Message)
         'End Try
+        If Me.DxValidationProvider1.Validate = True Then
 
-        Dim reporte As xrptPlanillaNivel = New xrptPlanillaNivel
-        Select Case Me.cbonivel.EditValue
-            Case 1
-                reporte.NivelPresidencial(Me.cbopartido.EditValue, Me.CmbMovimiento.EditValue)
-            Case 2
-                reporte.NivelDiputados(Me.cbopartido.EditValue, Me.CmbMovimiento.EditValue, Me.cbopartido.EditValue)
 
-            Case 3
-                reporte.NivelCorporacion(Me.cbopartido.EditValue, Me.CmbMovimiento.EditValue, cboDepto.EditValue, Me.cboMuni.EditValue)
-        End Select
+
+            Try
+
+
+                Dim reporte As xrptPlanillaNivel = New xrptPlanillaNivel
+                reporte.txtmovimiento.Text = Me.CmbMovimiento.Text
+                reporte.txtpartido.Text = Me.cbopartido.Text
+                reporte.txtnivel.Text = Me.cbonivel.Text
+                reporte.txtusuario.Text = NombreUsuario
+                Select Case Me.cbonivel.EditValue
+                    Case 1
+                        reporte.NivelPresidencial(Me.cbopartido.EditValue, Me.CmbMovimiento.EditValue)
+                        reporte.GroupHeader2.Visible = False
+                    Case 2
+                        reporte.NivelDiputados(Me.cbopartido.EditValue, Me.CmbMovimiento.EditValue, Me.cbopartido.EditValue)
+                        reporte.txtdepartamento.Text = Me.cboDepto.Text & " " & Me.cboDepto.EditValue
+                        reporte.XrLabel15.Visible = False
+                        reporte.txtmunicipio.Visible = False
+                    Case 3
+                        reporte.NivelCorporacion(Me.cbopartido.EditValue, Me.CmbMovimiento.EditValue, cboDepto.EditValue, Me.cboMuni.EditValue)
+                        reporte.txtdepartamento.Text = Me.cboDepto.Text & " " & Me.cboDepto.EditValue
+                        reporte.txtmunicipio.Text = Me.cboMuni.Text & " " & Me.cboMuni.EditValue
+
+                End Select
+                reporte.ShowPreview()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End If
     End Sub
 
     Private Sub btnsalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnsalir.Click
@@ -126,13 +147,24 @@
 
     Private Sub cbonivel_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbonivel.TextChanged
         Select Case Me.cbonivel.EditValue
+            Case 0
+                With Me.cboDepto
+                    .Enabled = False
+                    .EditValue = Nothing
+                End With
+
+                With Me.cboMuni
+                    .Enabled = False
+                    .EditValue = Nothing
+                End With
+
             Case 1
                 With Me.cboDepto
                     .Enabled = False
                     .EditValue = Nothing
                 End With
 
-                With Me.CmbMovimiento
+                With Me.cboMuni
                     .Enabled = False
                     .EditValue = Nothing
                 End With
@@ -143,7 +175,7 @@
                     .EditValue = Nothing
                 End With
 
-                With Me.CmbMovimiento
+                With Me.cboMuni
                     .Enabled = False
                     .EditValue = Nothing
                 End With
@@ -154,7 +186,7 @@
                     .EditValue = Nothing
                 End With
 
-                With Me.CmbMovimiento
+                With Me.cboMuni
                     .Enabled = True
                     .EditValue = Nothing
                 End With
