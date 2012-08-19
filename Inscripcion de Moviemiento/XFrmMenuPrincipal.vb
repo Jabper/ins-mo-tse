@@ -570,4 +570,13 @@ Public Class XFrmMenuPrincipal
        
         
     End Sub
+
+   
+    Private Sub BtnRepPlanillasCompletasNivel_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnRepPlanillasCompletasNivel.ItemClick
+        Parametros3.Show()
+    End Sub
+
+    Private Sub BtnRepPlanillasCompletas_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnRepPlanillasCompletas.ItemClick
+        Parametros.Show()
+    End Sub
 End Class

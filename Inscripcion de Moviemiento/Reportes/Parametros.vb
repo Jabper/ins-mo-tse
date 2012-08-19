@@ -151,7 +151,7 @@
             reporte_planilla_RI.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(reporte_planilla_RI.DS_LOG.IM_PARTIDOS_POLITICOS_imagen, cbopartido.Text)
             reporte_planilla_RI.IM_MOVIMIENTOS_imagenTableAdapter.Fill(reporte_planilla_RI.DS_LOG.IM_MOVIMIENTOS_imagen, CmbMovimiento.Text)
             reporte_planilla_RI.ShowPreview()
-            Me.Close()
+            'Me.Close()
             Me.partido = Me.cbopartido.Text
             Me.nivel = Me.cbocargo.Text
             movimiento = (Me.CmbMovimiento.Text)
