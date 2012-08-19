@@ -102,12 +102,15 @@
                 reporte.txtpartido.Text = Me.cbopartido.Text
                 reporte.txtnivel.Text = Me.cbonivel.Text
                 reporte.txtusuario.Text = NombreUsuario
+                reporte.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(reporte.DS_LOG.IM_PARTIDOS_POLITICOS_imagen, cbopartido.Text)
+                reporte.IM_MOVIMIENTOS_imagenTableAdapter.Fill(reporte.DS_LOG.IM_MOVIMIENTOS_imagen, CmbMovimiento.Text)
+                ' 
                 Select Case Me.cbonivel.EditValue
                     Case 1
                         reporte.NivelPresidencial(Me.cbopartido.EditValue, Me.CmbMovimiento.EditValue)
                         reporte.GroupHeader2.Visible = False
                     Case 2
-                        reporte.NivelDiputados(Me.cbopartido.EditValue, Me.CmbMovimiento.EditValue, Me.cbopartido.EditValue)
+                        reporte.NivelDiputados(Me.cbopartido.EditValue, Me.CmbMovimiento.EditValue, Me.cboDepto.EditValue)
                         reporte.txtdepartamento.Text = Me.cboDepto.Text & " " & Me.cboDepto.EditValue
                         reporte.XrLabel15.Visible = False
                         reporte.txtmunicipio.Visible = False
