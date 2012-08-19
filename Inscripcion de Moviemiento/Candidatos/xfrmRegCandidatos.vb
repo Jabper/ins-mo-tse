@@ -685,9 +685,23 @@ Public Class xfrmRegCandidatos
             Dim a As String = "select NUMERO_IDENTIDAD,CODIGO_HABI_INHA, SEXO from IM_PADRON_ELECTORAL where NUMERO_IDENTIDAD='" & e.Value.ToString & "'"
 
             If COracle.ObtenerDatos(a, "CODIGO_HABI_INHA") = "N" Then
-                mensajeerror = "Ciudadano No Existe en el Padron Electoral"
-                e.Valid = False
-                view.FocusedColumn.FieldName = "IDENTIDAD"
+                'mensajeerror = "Ciudadano No Existe en el Padron Electoral"
+                Mensajes.MensajeError("Ciudadano No Existe en el Padron Electoral")
+
+                GridView1.Columns("PRIMER_NOMBRE").OptionsColumn.AllowEdit = True
+                GridView1.Columns("SEGUNDO_NOMBRE").OptionsColumn.AllowEdit = True
+                GridView1.Columns("PRIMER_APELLIDO").OptionsColumn.AllowEdit = True
+                GridView1.Columns("SEGUNDO_APELLIDO").OptionsColumn.AllowEdit = True
+
+                view.SetRowCellValue(view.FocusedRowHandle, "IDENTIDAD", e.Value.ToString)
+
+                'e.Valid = False
+                'view.FocusedColumn.FieldName = "IDENTIDAD"
+
+
+
+
+
                 'ElseIf COracle.ObtenerDatos(a, "CODIGO_HABI_INHA") = "E01" Then
                 '    mensajeerror = "Ciudadano Inhabilitado contacte al TSE"
                 '    e.Valid = False
@@ -1466,6 +1480,12 @@ Public Class xfrmRegCandidatos
                         Mensajes.MensajeError("Seleccione el Departamento y/o Municipio")
                     Else
                         guardar(e.RowHandle)
+
+                        'AGREGADO 18 AGOSTO
+                        GridView1.Columns("PRIMER_NOMBRE").OptionsColumn.AllowEdit = False
+                        GridView1.Columns("SEGUNDO_NOMBRE").OptionsColumn.AllowEdit = False
+                        GridView1.Columns("PRIMER_APELLIDO").OptionsColumn.AllowEdit = False
+                        GridView1.Columns("SEGUNDO_APELLIDO").OptionsColumn.AllowEdit = False
                     End If
                 End If
             ElseIf _row.RowState = DataRowState.Unchanged Or permitir_up = 1 Then
@@ -1475,6 +1495,11 @@ Public Class xfrmRegCandidatos
                     Validarleyendas()
                 ElseIf credencial = "S" Then
                     Actualizar(e.RowHandle)
+                    'AGREGADO 19 AGOSTO
+                    GridView1.Columns("PRIMER_NOMBRE").OptionsColumn.AllowEdit = False
+                    GridView1.Columns("SEGUNDO_NOMBRE").OptionsColumn.AllowEdit = False
+                    GridView1.Columns("PRIMER_APELLIDO").OptionsColumn.AllowEdit = False
+                    GridView1.Columns("SEGUNDO_APELLIDO").OptionsColumn.AllowEdit = False
                 End If
 
             End If
@@ -1586,5 +1611,13 @@ Public Class xfrmRegCandidatos
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
 
+    End Sub
+
+    Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton1.Click
+
+        GridView1.Columns("PRIMER_NOMBRE").OptionsColumn.AllowEdit = True
+        GridView1.Columns("SEGUNDO_NOMBRE").OptionsColumn.AllowEdit = True
+        GridView1.Columns("PRIMER_APELLIDO").OptionsColumn.AllowEdit = True
+        GridView1.Columns("SEGUNDO_APELLIDO").OptionsColumn.AllowEdit = True
     End Sub
 End Class
