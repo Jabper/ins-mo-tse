@@ -579,4 +579,15 @@ Public Class XFrmMenuPrincipal
     Private Sub BtnRepPlanillasCompletas_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnRepPlanillasCompletas.ItemClick
         Parametros.Show()
     End Sub
+
+    Private Sub BTNcumplimiento_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNcumplimiento.ItemClick
+        Dim REPORTE_ENTREGA_CUMPLIMIENTO As REPORTE_DE_CUMPLIMIENTO = New REPORTE_DE_CUMPLIMIENTO
+        REPORTE_ENTREGA_CUMPLIMIENTO.ShowPreview()
+
+    End Sub
+
+    Private Sub BTNcumplimiento1_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNcumplimiento1.ItemClick
+        Dim REPORTE_ENTREGA_CUMPLIMIENTO_1 As REPORTE_DE_CUMPLIMIENTO_1 = New REPORTE_DE_CUMPLIMIENTO_1
+        REPORTE_ENTREGA_CUMPLIMIENTO_1.ShowPreview()
+    End Sub
 End Class
