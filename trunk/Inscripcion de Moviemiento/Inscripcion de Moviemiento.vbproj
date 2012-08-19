@@ -561,6 +561,17 @@
       <DependentUpon>DS_REPORTE_ESTADISTICO_DP.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reportes\DS_REP_DETALLE_ESTADISTICA.Designer.vb" />
+    <Compile Include="Reportes\DT_Planillas_Por_Nivel.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DT_Planillas_Por_Nivel.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\NUEVOS\Parametros3.Designer.vb">
+      <DependentUpon>Parametros3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\NUEVOS\Parametros3.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\NUEVOS\REPORTE_REQUISITOS_CANDIDATOS.Designer.vb">
       <DependentUpon>REPORTE_REQUISITOS_CANDIDATOS.vb</DependentUpon>
     </Compile>
@@ -715,6 +726,12 @@
       <DependentUpon>xrptPlanilla.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\xrptPlanilla.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\xrptPlanillaNivel.Designer.vb">
+      <DependentUpon>xrptPlanillaNivel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\xrptPlanillaNivel.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Usuarios\XfrmCambiarPass.Designer.vb">
@@ -1099,6 +1116,10 @@
       <DependentUpon>xfrmValidaciones.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\NUEVOS\Parametros3.resx">
+      <DependentUpon>Parametros3.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\NUEVOS\REPORTE_REQUISITOS_CANDIDATOS.resx">
       <DependentUpon>REPORTE_REQUISITOS_CANDIDATOS.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -1201,6 +1222,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\xrptPlanilla.resx">
       <DependentUpon>xrptPlanilla.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\xrptPlanillaNivel.resx">
+      <DependentUpon>xrptPlanillaNivel.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\XfrmCambiarPass.resx">
@@ -2003,6 +2028,17 @@
     </None>
     <None Include="Reportes\DS_REP_DETALLE_ESTADISTICA.xss">
       <DependentUpon>DS_REP_DETALLE_ESTADISTICA.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DT_Planillas_Por_Nivel.xsc">
+      <DependentUpon>DT_Planillas_Por_Nivel.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DT_Planillas_Por_Nivel.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DT_Planillas_Por_Nivel.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DT_Planillas_Por_Nivel.xss">
+      <DependentUpon>DT_Planillas_Por_Nivel.xsd</DependentUpon>
     </None>
     <None Include="Resources\borrar_usuario.sql" />
     <None Include="Resources\candidatos_repetidos.png" />
