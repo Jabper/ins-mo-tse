@@ -123,7 +123,8 @@ Public Class XfrmConPlanilla
                 Case 7
                     Me.GridView1.Columns("REC5").Visible = False
                     Me.GridView1.Columns("REC6").Visible = False
-                    Me.GridView1.Columns("REC7").Visible = False
+                    Me.GridView1.Columns("REC7").Visible = True
+                    Me.GridView1.Columns("REC7").VisibleIndex = 27
                     Me.GridView1.Columns("REC8").Visible = True
                     Me.GridView1.Columns("REC8").VisibleIndex = 28
                 Case 8
