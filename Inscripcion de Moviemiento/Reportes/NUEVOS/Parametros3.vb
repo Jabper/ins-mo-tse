@@ -116,8 +116,8 @@
                         reporte.txtmunicipio.Visible = False
                     Case 3
                         reporte.NivelCorporacion(Me.cbopartido.EditValue, Me.CmbMovimiento.EditValue, cboDepto.EditValue, Me.cboMuni.EditValue)
-                        reporte.txtdepartamento.Text = Me.cboDepto.Text & " " & Me.cboDepto.EditValue
-                        reporte.txtmunicipio.Text = Me.cboMuni.Text & " " & Me.cboMuni.EditValue
+                        reporte.txtdepartamento.Text = Me.cboDepto.EditValue & " " & Me.cboDepto.Text
+                        reporte.txtmunicipio.Text = Me.cboMuni.EditValue & " " & Me.cboMuni.Text
 
                 End Select
                 reporte.ShowPreview()
