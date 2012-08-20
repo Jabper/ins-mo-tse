@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -569,6 +569,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DT_Planillas_Por_Nivel.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\NUEVOS\DT_Produccion.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DT_Produccion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\NUEVOS\DT_Produccion2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DT_Produccion2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\NUEVOS\Parametros3.Designer.vb">
       <DependentUpon>Parametros3.vb</DependentUpon>
     </Compile>
@@ -596,6 +606,18 @@
       <DependentUpon>xrptPlanillaNivel2.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\NUEVOS\xrptPlanillaNivel2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\NUEVOS\xrptReporte_Produccion.Designer.vb">
+      <DependentUpon>xrptReporte_Produccion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\NUEVOS\xrptReporte_Produccion.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\NUEVOS\xrptReporte_Produccion2.Designer.vb">
+      <DependentUpon>xrptReporte_Produccion2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\NUEVOS\xrptReporte_Produccion2.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\Parametros.Designer.vb">
@@ -1150,6 +1172,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\NUEVOS\REPORTE_DE_CUMPLIMIENTO_1.resx">
       <DependentUpon>REPORTE_DE_CUMPLIMIENTO_1.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\NUEVOS\Parametros3.resx">
       <DependentUpon>Parametros3.vb</DependentUpon>
@@ -1161,6 +1184,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\NUEVOS\xrptPlanillaNivel2.resx">
       <DependentUpon>xrptPlanillaNivel2.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\NUEVOS\xrptReporte_Produccion.resx">
+      <DependentUpon>xrptReporte_Produccion.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\NUEVOS\xrptReporte_Produccion2.resx">
+      <DependentUpon>xrptReporte_Produccion2.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Parametros.resx">
@@ -1205,6 +1236,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_DE_CUMPLIMIENTO.resx">
       <DependentUpon>REPORTE_DE_CUMPLIMIENTO.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\REPORTE_DE_LOG.resx">
       <DependentUpon>REPORTE_DE_LOG.vb</DependentUpon>
@@ -2097,6 +2129,28 @@
     <None Include="Reportes\DT_Planillas_Por_Nivel.xss">
       <DependentUpon>DT_Planillas_Por_Nivel.xsd</DependentUpon>
     </None>
+    <None Include="Reportes\NUEVOS\DT_Produccion.xsc">
+      <DependentUpon>DT_Produccion.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\NUEVOS\DT_Produccion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DT_Produccion.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\NUEVOS\DT_Produccion.xss">
+      <DependentUpon>DT_Produccion.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\NUEVOS\DT_Produccion2.xsc">
+      <DependentUpon>DT_Produccion2.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\NUEVOS\DT_Produccion2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DT_Produccion2.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\NUEVOS\DT_Produccion2.xss">
+      <DependentUpon>DT_Produccion2.xsd</DependentUpon>
+    </None>
     <None Include="Resources\borrar_usuario.sql" />
     <None Include="Resources\candidatos_repetidos.png" />
     <None Include="Resources\firmas.png" />
@@ -2150,6 +2204,9 @@
     <None Include="Resources\motivo1.png" />
   </ItemGroup>
   <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reportes\Produccion\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -84,7 +84,7 @@ Partial Public Class xrptPlanillaNivel
         'Detail
         '
         Me.Detail.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel6, Me.XrLabel5, Me.XrLabel4, Me.XrLabel2, Me.XrLabel11, Me.XrLabel9})
-        Me.Detail.HeightF = 50.71497!
+        Me.Detail.HeightF = 44.43006!
         Me.Detail.Name = "Detail"
         Me.Detail.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.Detail.SortFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("CODIGO_CARGO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending), New DevExpress.XtraReports.UI.GroupField("POSICION", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
@@ -120,10 +120,12 @@ Partial Public Class xrptPlanillaNivel
         'XrLabel2
         '
         Me.XrLabel2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CANDIDATOS_NIVEL.CARGO")})
+        Me.XrLabel2.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(10.0!, 10.0!)
         Me.XrLabel2.Name = "XrLabel2"
         Me.XrLabel2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel2.SizeF = New System.Drawing.SizeF(266.9441!, 23.00002!)
+        Me.XrLabel2.StylePriority.UseFont = False
         Me.XrLabel2.Text = "XrLabel2"
         '
         'XrLabel11
@@ -176,7 +178,7 @@ Partial Public Class xrptPlanillaNivel
         Me.XrLabel20.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel20.SizeF = New System.Drawing.SizeF(283.9584!, 23.00003!)
         Me.XrLabel20.StylePriority.UseTextAlignment = False
-        XrSummary1.FormatString = "TOTAL CANDIDATOS: {0}"
+        XrSummary1.FormatString = "CANDIDATOS PRESENTADOS: {0}"
         XrSummary1.Func = DevExpress.XtraReports.UI.SummaryFunc.Count
         XrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Report
         Me.XrLabel20.Summary = XrSummary1
@@ -397,7 +399,7 @@ Partial Public Class xrptPlanillaNivel
         'GroupHeader1
         '
         Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLine3, Me.XrLabel8, Me.XrLabel3, Me.XrLine2, Me.XrLabel17, Me.XrLabel12, Me.XrLabel23, Me.XrLabel19})
-        Me.GroupHeader1.HeightF = 66.84452!
+        Me.GroupHeader1.HeightF = 64.74955!
         Me.GroupHeader1.Name = "GroupHeader1"
         Me.GroupHeader1.RepeatEveryPage = True
         '

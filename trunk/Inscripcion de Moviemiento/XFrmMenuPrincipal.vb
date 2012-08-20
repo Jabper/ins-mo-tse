@@ -580,6 +580,16 @@ Public Class XFrmMenuPrincipal
         Parametros.Show()
     End Sub
 
+    Private Sub BtnProduccion_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnProduccion.ItemClick
+        Dim xrptReporte_Produccion As xrptReporte_Produccion = New xrptReporte_Produccion
+        xrptReporte_Produccion.ShowPreview()
+    End Sub
+
+    Private Sub BtnReporteProduccion2_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnReporteProduccion2.ItemClick
+        Dim xrptReporte_Produccion As xrptReporte_Produccion2 = New xrptReporte_Produccion2
+        xrptReporte_Produccion.ShowPreview()
+    End Sub
+
     Private Sub BTNcumplimiento_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNcumplimiento.ItemClick
         Dim REPORTE_ENTREGA_CUMPLIMIENTO As REPORTE_DE_CUMPLIMIENTO = New REPORTE_DE_CUMPLIMIENTO
         REPORTE_ENTREGA_CUMPLIMIENTO.ShowPreview()
@@ -589,5 +599,20 @@ Public Class XFrmMenuPrincipal
     Private Sub BTNcumplimiento1_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNcumplimiento1.ItemClick
         Dim REPORTE_ENTREGA_CUMPLIMIENTO_1 As REPORTE_DE_CUMPLIMIENTO_1 = New REPORTE_DE_CUMPLIMIENTO_1
         REPORTE_ENTREGA_CUMPLIMIENTO_1.ShowPreview()
+    End Sub
+
+    Private Sub BtnRepCumplimiento_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnRepCumplimiento.ItemClick
+        Dim REPORTE_ENTREGA_CUMPLIMIENTO As REPORTE_DE_CUMPLIMIENTO = New REPORTE_DE_CUMPLIMIENTO
+        REPORTE_ENTREGA_CUMPLIMIENTO.ShowPreview()
+    End Sub
+
+    Private Sub BtnRepCumplimientoCifras_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnRepCumplimientoCifras.ItemClick
+        Dim REPORTE_ENTREGA_CUMPLIMIENTO As REPORTE_DE_CUMPLIMIENTO_1 = New REPORTE_DE_CUMPLIMIENTO_1
+        REPORTE_ENTREGA_CUMPLIMIENTO.ShowPreview()
+    End Sub
+
+    Private Sub BarButtonItem5_ItemClick_3(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem5.ItemClick
+        Dim reporterazo As REPORTE_RAZONADO = New REPORTE_RAZONADO
+        reporterazo.ShowPreview()
     End Sub
 End Class
