@@ -276,7 +276,7 @@ Partial Public Class REPORTE_DE_CUMPLIMIENTO_1
         Me.nombre.LocationFloat = New DevExpress.Utils.PointFloat(91.25001!, 462.4167!)
         Me.nombre.Name = "nombre"
         Me.nombre.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.nombre.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.nombre.SizeF = New System.Drawing.SizeF(612.5!, 23.0!)
         Me.nombre.Text = "nombre"
         '
         'XrLabel36

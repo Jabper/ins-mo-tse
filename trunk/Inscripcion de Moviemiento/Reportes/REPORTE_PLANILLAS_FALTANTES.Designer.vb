@@ -95,7 +95,7 @@ Partial Public Class REPORTE_PLANILLAS_FALTANTES
         'XrLabel16
         '
         Me.XrLabel16.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FALTANTES.REQUERIDOS")})
-        Me.XrLabel16.LocationFloat = New DevExpress.Utils.PointFloat(397.5417!, 10.00001!)
+        Me.XrLabel16.LocationFloat = New DevExpress.Utils.PointFloat(397.5417!, 0.0!)
         Me.XrLabel16.Name = "XrLabel16"
         Me.XrLabel16.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel16.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)

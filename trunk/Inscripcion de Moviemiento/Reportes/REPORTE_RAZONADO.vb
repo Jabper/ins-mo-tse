@@ -146,6 +146,8 @@ Public Class REPORTE_RAZONADO
 
         Me.partido.Text = Me.NombrePartido.Value.ToString
         Me.movimiento.Text = Me.NombreMovimiento.Value.ToString
+        Me.usuarior.Text = NombreUsuario
+
 
         '**********************************************************************************
         conn.ConnectionString = oradb
@@ -166,7 +168,7 @@ Public Class REPORTE_RAZONADO
         tnivel_diputadosPARP_in = COracle.ObtenerDatos("select count(1)CARGOS from im_candidatos c, im_partidos_politicos pa, im_movimientos mov where C.CODIGO_CARGO_ELECTIVO in (2) and C.ESTADO = 'I' and C.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and C.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOS")
         Nomina_vacias_parlacenp = COracle.ObtenerDatos(" select count(1)CARGOSPP from im_candidatos c, im_partidos_politicos pa, im_movimientos mov where C.CODIGO_CARGO_ELECTIVO in (2)  and C.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and C.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOSPP")
         'DATOS PARA NOMINA PARLACEN SUPLENTES
-        tnivel_diputadosPARS = COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where CA.CODIGO_CARGO_ELECTIVO in (3) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO  and CA.VALIDADO = 'S' and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
+        tnivel_diputadosPARS = COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where CA.CODIGO_CARGO_ELECTIVO in (3) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
         tnivel_diputadosPARS_in = COracle.ObtenerDatos("select count(1)CARGOS from im_candidatos c, im_partidos_politicos pa, im_movimientos mov where C.CODIGO_CARGO_ELECTIVO in (3) and C.ESTADO = 'I' and C.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and C.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOS")
         Nomina_vacias_parlacens = COracle.ObtenerDatos(" select count(1)CARGOSPP from im_candidatos c, im_partidos_politicos pa, im_movimientos mov where C.CODIGO_CARGO_ELECTIVO in (3) and C.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and C.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOSPP")
         'DATOS PARA NOMINA CONGRESO PROPIETARIOS
@@ -258,7 +260,7 @@ Public Class REPORTE_RAZONADO
             Me.parlas3.Text = "NO"
         End If
 
-        If tnivel_diputadosPARS = 20 And tnivel_diputadosPARP_in > 0 Then
+        If tnivel_diputadosPARS = 20 And tnivel_diputadosPARS_in > 0 Then
             Me.parlas2.Text = "1" 'INCONSISTENTE
         Else
             Me.parlas2.Text = "0"
@@ -321,12 +323,12 @@ Public Class REPORTE_RAZONADO
 
         'CORPORACION MUNICIPAL 
 
-        Me.congres1.Text = tnivel_corporacionmunic.ToString  'COMPLETA
-        If tnivel_diputadoscnsc >= 150 Then
-            Me.corporacion1.Text = "SI" 'CUMPLE
+        Me.corporacion1.Text = tnivel_corporacionmunic.ToString  'COMPLETA
+        If tnivel_corporacionmunic >= 150 Then
+            Me.corpo3.Text = "SI" 'CUMPLE
             'Me.NominaParlacens.Text = "0" 'INCOMPLETA
         Else
-            Me.corporacion1.Text = "NO"
+            Me.corpo3.Text = "NO"
         End If
         'INCONSISTENTES
 
@@ -336,7 +338,7 @@ Public Class REPORTE_RAZONADO
         Me.NominaCM.Text = tnivel_corporacionmunin.ToString
 
         'VACIAS 
-        Nominavacia_6.Text = (18 - tnivel_corporacionmunic - tnivel_corporacionmunin).ToString
+        Nominavacia_6.Text = (298 - tnivel_corporacionmunic - tnivel_corporacionmunin).ToString
 
 
 
