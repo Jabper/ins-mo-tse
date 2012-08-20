@@ -624,4 +624,13 @@ Public Class XFrmMenuPrincipal
     Private Sub BtnReporteIncosistencias_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnReporteIncosistencias.ItemClick
 
     End Sub
+
+    Private Sub BtnPCNE_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnPCNE.ItemClick
+        Parametros4.Show()
+    End Sub
+
+    Private Sub BtnFaltantesBasico_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnFaltantesBasico.ItemClick
+        Dim reporte_faltantes As REPORTE_PLANILLAS_FALTANTES = New REPORTE_PLANILLAS_FALTANTES
+        reporte_faltantes.ShowPreview()
+    End Sub
 End Class

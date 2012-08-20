@@ -81,16 +81,17 @@ Partial Public Class xrptPlanilla
         'Detail
         '
         Me.Detail.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel14, Me.XrPictureBox1, Me.XrLabel3, Me.XrLabel2, Me.XrLabel1})
-        Me.Detail.HeightF = 103.4885!
+        Me.Detail.HeightF = 63.90521!
         Me.Detail.Name = "Detail"
         Me.Detail.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
+        Me.Detail.SnapLinePadding = New DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5, 100.0!)
         Me.Detail.SortFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("POSICION", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
         Me.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
         '
         'XrLabel14
         '
         Me.XrLabel14.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_MOSTRAR_CANDIDATOS2.IDENTIDAD")})
-        Me.XrLabel14.LocationFloat = New DevExpress.Utils.PointFloat(174.7915!, 23.55422!)
+        Me.XrLabel14.LocationFloat = New DevExpress.Utils.PointFloat(174.7915!, 10.00001!)
         Me.XrLabel14.Name = "XrLabel14"
         Me.XrLabel14.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel14.SizeF = New System.Drawing.SizeF(131.25!, 23.0!)
@@ -101,15 +102,15 @@ Partial Public Class xrptPlanilla
         'XrPictureBox1
         '
         Me.XrPictureBox1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Nothing, "IM_V_MOSTRAR_CANDIDATOS2.IMAGEN")})
-        Me.XrPictureBox1.LocationFloat = New DevExpress.Utils.PointFloat(844.3301!, 10.00001!)
+        Me.XrPictureBox1.LocationFloat = New DevExpress.Utils.PointFloat(860.9969!, 0.0!)
         Me.XrPictureBox1.Name = "XrPictureBox1"
-        Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(111.4584!, 91.82183!)
+        Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(71.87506!, 59.94689!)
         Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze
         '
         'XrLabel3
         '
         Me.XrLabel3.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_MOSTRAR_CANDIDATOS2.APELLIDO")})
-        Me.XrLabel3.LocationFloat = New DevExpress.Utils.PointFloat(567.4887!, 23.55422!)
+        Me.XrLabel3.LocationFloat = New DevExpress.Utils.PointFloat(567.4887!, 10.00001!)
         Me.XrLabel3.Name = "XrLabel3"
         Me.XrLabel3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel3.SizeF = New System.Drawing.SizeF(216.9993!, 23.00001!)
@@ -118,7 +119,7 @@ Partial Public Class xrptPlanilla
         'XrLabel2
         '
         Me.XrLabel2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_MOSTRAR_CANDIDATOS2.NOMBRE")})
-        Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(327.4996!, 23.55422!)
+        Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(327.4996!, 10.00001!)
         Me.XrLabel2.Name = "XrLabel2"
         Me.XrLabel2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel2.SizeF = New System.Drawing.SizeF(218.7249!, 22.99999!)
@@ -127,10 +128,12 @@ Partial Public Class xrptPlanilla
         'XrLabel1
         '
         Me.XrLabel1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_MOSTRAR_CANDIDATOS2.POSICION")})
-        Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(11.12959!, 23.55423!)
+        Me.XrLabel1.Font = New System.Drawing.Font("Times New Roman", 8.0!)
+        Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(11.1296!, 10.00001!)
         Me.XrLabel1.Name = "XrLabel1"
         Me.XrLabel1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel1.SizeF = New System.Drawing.SizeF(142.6206!, 23.00002!)
+        Me.XrLabel1.StylePriority.UseFont = False
         Me.XrLabel1.Text = "XrLabel1"
         '
         'TopMargin

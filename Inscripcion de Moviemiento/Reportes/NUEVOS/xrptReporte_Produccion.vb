@@ -58,6 +58,9 @@ Public Class xrptReporte_Produccion
 
     Private Sub xrptReporte_Produccion_ParametersRequestSubmit(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestEventArgs) Handles Me.ParametersRequestSubmit
         Me.txtusuario.Text = NombreUsuario
+        Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(Me.DS_LOG.IM_PARTIDOS_POLITICOS_imagen, e.ParametersInformation(0).Editor.Text)
+        ' Me.IM_MOVIMIENTOSTableAdapter.FillBy(Me.DT_Produccion1.IM_MOVIMIENTOS, Partido.Value)
+
         Me.IM_V_REPORTE_PRODUCCIONTableAdapter.FillBy(Me.DT_Produccion1.IM_V_REPORTE_PRODUCCION, Partido.Value)
     End Sub
 
