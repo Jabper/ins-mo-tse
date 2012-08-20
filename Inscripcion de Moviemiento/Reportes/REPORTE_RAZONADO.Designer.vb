@@ -66,6 +66,7 @@ Partial Public Class REPORTE_RAZONADO
         Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
         Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
         Me.GroupHeader3 = New DevExpress.XtraReports.UI.GroupHeaderBand
+        Me.preco4 = New DevExpress.XtraReports.UI.XRLabel
         Me.Nominavacia_6 = New DevExpress.XtraReports.UI.XRLabel
         Me.Nominavacia_5 = New DevExpress.XtraReports.UI.XRLabel
         Me.Nominavacia_4 = New DevExpress.XtraReports.UI.XRLabel
@@ -98,7 +99,8 @@ Partial Public Class REPORTE_RAZONADO
         Me.PageFooter = New DevExpress.XtraReports.UI.PageFooterBand
         Me.XrPageInfo2 = New DevExpress.XtraReports.UI.XRPageInfo
         Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo
-        Me.preco4 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel18 = New DevExpress.XtraReports.UI.XRLabel
+        Me.usuarior = New DevExpress.XtraReports.UI.XRLabel
         CType(Me.BindingSource3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -388,12 +390,12 @@ Partial Public Class REPORTE_RAZONADO
         Me.XrLabel2.SizeF = New System.Drawing.SizeF(629.9999!, 22.99999!)
         Me.XrLabel2.StylePriority.UseFont = False
         Me.XrLabel2.StylePriority.UseTextAlignment = False
-        Me.XrLabel2.Text = "Resumen de Cumplimiento de Nominas"
+        Me.XrLabel2.Text = "Reporte Razonado de Cumplimiento de Nominas"
         Me.XrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'GroupHeader1
         '
-        Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.movimiento, Me.partido, Me.XrLabel4, Me.XrLabel3})
+        Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.movimiento, Me.partido, Me.XrLabel4, Me.XrLabel3, Me.XrPageInfo1, Me.XrPageInfo2})
         Me.GroupHeader1.HeightF = 89.58334!
         Me.GroupHeader1.Level = 2
         Me.GroupHeader1.Name = "GroupHeader1"
@@ -550,6 +552,18 @@ Partial Public Class REPORTE_RAZONADO
         Me.GroupHeader3.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.preco4, Me.Nominavacia_6, Me.Nominavacia_5, Me.Nominavacia_4, Me.Nominavacia_3, Me.Nominavacia_2, Me.Nominavacia_1, Me.NominaCM, Me.NominaCNDS, Me.NominaCNDP, Me.NominaParlacens, Me.NominaParlacen, Me.corpo3, Me.corporacion2, Me.corporacion1, Me.congres3, Me.congres2, Me.congres1, Me.congre4, Me.congre5, Me.congre3, Me.parlas3, Me.parlas2, Me.parlas1, Me.XrLabel10, Me.XrLabel11, Me.XrLabel12, Me.XrLabel9, Me.XrLabel8, Me.XrLabel7, Me.parlacenp, Me.presidente, Me.parlacens, Me.congresop, Me.congresos, Me.corporacionm, Me.preco1, Me.preco2, Me.preco3, Me.parla1, Me.parla2, Me.parla3})
         Me.GroupHeader3.HeightF = 172.9167!
         Me.GroupHeader3.Name = "GroupHeader3"
+        '
+        'preco4
+        '
+        Me.preco4.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.preco4.LocationFloat = New DevExpress.Utils.PointFloat(719.3333!, 9.999974!)
+        Me.preco4.Name = "preco4"
+        Me.preco4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.preco4.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.preco4.StylePriority.UseFont = False
+        Me.preco4.StylePriority.UseTextAlignment = False
+        Me.preco4.Text = "preco4"
+        Me.preco4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'Nominavacia_6
         '
@@ -843,38 +857,44 @@ Partial Public Class REPORTE_RAZONADO
         '
         'PageFooter
         '
-        Me.PageFooter.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrPageInfo2, Me.XrPageInfo1})
+        Me.PageFooter.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.usuarior, Me.XrLabel18})
         Me.PageFooter.HeightF = 59.375!
         Me.PageFooter.Name = "PageFooter"
         '
         'XrPageInfo2
         '
-        Me.XrPageInfo2.Format = "Página {0} of {1}"
-        Me.XrPageInfo2.LocationFloat = New DevExpress.Utils.PointFloat(736.0!, 26.37501!)
+        Me.XrPageInfo2.Format = "Página {0} de {1}"
+        Me.XrPageInfo2.LocationFloat = New DevExpress.Utils.PointFloat(876.0001!, 56.58331!)
         Me.XrPageInfo2.Name = "XrPageInfo2"
         Me.XrPageInfo2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrPageInfo2.SizeF = New System.Drawing.SizeF(313.0!, 23.0!)
+        Me.XrPageInfo2.SizeF = New System.Drawing.SizeF(172.9999!, 23.00002!)
         Me.XrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
         '
         'XrPageInfo1
         '
-        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 26.37501!)
+        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(876.0001!, 29.12493!)
         Me.XrPageInfo1.Name = "XrPageInfo1"
         Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
-        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(313.0!, 23.0!)
+        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(173.0!, 23.00002!)
+        Me.XrPageInfo1.StylePriority.UseTextAlignment = False
+        Me.XrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
         '
-        'preco4
+        'XrLabel18
         '
-        Me.preco4.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.preco4.LocationFloat = New DevExpress.Utils.PointFloat(719.3333!, 9.999974!)
-        Me.preco4.Name = "preco4"
-        Me.preco4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.preco4.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.preco4.StylePriority.UseFont = False
-        Me.preco4.StylePriority.UseTextAlignment = False
-        Me.preco4.Text = "preco4"
-        Me.preco4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        Me.XrLabel18.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 9.999974!)
+        Me.XrLabel18.Name = "XrLabel18"
+        Me.XrLabel18.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
+        Me.XrLabel18.SizeF = New System.Drawing.SizeF(102.0833!, 23.0!)
+        Me.XrLabel18.Text = "Impreso por:"
+        '
+        'usuarior
+        '
+        Me.usuarior.LocationFloat = New DevExpress.Utils.PointFloat(112.0833!, 9.999974!)
+        Me.usuarior.Name = "usuarior"
+        Me.usuarior.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
+        Me.usuarior.SizeF = New System.Drawing.SizeF(593.1248!, 23.00002!)
+        Me.usuarior.Text = "usuarior"
         '
         'REPORTE_RAZONADO
         '
@@ -976,4 +996,6 @@ Partial Public Class REPORTE_RAZONADO
     Friend WithEvents Nominavacia_6 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents Nominavacia_5 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents preco4 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents usuarior As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel18 As DevExpress.XtraReports.UI.XRLabel
 End Class
