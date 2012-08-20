@@ -56,6 +56,11 @@ Partial Public Class REPORTE_PLANILLAS_FALTANTES
         Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
         Me.IM_MOVIMIENTOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
+        Me.ReportFooter = New DevExpress.XtraReports.UI.ReportFooterBand
+        Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo
+        Me.XrPageInfo2 = New DevExpress.XtraReports.UI.XRPageInfo
+        Me.XrLabel19 = New DevExpress.XtraReports.UI.XRLabel
+        Me.usuarior = New DevExpress.XtraReports.UI.XRLabel
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -361,9 +366,49 @@ Partial Public Class REPORTE_PLANILLAS_FALTANTES
         '
         Me.IM_MOVIMIENTOS_imagenTableAdapter.ClearBeforeFill = True
         '
+        'ReportFooter
+        '
+        Me.ReportFooter.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.usuarior, Me.XrLabel19, Me.XrPageInfo2, Me.XrPageInfo1})
+        Me.ReportFooter.Name = "ReportFooter"
+        '
+        'XrPageInfo1
+        '
+        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(10.00007!, 10.00001!)
+        Me.XrPageInfo1.Name = "XrPageInfo1"
+        Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
+        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(173.0!, 23.00002!)
+        Me.XrPageInfo1.StylePriority.UseTextAlignment = False
+        Me.XrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
+        '
+        'XrPageInfo2
+        '
+        Me.XrPageInfo2.Format = "Página {0} de {1}"
+        Me.XrPageInfo2.LocationFloat = New DevExpress.Utils.PointFloat(846.7951!, 10.00001!)
+        Me.XrPageInfo2.Name = "XrPageInfo2"
+        Me.XrPageInfo2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrPageInfo2.SizeF = New System.Drawing.SizeF(172.9999!, 23.00002!)
+        Me.XrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
+        '
+        'XrLabel19
+        '
+        Me.XrLabel19.LocationFloat = New DevExpress.Utils.PointFloat(202.0833!, 10.00004!)
+        Me.XrLabel19.Name = "XrLabel19"
+        Me.XrLabel19.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
+        Me.XrLabel19.SizeF = New System.Drawing.SizeF(83.33333!, 23.0!)
+        Me.XrLabel19.Text = "Impreso por:"
+        '
+        'usuarior
+        '
+        Me.usuarior.LocationFloat = New DevExpress.Utils.PointFloat(285.4166!, 10.00004!)
+        Me.usuarior.Name = "usuarior"
+        Me.usuarior.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
+        Me.usuarior.SizeF = New System.Drawing.SizeF(485.4167!, 23.0!)
+        Me.usuarior.Text = "usuarior"
+        '
         'REPORTE_PLANILLAS_FALTANTES
         '
-        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.PageHeader, Me.GroupHeader1, Me.GroupHeader2})
+        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.PageHeader, Me.GroupHeader1, Me.GroupHeader2, Me.ReportFooter})
         Me.DataAdapter = Me.IM_V_FALTANTESTableAdapter
         Me.DataMember = "IM_V_FALTANTES"
         Me.DataSource = Me.DS_FALTANTES1
@@ -418,4 +463,9 @@ Partial Public Class REPORTE_PLANILLAS_FALTANTES
     Friend WithEvents BindingSource1 As System.Windows.Forms.BindingSource
     Friend WithEvents IM_PARTIDOS_POLITICOS_imagenTableAdapter As Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
     Friend WithEvents IM_MOVIMIENTOS_imagenTableAdapter As Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
+    Friend WithEvents ReportFooter As DevExpress.XtraReports.UI.ReportFooterBand
+    Friend WithEvents XrPageInfo2 As DevExpress.XtraReports.UI.XRPageInfo
+    Friend WithEvents XrPageInfo1 As DevExpress.XtraReports.UI.XRPageInfo
+    Friend WithEvents usuarior As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel19 As DevExpress.XtraReports.UI.XRLabel
 End Class

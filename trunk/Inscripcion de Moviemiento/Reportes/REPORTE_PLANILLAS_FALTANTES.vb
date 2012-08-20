@@ -116,6 +116,7 @@ Public Class REPORTE_PLANILLAS_FALTANTES
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(DS_LOG.IM_PARTIDOS_POLITICOS_imagen, NombrePartido.Value.ToString)
         Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(DS_LOG.IM_MOVIMIENTOS_imagen, NombreMovimiento.Value.ToString)
         'Me.IM_V_FALTANTESTableAdapter.Fill(DS_FALTANTES1.IM_V_FALTANTES)
+        Me.usuarior.Text = NombreUsuario
     End Sub
 
     Private Sub REPORTE_PLANILLAS_FALTANTES_ParametersRequestValueChanged(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestValueChangedEventArgs) Handles Me.ParametersRequestValueChanged
