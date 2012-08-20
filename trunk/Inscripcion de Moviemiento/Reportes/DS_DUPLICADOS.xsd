@@ -22,9 +22,11 @@ FROM     IM_REPORTE_DUPLICADOS A, IM_PARTIDOS_POLITICOS B, IM_MOVIMIENTOS C, IM_
 WHERE  A.CODIGO_PARTIDO = B.CODIGO_PARTIDO AND A.CODIGO_MOVIMIENTO = C.CODIGO_MOVIMIENTO AND B.CODIGO_PARTIDO = C.CODIGO_PARTIDO AND 
                   A.CODIGO_DEPARTAMENTO = D.CODIGO_DEPARTAMENTO AND A.CODIGO_MUNICIPIO = E.CODIGO_MUNICIPIO AND 
                   D.CODIGO_DEPARTAMENTO = E.CODIGO_DEPARTAMENTO AND A.CODIGO_CARGO_ELECTIVO = F.CODIGO_CARGO_ELECTIVO AND 
-                  A.CODIGO_MOVIMIENTO = CC.CODIGO_MOVIMIENTO AND CC.CODIGO_PARTIDO = BB.CODIGO_PARTIDO AND 
-                  A.CODIGO_DEPARTAMENTO_REPETIDO = DD.CODIGO_DEPARTAMENTO AND A.CODIGO_MUNICIPIO_REPETIDO = EE.CODIGO_MUNICIPIO AND 
-                  DD.CODIGO_DEPARTAMENTO = EE.CODIGO_DEPARTAMENTO AND A.CODIGO_CARGO_ELECTIVO_REPETIDO = FF.CODIGO_CARGO_ELECTIVO</CommandText>
+                  A.CODIGO_MOVIMIENTO_REPETIDO = CC.CODIGO_MOVIMIENTO AND A.CODIGO_PARTIDO_REPETIDO = BB.CODIGO_PARTIDO AND 
+                  CC.CODIGO_PARTIDO = BB.CODIGO_PARTIDO AND A.CODIGO_DEPARTAMENTO_REPETIDO = DD.CODIGO_DEPARTAMENTO AND 
+                  A.CODIGO_MUNICIPIO_REPETIDO = EE.CODIGO_MUNICIPIO AND DD.CODIGO_DEPARTAMENTO = EE.CODIGO_DEPARTAMENTO AND 
+                  A.CODIGO_CARGO_ELECTIVO_REPETIDO = FF.CODIGO_CARGO_ELECTIVO
+ORDER BY A.CODIGO_DEPARTAMENTO</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -70,103 +72,103 @@ WHERE  A.CODIGO_PARTIDO = B.CODIGO_PARTIDO AND A.CODIGO_MOVIMIENTO = C.CODIGO_MO
         <xs:element name="IM_REPORTE_DUPLICADOS" msprop:Generator_UserTableName="IM_REPORTE_DUPLICADOS" msprop:Generator_RowDeletedName="IM_REPORTE_DUPLICADOSRowDeleted" msprop:Generator_RowChangedName="IM_REPORTE_DUPLICADOSRowChanged" msprop:Generator_RowClassName="IM_REPORTE_DUPLICADOSRow" msprop:Generator_RowChangingName="IM_REPORTE_DUPLICADOSRowChanging" msprop:Generator_RowEvArgName="IM_REPORTE_DUPLICADOSRowChangeEvent" msprop:Generator_RowEvHandlerName="IM_REPORTE_DUPLICADOSRowChangeEventHandler" msprop:Generator_TableClassName="IM_REPORTE_DUPLICADOSDataTable" msprop:Generator_TableVarName="tableIM_REPORTE_DUPLICADOS" msprop:Generator_RowDeletingName="IM_REPORTE_DUPLICADOSRowDeleting" msprop:Generator_TablePropName="IM_REPORTE_DUPLICADOS">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="IDENTIDAD" msprop:Generator_UserColumnName="IDENTIDAD" msprop:Generator_ColumnVarNameInTable="columnIDENTIDAD" msprop:Generator_ColumnPropNameInRow="IDENTIDAD" msprop:Generator_ColumnPropNameInTable="IDENTIDADColumn" minOccurs="0">
+              <xs:element name="IDENTIDAD" msprop:Generator_UserColumnName="IDENTIDAD" msprop:Generator_ColumnPropNameInRow="IDENTIDAD" msprop:Generator_ColumnVarNameInTable="columnIDENTIDAD" msprop:Generator_ColumnPropNameInTable="IDENTIDADColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="13" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" minOccurs="0">
+              <xs:element name="NOMBRE" msprop:Generator_UserColumnName="NOMBRE" msprop:Generator_ColumnPropNameInRow="NOMBRE" msprop:Generator_ColumnVarNameInTable="columnNOMBRE" msprop:Generator_ColumnPropNameInTable="NOMBREColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CODIGO_MOVIMIENTO" msprop:Generator_UserColumnName="CODIGO_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOVIMIENTOColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="CODIGO_DEPARTAMENTO" msprop:Generator_UserColumnName="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_DEPARTAMENTOColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="CODIGO_MUNICIPIO" msprop:Generator_UserColumnName="CODIGO_MUNICIPIO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MUNICIPIO" msprop:Generator_ColumnPropNameInRow="CODIGO_MUNICIPIO" msprop:Generator_ColumnPropNameInTable="CODIGO_MUNICIPIOColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="POSICION" msprop:Generator_UserColumnName="POSICION" msprop:Generator_ColumnVarNameInTable="columnPOSICION" msprop:Generator_ColumnPropNameInRow="POSICION" msprop:Generator_ColumnPropNameInTable="POSICIONColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="CODIGO_CARGO_ELECTIVO" msprop:Generator_UserColumnName="CODIGO_CARGO_ELECTIVO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_CARGO_ELECTIVO" msprop:Generator_ColumnPropNameInRow="CODIGO_CARGO_ELECTIVO" msprop:Generator_ColumnPropNameInTable="CODIGO_CARGO_ELECTIVOColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="CODIGO_MOVIMIENTO_REPETIDO" msprop:Generator_UserColumnName="CODIGO_MOVIMIENTO_REPETIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOVIMIENTO_REPETIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOVIMIENTO_REPETIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOVIMIENTO_REPETIDOColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="CODIGO_PARTIDO_REPETIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO_REPETIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO_REPETIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO_REPETIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDO_REPETIDOColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="CODIGO_DEPARTAMENTO_REPETIDO" msprop:Generator_UserColumnName="CODIGO_DEPARTAMENTO_REPETIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_DEPARTAMENTO_REPETIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_DEPARTAMENTO_REPETIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_DEPARTAMENTO_REPETIDOColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="POSICION_REPETIDO" msprop:Generator_UserColumnName="POSICION_REPETIDO" msprop:Generator_ColumnVarNameInTable="columnPOSICION_REPETIDO" msprop:Generator_ColumnPropNameInRow="POSICION_REPETIDO" msprop:Generator_ColumnPropNameInTable="POSICION_REPETIDOColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="CODIGO_CARGO_ELECTIVO_REPETIDO" msprop:Generator_UserColumnName="CODIGO_CARGO_ELECTIVO_REPETIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_CARGO_ELECTIVO_REPETIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_CARGO_ELECTIVO_REPETIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_CARGO_ELECTIVO_REPETIDOColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="CODIGO_MUNICIPIO_REPETIDO" msprop:Generator_UserColumnName="CODIGO_MUNICIPIO_REPETIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MUNICIPIO_REPETIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_MUNICIPIO_REPETIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_MUNICIPIO_REPETIDOColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="NOMBRE_MOVIMIENTO" msprop:Generator_UserColumnName="NOMBRE_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="NOMBRE_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="NOMBRE_MOVIMIENTOColumn">
+              <xs:element name="CODIGO_MOVIMIENTO" msprop:Generator_UserColumnName="CODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOVIMIENTOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CODIGO_DEPARTAMENTO" msprop:Generator_UserColumnName="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_DEPARTAMENTOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CODIGO_MUNICIPIO" msprop:Generator_UserColumnName="CODIGO_MUNICIPIO" msprop:Generator_ColumnPropNameInRow="CODIGO_MUNICIPIO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MUNICIPIO" msprop:Generator_ColumnPropNameInTable="CODIGO_MUNICIPIOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="POSICION" msprop:Generator_UserColumnName="POSICION" msprop:Generator_ColumnPropNameInRow="POSICION" msprop:Generator_ColumnVarNameInTable="columnPOSICION" msprop:Generator_ColumnPropNameInTable="POSICIONColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CODIGO_CARGO_ELECTIVO" msprop:Generator_UserColumnName="CODIGO_CARGO_ELECTIVO" msprop:Generator_ColumnPropNameInRow="CODIGO_CARGO_ELECTIVO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_CARGO_ELECTIVO" msprop:Generator_ColumnPropNameInTable="CODIGO_CARGO_ELECTIVOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CODIGO_MOVIMIENTO_REPETIDO" msprop:Generator_UserColumnName="CODIGO_MOVIMIENTO_REPETIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOVIMIENTO_REPETIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOVIMIENTO_REPETIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOVIMIENTO_REPETIDOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CODIGO_PARTIDO_REPETIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO_REPETIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO_REPETIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO_REPETIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDO_REPETIDOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CODIGO_DEPARTAMENTO_REPETIDO" msprop:Generator_UserColumnName="CODIGO_DEPARTAMENTO_REPETIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_DEPARTAMENTO_REPETIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_DEPARTAMENTO_REPETIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_DEPARTAMENTO_REPETIDOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="POSICION_REPETIDO" msprop:Generator_UserColumnName="POSICION_REPETIDO" msprop:Generator_ColumnPropNameInRow="POSICION_REPETIDO" msprop:Generator_ColumnVarNameInTable="columnPOSICION_REPETIDO" msprop:Generator_ColumnPropNameInTable="POSICION_REPETIDOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CODIGO_CARGO_ELECTIVO_REPETIDO" msprop:Generator_UserColumnName="CODIGO_CARGO_ELECTIVO_REPETIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_CARGO_ELECTIVO_REPETIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_CARGO_ELECTIVO_REPETIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_CARGO_ELECTIVO_REPETIDOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CODIGO_MUNICIPIO_REPETIDO" msprop:Generator_UserColumnName="CODIGO_MUNICIPIO_REPETIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_MUNICIPIO_REPETIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MUNICIPIO_REPETIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_MUNICIPIO_REPETIDOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="NOMBRE_MOVIMIENTO" msprop:Generator_UserColumnName="NOMBRE_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnNOMBRE_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="NOMBRE_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="NOMBRE_MOVIMIENTOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PARTIDO" msprop:Generator_UserColumnName="PARTIDO" msprop:Generator_ColumnPropNameInRow="PARTIDO" msprop:Generator_ColumnVarNameInTable="columnPARTIDO" msprop:Generator_ColumnPropNameInTable="PARTIDOColumn">
+              <xs:element name="PARTIDO" msprop:Generator_UserColumnName="PARTIDO" msprop:Generator_ColumnVarNameInTable="columnPARTIDO" msprop:Generator_ColumnPropNameInRow="PARTIDO" msprop:Generator_ColumnPropNameInTable="PARTIDOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DEPARTAMENTO" msprop:Generator_UserColumnName="DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTOColumn">
+              <xs:element name="DEPARTAMENTO" msprop:Generator_UserColumnName="DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MUNICIPIO" msprop:Generator_UserColumnName="MUNICIPIO" msprop:Generator_ColumnPropNameInRow="MUNICIPIO" msprop:Generator_ColumnVarNameInTable="columnMUNICIPIO" msprop:Generator_ColumnPropNameInTable="MUNICIPIOColumn">
+              <xs:element name="MUNICIPIO" msprop:Generator_UserColumnName="MUNICIPIO" msprop:Generator_ColumnVarNameInTable="columnMUNICIPIO" msprop:Generator_ColumnPropNameInRow="MUNICIPIO" msprop:Generator_ColumnPropNameInTable="MUNICIPIOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CARGO" msprop:Generator_UserColumnName="CARGO" msprop:Generator_ColumnPropNameInRow="CARGO" msprop:Generator_ColumnVarNameInTable="columnCARGO" msprop:Generator_ColumnPropNameInTable="CARGOColumn">
+              <xs:element name="CARGO" msprop:Generator_UserColumnName="CARGO" msprop:Generator_ColumnVarNameInTable="columnCARGO" msprop:Generator_ColumnPropNameInRow="CARGO" msprop:Generator_ColumnPropNameInTable="CARGOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MOVIMIENTO_REPETIDO" msprop:Generator_UserColumnName="MOVIMIENTO_REPETIDO" msprop:Generator_ColumnPropNameInRow="MOVIMIENTO_REPETIDO" msprop:Generator_ColumnVarNameInTable="columnMOVIMIENTO_REPETIDO" msprop:Generator_ColumnPropNameInTable="MOVIMIENTO_REPETIDOColumn">
+              <xs:element name="MOVIMIENTO_REPETIDO" msprop:Generator_UserColumnName="MOVIMIENTO_REPETIDO" msprop:Generator_ColumnVarNameInTable="columnMOVIMIENTO_REPETIDO" msprop:Generator_ColumnPropNameInRow="MOVIMIENTO_REPETIDO" msprop:Generator_ColumnPropNameInTable="MOVIMIENTO_REPETIDOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PARTIDO_REPETIDO" msprop:Generator_UserColumnName="PARTIDO_REPETIDO" msprop:Generator_ColumnPropNameInRow="PARTIDO_REPETIDO" msprop:Generator_ColumnVarNameInTable="columnPARTIDO_REPETIDO" msprop:Generator_ColumnPropNameInTable="PARTIDO_REPETIDOColumn">
+              <xs:element name="PARTIDO_REPETIDO" msprop:Generator_UserColumnName="PARTIDO_REPETIDO" msprop:Generator_ColumnVarNameInTable="columnPARTIDO_REPETIDO" msprop:Generator_ColumnPropNameInRow="PARTIDO_REPETIDO" msprop:Generator_ColumnPropNameInTable="PARTIDO_REPETIDOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DEPARTAMENTO_REPETIDO" msprop:Generator_UserColumnName="DEPARTAMENTO_REPETIDO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO_REPETIDO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO_REPETIDO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTO_REPETIDOColumn">
+              <xs:element name="DEPARTAMENTO_REPETIDO" msprop:Generator_UserColumnName="DEPARTAMENTO_REPETIDO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO_REPETIDO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO_REPETIDO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTO_REPETIDOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MUNICIPIO_REPETIDO" msprop:Generator_UserColumnName="MUNICIPIO_REPETIDO" msprop:Generator_ColumnPropNameInRow="MUNICIPIO_REPETIDO" msprop:Generator_ColumnVarNameInTable="columnMUNICIPIO_REPETIDO" msprop:Generator_ColumnPropNameInTable="MUNICIPIO_REPETIDOColumn">
+              <xs:element name="MUNICIPIO_REPETIDO" msprop:Generator_UserColumnName="MUNICIPIO_REPETIDO" msprop:Generator_ColumnVarNameInTable="columnMUNICIPIO_REPETIDO" msprop:Generator_ColumnPropNameInRow="MUNICIPIO_REPETIDO" msprop:Generator_ColumnPropNameInTable="MUNICIPIO_REPETIDOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="APELLIDO" msprop:Generator_UserColumnName="APELLIDO" msprop:Generator_ColumnPropNameInRow="APELLIDO" msprop:Generator_ColumnVarNameInTable="columnAPELLIDO" msprop:Generator_ColumnPropNameInTable="APELLIDOColumn" minOccurs="0">
+              <xs:element name="APELLIDO" msprop:Generator_UserColumnName="APELLIDO" msprop:Generator_ColumnVarNameInTable="columnAPELLIDO" msprop:Generator_ColumnPropNameInRow="APELLIDO" msprop:Generator_ColumnPropNameInTable="APELLIDOColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CARGO_REPETIDO" msprop:Generator_UserColumnName="CARGO_REPETIDO" msprop:Generator_ColumnVarNameInTable="columnCARGO_REPETIDO" msprop:Generator_ColumnPropNameInRow="CARGO_REPETIDO" msprop:Generator_ColumnPropNameInTable="CARGO_REPETIDOColumn">
+              <xs:element name="CARGO_REPETIDO" msprop:Generator_UserColumnName="CARGO_REPETIDO" msprop:Generator_ColumnPropNameInRow="CARGO_REPETIDO" msprop:Generator_ColumnVarNameInTable="columnCARGO_REPETIDO" msprop:Generator_ColumnPropNameInTable="CARGO_REPETIDOColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />

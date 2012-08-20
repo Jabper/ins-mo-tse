@@ -1521,11 +1521,13 @@ Namespace DS_DUPLICADOSTableAdapters
                 " AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  A.CODIGO_DEPARTAMENTO = D.CODIGO_DEPARTAMENTO AND A.COD"& _ 
                 "IGO_MUNICIPIO = E.CODIGO_MUNICIPIO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  D.CODIGO_DEPARTAMENTO"& _ 
                 " = E.CODIGO_DEPARTAMENTO AND A.CODIGO_CARGO_ELECTIVO = F.CODIGO_CARGO_ELECTIVO A"& _ 
-                "ND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  A.CODIGO_MOVIMIENTO = CC.CODIGO_MOVIMIENTO AND CC.CODIGO_"& _ 
-                "PARTIDO = BB.CODIGO_PARTIDO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  A.CODIGO_DEPARTAMENTO_REPETI"& _ 
-                "DO = DD.CODIGO_DEPARTAMENTO AND A.CODIGO_MUNICIPIO_REPETIDO = EE.CODIGO_MUNICIPI"& _ 
-                "O AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  DD.CODIGO_DEPARTAMENTO = EE.CODIGO_DEPARTAMENTO AND A."& _ 
-                "CODIGO_CARGO_ELECTIVO_REPETIDO = FF.CODIGO_CARGO_ELECTIVO"
+                "ND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  A.CODIGO_MOVIMIENTO_REPETIDO = CC.CODIGO_MOVIMIENTO AND A"& _ 
+                ".CODIGO_PARTIDO_REPETIDO = BB.CODIGO_PARTIDO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  CC.CODIGO_P"& _ 
+                "ARTIDO = BB.CODIGO_PARTIDO AND A.CODIGO_DEPARTAMENTO_REPETIDO = DD.CODIGO_DEPART"& _ 
+                "AMENTO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  A.CODIGO_MUNICIPIO_REPETIDO = EE.CODIGO_MUNICIPIO"& _ 
+                " AND DD.CODIGO_DEPARTAMENTO = EE.CODIGO_DEPARTAMENTO AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  A.C"& _ 
+                "ODIGO_CARGO_ELECTIVO_REPETIDO = FF.CODIGO_CARGO_ELECTIVO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY A.CODIGO_DEPA"& _ 
+                "RTAMENTO"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
