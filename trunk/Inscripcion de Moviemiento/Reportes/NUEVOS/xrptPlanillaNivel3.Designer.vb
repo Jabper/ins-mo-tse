@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Public Class xrptPlanillaNivel
+Partial Public Class xrptPlanillaNivel3
     Inherits DevExpress.XtraReports.UI.XtraReport
 
     'XtraReport overrides dispose to clean up the component list.
@@ -22,12 +22,11 @@ Partial Public Class xrptPlanillaNivel
         Me.components = New System.ComponentModel.Container
         Dim XrSummary1 As DevExpress.XtraReports.UI.XRSummary = New DevExpress.XtraReports.UI.XRSummary
         Me.Detail = New DevExpress.XtraReports.UI.DetailBand
+        Me.XrPictureBox1 = New DevExpress.XtraReports.UI.XRPictureBox
         Me.XrLabel6 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel2 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel11 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel9 = New DevExpress.XtraReports.UI.XRLabel
         Me.TopMargin = New DevExpress.XtraReports.UI.TopMarginBand
         Me.BottomMargin = New DevExpress.XtraReports.UI.BottomMarginBand
         Me.ReportHeader = New DevExpress.XtraReports.UI.ReportHeaderBand
@@ -61,7 +60,6 @@ Partial Public Class xrptPlanillaNivel
         Me.IM_V_CANDIDATOS_NIVELTableAdapter = New Inscripcion_de_Moviemientos.DT_Planillas_Por_NivelTableAdapters.IM_V_CANDIDATOS_NIVELTableAdapter
         Me.GroupHeader1 = New DevExpress.XtraReports.UI.GroupHeaderBand
         Me.XrLine3 = New DevExpress.XtraReports.UI.XRLine
-        Me.XrLabel8 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLine2 = New DevExpress.XtraReports.UI.XRLine
         Me.XrLabel17 = New DevExpress.XtraReports.UI.XRLabel
@@ -83,73 +81,65 @@ Partial Public Class xrptPlanillaNivel
         '
         'Detail
         '
-        Me.Detail.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel6, Me.XrLabel5, Me.XrLabel4, Me.XrLabel2, Me.XrLabel11, Me.XrLabel9})
-        Me.Detail.HeightF = 27.3846!
+        Me.Detail.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrPictureBox1, Me.XrLabel6, Me.XrLabel5, Me.XrLabel4, Me.XrLabel2})
+        Me.Detail.HeightF = 55.06349!
         Me.Detail.Name = "Detail"
         Me.Detail.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.Detail.SnapLinePadding = New DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5, 100.0!)
         Me.Detail.SortFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("CODIGO_CARGO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending), New DevExpress.XtraReports.UI.GroupField("POSICION", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
         Me.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
         '
+        'XrPictureBox1
+        '
+        Me.XrPictureBox1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Nothing, "IM_V_CANDIDATOS_NIVEL.IMAGEN")})
+        Me.XrPictureBox1.LocationFloat = New DevExpress.Utils.PointFloat(672.8226!, 1.258389!)
+        Me.XrPictureBox1.Name = "XrPictureBox1"
+        Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(77.08337!, 53.8051!)
+        Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze
+        '
         'XrLabel6
         '
         Me.XrLabel6.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CANDIDATOS_NIVEL.APELLIDO")})
-        Me.XrLabel6.LocationFloat = New DevExpress.Utils.PointFloat(643.2192!, 0.0!)
+        Me.XrLabel6.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel6.LocationFloat = New DevExpress.Utils.PointFloat(458.236!, 9.999986!)
         Me.XrLabel6.Name = "XrLabel6"
         Me.XrLabel6.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel6.SizeF = New System.Drawing.SizeF(185.7469!, 23.00001!)
+        Me.XrLabel6.StylePriority.UseFont = False
         Me.XrLabel6.Text = "XrLabel6"
         '
         'XrLabel5
         '
         Me.XrLabel5.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CANDIDATOS_NIVEL.NOMBRE")})
-        Me.XrLabel5.LocationFloat = New DevExpress.Utils.PointFloat(436.3331!, 0.00007431229!)
+        Me.XrLabel5.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel5.LocationFloat = New DevExpress.Utils.PointFloat(260.6471!, 9.999986!)
         Me.XrLabel5.Name = "XrLabel5"
         Me.XrLabel5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel5.SizeF = New System.Drawing.SizeF(185.7469!, 23.0!)
+        Me.XrLabel5.StylePriority.UseFont = False
         Me.XrLabel5.Text = "XrLabel5"
         '
         'XrLabel4
         '
         Me.XrLabel4.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CANDIDATOS_NIVEL.IDENTIDAD")})
-        Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(298.1282!, 0.00007431229!)
+        Me.XrLabel4.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(124.8105!, 9.999986!)
         Me.XrLabel4.Name = "XrLabel4"
         Me.XrLabel4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel4.SizeF = New System.Drawing.SizeF(126.2957!, 23.0!)
+        Me.XrLabel4.StylePriority.UseFont = False
         Me.XrLabel4.Text = "XrLabel4"
         '
         'XrLabel2
         '
         Me.XrLabel2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CANDIDATOS_NIVEL.CARGO")})
-        Me.XrLabel2.Font = New System.Drawing.Font("Times New Roman", 8.0!)
-        Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(10.0!, 0.0!)
+        Me.XrLabel2.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(10.0!, 9.999986!)
         Me.XrLabel2.Name = "XrLabel2"
         Me.XrLabel2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel2.SizeF = New System.Drawing.SizeF(266.9441!, 23.00002!)
+        Me.XrLabel2.SizeF = New System.Drawing.SizeF(104.5478!, 23.00002!)
         Me.XrLabel2.StylePriority.UseFont = False
         Me.XrLabel2.Text = "XrLabel2"
-        '
-        'XrLabel11
-        '
-        Me.XrLabel11.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CANDIDATOS_NIVEL.CONSTANCIA")})
-        Me.XrLabel11.LocationFloat = New DevExpress.Utils.PointFloat(938.7826!, 0.00007431229!)
-        Me.XrLabel11.Name = "XrLabel11"
-        Me.XrLabel11.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel11.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.XrLabel11.StylePriority.UseTextAlignment = False
-        Me.XrLabel11.Text = "XrLabel11"
-        Me.XrLabel11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'XrLabel9
-        '
-        Me.XrLabel9.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CANDIDATOS_NIVEL.IMAGEN_CANDIDATO")})
-        Me.XrLabel9.LocationFloat = New DevExpress.Utils.PointFloat(838.7407!, 0.0!)
-        Me.XrLabel9.Name = "XrLabel9"
-        Me.XrLabel9.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel9.SizeF = New System.Drawing.SizeF(85.02191!, 22.99999!)
-        Me.XrLabel9.StylePriority.UseTextAlignment = False
-        Me.XrLabel9.Text = "XrLabel9"
-        Me.XrLabel9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'TopMargin
         '
@@ -160,7 +150,7 @@ Partial Public Class xrptPlanillaNivel
         '
         'BottomMargin
         '
-        Me.BottomMargin.HeightF = 32.02845!
+        Me.BottomMargin.HeightF = 32.0!
         Me.BottomMargin.Name = "BottomMargin"
         Me.BottomMargin.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
@@ -168,16 +158,18 @@ Partial Public Class xrptPlanillaNivel
         'ReportHeader
         '
         Me.ReportHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel20, Me.txtnivel, Me.XrLabel7, Me.XrPictureBox2, Me.XrPictureBox3, Me.XrLabel16, Me.txtmovimiento, Me.txtpartido, Me.XrLabel18, Me.XrLabel10, Me.partidopolitico})
-        Me.ReportHeader.HeightF = 232.4155!
+        Me.ReportHeader.HeightF = 212.2813!
         Me.ReportHeader.Name = "ReportHeader"
         '
         'XrLabel20
         '
         Me.XrLabel20.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_CANDIDATOS_NIVEL.IDENTIDAD")})
-        Me.XrLabel20.LocationFloat = New DevExpress.Utils.PointFloat(752.0416!, 199.4155!)
+        Me.XrLabel20.Font = New System.Drawing.Font("Times New Roman", 8.0!)
+        Me.XrLabel20.LocationFloat = New DevExpress.Utils.PointFloat(566.5498!, 179.2813!)
         Me.XrLabel20.Name = "XrLabel20"
         Me.XrLabel20.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel20.SizeF = New System.Drawing.SizeF(283.9584!, 23.00003!)
+        Me.XrLabel20.SizeF = New System.Drawing.SizeF(215.4502!, 23.00003!)
+        Me.XrLabel20.StylePriority.UseFont = False
         Me.XrLabel20.StylePriority.UseTextAlignment = False
         XrSummary1.FormatString = "CANDIDATOS PRESENTADOS: {0}"
         XrSummary1.Func = DevExpress.XtraReports.UI.SummaryFunc.Count
@@ -188,19 +180,21 @@ Partial Public Class xrptPlanillaNivel
         '
         'txtnivel
         '
-        Me.txtnivel.LocationFloat = New DevExpress.Utils.PointFloat(266.5482!, 199.4155!)
+        Me.txtnivel.Font = New System.Drawing.Font("Times New Roman", 9.0!)
+        Me.txtnivel.LocationFloat = New DevExpress.Utils.PointFloat(165.9554!, 178.0229!)
         Me.txtnivel.Name = "txtnivel"
         Me.txtnivel.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.txtnivel.SizeF = New System.Drawing.SizeF(443.3735!, 23.0!)
+        Me.txtnivel.SizeF = New System.Drawing.SizeF(373.4048!, 22.99998!)
+        Me.txtnivel.StylePriority.UseFont = False
         Me.txtnivel.Text = "XrLabel20"
         '
         'XrLabel7
         '
-        Me.XrLabel7.Font = New System.Drawing.Font("Times New Roman", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel7.LocationFloat = New DevExpress.Utils.PointFloat(21.57833!, 199.4155!)
+        Me.XrLabel7.Font = New System.Drawing.Font("Times New Roman", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel7.LocationFloat = New DevExpress.Utils.PointFloat(14.54775!, 178.0229!)
         Me.XrLabel7.Name = "XrLabel7"
         Me.XrLabel7.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel7.SizeF = New System.Drawing.SizeF(229.4277!, 18.4268!)
+        Me.XrLabel7.SizeF = New System.Drawing.SizeF(151.4076!, 18.4268!)
         Me.XrLabel7.StylePriority.UseFont = False
         Me.XrLabel7.StylePriority.UseTextAlignment = False
         Me.XrLabel7.Text = "NIVEL ELECTIVO:"
@@ -209,9 +203,9 @@ Partial Public Class xrptPlanillaNivel
         'XrPictureBox2
         '
         Me.XrPictureBox2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSource2, "IMAGEN")})
-        Me.XrPictureBox2.LocationFloat = New DevExpress.Utils.PointFloat(910.3716!, 0.0!)
+        Me.XrPictureBox2.LocationFloat = New DevExpress.Utils.PointFloat(662.5087!, 0.0!)
         Me.XrPictureBox2.Name = "XrPictureBox2"
-        Me.XrPictureBox2.SizeF = New System.Drawing.SizeF(120.42!, 81.04!)
+        Me.XrPictureBox2.SizeF = New System.Drawing.SizeF(97.46442!, 67.99035!)
         Me.XrPictureBox2.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze
         '
         'BindingSource2
@@ -229,7 +223,7 @@ Partial Public Class xrptPlanillaNivel
         Me.XrPictureBox3.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSource1, "IMAGEN")})
         Me.XrPictureBox3.LocationFloat = New DevExpress.Utils.PointFloat(17.08336!, 0.0!)
         Me.XrPictureBox3.Name = "XrPictureBox3"
-        Me.XrPictureBox3.SizeF = New System.Drawing.SizeF(120.4167!, 81.0417!)
+        Me.XrPictureBox3.SizeF = New System.Drawing.SizeF(97.46442!, 67.99035!)
         Me.XrPictureBox3.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze
         '
         'BindingSource1
@@ -239,11 +233,11 @@ Partial Public Class xrptPlanillaNivel
         '
         'XrLabel16
         '
-        Me.XrLabel16.Font = New System.Drawing.Font("Times New Roman", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel16.LocationFloat = New DevExpress.Utils.PointFloat(21.57834!, 164.9639!)
+        Me.XrLabel16.Font = New System.Drawing.Font("Times New Roman", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel16.LocationFloat = New DevExpress.Utils.PointFloat(14.54776!, 143.5713!)
         Me.XrLabel16.Name = "XrLabel16"
         Me.XrLabel16.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel16.SizeF = New System.Drawing.SizeF(229.4277!, 23.0!)
+        Me.XrLabel16.SizeF = New System.Drawing.SizeF(151.4076!, 23.00002!)
         Me.XrLabel16.StylePriority.UseFont = False
         Me.XrLabel16.StylePriority.UseTextAlignment = False
         Me.XrLabel16.Text = "MOVIMIENTO POLITICO:"
@@ -251,27 +245,31 @@ Partial Public Class xrptPlanillaNivel
         '
         'txtmovimiento
         '
-        Me.txtmovimiento.LocationFloat = New DevExpress.Utils.PointFloat(266.5482!, 164.9639!)
+        Me.txtmovimiento.Font = New System.Drawing.Font("Times New Roman", 9.0!)
+        Me.txtmovimiento.LocationFloat = New DevExpress.Utils.PointFloat(165.9554!, 143.5713!)
         Me.txtmovimiento.Name = "txtmovimiento"
         Me.txtmovimiento.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.txtmovimiento.SizeF = New System.Drawing.SizeF(443.3735!, 23.0!)
+        Me.txtmovimiento.StylePriority.UseFont = False
         Me.txtmovimiento.Text = "XrLabel20"
         '
         'txtpartido
         '
-        Me.txtpartido.LocationFloat = New DevExpress.Utils.PointFloat(266.5482!, 129.5392!)
+        Me.txtpartido.Font = New System.Drawing.Font("Times New Roman", 9.0!)
+        Me.txtpartido.LocationFloat = New DevExpress.Utils.PointFloat(165.9554!, 108.1466!)
         Me.txtpartido.Name = "txtpartido"
         Me.txtpartido.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.txtpartido.SizeF = New System.Drawing.SizeF(443.3735!, 23.0!)
+        Me.txtpartido.StylePriority.UseFont = False
         Me.txtpartido.Text = "txtpartido"
         '
         'XrLabel18
         '
-        Me.XrLabel18.Font = New System.Drawing.Font("Times New Roman", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel18.LocationFloat = New DevExpress.Utils.PointFloat(21.57834!, 129.5392!)
+        Me.XrLabel18.Font = New System.Drawing.Font("Times New Roman", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel18.LocationFloat = New DevExpress.Utils.PointFloat(14.54776!, 108.1466!)
         Me.XrLabel18.Name = "XrLabel18"
         Me.XrLabel18.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel18.SizeF = New System.Drawing.SizeF(177.4998!, 23.0!)
+        Me.XrLabel18.SizeF = New System.Drawing.SizeF(129.681!, 23.00002!)
         Me.XrLabel18.StylePriority.UseFont = False
         Me.XrLabel18.StylePriority.UseTextAlignment = False
         Me.XrLabel18.Text = "PARTIDO POLITICO:"
@@ -279,11 +277,11 @@ Partial Public Class xrptPlanillaNivel
         '
         'XrLabel10
         '
-        Me.XrLabel10.Font = New System.Drawing.Font("Times New Roman", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
-        Me.XrLabel10.LocationFloat = New DevExpress.Utils.PointFloat(137.5001!, 67.99033!)
+        Me.XrLabel10.Font = New System.Drawing.Font("Times New Roman", 11.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
+        Me.XrLabel10.LocationFloat = New DevExpress.Utils.PointFloat(124.8105!, 67.99035!)
         Me.XrLabel10.Name = "XrLabel10"
         Me.XrLabel10.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel10.SizeF = New System.Drawing.SizeF(772.8715!, 23.0!)
+        Me.XrLabel10.SizeF = New System.Drawing.SizeF(519.1724!, 23.00002!)
         Me.XrLabel10.StylePriority.UseFont = False
         Me.XrLabel10.StylePriority.UseTextAlignment = False
         Me.XrLabel10.Text = "REPORTE DE PLANILLA DE CANDIDATOS "
@@ -291,12 +289,12 @@ Partial Public Class xrptPlanillaNivel
         '
         'partidopolitico
         '
-        Me.partidopolitico.Font = New System.Drawing.Font("Times New Roman", 20.0!, CType((System.Drawing.FontStyle.Italic Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
-        Me.partidopolitico.LocationFloat = New DevExpress.Utils.PointFloat(152.4951!, 0.0!)
+        Me.partidopolitico.Font = New System.Drawing.Font("Times New Roman", 14.0!, CType((System.Drawing.FontStyle.Italic Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
+        Me.partidopolitico.LocationFloat = New DevExpress.Utils.PointFloat(124.8105!, 0.0!)
         Me.partidopolitico.Multiline = True
         Me.partidopolitico.Name = "partidopolitico"
         Me.partidopolitico.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.partidopolitico.SizeF = New System.Drawing.SizeF(746.4633!, 67.99035!)
+        Me.partidopolitico.SizeF = New System.Drawing.SizeF(519.1723!, 67.99035!)
         Me.partidopolitico.StylePriority.UseFont = False
         Me.partidopolitico.StylePriority.UseTextAlignment = False
         Me.partidopolitico.Text = "TRIBUNAL SUPREMO ELECTORAL" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " SISTEMA DE INSCRIPCION DE MOVIMIENTOS POLITICOS"
@@ -305,7 +303,7 @@ Partial Public Class xrptPlanillaNivel
         'XrLabel22
         '
         Me.XrLabel22.Font = New System.Drawing.Font("Times New Roman", 10.0!)
-        Me.XrLabel22.LocationFloat = New DevExpress.Utils.PointFloat(260.6471!, 18.04164!)
+        Me.XrLabel22.LocationFloat = New DevExpress.Utils.PointFloat(183.8854!, 17.95831!)
         Me.XrLabel22.Name = "XrLabel22"
         Me.XrLabel22.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel22.SizeF = New System.Drawing.SizeF(77.55884!, 23.00002!)
@@ -317,10 +315,10 @@ Partial Public Class xrptPlanillaNivel
         'txtusuario
         '
         Me.txtusuario.Font = New System.Drawing.Font("Times New Roman", 10.0!)
-        Me.txtusuario.LocationFloat = New DevExpress.Utils.PointFloat(338.2059!, 18.04164!)
+        Me.txtusuario.LocationFloat = New DevExpress.Utils.PointFloat(261.4442!, 17.95831!)
         Me.txtusuario.Name = "txtusuario"
         Me.txtusuario.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.txtusuario.SizeF = New System.Drawing.SizeF(403.8771!, 23.00002!)
+        Me.txtusuario.SizeF = New System.Drawing.SizeF(240.2864!, 23.00002!)
         Me.txtusuario.StylePriority.UseFont = False
         Me.txtusuario.StylePriority.UseTextAlignment = False
         Me.txtusuario.Text = "TSE"
@@ -328,16 +326,16 @@ Partial Public Class xrptPlanillaNivel
         '
         'XrPageInfo1
         '
-        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(14.54773!, 18.04164!)
+        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 18.04165!)
         Me.XrPageInfo1.Name = "XrPageInfo1"
         Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
-        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(236.4583!, 23.0!)
+        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(165.9553!, 23.00001!)
         '
         'XrPageInfo2
         '
         Me.XrPageInfo2.Format = "Página {0} de {1}"
-        Me.XrPageInfo2.LocationFloat = New DevExpress.Utils.PointFloat(833.6496!, 18.04164!)
+        Me.XrPageInfo2.LocationFloat = New DevExpress.Utils.PointFloat(552.0921!, 18.12498!)
         Me.XrPageInfo2.Name = "XrPageInfo2"
         Me.XrPageInfo2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrPageInfo2.SizeF = New System.Drawing.SizeF(187.5!, 22.91667!)
@@ -399,34 +397,22 @@ Partial Public Class xrptPlanillaNivel
         '
         'GroupHeader1
         '
-        Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLine3, Me.XrLabel8, Me.XrLabel3, Me.XrLine2, Me.XrLabel17, Me.XrLabel12, Me.XrLabel23, Me.XrLabel19})
-        Me.GroupHeader1.HeightF = 64.74955!
+        Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLine3, Me.XrLabel3, Me.XrLine2, Me.XrLabel17, Me.XrLabel12, Me.XrLabel23, Me.XrLabel19})
+        Me.GroupHeader1.HeightF = 61.62456!
         Me.GroupHeader1.Name = "GroupHeader1"
         Me.GroupHeader1.RepeatEveryPage = True
         '
         'XrLine3
         '
         Me.XrLine3.LineWidth = 3
-        Me.XrLine3.LocationFloat = New DevExpress.Utils.PointFloat(2.669648!, 44.85058!)
+        Me.XrLine3.LocationFloat = New DevExpress.Utils.PointFloat(2.669642!, 44.85059!)
         Me.XrLine3.Name = "XrLine3"
-        Me.XrLine3.SizeF = New System.Drawing.SizeF(1043.33!, 12.83434!)
-        '
-        'XrLabel8
-        '
-        Me.XrLabel8.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel8.LocationFloat = New DevExpress.Utils.PointFloat(946.0!, 21.85061!)
-        Me.XrLabel8.Name = "XrLabel8"
-        Me.XrLabel8.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel8.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.XrLabel8.StylePriority.UseFont = False
-        Me.XrLabel8.StylePriority.UseTextAlignment = False
-        Me.XrLabel8.Text = "Constancia"
-        Me.XrLabel8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        Me.XrLine3.SizeF = New System.Drawing.SizeF(759.8391!, 12.83436!)
         '
         'XrLabel3
         '
-        Me.XrLabel3.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel3.LocationFloat = New DevExpress.Utils.PointFloat(308.0153!, 21.85061!)
+        Me.XrLabel3.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel3.LocationFloat = New DevExpress.Utils.PointFloat(124.8105!, 20.8506!)
         Me.XrLabel3.Name = "XrLabel3"
         Me.XrLabel3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel3.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
@@ -436,14 +422,14 @@ Partial Public Class xrptPlanillaNivel
         'XrLine2
         '
         Me.XrLine2.LineWidth = 3
-        Me.XrLine2.LocationFloat = New DevExpress.Utils.PointFloat(2.669648!, 0.0!)
+        Me.XrLine2.LocationFloat = New DevExpress.Utils.PointFloat(2.669642!, 0.0!)
         Me.XrLine2.Name = "XrLine2"
-        Me.XrLine2.SizeF = New System.Drawing.SizeF(1043.33!, 20.85061!)
+        Me.XrLine2.SizeF = New System.Drawing.SizeF(759.8392!, 20.8506!)
         '
         'XrLabel17
         '
-        Me.XrLabel17.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel17.LocationFloat = New DevExpress.Utils.PointFloat(446.2201!, 21.85061!)
+        Me.XrLabel17.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel17.LocationFloat = New DevExpress.Utils.PointFloat(260.6471!, 20.8506!)
         Me.XrLabel17.Name = "XrLabel17"
         Me.XrLabel17.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel17.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
@@ -454,7 +440,7 @@ Partial Public Class xrptPlanillaNivel
         '
         'XrLabel12
         '
-        Me.XrLabel12.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel12.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold)
         Me.XrLabel12.LocationFloat = New DevExpress.Utils.PointFloat(14.54776!, 21.85062!)
         Me.XrLabel12.Name = "XrLabel12"
         Me.XrLabel12.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -464,8 +450,8 @@ Partial Public Class xrptPlanillaNivel
         '
         'XrLabel23
         '
-        Me.XrLabel23.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel23.LocationFloat = New DevExpress.Utils.PointFloat(833.6496!, 21.85061!)
+        Me.XrLabel23.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel23.LocationFloat = New DevExpress.Utils.PointFloat(662.5087!, 20.8506!)
         Me.XrLabel23.Name = "XrLabel23"
         Me.XrLabel23.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel23.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
@@ -476,8 +462,8 @@ Partial Public Class xrptPlanillaNivel
         '
         'XrLabel19
         '
-        Me.XrLabel19.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel19.LocationFloat = New DevExpress.Utils.PointFloat(653.1062!, 21.85061!)
+        Me.XrLabel19.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel19.LocationFloat = New DevExpress.Utils.PointFloat(458.236!, 21.85061!)
         Me.XrLabel19.Name = "XrLabel19"
         Me.XrLabel19.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel19.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
@@ -489,40 +475,44 @@ Partial Public Class xrptPlanillaNivel
         'GroupHeader2
         '
         Me.GroupHeader2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLine1, Me.txtmunicipio, Me.txtdepartamento, Me.XrLabel15, Me.XrLabel14})
-        Me.GroupHeader2.HeightF = 77.13419!
+        Me.GroupHeader2.HeightF = 65.80867!
         Me.GroupHeader2.Level = 1
         Me.GroupHeader2.Name = "GroupHeader2"
         '
         'XrLine1
         '
         Me.XrLine1.LineWidth = 3
-        Me.XrLine1.LocationFloat = New DevExpress.Utils.PointFloat(2.669648!, 0.0!)
+        Me.XrLine1.LocationFloat = New DevExpress.Utils.PointFloat(2.669642!, 0.0!)
         Me.XrLine1.Name = "XrLine1"
-        Me.XrLine1.SizeF = New System.Drawing.SizeF(1043.33!, 20.85061!)
+        Me.XrLine1.SizeF = New System.Drawing.SizeF(759.8392!, 16.27738!)
         '
         'txtmunicipio
         '
-        Me.txtmunicipio.LocationFloat = New DevExpress.Utils.PointFloat(266.5483!, 54.13419!)
+        Me.txtmunicipio.Font = New System.Drawing.Font("Times New Roman", 8.0!)
+        Me.txtmunicipio.LocationFloat = New DevExpress.Utils.PointFloat(144.2288!, 39.27739!)
         Me.txtmunicipio.Name = "txtmunicipio"
         Me.txtmunicipio.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.txtmunicipio.SizeF = New System.Drawing.SizeF(443.3735!, 23.0!)
+        Me.txtmunicipio.SizeF = New System.Drawing.SizeF(525.1688!, 23.0!)
+        Me.txtmunicipio.StylePriority.UseFont = False
         Me.txtmunicipio.Text = "XrLabel20"
         '
         'txtdepartamento
         '
-        Me.txtdepartamento.LocationFloat = New DevExpress.Utils.PointFloat(266.5482!, 20.85061!)
+        Me.txtdepartamento.Font = New System.Drawing.Font("Times New Roman", 8.0!)
+        Me.txtdepartamento.LocationFloat = New DevExpress.Utils.PointFloat(144.2288!, 16.27738!)
         Me.txtdepartamento.Name = "txtdepartamento"
         Me.txtdepartamento.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.txtdepartamento.SizeF = New System.Drawing.SizeF(443.3735!, 23.0!)
+        Me.txtdepartamento.SizeF = New System.Drawing.SizeF(525.1689!, 23.00001!)
+        Me.txtdepartamento.StylePriority.UseFont = False
         Me.txtdepartamento.Text = "txtdepartamento"
         '
         'XrLabel15
         '
-        Me.XrLabel15.Font = New System.Drawing.Font("Times New Roman", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel15.LocationFloat = New DevExpress.Utils.PointFloat(21.57836!, 54.13419!)
+        Me.XrLabel15.Font = New System.Drawing.Font("Times New Roman", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel15.LocationFloat = New DevExpress.Utils.PointFloat(21.57835!, 39.27739!)
         Me.XrLabel15.Name = "XrLabel15"
         Me.XrLabel15.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel15.SizeF = New System.Drawing.SizeF(229.4277!, 18.4268!)
+        Me.XrLabel15.SizeF = New System.Drawing.SizeF(122.6504!, 18.4268!)
         Me.XrLabel15.StylePriority.UseFont = False
         Me.XrLabel15.StylePriority.UseTextAlignment = False
         Me.XrLabel15.Text = "MUNICIPIO:"
@@ -530,11 +520,11 @@ Partial Public Class xrptPlanillaNivel
         '
         'XrLabel14
         '
-        Me.XrLabel14.Font = New System.Drawing.Font("Times New Roman", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel14.LocationFloat = New DevExpress.Utils.PointFloat(21.57836!, 20.85061!)
+        Me.XrLabel14.Font = New System.Drawing.Font("Times New Roman", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel14.LocationFloat = New DevExpress.Utils.PointFloat(21.57836!, 20.8506!)
         Me.XrLabel14.Name = "XrLabel14"
         Me.XrLabel14.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel14.SizeF = New System.Drawing.SizeF(229.4277!, 18.4268!)
+        Me.XrLabel14.SizeF = New System.Drawing.SizeF(122.6504!, 18.42679!)
         Me.XrLabel14.StylePriority.UseFont = False
         Me.XrLabel14.StylePriority.UseTextAlignment = False
         Me.XrLabel14.Text = "DEPARTAMENTO:"
@@ -546,16 +536,13 @@ Partial Public Class xrptPlanillaNivel
         Me.PageFooter.HeightF = 51.04167!
         Me.PageFooter.Name = "PageFooter"
         '
-        'xrptPlanillaNivel
+        'xrptPlanillaNivel3
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.ReportHeader, Me.GroupHeader1, Me.GroupHeader2, Me.PageFooter})
         Me.DataAdapter = Me.IM_V_CANDIDATOS_NIVELTableAdapter
         Me.DataMember = "IM_V_CANDIDATOS_NIVEL"
         Me.DataSource = Me.DT_Planillas_Por_Nivel1
-        Me.Landscape = True
-        Me.Margins = New System.Drawing.Printing.Margins(28, 26, 51, 32)
-        Me.PageHeight = 850
-        Me.PageWidth = 1100
+        Me.Margins = New System.Drawing.Printing.Margins(33, 35, 51, 32)
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.Version = "11.2"
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -589,8 +576,6 @@ Partial Public Class xrptPlanillaNivel
     Friend WithEvents XrLabel18 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrPictureBox3 As DevExpress.XtraReports.UI.XRPictureBox
     Friend WithEvents XrPictureBox2 As DevExpress.XtraReports.UI.XRPictureBox
-    Friend WithEvents XrLabel11 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents XrLabel9 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents IM_V_CANDIDATOS_NIVELTableAdapter As Inscripcion_de_Moviemientos.DT_Planillas_Por_NivelTableAdapters.IM_V_CANDIDATOS_NIVELTableAdapter
     Friend WithEvents XrLabel6 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel5 As DevExpress.XtraReports.UI.XRLabel
@@ -600,7 +585,6 @@ Partial Public Class xrptPlanillaNivel
     Friend WithEvents XrLabel7 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents GroupHeader1 As DevExpress.XtraReports.UI.GroupHeaderBand
     Friend WithEvents XrLine3 As DevExpress.XtraReports.UI.XRLine
-    Friend WithEvents XrLabel8 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel3 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLine2 As DevExpress.XtraReports.UI.XRLine
     Friend WithEvents XrLabel17 As DevExpress.XtraReports.UI.XRLabel
@@ -619,4 +603,5 @@ Partial Public Class xrptPlanillaNivel
     Friend WithEvents XrPageInfo2 As DevExpress.XtraReports.UI.XRPageInfo
     Friend WithEvents PageFooter As DevExpress.XtraReports.UI.PageFooterBand
     Friend WithEvents XrLabel20 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrPictureBox1 As DevExpress.XtraReports.UI.XRPictureBox
 End Class

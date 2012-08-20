@@ -590,6 +590,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_DUPLICADOS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\NUEVOS\Parametros4.Designer.vb">
+      <DependentUpon>Parametros4.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\NUEVOS\Parametros4.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\NUEVOS\REPORTE_DE_CUMPLIMIENTO_1.Designer.vb">
       <DependentUpon>REPORTE_DE_CUMPLIMIENTO_1.vb</DependentUpon>
     </Compile>
@@ -606,6 +612,12 @@
       <DependentUpon>xrptPlanillaNivel2.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\NUEVOS\xrptPlanillaNivel2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\NUEVOS\xrptPlanillaNivel3.Designer.vb">
+      <DependentUpon>xrptPlanillaNivel3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\NUEVOS\xrptPlanillaNivel3.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\NUEVOS\xrptReporte_Produccion.Designer.vb">
@@ -1170,6 +1182,10 @@
       <DependentUpon>xfrmValidaciones.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\NUEVOS\Parametros4.resx">
+      <DependentUpon>Parametros4.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\NUEVOS\REPORTE_DE_CUMPLIMIENTO_1.resx">
       <DependentUpon>REPORTE_DE_CUMPLIMIENTO_1.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -1184,6 +1200,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\NUEVOS\xrptPlanillaNivel2.resx">
       <DependentUpon>xrptPlanillaNivel2.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\NUEVOS\xrptPlanillaNivel3.resx">
+      <DependentUpon>xrptPlanillaNivel3.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\NUEVOS\xrptReporte_Produccion.resx">

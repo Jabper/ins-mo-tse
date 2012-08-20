@@ -45,6 +45,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_16C0A0AF328B49FA8373387EF8FF7ED9"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_1BA838265E1B4FC0859D0CB4B9DE9BBA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -309,18 +315,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_4E488F3378E74005813CB81582F2E7F1"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_552E345DCFCF73E997EC5CFB2F6297E7"
-        "OwnerKey" = "8:_DC706A810980414FA2BD106B47236021"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_55A0E57CE71348F1B7CC5702E26E5134"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -328,18 +322,6 @@
         "Entry"
         {
         "MsmKey" = "8:_57D5ADAACDC64676AB6257160F781A66"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_5830E689C3274027B2C27EB860075684"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_5B526B1A734E40248BE34FDD85B65ED2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -567,6 +549,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_9A1BBF75EA8FF0A8A0E19A7961646E12"
+        "OwnerKey" = "8:_DC706A810980414FA2BD106B47236021"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_9D1862F189730405E0805ACFDDEE2FD1"
         "OwnerKey" = "8:_29BD055BDE5E2806D7CBCD2E1869F2CF"
         "MsmSig" = "8:_UNDEFINED"
@@ -585,19 +573,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_A03A875B2E3740779F7A8436E527199E"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_A5A99401BBE54538B30224B57B2F2F1A"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A5C212210150486EBA143FA5EBAEC522"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -669,19 +645,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_AED238232F694705830C23570E0D8AF5"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_AFE6CD00CA5B4B4DB484AFB7B5485F86"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B2AC160E31A94625998B5F6BE06B74FE"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -825,12 +789,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_E22A54661BD4473797AE48338EBC9357"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_E347CEFC87A27624BB73B7BDA7578251"
         "OwnerKey" = "8:_DC706A810980414FA2BD106B47236021"
         "MsmSig" = "8:_UNDEFINED"
@@ -868,12 +826,6 @@
         "Entry"
         {
         "MsmKey" = "8:_EF527C8924364C6DAD6FD1342256D05D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F2C3A9A56FCE4E949BCD99F5CDFD7A84"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1097,12 +1049,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_B5220E109EBE45A0B758228D8102B4CC"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B2AC160E31A94625998B5F6BE06B74FE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1354,6 +1300,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_9A1BBF75EA8FF0A8A0E19A7961646E12"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_D1D27A7F67F0CD33D91BD993F27DD673"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1475,12 +1427,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_2D2BE6CD2B6C932A16FA28964EA9BB6A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_552E345DCFCF73E997EC5CFB2F6297E7"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -1729,6 +1675,26 @@
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_8041DF430287494E9ECBE04E85F17AD7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_16C0A0AF328B49FA8373387EF8FF7ED9"
+            {
+            "SourcePath" = "8:..\\tse.ico"
+            "TargetName" = "8:tse.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_4F29ADDC0E0E4CFE838EAF99E42CFA2D"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2425,57 +2391,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4E488F3378E74005813CB81582F2E7F1"
-            {
-            "SourcePath" = "8:..\\..\\..\\Archivos\\CNX.TAR"
-            "TargetName" = "8:CNX.TAR"
-            "Tag" = "8:"
-            "Folder" = "8:_670B7F4F8EC64436990D7BF8DF32E745"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_552E345DCFCF73E997EC5CFB2F6297E7"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86"
-                "ScatterAssemblies"
-                {
-                    "_552E345DCFCF73E997EC5CFB2F6297E7"
-                    {
-                    "Name" = "8:Oracle.DataAccess.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Oracle.DataAccess.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_4F29ADDC0E0E4CFE838EAF99E42CFA2D"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_55A0E57CE71348F1B7CC5702E26E5134"
             {
             "AssemblyRegister" = "3:1"
@@ -2524,46 +2439,6 @@
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_8041DF430287494E9ECBE04E85F17AD7"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5830E689C3274027B2C27EB860075684"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\..\\Downloads\\tse.ico"
-            "TargetName" = "8:tse.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_4F29ADDC0E0E4CFE838EAF99E42CFA2D"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5B526B1A734E40248BE34FDD85B65ED2"
-            {
-            "SourcePath" = "8:..\\..\\..\\Archivos\\Inicializar.bat"
-            "TargetName" = "8:Inicializar.bat"
-            "Tag" = "8:"
-            "Folder" = "8:_670B7F4F8EC64436990D7BF8DF32E745"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3229,6 +3104,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9A1BBF75EA8FF0A8A0E19A7961646E12"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86"
+                "ScatterAssemblies"
+                {
+                    "_9A1BBF75EA8FF0A8A0E19A7961646E12"
+                    {
+                    "Name" = "8:Oracle.DataAccess.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Oracle.DataAccess.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_4F29ADDC0E0E4CFE838EAF99E42CFA2D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9D1862F189730405E0805ACFDDEE2FD1"
             {
             "AssemblyRegister" = "3:1"
@@ -3291,26 +3197,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A03A875B2E3740779F7A8436E527199E"
-            {
-            "SourcePath" = "8:..\\..\\..\\Archivos\\Inicializador.SQL"
-            "TargetName" = "8:Inicializador.SQL"
-            "Tag" = "8:"
-            "Folder" = "8:_670B7F4F8EC64436990D7BF8DF32E745"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A5A99401BBE54538B30224B57B2F2F1A"
             {
             "AssemblyRegister" = "3:1"
@@ -3328,26 +3214,6 @@
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_8041DF430287494E9ECBE04E85F17AD7"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A5C212210150486EBA143FA5EBAEC522"
-            {
-            "SourcePath" = "8:..\\..\\..\\Archivos\\IMP.TAR"
-            "TargetName" = "8:IMP.TAR"
-            "Tag" = "8:"
-            "Folder" = "8:_670B7F4F8EC64436990D7BF8DF32E745"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3424,26 +3290,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AED238232F694705830C23570E0D8AF5"
-            {
-            "SourcePath" = "8:..\\..\\..\\Archivos\\CSQ.TAR"
-            "TargetName" = "8:CSQ.TAR"
-            "Tag" = "8:"
-            "Folder" = "8:_670B7F4F8EC64436990D7BF8DF32E745"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AFE6CD00CA5B4B4DB484AFB7B5485F86"
             {
             "AssemblyRegister" = "3:1"
@@ -3461,37 +3307,6 @@
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_8041DF430287494E9ECBE04E85F17AD7"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B2AC160E31A94625998B5F6BE06B74FE"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Instalador, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
-                "ScatterAssemblies"
-                {
-                    "_B2AC160E31A94625998B5F6BE06B74FE"
-                    {
-                    "Name" = "8:Instalador.exe"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\..\\..\\..\\..\\Documents\\Visual Studio 2008\\Projects\\Instalador\\Instalador\\bin\\Release\\Instalador.exe"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_DF6E6E1639A34843BCCAC69870964E31"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4126,26 +3941,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E22A54661BD4473797AE48338EBC9357"
-            {
-            "SourcePath" = "8:..\\..\\..\\Archivos\\IMPAR.TAR"
-            "TargetName" = "8:IMPAR.TAR"
-            "Tag" = "8:"
-            "Folder" = "8:_670B7F4F8EC64436990D7BF8DF32E745"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E347CEFC87A27624BB73B7BDA7578251"
             {
             "AssemblyRegister" = "3:1"
@@ -4349,26 +4144,6 @@
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_8041DF430287494E9ECBE04E85F17AD7"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F2C3A9A56FCE4E949BCD99F5CDFD7A84"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Manual de Inscripcion de Movimientos.chm"
-            "TargetName" = "8:Manual de Inscripcion de Movimientos.chm"
-            "Tag" = "8:"
-            "Folder" = "8:_4F29ADDC0E0E4CFE838EAF99E42CFA2D"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4588,13 +4363,13 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Inscripción de Movimientos TSE"
         "ProductCode" = "8:{AF350CBC-458A-4949-AEBD-8539B4F1B904}"
-        "PackageCode" = "8:{739E230E-5292-4AE1-8AA7-F8E6DAD2996E}"
+        "PackageCode" = "8:{A5657BA8-7DA8-4132-A855-31DC17E778E2}"
         "UpgradeCode" = "8:{AF350CBC-458A-4949-AEBD-8539B4F1B904}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:3.0.0"
+        "ProductVersion" = "8:4.3.0"
         "Manufacturer" = "8:TSE"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -4707,21 +4482,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_2AC10C2C91604361818038DAA447950D"
-            {
-            "Name" = "8:Inscripcion de Moviemientos"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_DC706A810980414FA2BD106B47236021"
-            "Folder" = "8:_F8D268C273754F24B13CC42257CA9F0C"
-            "WorkingFolder" = "8:_4F29ADDC0E0E4CFE838EAF99E42CFA2D"
-            "Icon" = "8:_5830E689C3274027B2C27EB860075684"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_53A949017C03428195814A4A8998D85A"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_1536D9B0F3724085B8A8AF1A65D8B982"
             {
             "Name" = "8:Inscripcion de Moviemientos"
             "Arguments" = "8:"
@@ -4732,21 +4493,21 @@
             "Target" = "8:_DC706A810980414FA2BD106B47236021"
             "Folder" = "8:_7E41EC45E4A74B56BFF987BB117B23D8"
             "WorkingFolder" = "8:_4F29ADDC0E0E4CFE838EAF99E42CFA2D"
-            "Icon" = "8:_5830E689C3274027B2C27EB860075684"
+            "Icon" = "8:_16C0A0AF328B49FA8373387EF8FF7ED9"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B5BA09011B3D4DB3AAEB496BEA5959A3"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B748E5408D4E4948AB93D81F979FDC3F"
             {
-            "Name" = "8:Manual de Inscripcion de Movimientos.chm"
+            "Name" = "8:Inscripcion de Moviemientos"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_F2C3A9A56FCE4E949BCD99F5CDFD7A84"
+            "Target" = "8:_DC706A810980414FA2BD106B47236021"
             "Folder" = "8:_F8D268C273754F24B13CC42257CA9F0C"
             "WorkingFolder" = "8:_4F29ADDC0E0E4CFE838EAF99E42CFA2D"
-            "Icon" = "8:"
+            "Icon" = "8:_16C0A0AF328B49FA8373387EF8FF7ED9"
             "Feature" = "8:"
             }
         }
@@ -5150,7 +4911,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_DC706A810980414FA2BD106B47236021"
             {
-            "SourcePath" = "8:..\\Inscripcion de Moviemiento\\obj\\x86\\Release\\Inscripción de Moviemientos.exe"
+            "SourcePath" = "8:..\\Inscripcion de Moviemiento\\obj\\Release\\Inscripción de Moviemientos.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4F29ADDC0E0E4CFE838EAF99E42CFA2D"

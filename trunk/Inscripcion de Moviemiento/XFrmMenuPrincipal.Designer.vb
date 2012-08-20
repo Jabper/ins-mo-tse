@@ -107,6 +107,7 @@ Partial Class XFrmMenuPrincipal
         Me.BtnReporteIncosistencias = New DevExpress.XtraBars.BarButtonItem
         Me.BtnRepCandidatosRepetidos = New DevExpress.XtraBars.BarButtonItem
         Me.BtnRepPlanillasCompletasNivel = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnPCNE = New DevExpress.XtraBars.BarButtonItem
         Me.BtnRepPlanillasCompletas = New DevExpress.XtraBars.BarButtonItem
         Me.BtnProduccion = New DevExpress.XtraBars.BarButtonItem
         Me.BtnReporteProduccion2 = New DevExpress.XtraBars.BarButtonItem
@@ -142,6 +143,7 @@ Partial Class XFrmMenuPrincipal
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.BarSubItem1 = New DevExpress.XtraBars.BarSubItem
         Me.RibbonPageGroup10 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
+        Me.BtnFaltantesBasico = New DevExpress.XtraBars.BarButtonItem
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -156,10 +158,9 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonControl.ApplicationButtonDropDownControl = Me.ApplicationMenu2
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ExpandCollapseItem.Name = ""
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion, Me.BtnMotivo, Me.btnCInhabilitados, Me.btnConsultarCenso, Me.BtnSubirOtroSistema, Me.BtnRPlanilla, Me.BtnPlanillanivel, Me.BtnPlanilladivision, Me.btnConsultarFirmas, Me.BtnRFirmas, Me.BtnFDP, Me.BtnREstadistico, Me.btnConsultarCandidatos, Me.BtnFirmasinc, Me.btnJerarquico, Me.BtnCrucemov, Me.BtnCrucepar, Me.BtnResumenFir, Me.TxtUser, Me.btnConsultarPlanilla, Me.BtnEstadisticoFI, Me.BtnRLog, Me.Btnlogproce, Me.BtnPlanillacandidatos, Me.BtnDiscoPartido, Me.BtnDiscoMovimiento, Me.BtnEstadisticopar, Me.BtnValidaciones, Me.BarButtonItem2, Me.btnValidarFirmas, Me.BarButtonItem3, Me.BtnCandidatosInha, Me.BTN_Reporteimpor, Me.BTNrepocaninc, Me.BTNrepociuinc, Me.BarStaticItem1, Me.BTNRazonado, Me.BTNRestadisticoCE, Me.BtnRegistroImpo, Me.BarStaticItem2, Me.BTNduplicadosMov, Me.btnIncompleta, Me.BTNRazonadoPlaC, Me.BTNRazonadoPlanI, Me.BarButtonItem4, Me.btnEstadistico, Me.btnEstadisticasDP, Me.BTNRazonadoPINE, Me.BTNFaltantes, Me.BtnCambiarPass, Me.BTNREPTSE, Me.BTNRepplanifirm, Me.BTNrbasicos, Me.BtnRepCumplimiento, Me.BtnRepCumplimientoCifras, Me.BtnReporteIncosistencias, Me.BtnRepCandidatosRepetidos, Me.BtnRepPlanillasCompletas, Me.BtnRepPlanillasCompletasNivel, Me.BTNcumplimiento, Me.BTNcumplimiento1, Me.BtnProduccion, Me.BtnReporteProduccion2, Me.BarButtonItem5})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion, Me.BtnMotivo, Me.btnCInhabilitados, Me.btnConsultarCenso, Me.BtnSubirOtroSistema, Me.BtnRPlanilla, Me.BtnPlanillanivel, Me.BtnPlanilladivision, Me.btnConsultarFirmas, Me.BtnRFirmas, Me.BtnFDP, Me.BtnREstadistico, Me.btnConsultarCandidatos, Me.BtnFirmasinc, Me.btnJerarquico, Me.BtnCrucemov, Me.BtnCrucepar, Me.BtnResumenFir, Me.TxtUser, Me.btnConsultarPlanilla, Me.BtnEstadisticoFI, Me.BtnRLog, Me.Btnlogproce, Me.BtnPlanillacandidatos, Me.BtnDiscoPartido, Me.BtnDiscoMovimiento, Me.BtnEstadisticopar, Me.BtnValidaciones, Me.BarButtonItem2, Me.btnValidarFirmas, Me.BarButtonItem3, Me.BtnCandidatosInha, Me.BTN_Reporteimpor, Me.BTNrepocaninc, Me.BTNrepociuinc, Me.BarStaticItem1, Me.BTNRazonado, Me.BTNRestadisticoCE, Me.BtnRegistroImpo, Me.BarStaticItem2, Me.BTNduplicadosMov, Me.btnIncompleta, Me.BTNRazonadoPlaC, Me.BTNRazonadoPlanI, Me.BarButtonItem4, Me.btnEstadistico, Me.btnEstadisticasDP, Me.BTNRazonadoPINE, Me.BTNFaltantes, Me.BtnCambiarPass, Me.BTNREPTSE, Me.BTNRepplanifirm, Me.BTNrbasicos, Me.BtnRepCumplimiento, Me.BtnRepCumplimientoCifras, Me.BtnReporteIncosistencias, Me.BtnRepCandidatosRepetidos, Me.BtnRepPlanillasCompletas, Me.BtnRepPlanillasCompletasNivel, Me.BTNcumplimiento, Me.BTNcumplimiento1, Me.BtnProduccion, Me.BtnReporteProduccion2, Me.BarButtonItem5, Me.BtnPCNE, Me.BtnFaltantesBasico})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.RibbonControl.MaxItemId = 103
+        Me.RibbonControl.MaxItemId = 105
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.PageHeaderItemLinks.Add(Me.BarStaticItem2)
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5, Me.RibbonPage7, Me.RibbonPage6})
@@ -167,7 +168,7 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.[True]
         Me.RibbonControl.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.[False]
         Me.RibbonControl.ShowToolbarCustomizeItem = False
-        Me.RibbonControl.Size = New System.Drawing.Size(964, 156)
+        Me.RibbonControl.Size = New System.Drawing.Size(826, 145)
         Me.RibbonControl.StatusBar = Me.RibbonStatusBar
         Me.RibbonControl.Toolbar.ShowCustomizeItem = False
         '
@@ -656,7 +657,7 @@ Partial Class XFrmMenuPrincipal
         'BarStaticItem2
         '
         Me.BarStaticItem2.AllowRightClickInMenu = False
-        Me.BarStaticItem2.Caption = "Version 4.1 CS"
+        Me.BarStaticItem2.Caption = "Version 4.3 CS"
         Me.BarStaticItem2.Id = 71
         Me.BarStaticItem2.Name = "BarStaticItem2"
         Me.BarStaticItem2.TextAlignment = System.Drawing.StringAlignment.Near
@@ -711,7 +712,7 @@ Partial Class XFrmMenuPrincipal
         Me.BTNrbasicos.Caption = "Reportes Básicos de Cumplimiento"
         Me.BTNrbasicos.Id = 89
         Me.BTNrbasicos.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.requisitos_1
-        Me.BTNrbasicos.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BtnRepCumplimiento), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnRepCumplimientoCifras), New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem5), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnReporteIncosistencias), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnRepCandidatosRepetidos), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnRepPlanillasCompletasNivel), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnRepPlanillasCompletas)})
+        Me.BTNrbasicos.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BtnRepCumplimiento), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnRepCumplimientoCifras), New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem5), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnReporteIncosistencias), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnRepCandidatosRepetidos), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnRepPlanillasCompletasNivel), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnPCNE), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnRepPlanillasCompletas), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnFaltantesBasico)})
         Me.BTNrbasicos.Name = "BTNrbasicos"
         '
         'BtnRepCumplimiento
@@ -722,7 +723,7 @@ Partial Class XFrmMenuPrincipal
         '
         'BtnRepCumplimientoCifras
         '
-        Me.BtnRepCumplimientoCifras.Caption = "Reporte de Cumplimientos en Cifras"
+        Me.BtnRepCumplimientoCifras.Caption = "-Reporte de Cumplimientos en Cifras"
         Me.BtnRepCumplimientoCifras.Id = 91
         Me.BtnRepCumplimientoCifras.Name = "BtnRepCumplimientoCifras"
         '
@@ -734,7 +735,7 @@ Partial Class XFrmMenuPrincipal
         '
         'BtnReporteIncosistencias
         '
-        Me.BtnReporteIncosistencias.Caption = "Reporte de Inconsistencias por Nivel "
+        Me.BtnReporteIncosistencias.Caption = "Reporte de Inconsistencias "
         Me.BtnReporteIncosistencias.Id = 92
         Me.BtnReporteIncosistencias.Name = "BtnReporteIncosistencias"
         '
@@ -749,6 +750,12 @@ Partial Class XFrmMenuPrincipal
         Me.BtnRepPlanillasCompletasNivel.Caption = "Reporte de Planillas Completas por Nivel Electivo"
         Me.BtnRepPlanillasCompletasNivel.Id = 95
         Me.BtnRepPlanillasCompletasNivel.Name = "BtnRepPlanillasCompletasNivel"
+        '
+        'BtnPCNE
+        '
+        Me.BtnPCNE.Caption = "-Reporte de Planillas Completas por Nivel Electivo (con Imágen)"
+        Me.BtnPCNE.Id = 103
+        Me.BtnPCNE.Name = "BtnPCNE"
         '
         'BtnRepPlanillasCompletas
         '
@@ -923,11 +930,10 @@ Partial Class XFrmMenuPrincipal
         '
         Me.RibbonStatusBar.ItemLinks.Add(Me.TxtUser)
         Me.RibbonStatusBar.ItemLinks.Add(Me.BarStaticItem1)
-        Me.RibbonStatusBar.Location = New System.Drawing.Point(0, 613)
-        Me.RibbonStatusBar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.RibbonStatusBar.Location = New System.Drawing.Point(0, 492)
         Me.RibbonStatusBar.Name = "RibbonStatusBar"
         Me.RibbonStatusBar.Ribbon = Me.RibbonControl
-        Me.RibbonStatusBar.Size = New System.Drawing.Size(964, 32)
+        Me.RibbonStatusBar.Size = New System.Drawing.Size(826, 32)
         '
         'DefaultLookAndFeel1
         '
@@ -965,18 +971,16 @@ Partial Class XFrmMenuPrincipal
         Me.PanelControl1.Controls.Add(Me.PictureEdit2)
         Me.PanelControl1.Controls.Add(Me.PictureEdit1)
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanelControl1.Location = New System.Drawing.Point(0, 156)
-        Me.PanelControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.PanelControl1.Location = New System.Drawing.Point(0, 145)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(964, 69)
+        Me.PanelControl1.Size = New System.Drawing.Size(826, 56)
         Me.PanelControl1.TabIndex = 3
         '
         'PictureEdit2
         '
         Me.PictureEdit2.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.PictureEdit2.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.logoeleccionesp
-        Me.PictureEdit2.Location = New System.Drawing.Point(798, -7)
-        Me.PictureEdit2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.PictureEdit2.Location = New System.Drawing.Point(684, -6)
         Me.PictureEdit2.MenuManager = Me.RibbonControl
         Me.PictureEdit2.Name = "PictureEdit2"
         Me.PictureEdit2.Properties.AllowFocused = False
@@ -986,15 +990,14 @@ Partial Class XFrmMenuPrincipal
         Me.PictureEdit2.Properties.Appearance.Options.UseForeColor = True
         Me.PictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
         Me.PictureEdit2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
-        Me.PictureEdit2.Size = New System.Drawing.Size(152, 71)
+        Me.PictureEdit2.Size = New System.Drawing.Size(130, 58)
         Me.PictureEdit2.TabIndex = 1
         '
         'PictureEdit1
         '
         Me.PictureEdit1.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.PictureEdit1.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.tselogop
-        Me.PictureEdit1.Location = New System.Drawing.Point(14, 0)
-        Me.PictureEdit1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.PictureEdit1.Location = New System.Drawing.Point(12, 0)
         Me.PictureEdit1.MenuManager = Me.RibbonControl
         Me.PictureEdit1.Name = "PictureEdit1"
         Me.PictureEdit1.Properties.AllowFocused = False
@@ -1005,7 +1008,7 @@ Partial Class XFrmMenuPrincipal
         Me.PictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
         Me.PictureEdit1.Properties.ShowMenu = False
         Me.PictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
-        Me.PictureEdit1.Size = New System.Drawing.Size(96, 64)
+        Me.PictureEdit1.Size = New System.Drawing.Size(82, 52)
         Me.PictureEdit1.TabIndex = 0
         '
         'BarSubItem1
@@ -1018,16 +1021,21 @@ Partial Class XFrmMenuPrincipal
         '
         Me.RibbonPageGroup10.Name = "RibbonPageGroup10"
         '
+        'BtnFaltantesBasico
+        '
+        Me.BtnFaltantesBasico.Caption = "Reporte de Candidatos Faltantes en Planilla"
+        Me.BtnFaltantesBasico.Id = 104
+        Me.BtnFaltantesBasico.Name = "BtnFaltantesBasico"
+        '
         'XFrmMenuPrincipal
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(964, 645)
+        Me.ClientSize = New System.Drawing.Size(826, 524)
         Me.Controls.Add(Me.PanelControl1)
         Me.Controls.Add(Me.RibbonStatusBar)
         Me.Controls.Add(Me.RibbonControl)
         Me.IsMdiContainer = True
-        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "XFrmMenuPrincipal"
         Me.Ribbon = Me.RibbonControl
         Me.ShowIcon = False
@@ -1167,6 +1175,8 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents BtnProduccion As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BtnReporteProduccion2 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem5 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnPCNE As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnFaltantesBasico As DevExpress.XtraBars.BarButtonItem
 
 
 End Class

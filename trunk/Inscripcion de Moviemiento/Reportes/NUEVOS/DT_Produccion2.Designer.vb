@@ -294,6 +294,8 @@ Partial Public Class DT_Produccion2
         
         Private columnCODIGO_CARGO As Global.System.Data.DataColumn
         
+        Private columnIMAGEN_MOVIMIENTO As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -424,6 +426,13 @@ Partial Public Class DT_Produccion2
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property IMAGEN_MOVIMIENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIMAGEN_MOVIMIENTO
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -453,9 +462,9 @@ Partial Public Class DT_Produccion2
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddIM_V_REPORTE_PRODUCCION2Row(ByVal IDENTIDAD As String, ByVal NOMBRE As String, ByVal APELLIDO As String, ByVal DEPARTAMENTO As String, ByVal MUNICIPIO As String, ByVal CARGO As String, ByVal CODIGO_PARTIDO As Decimal, ByVal CODIGO_MOVIMIENTO As Decimal, ByVal PARTIDO As String, ByVal MOVIMIENTO As String, ByVal VALIDADO As String, ByVal CODIGO_DEPARTAMENTO As Decimal, ByVal CODIGO_MUNICIPIO As Decimal, ByVal CODIGO_CARGO As Decimal) As IM_V_REPORTE_PRODUCCION2Row
+        Public Overloads Function AddIM_V_REPORTE_PRODUCCION2Row(ByVal IDENTIDAD As String, ByVal NOMBRE As String, ByVal APELLIDO As String, ByVal DEPARTAMENTO As String, ByVal MUNICIPIO As String, ByVal CARGO As String, ByVal CODIGO_PARTIDO As Decimal, ByVal CODIGO_MOVIMIENTO As Decimal, ByVal PARTIDO As String, ByVal MOVIMIENTO As String, ByVal VALIDADO As String, ByVal CODIGO_DEPARTAMENTO As Decimal, ByVal CODIGO_MUNICIPIO As Decimal, ByVal CODIGO_CARGO As Decimal, ByVal IMAGEN_MOVIMIENTO() As Byte) As IM_V_REPORTE_PRODUCCION2Row
             Dim rowIM_V_REPORTE_PRODUCCION2Row As IM_V_REPORTE_PRODUCCION2Row = CType(Me.NewRow,IM_V_REPORTE_PRODUCCION2Row)
-            Dim columnValuesArray() As Object = New Object() {IDENTIDAD, NOMBRE, APELLIDO, DEPARTAMENTO, MUNICIPIO, CARGO, CODIGO_PARTIDO, CODIGO_MOVIMIENTO, PARTIDO, MOVIMIENTO, VALIDADO, CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, CODIGO_CARGO}
+            Dim columnValuesArray() As Object = New Object() {IDENTIDAD, NOMBRE, APELLIDO, DEPARTAMENTO, MUNICIPIO, CARGO, CODIGO_PARTIDO, CODIGO_MOVIMIENTO, PARTIDO, MOVIMIENTO, VALIDADO, CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, CODIGO_CARGO, IMAGEN_MOVIMIENTO}
             rowIM_V_REPORTE_PRODUCCION2Row.ItemArray = columnValuesArray
             Me.Rows.Add(rowIM_V_REPORTE_PRODUCCION2Row)
             Return rowIM_V_REPORTE_PRODUCCION2Row
@@ -489,6 +498,7 @@ Partial Public Class DT_Produccion2
             Me.columnCODIGO_DEPARTAMENTO = MyBase.Columns("CODIGO_DEPARTAMENTO")
             Me.columnCODIGO_MUNICIPIO = MyBase.Columns("CODIGO_MUNICIPIO")
             Me.columnCODIGO_CARGO = MyBase.Columns("CODIGO_CARGO")
+            Me.columnIMAGEN_MOVIMIENTO = MyBase.Columns("IMAGEN_MOVIMIENTO")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -521,6 +531,8 @@ Partial Public Class DT_Produccion2
             MyBase.Columns.Add(Me.columnCODIGO_MUNICIPIO)
             Me.columnCODIGO_CARGO = New Global.System.Data.DataColumn("CODIGO_CARGO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCODIGO_CARGO)
+            Me.columnIMAGEN_MOVIMIENTO = New Global.System.Data.DataColumn("IMAGEN_MOVIMIENTO", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIMAGEN_MOVIMIENTO)
             Me.columnIDENTIDAD.AllowDBNull = false
             Me.columnIDENTIDAD.MaxLength = 15
             Me.columnNOMBRE.MaxLength = 100
@@ -833,6 +845,21 @@ Partial Public Class DT_Produccion2
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property IMAGEN_MOVIMIENTO() As Byte()
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_REPORTE_PRODUCCION2.IMAGEN_MOVIMIENTOColumn),Byte())
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'IMAGEN_MOVIMIENTO' in table 'IM_V_REPORTE_PRODUCCION2' is D"& _ 
+                            "BNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_REPORTE_PRODUCCION2.IMAGEN_MOVIMIENTOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsNOMBRENull() As Boolean
             Return Me.IsNull(Me.tableIM_V_REPORTE_PRODUCCION2.NOMBREColumn)
         End Function
@@ -870,6 +897,16 @@ Partial Public Class DT_Produccion2
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetCODIGO_CARGONull()
             Me(Me.tableIM_V_REPORTE_PRODUCCION2.CODIGO_CARGOColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsIMAGEN_MOVIMIENTONull() As Boolean
+            Return Me.IsNull(Me.tableIM_V_REPORTE_PRODUCCION2.IMAGEN_MOVIMIENTOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetIMAGEN_MOVIMIENTONull()
+            Me(Me.tableIM_V_REPORTE_PRODUCCION2.IMAGEN_MOVIMIENTOColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1044,6 +1081,7 @@ Namespace DT_Produccion2TableAdapters
             tableMapping.ColumnMappings.Add("CODIGO_DEPARTAMENTO", "CODIGO_DEPARTAMENTO")
             tableMapping.ColumnMappings.Add("CODIGO_MUNICIPIO", "CODIGO_MUNICIPIO")
             tableMapping.ColumnMappings.Add("CODIGO_CARGO", "CODIGO_CARGO")
+            tableMapping.ColumnMappings.Add("IMAGEN_MOVIMIENTO", "IMAGEN_MOVIMIENTO")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -1060,34 +1098,32 @@ Namespace DT_Produccion2TableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        IDENTIDAD, NOMBRE, APELLIDO, DEPARTAMENTO, MUNICIPIO, CARGO, CODIGO"& _ 
                 "_PARTIDO, CODIGO_MOVIMIENTO, PARTIDO, MOVIMIENTO, VALIDADO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
-                "       CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, CODIGO_CARGO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V"& _ 
-                "_REPORTE_PRODUCCION2"
+                "       CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, CODIGO_CARGO, IMAGEN_MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"F"& _ 
+                "ROM            IM_V_REPORTE_PRODUCCION2"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        IDENTIDAD, NOMBRE, APELLIDO, DEPARTAMENTO, MUNICIPIO, CARGO, CODIGO"& _ 
-                "_PARTIDO, CODIGO_MOVIMIENTO, PARTIDO, MOVIMIENTO, VALIDADO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
-                "       CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, CODIGO_CARGO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V"& _ 
-                "_REPORTE_PRODUCCION2 WHERE (CODIGO_PARTIDO = :id_partido)"
+            Me._commandCollection(1).CommandText = "SELECT APELLIDO, CARGO, CODIGO_CARGO, CODIGO_DEPARTAMENTO, CODIGO_MOVIMIENTO, COD"& _ 
+                "IGO_MUNICIPIO, CODIGO_PARTIDO, DEPARTAMENTO, IDENTIDAD, IMAGEN_MOVIMIENTO, MOVIM"& _ 
+                "IENTO, MUNICIPIO, NOMBRE, PARTIDO, VALIDADO FROM IM_V_REPORTE_PRODUCCION2 WHERE "& _ 
+                "(CODIGO_PARTIDO = :id_partido)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_partido", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(2) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT        IDENTIDAD, NOMBRE, APELLIDO, DEPARTAMENTO, MUNICIPIO, CARGO, CODIGO"& _ 
-                "_PARTIDO, CODIGO_MOVIMIENTO, PARTIDO, MOVIMIENTO, VALIDADO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
-                "       CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, CODIGO_CARGO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V"& _ 
-                "_REPORTE_PRODUCCION2"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (PARTIDO = :id_partido) AND (MOVIMIENTO = :id"& _ 
-                "_movimiento)"
+            Me._commandCollection(2).CommandText = "SELECT APELLIDO, CARGO, CODIGO_CARGO, CODIGO_DEPARTAMENTO, CODIGO_MOVIMIENTO, COD"& _ 
+                "IGO_MUNICIPIO, CODIGO_PARTIDO, DEPARTAMENTO, IDENTIDAD, IMAGEN_MOVIMIENTO, MOVIM"& _ 
+                "IENTO, MUNICIPIO, NOMBRE, PARTIDO, VALIDADO FROM IM_V_REPORTE_PRODUCCION2 WHERE "& _ 
+                "(PARTIDO = :id_partido) AND (MOVIMIENTO = :id_movimiento)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_partido", Global.System.Data.OracleClient.OracleType.VarChar, 100, Global.System.Data.ParameterDirection.Input, "PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_movimiento", Global.System.Data.OracleClient.OracleType.VarChar, 200, Global.System.Data.ParameterDirection.Input, "MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(3) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT        IDENTIDAD, NOMBRE, APELLIDO, DEPARTAMENTO, MUNICIPIO, CARGO, CODIGO"& _ 
-                "_PARTIDO, CODIGO_MOVIMIENTO, PARTIDO, MOVIMIENTO, VALIDADO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
-                "       CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, CODIGO_CARGO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V"& _ 
-                "_REPORTE_PRODUCCION2"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CODIGO_PARTIDO = :id_partido) AND (CODIGO_MO"& _ 
-                "VIMIENTO = :id_movimiento)"
+            Me._commandCollection(3).CommandText = "SELECT APELLIDO, CARGO, CODIGO_CARGO, CODIGO_DEPARTAMENTO, CODIGO_MOVIMIENTO, COD"& _ 
+                "IGO_MUNICIPIO, CODIGO_PARTIDO, DEPARTAMENTO, IDENTIDAD, IMAGEN_MOVIMIENTO, MOVIM"& _ 
+                "IENTO, MUNICIPIO, NOMBRE, PARTIDO, VALIDADO FROM IM_V_REPORTE_PRODUCCION2 WHERE "& _ 
+                "(CODIGO_PARTIDO = :id_partido) AND (CODIGO_MOVIMIENTO = :id_movimiento)"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_partido", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_PARTIDO", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("id_movimiento", Global.System.Data.OracleClient.OracleType.Number, 22, Global.System.Data.ParameterDirection.Input, "CODIGO_MOVIMIENTO", Global.System.Data.DataRowVersion.Current, false, Nothing))
