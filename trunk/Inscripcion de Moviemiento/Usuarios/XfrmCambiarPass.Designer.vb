@@ -21,8 +21,8 @@ Partial Class XfrmCambiarPass
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Dim ConditionValidationRule1 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
-        Dim CompareAgainstControlValidationRule1 As DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule = New DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule
         Dim ConditionValidationRule2 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
+        Dim CompareAgainstControlValidationRule1 As DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule = New DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule
         Me.txtpass2 = New DevExpress.XtraEditors.TextEdit
         Me.txtpass1 = New DevExpress.XtraEditors.TextEdit
         Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
@@ -56,13 +56,13 @@ Partial Class XfrmCambiarPass
         Me.txtpass1.Properties.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtpass1.Size = New System.Drawing.Size(170, 20)
         Me.txtpass1.TabIndex = 0
+        ConditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule2.ErrorText = "El valor no puede estar en blanco"
+        Me.DxValidationProvider1.SetValidationRule(Me.txtpass1, ConditionValidationRule2)
         CompareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.Equals
         CompareAgainstControlValidationRule1.Control = Me.txtpass2
         CompareAgainstControlValidationRule1.ErrorText = "Las Contraseñas no concuerdan"
         Me.DxValidationProvider2.SetValidationRule(Me.txtpass1, CompareAgainstControlValidationRule1)
-        ConditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule2.ErrorText = "El valor no puede estar en blanco"
-        Me.DxValidationProvider1.SetValidationRule(Me.txtpass1, ConditionValidationRule2)
         '
         'LabelControl1
         '

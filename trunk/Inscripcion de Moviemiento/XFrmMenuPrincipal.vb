@@ -615,4 +615,13 @@ Public Class XFrmMenuPrincipal
         Dim reporterazo As REPORTE_RAZONADO = New REPORTE_RAZONADO
         reporterazo.ShowPreview()
     End Sub
+
+    Private Sub BtnRepCandidatosRepetidos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnRepCandidatosRepetidos.ItemClick
+        Dim reporte_duplicados As REPORTE_CIUDADANOS_DUPLICADO = New REPORTE_CIUDADANOS_DUPLICADO
+        reporte_duplicados.ShowPreview()
+    End Sub
+
+    Private Sub BtnReporteIncosistencias_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnReporteIncosistencias.ItemClick
+
+    End Sub
 End Class
