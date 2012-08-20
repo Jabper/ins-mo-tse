@@ -209,4 +209,8 @@ Public Class XfrmConPlanilla
         End Select
 
     End Sub
+
+    Private Sub cbxCargo_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbxCargo.SelectedIndexChanged
+
+    End Sub
 End Class
