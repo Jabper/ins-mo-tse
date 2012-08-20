@@ -247,6 +247,8 @@ Public Class REPORTE_DE_CUMPLIMIENTO
             Prese_2.Text = "SI"
         ElseIf cd_parlacenp > 0 Then
             Prese_2.Text = "SI"
+        Else
+            Prese_2.Text = "NO"
         End If
         '**************************************************************************************
         'ANALISIS DPCS 

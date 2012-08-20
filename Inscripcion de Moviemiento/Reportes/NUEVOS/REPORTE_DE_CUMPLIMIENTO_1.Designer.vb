@@ -39,6 +39,8 @@ Partial Public Class REPORTE_DE_CUMPLIMIENTO_1
         Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
         Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
         Me.GroupHeader2 = New DevExpress.XtraReports.UI.GroupHeaderBand
+        Me.nombre = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel36 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel35 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel34 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel33 = New DevExpress.XtraReports.UI.XRLabel
@@ -115,8 +117,6 @@ Partial Public Class REPORTE_DE_CUMPLIMIENTO_1
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
         Me.IM_MOVIMIENTOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
-        Me.XrLabel36 = New DevExpress.XtraReports.UI.XRLabel
-        Me.nombre = New DevExpress.XtraReports.UI.XRLabel
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -271,6 +271,22 @@ Partial Public Class REPORTE_DE_CUMPLIMIENTO_1
         Me.GroupHeader2.HeightF = 495.4167!
         Me.GroupHeader2.Name = "GroupHeader2"
         '
+        'nombre
+        '
+        Me.nombre.LocationFloat = New DevExpress.Utils.PointFloat(91.25001!, 462.4167!)
+        Me.nombre.Name = "nombre"
+        Me.nombre.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.nombre.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.nombre.Text = "nombre"
+        '
+        'XrLabel36
+        '
+        Me.XrLabel36.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 462.4167!)
+        Me.XrLabel36.Name = "XrLabel36"
+        Me.XrLabel36.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel36.SizeF = New System.Drawing.SizeF(79.16666!, 23.0!)
+        Me.XrLabel36.Text = "Impreso por:"
+        '
         'XrLabel35
         '
         Me.XrLabel35.LocationFloat = New DevExpress.Utils.PointFloat(84.375!, 407.8333!)
@@ -302,8 +318,8 @@ Partial Public Class REPORTE_DE_CUMPLIMIENTO_1
         Me.XrLabel33.SizeF = New System.Drawing.SizeF(973.6248!, 23.00003!)
         Me.XrLabel33.StylePriority.UseFont = False
         Me.XrLabel33.Text = "Inconsistente                        Cuando la Nómina contiene todos los candidat" & _
-            "os exigidos, pero uno o alguno les falta uno(s) requisitos subsanables (pej. Fot" & _
-            "grafía)"
+            "os exigidos, pero alguno le falta alguno de los requisitos subsanables (Foto o C" & _
+            "d de Vecindad)"
         '
         'XrLabel32
         '
@@ -314,7 +330,7 @@ Partial Public Class REPORTE_DE_CUMPLIMIENTO_1
         Me.XrLabel32.SizeF = New System.Drawing.SizeF(899.9999!, 23.0!)
         Me.XrLabel32.StylePriority.UseFont = False
         Me.XrLabel32.Text = "Completo                              Cuando las Nóminas contienen información de" & _
-            " candidatos en todos los cargos que exige la nómina y no requiere subsanación"
+            " candidatos en todos los cargos que exige la nómina."
         '
         'XrLabel31
         '
@@ -1407,23 +1423,7 @@ Partial Public Class REPORTE_DE_CUMPLIMIENTO_1
         '
         Me.IM_MOVIMIENTOS_imagenTableAdapter.ClearBeforeFill = True
         '
-        'XrLabel36
-        '
-        Me.XrLabel36.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 462.4167!)
-        Me.XrLabel36.Name = "XrLabel36"
-        Me.XrLabel36.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel36.SizeF = New System.Drawing.SizeF(79.16666!, 23.0!)
-        Me.XrLabel36.Text = "Impreso por:"
-        '
-        'nombre
-        '
-        Me.nombre.LocationFloat = New DevExpress.Utils.PointFloat(91.25001!, 462.4167!)
-        Me.nombre.Name = "nombre"
-        Me.nombre.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.nombre.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.nombre.Text = "nombre"
-        '
-        'REPORTE_DE_CUMPLIMIENTO
+        'REPORTE_DE_CUMPLIMIENTO_1
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.GroupHeader1, Me.GroupHeader2})
         Me.DataSource = Me.BindingSource1

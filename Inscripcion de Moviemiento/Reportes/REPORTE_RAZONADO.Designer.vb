@@ -77,7 +77,6 @@ Partial Public Class REPORTE_RAZONADO
         Me.NominaCNDP = New DevExpress.XtraReports.UI.XRLabel
         Me.NominaParlacens = New DevExpress.XtraReports.UI.XRLabel
         Me.NominaParlacen = New DevExpress.XtraReports.UI.XRLabel
-        Me.Nominavpre = New DevExpress.XtraReports.UI.XRLabel
         Me.corpo3 = New DevExpress.XtraReports.UI.XRLabel
         Me.corporacion2 = New DevExpress.XtraReports.UI.XRLabel
         Me.corporacion1 = New DevExpress.XtraReports.UI.XRLabel
@@ -99,6 +98,7 @@ Partial Public Class REPORTE_RAZONADO
         Me.PageFooter = New DevExpress.XtraReports.UI.PageFooterBand
         Me.XrPageInfo2 = New DevExpress.XtraReports.UI.XRPageInfo
         Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo
+        Me.preco4 = New DevExpress.XtraReports.UI.XRLabel
         CType(Me.BindingSource3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -547,7 +547,7 @@ Partial Public Class REPORTE_RAZONADO
         '
         'GroupHeader3
         '
-        Me.GroupHeader3.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.Nominavacia_6, Me.Nominavacia_5, Me.Nominavacia_4, Me.Nominavacia_3, Me.Nominavacia_2, Me.Nominavacia_1, Me.NominaCM, Me.NominaCNDS, Me.NominaCNDP, Me.NominaParlacens, Me.NominaParlacen, Me.Nominavpre, Me.corpo3, Me.corporacion2, Me.corporacion1, Me.congres3, Me.congres2, Me.congres1, Me.congre4, Me.congre5, Me.congre3, Me.parlas3, Me.parlas2, Me.parlas1, Me.XrLabel10, Me.XrLabel11, Me.XrLabel12, Me.XrLabel9, Me.XrLabel8, Me.XrLabel7, Me.parlacenp, Me.presidente, Me.parlacens, Me.congresop, Me.congresos, Me.corporacionm, Me.preco1, Me.preco2, Me.preco3, Me.parla1, Me.parla2, Me.parla3})
+        Me.GroupHeader3.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.preco4, Me.Nominavacia_6, Me.Nominavacia_5, Me.Nominavacia_4, Me.Nominavacia_3, Me.Nominavacia_2, Me.Nominavacia_1, Me.NominaCM, Me.NominaCNDS, Me.NominaCNDP, Me.NominaParlacens, Me.NominaParlacen, Me.corpo3, Me.corporacion2, Me.corporacion1, Me.congres3, Me.congres2, Me.congres1, Me.congre4, Me.congre5, Me.congre3, Me.parlas3, Me.parlas2, Me.parlas1, Me.XrLabel10, Me.XrLabel11, Me.XrLabel12, Me.XrLabel9, Me.XrLabel8, Me.XrLabel7, Me.parlacenp, Me.presidente, Me.parlacens, Me.congresop, Me.congresos, Me.corporacionm, Me.preco1, Me.preco2, Me.preco3, Me.parla1, Me.parla2, Me.parla3})
         Me.GroupHeader3.HeightF = 172.9167!
         Me.GroupHeader3.Name = "GroupHeader3"
         '
@@ -682,18 +682,6 @@ Partial Public Class REPORTE_RAZONADO
         Me.NominaParlacen.StylePriority.UseTextAlignment = False
         Me.NominaParlacen.Text = "NominaParlacen"
         Me.NominaParlacen.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'Nominavpre
-        '
-        Me.Nominavpre.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.Nominavpre.LocationFloat = New DevExpress.Utils.PointFloat(719.3333!, 12.08331!)
-        Me.Nominavpre.Name = "Nominavpre"
-        Me.Nominavpre.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.Nominavpre.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.Nominavpre.StylePriority.UseFont = False
-        Me.Nominavpre.StylePriority.UseTextAlignment = False
-        Me.Nominavpre.Text = "Nominavpre"
-        Me.Nominavpre.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'corpo3
         '
@@ -876,6 +864,18 @@ Partial Public Class REPORTE_RAZONADO
         Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
         Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(313.0!, 23.0!)
         '
+        'preco4
+        '
+        Me.preco4.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.preco4.LocationFloat = New DevExpress.Utils.PointFloat(719.3333!, 9.999974!)
+        Me.preco4.Name = "preco4"
+        Me.preco4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
+        Me.preco4.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.preco4.StylePriority.UseFont = False
+        Me.preco4.StylePriority.UseTextAlignment = False
+        Me.preco4.Text = "preco4"
+        Me.preco4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
         'REPORTE_RAZONADO
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.ReportHeader, Me.GroupHeader1, Me.GroupHeader2, Me.GroupHeader3, Me.PageFooter})
@@ -963,7 +963,6 @@ Partial Public Class REPORTE_RAZONADO
     Friend WithEvents XrPageInfo1 As DevExpress.XtraReports.UI.XRPageInfo
     Friend WithEvents XrPageInfo2 As DevExpress.XtraReports.UI.XRPageInfo
     Friend WithEvents XrLabel16 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents Nominavpre As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents NominaParlacen As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents NominaParlacens As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents NominaCNDP As DevExpress.XtraReports.UI.XRLabel
@@ -976,4 +975,5 @@ Partial Public Class REPORTE_RAZONADO
     Friend WithEvents Nominavacia_4 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents Nominavacia_6 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents Nominavacia_5 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents preco4 As DevExpress.XtraReports.UI.XRLabel
 End Class
