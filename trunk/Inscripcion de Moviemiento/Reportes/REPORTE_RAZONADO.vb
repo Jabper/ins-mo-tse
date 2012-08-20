@@ -124,6 +124,7 @@ Public Class REPORTE_RAZONADO
 
         Dim tnivel_corporacionmunic As String = 0
         Dim tnivel_corporacionmunin As String = 0
+        Dim tnivel_corporacionmunininconsis As String = 0
         '****************************************
         Dim Nomina_vacias_presidente As String = 0
         Dim Nomina_vacias_parlacenp As String = 0
@@ -131,6 +132,9 @@ Public Class REPORTE_RAZONADO
         Dim Nomina_vacias_CNP As String = 0
         Dim Nomina_vacias_CNPS As String = 0
         Dim Nomina_vacias_CMUNI As String = 0
+
+        Dim NOMINA_PRESIDENTE_COMPLETA As String = 0
+
 
         Dim contadorpre As String = 0
 
@@ -148,252 +152,196 @@ Public Class REPORTE_RAZONADO
         conn.Open()
         
        '***********************************************************************************
-        tnivel_corporacionmunic = COracle.ObtenerDatos("SELECT COUNT(1)TOTAL_CM FROM IM_V_NOMINA_CM_C A,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.CARGO_ACTUAL,A.TOTALR,'S','N') ='S' AND A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
-        tnivel_corporacionmunin = COracle.ObtenerDatos("SELECT COUNT(1)TOTAL_CM FROM IM_V_NOMINA_CM A,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.CARGO_ACTUAL,A.TOTALR,'S','N') ='N' AND A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
+        'tnivel_corporacionmunic = COracle.ObtenerDatos("SELECT COUNT(1)TOTAL_CM FROM IM_V_NOMINA_CM_C A,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.CARGO_ACTUAL,A.TOTALR,'S','N') ='S' AND A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
+        'tnivel_corporacionmunin = COracle.ObtenerDatos("SELECT COUNT(1)TOTAL_CM FROM IM_V_NOMINA_CM A,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.CARGO_ACTUAL,A.TOTALR,'S','N') ='N' AND A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
+
+
         '***********************************************************************************
         'DATOS PARA NOMINA PRESIDENCIAL
-        tnivel_presidente = COracle.ObtenerDatos("select count(1)CARGOS from im_candidatos c, im_partidos_politicos pa, im_movimientos mov where C.CODIGO_CARGO_ELECTIVO in (1,9) and C.ESTADO = 'H' and C.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and C.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOS")
+        tnivel_presidente = COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where  CA.CODIGO_CARGO_ELECTIVO in (1,9) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO  and CA.VALIDADO = 'S' and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
         tnivel_presidente_in = COracle.ObtenerDatos("select count(1)CARGOS from im_candidatos c, im_partidos_politicos pa, im_movimientos mov where C.CODIGO_CARGO_ELECTIVO in (1,9) and C.ESTADO = 'I' and C.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and C.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOS")
         Nomina_vacias_presidente = COracle.ObtenerDatos("select count(1)CARGOS from im_candidatos c, im_partidos_politicos pa, im_movimientos mov where C.CODIGO_CARGO_ELECTIVO in (1,9)  and C.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and C.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOS")
         'DATOS PARA NOMINA PARLACEN PROPIETARIOS
-        tnivel_diputadosPARP = COracle.ObtenerDatos(" select count(1)CARGOSPP from im_candidatos c, im_partidos_politicos pa, im_movimientos mov where C.CODIGO_CARGO_ELECTIVO in (2) and C.ESTADO ='H' and C.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and C.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOSPP")
-        tnivel_diputadosPARP_in = COracle.ObtenerDatos(" select count(1)CARGOSPP from im_candidatos c, im_partidos_politicos pa, im_movimientos mov where C.CODIGO_CARGO_ELECTIVO in (2) and C.ESTADO ='I' and C.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and C.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOSPP")
+        tnivel_diputadosPARP = COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where CA.CODIGO_CARGO_ELECTIVO in (2) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO  and CA.VALIDADO = 'S' and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
+        tnivel_diputadosPARP_in = COracle.ObtenerDatos("select count(1)CARGOS from im_candidatos c, im_partidos_politicos pa, im_movimientos mov where C.CODIGO_CARGO_ELECTIVO in (2) and C.ESTADO = 'I' and C.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and C.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOS")
         Nomina_vacias_parlacenp = COracle.ObtenerDatos(" select count(1)CARGOSPP from im_candidatos c, im_partidos_politicos pa, im_movimientos mov where C.CODIGO_CARGO_ELECTIVO in (2)  and C.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and C.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOSPP")
         'DATOS PARA NOMINA PARLACEN SUPLENTES
-        tnivel_diputadosPARS = COracle.ObtenerDatos(" select count(1)CARGOSPP from im_candidatos c, im_partidos_politicos pa, im_movimientos mov where C.CODIGO_CARGO_ELECTIVO in (3) and C.ESTADO ='H' and C.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and C.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOSPP")
-        tnivel_diputadosPARS_in = COracle.ObtenerDatos(" select count(1)CARGOSPP from im_candidatos c, im_partidos_politicos pa, im_movimientos mov where C.CODIGO_CARGO_ELECTIVO in (3) and C.ESTADO ='I' and C.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and C.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOSPP")
+        tnivel_diputadosPARS = COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where CA.CODIGO_CARGO_ELECTIVO in (3) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO  and CA.VALIDADO = 'S' and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
+        tnivel_diputadosPARS_in = COracle.ObtenerDatos("select count(1)CARGOS from im_candidatos c, im_partidos_politicos pa, im_movimientos mov where C.CODIGO_CARGO_ELECTIVO in (3) and C.ESTADO = 'I' and C.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and C.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOS")
         Nomina_vacias_parlacens = COracle.ObtenerDatos(" select count(1)CARGOSPP from im_candidatos c, im_partidos_politicos pa, im_movimientos mov where C.CODIGO_CARGO_ELECTIVO in (3) and C.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and C.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOSPP")
         'DATOS PARA NOMINA CONGRESO PROPIETARIOS
-        'COMPLETAS
-        tnivel_diputadoscnpc = COracle.ObtenerDatos("SELECT  COUNT (1)TOTAL_DPN FROM IM_V_NOMINA_DP A ,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.cargo_actual,A.CANTIDAD_DIPUTADOS,'S','N') ='S' AND A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_DPN")
-        'INCORRECTAS
-        tnivel_diputadoscnp = COracle.ObtenerDatos("SELECT  COUNT (1)TOTAL_DPN FROM IM_V_NOMINA_DP A ,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.cargo_actual,A.CANTIDAD_DIPUTADOS,'S','N') ='N' AND A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_DPN")
+        tnivel_diputadoscnpc = COracle.ObtenerDatos("SELECT  COUNT (1)TOTAL_DPN FROM IM_CD_COMPLETAS_DPP_F A ,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.cargo_actual,A.CANTIDAD_DIPUTADOS,'S','N') ='S' AND A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_DPN")
+        NOMINA_INC_CONGRESOPR = COracle.ObtenerDatos("SELECT  COUNT (1)TOTAL_DPN FROM IM_INCONS_DPP A ,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.cargo_actual,A.CANTIDAD_DIPUTADOS,'S','N') ='S' AND DECODE(A.conteo,0,'S','N') ='N' AND A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_DPN")
+        tnivel_diputadoscnp = COracle.ObtenerDatos("SELECT  COUNT (1)TOTAL_DPN FROM IM_CD_COMPLETAS_DPP_F A ,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.cargo_actual,A.CANTIDAD_DIPUTADOS,'S','N') ='N' AND A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_DPN")
         'DATOS PARA NOMINA DE CONGRESO SUPLENTES
-        tnivel_diputadoscnsc = COracle.ObtenerDatos("SELECT  COUNT (1)TOTAL_DPN FROM IM_V_NOMINA_DS A ,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.cargo_actual,A.CANTIDAD_DIPUTADOS,'S','N') ='S' AND A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_DPN")
-        tnivel_diputadoscnsi = COracle.ObtenerDatos("SELECT  COUNT (1)TOTAL_DPN FROM IM_V_NOMINA_DS_INC A ,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.cargo_actual,A.CANTIDAD_DIPUTADOS,'S','N') ='N' AND A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_DPN")
+        tnivel_diputadoscnsc = COracle.ObtenerDatos("SELECT  COUNT (1)TOTAL_DPN FROM IM_CD_COMPLETAS_DPS_F A ,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.cargo_actual,A.CANTIDAD_DIPUTADOS,'S','N') ='S' and A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_DPN")
+        tnivel_diputadoscnsi = COracle.ObtenerDatos("SELECT  COUNT (1)TOTAL_DPN FROM IM_INCONS_DPS A ,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.cargo_actual,A.CANTIDAD_DIPUTADOS,'S','N') ='S' AND DECODE(A.conteo,0,'S','N') ='N' AND A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_DPN")
+        NOMINA_INC_CONGRESOSU = COracle.ObtenerDatos("SELECT  COUNT (1)TOTAL_DPN FROM IM_CD_COMPLETAS_DPS_F A ,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.cargo_actual,A.CANTIDAD_DIPUTADOS,'S','N') ='N' AND A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_DPN")
         'DATOS PARA NOMINA DE CORPORACION MUNICIPAL 
-
+        tnivel_corporacionmunic = COracle.ObtenerDatos("SELECT COUNT(1)TOTAL_CM FROM im_cd_completas_dpco_f A,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.CARGO_ACTUAL,A.TOTALR,'S','N') ='S' AND A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
+        tnivel_corporacionmunin = COracle.ObtenerDatos("SELECT COUNT(1)TOTAL_CM FROM im_cd_completa_dpco_INC A,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.CARGO_ACTUAL,A.TOTALR,'S','N') ='N' AND A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
+        tnivel_corporacionmunininconsis = COracle.ObtenerDatos("SELECT  COUNT (1)TOTAL_DPN FROM IM_INCONS_MUNI A ,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.cargo_actual,A.TOTALR,'S','N') ='S' AND DECODE(A.conteo,0,'S','N') ='N' AND A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_DPN")
         'NOMINAS INCOMPLETAS
-        NOMINA_INC_PRESIDENTE = COracle.ObtenerDatos("select count(1)CARGOS from im_candidatos c, im_partidos_politicos pa, im_movimientos mov where C.CODIGO_CARGO_ELECTIVO in (1,9)  and C.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and C.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOS")
-        NOMINA_INC_PARLACENPR = COracle.ObtenerDatos(" select count(1)CARGOSPP from im_candidatos c, im_partidos_politicos pa, im_movimientos mov where C.CODIGO_CARGO_ELECTIVO in (2)  and C.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and C.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOSPP")
-        NOMINA_INC_PARLACENSU = COracle.ObtenerDatos(" select count(1)CARGOSPP from im_candidatos c, im_partidos_politicos pa, im_movimientos mov where C.CODIGO_CARGO_ELECTIVO in (3) and C.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and C.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOSPP")
+        'NOMINA_INC_PRESIDENTE = COracle.ObtenerDatos("select count(1)CARGOS from im_candidatos c, im_partidos_politicos pa, im_movimientos mov where C.CODIGO_CARGO_ELECTIVO in (1,9)  and C.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and C.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOS")
+        'NOMINA_INC_PARLACENPR = COracle.ObtenerDatos(" select count(1)CARGOSPP from im_candidatos c, im_partidos_politicos pa, im_movimientos mov where C.CODIGO_CARGO_ELECTIVO in (2)  and C.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and C.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOSPP")
+        'NOMINA_INC_PARLACENSU = COracle.ObtenerDatos(" select count(1)CARGOSPP from im_candidatos c, im_partidos_politicos pa, im_movimientos mov where C.CODIGO_CARGO_ELECTIVO in (3) and C.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and C.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and C.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOSPP")
 
-        NOMINA_INC_CONGRESOPR = COracle.ObtenerDatos("select count (1)CARGOSPP from im_v_faltantes f where F.CARGO_ELECTIVO=  'Diputado (a) al congreso nacional propietarios' and F.CANTIDAD_FALTANTES <> F.REQUERIDOS  and f.Partido ='" & Me.NombrePartido.Value.ToString & "' and f.MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOSPP")
-        nomina_vac_congresopr = COracle.ObtenerDatos("select count (1)CARGOSPP from im_v_faltantes f where F.CARGO_ELECTIVO=  'Diputado (a) al congreso nacional propietarios' and F.INGRESADOS  = 0 and f.Partido ='" & Me.NombrePartido.Value.ToString & "' and f.MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOSPP")
-        NOMINA_INC_CONGRESOSU = COracle.ObtenerDatos("select count (1)CARGOSPP from im_v_faltantes f where F.CARGO_ELECTIVO=  'Diputado (a) al congreso nacional suplentes' and F.CANTIDAD_FALTANTES <> F.REQUERIDOS  and f.Partido ='" & Me.NombrePartido.Value.ToString & "' and f.MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOSPP")
-        NOMINA_VAC_CONGRESOSU = COracle.ObtenerDatos("select count (1)CARGOSPP from im_v_faltantes f where F.CARGO_ELECTIVO=  'Diputado (a) al congreso nacional suplentes' and F.INGRESADOS  = 0 and f.Partido ='" & Me.NombrePartido.Value.ToString & "' and f.MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOSPP")
+        'NOMINA_INC_CONGRESOPR = COracle.ObtenerDatos("select count (1)CARGOSPP from im_v_faltantes f where F.CARGO_ELECTIVO=  'Diputado (a) al congreso nacional propietarios' and F.CANTIDAD_FALTANTES <> F.REQUERIDOS  and f.Partido ='" & Me.NombrePartido.Value.ToString & "' and f.MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOSPP")
+        'nomina_vac_congresopr = COracle.ObtenerDatos("select count (1)CARGOSPP from im_v_faltantes f where F.CARGO_ELECTIVO=  'Diputado (a) al congreso nacional propietarios' and F.INGRESADOS  = 0 and f.Partido ='" & Me.NombrePartido.Value.ToString & "' and f.MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOSPP")
+        'NOMINA_INC_CONGRESOSU = COracle.ObtenerDatos("select count (1)CARGOSPP from im_v_faltantes f where F.CARGO_ELECTIVO=  'Diputado (a) al congreso nacional suplentes' and F.CANTIDAD_FALTANTES <> F.REQUERIDOS  and f.Partido ='" & Me.NombrePartido.Value.ToString & "' and f.MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOSPP")
+        'NOMINA_VAC_CONGRESOSU = COracle.ObtenerDatos("select count (1)CARGOSPP from im_v_faltantes f where F.CARGO_ELECTIVO=  'Diputado (a) al congreso nacional suplentes' and F.INGRESADOS  = 0 and f.Partido ='" & Me.NombrePartido.Value.ToString & "' and f.MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "CARGOSPP")
         '***********************************************************************************
         conn.Close()
         '***********************************************************************************
-        'MsgBox(tnivel_diputadoscnp.ToString)
-        'MsgBox(tnivel_diputadoscnpc.ToString)
-        'MsgBox(tnivel_diputadoscnsc.ToString)
-        'MsgBox(tnivel_diputadoscnsi.ToString)
-        'MsgBox(tnivel_presidente.ToString)
-        'MsgBox(tnivel_diputadosPARP.ToString)
-        'MsgBox(tnivel_diputadosPARS.ToString)
-        'MsgBox(tnivel_corporacionmunic.ToString)
-        'MsgBox(tnivel_corporacionmunin.ToString)
 
-        'ASIGNACIONES
-        Me.congre4.Text = tnivel_diputadoscnpc.ToString
-        Me.congre5.Text = tnivel_diputadoscnp.ToString
-        Me.congres1.Text = tnivel_diputadoscnsc.ToString
-        Me.congres2.Text = tnivel_diputadoscnsi.ToString
-        Me.corporacion1.Text = tnivel_corporacionmunic.ToString
-        Me.corporacion2.Text = tnivel_corporacionmunin.ToString
-
-        'codigo anterior
-        'If tnivel_presidente = 4 Then
-        '    Me.preco1.Text = "1"
-        '    Me.preco2.Text = "0"
-        '    Me.preco3.Text = "Si"
-
-        'Else
-        '    Me.preco1.Text = "0"
-        '    Me.preco2.Text = "1"
-        '    Me.preco3.Text = "No"
-
-        'End If
         'codigo para validacion de las planillas a nivel presidencial
+
         If tnivel_presidente = 4 Then
-            Me.preco1.Text = "1"
-            Me.preco2.Text = "0"
-            Me.preco3.Text = "Si"
-            Me.Nominavpre.Text = "0"
+            Me.preco1.Text = "1" 'COMPLETA
+            Me.preco3.Text = "SI" 'CUMPLE
+            Me.preco4.Text = "0" 'INCOMPLETA
         Else
-            '    Me.Nominavpre.Text = "1"
-            Me.preco1.Text = "0"
-            Me.preco3.Text = "No"
+            Me.preco1.Text = "0" 'nivel incompleta
+            Me.preco4.Text = "1"
+            Me.preco3.Text = "NO"
+        End If
 
-        End If
-        If tnivel_presidente_in > 0 Then
-            Me.preco1.Text = "0"
-            Me.preco2.Text = "1"
-            Me.preco3.Text = "No"
-            Me.Nominavpre.Text = "0"
+        If tnivel_presidente = 4 And tnivel_presidente_in > 0 Then
+            Me.preco2.Text = "1" 'INCONSISTENTE
         Else
-            Me.Nominavpre.Text = "1"
-            '    Me.preco2.Text = "0"
-            '    Me.preco3.Text = "No"
-        End If
-        'manejo de nomina vacia presidente 
-        If Nomina_vacias_presidente < 4 Then
-            Me.Nominavpre.Text = "1"
-            Me.preco1.Text = "0"
             Me.preco2.Text = "0"
-        Else
-            Me.Nominavpre.Text = "0"
         End If
+
+        If tnivel_presidente = 0 Then 'nominas vacias
+            Me.Nominavacia_1.Text = "1"
+            Me.preco4.Text = "0"
+        Else
+            Me.Nominavacia_1.Text = "0"
+        End If
+        'revisado y valido
         'fin del codigo de validacion de las planillas a nivel presidencial
-
-
-        'If tnivel_diputadosPARP = 20 Then
-        '    Me.parla1.Text = "1"
-        '    Me.parla2.Text = "0"
-        '    Me.parla3.Text = "Si"
-        'Else
-        '    Me.parla1.Text = "0"
-        '    Me.parla2.Text = "1"
-        '    Me.parla3.Text = "No"
-        'End If
-        'CODIGO PARA LA VALIDACION DE NOMINAS A NIVEL PARLACEN PROPIETARIOS
-        If tnivel_diputadosPARP = 20 Then
-            Me.parla1.Text = "1"
-            Me.parla2.Text = "0"
-            Me.parla3.Text = "Si"
-            Me.NominaParlacen.Text = "0"
-        Else
-            Me.parla1.Text = "0"
-            Me.parla3.Text = "No"
-        End If
-        If tnivel_diputadosPARP_in > 0 Then
-            Me.parla1.Text = "0"
-            Me.parla2.Text = "1"
-            Me.parla3.Text = "No"
-            Me.NominaParlacen.Text = "0"
-        Else
-            Me.NominaParlacen.Text = "1"
-        End If
-        If Nomina_vacias_parlacenp < 20 Then
-            Me.NominaParlacen.Text = "1"
-            Me.parla1.Text = "0"
-            Me.parla2.Text = "0"
-        Else
-            Me.NominaParlacen.Text = "0"
-        End If
-
-        'FIN DEL CODIGO DE VALIDACION DE NOMINA PARLACEN PROPIETARIOS
-
-        'If tnivel_diputadosPARS = 20 Then
-        '    Me.parlas1.Text = "1"
-        '    Me.parlas2.Text = "0"
-        '    Me.parlas3.Text = "Si"
-        'Else
-        '    Me.parlas1.Text = "0"
-        '    Me.parlas2.Text = "1"
-        '    Me.parlas3.Text = "No"
-        'End If
-        'CODIGO PARA LA VALIDACION DE NOMINAS A NIVEL PARLACEN SUPLENTES
-        If tnivel_diputadosPARS = 20 Then
-            Me.parlas1.Text = "1"
-            Me.parlas2.Text = "0"
-            Me.parlas3.Text = "Si"
-            Me.NominaParlacens.Text = "0"
-        Else
-            Me.parlas1.Text = "0"
-            Me.parlas3.Text = "No"
-        End If
-        If tnivel_diputadosPARS_in > 0 Then
-            Me.parlas1.Text = "0"
-            Me.parlas2.Text = "1"
-            Me.parlas3.Text = "No"
-            Me.NominaParlacens.Text = "0"
-        Else
-            Me.NominaParlacens.Text = "1"
-        End If
-        If Nomina_vacias_parlacens < 20 Then
-            Me.NominaParlacens.Text = "1"
-            Me.parlas1.Text = "0"
-            Me.parlas2.Text = "0"
-        Else
-            Me.NominaParlacens.Text = "0"
-        End If
-
-        'FIN DEL CODIGO DE VALIDACION DE NOMINA PARLACEN SUPLENTES
-
-        'diputados congreso propietarios
-        If tnivel_diputadoscnpc >= 10 Then
-            Me.congre3.Text = "Si"
-        Else
-            Me.congre3.Text = "No"
-        End If
-        Nomina_vacias_CNP = 18 - tnivel_diputadoscnpc - tnivel_diputadoscnp.ToString
-        Me.NominaCNDP.Text = Nomina_vacias_CNP.ToString
-
-
-        'diputados congreso suplentes
-        If tnivel_diputadoscnsc >= 10 Then
-            Me.congres3.Text = "Si"
-        Else
-            Me.congres3.Text = "No"
-        End If
-
-        Nomina_vacias_CNPS = 18 - tnivel_diputadoscnsc.ToString - tnivel_diputadoscnsi.ToString
-        Me.NominaCNDS.Text = Nomina_vacias_CNPS.ToString
-        'corporacion municipal
-        If tnivel_corporacionmunic >= 150 Then
-            corpo3.Text = "Si"
-        Else
-            corpo3.Text = "No"
-        End If
-
-        Nomina_vacias_CMUNI = 298 - tnivel_corporacionmunic.ToString - tnivel_corporacionmunin.ToString
-        Me.NominaCM.Text = Nomina_vacias_CMUNI.ToString
-        'NOMINAS INCOMPLETAS
-        'PRESIDENTE
-        If NOMINA_INC_PRESIDENTE > 0 And NOMINA_INC_PRESIDENTE < 4 Then
-            Nominavpre.Text = 1
-            Nominavacia_1.Text = 0
-        Else
-            Nominavpre.Text = 0
-        End If
-        If NOMINA_INC_PRESIDENTE = 0 Then
-            Nominavacia_1.Text = 1
-        Else
-            Nominavacia_1.Text = 0
-        End If
         'PARLACEN PROPIETARIOS
-        If NOMINA_INC_PARLACENPR > 0 And NOMINA_INC_PARLACENPR < 20 Then
-            NominaParlacen.Text = 1
-            Nominavacia_2.Text = 0
+        If tnivel_diputadosPARP = 20 Then
+            Me.parla1.Text = "1" 'COMPLETA
+            Me.parla3.Text = "SI" 'CUMPLE
+            Me.NominaParlacen.Text = "0" 'INCOMPLETA
         Else
-            NominaParlacen.Text = 0
+            Me.parla1.Text = "0" 'nivel incompleta
+            Me.NominaParlacen.Text = "1"
+            Me.parla3.Text = "NO"
         End If
-        If NOMINA_INC_PARLACENPR = 0 Then
-            Nominavacia_2.Text = 1
+
+        If tnivel_diputadosPARP = 20 And tnivel_diputadosPARP_in > 0 Then
+            Me.parla2.Text = "1" 'INCONSISTENTE
         Else
-            Nominavacia_2.Text = 0
+            Me.parla2.Text = "0"
         End If
+
+        If tnivel_diputadosPARP = 0 Then 'nominas vacias
+            Me.Nominavacia_2.Text = "1"
+            Me.NominaParlacen.Text = "0"
+        Else
+            Me.Nominavacia_2.Text = "0"
+        End If
+        'FIN PARLACEN PROPIETARIOS
+
+
         'PARLACEN SUPLENTES
-        If NOMINA_INC_PARLACENSU > 0 And NOMINA_INC_PARLACENSU < 20 Then
-            NominaParlacens.Text = 1
-            Nominavacia_3.Text = 0
+
+        If tnivel_diputadosPARS = 20 Then
+            Me.parlas1.Text = "1" 'COMPLETA
+            Me.parlas3.Text = "SI" 'CUMPLE
+            Me.NominaParlacens.Text = "0" 'INCOMPLETA
         Else
-            NominaParlacens.Text = 0
+            Me.parlas1.Text = "0" 'nivel incompleta
+            Me.NominaParlacens.Text = "1"
+            Me.parlas3.Text = "NO"
         End If
-        If NOMINA_INC_PARLACENSU = 0 Then
-            Nominavacia_3.Text = 1
+
+        If tnivel_diputadosPARS = 20 And tnivel_diputadosPARP_in > 0 Then
+            Me.parlas2.Text = "1" 'INCONSISTENTE
         Else
-            Nominavacia_3.Text = 0
+            Me.parlas2.Text = "0"
         End If
-        'CONGRESO NACIONAL PROPIETARIOS
-        NominaCNDP.Text = NOMINA_INC_CONGRESOPR.ToString
-        Nominavacia_4.Text = nomina_vac_congresopr.ToString
-        'CONGRESO NACIONAL SUPLENTES
-        NominaCNDS.Text = NOMINA_INC_CONGRESOSU.ToString
-        Nominavacia_5.Text = NOMINA_VAC_CONGRESOSU.ToString
-        'CORPORACION MUNICIPAL
+
+        If tnivel_diputadosPARS = 0 Then 'nominas vacias
+            Me.Nominavacia_3.Text = "1"
+            Me.NominaParlacens.Text = "0"
+        Else
+            Me.Nominavacia_3.Text = "0"
+        End If
+
+        'VERIFICADO Y VALIDADO
+        'FIN PARLACEN SUPLENTES
+
+        'CONGRESO PROPIETARIOS
+
+        Me.congre4.Text = tnivel_diputadoscnpc.ToString  'COMPLETA
+        If tnivel_diputadoscnpc >= 10 Then
+            Me.congre3.Text = "SI" 'CUMPLE
+            'Me.NominaParlacens.Text = "0" 'INCOMPLETA
+        Else
+            Me.congre3.Text = "NO"
+        End If
+        'INCONSISTENTES
+
+        Me.congre5.Text = NOMINA_INC_CONGRESOPR.ToString  'INCONSISTENTE
+       
+        'INCOMPLETAS
+        Me.NominaCNDP.Text = tnivel_diputadoscnp.ToString
+
+        'VACIAS 
+        Nominavacia_4.Text = (18 - tnivel_diputadoscnpc - tnivel_diputadoscnp).ToString
+
+
+        'FIN CONGRESO PROPIETARIOS
+        'VERIFICADO Y VALIDADO 
+
+        'CONGRESO SUPLENTES
+
+        Me.congres1.Text = tnivel_diputadoscnsc.ToString  'COMPLETA
+        If tnivel_diputadoscnsc >= 10 Then
+            Me.congres3.Text = "SI" 'CUMPLE
+            'Me.NominaParlacens.Text = "0" 'INCOMPLETA
+        Else
+            Me.congres3.Text = "NO"
+        End If
+        'INCONSISTENTES
+
+        Me.congres2.Text = tnivel_diputadoscnsi.ToString   'INCONSISTENTE
+
+        'INCOMPLETAS
+        Me.NominaCNDS.Text = NOMINA_INC_CONGRESOSU.ToString
+
+        'VACIAS 
+        Nominavacia_5.Text = (18 - tnivel_diputadoscnsc - NOMINA_INC_CONGRESOSU).ToString
+
+        'FIN SUPLENTES
+        'VERIFICADO 
+
+        'CORPORACION MUNICIPAL 
+
+        Me.congres1.Text = tnivel_corporacionmunic.ToString  'COMPLETA
+        If tnivel_diputadoscnsc >= 150 Then
+            Me.corporacion1.Text = "SI" 'CUMPLE
+            'Me.NominaParlacens.Text = "0" 'INCOMPLETA
+        Else
+            Me.corporacion1.Text = "NO"
+        End If
+        'INCONSISTENTES
+
+        Me.corporacion2.Text = tnivel_corporacionmunininconsis.ToString   'INCONSISTENTE
+
+        'INCOMPLETAS
+        Me.NominaCM.Text = tnivel_corporacionmunin.ToString
+
+        'VACIAS 
+        Nominavacia_6.Text = (18 - tnivel_corporacionmunic - tnivel_corporacionmunin).ToString
+
+
+
+
+        ''CORPORACION MUNICIPAL
 
         'se envian los filtros por nombre de partido y nombre de movimiento para recuperar las respectivas imagenes
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(DS_LOG.IM_PARTIDOS_POLITICOS_imagen, NombrePartido.Value.ToString)
