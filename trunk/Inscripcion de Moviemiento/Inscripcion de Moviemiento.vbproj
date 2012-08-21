@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0298F9DD-CA54-45C3-8504-3E3A39BDCD40}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -577,6 +577,11 @@
     <Compile Include="Reportes\NUEVOS\DS_REQUISITOS.vb">
       <DependentUpon>DS_REQUISITOS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\NUEVOS\DT_Participacion_Femenina.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DT_Participacion_Femenina.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\NUEVOS\DT_Produccion.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -608,6 +613,12 @@
       <DependentUpon>REPORTE_DE_CUMPLIMIENTO_1.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\NUEVOS\REPORTE_DE_CUMPLIMIENTO_1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\NUEVOS\Reporte_de_Participacion_de_Genero.Designer.vb">
+      <DependentUpon>Reporte_de_Participacion_de_Genero.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\NUEVOS\Reporte_de_Participacion_de_Genero.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\NUEVOS\REPORTE_DE_CUMPLIMIENTO_2.Designer.vb">
@@ -1210,6 +1221,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\NUEVOS\REPORTE_DE_CUMPLIMIENTO_2.resx">
       <DependentUpon>REPORTE_DE_CUMPLIMIENTO_2.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\NUEVOS\Reporte_de_Participacion_de_Genero.resx">
+      <DependentUpon>Reporte_de_Participacion_de_Genero.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\NUEVOS\REPORTE_REQUISITOS_CANDIDATOS.resx">
       <DependentUpon>REPORTE_REQUISITOS_CANDIDATOS.vb</DependentUpon>
@@ -2176,6 +2192,17 @@
     </None>
     <None Include="Reportes\NUEVOS\DS_REQUISITOS.xss">
       <DependentUpon>DS_REQUISITOS.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\NUEVOS\DT_Participacion_Femenina.xsc">
+      <DependentUpon>DT_Participacion_Femenina.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\NUEVOS\DT_Participacion_Femenina.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DT_Participacion_Femenina.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\NUEVOS\DT_Participacion_Femenina.xss">
+      <DependentUpon>DT_Participacion_Femenina.xsd</DependentUpon>
     </None>
     <None Include="Reportes\NUEVOS\DT_Produccion.xsc">
       <DependentUpon>DT_Produccion.xsd</DependentUpon>
