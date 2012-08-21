@@ -47,7 +47,7 @@ Public Class XFrmMenuPrincipal
     End Sub
     Private Sub XFrmMenuPrincipal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         verificaringreso()
-        verificar_permisos()
+        'verificar_permisos()
 
         'Call conexion()
 
@@ -108,6 +108,7 @@ Public Class XFrmMenuPrincipal
         Me.BtnCerrarSesion.Visibility = BarItemVisibility.Always
         Me.BtnSalir.Visibility = BarItemVisibility.Always
         BtnCambiarPass.Visibility = BarItemVisibility.Always
+        BarButtonItem5.Visibility = BarItemVisibility.Never
         XfrmBack.MdiParent = Me
         XfrmBack.Show()
     End Sub
@@ -611,10 +612,10 @@ Public Class XFrmMenuPrincipal
         REPORTE_ENTREGA_CUMPLIMIENTO.ShowPreview()
     End Sub
 
-    Private Sub BarButtonItem5_ItemClick_3(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem5.ItemClick
-        Dim reporterazo As REPORTE_RAZONADO = New REPORTE_RAZONADO
-        reporterazo.ShowPreview()
-    End Sub
+    'Private Sub BarButtonItem5_ItemClick_3(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem5.ItemClick
+    '    Dim reporterazo As REPORTE_RAZONADO = New REPORTE_RAZONADO
+    '    reporterazo.ShowPreview()
+    'End Sub
 
     Private Sub BtnRepCandidatosRepetidos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnRepCandidatosRepetidos.ItemClick
         Dim reporte_duplicados As REPORTE_CIUDADANOS_DUPLICADO = New REPORTE_CIUDADANOS_DUPLICADO
@@ -638,5 +639,10 @@ Public Class XFrmMenuPrincipal
     Private Sub BTNcumplimientogenero_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNcumplimientogenero.ItemClick
         Dim REPORTE_ENTREGA_CUMPLIMIENTO_g As REPORTE_DE_CUMPLIMIENTO_2 = New REPORTE_DE_CUMPLIMIENTO_2
         REPORTE_ENTREGA_CUMPLIMIENTO_g.ShowPreview()
+    End Sub
+
+    Private Sub BtnIncompletasGenero_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnIncompletasGenero.ItemClick
+        Dim REPORTE As Reporte_de_Participacion_de_Genero = New Reporte_de_Participacion_de_Genero
+        REPORTE.ShowPreview()
     End Sub
 End Class
