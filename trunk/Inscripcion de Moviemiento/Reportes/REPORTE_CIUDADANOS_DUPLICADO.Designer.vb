@@ -475,7 +475,7 @@ Partial Public Class REPORTE_CIUDADANOS_DUPLICADO
         'GroupHeader1
         '
         Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrTable2})
-        Me.GroupHeader1.GroupFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("IDENTIDAD", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
+        Me.GroupHeader1.GroupFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("CODIGO_DEPARTAMENTO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending), New DevExpress.XtraReports.UI.GroupField("CODIGO_MUNICIPIO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending), New DevExpress.XtraReports.UI.GroupField("IDENTIDAD", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
         Me.GroupHeader1.HeightF = 26.66667!
         Me.GroupHeader1.Name = "GroupHeader1"
         '

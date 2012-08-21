@@ -569,6 +569,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DT_Planillas_Por_Nivel.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\NUEVOS\DS_REQUISITOS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_REQUISITOS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\NUEVOS\DS_REQUISITOS.vb">
+      <DependentUpon>DS_REQUISITOS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\NUEVOS\DT_Produccion.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2148,6 +2156,17 @@
     </None>
     <None Include="Reportes\DT_Planillas_Por_Nivel.xss">
       <DependentUpon>DT_Planillas_Por_Nivel.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\NUEVOS\DS_REQUISITOS.xsc">
+      <DependentUpon>DS_REQUISITOS.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\NUEVOS\DS_REQUISITOS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_REQUISITOS.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\NUEVOS\DS_REQUISITOS.xss">
+      <DependentUpon>DS_REQUISITOS.xsd</DependentUpon>
     </None>
     <None Include="Reportes\NUEVOS\DT_Produccion.xsc">
       <DependentUpon>DT_Produccion.xsd</DependentUpon>
