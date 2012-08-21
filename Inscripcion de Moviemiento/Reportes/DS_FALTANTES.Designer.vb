@@ -1014,7 +1014,7 @@ Namespace DS_FALTANTESTableAdapters
                 "ueridos,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"a.ingresados,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"a.PARTIDO,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"a.MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"from im_v_faltantes a, im_dep"& _ 
                 "artamentos dep, im_municipios muni"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where a.codigo_departamento = DEP.CODIGO_DEP"& _ 
                 "ARTAMENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and a.codigo_departamento = MUNI.CODIGO_DEPARTAMENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and a.codigo_mu"& _ 
-                "nicipio = MUNI.CODIGO_MUNICIPIO "
+                "nicipio = MUNI.CODIGO_MUNICIPIO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"order by codigo_municipio "
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
