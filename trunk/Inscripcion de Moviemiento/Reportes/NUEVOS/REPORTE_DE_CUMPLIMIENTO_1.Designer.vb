@@ -307,7 +307,7 @@ Partial Public Class REPORTE_DE_CUMPLIMIENTO_1
         Me.XrLabel34.SizeF = New System.Drawing.SizeF(818.75!, 23.0!)
         Me.XrLabel34.StylePriority.UseFont = False
         Me.XrLabel34.Text = "Incompleta                           Cuando la Nómina no contiene la totalidad de" & _
-            " los candidatos exigidos por la Ley."
+            " los candidatos exigidos por la Ley y el cumplimiento de genero."
         '
         'XrLabel33
         '

@@ -47,20 +47,22 @@ Partial Public Class REPORTE_PLANILLAS_FALTANTES
         Me.DS_FALTANTES1 = New Inscripcion_de_Moviemientos.DS_FALTANTES
         Me.IM_V_FALTANTESTableAdapter = New Inscripcion_de_Moviemientos.DS_FALTANTESTableAdapters.IM_V_FALTANTESTableAdapter
         Me.GroupHeader1 = New DevExpress.XtraReports.UI.GroupHeaderBand
+        Me.XrLabel20 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel12 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel11 = New DevExpress.XtraReports.UI.XRLabel
         Me.GroupHeader2 = New DevExpress.XtraReports.UI.GroupHeaderBand
+        Me.XrLabel21 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel14 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel13 = New DevExpress.XtraReports.UI.XRLabel
         Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
         Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
         Me.IM_MOVIMIENTOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
-        Me.ReportFooter = New DevExpress.XtraReports.UI.ReportFooterBand
-        Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo
-        Me.XrPageInfo2 = New DevExpress.XtraReports.UI.XRPageInfo
-        Me.XrLabel19 = New DevExpress.XtraReports.UI.XRLabel
         Me.usuarior = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel19 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrPageInfo2 = New DevExpress.XtraReports.UI.XRPageInfo
+        Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo
+        Me.PageFooter = New DevExpress.XtraReports.UI.PageFooterBand
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -70,7 +72,7 @@ Partial Public Class REPORTE_PLANILLAS_FALTANTES
         'Detail
         '
         Me.Detail.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel18, Me.XrLabel17, Me.XrLabel16, Me.XrLabel15})
-        Me.Detail.HeightF = 53.83336!
+        Me.Detail.HeightF = 24.66669!
         Me.Detail.Name = "Detail"
         Me.Detail.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
@@ -78,18 +80,18 @@ Partial Public Class REPORTE_PLANILLAS_FALTANTES
         'XrLabel18
         '
         Me.XrLabel18.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FALTANTES.CANTIDAD_FALTANTES")})
-        Me.XrLabel18.LocationFloat = New DevExpress.Utils.PointFloat(790.6667!, 10.00001!)
+        Me.XrLabel18.LocationFloat = New DevExpress.Utils.PointFloat(790.6667!, 0.0!)
         Me.XrLabel18.Name = "XrLabel18"
         Me.XrLabel18.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel18.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
         Me.XrLabel18.StylePriority.UseTextAlignment = False
-        Me.XrLabel18.Text = "XrLabel18"
+        Me.XrLabel18.Text = "[CANTIDAD_FALTANTES]"
         Me.XrLabel18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'XrLabel17
         '
         Me.XrLabel17.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FALTANTES.INGRESADOS")})
-        Me.XrLabel17.LocationFloat = New DevExpress.Utils.PointFloat(589.6251!, 10.00001!)
+        Me.XrLabel17.LocationFloat = New DevExpress.Utils.PointFloat(589.6251!, 0.0!)
         Me.XrLabel17.Name = "XrLabel17"
         Me.XrLabel17.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel17.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
@@ -120,7 +122,7 @@ Partial Public Class REPORTE_PLANILLAS_FALTANTES
         'TopMargin
         '
         Me.TopMargin.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrPictureBox2, Me.XrPictureBox1, Me.XrLabel2, Me.XrLabel1})
-        Me.TopMargin.HeightF = 148.9583!
+        Me.TopMargin.HeightF = 100.7917!
         Me.TopMargin.Name = "TopMargin"
         Me.TopMargin.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
@@ -297,16 +299,27 @@ Partial Public Class REPORTE_PLANILLAS_FALTANTES
         '
         'GroupHeader1
         '
-        Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel12, Me.XrLabel11})
+        Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel20, Me.XrLabel12, Me.XrLabel11})
         Me.GroupHeader1.GroupFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("DEPARTAMENTO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
-        Me.GroupHeader1.HeightF = 31.25!
+        Me.GroupHeader1.HeightF = 25.41667!
         Me.GroupHeader1.Level = 1
         Me.GroupHeader1.Name = "GroupHeader1"
+        '
+        'XrLabel20
+        '
+        Me.XrLabel20.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FALTANTES.CODIGO_DEPARTAMENTO")})
+        Me.XrLabel20.LocationFloat = New DevExpress.Utils.PointFloat(166.0416!, 0.0!)
+        Me.XrLabel20.Name = "XrLabel20"
+        Me.XrLabel20.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel20.SizeF = New System.Drawing.SizeF(54.79172!, 22.99999!)
+        Me.XrLabel20.StylePriority.UseTextAlignment = False
+        Me.XrLabel20.Text = "XrLabel20"
+        Me.XrLabel20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
         '
         'XrLabel12
         '
         Me.XrLabel12.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FALTANTES.DEPARTAMENTO")})
-        Me.XrLabel12.LocationFloat = New DevExpress.Utils.PointFloat(160.4167!, 2.416674!)
+        Me.XrLabel12.LocationFloat = New DevExpress.Utils.PointFloat(220.8334!, 0.0!)
         Me.XrLabel12.Name = "XrLabel12"
         Me.XrLabel12.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel12.SizeF = New System.Drawing.SizeF(538.5416!, 23.0!)
@@ -324,15 +337,26 @@ Partial Public Class REPORTE_PLANILLAS_FALTANTES
         '
         'GroupHeader2
         '
-        Me.GroupHeader2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel14, Me.XrLabel13})
+        Me.GroupHeader2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel21, Me.XrLabel14, Me.XrLabel13})
         Me.GroupHeader2.GroupFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("MUNICIPIO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
-        Me.GroupHeader2.HeightF = 30.20833!
+        Me.GroupHeader2.HeightF = 28.20835!
         Me.GroupHeader2.Name = "GroupHeader2"
+        '
+        'XrLabel21
+        '
+        Me.XrLabel21.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FALTANTES.CODIGO_MUNICIPIO")})
+        Me.XrLabel21.LocationFloat = New DevExpress.Utils.PointFloat(166.0416!, 0.0!)
+        Me.XrLabel21.Name = "XrLabel21"
+        Me.XrLabel21.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel21.SizeF = New System.Drawing.SizeF(54.79178!, 23.00002!)
+        Me.XrLabel21.StylePriority.UseTextAlignment = False
+        Me.XrLabel21.Text = "XrLabel21"
+        Me.XrLabel21.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
         '
         'XrLabel14
         '
         Me.XrLabel14.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FALTANTES.MUNICIPIO")})
-        Me.XrLabel14.LocationFloat = New DevExpress.Utils.PointFloat(160.4167!, 0.0!)
+        Me.XrLabel14.LocationFloat = New DevExpress.Utils.PointFloat(220.8334!, 0.0!)
         Me.XrLabel14.Name = "XrLabel14"
         Me.XrLabel14.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel14.SizeF = New System.Drawing.SizeF(538.5416!, 22.99998!)
@@ -366,14 +390,34 @@ Partial Public Class REPORTE_PLANILLAS_FALTANTES
         '
         Me.IM_MOVIMIENTOS_imagenTableAdapter.ClearBeforeFill = True
         '
-        'ReportFooter
+        'usuarior
         '
-        Me.ReportFooter.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.usuarior, Me.XrLabel19, Me.XrPageInfo2, Me.XrPageInfo1})
-        Me.ReportFooter.Name = "ReportFooter"
+        Me.usuarior.LocationFloat = New DevExpress.Utils.PointFloat(343.3332!, 32.29167!)
+        Me.usuarior.Name = "usuarior"
+        Me.usuarior.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.usuarior.SizeF = New System.Drawing.SizeF(485.4167!, 23.0!)
+        Me.usuarior.Text = "usuarior"
+        '
+        'XrLabel19
+        '
+        Me.XrLabel19.LocationFloat = New DevExpress.Utils.PointFloat(259.9998!, 32.29167!)
+        Me.XrLabel19.Name = "XrLabel19"
+        Me.XrLabel19.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel19.SizeF = New System.Drawing.SizeF(83.33333!, 23.0!)
+        Me.XrLabel19.Text = "Impreso por:"
+        '
+        'XrPageInfo2
+        '
+        Me.XrPageInfo2.Format = "Página {0} de {1}"
+        Me.XrPageInfo2.LocationFloat = New DevExpress.Utils.PointFloat(862.0!, 32.29167!)
+        Me.XrPageInfo2.Name = "XrPageInfo2"
+        Me.XrPageInfo2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrPageInfo2.SizeF = New System.Drawing.SizeF(172.9999!, 23.00002!)
+        Me.XrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
         '
         'XrPageInfo1
         '
-        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(10.00007!, 10.00001!)
+        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(12.00002!, 32.29167!)
         Me.XrPageInfo1.Name = "XrPageInfo1"
         Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
@@ -381,40 +425,20 @@ Partial Public Class REPORTE_PLANILLAS_FALTANTES
         Me.XrPageInfo1.StylePriority.UseTextAlignment = False
         Me.XrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
         '
-        'XrPageInfo2
+        'PageFooter
         '
-        Me.XrPageInfo2.Format = "Página {0} de {1}"
-        Me.XrPageInfo2.LocationFloat = New DevExpress.Utils.PointFloat(846.7951!, 10.00001!)
-        Me.XrPageInfo2.Name = "XrPageInfo2"
-        Me.XrPageInfo2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrPageInfo2.SizeF = New System.Drawing.SizeF(172.9999!, 23.00002!)
-        Me.XrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
-        '
-        'XrLabel19
-        '
-        Me.XrLabel19.LocationFloat = New DevExpress.Utils.PointFloat(202.0833!, 10.00004!)
-        Me.XrLabel19.Name = "XrLabel19"
-        Me.XrLabel19.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel19.SizeF = New System.Drawing.SizeF(83.33333!, 23.0!)
-        Me.XrLabel19.Text = "Impreso por:"
-        '
-        'usuarior
-        '
-        Me.usuarior.LocationFloat = New DevExpress.Utils.PointFloat(285.4166!, 10.00004!)
-        Me.usuarior.Name = "usuarior"
-        Me.usuarior.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.usuarior.SizeF = New System.Drawing.SizeF(485.4167!, 23.0!)
-        Me.usuarior.Text = "usuarior"
+        Me.PageFooter.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrPageInfo1, Me.usuarior, Me.XrLabel19, Me.XrPageInfo2})
+        Me.PageFooter.Name = "PageFooter"
         '
         'REPORTE_PLANILLAS_FALTANTES
         '
-        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.PageHeader, Me.GroupHeader1, Me.GroupHeader2, Me.ReportFooter})
+        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.PageHeader, Me.GroupHeader1, Me.GroupHeader2, Me.PageFooter})
         Me.DataAdapter = Me.IM_V_FALTANTESTableAdapter
         Me.DataMember = "IM_V_FALTANTES"
         Me.DataSource = Me.DS_FALTANTES1
         Me.FilterString = "[PARTIDO] = ?NombrePartido And [MOVIMIENTO] = ?NombreMovimiento"
         Me.Landscape = True
-        Me.Margins = New System.Drawing.Printing.Margins(30, 35, 149, 100)
+        Me.Margins = New System.Drawing.Printing.Margins(30, 35, 101, 100)
         Me.PageHeight = 850
         Me.PageWidth = 1100
         Me.Parameters.AddRange(New DevExpress.XtraReports.Parameters.Parameter() {Me.NombrePartido, Me.NombreMovimiento})
@@ -463,9 +487,11 @@ Partial Public Class REPORTE_PLANILLAS_FALTANTES
     Friend WithEvents BindingSource1 As System.Windows.Forms.BindingSource
     Friend WithEvents IM_PARTIDOS_POLITICOS_imagenTableAdapter As Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
     Friend WithEvents IM_MOVIMIENTOS_imagenTableAdapter As Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
-    Friend WithEvents ReportFooter As DevExpress.XtraReports.UI.ReportFooterBand
     Friend WithEvents XrPageInfo2 As DevExpress.XtraReports.UI.XRPageInfo
     Friend WithEvents XrPageInfo1 As DevExpress.XtraReports.UI.XRPageInfo
     Friend WithEvents usuarior As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel19 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents PageFooter As DevExpress.XtraReports.UI.PageFooterBand
+    Friend WithEvents XrLabel20 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel21 As DevExpress.XtraReports.UI.XRLabel
 End Class
