@@ -429,6 +429,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property process() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("process", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property Reporte() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Reporte", resourceCulture)
