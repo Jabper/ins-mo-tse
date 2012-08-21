@@ -622,7 +622,8 @@ Public Class XFrmMenuPrincipal
     End Sub
 
     Private Sub BtnReporteIncosistencias_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnReporteIncosistencias.ItemClick
-
+        Dim REPORTE_REQUISITOS_CANDIDATOS As REPORTE_REQUISITOS_CANDIDATOS = New REPORTE_REQUISITOS_CANDIDATOS
+        REPORTE_REQUISITOS_CANDIDATOS.ShowPreview()
     End Sub
 
     Private Sub BtnPCNE_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnPCNE.ItemClick
