@@ -2257,6 +2257,7 @@
     <None Include="Resources\tselogo.png" />
     <None Include="Resources\tselogop.png" />
     <None Include="Resources\requisitos_1.png" />
+    <None Include="Resources\process.png" />
     <Content Include="Resources\tse.ico" />
     <Content Include="Resources\tselogop1.png" />
     <Content Include="tse.ico" />

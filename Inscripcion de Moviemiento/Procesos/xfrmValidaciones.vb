@@ -87,4 +87,8 @@ Public Class xfrmValidaciones
         Dim reporte9 As REPORTE_DE_LOG = New REPORTE_DE_LOG
         reporte9.ShowPreview()
     End Sub
+
+    Private Sub SimpleButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton4.Click
+        COracle.Im_Estadisticas()
+    End Sub
 End Class

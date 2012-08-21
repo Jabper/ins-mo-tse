@@ -502,7 +502,6 @@ Public Class XFrmMenuPrincipal
 
     Private Sub BTNRestadisticoCE_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNRestadisticoCE.ItemClick
 
-        COracle.Im_Estadisticas()
 
         Dim reporteesta As REPORTE_DETALLE_ESTADISTICO = New REPORTE_DETALLE_ESTADISTICO
         reporteesta.ShowPreview()
