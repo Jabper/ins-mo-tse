@@ -634,4 +634,9 @@ Public Class XFrmMenuPrincipal
         Dim reporte_faltantes As REPORTE_PLANILLAS_FALTANTES = New REPORTE_PLANILLAS_FALTANTES
         reporte_faltantes.ShowPreview()
     End Sub
+
+    Private Sub BTNcumplimientogenero_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNcumplimientogenero.ItemClick
+        Dim REPORTE_ENTREGA_CUMPLIMIENTO_g As REPORTE_DE_CUMPLIMIENTO_2 = New REPORTE_DE_CUMPLIMIENTO_2
+        REPORTE_ENTREGA_CUMPLIMIENTO_g.ShowPreview()
+    End Sub
 End Class
