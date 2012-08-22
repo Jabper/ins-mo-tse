@@ -292,7 +292,7 @@ Partial Class Parametros3
         Me.Controls.Add(Me.cboMuni)
         Me.Controls.Add(Me.cboDepto)
         Me.Name = "Parametros3"
-        Me.Text = "Parametros del Reporte de Planillas Incompletas"
+        Me.Text = "Parametros del Reporte de Planillas Completas por Nivel Electivo"
         CType(Me.CmbMovimiento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMMOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DSPLANILLATOTALESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
