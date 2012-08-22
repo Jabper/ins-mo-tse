@@ -14,6 +14,7 @@
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>select a.codigo_departamento, DEP.DESCRIPCION "DEPARTAMENTO",
 a.codigo_municipio, MUNI.DESCRIPCION "MUNICIPIO",
+DECODE(A.CARGO_ELECTIVO,'Presidente (a)',1,'Designados',2,'Diputados (a) al parlacen propietarios',3,'Diputados (a) al parlacen suplentes',4,'Diputado (a) al congreso nacional propietarios',5,'Diputado (a) al congreso nacional suplentes',6,'Alcaldes',7,'Vicealcaldes',8,'Regidores',9)AS CODIGO_CARGO,
 a.cargo_electivo,
 a.cantidad_faltantes,
 a.requeridos,
@@ -23,8 +24,7 @@ a.MOVIMIENTO
 from im_v_faltantes a, im_departamentos dep, im_municipios muni
 where a.codigo_departamento = DEP.CODIGO_DEPARTAMENTO
 and a.codigo_departamento = MUNI.CODIGO_DEPARTAMENTO
-and a.codigo_municipio = MUNI.CODIGO_MUNICIPIO 
-order by codigo_municipio </CommandText>
+and a.codigo_municipio = MUNI.CODIGO_MUNICIPIO </CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -41,6 +41,7 @@ order by codigo_municipio </CommandText>
               <Mapping SourceColumn="INGRESADOS" DataSetColumn="INGRESADOS" />
               <Mapping SourceColumn="PARTIDO" DataSetColumn="PARTIDO" />
               <Mapping SourceColumn="MOVIMIENTO" DataSetColumn="MOVIMIENTO" />
+              <Mapping SourceColumn="CODIGO_CARGO" DataSetColumn="CODIGO_CARGO" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -56,7 +57,7 @@ order by codigo_municipio </CommandText>
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CODIGO_DEPARTAMENTO" msprop:Generator_UserColumnName="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_DEPARTAMENTOColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="DEPARTAMENTO" msprop:Generator_UserColumnName="DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTOColumn">
+              <xs:element name="DEPARTAMENTO" msprop:Generator_UserColumnName="DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTOColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
@@ -64,7 +65,7 @@ order by codigo_municipio </CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="CODIGO_MUNICIPIO" msprop:Generator_UserColumnName="CODIGO_MUNICIPIO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MUNICIPIO" msprop:Generator_ColumnPropNameInRow="CODIGO_MUNICIPIO" msprop:Generator_ColumnPropNameInTable="CODIGO_MUNICIPIOColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="MUNICIPIO" msprop:Generator_UserColumnName="MUNICIPIO" msprop:Generator_ColumnVarNameInTable="columnMUNICIPIO" msprop:Generator_ColumnPropNameInRow="MUNICIPIO" msprop:Generator_ColumnPropNameInTable="MUNICIPIOColumn">
+              <xs:element name="MUNICIPIO" msprop:Generator_UserColumnName="MUNICIPIO" msprop:Generator_ColumnVarNameInTable="columnMUNICIPIO" msprop:Generator_ColumnPropNameInRow="MUNICIPIO" msprop:Generator_ColumnPropNameInTable="MUNICIPIOColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
@@ -95,6 +96,7 @@ order by codigo_municipio </CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="CODIGO_CARGO" msprop:Generator_UserColumnName="CODIGO_CARGO" msprop:Generator_ColumnPropNameInRow="CODIGO_CARGO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_CARGO" msprop:Generator_ColumnPropNameInTable="CODIGO_CARGOColumn" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
