@@ -1032,7 +1032,7 @@ Partial Class xfrmRegCandidatos
         Me.SimpleButton1.Size = New System.Drawing.Size(64, 48)
         Me.SimpleButton1.TabIndex = 36
         Me.SimpleButton1.Text = "Nuevo"
-        Me.SimpleButton1.ToolTip = " Presione para salir  de este formulario"
+        Me.SimpleButton1.ToolTip = "Presione para Habilitar los Campos para Cambiar Nombres"
         '
         'xfrmRegCandidatos
         '
