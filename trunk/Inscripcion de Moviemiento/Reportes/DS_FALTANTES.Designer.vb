@@ -286,6 +286,8 @@ Partial Public Class DS_FALTANTES
         
         Private columnMOVIMIENTO As Global.System.Data.DataColumn
         
+        Private columnCODIGO_CARGO As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -388,6 +390,13 @@ Partial Public Class DS_FALTANTES
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CODIGO_CARGOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCODIGO_CARGO
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -417,9 +426,9 @@ Partial Public Class DS_FALTANTES
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddIM_V_FALTANTESRow(ByVal CODIGO_DEPARTAMENTO As Decimal, ByVal DEPARTAMENTO As String, ByVal CODIGO_MUNICIPIO As Decimal, ByVal MUNICIPIO As String, ByVal CARGO_ELECTIVO As String, ByVal CANTIDAD_FALTANTES As Decimal, ByVal REQUERIDOS As Decimal, ByVal INGRESADOS As Decimal, ByVal PARTIDO As String, ByVal MOVIMIENTO As String) As IM_V_FALTANTESRow
+        Public Overloads Function AddIM_V_FALTANTESRow(ByVal CODIGO_DEPARTAMENTO As Decimal, ByVal DEPARTAMENTO As String, ByVal CODIGO_MUNICIPIO As Decimal, ByVal MUNICIPIO As String, ByVal CARGO_ELECTIVO As String, ByVal CANTIDAD_FALTANTES As Decimal, ByVal REQUERIDOS As Decimal, ByVal INGRESADOS As Decimal, ByVal PARTIDO As String, ByVal MOVIMIENTO As String, ByVal CODIGO_CARGO As Decimal) As IM_V_FALTANTESRow
             Dim rowIM_V_FALTANTESRow As IM_V_FALTANTESRow = CType(Me.NewRow,IM_V_FALTANTESRow)
-            Dim columnValuesArray() As Object = New Object() {CODIGO_DEPARTAMENTO, DEPARTAMENTO, CODIGO_MUNICIPIO, MUNICIPIO, CARGO_ELECTIVO, CANTIDAD_FALTANTES, REQUERIDOS, INGRESADOS, PARTIDO, MOVIMIENTO}
+            Dim columnValuesArray() As Object = New Object() {CODIGO_DEPARTAMENTO, DEPARTAMENTO, CODIGO_MUNICIPIO, MUNICIPIO, CARGO_ELECTIVO, CANTIDAD_FALTANTES, REQUERIDOS, INGRESADOS, PARTIDO, MOVIMIENTO, CODIGO_CARGO}
             rowIM_V_FALTANTESRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowIM_V_FALTANTESRow)
             Return rowIM_V_FALTANTESRow
@@ -449,6 +458,7 @@ Partial Public Class DS_FALTANTES
             Me.columnINGRESADOS = MyBase.Columns("INGRESADOS")
             Me.columnPARTIDO = MyBase.Columns("PARTIDO")
             Me.columnMOVIMIENTO = MyBase.Columns("MOVIMIENTO")
+            Me.columnCODIGO_CARGO = MyBase.Columns("CODIGO_CARGO")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -473,9 +483,9 @@ Partial Public Class DS_FALTANTES
             MyBase.Columns.Add(Me.columnPARTIDO)
             Me.columnMOVIMIENTO = New Global.System.Data.DataColumn("MOVIMIENTO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMOVIMIENTO)
-            Me.columnDEPARTAMENTO.AllowDBNull = false
+            Me.columnCODIGO_CARGO = New Global.System.Data.DataColumn("CODIGO_CARGO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_CARGO)
             Me.columnDEPARTAMENTO.MaxLength = 100
-            Me.columnMUNICIPIO.AllowDBNull = false
             Me.columnMUNICIPIO.MaxLength = 100
             Me.columnCARGO_ELECTIVO.MaxLength = 46
             Me.columnPARTIDO.MaxLength = 28
@@ -632,7 +642,11 @@ Partial Public Class DS_FALTANTES
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property DEPARTAMENTO() As String
             Get
-                Return CType(Me(Me.tableIM_V_FALTANTES.DEPARTAMENTOColumn),String)
+                Try 
+                    Return CType(Me(Me.tableIM_V_FALTANTES.DEPARTAMENTOColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DEPARTAMENTO' in table 'IM_V_FALTANTES' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableIM_V_FALTANTES.DEPARTAMENTOColumn) = value
@@ -656,7 +670,11 @@ Partial Public Class DS_FALTANTES
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property MUNICIPIO() As String
             Get
-                Return CType(Me(Me.tableIM_V_FALTANTES.MUNICIPIOColumn),String)
+                Try 
+                    Return CType(Me(Me.tableIM_V_FALTANTES.MUNICIPIOColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'MUNICIPIO' in table 'IM_V_FALTANTES' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableIM_V_FALTANTES.MUNICIPIOColumn) = value
@@ -748,6 +766,20 @@ Partial Public Class DS_FALTANTES
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CODIGO_CARGO() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_FALTANTES.CODIGO_CARGOColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CODIGO_CARGO' in table 'IM_V_FALTANTES' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_FALTANTES.CODIGO_CARGOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsCODIGO_DEPARTAMENTONull() As Boolean
             Return Me.IsNull(Me.tableIM_V_FALTANTES.CODIGO_DEPARTAMENTOColumn)
         End Function
@@ -758,6 +790,16 @@ Partial Public Class DS_FALTANTES
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsDEPARTAMENTONull() As Boolean
+            Return Me.IsNull(Me.tableIM_V_FALTANTES.DEPARTAMENTOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetDEPARTAMENTONull()
+            Me(Me.tableIM_V_FALTANTES.DEPARTAMENTOColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsCODIGO_MUNICIPIONull() As Boolean
             Return Me.IsNull(Me.tableIM_V_FALTANTES.CODIGO_MUNICIPIOColumn)
         End Function
@@ -765,6 +807,16 @@ Partial Public Class DS_FALTANTES
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetCODIGO_MUNICIPIONull()
             Me(Me.tableIM_V_FALTANTES.CODIGO_MUNICIPIOColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsMUNICIPIONull() As Boolean
+            Return Me.IsNull(Me.tableIM_V_FALTANTES.MUNICIPIOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetMUNICIPIONull()
+            Me(Me.tableIM_V_FALTANTES.MUNICIPIOColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -825,6 +877,16 @@ Partial Public Class DS_FALTANTES
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetMOVIMIENTONull()
             Me(Me.tableIM_V_FALTANTES.MOVIMIENTOColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsCODIGO_CARGONull() As Boolean
+            Return Me.IsNull(Me.tableIM_V_FALTANTES.CODIGO_CARGOColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetCODIGO_CARGONull()
+            Me(Me.tableIM_V_FALTANTES.CODIGO_CARGOColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -995,6 +1057,7 @@ Namespace DS_FALTANTESTableAdapters
             tableMapping.ColumnMappings.Add("INGRESADOS", "INGRESADOS")
             tableMapping.ColumnMappings.Add("PARTIDO", "PARTIDO")
             tableMapping.ColumnMappings.Add("MOVIMIENTO", "MOVIMIENTO")
+            tableMapping.ColumnMappings.Add("CODIGO_CARGO", "CODIGO_CARGO")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -1010,11 +1073,15 @@ Namespace DS_FALTANTESTableAdapters
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "select a.codigo_departamento, DEP.DESCRIPCION ""DEPARTAMENTO"","&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"a.codigo_municipio"& _ 
-                ", MUNI.DESCRIPCION ""MUNICIPIO"","&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"a.cargo_electivo,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"a.cantidad_faltantes,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"a.req"& _ 
-                "ueridos,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"a.ingresados,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"a.PARTIDO,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"a.MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"from im_v_faltantes a, im_dep"& _ 
-                "artamentos dep, im_municipios muni"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where a.codigo_departamento = DEP.CODIGO_DEP"& _ 
-                "ARTAMENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and a.codigo_departamento = MUNI.CODIGO_DEPARTAMENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and a.codigo_mu"& _ 
-                "nicipio = MUNI.CODIGO_MUNICIPIO "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"order by codigo_municipio "
+                ", MUNI.DESCRIPCION ""MUNICIPIO"","&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"DECODE(A.CARGO_ELECTIVO,'Presidente (a)',1,'Des"& _ 
+                "ignados',2,'Diputados (a) al parlacen propietarios',3,'Diputados (a) al parlacen"& _ 
+                " suplentes',4,'Diputado (a) al congreso nacional propietarios',5,'Diputado (a) a"& _ 
+                "l congreso nacional suplentes',6,'Alcaldes',7,'Vicealcaldes',8,'Regidores',9)AS "& _ 
+                "CODIGO_CARGO,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"a.cargo_electivo,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"a.cantidad_faltantes,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"a.requeridos,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"a.ingres"& _ 
+                "ados,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"a.PARTIDO,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"a.MOVIMIENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"from im_v_faltantes a, im_departamentos dep, im"& _ 
+                "_municipios muni"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where a.codigo_departamento = DEP.CODIGO_DEPARTAMENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and a.c"& _ 
+                "odigo_departamento = MUNI.CODIGO_DEPARTAMENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and a.codigo_municipio = MUNI.COD"& _ 
+                "IGO_MUNICIPIO "
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
