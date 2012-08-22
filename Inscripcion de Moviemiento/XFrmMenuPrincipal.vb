@@ -644,4 +644,6 @@ Public Class XFrmMenuPrincipal
         Dim REPORTE As Reporte_de_Participacion_de_Genero = New Reporte_de_Participacion_de_Genero
         REPORTE.ShowPreview()
     End Sub
+
+
 End Class
