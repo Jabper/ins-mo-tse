@@ -20,9 +20,9 @@ Partial Class Parametros4
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim ConditionValidationRule3 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
-        Dim ConditionValidationRule4 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Dim ConditionValidationRule1 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
+        Dim ConditionValidationRule2 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
+        Dim ConditionValidationRule3 As DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule = New DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule
         Me.CmbMovimiento = New DevExpress.XtraEditors.LookUpEdit
         Me.IMMOVIMIENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DSPLANILLATOTALESBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -80,9 +80,9 @@ Partial Class Parametros4
         Me.CmbMovimiento.Properties.ValueMember = "CODIGO_MOVIMIENTO"
         Me.CmbMovimiento.Size = New System.Drawing.Size(200, 20)
         Me.CmbMovimiento.TabIndex = 29
-        ConditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule3.ErrorText = "El valor no puede estar en blanco"
-        Me.DxValidationProvider1.SetValidationRule(Me.CmbMovimiento, ConditionValidationRule3)
+        ConditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule1.ErrorText = "El valor no puede estar en blanco"
+        Me.DxValidationProvider1.SetValidationRule(Me.CmbMovimiento, ConditionValidationRule1)
         '
         'IMMOVIMIENTOSBindingSource
         '
@@ -111,9 +111,9 @@ Partial Class Parametros4
         Me.cbopartido.Properties.ValueMember = "CODIGO_PARTIDO"
         Me.cbopartido.Size = New System.Drawing.Size(200, 20)
         Me.cbopartido.TabIndex = 26
-        ConditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule4.ErrorText = "El valor no puede estar en blanco"
-        Me.DxValidationProvider1.SetValidationRule(Me.cbopartido, ConditionValidationRule4)
+        ConditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule2.ErrorText = "El valor no puede estar en blanco"
+        Me.DxValidationProvider1.SetValidationRule(Me.cbopartido, ConditionValidationRule2)
         '
         'IMPARTIDOSPOLITICOS1BindingSource
         '
@@ -190,9 +190,9 @@ Partial Class Parametros4
         Me.cbonivel.Properties.ValueMember = "CODIGO_NIVEL_ELECTIVO"
         Me.cbonivel.Size = New System.Drawing.Size(200, 20)
         Me.cbonivel.TabIndex = 19
-        ConditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
-        ConditionValidationRule1.ErrorText = "El valor no puede estar en blanco"
-        Me.DxValidationProvider1.SetValidationRule(Me.cbonivel, ConditionValidationRule1)
+        ConditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank
+        ConditionValidationRule3.ErrorText = "El valor no puede estar en blanco"
+        Me.DxValidationProvider1.SetValidationRule(Me.cbonivel, ConditionValidationRule3)
         '
         'IMNIVELELECTIVOBindingSource
         '
@@ -292,7 +292,7 @@ Partial Class Parametros4
         Me.Controls.Add(Me.cboMuni)
         Me.Controls.Add(Me.cboDepto)
         Me.Name = "Parametros4"
-        Me.Text = "Parametros del Reporte de Planillas Incompletas"
+        Me.Text = "Parametros del Reporte de Planillas completas (con imágen)"
         CType(Me.CmbMovimiento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMMOVIMIENTOSBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DSPLANILLATOTALESBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
