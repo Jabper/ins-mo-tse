@@ -798,7 +798,7 @@ Public Class xfrmRegCandidatos
             myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_MOVIMIENTO", OracleType.Number, 3, ParameterDirection.Input)).Value = id_movimiento
             myCMD.Parameters.Add(New OracleParameter("PVI_IDENTIDAD", OracleType.NVarChar, 13, ParameterDirection.Input)).Value = view.GetRowCellValue(i, "IDENTIDAD")
             myCMD.Parameters.Add(New OracleParameter("PNI_CODIGO_PARTIDO", OracleType.Number, 2, ParameterDirection.Input)).Value = id_partido
-            myCMD.Parameters.Add(New OracleParameter("PVI_MODIFICADO_POR", OracleType.NVarChar, 10, ParameterDirection.Input)).Value = view.GetRowCellValue(i, "POSICION")
+            myCMD.Parameters.Add(New OracleParameter("PVI_MODIFICADO_POR", OracleType.NVarChar, 10, ParameterDirection.Input)).Value = usuario
             myCMD.Parameters.Add(New OracleParameter("PDI_FECHA_MODIFICACION", OracleType.DateTime, ParameterDirection.Input)).Value = DateTime.Now
             myCMD.Parameters.Add(New OracleParameter("PVI_PRIMER_NOMBRE", OracleType.NVarChar, 100, ParameterDirection.Input)).Value = nombre1
             myCMD.Parameters.Add(New OracleParameter("PVI_SEGUNDO_NOMBRE", OracleType.NVarChar, 100, ParameterDirection.Input)).Value = nombre2
