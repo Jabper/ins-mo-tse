@@ -96,7 +96,7 @@ Public Class REPORTE_REQUISITOS_CANDIDATOS
         'se envian los filtros por nombre de partido y nombre de movimiento para recuperar las respectivas imagenes
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(DS_LOG.IM_PARTIDOS_POLITICOS_imagen, NombrePartido.Value.ToString)
         Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(DS_LOG.IM_MOVIMIENTOS_imagen, NombreMovimiento.Value.ToString)
-
+        Me.IM_V_REQUISITOS_PLANILLA_REPTableAdapter.FillBy(Me.DS_REQUISITOS1.IM_V_REQUISITOS_PLANILLA_REP, NombrePartido.Value.ToString, NombrePartido.Value.ToString)
     End Sub
 
     Private Sub REPORTE_REQUISITOS_CANDIDATOS_ParametersRequestValueChanged(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestValueChangedEventArgs) Handles Me.ParametersRequestValueChanged
