@@ -496,13 +496,12 @@ Public Class XFrmMenuPrincipal
     End Sub
 
     Private Sub BarButtonItem4_ItemClick_2(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNRazonado.ItemClick
-        Dim reporterazo As REPORTE_RAZONADO = New REPORTE_RAZONADO
+        Dim reporterazo As REPORTE_DE_CUMPLIMIENTO_3 = New REPORTE_DE_CUMPLIMIENTO_3
         reporterazo.ShowPreview()
+
     End Sub
 
     Private Sub BTNRestadisticoCE_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BTNRestadisticoCE.ItemClick
-
-
         Dim reporteesta As REPORTE_DETALLE_ESTADISTICO = New REPORTE_DETALLE_ESTADISTICO
         reporteesta.ShowPreview()
 

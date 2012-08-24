@@ -25,6 +25,7 @@ Public Class xfrmValidaciones
                 Mensajes.MensajeError(myCMD.Parameters("PVO_ERRORES").Value)
             End If
             conn.Close()
+            COracle.Im_Estadisticas()
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
         End Try
