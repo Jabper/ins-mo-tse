@@ -60,6 +60,7 @@ Partial Public Class Reporte_Estadistico_general_firmas
         Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
         Me.IM_MOVIMIENTOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
+        Me.ReportFooter1 = New DevExpress.XtraReports.UI.ReportFooterBand
         CType(Me.DS_ESTADISTICO_FIRMAS1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMVESTADISTICOGENERALFBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_ESTADISTICO_GENERAL_FIRMAS1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -115,6 +116,7 @@ Partial Public Class Reporte_Estadistico_general_firmas
         XyDiagram1.DefaultPane.EnableAxisYScrolling = DevExpress.Utils.DefaultBoolean.[False]
         XyDiagram1.DefaultPane.EnableAxisYZooming = DevExpress.Utils.DefaultBoolean.[False]
         Me.XrChart1.Diagram = XyDiagram1
+        Me.XrChart1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.XrChart1.LocationFloat = New DevExpress.Utils.PointFloat(25.62498!, 192.7083!)
         Me.XrChart1.Name = "XrChart1"
         Series1.ArgumentDataMember = "IM_V_ESTADISTICO_FIRMAS.CONSISTENTE"
@@ -135,6 +137,7 @@ Partial Public Class Reporte_Estadistico_general_firmas
         SideBySideBarSeriesLabel3.LineVisible = True
         Me.XrChart1.SeriesTemplate.Label = SideBySideBarSeriesLabel3
         Me.XrChart1.SizeF = New System.Drawing.SizeF(728.125!, 377.0833!)
+        Me.XrChart1.StylePriority.UseFont = False
         ChartTitle1.Text = "GRAFICO DE ESTADOS DE FIRMAS DE RESPALDO"
         Me.XrChart1.Titles.AddRange(New DevExpress.XtraCharts.ChartTitle() {ChartTitle1})
         '
@@ -365,6 +368,12 @@ Partial Public Class Reporte_Estadistico_general_firmas
         '
         Me.IM_MOVIMIENTOS_imagenTableAdapter.ClearBeforeFill = True
         '
+        'ReportFooter1
+        '
+        Me.ReportFooter1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.ReportFooter1.Name = "ReportFooter1"
+        Me.ReportFooter1.StylePriority.UseFont = False
+        '
         'Reporte_Estadistico_general_firmas
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.ReportFooter})
@@ -428,4 +437,5 @@ Partial Public Class Reporte_Estadistico_general_firmas
     Friend WithEvents BindingSourceimagen As System.Windows.Forms.BindingSource
     Friend WithEvents IM_PARTIDOS_POLITICOS_imagenTableAdapter As Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
     Friend WithEvents IM_MOVIMIENTOS_imagenTableAdapter As Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
+    Friend WithEvents ReportFooter1 As DevExpress.XtraReports.UI.ReportFooterBand
 End Class

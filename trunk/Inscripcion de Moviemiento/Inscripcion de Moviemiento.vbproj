@@ -415,6 +415,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_ESTADISTICO_FIRMAS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\DS_ESTADISTICO_FIRMAS.vb">
+      <DependentUpon>DS_ESTADISTICO_FIRMAS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DS_ESTADISTICO_GENERAL_FIRMAS.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -634,6 +637,12 @@
       <DependentUpon>REPORTE_DE_CUMPLIMIENTO_2.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\NUEVOS\REPORTE_DE_CUMPLIMIENTO_2.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\NUEVOS\REPORTE_ESTADISTICO_FIRMAS_MOVIMIENTO.Designer.vb">
+      <DependentUpon>REPORTE_ESTADISTICO_FIRMAS_MOVIMIENTO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\NUEVOS\REPORTE_ESTADISTICO_FIRMAS_MOVIMIENTO.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\NUEVOS\REPORTE_REQUISITOS_CANDIDATOS.Designer.vb">
@@ -1238,6 +1247,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\NUEVOS\Reporte_de_Participacion_de_Genero.resx">
       <DependentUpon>Reporte_de_Participacion_de_Genero.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\NUEVOS\REPORTE_ESTADISTICO_FIRMAS_MOVIMIENTO.resx">
+      <DependentUpon>REPORTE_ESTADISTICO_FIRMAS_MOVIMIENTO.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\NUEVOS\REPORTE_REQUISITOS_CANDIDATOS.resx">
