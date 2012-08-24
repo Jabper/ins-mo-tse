@@ -98,6 +98,10 @@ Public Class REPORTE_ESTADISTICO_FIRMAS_MOVIMIENTO
         Dim myCMD As New OracleCommand()
 
         Dim total_firmas_pre As String = 0
+        Dim total_firmas_con As String = 0
+        Dim total_firmas_inc As String = 0
+        Dim porcentaje_consis As String = 0
+        Dim porcentaje_incons As String = 0
 
         ''abrir conexion de la base de datos 
         conn.ConnectionString = oradb
@@ -106,11 +110,37 @@ Public Class REPORTE_ESTADISTICO_FIRMAS_MOVIMIENTO
         'total firmas Presentadas
         total_firmas_pre = COracle.ObtenerDatos("SELECT COUNT (1) TOTAL_FP FROM im_ciudadanos_respaldan ca,im_partidos_politicos pa,im_movimientos mov WHERE CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_FP")
         Total_firmas.Text = total_firmas_pre.ToString
+        'total firmas consistentes 
+        total_firmas_con = COracle.ObtenerDatos("SELECT COUNT (1) TOTAL_FP FROM im_ciudadanos_respaldan ca,im_partidos_politicos pa,im_movimientos mov WHERE CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and CA.CONSISTENTE ='S' and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_FP")
+        firmas_consis.Text = total_firmas_con.ToString
+        'total firmas inconsistentes
+        total_firmas_inc = COracle.ObtenerDatos("SELECT COUNT (1) TOTAL_FP FROM im_ciudadanos_respaldan ca,im_partidos_politicos pa,im_movimientos mov WHERE CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and CA.CONSISTENTE ='N' and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_FP")
+        firmas_incon.Text = total_firmas_inc.ToString
+
+        'calculo de porcentaje
+        If total_firmas_pre > 0 And total_firmas_con > 0 Then
+            porcentaje_consis = Math.Round((CInt(total_firmas_con) / CInt(total_firmas_pre) * 100), 2).ToString
+            porcentaje_cons.Text = porcentaje_consis.ToString
+
+        Else
+            porcentaje_consis = 0
+            porcentaje_cons.Text = "0"
+        End If
+
+        If total_firmas_pre > 0 And total_firmas_inc > 0 Then
+            porcentaje_incons = Math.Round((CInt(total_firmas_inc) / CInt(total_firmas_pre) * 100), 2).ToString
+            Porcentaje_inc.Text = porcentaje_incons.ToString
+        Else
+            porcentaje_incons = 0
+            Porcentaje_inc.Text = "0"
+        End If
 
 
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(DS_LOG.IM_PARTIDOS_POLITICOS_imagen, NombrePartido.Value.ToString)
         Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(DS_LOG.IM_MOVIMIENTOS_imagen, NombreMovimiento.Value.ToString)
         usuario_1.Text = usuario
+        PARTIDO.Text = NombrePartido.Value.ToString
+        MOVIMIENTO.Text = NombreMovimiento.Value.ToString
     End Sub
 
     Private Sub REPORTE_ESTADISTICO_FIRMAS_MOVIMIENTO_ParametersRequestValueChanged(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestValueChangedEventArgs) Handles Me.ParametersRequestValueChanged
