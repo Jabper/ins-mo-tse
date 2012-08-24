@@ -513,7 +513,7 @@ Partial Class XFrmMenuPrincipal
         '
         'BtnEstadisticoFI
         '
-        Me.BtnEstadisticoFI.Caption = "Reporte Estadistico de Firmas Inconsistentes"
+        Me.BtnEstadisticoFI.Caption = "Reporte Estadistico de Firmas"
         Me.BtnEstadisticoFI.Id = 47
         Me.BtnEstadisticoFI.Name = "BtnEstadisticoFI"
         '

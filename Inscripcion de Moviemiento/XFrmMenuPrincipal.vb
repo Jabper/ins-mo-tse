@@ -414,7 +414,7 @@ Public Class XFrmMenuPrincipal
     End Sub
 
     Private Sub BarButtonItem8_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnEstadisticoFI.ItemClick
-        Dim reporte8 As Reporte_Estadistico_general_firmas = New Reporte_Estadistico_general_firmas
+        Dim reporte8 As REPORTE_ESTADISTICO_FIRMAS_MOVIMIENTO = New REPORTE_ESTADISTICO_FIRMAS_MOVIMIENTO
         Try
             'Dim oradb As String = Configuracion.verconfig
 
@@ -428,7 +428,8 @@ Public Class XFrmMenuPrincipal
             'myCMD.CommandType = CommandType.StoredProcedure
             'myCMD.ExecuteOracleScalar()
             'conn.Close()
-            reporte8.ShowPreview()
+            reporte8.ShowPreviewDialog()
+
         Catch ex As Exception
             Mensajes.MensajeError(ex.Message)
         End Try
