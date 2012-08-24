@@ -135,6 +135,17 @@ Public Class REPORTE_DE_CUMPLIMIENTO_3
         Dim PARTICIPACION_CORPORACION As String = 0
 
 
+        ''variables cumple
+        Dim CUMPLE1 As String = 0
+        Dim CUMPLE2 As String = 0
+        Dim CUMPLE3 As String = 0
+        Dim CUMPLE4 As String = 0
+        Dim CUMPLE5 As String = 0
+        Dim CUMPLE6 As String = 0
+
+
+
+
         ''abrir conexion de la base de datos 
         conn.ConnectionString = oradb
         conn.Open()
@@ -152,31 +163,33 @@ Public Class REPORTE_DE_CUMPLIMIENTO_3
         cd_presidencial = COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where  CA.CODIGO_CARGO_ELECTIVO in (1,9) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
         'CD_1.Text = cd_presidencial.ToString
         If cd_presidencial > 0 Then
-            CD_1.Text = "1" ' "SI" '"1"
+            ' CD_1.Text = "1" ' "SI" '"1"
         Else
-            CD_1.Text = "0" '"NO" '"0"
+            '  CD_1.Text = "0" '"NO" '"0"
         End If
 
         incon_presidencial = COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where  CA.CODIGO_CARGO_ELECTIVO in (1,9) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO  and CA.VALIDADO = 'S' and CA.ESTADO = 'I' and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
 
         fisico_presidencial = COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where  CA.CODIGO_CARGO_ELECTIVO in (1,9) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO  and CA.VALIDADO = 'S' and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
         If fisico_presidencial > 0 Then
-            Fisico_1.Text = "1"
+            ' Fisico_1.Text = "1"
         Else
-            Fisico_1.Text = "0"
+            ' Fisico_1.Text = "0"
         End If
 
         'COINCIDE
         If cd_presidencial > 0 And fisico_presidencial > 0 Then
-            Coin_1.Text = "1"
+            '   Coin_1.Text = "1"
         Else
-            Coin_1.Text = "0"
+            '  Coin_1.Text = "0"
         End If
         'COMPLETA
         If fisico_presidencial = 4 Then
             comp_1.Text = "1"
+            cumple_1.Text = "SI"
         Else
             comp_1.Text = "0"
+            cumple_1.Text = "NO"
         End If
 
         'INCONSISTENTE 
@@ -197,28 +210,33 @@ Public Class REPORTE_DE_CUMPLIMIENTO_3
         'INCOMPLETA 
         If fisico_presidencial < 4 Then
             incom_1.Text = "1" 'fisico_presidencial.ToString  '"SI"
+            cumple_1.Text = "NO"
         ElseIf cd_presidencial < 4 Then
             incom_1.Text = "1" 'cd_presidencial.ToString '"SI"
+            cumple_1.Text = "NO"
         Else
             incom_1.Text = "0"
+            cumple_1.Text = "SI"
         End If
 
         If PARTICIPACION_PRESIDENCIAL > 0 Then ' particioacion de la mujer
             incom_1.Text = "1"  '"SI"
             comp_1.Text = "0"
             genero_1.Text = "1"
+            cumple_1.Text = "NO"
         Else
             genero_1.Text = "0"
+            cumple_1.Text = "SI"
         End If
 
 
         'PRESENTO
         If fisico_presidencial > 0 Then
-            Prese_1.Text = "1"
-        ElseIf cd_presidencial > 0 Then
-            Prese_1.Text = "1"
-        Else
             Prese_1.Text = "0"
+        ElseIf cd_presidencial > 0 Then
+            Prese_1.Text = "0"
+        Else
+            Prese_1.Text = "1"
         End If
 
         'listo y revisado
@@ -226,31 +244,33 @@ Public Class REPORTE_DE_CUMPLIMIENTO_3
         'ANALISIS DPCP 
         cd_parlacenp = COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where CA.CODIGO_CARGO_ELECTIVO in (2) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
         If cd_parlacenp > 0 Then
-            CD_2.Text = "1"
+            ' CD_2.Text = "1"
         Else
-            CD_2.Text = "0"
+            ' CD_2.Text = "0"
         End If
         incon_parlacenp = COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where  CA.CODIGO_CARGO_ELECTIVO in (2) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and CA.VALIDADO = 'S' and CA.ESTADO = 'I' and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
 
         fisico_parlacenp = COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where  CA.CODIGO_CARGO_ELECTIVO in (2) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and CA.VALIDADO = 'S' and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
         If fisico_parlacenp > 0 Then
-            Fisico_2.Text = "1"
+            ' Fisico_2.Text = "1"
         Else
-            Fisico_2.Text = "0"
+            ' Fisico_2.Text = "0"
         End If
 
         'COINCIDE
         If cd_parlacenp > 0 And fisico_parlacenp > 0 Then
-            Coin_2.Text = "1"
+            ' Coin_2.Text = "1"
         Else
-            Coin_2.Text = "0"
+            ' Coin_2.Text = "0"
         End If
 
         'COMPLETA
         If fisico_parlacenp = 20 Then
             comp_2.Text = "1"
+            cumple_2.Text = "SI"
         Else
             comp_2.Text = "0"
+            cumple_2.Text = "NO"
         End If
 
         'INCONSISTENTE 
@@ -270,58 +290,66 @@ Public Class REPORTE_DE_CUMPLIMIENTO_3
         'INCOMPLETA 
         If fisico_parlacenp < 20 Then
             incom_2.Text = "1"
+            cumple_2.Text = "NO"
         ElseIf cd_parlacenp < 20 Then
             incom_2.Text = "1"
+            cumple_2.Text = "NO"
         Else
             incom_2.Text = "0"
+            cumple_2.Text = "SI"
         End If
 
         If PARTICIPACION_PARLACEN_PRO > 0 Then 'participacion de la mujer
             incom_2.Text = "1"
             comp_2.Text = "0"
             genero_2.Text = "1"
+            cumple_2.Text = "NO"
         Else
             genero_2.Text = "0"
+            cumple_2.Text = "SI"
         End If
 
         'PRESENTO
         If fisico_parlacenp > 0 Then
-            Prese_2.Text = "1"
-        ElseIf cd_parlacenp > 0 Then
-            Prese_2.Text = "1"
-        Else
             Prese_2.Text = "0"
+        ElseIf cd_parlacenp > 0 Then
+            Prese_2.Text = "0"
+        Else
+            Prese_2.Text = "1"
         End If
         'listo y revisado
         '**************************************************************************************
         'ANALISIS DPCS 
         cd_parlacens = COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where  CA.CODIGO_CARGO_ELECTIVO in (3) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
         If cd_parlacens > 0 Then
-            CD_3.Text = "1"
+            'CD_3.Text = "1"
         Else
-            CD_3.Text = "0"
+            'CD_3.Text = "0"
         End If
         incon_parlacens = COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where  CA.CODIGO_CARGO_ELECTIVO in (3) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and CA.VALIDADO = 'S' and CA.ESTADO = 'I' and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
 
         fisico_parlacens = COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where  CA.CODIGO_CARGO_ELECTIVO in (3) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
         If fisico_parlacens > 0 Then
-            Fisico_3.Text = "1"
+            'Fisico_3.Text = "1"
         Else
-            Fisico_3.Text = "0"
+            'Fisico_3.Text = "0"
         End If
 
         'COINCIDE
         If cd_parlacens > 0 And fisico_parlacens > 0 Then
-            Coin_3.Text = "1"
+            'Coin_3.Text = "1"
         Else
-            Coin_3.Text = "0"
+            'Coin_3.Text = "0"
         End If
 
         'COMPLETA
         If fisico_parlacens = 20 Then
             comp_3.Text = "1"
+            cumple_3.Text = "SI"
         Else
             comp_3.Text = "0"
+            cumple_3.Text = "NO"
+
         End If
 
         'INCONSISTENTE 
@@ -341,27 +369,32 @@ Public Class REPORTE_DE_CUMPLIMIENTO_3
         'INCOMPLETA 
         If fisico_parlacens < 20 Then
             incom_3.Text = "1"
+            cumple_3.Text = "NO"
         ElseIf cd_parlacens < 20 Then
             incom_3.Text = "1"
+            cumple_3.Text = "NO"
         Else
             incom_3.Text = "0"
+            cumple_3.Text = "SI"
         End If
 
         If PARTICIPACION_PARLACEN_SUP > 0 Then
             incom_3.Text = "1"
             comp_3.Text = "0"
             genero_3.Text = "1"
+            cumple_3.Text = "NO"
         Else
             genero_3.Text = "0"
+            cumple_3.Text = "SI"
         End If
 
         'PRESENTO
         If fisico_parlacens > 0 Then
-            Prese_3.Text = "1"
-        ElseIf cd_parlacens > 0 Then
-            Prese_3.Text = "1"
-        Else
             Prese_3.Text = "0"
+        ElseIf cd_parlacens > 0 Then
+            Prese_3.Text = "0"
+        Else
+            Prese_3.Text = "1"
         End If
         'listo y revisado
         '************************************************************************************
@@ -369,25 +402,25 @@ Public Class REPORTE_DE_CUMPLIMIENTO_3
         cd_congrep = COracle.ObtenerDatos("SELECT  COUNT (1)TOTAL_DPN FROM IM_CD_COMPLETAS_DPP A ,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.cargo_actual,A.CANTIDAD_DIPUTADOS,'S','N') ='S' and A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_DPN")
         'COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where CA.ADICIONADO_POR in ('TSE','RPADILLA')and CA.CODIGO_CARGO_ELECTIVO in (4) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
         If cd_congrep > 0 Then
-            CD_4.Text = cd_congrep.ToString '"1"
+            'CD_4.Text = cd_congrep.ToString '"1"
         Else
-            CD_4.Text = "0"
+            'CD_4.Text = "0"
         End If
         'incon_congrep = COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where CA.ADICIONADO_POR in ('TSE','RPADILLA')and CA.CODIGO_CARGO_ELECTIVO in (4) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and CA.VALIDADO = 'S' and CA.ESTADO = 'I' and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
 
         fisico_congrep = COracle.ObtenerDatos("SELECT  COUNT (1)TOTAL_DPN FROM IM_CD_COMPLETAS_DPP_F A ,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.cargo_actual,A.CANTIDAD_DIPUTADOS,'S','N') ='S' and A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_DPN")
         'COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where CA.ADICIONADO_POR in ('TSE','RPADILLA')and CA.CODIGO_CARGO_ELECTIVO in (4) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and CA.VALIDADO = 'S' and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
         If fisico_congrep > 0 Then
-            Fisico_4.Text = fisico_congrep.ToString '"1"
+            'Fisico_4.Text = fisico_congrep.ToString '"1"
         Else
-            Fisico_4.Text = "0"
+            'Fisico_4.Text = "0"
         End If
 
         'COINCIDE
         If cd_congrep > 0 And fisico_congrep > 0 Then
-            Coin_4.Text = fisico_congrep.ToString ' "SI"
+            'Coin_4.Text = fisico_congrep.ToString ' "SI"
         Else
-            Coin_4.Text = "NO"
+            'Coin_4.Text = "NO"
         End If
 
         'COMPLETA
@@ -395,11 +428,20 @@ Public Class REPORTE_DE_CUMPLIMIENTO_3
 
         ' If congresop_completo >= 10 Then
         comp_4.Text = congresop_completo.ToString
+      
 
         If PARTICIOACION_CONGRESO_PRO > 0 Then
             comp_4.Text = (CInt(congresop_completo) - CInt(PARTICIOACION_CONGRESO_PRO)).ToString
+            CUMPLE4 = (CInt(congresop_completo) - CInt(PARTICIOACION_CONGRESO_PRO)).ToString
         Else
             comp_4.Text = congresop_completo.ToString
+            CUMPLE4 = congresop_completo.ToString
+        End If
+
+        If CUMPLE4 >= 10 Then
+            cumple_4.Text = "SI"
+        Else
+            cumple_4.Text = "NO"
         End If
 
 
@@ -447,25 +489,25 @@ Public Class REPORTE_DE_CUMPLIMIENTO_3
         cd_congres = COracle.ObtenerDatos("SELECT  COUNT (1)TOTAL_DPN FROM IM_CD_COMPLETAS_DPS A ,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.cargo_actual,A.CANTIDAD_DIPUTADOS,'S','N') ='S' and A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_DPN")
         'COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where CA.ADICIONADO_POR in ('TSE','RPADILLA')and CA.CODIGO_CARGO_ELECTIVO in (4) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
         If cd_congres > 0 Then
-            CD_5.Text = cd_congres.ToString ' "1"
+            'CD_5.Text = cd_congres.ToString ' "1"
         Else
-            CD_5.Text = "0"
+            'CD_5.Text = "0"
         End If
         'incon_congres = COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where CA.ADICIONADO_POR in ('TSE','RPADILLA')and CA.CODIGO_CARGO_ELECTIVO in (4) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and CA.VALIDADO = 'S' and CA.ESTADO = 'I' and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
 
         fisico_congres = COracle.ObtenerDatos("SELECT  COUNT (1)TOTAL_DPN FROM IM_CD_COMPLETAS_DPS_F A ,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.cargo_actual,A.CANTIDAD_DIPUTADOS,'S','N') ='S' and A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_DPN")
         'COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where CA.ADICIONADO_POR in ('TSE','RPADILLA')and CA.CODIGO_CARGO_ELECTIVO in (4) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and CA.VALIDADO = 'S' and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
         If fisico_congres > 0 Then
-            Fisico_5.Text = fisico_congres.ToString ' "1"
+            'Fisico_5.Text = fisico_congres.ToString ' "1"
         Else
-            Fisico_5.Text = "0"
+            'Fisico_5.Text = "0"
         End If
 
         'COINCIDE
         If cd_congres > 0 And fisico_congres > 0 Then
-            Coin_5.Text = fisico_congres.ToString '"SI"
+            'Coin_5.Text = fisico_congres.ToString '"SI"
         Else
-            Coin_5.Text = "NO"
+            'Coin_5.Text = "NO"
         End If
 
         'COMPLETA
@@ -476,9 +518,15 @@ Public Class REPORTE_DE_CUMPLIMIENTO_3
 
         If PARTICIPACION_CONGRESO_SUP > 0 Then 'participacion femenina
             comp_5.Text = (CInt(congresos_completo) - CInt(PARTICIPACION_CONGRESO_SUP)).ToString
+            CUMPLE5 = (CInt(congresos_completo) - CInt(PARTICIPACION_CONGRESO_SUP)).ToString
         Else
             comp_5.Text = congresos_completo.ToString
-
+            CUMPLE5 = congresos_completo.ToString
+        End If
+        If CUMPLE5 >= 10 Then
+            cumple_5.Text = "SI"
+        Else
+            cumple_5.Text = "NO"
         End If
 
         'INCONSISTENTE 
@@ -516,9 +564,9 @@ Public Class REPORTE_DE_CUMPLIMIENTO_3
         cd_muni = COracle.ObtenerDatos("SELECT COUNT(1)TOTAL_CM FROM im_cd_completas_dpco A,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.CARGO_ACTUAL,A.TOTALR,'S','N') ='S' AND A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
         'COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where CA.ADICIONADO_POR in ('TSE','RPADILLA')and CA.CODIGO_CARGO_ELECTIVO in (4) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
         If cd_muni > 0 Then
-            CD_6.Text = (CInt(muni_completo) + CInt(muni_incompleto)).ToString  ' "1"
+            'CD_6.Text = (CInt(muni_completo) + CInt(muni_incompleto)).ToString  ' "1"
         Else
-            CD_6.Text = "0"
+            'CD_6.Text = "0"
         End If
 
         'incon_congrep = COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where CA.ADICIONADO_POR in ('TSE','RPADILLA')and CA.CODIGO_CARGO_ELECTIVO in (4) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and CA.VALIDADO = 'S' and CA.ESTADO = 'I' and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
@@ -526,16 +574,16 @@ Public Class REPORTE_DE_CUMPLIMIENTO_3
         fisico_muni = COracle.ObtenerDatos("SELECT COUNT(1)TOTAL_CM FROM im_cd_completas_dpco_f A,  im_partidos_politicos pa, im_movimientos mov WHERE DECODE(A.CARGO_ACTUAL,A.TOTALR,'S','N') ='S' AND A.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND  A.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND  A.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
         'COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos ca, im_partidos_politicos pa, im_movimientos mov where CA.ADICIONADO_POR in ('TSE','RPADILLA')and CA.CODIGO_CARGO_ELECTIVO in (4) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and CA.VALIDADO = 'S' and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
         If fisico_muni > 0 Then
-            Fisico_6.Text = (CInt(muni_completo) + CInt(muni_incompleto)).ToString '"1"  '"1"
+            'Fisico_6.Text = (CInt(muni_completo) + CInt(muni_incompleto)).ToString '"1"  '"1"
         Else
-            Fisico_6.Text = "0"
+            'Fisico_6.Text = "0"
         End If
 
         'COINCIDE
         If cd_muni > 0 And fisico_muni > 0 Then
-            Coin_6.Text = fisico_muni '"SI"
+            'Coin_6.Text = fisico_muni '"SI"
         Else
-            Coin_6.Text = "NO"
+            'Coin_6.Text = "NO"
         End If
 
         'COMPLETA
@@ -546,8 +594,17 @@ Public Class REPORTE_DE_CUMPLIMIENTO_3
 
         If PARTICIPACION_CORPORACION > 0 Then
             comp_6.Text = (CInt(muni_completo) - CInt(PARTICIPACION_CORPORACION)).ToString
+            CUMPLE6 = (CInt(muni_completo) - CInt(PARTICIPACION_CORPORACION)).ToString
         Else
             comp_6.Text = muni_completo.ToString
+            CUMPLE6 = muni_completo.ToString
+        End If
+
+
+        If CUMPLE6 >= 150 Then
+            cumple_6.Text = "SI"
+        Else
+            cumple_6.Text = "NO"
         End If
 
         'INCONSISTENTE 
@@ -590,21 +647,21 @@ Public Class REPORTE_DE_CUMPLIMIENTO_3
         'CD_6.Text = (CInt(muni_incompleto) + CInt(muni_completo)).ToString
         'Fisico_6.Text = (CInt(muni_incompleto) + CInt(muni_completo)).ToString
 
-        Prese_6.Text = (CInt(muni_completo) + CInt(muni_incompleto)).ToString 'Fisico_6.Text
-        CD_6.Text = (CInt(muni_completo) + CInt(muni_incompleto)).ToString
-        Fisico_6.Text = (CInt(muni_completo) + CInt(muni_incompleto)).ToString
-        Coin_6.Text = (CInt(muni_completo) + CInt(muni_incompleto)).ToString
+        Prese_6.Text = 298 - (CInt(muni_completo) + CInt(muni_incompleto)).ToString 'Fisico_6.Text
+        'CD_6.Text = (CInt(muni_completo) + CInt(muni_incompleto)).ToString
+        'Fisico_6.Text = (CInt(muni_completo) + CInt(muni_incompleto)).ToString
+        'Coin_6.Text = (CInt(muni_completo) + CInt(muni_incompleto)).ToString
 
-        CD_5.Text = (CInt(congresos_completo) + CInt(congresos_incompleto)).ToString
-        Fisico_5.Text = (CInt(congresos_completo) + CInt(congresos_incompleto)).ToString
-        Prese_5.Text = (CInt(congresos_completo) + CInt(congresos_incompleto)).ToString
-        Coin_5.Text = (CInt(congresos_completo) + CInt(congresos_incompleto)).ToString
+        'CD_5.Text = (CInt(congresos_completo) + CInt(congresos_incompleto)).ToString
+        'Fisico_5.Text = (CInt(congresos_completo) + CInt(congresos_incompleto)).ToString
+        Prese_5.Text = 18 - (CInt(congresos_completo) + CInt(congresos_incompleto)).ToString
+        'Coin_5.Text = (CInt(congresos_completo) + CInt(congresos_incompleto)).ToString
 
 
-        Prese_4.Text = (CInt(congresop_completo) + CInt(incon_congrep)).ToString
-        CD_4.Text = (CInt(congresop_completo) + CInt(incon_congrep)).ToString()
-        Fisico_4.Text = (CInt(congresop_completo) + CInt(incon_congrep)).ToString()
-        Coin_4.Text = (CInt(congresop_completo) + CInt(incon_congrep)).ToString
+        Prese_4.Text = 18 - (CInt(congresop_completo) + CInt(incon_congrep)).ToString
+        'CD_4.Text = (CInt(congresop_completo) + CInt(incon_congrep)).ToString()
+        'Fisico_4.Text = (CInt(congresop_completo) + CInt(incon_congrep)).ToString()
+        'Coin_4.Text = (CInt(congresop_completo) + CInt(incon_congrep)).ToString
 
         '********************************************************************************************************
         Me.partido.Text = Me.NombrePartido.Value.ToString

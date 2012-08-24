@@ -60,6 +60,7 @@ Public Class Reporte_de_Participacion_de_Genero
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(Me.DS_LOG.IM_PARTIDOS_POLITICOS_imagen, e.ParametersInformation(0).Editor.Text)
         Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(Me.DS_LOG.IM_MOVIMIENTOS_imagen, e.ParametersInformation(1).Editor.Text)
         Me.IM_V_REPORTE_DETALLE_GENEROTableAdapter.FillBy(Me.DT_Participacion_Femenina1.IM_V_REPORTE_DETALLE_GENERO, Partido.Value, Movimiento.Value)
+        Me.FilterString = "[CODIGO_PARTIDO] = " & Partido.Value & " And [CODIGO_MOVIMIENTO] = " & Movimiento.Value
 
     End Sub
 
