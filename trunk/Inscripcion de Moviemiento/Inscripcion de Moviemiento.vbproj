@@ -387,6 +387,12 @@
     <Compile Include="Procesos\xfrmValidaciones.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Renuncias\xfrmRenunciaCandidatos.Designer.vb">
+      <DependentUpon>xfrmRenunciaCandidatos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Renuncias\xfrmRenunciaCandidatos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\DS_CANDIDATOS_DUPLICADOS_MOV.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1223,6 +1229,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Procesos\xfrmValidaciones.resx">
       <DependentUpon>xfrmValidaciones.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Renuncias\xfrmRenunciaCandidatos.resx">
+      <DependentUpon>xfrmRenunciaCandidatos.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\NUEVOS\Parametros4.resx">
@@ -2284,6 +2294,7 @@
     <None Include="Resources\tselogop.png" />
     <None Include="Resources\requisitos_1.png" />
     <None Include="Resources\process.png" />
+    <None Include="Resources\serching.gif" />
     <Content Include="Resources\tse.ico" />
     <Content Include="Resources\tselogop1.png" />
     <Content Include="tse.ico" />

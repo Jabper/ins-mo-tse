@@ -154,17 +154,14 @@
   <data name="officespreadsheet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\officespreadsheet.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Restadisticos" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Restadisticos.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="cerrarventana" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cerrarventana.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bannerLogospartidos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bannerLogospartidos.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="validar_planilla" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\validar_planilla.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="departamento" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\departamento.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="tselogop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tselogop.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,8 +178,14 @@
   <data name="Ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ok.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="lockusuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lockusuario.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="backlogin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\backlogin.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="requisitos_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\requisitos_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="movimientos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\movimientos.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -192,6 +195,9 @@
   </data>
   <data name="log" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\log.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1345396919_txt2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1345396919_txt2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="gridview34" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gridview34.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -204,6 +210,9 @@
   </data>
   <data name="new" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\new.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="process" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\process.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logoelecciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logoelecciones.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -222,9 +231,6 @@
   </data>
   <data name="cargos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cargos.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="useraccess" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\useraccess.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="textback1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\textback1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -250,8 +256,8 @@
   <data name="exportar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exportar.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_1340376772_accept" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1340376772_accept.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="eliminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eliminar.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SubirRespaldo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SubirRespaldo1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -274,6 +280,9 @@
   <data name="incompatibilidades" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\incompatibilidades.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="banner2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\banner2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="importar otros sistemas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\importar otros sistemas.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -286,8 +295,8 @@
   <data name="tselogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tselogo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="eliminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eliminar.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Restadisticos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Restadisticos.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="modificarfirmas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\modificarfirmas.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -298,11 +307,8 @@
   <data name="motivo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\motivo1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="banner2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\banner2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="errorIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\errorIcon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="_1340376772_accept" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1340376772_accept.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CrearRespaldo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CrearRespaldo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -316,14 +322,17 @@
   <data name="parametros" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\parametros.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="_1340052028_system_software_update" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1340052028_system-software-update.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="useraccess" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\useraccess.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="departamento" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\departamento.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="validar_planilla" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\validar_planilla.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="requisitos_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\requisitos_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="turnoff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\turnoff.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="errorIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\errorIcon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Reporte" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Reporte.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -331,16 +340,10 @@
   <data name="flecha" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\flecha.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="turnoff" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\turnoff.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="_1340052028_system_software_update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1340052028_system-software-update.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="lockusuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lockusuario.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_1345396919_txt2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1345396919_txt2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="process" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\process.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="serching" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\serching.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
