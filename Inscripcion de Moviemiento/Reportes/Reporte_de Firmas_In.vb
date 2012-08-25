@@ -129,6 +129,7 @@ Public Class Reporte_de_Firmas_In
         Me.IM_V_FIRMAS_INCONSISTENTESTableAdapter.Fill(Me.DS_REPORTE_DE_FI_11.IM_V_FIRMAS_INCONSISTENTES, NombreDepartamento.Value.ToString)
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(DS_LOG.IM_PARTIDOS_POLITICOS_imagen, NombrePartido.Value.ToString)
         Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(DS_LOG.IM_MOVIMIENTOS_imagen, NombreMovimiento.Value.ToString)
+        Me.user.Text = usuario
     End Sub
 
     Private Sub Reporte_de_Firmas_In_ParametersRequestValueChanged(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestValueChangedEventArgs) Handles Me.ParametersRequestValueChanged
