@@ -387,6 +387,11 @@
     <Compile Include="Procesos\xfrmValidaciones.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Renuncias\DT_Renuncia.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DT_Renuncia.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Renuncias\xfrmRenunciaCandidatos.Designer.vb">
       <DependentUpon>xfrmRenunciaCandidatos.vb</DependentUpon>
     </Compile>
@@ -1850,6 +1855,17 @@
     <None Include="Procesos\Ds_procesos.xss">
       <DependentUpon>Ds_procesos.xsd</DependentUpon>
     </None>
+    <None Include="Renuncias\DT_Renuncia.xsc">
+      <DependentUpon>DT_Renuncia.xsd</DependentUpon>
+    </None>
+    <None Include="Renuncias\DT_Renuncia.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DT_Renuncia.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Renuncias\DT_Renuncia.xss">
+      <DependentUpon>DT_Renuncia.xsd</DependentUpon>
+    </None>
     <None Include="Reportes\DS_CANDIDATOS_DUPLICADOS_MOV.xsc">
       <DependentUpon>DS_CANDIDATOS_DUPLICADOS_MOV.xsd</DependentUpon>
     </None>
@@ -2195,8 +2211,7 @@
       <DependentUpon>DS_REP_DETALLE_ESTADISTICA.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DS_REP_DETALLE_ESTADISTICA.xsd">
-      <SubType>
-      </SubType>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Reportes\DS_REP_DETALLE_ESTADISTICA.xss">
       <DependentUpon>DS_REP_DETALLE_ESTADISTICA.xsd</DependentUpon>
