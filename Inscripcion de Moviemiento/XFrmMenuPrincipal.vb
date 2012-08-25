@@ -438,8 +438,9 @@ Public Class XFrmMenuPrincipal
     End Sub
 
     Private Sub BarButtonItem9_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles Btnlogproce.ItemClick
-        Dim reporte9 As REPORTE_DE_LOG = New REPORTE_DE_LOG
-        reporte9.ShowPreview()
+
+        Dim reportE9 As REPORTE_DE_LOG = New REPORTE_DE_LOG
+        reportE9.ShowPreview()
 
     End Sub
 
@@ -648,5 +649,10 @@ Public Class XFrmMenuPrincipal
 
     Private Sub BtnRenuncias_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnRenuncias.ItemClick
         Padre(xfrmRenunciaCandidatos)
+    End Sub
+
+    Private Sub BtnRenunciasMovimiento_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnRenunciasMovimiento.ItemClick
+        Dim reporte12 As REPORT_RENUNCIAS = New REPORT_RENUNCIAS
+        reporte12.ShowPreview()
     End Sub
 End Class

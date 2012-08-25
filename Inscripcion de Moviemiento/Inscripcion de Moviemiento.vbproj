@@ -586,6 +586,14 @@
     <Compile Include="Reportes\DT_Planillas_Por_Nivel.vb">
       <DependentUpon>DT_Planillas_Por_Nivel.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\NUEVOS\DS_RENUNCIAS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_RENUNCIAS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\NUEVOS\DS_RENUNCIAS.vb">
+      <DependentUpon>DS_RENUNCIAS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\NUEVOS\DS_REQUISITOS.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -665,6 +673,12 @@
       <DependentUpon>REPORTE_REQUISITOS_CANDIDATOS.vb</DependentUpon>
     </Compile>
     <Compile Include="Reportes\NUEVOS\REPORTE_REQUISITOS_CANDIDATOS.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\NUEVOS\REPORT_RENUNCIAS.Designer.vb">
+      <DependentUpon>REPORT_RENUNCIAS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\NUEVOS\REPORT_RENUNCIAS.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\NUEVOS\xrptPlanillaNivel2.Designer.vb">
@@ -990,10 +1004,10 @@
     <Compile Include="General\XfrmDepartamentos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Padron\XfrmPadron.Designer.vb">
+    <Compile Include="Reportes\NUEVOS\Padron\XfrmPadron.Designer.vb">
       <DependentUpon>XfrmPadron.vb</DependentUpon>
     </Compile>
-    <Compile Include="Padron\XfrmPadron.vb">
+    <Compile Include="Reportes\NUEVOS\Padron\XfrmPadron.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Procesos\XfrmCrearRespaldo.Designer.vb">
@@ -1277,6 +1291,10 @@
       <DependentUpon>REPORTE_REQUISITOS_CANDIDATOS.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\NUEVOS\REPORT_RENUNCIAS.resx">
+      <DependentUpon>REPORT_RENUNCIAS.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\NUEVOS\xrptPlanillaNivel2.resx">
       <DependentUpon>xrptPlanillaNivel2.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -1472,7 +1490,7 @@
       <DependentUpon>XfrmDepartamentos.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Padron\XfrmPadron.resx">
+    <EmbeddedResource Include="Reportes\NUEVOS\Padron\XfrmPadron.resx">
       <DependentUpon>XfrmPadron.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -2211,7 +2229,8 @@
       <DependentUpon>DS_REP_DETALLE_ESTADISTICA.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DS_REP_DETALLE_ESTADISTICA.xsd">
-      <SubType>Designer</SubType>
+      <SubType>
+      </SubType>
     </None>
     <None Include="Reportes\DS_REP_DETALLE_ESTADISTICA.xss">
       <DependentUpon>DS_REP_DETALLE_ESTADISTICA.xsd</DependentUpon>
@@ -2237,6 +2256,17 @@
     </None>
     <None Include="Reportes\DT_Planillas_Por_Nivel.xss">
       <DependentUpon>DT_Planillas_Por_Nivel.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\NUEVOS\DS_RENUNCIAS.xsc">
+      <DependentUpon>DS_RENUNCIAS.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\NUEVOS\DS_RENUNCIAS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_RENUNCIAS.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\NUEVOS\DS_RENUNCIAS.xss">
+      <DependentUpon>DS_RENUNCIAS.xsd</DependentUpon>
     </None>
     <None Include="Reportes\NUEVOS\DS_REQUISITOS.xsc">
       <DependentUpon>DS_REQUISITOS.xsd</DependentUpon>
