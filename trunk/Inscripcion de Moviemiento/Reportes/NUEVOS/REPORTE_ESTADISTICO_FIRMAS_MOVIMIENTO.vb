@@ -136,6 +136,7 @@ Public Class REPORTE_ESTADISTICO_FIRMAS_MOVIMIENTO
         End If
 
 
+        Me.GRAFICOTableAdapter.Fill(Me.GraficO_FIRMAS_ESTADISTICO1.GRAFICO, Me.NombrePartido.Value.ToString, Me.NombreMovimiento.Value.ToString)
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(DS_LOG.IM_PARTIDOS_POLITICOS_imagen, NombrePartido.Value.ToString)
         Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(DS_LOG.IM_MOVIMIENTOS_imagen, NombreMovimiento.Value.ToString)
         usuario_1.Text = usuario

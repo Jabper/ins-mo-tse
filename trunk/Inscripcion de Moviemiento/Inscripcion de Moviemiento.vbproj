@@ -604,6 +604,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DT_Produccion2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\NUEVOS\GRAFICO_FIRMAS_ESTADISTICO.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GRAFICO_FIRMAS_ESTADISTICO.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\NUEVOS\Parametros3.Designer.vb">
       <DependentUpon>Parametros3.vb</DependentUpon>
     </Compile>
@@ -2261,6 +2266,17 @@
     </None>
     <None Include="Reportes\NUEVOS\DT_Produccion2.xss">
       <DependentUpon>DT_Produccion2.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\NUEVOS\GRAFICO_FIRMAS_ESTADISTICO.xsc">
+      <DependentUpon>GRAFICO_FIRMAS_ESTADISTICO.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\NUEVOS\GRAFICO_FIRMAS_ESTADISTICO.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GRAFICO_FIRMAS_ESTADISTICO.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\NUEVOS\GRAFICO_FIRMAS_ESTADISTICO.xss">
+      <DependentUpon>GRAFICO_FIRMAS_ESTADISTICO.xsd</DependentUpon>
     </None>
     <None Include="Resources\borrar_usuario.sql" />
     <None Include="Resources\candidatos_repetidos.png" />
