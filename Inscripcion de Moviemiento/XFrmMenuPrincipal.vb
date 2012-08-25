@@ -28,7 +28,7 @@ Public Class XFrmMenuPrincipal
 
     Private Sub XFrmMenuPrincipal_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         If (XtraMessageBox.Show("¿Desea salir del sistema?", "Confirmar", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes) Then
-
+            COracle.ejecutarconsulta("update im_usuarios set conectado='N' where codigo_usuario='" & usuario & "'")
             End
 
         Else
@@ -219,12 +219,14 @@ Public Class XFrmMenuPrincipal
     Private Sub BtnCerrarSesion_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCerrarSesion.ItemClick
         ' verificar_permisos()
         If XtraMessageBox.Show("Desea Cerrar la Sesión Actual", "Confirmar Acción", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+            COracle.ejecutarconsulta("update im_usuarios set conectado='N' where codigo_usuario='" & usuario & "'")
             For Each ChildForm As Form In Me.MdiChildren
                 ChildForm.Close()
             Next
             Me.Visible = False
             Dim xfrm As XfrmLogin = New XfrmLogin
             xfrm.ShowDialog(Me)
+
         End If
     End Sub
 
