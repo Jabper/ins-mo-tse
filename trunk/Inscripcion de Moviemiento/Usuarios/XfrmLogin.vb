@@ -33,18 +33,25 @@ Public Class XfrmLogin
 
                     'CREAR EN EL MENU PRINCIPAL UN PROCEDIMIENTO QUE ME MUESTRE EL USUARIO CONECTADO
                     'XFrmMenuPrincipal.showuser(NombreUsuario)
-                    Me.TxtUsuario.Text = Nothing
-                    Me.TxtUsuario.Text = Nothing
-                    XFrmMenuPrincipal.TxtUser.Caption = NombreUsuario
-                    XFrmMenuPrincipal.verificar_permisos()
 
-                    XFrmMenuPrincipal.Visible = True
+                    If COracle.ObtenerDatos("select conectado from im_usuarios where codigo_usuario='" & usuario & "'", "CONECTADO") = "S" Then
+                        Mensajes.mimensaje("El usuario ya ha iniciado sesión en otro equipo")
+                    Else
 
-                    XFrmMenuPrincipal.Focus()
-                    Me.Close()
-                End If
+                        Me.TxtUsuario.Text = Nothing
+                        Me.TxtUsuario.Text = Nothing
+                        XFrmMenuPrincipal.TxtUser.Caption = NombreUsuario
+                        XFrmMenuPrincipal.verificar_permisos()
+
+                        XFrmMenuPrincipal.Visible = True
+                        COracle.ejecutarconsulta("update im_usuarios set conectado='S' where codigo_usuario='" & usuario & "'")
+                        XFrmMenuPrincipal.Focus()
+                        Me.Close()
+                    End If
+
+                    End If
             Else
-                Mensajes.MensajeError("Usuario o Contraseña Inválidos")
+                    Mensajes.MensajeError("Usuario o Contraseña Inválidos")
 
             End If
         End If
