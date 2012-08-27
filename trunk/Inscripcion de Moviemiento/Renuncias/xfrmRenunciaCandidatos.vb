@@ -105,6 +105,10 @@ Public Class xfrmRenunciaCandidatos
         GridView1.HideEditor()
     End Sub
 
+    Private Sub GridView1_InvalidValueException(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs) Handles GridView1.InvalidValueException
+     
+    End Sub
+
 
 
     Private Sub GridView1_ValidateRow(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs) Handles GridView1.ValidateRow
@@ -165,6 +169,12 @@ Public Class xfrmRenunciaCandidatos
                 .SEGUNDO_NOMBRE = COracle.ObtenerDatos(consulta, "SEGUNDO_NOMBRE")
                 .PRIMER_APELLIDO = COracle.ObtenerDatos(consulta, "PRIMER_APELLIDO")
                 .SEGUNDO_APELLIDO = COracle.ObtenerDatos(consulta, "SEGUNDO_APELLIDO")
+                If IsDBNull(GridView1.GetRowCellValue(i, "Imagen_firma")) Then
+
+                Else
+                    .IMAGEN_RENUNCIA = GridView1.GetRowCellValue(i, "Imagen_firma")
+                End If
+
             End With
             Me.DT_Renuncia.IM_RENUNCIAS.Rows.Add(ciudadanos)
 
@@ -189,8 +199,5 @@ Public Class xfrmRenunciaCandidatos
         ValidarFilas()
     End Sub
 
-  
-    Private Sub btnbusqueda_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnbusqueda.EditValueChanged
 
-    End Sub
 End Class

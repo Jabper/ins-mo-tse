@@ -49,6 +49,8 @@ Partial Class xfrmRenunciaCandidatos
         Me.colRENUNCIA = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
         Me.colCODIGO_CARGO_ELECTIVO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colIMAGEN = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.RepositoryItemPictureEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl
@@ -74,6 +76,7 @@ Partial Class xfrmRenunciaCandidatos
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemLookUpEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -128,14 +131,14 @@ Partial Class xfrmRenunciaCandidatos
         Me.GrdRepetidos.MainView = Me.GridView1
         Me.GrdRepetidos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GrdRepetidos.Name = "GrdRepetidos"
-        Me.GrdRepetidos.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1, Me.RepositoryItemLookUpEdit1})
+        Me.GrdRepetidos.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1, Me.RepositoryItemLookUpEdit1, Me.RepositoryItemPictureEdit1})
         Me.GrdRepetidos.Size = New System.Drawing.Size(617, 153)
         Me.GrdRepetidos.TabIndex = 18
         Me.GrdRepetidos.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
         'GridView1
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_CANDIDATOS, Me.colIDENTIDAD, Me.colNOMBRE, Me.colAPELLIDO, Me.colPOSICION, Me.colCARGO, Me.colCODIGO_DEPARTAMENTO, Me.colDEPARTAMENTO, Me.colCODIGO_MUNICIPIO, Me.colMUNICIPIO, Me.colCODIGO_PARTIDO, Me.colPARTIDO, Me.colCODIGO_MOVIMIENTO, Me.colNOMBRE_MOVIMIENTO, Me.colMOTIVO, Me.colRENUNCIA, Me.colCODIGO_CARGO_ELECTIVO})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_CANDIDATOS, Me.colIDENTIDAD, Me.colNOMBRE, Me.colAPELLIDO, Me.colPOSICION, Me.colCARGO, Me.colCODIGO_DEPARTAMENTO, Me.colDEPARTAMENTO, Me.colCODIGO_MUNICIPIO, Me.colMUNICIPIO, Me.colCODIGO_PARTIDO, Me.colPARTIDO, Me.colCODIGO_MOVIMIENTO, Me.colNOMBRE_MOVIMIENTO, Me.colMOTIVO, Me.colRENUNCIA, Me.colCODIGO_CARGO_ELECTIVO, Me.colIMAGEN})
         Me.GridView1.GridControl = Me.GrdRepetidos
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsView.ShowGroupPanel = False
@@ -279,6 +282,19 @@ Partial Class xfrmRenunciaCandidatos
         '
         Me.colCODIGO_CARGO_ELECTIVO.FieldName = "CODIGO_CARGO_ELECTIVO"
         Me.colCODIGO_CARGO_ELECTIVO.Name = "colCODIGO_CARGO_ELECTIVO"
+        '
+        'colIMAGEN
+        '
+        Me.colIMAGEN.ColumnEdit = Me.RepositoryItemPictureEdit1
+        Me.colIMAGEN.FieldName = "Imagen_firma"
+        Me.colIMAGEN.Name = "colIMAGEN"
+        Me.colIMAGEN.Visible = True
+        Me.colIMAGEN.VisibleIndex = 8
+        '
+        'RepositoryItemPictureEdit1
+        '
+        Me.RepositoryItemPictureEdit1.Name = "RepositoryItemPictureEdit1"
+        Me.RepositoryItemPictureEdit1.PictureStoreMode = DevExpress.XtraEditors.Controls.PictureStoreMode.ByteArray
         '
         'PanelControl1
         '
@@ -473,6 +489,7 @@ Partial Class xfrmRenunciaCandidatos
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemLookUpEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         Me.PanelControl1.PerformLayout()
@@ -530,4 +547,6 @@ Partial Class xfrmRenunciaCandidatos
     Friend WithEvents IM_RENUNCIASTableAdapter As Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_RENUNCIASTableAdapter
     Friend WithEvents colCODIGO_CARGO_ELECTIVO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents colIMAGEN As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryItemPictureEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
 End Class
