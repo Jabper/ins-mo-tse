@@ -392,6 +392,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DT_Renuncia.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Renuncias\DT_Renuncia.vb">
+      <DependentUpon>DT_Renuncia.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Renuncias\xfrmRenunciaCandidatos.Designer.vb">
       <DependentUpon>xfrmRenunciaCandidatos.vb</DependentUpon>
     </Compile>
