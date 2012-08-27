@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class xfrmRenunciaCandidatos
+Partial Class xfrmRenunciaCandidatosN
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
@@ -20,38 +20,40 @@ Partial Class xfrmRenunciaCandidatos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(xfrmRenunciaCandidatos))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(xfrmRenunciaCandidatosN))
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject
-        Me.IMVCANDIDATORENUNCIABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DT_Renuncia = New Inscripcion_de_Moviemientos.DT_Renuncia
         Me.IMMOTIVOSRENUNCIABindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.IM_V_CANDIDATO_RENUNCIATableAdapter = New Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_V_CANDIDATO_RENUNCIATableAdapter
         Me.IM_MOTIVOS_RENUNCIATableAdapter = New Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_MOTIVOS_RENUNCIATableAdapter
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
         Me.GrdRepetidos = New DevExpress.XtraGrid.GridControl
+        Me.RENUNCIAS = New System.Windows.Forms.BindingSource(Me.components)
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
-        Me.colCODIGO_CANDIDATOS = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colIDENTIDAD = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colNOMBRE = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colAPELLIDO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCODIGO_CANDIDATO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colPOSICION = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCODIGO_CARGO_ELECTIVO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCARGO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCODIGO_DEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colDEPARTAMENTO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCODIGO_MUNICIPIO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colMUNICIPIO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colIDENTIDAD = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCODIGO_MOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colMOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCODIGO_PARTIDO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colPARTIDO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colCODIGO_MOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colNOMBRE_MOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colMOTIVO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colCODIGO_MOTIVO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RepositoryItemLookUpEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit
-        Me.colRENUNCIA = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
-        Me.colCODIGO_CARGO_ELECTIVO = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.colIMAGEN = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colIMAGEN_RENUNCIA = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RepositoryItemPictureEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
+        Me.colREESTABLECER = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+        Me.colPRIMER_APELLIDO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colPRIMER_NOMBRE = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colSEGUNDO_APELLIDO = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colSEGUNDO_NOMBRE = New DevExpress.XtraGrid.Columns.GridColumn
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl
@@ -66,35 +68,27 @@ Partial Class xfrmRenunciaCandidatos
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.IM_RENUNCIASTableAdapter = New Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_RENUNCIASTableAdapter
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox
-        CType(Me.IMVCANDIDATORENUNCIABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.RENUNCIASTableAdapter = New Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.RENUNCIASTableAdapter
         CType(Me.DT_Renuncia, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMMOTIVOSRENUNCIABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.GrdRepetidos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RENUNCIAS, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemLookUpEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         CType(Me.btnbusqueda.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'IMVCANDIDATORENUNCIABindingSource
-        '
-        Me.IMVCANDIDATORENUNCIABindingSource.DataMember = "IM_V_CANDIDATO_RENUNCIA"
-        Me.IMVCANDIDATORENUNCIABindingSource.DataSource = Me.DT_Renuncia
         '
         'DT_Renuncia
         '
@@ -105,10 +99,6 @@ Partial Class xfrmRenunciaCandidatos
         '
         Me.IMMOTIVOSRENUNCIABindingSource.DataMember = "IM_MOTIVOS_RENUNCIA"
         Me.IMMOTIVOSRENUNCIABindingSource.DataSource = Me.DT_Renuncia
-        '
-        'IM_V_CANDIDATO_RENUNCIATableAdapter
-        '
-        Me.IM_V_CANDIDATO_RENUNCIATableAdapter.ClearBeforeFill = True
         '
         'IM_MOTIVOS_RENUNCIATableAdapter
         '
@@ -129,7 +119,7 @@ Partial Class xfrmRenunciaCandidatos
         '
         'GrdRepetidos
         '
-        Me.GrdRepetidos.DataSource = Me.IMVCANDIDATORENUNCIABindingSource
+        Me.GrdRepetidos.DataSource = Me.RENUNCIAS
         Me.GrdRepetidos.Location = New System.Drawing.Point(12, 201)
         Me.GrdRepetidos.MainView = Me.GridView1
         Me.GrdRepetidos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -139,32 +129,22 @@ Partial Class xfrmRenunciaCandidatos
         Me.GrdRepetidos.TabIndex = 18
         Me.GrdRepetidos.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
+        'RENUNCIAS
+        '
+        Me.RENUNCIAS.DataMember = "RENUNCIAS"
+        Me.RENUNCIAS.DataSource = Me.DT_Renuncia
+        '
         'GridView1
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_CANDIDATOS, Me.colIDENTIDAD, Me.colNOMBRE, Me.colAPELLIDO, Me.colPOSICION, Me.colCARGO, Me.colCODIGO_DEPARTAMENTO, Me.colDEPARTAMENTO, Me.colCODIGO_MUNICIPIO, Me.colMUNICIPIO, Me.colCODIGO_PARTIDO, Me.colPARTIDO, Me.colCODIGO_MOVIMIENTO, Me.colNOMBRE_MOVIMIENTO, Me.colMOTIVO, Me.colRENUNCIA, Me.colCODIGO_CARGO_ELECTIVO, Me.colIMAGEN})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_CANDIDATO, Me.colPOSICION, Me.colCODIGO_CARGO_ELECTIVO, Me.colCARGO, Me.colCODIGO_DEPARTAMENTO, Me.colDEPARTAMENTO, Me.colCODIGO_MUNICIPIO, Me.colMUNICIPIO, Me.colIDENTIDAD, Me.colCODIGO_MOVIMIENTO, Me.colMOVIMIENTO, Me.colCODIGO_PARTIDO, Me.colPARTIDO, Me.colCODIGO_MOTIVO, Me.colIMAGEN_RENUNCIA, Me.colREESTABLECER, Me.colPRIMER_APELLIDO, Me.colPRIMER_NOMBRE, Me.colSEGUNDO_APELLIDO, Me.colSEGUNDO_NOMBRE})
         Me.GridView1.GridControl = Me.GrdRepetidos
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsView.ShowGroupPanel = False
         '
-        'colCODIGO_CANDIDATOS
+        'colCODIGO_CANDIDATO
         '
-        Me.colCODIGO_CANDIDATOS.FieldName = "CODIGO_CANDIDATOS"
-        Me.colCODIGO_CANDIDATOS.Name = "colCODIGO_CANDIDATOS"
-        '
-        'colIDENTIDAD
-        '
-        Me.colIDENTIDAD.FieldName = "IDENTIDAD"
-        Me.colIDENTIDAD.Name = "colIDENTIDAD"
-        '
-        'colNOMBRE
-        '
-        Me.colNOMBRE.FieldName = "NOMBRE"
-        Me.colNOMBRE.Name = "colNOMBRE"
-        '
-        'colAPELLIDO
-        '
-        Me.colAPELLIDO.FieldName = "APELLIDO"
-        Me.colAPELLIDO.Name = "colAPELLIDO"
+        Me.colCODIGO_CANDIDATO.FieldName = "CODIGO_CANDIDATO"
+        Me.colCODIGO_CANDIDATO.Name = "colCODIGO_CANDIDATO"
         '
         'colPOSICION
         '
@@ -173,8 +153,14 @@ Partial Class xfrmRenunciaCandidatos
         Me.colPOSICION.Name = "colPOSICION"
         Me.colPOSICION.OptionsColumn.AllowEdit = False
         Me.colPOSICION.Visible = True
-        Me.colPOSICION.VisibleIndex = 4
-        Me.colPOSICION.Width = 60
+        Me.colPOSICION.VisibleIndex = 1
+        Me.colPOSICION.Width = 113
+        '
+        'colCODIGO_CARGO_ELECTIVO
+        '
+        Me.colCODIGO_CARGO_ELECTIVO.FieldName = "CODIGO_CARGO_ELECTIVO"
+        Me.colCODIGO_CARGO_ELECTIVO.Name = "colCODIGO_CARGO_ELECTIVO"
+        Me.colCODIGO_CARGO_ELECTIVO.OptionsColumn.AllowEdit = False
         '
         'colCARGO
         '
@@ -183,8 +169,8 @@ Partial Class xfrmRenunciaCandidatos
         Me.colCARGO.Name = "colCARGO"
         Me.colCARGO.OptionsColumn.AllowEdit = False
         Me.colCARGO.Visible = True
-        Me.colCARGO.VisibleIndex = 5
-        Me.colCARGO.Width = 87
+        Me.colCARGO.VisibleIndex = 2
+        Me.colCARGO.Width = 113
         '
         'colCODIGO_DEPARTAMENTO
         '
@@ -198,8 +184,8 @@ Partial Class xfrmRenunciaCandidatos
         Me.colDEPARTAMENTO.Name = "colDEPARTAMENTO"
         Me.colDEPARTAMENTO.OptionsColumn.AllowEdit = False
         Me.colDEPARTAMENTO.Visible = True
-        Me.colDEPARTAMENTO.VisibleIndex = 6
-        Me.colDEPARTAMENTO.Width = 87
+        Me.colDEPARTAMENTO.VisibleIndex = 5
+        Me.colDEPARTAMENTO.Width = 113
         '
         'colCODIGO_MUNICIPIO
         '
@@ -213,8 +199,29 @@ Partial Class xfrmRenunciaCandidatos
         Me.colMUNICIPIO.Name = "colMUNICIPIO"
         Me.colMUNICIPIO.OptionsColumn.AllowEdit = False
         Me.colMUNICIPIO.Visible = True
-        Me.colMUNICIPIO.VisibleIndex = 7
-        Me.colMUNICIPIO.Width = 100
+        Me.colMUNICIPIO.VisibleIndex = 6
+        Me.colMUNICIPIO.Width = 113
+        '
+        'colIDENTIDAD
+        '
+        Me.colIDENTIDAD.FieldName = "IDENTIDAD"
+        Me.colIDENTIDAD.Name = "colIDENTIDAD"
+        Me.colIDENTIDAD.Width = 113
+        '
+        'colCODIGO_MOVIMIENTO
+        '
+        Me.colCODIGO_MOVIMIENTO.FieldName = "CODIGO_MOVIMIENTO"
+        Me.colCODIGO_MOVIMIENTO.Name = "colCODIGO_MOVIMIENTO"
+        '
+        'colMOVIMIENTO
+        '
+        Me.colMOVIMIENTO.Caption = "Movimiento"
+        Me.colMOVIMIENTO.FieldName = "MOVIMIENTO"
+        Me.colMOVIMIENTO.Name = "colMOVIMIENTO"
+        Me.colMOVIMIENTO.OptionsColumn.AllowEdit = False
+        Me.colMOVIMIENTO.Visible = True
+        Me.colMOVIMIENTO.VisibleIndex = 4
+        Me.colMOVIMIENTO.Width = 113
         '
         'colCODIGO_PARTIDO
         '
@@ -228,32 +235,19 @@ Partial Class xfrmRenunciaCandidatos
         Me.colPARTIDO.Name = "colPARTIDO"
         Me.colPARTIDO.OptionsColumn.AllowEdit = False
         Me.colPARTIDO.Visible = True
-        Me.colPARTIDO.VisibleIndex = 2
-        Me.colPARTIDO.Width = 97
+        Me.colPARTIDO.VisibleIndex = 3
+        Me.colPARTIDO.Width = 113
         '
-        'colCODIGO_MOVIMIENTO
+        'colCODIGO_MOTIVO
         '
-        Me.colCODIGO_MOVIMIENTO.FieldName = "CODIGO_MOVIMIENTO"
-        Me.colCODIGO_MOVIMIENTO.Name = "colCODIGO_MOVIMIENTO"
-        '
-        'colNOMBRE_MOVIMIENTO
-        '
-        Me.colNOMBRE_MOVIMIENTO.Caption = "Movimiento"
-        Me.colNOMBRE_MOVIMIENTO.FieldName = "NOMBRE_MOVIMIENTO"
-        Me.colNOMBRE_MOVIMIENTO.Name = "colNOMBRE_MOVIMIENTO"
-        Me.colNOMBRE_MOVIMIENTO.Visible = True
-        Me.colNOMBRE_MOVIMIENTO.VisibleIndex = 3
-        Me.colNOMBRE_MOVIMIENTO.Width = 97
-        '
-        'colMOTIVO
-        '
-        Me.colMOTIVO.Caption = "Motivo"
-        Me.colMOTIVO.ColumnEdit = Me.RepositoryItemLookUpEdit1
-        Me.colMOTIVO.FieldName = "MOTIVO"
-        Me.colMOTIVO.Name = "colMOTIVO"
-        Me.colMOTIVO.Visible = True
-        Me.colMOTIVO.VisibleIndex = 1
-        Me.colMOTIVO.Width = 105
+        Me.colCODIGO_MOTIVO.Caption = "Motivo Renuncia"
+        Me.colCODIGO_MOTIVO.ColumnEdit = Me.RepositoryItemLookUpEdit1
+        Me.colCODIGO_MOTIVO.FieldName = "CODIGO_MOTIVO"
+        Me.colCODIGO_MOTIVO.Name = "colCODIGO_MOTIVO"
+        Me.colCODIGO_MOTIVO.OptionsColumn.AllowEdit = False
+        Me.colCODIGO_MOTIVO.Visible = True
+        Me.colCODIGO_MOTIVO.VisibleIndex = 7
+        Me.colCODIGO_MOTIVO.Width = 113
         '
         'RepositoryItemLookUpEdit1
         '
@@ -268,16 +262,32 @@ Partial Class xfrmRenunciaCandidatos
         Me.RepositoryItemLookUpEdit1.NullValuePromptShowForEmptyValue = True
         Me.RepositoryItemLookUpEdit1.ValueMember = "CODIGO_MOTIVO"
         '
-        'colRENUNCIA
+        'colIMAGEN_RENUNCIA
         '
-        Me.colRENUNCIA.Caption = "¿Renuncia?"
-        Me.colRENUNCIA.ColumnEdit = Me.RepositoryItemCheckEdit1
-        Me.colRENUNCIA.FieldName = "RENUNCIA"
-        Me.colRENUNCIA.Name = "colRENUNCIA"
-        Me.colRENUNCIA.ToolTip = "seleccionar este campo si el candidato desea renunciar de este movimiento"
-        Me.colRENUNCIA.Visible = True
-        Me.colRENUNCIA.VisibleIndex = 0
-        Me.colRENUNCIA.Width = 68
+        Me.colIMAGEN_RENUNCIA.Caption = "Imágen Renuncia"
+        Me.colIMAGEN_RENUNCIA.ColumnEdit = Me.RepositoryItemPictureEdit1
+        Me.colIMAGEN_RENUNCIA.FieldName = "IMAGEN_RENUNCIA"
+        Me.colIMAGEN_RENUNCIA.Name = "colIMAGEN_RENUNCIA"
+        Me.colIMAGEN_RENUNCIA.OptionsColumn.AllowEdit = False
+        Me.colIMAGEN_RENUNCIA.Visible = True
+        Me.colIMAGEN_RENUNCIA.VisibleIndex = 8
+        Me.colIMAGEN_RENUNCIA.Width = 120
+        '
+        'RepositoryItemPictureEdit1
+        '
+        Me.RepositoryItemPictureEdit1.Name = "RepositoryItemPictureEdit1"
+        Me.RepositoryItemPictureEdit1.PictureStoreMode = DevExpress.XtraEditors.Controls.PictureStoreMode.ByteArray
+        '
+        'colREESTABLECER
+        '
+        Me.colREESTABLECER.Caption = "¿Reestablecer?"
+        Me.colREESTABLECER.ColumnEdit = Me.RepositoryItemCheckEdit1
+        Me.colREESTABLECER.FieldName = "REESTABLECER"
+        Me.colREESTABLECER.Name = "colREESTABLECER"
+        Me.colREESTABLECER.OptionsColumn.AllowEdit = False
+        Me.colREESTABLECER.Visible = True
+        Me.colREESTABLECER.VisibleIndex = 0
+        Me.colREESTABLECER.Width = 70
         '
         'RepositoryItemCheckEdit1
         '
@@ -288,24 +298,25 @@ Partial Class xfrmRenunciaCandidatos
         Me.RepositoryItemCheckEdit1.ValueGrayed = "N"
         Me.RepositoryItemCheckEdit1.ValueUnchecked = "N"
         '
-        'colCODIGO_CARGO_ELECTIVO
+        'colPRIMER_APELLIDO
         '
-        Me.colCODIGO_CARGO_ELECTIVO.FieldName = "CODIGO_CARGO_ELECTIVO"
-        Me.colCODIGO_CARGO_ELECTIVO.Name = "colCODIGO_CARGO_ELECTIVO"
+        Me.colPRIMER_APELLIDO.FieldName = "PRIMER_APELLIDO"
+        Me.colPRIMER_APELLIDO.Name = "colPRIMER_APELLIDO"
         '
-        'colIMAGEN
+        'colPRIMER_NOMBRE
         '
-        Me.colIMAGEN.Caption = "Imágen"
-        Me.colIMAGEN.ColumnEdit = Me.RepositoryItemPictureEdit1
-        Me.colIMAGEN.FieldName = "Imagen_firma"
-        Me.colIMAGEN.Name = "colIMAGEN"
-        Me.colIMAGEN.Visible = True
-        Me.colIMAGEN.VisibleIndex = 8
+        Me.colPRIMER_NOMBRE.FieldName = "PRIMER_NOMBRE"
+        Me.colPRIMER_NOMBRE.Name = "colPRIMER_NOMBRE"
         '
-        'RepositoryItemPictureEdit1
+        'colSEGUNDO_APELLIDO
         '
-        Me.RepositoryItemPictureEdit1.Name = "RepositoryItemPictureEdit1"
-        Me.RepositoryItemPictureEdit1.PictureStoreMode = DevExpress.XtraEditors.Controls.PictureStoreMode.ByteArray
+        Me.colSEGUNDO_APELLIDO.FieldName = "SEGUNDO_APELLIDO"
+        Me.colSEGUNDO_APELLIDO.Name = "colSEGUNDO_APELLIDO"
+        '
+        'colSEGUNDO_NOMBRE
+        '
+        Me.colSEGUNDO_NOMBRE.FieldName = "SEGUNDO_NOMBRE"
+        Me.colSEGUNDO_NOMBRE.Name = "colSEGUNDO_NOMBRE"
         '
         'PanelControl1
         '
@@ -323,16 +334,26 @@ Partial Class xfrmRenunciaCandidatos
         Me.PanelControl1.Size = New System.Drawing.Size(617, 185)
         Me.PanelControl1.TabIndex = 20
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.document_revert
+        Me.PictureBox1.Location = New System.Drawing.Point(494, 17)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.PictureBox1.TabIndex = 21
+        Me.PictureBox1.TabStop = False
+        '
         'LabelControl2
         '
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl2.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.LabelControl2.Location = New System.Drawing.Point(181, 27)
+        Me.LabelControl2.Appearance.ForeColor = System.Drawing.Color.Green
+        Me.LabelControl2.Location = New System.Drawing.Point(212, 23)
         Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(196, 19)
-        Me.LabelControl2.TabIndex = 19
-        Me.LabelControl2.Text = "Renuncia de Candidatos"
+        Me.LabelControl2.Size = New System.Drawing.Size(272, 19)
+        Me.LabelControl2.TabIndex = 20
+        Me.LabelControl2.Text = "Cancelar Renuncia de Candidatos"
         '
         'GroupBox1
         '
@@ -395,7 +416,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.FlowLayoutPanel1.Controls.Add(Me.BtnSalir)
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(18, 5)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(130, 64)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(136, 64)
         Me.FlowLayoutPanel1.TabIndex = 11
         '
         'BtnGuardar
@@ -486,47 +507,33 @@ Partial Class xfrmRenunciaCandidatos
         Me.LayoutControlItem2.TextToControlDistance = 0
         Me.LayoutControlItem2.TextVisible = False
         '
-        'BindingSource1
+        'RENUNCIASTableAdapter
         '
-        Me.BindingSource1.DataMember = "IM_RENUNCIAS"
-        Me.BindingSource1.DataSource = Me.DT_Renuncia
+        Me.RENUNCIASTableAdapter.ClearBeforeFill = True
         '
-        'IM_RENUNCIASTableAdapter
-        '
-        Me.IM_RENUNCIASTableAdapter.ClearBeforeFill = True
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.file_broken
-        Me.PictureBox1.Location = New System.Drawing.Point(402, 22)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.PictureBox1.TabIndex = 22
-        Me.PictureBox1.TabStop = False
-        '
-        'xfrmRenunciaCandidatos
+        'xfrmRenunciaCandidatosN
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(641, 366)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Name = "xfrmRenunciaCandidatos"
-        Me.Text = "Renuncia de Candidatos"
-        CType(Me.IMVCANDIDATORENUNCIABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Name = "xfrmRenunciaCandidatosN"
+        Me.Text = "Cancelar Renuncia de Candidatos"
         CType(Me.DT_Renuncia, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMMOTIVOSRENUNCIABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
         CType(Me.GrdRepetidos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RENUNCIAS, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemLookUpEdit1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         Me.PanelControl1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.FlowLayoutPanel1.ResumeLayout(False)
@@ -534,37 +541,17 @@ Partial Class xfrmRenunciaCandidatos
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents IMVCANDIDATORENUNCIABindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents DT_Renuncia As Inscripcion_de_Moviemientos.DT_Renuncia
-    Friend WithEvents IM_V_CANDIDATO_RENUNCIATableAdapter As Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_V_CANDIDATO_RENUNCIATableAdapter
     Friend WithEvents IMMOTIVOSRENUNCIABindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents IM_MOTIVOS_RENUNCIATableAdapter As Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_MOTIVOS_RENUNCIATableAdapter
     Friend WithEvents LayoutControl1 As DevExpress.XtraLayout.LayoutControl
     Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents GrdRepetidos As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents colCODIGO_CANDIDATOS As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colIDENTIDAD As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colNOMBRE As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colAPELLIDO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colPOSICION As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colCARGO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colCODIGO_DEPARTAMENTO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colDEPARTAMENTO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colCODIGO_MUNICIPIO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colMUNICIPIO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colCODIGO_PARTIDO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colPARTIDO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colCODIGO_MOVIMIENTO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colNOMBRE_MOVIMIENTO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colMOTIVO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemLookUpEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit
-    Friend WithEvents colRENUNCIA As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemCheckEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents BtnGuardar As DevExpress.XtraEditors.SimpleButton
@@ -578,12 +565,30 @@ Partial Class xfrmRenunciaCandidatos
     Friend WithEvents LayoutControlGroup1 As DevExpress.XtraLayout.LayoutControlGroup
     Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents BindingSource1 As System.Windows.Forms.BindingSource
-    Friend WithEvents IM_RENUNCIASTableAdapter As Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_RENUNCIASTableAdapter
-    Friend WithEvents colCODIGO_CARGO_ELECTIVO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents colIMAGEN As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemPictureEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
-    Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents RENUNCIAS As System.Windows.Forms.BindingSource
+    Friend WithEvents RENUNCIASTableAdapter As Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.RENUNCIASTableAdapter
+    Friend WithEvents colCODIGO_CANDIDATO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colPOSICION As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colCODIGO_CARGO_ELECTIVO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colCARGO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colCODIGO_DEPARTAMENTO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colDEPARTAMENTO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colCODIGO_MUNICIPIO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colMUNICIPIO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colIDENTIDAD As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colCODIGO_MOVIMIENTO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colMOVIMIENTO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colCODIGO_PARTIDO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colPARTIDO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colCODIGO_MOTIVO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colIMAGEN_RENUNCIA As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colREESTABLECER As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colPRIMER_APELLIDO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colPRIMER_NOMBRE As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colSEGUNDO_APELLIDO As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colSEGUNDO_NOMBRE As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
 End Class

@@ -657,4 +657,8 @@ Public Class XFrmMenuPrincipal
         Dim reporte12 As REPORT_RENUNCIAS = New REPORT_RENUNCIAS
         reporte12.ShowPreview()
     End Sub
+
+    Private Sub BtnCancelarRenuncia_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCancelarRenuncia.ItemClick
+        Padre(xfrmRenunciaCandidatosN)
+    End Sub
 End Class
