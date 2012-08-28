@@ -52,6 +52,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.colIMAGEN = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RepositoryItemPictureEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl
@@ -68,7 +69,6 @@ Partial Class xfrmRenunciaCandidatos
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_RENUNCIASTableAdapter = New Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_RENUNCIASTableAdapter
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox
         CType(Me.IMVCANDIDATORENUNCIABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DT_Renuncia, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMMOTIVOSRENUNCIABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -81,6 +81,7 @@ Partial Class xfrmRenunciaCandidatos
         CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         CType(Me.btnbusqueda.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,7 +89,6 @@ Partial Class xfrmRenunciaCandidatos
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IMVCANDIDATORENUNCIABindingSource
@@ -323,6 +323,16 @@ Partial Class xfrmRenunciaCandidatos
         Me.PanelControl1.Size = New System.Drawing.Size(617, 185)
         Me.PanelControl1.TabIndex = 20
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.file_broken
+        Me.PictureBox1.Location = New System.Drawing.Point(402, 22)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.PictureBox1.TabIndex = 22
+        Me.PictureBox1.TabStop = False
+        '
         'LabelControl2
         '
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -495,16 +505,6 @@ Partial Class xfrmRenunciaCandidatos
         '
         Me.IM_RENUNCIASTableAdapter.ClearBeforeFill = True
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.file_broken
-        Me.PictureBox1.Location = New System.Drawing.Point(402, 22)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.PictureBox1.TabIndex = 22
-        Me.PictureBox1.TabStop = False
-        '
         'xfrmRenunciaCandidatos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -527,6 +527,7 @@ Partial Class xfrmRenunciaCandidatos
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         Me.PanelControl1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.FlowLayoutPanel1.ResumeLayout(False)
@@ -535,7 +536,6 @@ Partial Class xfrmRenunciaCandidatos
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
