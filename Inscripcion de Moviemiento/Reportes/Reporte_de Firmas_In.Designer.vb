@@ -80,7 +80,6 @@ Partial Public Class Reporte_de_Firmas_In
         Me.XrLabel22 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel19 = New DevExpress.XtraReports.UI.XRLabel
         Me.GroupHeader1 = New DevExpress.XtraReports.UI.GroupHeaderBand
-        Me.GroupHeader2 = New DevExpress.XtraReports.UI.GroupHeaderBand
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -262,7 +261,7 @@ Partial Public Class Reporte_de_Firmas_In
         '
         'XrLabel7
         '
-        Me.XrLabel7.LocationFloat = New DevExpress.Utils.PointFloat(6.00001!, 10.00001!)
+        Me.XrLabel7.LocationFloat = New DevExpress.Utils.PointFloat(10.41667!, 7.916673!)
         Me.XrLabel7.Name = "XrLabel7"
         Me.XrLabel7.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel7.SizeF = New System.Drawing.SizeF(207.0!, 15.58332!)
@@ -272,7 +271,7 @@ Partial Public Class Reporte_de_Firmas_In
         'XrLabel8
         '
         Me.XrLabel8.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_INCONSISTENTES.MUNICIPIO")})
-        Me.XrLabel8.LocationFloat = New DevExpress.Utils.PointFloat(263.7501!, 10.00001!)
+        Me.XrLabel8.LocationFloat = New DevExpress.Utils.PointFloat(263.75!, 8.333365!)
         Me.XrLabel8.Name = "XrLabel8"
         Me.XrLabel8.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel8.SizeF = New System.Drawing.SizeF(418.7916!, 15.58332!)
@@ -283,14 +282,14 @@ Partial Public Class Reporte_de_Firmas_In
         '
         Me.GroupHeaderBand2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel28, Me.XrLabel5, Me.XrLabel6})
         Me.GroupHeaderBand2.GroupFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("DEPARTAMENTO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
-        Me.GroupHeaderBand2.HeightF = 32.875!
+        Me.GroupHeaderBand2.HeightF = 37.04166!
         Me.GroupHeaderBand2.Level = 1
         Me.GroupHeaderBand2.Name = "GroupHeaderBand2"
         '
         'XrLabel29
         '
         Me.XrLabel29.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_INCONSISTENTES.CODIGO_MUNICIPIO")})
-        Me.XrLabel29.LocationFloat = New DevExpress.Utils.PointFloat(225.2084!, 10.00001!)
+        Me.XrLabel29.LocationFloat = New DevExpress.Utils.PointFloat(225.2084!, 8.333365!)
         Me.XrLabel29.Name = "XrLabel29"
         Me.XrLabel29.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel29.SizeF = New System.Drawing.SizeF(36.53564!, 16.00002!)
@@ -308,7 +307,7 @@ Partial Public Class Reporte_de_Firmas_In
         'XrLabel25
         '
         Me.XrLabel25.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel25.LocationFloat = New DevExpress.Utils.PointFloat(665.53!, 40.20831!)
+        Me.XrLabel25.LocationFloat = New DevExpress.Utils.PointFloat(665.5301!, 38.12497!)
         Me.XrLabel25.Multiline = True
         Me.XrLabel25.Name = "XrLabel25"
         Me.XrLabel25.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -321,7 +320,7 @@ Partial Public Class Reporte_de_Firmas_In
         'XrLabel23
         '
         Me.XrLabel23.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel23.LocationFloat = New DevExpress.Utils.PointFloat(592.6133!, 40.20831!)
+        Me.XrLabel23.LocationFloat = New DevExpress.Utils.PointFloat(592.6133!, 38.12497!)
         Me.XrLabel23.Multiline = True
         Me.XrLabel23.Name = "XrLabel23"
         Me.XrLabel23.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -334,7 +333,7 @@ Partial Public Class Reporte_de_Firmas_In
         'XrLabel9
         '
         Me.XrLabel9.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel9.LocationFloat = New DevExpress.Utils.PointFloat(4.404894!, 40.20831!)
+        Me.XrLabel9.LocationFloat = New DevExpress.Utils.PointFloat(10.41667!, 38.12497!)
         Me.XrLabel9.Name = "XrLabel9"
         Me.XrLabel9.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel9.SizeF = New System.Drawing.SizeF(132.0!, 18.0!)
@@ -346,7 +345,7 @@ Partial Public Class Reporte_de_Firmas_In
         'XrLabel10
         '
         Me.XrLabel10.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel10.LocationFloat = New DevExpress.Utils.PointFloat(156.1965!, 40.20831!)
+        Me.XrLabel10.LocationFloat = New DevExpress.Utils.PointFloat(142.4167!, 38.12497!)
         Me.XrLabel10.Name = "XrLabel10"
         Me.XrLabel10.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel10.SizeF = New System.Drawing.SizeF(105.2857!, 18.0!)
@@ -358,7 +357,7 @@ Partial Public Class Reporte_de_Firmas_In
         'XrLabel11
         '
         Me.XrLabel11.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel11.LocationFloat = New DevExpress.Utils.PointFloat(287.5238!, 40.20831!)
+        Me.XrLabel11.LocationFloat = New DevExpress.Utils.PointFloat(250.5119!, 38.12497!)
         Me.XrLabel11.Name = "XrLabel11"
         Me.XrLabel11.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel11.SizeF = New System.Drawing.SizeF(133.5714!, 18.0!)
@@ -370,7 +369,7 @@ Partial Public Class Reporte_de_Firmas_In
         'XrLabel12
         '
         Me.XrLabel12.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel12.LocationFloat = New DevExpress.Utils.PointFloat(522.2678!, 40.20831!)
+        Me.XrLabel12.LocationFloat = New DevExpress.Utils.PointFloat(522.2678!, 38.12497!)
         Me.XrLabel12.Multiline = True
         Me.XrLabel12.Name = "XrLabel12"
         Me.XrLabel12.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -383,7 +382,7 @@ Partial Public Class Reporte_de_Firmas_In
         'XrLabel13
         '
         Me.XrLabel13.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel13.LocationFloat = New DevExpress.Utils.PointFloat(791.6069!, 43.20831!)
+        Me.XrLabel13.LocationFloat = New DevExpress.Utils.PointFloat(754.5949!, 41.12498!)
         Me.XrLabel13.Name = "XrLabel13"
         Me.XrLabel13.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel13.SizeF = New System.Drawing.SizeF(213.4643!, 18.0!)
@@ -394,13 +393,13 @@ Partial Public Class Reporte_de_Firmas_In
         '
         'XrLine1
         '
-        Me.XrLine1.LocationFloat = New DevExpress.Utils.PointFloat(6.00001!, 38.20829!)
+        Me.XrLine1.LocationFloat = New DevExpress.Utils.PointFloat(4.404894!, 36.12496!)
         Me.XrLine1.Name = "XrLine1"
         Me.XrLine1.SizeF = New System.Drawing.SizeF(1030.0!, 2.0!)
         '
         'XrLine2
         '
-        Me.XrLine2.LocationFloat = New DevExpress.Utils.PointFloat(4.404894!, 80.08347!)
+        Me.XrLine2.LocationFloat = New DevExpress.Utils.PointFloat(4.404894!, 78.62502!)
         Me.XrLine2.Name = "XrLine2"
         Me.XrLine2.SizeF = New System.Drawing.SizeF(1030.0!, 2.0!)
         '
@@ -595,20 +594,14 @@ Partial Public Class Reporte_de_Firmas_In
         '
         'GroupHeader1
         '
-        Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel7, Me.XrLabel29, Me.XrLabel8, Me.XrLabel23, Me.XrLabel25, Me.XrLabel9, Me.XrLabel10, Me.XrLabel11, Me.XrLine2, Me.XrLabel13, Me.XrLine1, Me.XrLabel12})
-        Me.GroupHeader1.GroupFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("MUNICIPIO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
-        Me.GroupHeader1.HeightF = 83.33334!
+        Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel11, Me.XrLabel29, Me.XrLabel8, Me.XrLabel23, Me.XrLabel25, Me.XrLabel9, Me.XrLabel10, Me.XrLabel7, Me.XrLine2, Me.XrLabel13, Me.XrLine1, Me.XrLabel12})
+        Me.GroupHeader1.GroupFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("CODIGO_MUNICIPIO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
+        Me.GroupHeader1.HeightF = 90.625!
         Me.GroupHeader1.Name = "GroupHeader1"
-        '
-        'GroupHeader2
-        '
-        Me.GroupHeader2.GroupFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("PARTIDO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
-        Me.GroupHeader2.Level = 3
-        Me.GroupHeader2.Name = "GroupHeader2"
         '
         'Reporte_de_Firmas_In
         '
-        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.GroupHeaderBand1, Me.GroupHeaderBand2, Me.PageFooterBand1, Me.TopMarginBand1, Me.BottomMarginBand1, Me.PageHeader, Me.GroupHeader1, Me.GroupHeader2})
+        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.GroupHeaderBand1, Me.GroupHeaderBand2, Me.PageFooterBand1, Me.TopMarginBand1, Me.BottomMarginBand1, Me.PageHeader, Me.GroupHeader1})
         Me.DataAdapter = Me.IM_V_FIRMAS_INCONSISTENTESTableAdapter
         Me.DataMember = "IM_V_FIRMAS_INCONSISTENTES"
         Me.DataSource = Me.DS_REPORTE_DE_FI_11
@@ -689,5 +682,4 @@ Partial Public Class Reporte_de_Firmas_In
     Friend WithEvents XrLabel29 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel28 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents GroupHeader1 As DevExpress.XtraReports.UI.GroupHeaderBand
-    Friend WithEvents GroupHeader2 As DevExpress.XtraReports.UI.GroupHeaderBand
 End Class

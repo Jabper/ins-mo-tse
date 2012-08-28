@@ -352,6 +352,12 @@
     <Compile Include="General\DS_Motivos.vb">
       <DependentUpon>DS_Motivos.xsd</DependentUpon>
     </Compile>
+    <Compile Include="General\xfrmMotivosRenuncia.Designer.vb">
+      <DependentUpon>xfrmMotivosRenuncia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="General\xfrmMotivosRenuncia.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="General\XfrmPartidos.Designer.vb">
       <DependentUpon>XfrmPartidos.vb</DependentUpon>
     </Compile>
@@ -1252,6 +1258,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\XfrmValidarFirmas.resx">
       <DependentUpon>XfrmValidarFirmas.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="General\xfrmMotivosRenuncia.resx">
+      <DependentUpon>xfrmMotivosRenuncia.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Procesos\Dialog1.resx">
