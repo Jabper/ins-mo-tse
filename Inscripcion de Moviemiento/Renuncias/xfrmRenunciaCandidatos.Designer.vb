@@ -306,6 +306,7 @@ Partial Class xfrmRenunciaCandidatos
         '
         Me.RepositoryItemPictureEdit1.Name = "RepositoryItemPictureEdit1"
         Me.RepositoryItemPictureEdit1.PictureStoreMode = DevExpress.XtraEditors.Controls.PictureStoreMode.ByteArray
+        Me.RepositoryItemPictureEdit1.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
         '
         'PanelControl1
         '

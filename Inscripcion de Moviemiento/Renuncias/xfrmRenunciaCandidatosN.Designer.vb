@@ -277,6 +277,7 @@ Partial Class xfrmRenunciaCandidatosN
         '
         Me.RepositoryItemPictureEdit1.Name = "RepositoryItemPictureEdit1"
         Me.RepositoryItemPictureEdit1.PictureStoreMode = DevExpress.XtraEditors.Controls.PictureStoreMode.ByteArray
+        Me.RepositoryItemPictureEdit1.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
         '
         'colREESTABLECER
         '
@@ -284,7 +285,6 @@ Partial Class xfrmRenunciaCandidatosN
         Me.colREESTABLECER.ColumnEdit = Me.RepositoryItemCheckEdit1
         Me.colREESTABLECER.FieldName = "REESTABLECER"
         Me.colREESTABLECER.Name = "colREESTABLECER"
-        Me.colREESTABLECER.OptionsColumn.AllowEdit = False
         Me.colREESTABLECER.Visible = True
         Me.colREESTABLECER.VisibleIndex = 0
         Me.colREESTABLECER.Width = 70

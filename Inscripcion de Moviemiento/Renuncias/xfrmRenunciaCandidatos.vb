@@ -11,6 +11,7 @@ Public Class xfrmRenunciaCandidatos
         If GridView1.DataRowCount <= 0 Then
             lblidentidad.Text = "--"
             lblnombre.Text = "--"
+            MsgBox("Ningún Candidato encontrado")
         Else
             Dim view As GridView = GridView1
 
@@ -43,7 +44,7 @@ Public Class xfrmRenunciaCandidatos
         Dim contador As Integer = 0
         Dim view As GridView = GridView1
         If view.DataRowCount > 0 Then
-            If MsgBox("¿Desea aplicar la renuncia del candidato a los registros seleccionados?" & vbCrLf & "Este proceso borrara al candidato de las planillas seleccionadas y dejará al mismo en las que no se seleccione", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+            If MsgBox("¿Desea aplicar la renuncia del candidato a los registros seleccionados?" & vbCrLf & "Este proceso borrará al candidato de las planillas seleccionadas", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
 
 
                 Try
@@ -129,6 +130,7 @@ Public Class xfrmRenunciaCandidatos
     Private Sub btnbusqueda_ButtonClick(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.ButtonPressedEventArgs) Handles btnbusqueda.ButtonClick
         Me.IM_V_CANDIDATO_RENUNCIATableAdapter.Fill(Me.DT_Renuncia.IM_V_CANDIDATO_RENUNCIA, Me.btnbusqueda.Text)
         limpiarLabels()
+
     End Sub
 
 

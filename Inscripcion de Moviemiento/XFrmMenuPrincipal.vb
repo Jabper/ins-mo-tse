@@ -661,4 +661,8 @@ Public Class XFrmMenuPrincipal
     Private Sub BtnCancelarRenuncia_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCancelarRenuncia.ItemClick
         Padre(xfrmRenunciaCandidatosN)
     End Sub
+
+    Private Sub BtnModRenuncias_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnModRenuncias.ItemClick
+        Padre(xfrmRenunciaCandidatosMod)
+    End Sub
 End Class

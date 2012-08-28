@@ -11,6 +11,7 @@ Public Class xfrmRenunciaCandidatosN
         If GridView1.DataRowCount <= 0 Then
             lblidentidad.Text = "--"
             lblnombre.Text = "--"
+            MsgBox("Ningún Candidato encontrado")
         Else
             Dim view As GridView = GridView1
 
