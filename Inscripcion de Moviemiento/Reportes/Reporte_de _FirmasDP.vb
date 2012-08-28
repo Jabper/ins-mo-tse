@@ -117,6 +117,8 @@ Public Class Reporte_de__FirmasDP
         'se envian los filtros por nombre de partido y nombre de movimiento para recuperar las respectivas imagenes
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.Fill(DS_LOG.IM_PARTIDOS_POLITICOS_imagen, NombrePartido.Value.ToString)
         Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(DS_LOG.IM_MOVIMIENTOS_imagen, NombreMovimiento.Value.ToString)
+        user.Text = usuario
+
 
     End Sub
 

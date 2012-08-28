@@ -135,19 +135,20 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnbusqueda.Properties.Buttons" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        R0lGODlhGAAYAPYAABuk/iqq/+z5/yWl/pPh/y27/ySX8hus/yGy/x2Y8YPG/7Ld/qHa/zS0/zGu/zWm
+        R0lGODlhGAAYAIYAABuk/iqq/+z5/yWl/pPh/y27/ySX8hus/yGy/x2Y8YPG/7Ld/qHa/zS0/zGu/zWm
         /iGZ8+b0/x3E/3jW/yTD/7Pp/8Xl/zmi+j6l/2rC//z+/y3U/+v2/y22/8bt/y3C/zSp/zmd8kO2/6vk
         /y6y/0Sp+Mrs/y2m/ziq/zKq/53T/xiy/zy1/9fy/yKa9B6w/77l//f8/zqa7n7N/3bM/y6a9Din/8nl
         /C2e9vX7/1i1/x21/zGh/y6j/zyp/zHO/z6x/xi1/4ve/yi0/z6t/y/J/y6a8/H6/zqk/C2e/zGT5yyh
         +y+X8D+6/zau/1q7/yqY75fR/5ba/47T/57f/1DQ/3DA/x2g+la9/zeg9yC6/zKm/zeh+rPj/zuk/4bU
         /4Xf/zmg9i2U7CaJ3rjf/CCp/x+f9x64/ymk/Sig92HO/yaY9SWU7zDG/zrL/xyb9CSa8iuZ9Em0/zOe
-        91iy+Fmz/Dml/U+p7zml/k7D/yCT6SCX7qXn/3nD/X7F+f///yH5BAEAAH8ALAAAAAAYABgAAAf/gH+C
-        g38CI0ITBBUxhI2OLWpBKys7K0FaE0eOjlQ7LwUfRT9tHx8rBSabg1IHQx0/GxKyG20FCC+pmx6tHRQS
-        VQR8YG4SHx0vJAKOGiJlJAhtFYQaQhSuADSOJgAkJGcemwTIHQOMhDNXDmYTqhp5AyRXMI1PAw4JLap/
-        VAkOb1ON5KC5p0mVhX4uZjTCkiYFhAj6yCRIsedLIxpwQEBYoM+PC40jGnUZ8GBJCXONOOAAAUIPREJH
-        Gmx5YKCPoxx0DKDAcWcTgwAobBioYyHHHw5kShiwwRTKjWUZAgC5EMfAmjlr2NSwk+UCnjhGnjbKkeEE
-        CyA+kHBB4kNEEyIhScIgMcJEbCMGKE44YcE3xQkiJ2yECHFBjJKXjY4ssKKjsQIYGlT08CKj8pgo+lRJ
-        9oEBQxIVmTXzeMADD4fQBhUoQIy6tWtVgQAAOw==
+        91iy+Fmz/Dml/U+p7zml/k7D/yCT6SCX7qXn/3nD/X7F+f///yH/C05FVFNDQVBFMi4wAwEBAAAh+QQB
+        AAB/ACwAAAAAGAAYAAAI/wD/CBz4R8AIIRMIVIhBsKHDFmqCrFixY0UQLROOOHRIZceLAh+K/Gjz4cOK
+        AiY2DpRyYEiHHxskyNzQpgCCFyk3emjZgYKEKgT4gHEj4UOHFyQEONQgogwJBG0qENQghIJLADQcmgBA
+        gsQZDxsJIO0wgCHBGVccmJmgUkOeASSuwGj4ZICDBC1U/qGSwMGbKQ3loLmrUaWFvi5mNMSSJgWECHrJ
+        JEix50tDGnBAQFig148LzSMadhnwYEkJsw054AABQg9kgkcabHlgoI/DHHQMoMBxZyODAChsGKhjIccf
+        DmRKGLDBHMqNpRkCALkQx8CaOWvY1LCT5QKeOEaeN1/MkeEECyA+kHBB4kNEEyIhwiAxwkR8QwYoTjhh
+        wT/FCSIn2BBCCBeIocRrDR2xgBU6NKgADBqo0IMXMlQ4RhR6qSShDxhgkIQKGWrIwwM84MFBiIYpoACC
+        KLbookoBAQA7
 </value>
   </data>
   <metadata name="BindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
