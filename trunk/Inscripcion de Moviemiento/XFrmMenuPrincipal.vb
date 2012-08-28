@@ -29,6 +29,7 @@ Public Class XFrmMenuPrincipal
     Private Sub XFrmMenuPrincipal_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         If (XtraMessageBox.Show("¿Desea salir del sistema?", "Confirmar", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes) Then
             COracle.ejecutarconsulta("update im_usuarios set conectado='N' where codigo_usuario='" & usuario & "'")
+
             End
 
         Else
@@ -405,7 +406,7 @@ Public Class XFrmMenuPrincipal
 
     Private Sub BtnSalir_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnSalir.ItemClick
         If (XtraMessageBox.Show("¿Desea salir del sistema?", "Confirmar", MessageBoxButtons.YesNo) = Windows.Forms.DialogResult.Yes) Then
-
+            COracle.ejecutarconsulta("update im_usuarios set conectado='N' where codigo_usuario='" & usuario & "'")
             End
 
         End If
@@ -664,5 +665,9 @@ Public Class XFrmMenuPrincipal
 
     Private Sub BtnModRenuncias_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnModRenuncias.ItemClick
         Padre(xfrmRenunciaCandidatosMod)
+    End Sub
+
+    Private Sub BtnMotivosRenuncia_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnMotivosRenuncia.ItemClick
+        Padre(xfrmMotivosRenuncia)
     End Sub
 End Class
