@@ -21,7 +21,7 @@ Partial Class xfrmRenunciaCandidatosMod
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(xfrmRenunciaCandidatosMod))
-        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject
+        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject
         Me.DT_Renuncia = New Inscripcion_de_Moviemientos.DT_Renuncia
         Me.IMMOTIVOSRENUNCIABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_MOTIVOS_RENUNCIATableAdapter = New Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_MOTIVOS_RENUNCIATableAdapter
@@ -275,6 +275,7 @@ Partial Class xfrmRenunciaCandidatosMod
         '
         Me.RepositoryItemPictureEdit1.Name = "RepositoryItemPictureEdit1"
         Me.RepositoryItemPictureEdit1.PictureStoreMode = DevExpress.XtraEditors.Controls.PictureStoreMode.ByteArray
+        Me.RepositoryItemPictureEdit1.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
         '
         'colREESTABLECER
         '
@@ -455,7 +456,7 @@ Partial Class xfrmRenunciaCandidatosMod
         Me.btnbusqueda.Location = New System.Drawing.Point(218, 81)
         Me.btnbusqueda.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnbusqueda.Name = "btnbusqueda"
-        Me.btnbusqueda.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, CType(resources.GetObject("btnbusqueda.Properties.Buttons"), System.Drawing.Image), New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "Presionar para realizar búsqueda", Nothing, Nothing, True)})
+        Me.btnbusqueda.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, CType(resources.GetObject("btnbusqueda.Properties.Buttons"), System.Drawing.Image), New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "Presionar para realizar búsqueda", Nothing, Nothing, True)})
         Me.btnbusqueda.Properties.MaxLength = 13
         Me.btnbusqueda.Properties.NullValuePrompt = "Enter para realizar búsqueda"
         Me.btnbusqueda.Properties.NullValuePromptShowForEmptyValue = True
