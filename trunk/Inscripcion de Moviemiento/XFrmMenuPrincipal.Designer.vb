@@ -117,6 +117,7 @@ Partial Class XFrmMenuPrincipal
         Me.BtnRenuncias = New DevExpress.XtraBars.BarButtonItem
         Me.BtnRenunciasMovimiento = New DevExpress.XtraBars.BarButtonItem
         Me.BtnEstadisticoRenuncias = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnCancelarRenuncia = New DevExpress.XtraBars.BarButtonItem
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage
@@ -149,7 +150,6 @@ Partial Class XFrmMenuPrincipal
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.BarSubItem1 = New DevExpress.XtraBars.BarSubItem
         Me.RibbonPageGroup10 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
-        Me.BtnCancelarRenuncia = New DevExpress.XtraBars.BarButtonItem
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -822,6 +822,13 @@ Partial Class XFrmMenuPrincipal
         Me.BtnEstadisticoRenuncias.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.opearaciones
         Me.BtnEstadisticoRenuncias.Name = "BtnEstadisticoRenuncias"
         '
+        'BtnCancelarRenuncia
+        '
+        Me.BtnCancelarRenuncia.Caption = "Cancelar Renuncia"
+        Me.BtnCancelarRenuncia.Id = 110
+        Me.BtnCancelarRenuncia.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.document_revert
+        Me.BtnCancelarRenuncia.Name = "BtnCancelarRenuncia"
+        '
         'RibbonPage1
         '
         Me.RibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1})
@@ -1069,12 +1076,6 @@ Partial Class XFrmMenuPrincipal
         'RibbonPageGroup10
         '
         Me.RibbonPageGroup10.Name = "RibbonPageGroup10"
-        '
-        'BtnCancelarRenuncia
-        '
-        Me.BtnCancelarRenuncia.Caption = "Cancelar Renuncia"
-        Me.BtnCancelarRenuncia.Id = 110
-        Me.BtnCancelarRenuncia.Name = "BtnCancelarRenuncia"
         '
         'XFrmMenuPrincipal
         '
