@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class xfrmRegCandidatos
+Partial Class xfrmRegCandidatos2
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
@@ -109,6 +109,7 @@ Partial Class xfrmRegCandidatos
         Me.LabelControl16 = New DevExpress.XtraEditors.LabelControl
         Me.PanelControl5 = New DevExpress.XtraEditors.PanelControl
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton
+        Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
@@ -153,7 +154,7 @@ Partial Class xfrmRegCandidatos
         Me.PanelControl1.Appearance.Options.UseBackColor = True
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
         Me.PanelControl1.Controls.Add(Me.FlowLayoutPanel1)
-        Me.PanelControl1.Location = New System.Drawing.Point(1, 1)
+        Me.PanelControl1.Location = New System.Drawing.Point(1, 24)
         Me.PanelControl1.Name = "PanelControl1"
         Me.PanelControl1.Size = New System.Drawing.Size(271, 58)
         Me.PanelControl1.TabIndex = 0
@@ -181,19 +182,20 @@ Partial Class xfrmRegCandidatos
         Me.BtnNuevo.Size = New System.Drawing.Size(55, 39)
         Me.BtnNuevo.TabIndex = 0
         Me.BtnNuevo.Text = "Nuevo"
+        Me.BtnNuevo.Visible = False
         '
         'BtnGuardar
         '
         Me.BtnGuardar.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
         Me.BtnGuardar.Appearance.Options.UseFont = True
-        Me.BtnGuardar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.guardar1
+        Me.BtnGuardar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._1340376772_accept
         Me.BtnGuardar.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomCenter
         Me.BtnGuardar.Location = New System.Drawing.Point(64, 3)
         Me.BtnGuardar.Name = "BtnGuardar"
         Me.BtnGuardar.Size = New System.Drawing.Size(55, 39)
         Me.BtnGuardar.TabIndex = 1
         Me.BtnGuardar.Text = "Nuevo"
-        Me.BtnGuardar.ToolTip = "Presione para Guardar la información ingresada"
+        Me.BtnGuardar.ToolTip = "Presione para aplicar cambios y continuar"
         '
         'BtnEliminar
         '
@@ -207,6 +209,7 @@ Partial Class xfrmRegCandidatos
         Me.BtnEliminar.TabIndex = 2
         Me.BtnEliminar.Text = "Nuevo"
         Me.BtnEliminar.ToolTip = "Presione para eliminar el candidato seleccionado en la tabla inferior"
+        Me.BtnEliminar.Visible = False
         '
         'BtnSalir
         '
@@ -220,6 +223,7 @@ Partial Class xfrmRegCandidatos
         Me.BtnSalir.TabIndex = 35
         Me.BtnSalir.Text = "Nuevo"
         Me.BtnSalir.ToolTip = " Presione para salir  de este formulario"
+        Me.BtnSalir.Visible = False
         '
         'DSInsCandidatos
         '
@@ -237,10 +241,11 @@ Partial Class xfrmRegCandidatos
         '
         'cboDepartamento
         '
+        Me.cboDepartamento.Enabled = False
         Me.cboDepartamento.Location = New System.Drawing.Point(106, 115)
         Me.cboDepartamento.Name = "cboDepartamento"
         Me.cboDepartamento.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cboDepartamento.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_DEPARTAMENTO", "CODIGO", 35, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.Ascending), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 150, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
+        Me.cboDepartamento.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_DEPARTAMENTO", "CODIGO", 35, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 150, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.cboDepartamento.Properties.DataSource = Me.IMDEPARTAMENTOSBindingSource
         Me.cboDepartamento.Properties.DisplayMember = "DESCRIPCION"
         Me.cboDepartamento.Properties.NullText = "Seleccione"
@@ -251,10 +256,11 @@ Partial Class xfrmRegCandidatos
         '
         'cboMunicipio
         '
+        Me.cboMunicipio.Enabled = False
         Me.cboMunicipio.Location = New System.Drawing.Point(400, 115)
         Me.cboMunicipio.Name = "cboMunicipio"
         Me.cboMunicipio.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cboMunicipio.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MUNICIPIO", "MUNICIPIO", 35, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.Ascending), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 150, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
+        Me.cboMunicipio.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MUNICIPIO", "MUNICIPIO", 35, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "DESCRIPCION", 150, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.cboMunicipio.Properties.DataSource = Me.IMMUNICIPIOSBindingSource
         Me.cboMunicipio.Properties.DisplayMember = "DESCRIPCION"
         Me.cboMunicipio.Properties.NullText = "Seleccione"
@@ -315,10 +321,11 @@ Partial Class xfrmRegCandidatos
         '
         'cboCargo
         '
+        Me.cboCargo.Enabled = False
         Me.cboCargo.Location = New System.Drawing.Point(106, 89)
         Me.cboCargo.Name = "cboCargo"
         Me.cboCargo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cboCargo.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_CARGO_ELECTIVO", "CODIGO", 35, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.Ascending), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "CARGO ELECTIVO", 250, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
+        Me.cboCargo.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_CARGO_ELECTIVO", "CODIGO", 35, DevExpress.Utils.FormatType.Numeric, "", True, DevExpress.Utils.HorzAlignment.Far), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "CARGO ELECTIVO", 250, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near)})
         Me.cboCargo.Properties.DataSource = Me.IMCARGOSELECTIVOSBindingSource
         Me.cboCargo.Properties.DisplayMember = "DESCRIPCION"
         Me.cboCargo.Properties.NullText = "Seleccione"
@@ -989,12 +996,28 @@ Partial Class xfrmRegCandidatos
         Me.SimpleButton1.TabIndex = 36
         Me.SimpleButton1.Text = "Nuevo"
         Me.SimpleButton1.ToolTip = "Presione para Habilitar los Campos para Cambiar Nombres"
+        Me.SimpleButton1.Visible = False
         '
-        'xfrmRegCandidatos
+        'LabelControl6
+        '
+        Me.LabelControl6.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl6.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.LabelControl6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.LabelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.LabelControl6.Location = New System.Drawing.Point(6, 3)
+        Me.LabelControl6.Name = "LabelControl6"
+        Me.LabelControl6.Size = New System.Drawing.Size(266, 21)
+        Me.LabelControl6.TabIndex = 59
+        Me.LabelControl6.Text = "Presione para aplicar cambios y continuar"
+        '
+        'xfrmRegCandidatos2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1094, 456)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.LabelControl6)
         Me.Controls.Add(Me.lblidpartido)
         Me.Controls.Add(Me.BtnSalirold)
         Me.Controls.Add(Me.lblidmovimiento)
@@ -1016,7 +1039,7 @@ Partial Class xfrmRegCandidatos
         Me.Controls.Add(Me.cboMunicipio)
         Me.Controls.Add(Me.cboDepartamento)
         Me.Controls.Add(Me.PanelControl1)
-        Me.Name = "xfrmRegCandidatos"
+        Me.Name = "xfrmRegCandidatos2"
         Me.Text = "Inscripción de Planilla"
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
@@ -1148,4 +1171,5 @@ Partial Class xfrmRegCandidatos
     Friend WithEvents LabelControl16 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents PanelControl5 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
 End Class

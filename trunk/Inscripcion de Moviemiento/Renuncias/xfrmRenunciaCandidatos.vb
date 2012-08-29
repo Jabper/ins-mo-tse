@@ -22,6 +22,8 @@ Public Class xfrmRenunciaCandidatos
         End If
     End Sub
     Private Sub xfrmRenunciaCandidatos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DT_Renuncia.IM_SUSTITUCIONES' table. You can move, or remove it, as needed.
+        Me.IM_SUSTITUCIONESTableAdapter.Fill(Me.DT_Renuncia.IM_SUSTITUCIONES)
         'TODO: This line of code loads data into the 'DT_Renuncia.IM_RENUNCIAS' table. You can move, or remove it, as needed.
         'Me.IM_RENUNCIASTableAdapter.Fill(Me.DT_Renuncia.IM_RENUNCIAS)
         'TODO: This line of code loads data into the 'DT_Renuncia.IM_MOTIVOS_RENUNCIA' table. You can move, or remove it, as needed.
@@ -44,7 +46,7 @@ Public Class xfrmRenunciaCandidatos
         Dim contador As Integer = 0
         Dim view As GridView = GridView1
         If view.DataRowCount > 0 Then
-            If MsgBox("¿Desea aplicar la renuncia del candidato a los registros seleccionados?" & vbCrLf & "Este proceso borrará al candidato de las planillas seleccionadas", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+            If MsgBox("¿Desea aplicar los cambios a los registros seleccionados? una vez iniciado el proceso, NO podrá cancelar las operaciones" & vbCrLf & "Este proceso borrará al candidato de las planillas seleccionadas y realizará la operación solicitada", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
 
 
                 Try
@@ -52,12 +54,20 @@ Public Class xfrmRenunciaCandidatos
 
                         'MsgBox(view.GetRowCellValue(view.FocusedRowHandle, "MOTIVO").ToString)
 
-
+                        'GUARDAR RENUNCIAS
                         If view.GetRowCellValue(i, "RENUNCIA").ToString = "S" And Not view.GetRowCellValue(i, "MOTIVO").Equals(String.Empty) Then
                             contador += 1
                             GuardarEnBase(i)
 
                         End If
+
+                        'GUARDAR SUSTITUCIONES
+                        If view.GetRowCellValue(i, "Sustituido").ToString = "S" And Not view.GetRowCellValue(i, "MOTIVO").Equals(String.Empty) And view.GetRowCellValue(i, "MOTIVO").ToString = "99" Then
+                            contador += 1
+                            GuardarSustitucion(i)
+
+                        End If
+
 
                     Next
 
@@ -122,6 +132,25 @@ Public Class xfrmRenunciaCandidatos
             e.Valid = False
 
         End If
+
+        If view.GetRowCellValue(view.FocusedRowHandle, "RENUNCIA").ToString = "S" And view.GetRowCellValue(view.FocusedRowHandle, "MOTIVO").ToString = "99" Then
+            mensajeerror = "Motivo no válido para la renuncia"
+            e.Valid = False
+
+        End If
+
+        If view.GetRowCellValue(view.FocusedRowHandle, "RENUNCIA").ToString = "S" And view.GetRowCellValue(view.FocusedRowHandle, "Sustituido").ToString = "S" Then
+            mensajeerror = "Solo puede seleccionar una opción"
+            e.Valid = False
+
+        End If
+
+        If view.GetRowCellValue(view.FocusedRowHandle, "Sustituido").ToString = "S" And view.GetRowCellValue(view.FocusedRowHandle, "MOTIVO").ToString <> "99" Then
+            mensajeerror = "Motivo no válido para la sustitución"
+            e.Valid = False
+
+        End If
+
         'End If
     End Sub
 
@@ -166,7 +195,7 @@ Public Class xfrmRenunciaCandidatos
                 .ADICIONADO_POR = usuario
                 .FECHA_ADICION = DateTime.Now
                 '--------------------------
-                Dim consulta As String = "select primer_nombre,segundo_nombre,primer_apellido,segundo_apellido from im_padron_electoral where numero_identidad='" & GridView1.GetRowCellValue(i, "IDENTIDAD").ToString & "'"
+                Dim consulta As String = "select primer_nombre,segundo_nombre,primer_apellido,segundo_apellido from  im_candidatos where identidad='" & GridView1.GetRowCellValue(i, "IDENTIDAD").ToString & "'"
                 .PRIMER_NOMBRE = COracle.ObtenerDatos(consulta, "PRIMER_NOMBRE")
                 .SEGUNDO_NOMBRE = COracle.ObtenerDatos(consulta, "SEGUNDO_NOMBRE")
                 .PRIMER_APELLIDO = COracle.ObtenerDatos(consulta, "PRIMER_APELLIDO")
@@ -200,6 +229,84 @@ Public Class xfrmRenunciaCandidatos
         End Try
     End Sub
 
+
+    Sub GuardarSustitucion(ByVal i As Integer)
+        Try
+
+
+            Dim ciudadanos As DT_Renuncia.IM_SUSTITUCIONESRow
+            ciudadanos = DT_Renuncia.IM_SUSTITUCIONES.NewIM_SUSTITUCIONESRow
+            With ciudadanos
+                .CODIGO_CANDIDATO = GridView1.GetRowCellValue(i, "CODIGO_CANDIDATOS").ToString
+                .CODIGO_PARTIDO = GridView1.GetRowCellValue(i, "CODIGO_PARTIDO").ToString
+                .CODIGO_MOVIMIENTO = GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO").ToString
+                .POSICION = GridView1.GetRowCellValue(i, "POSICION").ToString
+                .CODIGO_CARGO_ELECTIVO = GridView1.GetRowCellValue(i, "CODIGO_CARGO_ELECTIVO").ToString
+                .CODIGO_DEPARTAMENTO = GridView1.GetRowCellValue(i, "CODIGO_DEPARTAMENTO").ToString
+                .CODIGO_MUNICIPIO = GridView1.GetRowCellValue(i, "CODIGO_MUNICIPIO").ToString
+                .IDENTIDAD = GridView1.GetRowCellValue(i, "IDENTIDAD").ToString
+                .CODIGO_MOTIVO = GridView1.GetRowCellValue(i, "MOTIVO").ToString
+                .ADICIONADO_POR = usuario
+                .FECHA_ADICION = DateTime.Now
+                '--------------------------
+                Dim consulta As String = "select primer_nombre,segundo_nombre,primer_apellido,segundo_apellido from  im_candidatos where identidad='" & GridView1.GetRowCellValue(i, "IDENTIDAD").ToString & "'"
+
+                .PRIMER_NOMBRE = COracle.ObtenerDatos(consulta, "PRIMER_NOMBRE")
+                .SEGUNDO_NOMBRE = COracle.ObtenerDatos(consulta, "SEGUNDO_NOMBRE")
+                .PRIMER_APELLIDO = COracle.ObtenerDatos(consulta, "PRIMER_APELLIDO")
+                .SEGUNDO_APELLIDO = COracle.ObtenerDatos(consulta, "SEGUNDO_APELLIDO")
+                If IsDBNull(GridView1.GetRowCellValue(i, "Imagen_firma")) Then
+
+                Else
+                    .IMAGEN = GridView1.GetRowCellValue(i, "Imagen_firma")
+                End If
+
+            End With
+            Me.DT_Renuncia.IM_SUSTITUCIONES.Rows.Add(ciudadanos)
+
+            Me.IM_SUSTITUCIONESTableAdapter.Update(Me.DT_Renuncia.IM_SUSTITUCIONES)
+
+            'CREANDO RESPALDO DE REQUITOS
+            Dim BKrequisitos As String = "insert into im_requisitos_renuncia select * from im_requisitos_x_candidato WHERE CODIGO_CANDIDATO=" & GridView1.GetRowCellValue(i, "CODIGO_CANDIDATOS").ToString & " AND CODIGO_PARTIDO=" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO").ToString & " AND CODIGO_MOVIMIENTO=" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO").ToString
+            COracle.ejecutarconsulta(BKrequisitos)
+
+            'ELIMINANDO REQUITOS DE LA TABLA PRINCIPAL
+            Dim requisitos As String = "DELETE IM_REQUISITOS_X_CANDIDATO WHERE CODIGO_CANDIDATO=" & GridView1.GetRowCellValue(i, "CODIGO_CANDIDATOS").ToString & " AND CODIGO_PARTIDO=" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO").ToString & " AND CODIGO_MOVIMIENTO=" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO").ToString
+            COracle.ejecutarconsulta(requisitos)
+
+            'ELIMINANDO CANDIDATO DE LA TABLA PRINCIPAL
+            Dim sql As String = "DELETE IM_CANDIDATOS WHERE CODIGO_CANDIDATOS=" & GridView1.GetRowCellValue(i, "CODIGO_CANDIDATOS").ToString & " AND CODIGO_PARTIDO=" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO").ToString & " AND CODIGO_MOVIMIENTO=" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO").ToString
+            COracle.ejecutarconsulta(sql)
+
+            mostrarpantalla(i)
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+
+    Sub mostrarpantalla(ByVal i As Integer)
+        MsgBox("A continuación Ingrese la Información de la persona que sustituirá al candidato seleccionado", MsgBoxStyle.Information)
+        Dim Candidatos As xfrmRegCandidatos2 = New xfrmRegCandidatos2
+
+        With Candidatos
+
+            Dim cons As String = String.Format("SELECT NOMBRE FROM IM_PARTIDOS_POLITICOS WHERE CODIGO_PARTIDO = {0}", GridView1.GetRowCellValue(i, "CODIGO_PARTIDO"))
+            Dim con As String = String.Format("SELECT NOMBRE_MOVIMIENTO FROM IM_MOVIMIENTOS WHERE CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1}", GridView1.GetRowCellValue(i, "CODIGO_PARTIDO"), GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO"))
+
+            .lblMovimiento.Text = COracle.ObtenerDatos(con, "NOMBRE_MOVIMIENTO")
+            .lblPartido.Text = COracle.ObtenerDatos(cons, "NOMBRE")
+            .lblidpartido.Text = GridView1.GetRowCellValue(i, "CODIGO_PARTIDO")
+            .lblidmovimiento.Text = GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO")
+            .mostrarimg()
+            .CodigoDelCandidato = GridView1.GetRowCellValue(i, "CODIGO_CANDIDATOS")
+            .Establecer(GridView1.GetRowCellValue(i, "CODIGO_DEPARTAMENTO"), GridView1.GetRowCellValue(i, "CODIGO_MUNICIPIO"), GridView1.GetRowCellValue(i, "CODIGO_CARGO_ELECTIVO"), GridView1.GetRowCellValue(i, "POSICION"))
+            .WindowState = FormWindowState.Normal
+            .StartPosition = FormStartPosition.CenterScreen
+        End With
+        Candidatos.ShowDialog(Me)
+    End Sub
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
         Me.Close()
     End Sub
@@ -209,4 +316,31 @@ Public Class xfrmRenunciaCandidatos
     End Sub
 
 
+    Private Sub GridView1_ValidatingEditor(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs) Handles GridView1.ValidatingEditor
+        Dim view As GridView = TryCast(sender, GridView)
+        If view.FocusedColumn.FieldName = "Sustituido" Then
+            If e.Value.ToString = "S" Then
+                view.SetRowCellValue(view.FocusedRowHandle, "RENUNCIA", "N")
+                view.SetRowCellValue(view.FocusedRowHandle, "MOTIVO", 99)
+            End If
+
+            If e.Value.ToString = "N" Then
+
+                view.SetRowCellValue(view.FocusedRowHandle, "MOTIVO", 0)
+            End If
+        End If
+
+        If view.FocusedColumn.FieldName = "RENUNCIA" Then
+            If e.Value.ToString = "S" Then
+                view.SetRowCellValue(view.FocusedRowHandle, "Sustituido", "N")
+                'view.SetRowCellValue(view.FocusedRowHandle, "MOTIVO", 0)
+            End If
+
+            If e.Value.ToString = "N" Then
+
+                view.SetRowCellValue(view.FocusedRowHandle, "MOTIVO", 0)
+            End If
+        End If
+
+    End Sub
 End Class

@@ -200,4 +200,7 @@ Public Class xfrmRenunciaCandidatosN
     End Sub
 
 
+    Private Sub btnbusqueda_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnbusqueda.EditValueChanged
+
+    End Sub
 End Class

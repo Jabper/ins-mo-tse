@@ -334,7 +334,7 @@ Partial Class xfrmRenunciaCandidatosMod
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
-        Me.PictureBox1.Location = New System.Drawing.Point(547, 17)
+        Me.PictureBox1.Location = New System.Drawing.Point(475, 20)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -343,14 +343,15 @@ Partial Class xfrmRenunciaCandidatosMod
         '
         'LabelControl2
         '
-        Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl2.Appearance.ForeColor = System.Drawing.Color.Teal
-        Me.LabelControl2.Location = New System.Drawing.Point(195, 25)
+        Me.LabelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical
+        Me.LabelControl2.Location = New System.Drawing.Point(178, 24)
         Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(327, 19)
+        Me.LabelControl2.Size = New System.Drawing.Size(313, 25)
         Me.LabelControl2.TabIndex = 20
-        Me.LabelControl2.Text = "Modificación de Renuncia de Candidatos"
+        Me.LabelControl2.Text = "Modificación de Renuncias "
         '
         'GroupBox1
         '

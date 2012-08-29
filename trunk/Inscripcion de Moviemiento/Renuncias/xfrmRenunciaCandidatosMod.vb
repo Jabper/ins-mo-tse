@@ -27,7 +27,7 @@ Public Class xfrmRenunciaCandidatosMod
         'TODO: This line of code loads data into the 'DT_Renuncia.IM_RENUNCIAS' table. You can move, or remove it, as needed.
         'Me.IM_RENUNCIASTableAdapter.Fill(Me.DT_Renuncia.IM_RENUNCIAS)
         'TODO: This line of code loads data into the 'DT_Renuncia.IM_MOTIVOS_RENUNCIA' table. You can move, or remove it, as needed.
-        Me.IM_MOTIVOS_RENUNCIATableAdapter.Fill(Me.DT_Renuncia.IM_MOTIVOS_RENUNCIA)
+        Me.IM_MOTIVOS_RENUNCIATableAdapter.FillBy1(Me.DT_Renuncia.IM_MOTIVOS_RENUNCIA)
 
     End Sub
 
@@ -226,6 +226,10 @@ Public Class xfrmRenunciaCandidatosMod
 
 
     Private Sub PanelControl1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles PanelControl1.Paint
+
+    End Sub
+
+    Private Sub btnbusqueda_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnbusqueda.EditValueChanged
 
     End Sub
 End Class
