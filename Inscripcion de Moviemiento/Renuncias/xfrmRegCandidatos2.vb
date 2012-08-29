@@ -5,6 +5,7 @@ Imports DevExpress.XtraEditors
 
 Public Class xfrmRegCandidatos2
     Public CodigoDelCandidato As Integer
+    Public IdentidadDelCandidato As String
     Dim GuardoSustituto As Boolean = False
     Dim vi As Integer = 0
     Dim depto As Integer = 0
@@ -663,7 +664,7 @@ Public Class xfrmRegCandidatos2
         'Dim view1 As GridView = GridView1
 
         If view.FocusedColumn.FieldName = "IDENTIDAD" Then
-            If e.Value.ToString = CodigoDelCandidato Then
+            If e.Value.ToString = IdentidadDelCandidato Then
                 mensajeerror = "No se puede sustituir el mismo candidato por si mismo"
                 e.Valid = False
                 view.FocusedColumn.FieldName = "IDENTIDAD"

@@ -299,6 +299,7 @@ Public Class xfrmRenunciaCandidatos
             .lblPartido.Text = COracle.ObtenerDatos(cons, "NOMBRE")
             .lblidpartido.Text = GridView1.GetRowCellValue(i, "CODIGO_PARTIDO")
             .lblidmovimiento.Text = GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO")
+            .IdentidadDelCandidato = GridView1.GetRowCellValue(i, "IDENTIDAD")
             .mostrarimg()
             .CodigoDelCandidato = GridView1.GetRowCellValue(i, "CODIGO_CANDIDATOS")
             .Establecer(GridView1.GetRowCellValue(i, "CODIGO_DEPARTAMENTO"), GridView1.GetRowCellValue(i, "CODIGO_MUNICIPIO"), GridView1.GetRowCellValue(i, "CODIGO_CARGO_ELECTIVO"), GridView1.GetRowCellValue(i, "POSICION"))
