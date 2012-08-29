@@ -21,7 +21,7 @@ Partial Class xfrmRenunciaCandidatosN
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(xfrmRenunciaCandidatosN))
-        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject
+        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject
         Me.DT_Renuncia = New Inscripcion_de_Moviemientos.DT_Renuncia
         Me.IMMOTIVOSRENUNCIABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_MOTIVOS_RENUNCIATableAdapter = New Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_MOTIVOS_RENUNCIATableAdapter
@@ -337,7 +337,7 @@ Partial Class xfrmRenunciaCandidatosN
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.document_revert
-        Me.PictureBox1.Location = New System.Drawing.Point(494, 17)
+        Me.PictureBox1.Location = New System.Drawing.Point(531, 18)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -346,12 +346,12 @@ Partial Class xfrmRenunciaCandidatosN
         '
         'LabelControl2
         '
-        Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl2.Appearance.ForeColor = System.Drawing.Color.Green
-        Me.LabelControl2.Location = New System.Drawing.Point(212, 23)
+        Me.LabelControl2.Location = New System.Drawing.Point(172, 23)
         Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(272, 19)
+        Me.LabelControl2.Size = New System.Drawing.Size(348, 25)
         Me.LabelControl2.TabIndex = 20
         Me.LabelControl2.Text = "Cancelar Renuncia de Candidatos"
         '
@@ -459,7 +459,7 @@ Partial Class xfrmRenunciaCandidatosN
         Me.btnbusqueda.Location = New System.Drawing.Point(218, 81)
         Me.btnbusqueda.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnbusqueda.Name = "btnbusqueda"
-        Me.btnbusqueda.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, CType(resources.GetObject("btnbusqueda.Properties.Buttons"), System.Drawing.Image), New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "Presionar para realizar búsqueda", Nothing, Nothing, True)})
+        Me.btnbusqueda.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, CType(resources.GetObject("btnbusqueda.Properties.Buttons"), System.Drawing.Image), New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "Presionar para realizar búsqueda", Nothing, Nothing, True)})
         Me.btnbusqueda.Properties.MaxLength = 13
         Me.btnbusqueda.Properties.NullValuePrompt = "Enter para realizar búsqueda"
         Me.btnbusqueda.Properties.NullValuePromptShowForEmptyValue = True

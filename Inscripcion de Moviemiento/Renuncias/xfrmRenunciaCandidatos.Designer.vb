@@ -31,6 +31,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.GrdRepetidos = New DevExpress.XtraGrid.GridControl
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.colCODIGO_CANDIDATOS = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
         Me.colIDENTIDAD = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colNOMBRE = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colAPELLIDO = New DevExpress.XtraGrid.Columns.GridColumn
@@ -47,10 +48,10 @@ Partial Class xfrmRenunciaCandidatos
         Me.colMOTIVO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RepositoryItemLookUpEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit
         Me.colRENUNCIA = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.RepositoryItemCheckEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
         Me.colCODIGO_CARGO_ELECTIVO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colIMAGEN = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RepositoryItemPictureEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
+        Me.colSustituido = New DevExpress.XtraGrid.Columns.GridColumn
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl
@@ -61,6 +62,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.lblnombre = New DevExpress.XtraEditors.LabelControl
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
         Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
+        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton
         Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl
         Me.btnbusqueda = New DevExpress.XtraEditors.ButtonEdit
@@ -69,6 +71,8 @@ Partial Class xfrmRenunciaCandidatos
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_RENUNCIASTableAdapter = New Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_RENUNCIASTableAdapter
+        Me.IM_SUSTITUCIONES = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IM_SUSTITUCIONESTableAdapter = New Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_SUSTITUCIONESTableAdapter
         CType(Me.IMVCANDIDATORENUNCIABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DT_Renuncia, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMMOTIVOSRENUNCIABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -76,8 +80,8 @@ Partial Class xfrmRenunciaCandidatos
         Me.LayoutControl1.SuspendLayout()
         CType(Me.GrdRepetidos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RepositoryItemLookUpEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemLookUpEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
@@ -89,6 +93,7 @@ Partial Class xfrmRenunciaCandidatos
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IM_SUSTITUCIONES, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IMVCANDIDATORENUNCIABindingSource
@@ -123,7 +128,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(582, 212, 250, 350)
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(641, 366)
+        Me.LayoutControl1.Size = New System.Drawing.Size(783, 366)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
@@ -135,21 +140,31 @@ Partial Class xfrmRenunciaCandidatos
         Me.GrdRepetidos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GrdRepetidos.Name = "GrdRepetidos"
         Me.GrdRepetidos.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1, Me.RepositoryItemLookUpEdit1, Me.RepositoryItemPictureEdit1})
-        Me.GrdRepetidos.Size = New System.Drawing.Size(617, 153)
+        Me.GrdRepetidos.Size = New System.Drawing.Size(759, 153)
         Me.GrdRepetidos.TabIndex = 18
         Me.GrdRepetidos.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
         'GridView1
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_CANDIDATOS, Me.colIDENTIDAD, Me.colNOMBRE, Me.colAPELLIDO, Me.colPOSICION, Me.colCARGO, Me.colCODIGO_DEPARTAMENTO, Me.colDEPARTAMENTO, Me.colCODIGO_MUNICIPIO, Me.colMUNICIPIO, Me.colCODIGO_PARTIDO, Me.colPARTIDO, Me.colCODIGO_MOVIMIENTO, Me.colNOMBRE_MOVIMIENTO, Me.colMOTIVO, Me.colRENUNCIA, Me.colCODIGO_CARGO_ELECTIVO, Me.colIMAGEN})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_CANDIDATOS, Me.colIDENTIDAD, Me.colNOMBRE, Me.colAPELLIDO, Me.colPOSICION, Me.colCARGO, Me.colCODIGO_DEPARTAMENTO, Me.colDEPARTAMENTO, Me.colCODIGO_MUNICIPIO, Me.colMUNICIPIO, Me.colCODIGO_PARTIDO, Me.colPARTIDO, Me.colCODIGO_MOVIMIENTO, Me.colNOMBRE_MOVIMIENTO, Me.colMOTIVO, Me.colRENUNCIA, Me.colCODIGO_CARGO_ELECTIVO, Me.colIMAGEN, Me.colSustituido})
         Me.GridView1.GridControl = Me.GrdRepetidos
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsView.ShowGroupPanel = False
         '
         'colCODIGO_CANDIDATOS
         '
+        Me.colCODIGO_CANDIDATOS.ColumnEdit = Me.RepositoryItemCheckEdit1
         Me.colCODIGO_CANDIDATOS.FieldName = "CODIGO_CANDIDATOS"
         Me.colCODIGO_CANDIDATOS.Name = "colCODIGO_CANDIDATOS"
+        '
+        'RepositoryItemCheckEdit1
+        '
+        Me.RepositoryItemCheckEdit1.AutoHeight = False
+        Me.RepositoryItemCheckEdit1.Name = "RepositoryItemCheckEdit1"
+        Me.RepositoryItemCheckEdit1.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
+        Me.RepositoryItemCheckEdit1.ValueChecked = "S"
+        Me.RepositoryItemCheckEdit1.ValueGrayed = "N"
+        Me.RepositoryItemCheckEdit1.ValueUnchecked = "N"
         '
         'colIDENTIDAD
         '
@@ -173,7 +188,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.colPOSICION.Name = "colPOSICION"
         Me.colPOSICION.OptionsColumn.AllowEdit = False
         Me.colPOSICION.Visible = True
-        Me.colPOSICION.VisibleIndex = 4
+        Me.colPOSICION.VisibleIndex = 5
         Me.colPOSICION.Width = 60
         '
         'colCARGO
@@ -183,7 +198,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.colCARGO.Name = "colCARGO"
         Me.colCARGO.OptionsColumn.AllowEdit = False
         Me.colCARGO.Visible = True
-        Me.colCARGO.VisibleIndex = 5
+        Me.colCARGO.VisibleIndex = 6
         Me.colCARGO.Width = 87
         '
         'colCODIGO_DEPARTAMENTO
@@ -198,7 +213,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.colDEPARTAMENTO.Name = "colDEPARTAMENTO"
         Me.colDEPARTAMENTO.OptionsColumn.AllowEdit = False
         Me.colDEPARTAMENTO.Visible = True
-        Me.colDEPARTAMENTO.VisibleIndex = 6
+        Me.colDEPARTAMENTO.VisibleIndex = 7
         Me.colDEPARTAMENTO.Width = 87
         '
         'colCODIGO_MUNICIPIO
@@ -213,7 +228,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.colMUNICIPIO.Name = "colMUNICIPIO"
         Me.colMUNICIPIO.OptionsColumn.AllowEdit = False
         Me.colMUNICIPIO.Visible = True
-        Me.colMUNICIPIO.VisibleIndex = 7
+        Me.colMUNICIPIO.VisibleIndex = 8
         Me.colMUNICIPIO.Width = 100
         '
         'colCODIGO_PARTIDO
@@ -228,7 +243,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.colPARTIDO.Name = "colPARTIDO"
         Me.colPARTIDO.OptionsColumn.AllowEdit = False
         Me.colPARTIDO.Visible = True
-        Me.colPARTIDO.VisibleIndex = 2
+        Me.colPARTIDO.VisibleIndex = 3
         Me.colPARTIDO.Width = 97
         '
         'colCODIGO_MOVIMIENTO
@@ -242,7 +257,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.colNOMBRE_MOVIMIENTO.FieldName = "NOMBRE_MOVIMIENTO"
         Me.colNOMBRE_MOVIMIENTO.Name = "colNOMBRE_MOVIMIENTO"
         Me.colNOMBRE_MOVIMIENTO.Visible = True
-        Me.colNOMBRE_MOVIMIENTO.VisibleIndex = 3
+        Me.colNOMBRE_MOVIMIENTO.VisibleIndex = 4
         Me.colNOMBRE_MOVIMIENTO.Width = 97
         '
         'colMOTIVO
@@ -252,7 +267,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.colMOTIVO.FieldName = "MOTIVO"
         Me.colMOTIVO.Name = "colMOTIVO"
         Me.colMOTIVO.Visible = True
-        Me.colMOTIVO.VisibleIndex = 1
+        Me.colMOTIVO.VisibleIndex = 2
         Me.colMOTIVO.Width = 105
         '
         'RepositoryItemLookUpEdit1
@@ -279,15 +294,6 @@ Partial Class xfrmRenunciaCandidatos
         Me.colRENUNCIA.VisibleIndex = 0
         Me.colRENUNCIA.Width = 68
         '
-        'RepositoryItemCheckEdit1
-        '
-        Me.RepositoryItemCheckEdit1.AutoHeight = False
-        Me.RepositoryItemCheckEdit1.Name = "RepositoryItemCheckEdit1"
-        Me.RepositoryItemCheckEdit1.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
-        Me.RepositoryItemCheckEdit1.ValueChecked = "S"
-        Me.RepositoryItemCheckEdit1.ValueGrayed = "N"
-        Me.RepositoryItemCheckEdit1.ValueUnchecked = "N"
-        '
         'colCODIGO_CARGO_ELECTIVO
         '
         Me.colCODIGO_CARGO_ELECTIVO.FieldName = "CODIGO_CARGO_ELECTIVO"
@@ -300,13 +306,22 @@ Partial Class xfrmRenunciaCandidatos
         Me.colIMAGEN.FieldName = "Imagen_firma"
         Me.colIMAGEN.Name = "colIMAGEN"
         Me.colIMAGEN.Visible = True
-        Me.colIMAGEN.VisibleIndex = 8
+        Me.colIMAGEN.VisibleIndex = 9
         '
         'RepositoryItemPictureEdit1
         '
         Me.RepositoryItemPictureEdit1.Name = "RepositoryItemPictureEdit1"
         Me.RepositoryItemPictureEdit1.PictureStoreMode = DevExpress.XtraEditors.Controls.PictureStoreMode.ByteArray
         Me.RepositoryItemPictureEdit1.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze
+        '
+        'colSustituido
+        '
+        Me.colSustituido.Caption = "¿Sustituir?"
+        Me.colSustituido.ColumnEdit = Me.RepositoryItemCheckEdit1
+        Me.colSustituido.FieldName = "Sustituido"
+        Me.colSustituido.Name = "colSustituido"
+        Me.colSustituido.Visible = True
+        Me.colSustituido.VisibleIndex = 1
         '
         'PanelControl1
         '
@@ -321,13 +336,13 @@ Partial Class xfrmRenunciaCandidatos
         Me.PanelControl1.Controls.Add(Me.btnbusqueda)
         Me.PanelControl1.Location = New System.Drawing.Point(12, 12)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(617, 185)
+        Me.PanelControl1.Size = New System.Drawing.Size(759, 185)
         Me.PanelControl1.TabIndex = 20
         '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.file_broken
-        Me.PictureBox1.Location = New System.Drawing.Point(402, 22)
+        Me.PictureBox1.Location = New System.Drawing.Point(702, 20)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -336,14 +351,15 @@ Partial Class xfrmRenunciaCandidatos
         '
         'LabelControl2
         '
-        Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Tahoma", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl2.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.LabelControl2.Location = New System.Drawing.Point(181, 27)
+        Me.LabelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical
+        Me.LabelControl2.Location = New System.Drawing.Point(235, 20)
         Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(196, 19)
+        Me.LabelControl2.Size = New System.Drawing.Size(461, 29)
         Me.LabelControl2.TabIndex = 19
-        Me.LabelControl2.Text = "Renuncia de Candidatos"
+        Me.LabelControl2.Text = "Renuncia  y Sustitución de Candidatos"
         '
         'GroupBox1
         '
@@ -403,10 +419,11 @@ Partial Class xfrmRenunciaCandidatos
         '
         Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.Transparent
         Me.FlowLayoutPanel1.Controls.Add(Me.BtnGuardar)
+        Me.FlowLayoutPanel1.Controls.Add(Me.SimpleButton1)
         Me.FlowLayoutPanel1.Controls.Add(Me.BtnSalir)
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(18, 5)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(130, 64)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(211, 64)
         Me.FlowLayoutPanel1.TabIndex = 11
         '
         'BtnGuardar
@@ -421,13 +438,26 @@ Partial Class xfrmRenunciaCandidatos
         Me.BtnGuardar.TabIndex = 1
         Me.BtnGuardar.Text = "Guardar"
         '
+        'SimpleButton1
+        '
+        Me.SimpleButton1.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.SimpleButton1.Appearance.Options.UseFont = True
+        Me.SimpleButton1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._1340376772_accept
+        Me.SimpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.SimpleButton1.Location = New System.Drawing.Point(64, 3)
+        Me.SimpleButton1.Name = "SimpleButton1"
+        Me.SimpleButton1.Size = New System.Drawing.Size(55, 55)
+        Me.SimpleButton1.TabIndex = 11
+        Me.SimpleButton1.Text = "Verificar"
+        Me.SimpleButton1.ToolTip = "Verificar Acciones"
+        '
         'BtnSalir
         '
         Me.BtnSalir.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
         Me.BtnSalir.Appearance.Options.UseFont = True
         Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
         Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnSalir.Location = New System.Drawing.Point(64, 3)
+        Me.BtnSalir.Location = New System.Drawing.Point(125, 3)
         Me.BtnSalir.Name = "BtnSalir"
         Me.BtnSalir.Size = New System.Drawing.Size(55, 55)
         Me.BtnSalir.TabIndex = 10
@@ -466,7 +496,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(641, 366)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(783, 366)
         Me.LayoutControlGroup1.Text = "Root"
         Me.LayoutControlGroup1.TextVisible = False
         '
@@ -475,10 +505,10 @@ Partial Class xfrmRenunciaCandidatos
         Me.LayoutControlItem1.Control = Me.PanelControl1
         Me.LayoutControlItem1.CustomizationFormText = "LayoutControlItem1"
         Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(621, 189)
-        Me.LayoutControlItem1.MinSize = New System.Drawing.Size(621, 189)
+        Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(0, 189)
+        Me.LayoutControlItem1.MinSize = New System.Drawing.Size(104, 189)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(621, 189)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(763, 189)
         Me.LayoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem1.Text = "LayoutControlItem1"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
@@ -491,7 +521,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
         Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 189)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(621, 157)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(763, 157)
         Me.LayoutControlItem2.Text = "LayoutControlItem2"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextToControlDistance = 0
@@ -506,15 +536,24 @@ Partial Class xfrmRenunciaCandidatos
         '
         Me.IM_RENUNCIASTableAdapter.ClearBeforeFill = True
         '
+        'IM_SUSTITUCIONES
+        '
+        Me.IM_SUSTITUCIONES.DataMember = "IM_SUSTITUCIONES"
+        Me.IM_SUSTITUCIONES.DataSource = Me.DT_Renuncia
+        '
+        'IM_SUSTITUCIONESTableAdapter
+        '
+        Me.IM_SUSTITUCIONESTableAdapter.ClearBeforeFill = True
+        '
         'xfrmRenunciaCandidatos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(641, 366)
+        Me.ClientSize = New System.Drawing.Size(783, 366)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "xfrmRenunciaCandidatos"
-        Me.Text = "Renuncia de Candidatos"
+        Me.Text = "Renuncia  y Sustitución de Candidatos"
         CType(Me.IMVCANDIDATORENUNCIABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DT_Renuncia, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMMOTIVOSRENUNCIABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -522,8 +561,8 @@ Partial Class xfrmRenunciaCandidatos
         Me.LayoutControl1.ResumeLayout(False)
         CType(Me.GrdRepetidos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RepositoryItemLookUpEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemLookUpEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
@@ -537,6 +576,7 @@ Partial Class xfrmRenunciaCandidatos
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IM_SUSTITUCIONES, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -586,5 +626,9 @@ Partial Class xfrmRenunciaCandidatos
     Friend WithEvents colIMAGEN As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents RepositoryItemPictureEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
     Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents colSustituido As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents IM_SUSTITUCIONES As System.Windows.Forms.BindingSource
+    Friend WithEvents IM_SUSTITUCIONESTableAdapter As Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_SUSTITUCIONESTableAdapter
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
 End Class

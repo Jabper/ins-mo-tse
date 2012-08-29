@@ -117,52 +117,58 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="IMVCANDIDATORENUNCIABindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>139, 17</value>
+  <metadata name="IMVMOSTRARFIRMASBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 210</value>
   </metadata>
-  <metadata name="DT_Renuncia.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="DSCiudadanos.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="IMMOTIVOSRENUNCIABindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>711, 17</value>
+  <metadata name="TAMOVIMIENTOBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>323, 95</value>
   </metadata>
-  <metadata name="IM_V_CANDIDATO_RENUNCIATableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>420, 17</value>
-  </metadata>
-  <metadata name="IM_MOTIVOS_RENUNCIATableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="DSPolitico.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 56</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnbusqueda.Properties.Buttons" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        R0lGODlhGAAYAPYAABuk/iqq/+z5/yWl/pPh/y27/ySX8hus/yGy/x2Y8YPG/7Ld/qHa/zS0/zGu/zWm
-        /iGZ8+b0/x3E/3jW/yTD/7Pp/8Xl/zmi+j6l/2rC//z+/y3U/+v2/y22/8bt/y3C/zSp/zmd8kO2/6vk
-        /y6y/0Sp+Mrs/y2m/ziq/zKq/53T/xiy/zy1/9fy/yKa9B6w/77l//f8/zqa7n7N/3bM/y6a9Din/8nl
-        /C2e9vX7/1i1/x21/zGh/y6j/zyp/zHO/z6x/xi1/4ve/yi0/z6t/y/J/y6a8/H6/zqk/C2e/zGT5yyh
-        +y+X8D+6/zau/1q7/yqY75fR/5ba/47T/57f/1DQ/3DA/x2g+la9/zeg9yC6/zKm/zeh+rPj/zuk/4bU
-        /4Xf/zmg9i2U7CaJ3rjf/CCp/x+f9x64/ymk/Sig92HO/yaY9SWU7zDG/zrL/xyb9CSa8iuZ9Em0/zOe
-        91iy+Fmz/Dml/U+p7zml/k7D/yCT6SCX7qXn/3nD/X7F+f///yH5BAEAAH8ALAAAAAAYABgAAAf/gH+C
-        g38CI0ITBBUxhI2OLWpBKys7K0FaE0eOjlQ7LwUfRT9tHx8rBSabg1IHQx0/GxKyG20FCC+pmx6tHRQS
-        VQR8YG4SHx0vJAKOGiJlJAhtFYQaQhSuADSOJgAkJGcemwTIHQOMhDNXDmYTqhp5AyRXMI1PAw4JLap/
-        VAkOb1ON5KC5p0mVhX4uZjTCkiYFhAj6yCRIsedLIxpwQEBYoM+PC40jGnUZ8GBJCXONOOAAAUIPREJH
-        Gmx5YKCPoxx0DKDAcWcTgwAobBioYyHHHw5kShiwwRTKjWUZAgC5EMfAmjlr2NSwk+UCnjhGnjbKkeEE
-        CyA+kHBB4kNEEyIhScIgMcJEbCMGKE44YcE3xQkiJ2yECHFBjJKXjY4ssKKjsQIYGlT08CKj8pgo+lRJ
-        9oEBQxIVmTXzeMADD4fQBhUoQIy6tWtVgQAAOw==
-</value>
-  </data>
-  <metadata name="BindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>280, 56</value>
+  <metadata name="TAPARTIDOSPOLITICOSBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>124, 56</value>
   </metadata>
-  <metadata name="IM_RENUNCIASTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>417, 56</value>
+  <metadata name="TAMUNICIPIOSBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>636, 134</value>
   </metadata>
-  <metadata name="IM_SUSTITUCIONES.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>627, 56</value>
+  <metadata name="DSDeptoMuni.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 134</value>
   </metadata>
-  <metadata name="IM_SUSTITUCIONESTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 95</value>
+  <metadata name="TADEPARTAMENTOSBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>146, 134</value>
+  </metadata>
+  <metadata name="ContextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>164, 88</value>
+  </metadata>
+  <metadata name="TA_PARTIDOS_POLITICOSTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>384, 56</value>
+  </metadata>
+  <metadata name="TA_MOVIMIENTOTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>545, 95</value>
+  </metadata>
+  <metadata name="TA_DEPARTAMENTOSTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>391, 134</value>
+  </metadata>
+  <metadata name="TA_MUNICIPIOSTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 173</value>
+  </metadata>
+  <metadata name="ErrorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>731, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>145</value>
+    <value>208</value>
+  </metadata>
+  <metadata name="OpenFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>235, 171</value>
+  </metadata>
+  <metadata name="IM_V_MOSTRAR_FIRMASTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>268, 210</value>
+  </metadata>
+  <metadata name="ContextMenuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>377, 171</value>
   </metadata>
 </root>
