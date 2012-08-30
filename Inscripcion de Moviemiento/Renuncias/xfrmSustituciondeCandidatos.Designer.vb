@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class xfrmRenunciaCandidatos
+Partial Class xfrmSustituciondeCandidatos
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
@@ -20,7 +20,7 @@ Partial Class xfrmRenunciaCandidatos
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(xfrmRenunciaCandidatos))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(xfrmSustituciondeCandidatos))
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject
         Me.IMVCANDIDATORENUNCIABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DT_Renuncia = New Inscripcion_de_Moviemientos.DT_Renuncia
@@ -47,6 +47,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.colNOMBRE_MOVIMIENTO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colMOTIVO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RepositoryItemLookUpEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit
+        Me.BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         Me.colRENUNCIA = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colCODIGO_CARGO_ELECTIVO = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colIMAGEN = New DevExpress.XtraGrid.Columns.GridColumn
@@ -73,6 +74,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.IM_RENUNCIASTableAdapter = New Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_RENUNCIASTableAdapter
         Me.IM_SUSTITUCIONES = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_SUSTITUCIONESTableAdapter = New Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_SUSTITUCIONESTableAdapter
+        Me.IM_MOTIVO_SUSTITUCIONTableAdapter = New Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_MOTIVO_SUSTITUCIONTableAdapter
         CType(Me.IMVCANDIDATORENUNCIABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DT_Renuncia, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMMOTIVOSRENUNCIABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -82,6 +84,7 @@ Partial Class xfrmRenunciaCandidatos
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemLookUpEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
@@ -275,13 +278,18 @@ Partial Class xfrmRenunciaCandidatos
         Me.RepositoryItemLookUpEdit1.AutoHeight = False
         Me.RepositoryItemLookUpEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.RepositoryItemLookUpEdit1.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("DESCRIPCION", "Motivo", 92, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.Near), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODIGO_MOTIVO", "CODIGO_MOTIVO", 97, DevExpress.Utils.FormatType.Numeric, "", False, DevExpress.Utils.HorzAlignment.Far)})
-        Me.RepositoryItemLookUpEdit1.DataSource = Me.IMMOTIVOSRENUNCIABindingSource
+        Me.RepositoryItemLookUpEdit1.DataSource = Me.BindingSource2
         Me.RepositoryItemLookUpEdit1.DisplayMember = "DESCRIPCION"
         Me.RepositoryItemLookUpEdit1.Name = "RepositoryItemLookUpEdit1"
         Me.RepositoryItemLookUpEdit1.NullText = "Seleccione"
         Me.RepositoryItemLookUpEdit1.NullValuePrompt = "0"
         Me.RepositoryItemLookUpEdit1.NullValuePromptShowForEmptyValue = True
         Me.RepositoryItemLookUpEdit1.ValueMember = "CODIGO_MOTIVO"
+        '
+        'BindingSource2
+        '
+        Me.BindingSource2.DataMember = "IM_MOTIVO_SUSTITUCION"
+        Me.BindingSource2.DataSource = Me.DT_Renuncia
         '
         'colRENUNCIA
         '
@@ -290,8 +298,6 @@ Partial Class xfrmRenunciaCandidatos
         Me.colRENUNCIA.FieldName = "RENUNCIA"
         Me.colRENUNCIA.Name = "colRENUNCIA"
         Me.colRENUNCIA.ToolTip = "seleccionar este campo si el candidato desea renunciar de este movimiento"
-        Me.colRENUNCIA.Visible = True
-        Me.colRENUNCIA.VisibleIndex = 0
         Me.colRENUNCIA.Width = 68
         '
         'colCODIGO_CARGO_ELECTIVO
@@ -320,6 +326,8 @@ Partial Class xfrmRenunciaCandidatos
         Me.colSustituido.ColumnEdit = Me.RepositoryItemCheckEdit1
         Me.colSustituido.FieldName = "Sustituido"
         Me.colSustituido.Name = "colSustituido"
+        Me.colSustituido.Visible = True
+        Me.colSustituido.VisibleIndex = 0
         '
         'PanelControl1
         '
@@ -339,8 +347,8 @@ Partial Class xfrmRenunciaCandidatos
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.file_broken
-        Me.PictureBox1.Location = New System.Drawing.Point(550, 20)
+        Me.PictureBox1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.sustitucion
+        Me.PictureBox1.Location = New System.Drawing.Point(564, 17)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -350,14 +358,14 @@ Partial Class xfrmRenunciaCandidatos
         'LabelControl2
         '
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Tahoma", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl2.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.LabelControl2.Appearance.ForeColor = System.Drawing.Color.Green
         Me.LabelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical
         Me.LabelControl2.Location = New System.Drawing.Point(235, 20)
         Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(461, 29)
+        Me.LabelControl2.Size = New System.Drawing.Size(347, 29)
         Me.LabelControl2.TabIndex = 19
-        Me.LabelControl2.Text = "Renuncia  de Candidatos"
+        Me.LabelControl2.Text = "Sustitución de Candidatos"
         '
         'GroupBox1
         '
@@ -544,15 +552,19 @@ Partial Class xfrmRenunciaCandidatos
         '
         Me.IM_SUSTITUCIONESTableAdapter.ClearBeforeFill = True
         '
-        'xfrmRenunciaCandidatos
+        'IM_MOTIVO_SUSTITUCIONTableAdapter
+        '
+        Me.IM_MOTIVO_SUSTITUCIONTableAdapter.ClearBeforeFill = True
+        '
+        'xfrmSustituciondeCandidatos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(783, 366)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Name = "xfrmRenunciaCandidatos"
-        Me.Text = "Renuncia  y Sustitución de Candidatos"
+        Me.Name = "xfrmSustituciondeCandidatos"
+        Me.Text = "Sustitución de Candidatos"
         CType(Me.IMVCANDIDATORENUNCIABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DT_Renuncia, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMMOTIVOSRENUNCIABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -562,6 +574,7 @@ Partial Class xfrmRenunciaCandidatos
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemLookUpEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
@@ -630,4 +643,6 @@ Partial Class xfrmRenunciaCandidatos
     Friend WithEvents IM_SUSTITUCIONESTableAdapter As Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_SUSTITUCIONESTableAdapter
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BindingSource2 As System.Windows.Forms.BindingSource
+    Friend WithEvents IM_MOTIVO_SUSTITUCIONTableAdapter As Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_MOTIVO_SUSTITUCIONTableAdapter
 End Class
