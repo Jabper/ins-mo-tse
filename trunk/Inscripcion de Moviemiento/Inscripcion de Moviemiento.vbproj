@@ -401,6 +401,12 @@
     <Compile Include="Renuncias\DT_Renuncia.vb">
       <DependentUpon>DT_Renuncia.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Renuncias\XfrmMSustitucion.Designer.vb">
+      <DependentUpon>XfrmMSustitucion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Renuncias\XfrmMSustitucion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Renuncias\xfrmRegCandidatos2.Designer.vb">
       <DependentUpon>xfrmRegCandidatos2.vb</DependentUpon>
     </Compile>
@@ -423,6 +429,12 @@
       <DependentUpon>xfrmRenunciaCandidatosN.vb</DependentUpon>
     </Compile>
     <Compile Include="Renuncias\xfrmRenunciaCandidatosN.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Renuncias\xfrmSustituciondeCandidatos.Designer.vb">
+      <DependentUpon>xfrmSustituciondeCandidatos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Renuncias\xfrmSustituciondeCandidatos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\DS_CANDIDATOS_DUPLICADOS_MOV.Designer.vb">
@@ -1286,6 +1298,10 @@
       <DependentUpon>xfrmValidaciones.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Renuncias\XfrmMSustitucion.resx">
+      <DependentUpon>XfrmMSustitucion.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Renuncias\xfrmRegCandidatos2.resx">
       <DependentUpon>xfrmRegCandidatos2.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -1300,6 +1316,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Renuncias\xfrmRenunciaCandidatosN.resx">
       <DependentUpon>xfrmRenunciaCandidatosN.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Renuncias\xfrmSustituciondeCandidatos.resx">
+      <DependentUpon>xfrmSustituciondeCandidatos.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\NUEVOS\Parametros4.resx">
@@ -2401,6 +2421,7 @@
     <None Include="Resources\requisitos_1.png" />
     <None Include="Resources\process.png" />
     <None Include="Resources\serching.gif" />
+    <None Include="Resources\sustitucion.png" />
     <Content Include="Resources\tse.ico" />
     <Content Include="Resources\tselogop1.png" />
     <Content Include="tse.ico" />

@@ -4,7 +4,7 @@ Imports DevExpress.XtraEditors.Controls
 Imports DevExpress.XtraGrid.Columns
 Imports DevExpress.XtraEditors
 Imports System.Data.OracleClient
-Public Class xfrmRenunciaCandidatos
+Public Class xfrmSustituciondeCandidatos
     Dim mensajeerror As String = ""
     Sub limpiarLabels()
         'LIMPIA LOS LABELES DE INFORMACION EN CASO DE NO ENCONTRAR DATA Y SI ENCUENTRA MUESTRA LA INFORMACION DEL CANDIDATO
@@ -21,13 +21,15 @@ Public Class xfrmRenunciaCandidatos
 
         End If
     End Sub
-    Private Sub xfrmRenunciaCandidatos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub xfrmSustituciondeCandidatos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DT_Renuncia.IM_MOTIVO_SUSTITUCION' table. You can move, or remove it, as needed.
+        Me.IM_MOTIVO_SUSTITUCIONTableAdapter.Fill(Me.DT_Renuncia.IM_MOTIVO_SUSTITUCION)
         'TODO: This line of code loads data into the 'DT_Renuncia.IM_SUSTITUCIONES' table. You can move, or remove it, as needed.
-        Me.IM_SUSTITUCIONESTableAdapter.Fill(Me.DT_Renuncia.IM_SUSTITUCIONES)
+        'Me.IM_SUSTITUCIONESTableAdapter.Fill(Me.DT_Renuncia.IM_SUSTITUCIONES)
         'TODO: This line of code loads data into the 'DT_Renuncia.IM_RENUNCIAS' table. You can move, or remove it, as needed.
         'Me.IM_RENUNCIASTableAdapter.Fill(Me.DT_Renuncia.IM_RENUNCIAS)
         'TODO: This line of code loads data into the 'DT_Renuncia.IM_MOTIVOS_RENUNCIA' table. You can move, or remove it, as needed.
-        Me.IM_MOTIVOS_RENUNCIATableAdapter.Fill(Me.DT_Renuncia.IM_MOTIVOS_RENUNCIA)
+        'Me.IM_MOTIVOS_RENUNCIATableAdapter.Fill(Me.DT_Renuncia.IM_MOTIVOS_RENUNCIA)
 
     End Sub
 
@@ -54,19 +56,19 @@ Public Class xfrmRenunciaCandidatos
 
                         'MsgBox(view.GetRowCellValue(view.FocusedRowHandle, "MOTIVO").ToString)
 
-                        'GUARDAR RENUNCIAS
-                        If view.GetRowCellValue(i, "RENUNCIA").ToString = "S" And Not view.GetRowCellValue(i, "MOTIVO").Equals(String.Empty) Then
-                            contador += 1
-                            GuardarEnBase(i)
-
-                        End If
-
-                        ''GUARDAR SUSTITUCIONES
-                        'If view.GetRowCellValue(i, "Sustituido").ToString = "S" And Not view.GetRowCellValue(i, "MOTIVO").Equals(String.Empty) And view.GetRowCellValue(i, "MOTIVO").ToString = "99" Then
+                        ''GUARDAR RENUNCIAS
+                        'If view.GetRowCellValue(i, "RENUNCIA").ToString = "S" And Not view.GetRowCellValue(i, "MOTIVO").Equals(String.Empty) Then
                         '    contador += 1
-                        '    GuardarSustitucion(i)
+                        '    GuardarEnBase(i)
 
                         'End If
+
+                        'GUARDAR SUSTITUCIONES
+                        If view.GetRowCellValue(i, "Sustituido").ToString = "S" And Not view.GetRowCellValue(i, "MOTIVO").Equals(String.Empty) Then
+                            contador += 1
+                            GuardarSustitucion(i)
+
+                        End If
 
 
                     Next
@@ -120,53 +122,6 @@ Public Class xfrmRenunciaCandidatos
      
     End Sub
 
-    'Private Sub GridView1_ShownEditor(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridView1.ShownEditor
-    '    Dim view As DevExpress.XtraGrid.Views.Grid.GridView
-
-    '    view = CType(sender, DevExpress.XtraGrid.Views.Grid.GridView)
-
-
-
-    '    If view.FocusedColumn.FieldName = "MOTIVO" AndAlso TypeOf view.ActiveEditor Is DevExpress.XtraEditors.LookUpEdit Then
-    '        If view.GetRowCellValue(view.FocusedRowHandle, "Sustituido").ToString = "S" Then
-    '            Dim clone As DataView
-    '            Dim edit As DevExpress.XtraEditors.LookUpEdit
-
-    '            Dim table As DataTable
-
-    '            Dim dt As New DT_Renuncia
-    '            Dim row As DataRow
-
-    '            'edit = CType(view.ActiveEditor, DevExpress.XtraEditors.LookUpEdit)
-
-    '            Using Adapter As New DT_RenunciaTableAdapters.IM_MOTIVO_SUSTITUCIONTableAdapter
-    '                Adapter.Fill(dt.IM_MOTIVO_SUSTITUCION)
-    '            End Using
-
-    '            'table = CType(edit.Properties.DataSource, DT_Renuncia.IM_MOTIVO_SUSTITUCIONDataTable)
-
-    '            'clone = New DataView(table)
-
-    '            'row = view.GetDataRow(view.FocusedRowHandle)
-
-    '            'clone.RowFilter = "[CountryCode] = " + row("CountryCode").ToString()
-
-    '            'Dim LookUpEdit As New LookUpEdit()
-    '            Try
-    '                edit.Properties.DataSource = Nothing
-    '                edit.Properties.DataSource = dt.IM_MOTIVO_SUSTITUCION
-    '                edit.Properties.DisplayMember = "DESCRIPCION"
-    '                edit.Properties.ValueMember = "CODIGO_MOTIVO"
-    '                edit.Properties.Columns.Add(New  _
-    '                LookUpColumnInfo("DESCRIPCION", 0, "Motivo Sustitución"))
-    '            Catch ex As Exception
-    '                MsgBox(ex.Message)
-    '            End Try
-
-    '        End If
-    '    End If
-    'End Sub
-
 
 
     Private Sub GridView1_ValidateRow(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs) Handles GridView1.ValidateRow
@@ -174,8 +129,8 @@ Public Class xfrmRenunciaCandidatos
 
         'If view.FocusedColumn.FieldName = "RENUNCIA" Then
 
-        If view.GetRowCellValue(view.FocusedRowHandle, "RENUNCIA").ToString = "S" And IsDBNull(view.GetRowCellValue(view.FocusedRowHandle, "MOTIVO")) Then
-            mensajeerror = "Seleccione el motivo de la renuncia"
+        If view.GetRowCellValue(view.FocusedRowHandle, "Sustituido").ToString = "S" And IsDBNull(view.GetRowCellValue(view.FocusedRowHandle, "MOTIVO")) Then
+            mensajeerror = "Seleccione el motivo de la sustitución"
             e.Valid = False
 
         End If
@@ -334,7 +289,15 @@ Public Class xfrmRenunciaCandidatos
 
 
     Sub mostrarpantalla(ByVal i As Integer)
-        MsgBox("A continuación Ingrese la Información de la persona que sustituirá al candidato seleccionado", MsgBoxStyle.Information)
+        Dim mensaje As String
+        mensaje = "A continuación Ingrese la Información de la persona que sustituirá al candidato con esta información:"
+        mensaje &= vbCrLf & "Cargo: " & GridView1.GetRowCellValue(i, "CARGO")
+        mensaje &= vbCrLf & "Partido: " & GridView1.GetRowCellValue(i, "PARTIDO")
+        mensaje &= vbCrLf & "Movimiento: " & GridView1.GetRowCellValue(i, "MOVIMIENTO")
+        mensaje &= vbCrLf & "Departamento: " & GridView1.GetRowCellValue(i, "DEPARTAMENTO")
+        mensaje &= vbCrLf & "Municipio: " & GridView1.GetRowCellValue(i, "MUNICIPIO")
+
+        MsgBox(mensaje, MsgBoxStyle.Information)
         Dim Candidatos As xfrmRegCandidatos2 = New xfrmRegCandidatos2
 
         With Candidatos
@@ -374,7 +337,7 @@ Public Class xfrmRenunciaCandidatos
 
         '    If e.Value.ToString = "N" Then
 
-        '        view.SetRowCellValue(view.FocusedRowHandle, "MOTIVO", 1)
+        '        view.SetRowCellValue(view.FocusedRowHandle, "MOTIVO", 0)
         '    End If
         'End If
 
@@ -386,7 +349,7 @@ Public Class xfrmRenunciaCandidatos
 
         '    If e.Value.ToString = "N" Then
 
-        '        view.SetRowCellValue(view.FocusedRowHandle, "MOTIVO", 1)
+        '        view.SetRowCellValue(view.FocusedRowHandle, "MOTIVO", 0)
         '    End If
         'End If
 

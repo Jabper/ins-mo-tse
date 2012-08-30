@@ -120,6 +120,7 @@ Partial Class XFrmMenuPrincipal
         Me.BtnCancelarRenuncia = New DevExpress.XtraBars.BarButtonItem
         Me.BtnModRenuncias = New DevExpress.XtraBars.BarButtonItem
         Me.BtnMotivosRenuncia = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnMotivoSustitucion = New DevExpress.XtraBars.BarButtonItem
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage
@@ -152,6 +153,7 @@ Partial Class XFrmMenuPrincipal
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.BarSubItem1 = New DevExpress.XtraBars.BarSubItem
         Me.RibbonPageGroup10 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
+        Me.BtnSustitucion = New DevExpress.XtraBars.BarButtonItem
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -166,9 +168,9 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonControl.ApplicationButtonDropDownControl = Me.ApplicationMenu2
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.ExpandCollapseItem.Name = ""
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion, Me.BtnMotivo, Me.btnCInhabilitados, Me.btnConsultarCenso, Me.BtnSubirOtroSistema, Me.BtnRPlanilla, Me.BtnPlanillanivel, Me.BtnPlanilladivision, Me.btnConsultarFirmas, Me.BtnRFirmas, Me.BtnFDP, Me.BtnREstadistico, Me.btnConsultarCandidatos, Me.BtnFirmasinc, Me.btnJerarquico, Me.BtnCrucemov, Me.BtnCrucepar, Me.BtnResumenFir, Me.TxtUser, Me.btnConsultarPlanilla, Me.BtnEstadisticoFI, Me.BtnRLog, Me.Btnlogproce, Me.BtnPlanillacandidatos, Me.BtnDiscoPartido, Me.BtnDiscoMovimiento, Me.BtnEstadisticopar, Me.BtnValidaciones, Me.BarButtonItem2, Me.btnValidarFirmas, Me.BarButtonItem3, Me.BtnCandidatosInha, Me.BTN_Reporteimpor, Me.BTNrepocaninc, Me.BTNrepociuinc, Me.BarStaticItem1, Me.BTNRazonado, Me.BTNRestadisticoCE, Me.BtnRegistroImpo, Me.BarStaticItem2, Me.BTNduplicadosMov, Me.btnIncompleta, Me.BTNRazonadoPlaC, Me.BTNRazonadoPlanI, Me.BarButtonItem4, Me.btnEstadistico, Me.btnEstadisticasDP, Me.BTNRazonadoPINE, Me.BTNFaltantes, Me.BtnCambiarPass, Me.BTNREPTSE, Me.BTNRepplanifirm, Me.BTNrbasicos, Me.BtnRepCumplimiento, Me.BtnRepCumplimientoCifras, Me.BtnReporteIncosistencias, Me.BtnRepCandidatosRepetidos, Me.BtnRepPlanillasCompletas, Me.BtnRepPlanillasCompletasNivel, Me.BTNcumplimiento, Me.BTNcumplimiento1, Me.BtnProduccion, Me.BtnReporteProduccion2, Me.BarButtonItem5, Me.BtnPCNE, Me.BtnFaltantesBasico, Me.BTNcumplimientogenero, Me.BtnIncompletasGenero, Me.BtnRenuncias, Me.BtnRenunciasMovimiento, Me.BtnEstadisticoRenuncias, Me.BtnCancelarRenuncia, Me.BtnModRenuncias, Me.BtnMotivosRenuncia})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BtnMovimeintos, Me.BtnPartidos, Me.BtnMunicipio, Me.BtnDepartamento, Me.BtnCargos, Me.BtnNivelesElectivos, Me.BtnInhabilitado, Me.BtnCenso, Me.BtnParametros, Me.BtnUsuarios, Me.BtnRoles, Me.BtnOpciones, Me.BtnRequisitos, Me.BtnCandidatos, Me.BtnOperaciones, Me.BtnOperacionesUsuarios, Me.BtnExportar, Me.BtnImportar, Me.BtnHacerRespaldo, Me.BtnSubirRespaldo, Me.BtnFirmas, Me.BtnModificarFirmas, Me.BtnSalir, Me.BtnCerrarSesion, Me.BtnMotivo, Me.btnCInhabilitados, Me.btnConsultarCenso, Me.BtnSubirOtroSistema, Me.BtnRPlanilla, Me.BtnPlanillanivel, Me.BtnPlanilladivision, Me.btnConsultarFirmas, Me.BtnRFirmas, Me.BtnFDP, Me.BtnREstadistico, Me.btnConsultarCandidatos, Me.BtnFirmasinc, Me.btnJerarquico, Me.BtnCrucemov, Me.BtnCrucepar, Me.BtnResumenFir, Me.TxtUser, Me.btnConsultarPlanilla, Me.BtnEstadisticoFI, Me.BtnRLog, Me.Btnlogproce, Me.BtnPlanillacandidatos, Me.BtnDiscoPartido, Me.BtnDiscoMovimiento, Me.BtnEstadisticopar, Me.BtnValidaciones, Me.BarButtonItem2, Me.btnValidarFirmas, Me.BarButtonItem3, Me.BtnCandidatosInha, Me.BTN_Reporteimpor, Me.BTNrepocaninc, Me.BTNrepociuinc, Me.BarStaticItem1, Me.BTNRazonado, Me.BTNRestadisticoCE, Me.BtnRegistroImpo, Me.BarStaticItem2, Me.BTNduplicadosMov, Me.btnIncompleta, Me.BTNRazonadoPlaC, Me.BTNRazonadoPlanI, Me.BarButtonItem4, Me.btnEstadistico, Me.btnEstadisticasDP, Me.BTNRazonadoPINE, Me.BTNFaltantes, Me.BtnCambiarPass, Me.BTNREPTSE, Me.BTNRepplanifirm, Me.BTNrbasicos, Me.BtnRepCumplimiento, Me.BtnRepCumplimientoCifras, Me.BtnReporteIncosistencias, Me.BtnRepCandidatosRepetidos, Me.BtnRepPlanillasCompletas, Me.BtnRepPlanillasCompletasNivel, Me.BTNcumplimiento, Me.BTNcumplimiento1, Me.BtnProduccion, Me.BtnReporteProduccion2, Me.BarButtonItem5, Me.BtnPCNE, Me.BtnFaltantesBasico, Me.BTNcumplimientogenero, Me.BtnIncompletasGenero, Me.BtnRenuncias, Me.BtnRenunciasMovimiento, Me.BtnEstadisticoRenuncias, Me.BtnCancelarRenuncia, Me.BtnModRenuncias, Me.BtnMotivosRenuncia, Me.BtnMotivoSustitucion, Me.BtnSustitucion})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 113
+        Me.RibbonControl.MaxItemId = 115
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.PageHeaderItemLinks.Add(Me.BarStaticItem2)
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5, Me.RibbonPage7, Me.RibbonPage6})
@@ -805,7 +807,7 @@ Partial Class XFrmMenuPrincipal
         '
         'BtnRenuncias
         '
-        Me.BtnRenuncias.Caption = "Renuncia  y Sustitución de Candidatos"
+        Me.BtnRenuncias.Caption = "Renuncia de Candidatos"
         Me.BtnRenuncias.Id = 107
         Me.BtnRenuncias.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.useraccess
         Me.BtnRenuncias.Name = "BtnRenuncias"
@@ -845,6 +847,13 @@ Partial Class XFrmMenuPrincipal
         Me.BtnMotivosRenuncia.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.useraccess
         Me.BtnMotivosRenuncia.Name = "BtnMotivosRenuncia"
         '
+        'BtnMotivoSustitucion
+        '
+        Me.BtnMotivoSustitucion.Caption = "Motivo Sustitución"
+        Me.BtnMotivoSustitucion.Id = 113
+        Me.BtnMotivoSustitucion.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.sustitucion
+        Me.BtnMotivoSustitucion.Name = "BtnMotivoSustitucion"
+        '
         'RibbonPage1
         '
         Me.RibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1})
@@ -863,6 +872,7 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonPageGroup1.ItemLinks.Add(Me.BtnMunicipio)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.BtnDepartamento)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.BtnMotivosRenuncia)
+        Me.RibbonPageGroup1.ItemLinks.Add(Me.BtnMotivoSustitucion)
         Me.RibbonPageGroup1.Name = "RibbonPageGroup1"
         Me.RibbonPageGroup1.Text = "Acciones"
         '
@@ -879,6 +889,7 @@ Partial Class XFrmMenuPrincipal
         Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnFirmas)
         Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnModificarFirmas)
         Me.RibbonPageGroup3.ItemLinks.Add(Me.BarButtonItem3)
+        Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnSustitucion)
         Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnRenuncias)
         Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnCancelarRenuncia)
         Me.RibbonPageGroup3.ItemLinks.Add(Me.BtnModRenuncias)
@@ -1095,6 +1106,13 @@ Partial Class XFrmMenuPrincipal
         '
         Me.RibbonPageGroup10.Name = "RibbonPageGroup10"
         '
+        'BtnSustitucion
+        '
+        Me.BtnSustitucion.Caption = "Sustitución de Candidatos"
+        Me.BtnSustitucion.Id = 114
+        Me.BtnSustitucion.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.sustitucion
+        Me.BtnSustitucion.Name = "BtnSustitucion"
+        '
         'XFrmMenuPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1253,6 +1271,8 @@ Partial Class XFrmMenuPrincipal
     Friend WithEvents BtnCancelarRenuncia As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BtnModRenuncias As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BtnMotivosRenuncia As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnMotivoSustitucion As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BtnSustitucion As DevExpress.XtraBars.BarButtonItem
 
 
 End Class
