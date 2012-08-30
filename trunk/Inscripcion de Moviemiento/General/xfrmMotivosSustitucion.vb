@@ -1,27 +1,27 @@
 ﻿
 Imports DevExpress.XtraEditors
 Imports DevExpress.XtraGrid.Views.Grid
-Public Class xfrmMotivosRenuncia
+Public Class xfrmMotivosSustitucion
     Dim actualizar As Boolean = False
     Dim id As Integer
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
         Me.Close()
     End Sub
 
-    Private Sub xfrmMotivosRenuncia_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub xfrmMotivosSustitucion_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        
         ActualizarGrid()
-        Me.IMMOTIVOSRENUNCIABindingSource.AddNew()
 
-        If COracle.credenciales("BtnMotivosRenuncia", "MODIFICAR") = "N" And COracle.credenciales("BtnMotivosRenuncia", "INSERTAR") = "N" Then
-            DxControls.ObtenerCredencial("BtnMotivosRenuncia", "MODIFICAR", Me.BtnGuardar)
+
+        If COracle.credenciales("BtnMotivoSustitucion", "MODIFICAR") = "N" And COracle.credenciales("BtnMotivoSustitucion", "INSERTAR") = "N" Then
+            DxControls.ObtenerCredencial("BtnMotivoSustitucion", "MODIFICAR", Me.BtnGuardar)
         End If
-        DxControls.ObtenerCredencial("BtnMotivosRenuncia", "INSERTAR", Me.BtnNuevo)
-        DxControls.ObtenerCredencial("BtnMotivosRenuncia", "ELIMINAR", Me.BtnEliminar)
+        DxControls.ObtenerCredencial("BtnMotivoSustitucion", "INSERTAR", Me.BtnNuevo)
+        DxControls.ObtenerCredencial("BtnMotivoSustitucion", "ELIMINAR", Me.BtnEliminar)
     End Sub
     Sub ActualizarGrid()
         'TODO: This line of code loads data into the 'DSDeptoMuni.IM_DEPARTAMENTOS1' table. You can move, or remove it, as needed.
-        Me.IM_MOTIVOS_RENUNCIA1TableAdapter.Fill(Me.DT_Renuncia.IM_MOTIVOS_RENUNCIA1)
-
+        Me.IM_MOTIVO_SUSTITUCION1TableAdapter.Fill(Me.DT_Renuncia.IM_MOTIVO_SUSTITUCION1)
     End Sub
 
     Sub guardar()
@@ -31,10 +31,10 @@ Public Class xfrmMotivosRenuncia
         Try
 
             'INDICACION QUE HA TERMINADO LA EDICION
-            Me.IMMOTIVOSRENUNCIABindingSource.EndEdit()
+            Me.IM_MOTIVOS_SUSTITUCION.EndEdit()
 
             'AGREGAR INFORMACION DE AUDITORIA (MODIFICA EL REGISTRO ANTES DE AGREGARLO A LA BASE )
-            For Each _datar As DT_Renuncia.IM_MOTIVOS_RENUNCIARow In DT_Renuncia.IM_MOTIVOS_RENUNCIA
+            For Each _datar As DT_Renuncia.IM_MOTIVO_SUSTITUCIONRow In DT_Renuncia.IM_MOTIVO_SUSTITUCION
                 'SI ES UN NUEVO REGITRO
                 If _datar.RowState = DataRowState.Added Then
                     _datar.ADICIONADO_POR = usuario
@@ -47,7 +47,7 @@ Public Class xfrmMotivosRenuncia
             Next
 
             'AGREGANDO LA INFORMACION A LA BASE DE DATOS
-            Me.IM_MOTIVOS_RENUNCIATableAdapter.Update(Me.DT_Renuncia.IM_MOTIVOS_RENUNCIA)
+            Me.IM_MOTIVO_SUSTITUCIONTableAdapter.Update(Me.DT_Renuncia.IM_MOTIVO_SUSTITUCION)
 
             'ACTUALIZANDO EL GRID DE BUSQUEDA Y EDICION
             ActualizarGrid()
@@ -60,7 +60,7 @@ Public Class xfrmMotivosRenuncia
             Else
                 Mensajes.MensajeGuardar()
             End If
-            Me.IMMOTIVOSRENUNCIABindingSource.AddNew()
+            Me.IM_MOTIVOS_SUSTITUCION.AddNew()
         Catch ex As Exception
             'CONTROL DE ERRORES
             Mensajes.MensajeError(ex.Message)
@@ -71,10 +71,10 @@ Public Class xfrmMotivosRenuncia
 
         Try
             'CANCELA LA EDICION EN CASO DE QUE NO QUIERA GUARDAR
-            Me.IMMOTIVOSRENUNCIABindingSource.CancelEdit()
+            Me.IM_MOTIVOS_SUSTITUCION.CancelEdit()
 
             'LIMPIA LOS CONTROLES PARA AGREGAR UN NUEVO REGISTRO
-            Me.IMMOTIVOSRENUNCIABindingSource.AddNew()
+            Me.IM_MOTIVOS_SUSTITUCION.AddNew()
             Me.BtnEliminar.Enabled = False
             actualizar = False
         Catch ex As Exception
@@ -88,16 +88,16 @@ Public Class xfrmMotivosRenuncia
             Try
 
 
-                Dim Deptosrow As DT_Renuncia.IM_MOTIVOS_RENUNCIARow
+                Dim Deptosrow As DT_Renuncia.IM_MOTIVO_SUSTITUCIONRow
 
-                Deptosrow = Me.DT_Renuncia.IM_MOTIVOS_RENUNCIA.FindByCODIGO_MOTIVO(id)
+                Deptosrow = Me.DT_Renuncia.IM_MOTIVO_SUSTITUCION.FindByCODIGO_MOTIVO(id)
 
                 Deptosrow.Delete()
 
-                Me.IM_MOTIVOS_RENUNCIATableAdapter.Update(Me.DT_Renuncia.IM_MOTIVOS_RENUNCIA)
+                Me.IM_MOTIVO_SUSTITUCIONTableAdapter.Update(Me.DT_Renuncia.IM_MOTIVO_SUSTITUCION)
                 ActualizarGrid()
                 Mensajes.MensajeEliminar()
-                Me.IMMOTIVOSRENUNCIABindingSource.AddNew()
+                Me.IM_MOTIVOS_SUSTITUCION.AddNew()
                 Me.BtnEliminar.Enabled = False
                 actualizar = False
             Catch ex As Exception
@@ -115,9 +115,9 @@ Public Class xfrmMotivosRenuncia
     Sub MostrarDatos()
         Try
             'SE LE ASIGNA A UNA VARIABLE EL VALOR DE LA CELDA QUE SE DESEA
-            Dim cellValue As String = Data.CapturarDatoGrid(Me.GridView1, 1)
+            Dim cellValue As String = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "CODIGO_MOTIVO").ToString  'Data.CapturarDatoGrid(Me.GridView1, 1)
             'UNA VEZ OBTENIENDO EL ID SE MUESTRA LA DATA ENCONTRADA
-            Me.IM_MOTIVOS_RENUNCIATableAdapter.FillBy(Me.DT_Renuncia.IM_MOTIVOS_RENUNCIA, cellValue)
+            Me.IM_MOTIVO_SUSTITUCIONTableAdapter.FillBy(Me.DT_Renuncia.IM_MOTIVO_SUSTITUCION, cellValue)
             actualizar = True
             id = cellValue
             BtnEliminar.Enabled = True
@@ -140,13 +140,13 @@ Public Class xfrmMotivosRenuncia
     End Sub
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
-        If actualizar = True And COracle.credenciales("BtnMotivosRenuncia", "MODIFICAR") = "S" Then
+        If actualizar = True And COracle.credenciales("BtnMotivoSustitucion", "MODIFICAR") = "S" Then
             guardar()
-        ElseIf actualizar = True And COracle.credenciales("BtnMotivosRenuncia", "MODIFICAR") <> "S" Then
+        ElseIf actualizar = True And COracle.credenciales("BtnMotivoSustitucion", "MODIFICAR") <> "S" Then
             Mensajes.MensajeError("El ususario no tiene permisos de Modificacion en esta pantalla")
-        ElseIf actualizar = False And COracle.credenciales("BtnMotivosRenuncia", "INSERTAR") = "S" Then
+        ElseIf actualizar = False And COracle.credenciales("BtnMotivoSustitucion", "INSERTAR") = "S" Then
             guardar()
-        ElseIf actualizar = False And COracle.credenciales("BtnMotivosRenuncia", "INSERTAR") <> "S" Then
+        ElseIf actualizar = False And COracle.credenciales("BtnMotivoSustitucion", "INSERTAR") <> "S" Then
             Mensajes.MensajeError("El ususario no tiene permisos de Inserción en esta pantalla")
         End If
     End Sub

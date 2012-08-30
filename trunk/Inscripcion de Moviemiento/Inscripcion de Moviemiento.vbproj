@@ -358,6 +358,12 @@
     <Compile Include="General\xfrmMotivosRenuncia.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="General\xfrmMotivosSustitucion.Designer.vb">
+      <DependentUpon>xfrmMotivosSustitucion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="General\xfrmMotivosSustitucion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="General\XfrmPartidos.Designer.vb">
       <DependentUpon>XfrmPartidos.vb</DependentUpon>
     </Compile>
@@ -1280,6 +1286,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="General\xfrmMotivosRenuncia.resx">
       <DependentUpon>xfrmMotivosRenuncia.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="General\xfrmMotivosSustitucion.resx">
+      <DependentUpon>xfrmMotivosSustitucion.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Procesos\Dialog1.resx">

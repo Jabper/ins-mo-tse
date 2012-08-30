@@ -293,7 +293,7 @@ Public Class xfrmSustituciondeCandidatos
         mensaje = "A continuación Ingrese la Información de la persona que sustituirá al candidato con esta información:"
         mensaje &= vbCrLf & "Cargo: " & GridView1.GetRowCellValue(i, "CARGO")
         mensaje &= vbCrLf & "Partido: " & GridView1.GetRowCellValue(i, "PARTIDO")
-        mensaje &= vbCrLf & "Movimiento: " & GridView1.GetRowCellValue(i, "MOVIMIENTO")
+        mensaje &= vbCrLf & "Movimiento: " & GridView1.GetRowCellValue(i, "NOMBRE_MOVIMIENTO")
         mensaje &= vbCrLf & "Departamento: " & GridView1.GetRowCellValue(i, "DEPARTAMENTO")
         mensaje &= vbCrLf & "Municipio: " & GridView1.GetRowCellValue(i, "MUNICIPIO")
 
