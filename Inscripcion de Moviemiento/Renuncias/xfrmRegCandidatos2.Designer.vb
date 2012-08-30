@@ -164,6 +164,7 @@ Partial Class xfrmRegCandidatos2
         Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.Transparent
         Me.FlowLayoutPanel1.Controls.Add(Me.BtnNuevo)
         Me.FlowLayoutPanel1.Controls.Add(Me.BtnGuardar)
+        Me.FlowLayoutPanel1.Controls.Add(Me.SimpleButton1)
         Me.FlowLayoutPanel1.Controls.Add(Me.BtnEliminar)
         Me.FlowLayoutPanel1.Controls.Add(Me.BtnSalir)
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(11, 5)
@@ -203,7 +204,7 @@ Partial Class xfrmRegCandidatos2
         Me.BtnEliminar.Appearance.Options.UseFont = True
         Me.BtnEliminar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.eliminar
         Me.BtnEliminar.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomCenter
-        Me.BtnEliminar.Location = New System.Drawing.Point(125, 3)
+        Me.BtnEliminar.Location = New System.Drawing.Point(186, 3)
         Me.BtnEliminar.Name = "BtnEliminar"
         Me.BtnEliminar.Size = New System.Drawing.Size(55, 39)
         Me.BtnEliminar.TabIndex = 2
@@ -217,7 +218,7 @@ Partial Class xfrmRegCandidatos2
         Me.BtnSalir.Appearance.Options.UseFont = True
         Me.BtnSalir.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
         Me.BtnSalir.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomCenter
-        Me.BtnSalir.Location = New System.Drawing.Point(186, 3)
+        Me.BtnSalir.Location = New System.Drawing.Point(3, 48)
         Me.BtnSalir.Name = "BtnSalir"
         Me.BtnSalir.Size = New System.Drawing.Size(55, 39)
         Me.BtnSalir.TabIndex = 35
@@ -990,13 +991,12 @@ Partial Class xfrmRegCandidatos2
         Me.SimpleButton1.Appearance.Options.UseFont = True
         Me.SimpleButton1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._1345396919_txt2
         Me.SimpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomCenter
-        Me.SimpleButton1.Location = New System.Drawing.Point(277, 9)
+        Me.SimpleButton1.Location = New System.Drawing.Point(125, 3)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(55, 39)
         Me.SimpleButton1.TabIndex = 36
         Me.SimpleButton1.Text = "Nuevo"
         Me.SimpleButton1.ToolTip = "Presione para Habilitar los Campos para Cambiar Nombres"
-        Me.SimpleButton1.Visible = False
         '
         'LabelControl6
         '
@@ -1022,7 +1022,6 @@ Partial Class xfrmRegCandidatos2
         Me.Controls.Add(Me.BtnSalirold)
         Me.Controls.Add(Me.lblidmovimiento)
         Me.Controls.Add(Me.BtnEliminariold)
-        Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.PanelControl5)
         Me.Controls.Add(Me.btnguardarold)
         Me.Controls.Add(Me.lblmujeres)

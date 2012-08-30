@@ -674,4 +674,8 @@ Public Class XFrmMenuPrincipal
     Private Sub BtnSustitucion_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnSustitucion.ItemClick
         Padre(xfrmSustituciondeCandidatos)
     End Sub
+
+    Private Sub BtnMotivoSustitucion_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnMotivoSustitucion.ItemClick
+        Padre(xfrmMotivosSustitucion)
+    End Sub
 End Class

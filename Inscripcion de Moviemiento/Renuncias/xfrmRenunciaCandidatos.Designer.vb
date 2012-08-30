@@ -552,7 +552,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.Controls.Add(Me.LayoutControl1)
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "xfrmRenunciaCandidatos"
-        Me.Text = "Renuncia  y Sustitución de Candidatos"
+        Me.Text = "Renuncia de Candidatos"
         CType(Me.IMVCANDIDATORENUNCIABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DT_Renuncia, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IMMOTIVOSRENUNCIABindingSource, System.ComponentModel.ISupportInitialize).EndInit()

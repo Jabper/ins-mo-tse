@@ -1458,7 +1458,7 @@ Public Class xfrmRegCandidatos2
 
             Dim _row = CType(DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2.Rows(IMVMOSTRARCANDIDATOS2BindingSource.Position), DSInsCandidatos.IM_V_MOSTRAR_CANDIDATOS2Row)
             If _row.RowState = DataRowState.Added Then
-                Dim credencial As String = COracle.credenciales("BtnCandidatos", "INSERTAR")
+                Dim credencial As String = COracle.credenciales("BtnSustitucion", "INSERTAR")
                 If credencial = "N" Then
                     Mensajes.mimensaje("Usuario no tiene Permiso Para Insertar")
                     Validarleyendas()
@@ -1477,7 +1477,7 @@ Public Class xfrmRegCandidatos2
                     End If
                 End If
             ElseIf _row.RowState = DataRowState.Unchanged Or permitir_up = 1 Then
-                Dim credencial As String = COracle.credenciales("BtnCandidatos", "MODIFICAR")
+                Dim credencial As String = COracle.credenciales("BtnSustitucion", "MODIFICAR")
                 If credencial = "N" Then
                     Mensajes.mimensaje("Usuario no tiene Permiso Para Modificar")
                     Validarleyendas()
