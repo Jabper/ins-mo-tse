@@ -2432,6 +2432,7 @@
     <None Include="Resources\process.png" />
     <None Include="Resources\serching.gif" />
     <None Include="Resources\sustitucion.png" />
+    <None Include="Resources\nothing.png" />
     <Content Include="Resources\tse.ico" />
     <Content Include="Resources\tselogop1.png" />
     <Content Include="tse.ico" />

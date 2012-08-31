@@ -52,6 +52,16 @@ Partial Class xfrmRenunciaCandidatos
         Me.colIMAGEN = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RepositoryItemPictureEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
         Me.colSustituido = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colREC1 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.RepositoryItemCheckEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+        Me.colREC2 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colREC3 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colREC4 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colREC5 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colREC6 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colREC7 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colREC8 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colREC9 = New DevExpress.XtraGrid.Columns.GridColumn
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl
@@ -83,6 +93,7 @@ Partial Class xfrmRenunciaCandidatos
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemLookUpEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCheckEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -139,17 +150,20 @@ Partial Class xfrmRenunciaCandidatos
         Me.GrdRepetidos.MainView = Me.GridView1
         Me.GrdRepetidos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GrdRepetidos.Name = "GrdRepetidos"
-        Me.GrdRepetidos.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1, Me.RepositoryItemLookUpEdit1, Me.RepositoryItemPictureEdit1})
+        Me.GrdRepetidos.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1, Me.RepositoryItemLookUpEdit1, Me.RepositoryItemPictureEdit1, Me.RepositoryItemCheckEdit2})
         Me.GrdRepetidos.Size = New System.Drawing.Size(759, 153)
         Me.GrdRepetidos.TabIndex = 18
         Me.GrdRepetidos.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
         'GridView1
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_CANDIDATOS, Me.colIDENTIDAD, Me.colNOMBRE, Me.colAPELLIDO, Me.colPOSICION, Me.colCARGO, Me.colCODIGO_DEPARTAMENTO, Me.colDEPARTAMENTO, Me.colCODIGO_MUNICIPIO, Me.colMUNICIPIO, Me.colCODIGO_PARTIDO, Me.colPARTIDO, Me.colCODIGO_MOVIMIENTO, Me.colNOMBRE_MOVIMIENTO, Me.colMOTIVO, Me.colRENUNCIA, Me.colCODIGO_CARGO_ELECTIVO, Me.colIMAGEN, Me.colSustituido})
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_CANDIDATOS, Me.colIDENTIDAD, Me.colNOMBRE, Me.colAPELLIDO, Me.colPOSICION, Me.colCARGO, Me.colCODIGO_DEPARTAMENTO, Me.colDEPARTAMENTO, Me.colCODIGO_MUNICIPIO, Me.colMUNICIPIO, Me.colCODIGO_PARTIDO, Me.colPARTIDO, Me.colCODIGO_MOVIMIENTO, Me.colNOMBRE_MOVIMIENTO, Me.colMOTIVO, Me.colRENUNCIA, Me.colCODIGO_CARGO_ELECTIVO, Me.colIMAGEN, Me.colSustituido, Me.colREC1, Me.colREC2, Me.colREC3, Me.colREC4, Me.colREC5, Me.colREC6, Me.colREC7, Me.colREC8, Me.colREC9})
         Me.GridView1.GridControl = Me.GrdRepetidos
         Me.GridView1.Name = "GridView1"
+        Me.GridView1.OptionsView.ColumnAutoWidth = False
+        Me.GridView1.OptionsView.ShowDetailButtons = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
+        Me.GridView1.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.colPARTIDO, DevExpress.Data.ColumnSortOrder.Ascending)})
         '
         'colCODIGO_CANDIDATOS
         '
@@ -189,7 +203,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.colPOSICION.OptionsColumn.AllowEdit = False
         Me.colPOSICION.Visible = True
         Me.colPOSICION.VisibleIndex = 4
-        Me.colPOSICION.Width = 60
+        Me.colPOSICION.Width = 109
         '
         'colCARGO
         '
@@ -199,7 +213,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.colCARGO.OptionsColumn.AllowEdit = False
         Me.colCARGO.Visible = True
         Me.colCARGO.VisibleIndex = 5
-        Me.colCARGO.Width = 87
+        Me.colCARGO.Width = 82
         '
         'colCODIGO_DEPARTAMENTO
         '
@@ -214,7 +228,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.colDEPARTAMENTO.OptionsColumn.AllowEdit = False
         Me.colDEPARTAMENTO.Visible = True
         Me.colDEPARTAMENTO.VisibleIndex = 6
-        Me.colDEPARTAMENTO.Width = 87
+        Me.colDEPARTAMENTO.Width = 105
         '
         'colCODIGO_MUNICIPIO
         '
@@ -229,7 +243,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.colMUNICIPIO.OptionsColumn.AllowEdit = False
         Me.colMUNICIPIO.Visible = True
         Me.colMUNICIPIO.VisibleIndex = 7
-        Me.colMUNICIPIO.Width = 100
+        Me.colMUNICIPIO.Width = 73
         '
         'colCODIGO_PARTIDO
         '
@@ -244,7 +258,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.colPARTIDO.OptionsColumn.AllowEdit = False
         Me.colPARTIDO.Visible = True
         Me.colPARTIDO.VisibleIndex = 2
-        Me.colPARTIDO.Width = 97
+        Me.colPARTIDO.Width = 135
         '
         'colCODIGO_MOVIMIENTO
         '
@@ -258,7 +272,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.colNOMBRE_MOVIMIENTO.Name = "colNOMBRE_MOVIMIENTO"
         Me.colNOMBRE_MOVIMIENTO.Visible = True
         Me.colNOMBRE_MOVIMIENTO.VisibleIndex = 3
-        Me.colNOMBRE_MOVIMIENTO.Width = 97
+        Me.colNOMBRE_MOVIMIENTO.Width = 76
         '
         'colMOTIVO
         '
@@ -268,7 +282,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.colMOTIVO.Name = "colMOTIVO"
         Me.colMOTIVO.Visible = True
         Me.colMOTIVO.VisibleIndex = 1
-        Me.colMOTIVO.Width = 105
+        Me.colMOTIVO.Width = 125
         '
         'RepositoryItemLookUpEdit1
         '
@@ -307,6 +321,7 @@ Partial Class xfrmRenunciaCandidatos
         Me.colIMAGEN.Name = "colIMAGEN"
         Me.colIMAGEN.Visible = True
         Me.colIMAGEN.VisibleIndex = 8
+        Me.colIMAGEN.Width = 64
         '
         'RepositoryItemPictureEdit1
         '
@@ -320,6 +335,126 @@ Partial Class xfrmRenunciaCandidatos
         Me.colSustituido.ColumnEdit = Me.RepositoryItemCheckEdit1
         Me.colSustituido.FieldName = "Sustituido"
         Me.colSustituido.Name = "colSustituido"
+        '
+        'colREC1
+        '
+        Me.colREC1.AppearanceHeader.Options.UseTextOptions = True
+        Me.colREC1.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colREC1.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colREC1.Caption = "Hondureño por Nacimiento"
+        Me.colREC1.ColumnEdit = Me.RepositoryItemCheckEdit2
+        Me.colREC1.FieldName = "REC1"
+        Me.colREC1.Name = "colREC1"
+        Me.colREC1.OptionsColumn.AllowEdit = False
+        Me.colREC1.Width = 62
+        '
+        'RepositoryItemCheckEdit2
+        '
+        Me.RepositoryItemCheckEdit2.AutoHeight = False
+        Me.RepositoryItemCheckEdit2.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.UserDefined
+        Me.RepositoryItemCheckEdit2.Name = "RepositoryItemCheckEdit2"
+        Me.RepositoryItemCheckEdit2.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
+        Me.RepositoryItemCheckEdit2.PictureChecked = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Ok
+        Me.RepositoryItemCheckEdit2.PictureGrayed = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.errorIcon
+        Me.RepositoryItemCheckEdit2.PictureUnchecked = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.errorIcon
+        Me.RepositoryItemCheckEdit2.ValueChecked = "1"
+        Me.RepositoryItemCheckEdit2.ValueUnchecked = "0"
+        '
+        'colREC2
+        '
+        Me.colREC2.AppearanceHeader.Options.UseTextOptions = True
+        Me.colREC2.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colREC2.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colREC2.Caption = "Existencia o Habilitado CNE"
+        Me.colREC2.ColumnEdit = Me.RepositoryItemCheckEdit2
+        Me.colREC2.FieldName = "REC2"
+        Me.colREC2.Name = "colREC2"
+        Me.colREC2.OptionsColumn.AllowEdit = False
+        Me.colREC2.Width = 56
+        '
+        'colREC3
+        '
+        Me.colREC3.AppearanceHeader.Options.UseTextOptions = True
+        Me.colREC3.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colREC3.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colREC3.Caption = "Nombres Apellidos Iguales CNE"
+        Me.colREC3.ColumnEdit = Me.RepositoryItemCheckEdit2
+        Me.colREC3.FieldName = "REC3"
+        Me.colREC3.Name = "colREC3"
+        Me.colREC3.OptionsColumn.AllowEdit = False
+        Me.colREC3.Width = 47
+        '
+        'colREC4
+        '
+        Me.colREC4.AppearanceHeader.Options.UseTextOptions = True
+        Me.colREC4.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colREC4.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colREC4.Caption = "Mayor de 18 Años"
+        Me.colREC4.ColumnEdit = Me.RepositoryItemCheckEdit2
+        Me.colREC4.FieldName = "REC4"
+        Me.colREC4.Name = "colREC4"
+        Me.colREC4.OptionsColumn.AllowEdit = False
+        Me.colREC4.Width = 47
+        '
+        'colREC5
+        '
+        Me.colREC5.AppearanceHeader.Options.UseTextOptions = True
+        Me.colREC5.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colREC5.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colREC5.Caption = "Mayor de 21 Años"
+        Me.colREC5.ColumnEdit = Me.RepositoryItemCheckEdit2
+        Me.colREC5.FieldName = "REC5"
+        Me.colREC5.Name = "colREC5"
+        Me.colREC5.OptionsColumn.AllowEdit = False
+        Me.colREC5.Width = 48
+        '
+        'colREC6
+        '
+        Me.colREC6.AppearanceHeader.Options.UseTextOptions = True
+        Me.colREC6.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colREC6.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colREC6.Caption = "Mayor de 30 Años"
+        Me.colREC6.ColumnEdit = Me.RepositoryItemCheckEdit2
+        Me.colREC6.FieldName = "REC6"
+        Me.colREC6.Name = "colREC6"
+        Me.colREC6.OptionsColumn.AllowEdit = False
+        Me.colREC6.Width = 51
+        '
+        'colREC7
+        '
+        Me.colREC7.AppearanceHeader.Options.UseTextOptions = True
+        Me.colREC7.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colREC7.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colREC7.Caption = "Fotografia Reciente"
+        Me.colREC7.ColumnEdit = Me.RepositoryItemCheckEdit2
+        Me.colREC7.FieldName = "REC7"
+        Me.colREC7.Name = "colREC7"
+        Me.colREC7.OptionsColumn.AllowEdit = False
+        Me.colREC7.Width = 54
+        '
+        'colREC8
+        '
+        Me.colREC8.AppearanceHeader.Options.UseTextOptions = True
+        Me.colREC8.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colREC8.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colREC8.Caption = "Constancia de Vecindad"
+        Me.colREC8.ColumnEdit = Me.RepositoryItemCheckEdit2
+        Me.colREC8.FieldName = "REC8"
+        Me.colREC8.Name = "colREC8"
+        Me.colREC8.OptionsColumn.AllowEdit = False
+        Me.colREC8.Width = 57
+        '
+        'colREC9
+        '
+        Me.colREC9.AppearanceHeader.Options.UseTextOptions = True
+        Me.colREC9.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colREC9.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colREC9.Caption = "Candidato no Existe en Planilla"
+        Me.colREC9.ColumnEdit = Me.RepositoryItemCheckEdit2
+        Me.colREC9.FieldName = "REC9"
+        Me.colREC9.Name = "colREC9"
+        Me.colREC9.OptionsColumn.AllowEdit = False
+        Me.colREC9.Width = 60
         '
         'PanelControl1
         '
@@ -563,6 +698,7 @@ Partial Class xfrmRenunciaCandidatos
         CType(Me.RepositoryItemCheckEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemLookUpEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCheckEdit2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         Me.PanelControl1.PerformLayout()
@@ -630,4 +766,14 @@ Partial Class xfrmRenunciaCandidatos
     Friend WithEvents IM_SUSTITUCIONESTableAdapter As Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_SUSTITUCIONESTableAdapter
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents colREC1 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colREC2 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colREC3 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colREC4 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colREC5 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colREC6 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colREC7 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colREC8 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colREC9 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryItemCheckEdit2 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
 End Class

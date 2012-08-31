@@ -20,6 +20,7 @@ Public Class xfrmSustituciondeCandidatos
             'Return
 
         End If
+        aplicarvalidacion()
     End Sub
     Private Sub xfrmSustituciondeCandidatos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'DT_Renuncia.IM_MOTIVO_SUSTITUCION' table. You can move, or remove it, as needed.
@@ -33,7 +34,68 @@ Public Class xfrmSustituciondeCandidatos
 
     End Sub
 
+    Sub aplicarvalidacion()
+        Dim view As GridView = GridView1
+        If view.DataRowCount > 0 Then
+            For i = 0 To TotalFilas()
+                If view.GetRowCellValue(i, "CODIGO_CARGO_ELECTIVO").ToString = "8" Then
+                    view.SetRowCellValue(i, "REC5", "2")
+                    view.SetRowCellValue(i, "REC6", "2")
+                    view.SetRowCellValue(i, "REC7", "2")
+                End If
 
+                If view.GetRowCellValue(i, "CODIGO_CARGO_ELECTIVO").ToString = "7" Then
+                    view.SetRowCellValue(i, "REC5", "2")
+                    view.SetRowCellValue(i, "REC6", "2")
+                    view.SetRowCellValue(i, "REC7", "2")
+                End If
+
+                If view.GetRowCellValue(i, "CODIGO_CARGO_ELECTIVO").ToString = "6" Then
+                    view.SetRowCellValue(i, "REC5", "2")
+                    view.SetRowCellValue(i, "REC6", "2")
+
+                End If
+
+                If view.GetRowCellValue(i, "CODIGO_CARGO_ELECTIVO").ToString = "5" Then
+                    view.SetRowCellValue(i, "REC6", "2")
+                    view.SetRowCellValue(i, "REC7", "2")
+
+                End If
+
+                If view.GetRowCellValue(i, "CODIGO_CARGO_ELECTIVO").ToString = "4" Then
+                    view.SetRowCellValue(i, "REC6", "2")
+
+
+                End If
+
+                If view.GetRowCellValue(i, "CODIGO_CARGO_ELECTIVO").ToString = "3" Then
+                    view.SetRowCellValue(i, "REC6", "2")
+                    view.SetRowCellValue(i, "REC7", "2")
+                    view.SetRowCellValue(i, "REC8", "2")
+                End If
+
+                If view.GetRowCellValue(i, "CODIGO_CARGO_ELECTIVO").ToString = "2" Then
+                    view.SetRowCellValue(i, "REC6", "2")
+                    view.SetRowCellValue(i, "REC7", "2")
+                    view.SetRowCellValue(i, "REC8", "2")
+
+                End If
+
+                If view.GetRowCellValue(i, "CODIGO_CARGO_ELECTIVO").ToString = "9" Then
+                    view.SetRowCellValue(i, "REC8", "2")
+                    view.SetRowCellValue(i, "REC7", "2")
+                End If
+
+                If view.GetRowCellValue(i, "CODIGO_CARGO_ELECTIVO").ToString = "1" Then
+
+                    view.SetRowCellValue(i, "REC8", "2")
+
+                End If
+
+            Next
+
+        End If
+    End Sub
 
 
 
