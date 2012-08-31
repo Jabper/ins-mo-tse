@@ -548,6 +548,24 @@ Partial Public Class DT_Renuncia
         
         Private columnSustituido As Global.System.Data.DataColumn
         
+        Private columnREC1 As Global.System.Data.DataColumn
+        
+        Private columnREC2 As Global.System.Data.DataColumn
+        
+        Private columnREC3 As Global.System.Data.DataColumn
+        
+        Private columnREC4 As Global.System.Data.DataColumn
+        
+        Private columnREC5 As Global.System.Data.DataColumn
+        
+        Private columnREC6 As Global.System.Data.DataColumn
+        
+        Private columnREC7 As Global.System.Data.DataColumn
+        
+        Private columnREC8 As Global.System.Data.DataColumn
+        
+        Private columnREC9 As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -713,6 +731,69 @@ Partial Public Class DT_Renuncia
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property REC1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnREC1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property REC2Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnREC2
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property REC3Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnREC3
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property REC4Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnREC4
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property REC5Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnREC5
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property REC6Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnREC6
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property REC7Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnREC7
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property REC8Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnREC8
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property REC9Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnREC9
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -761,9 +842,18 @@ Partial Public Class DT_Renuncia
                     ByVal RENUNCIA As String,  _
                     ByVal CODIGO_CARGO_ELECTIVO As Decimal,  _
                     ByVal Imagen_firma() As Byte,  _
-                    ByVal Sustituido As String) As IM_V_CANDIDATO_RENUNCIARow
+                    ByVal Sustituido As String,  _
+                    ByVal REC1 As String,  _
+                    ByVal REC2 As String,  _
+                    ByVal REC3 As String,  _
+                    ByVal REC4 As String,  _
+                    ByVal REC5 As String,  _
+                    ByVal REC6 As String,  _
+                    ByVal REC7 As String,  _
+                    ByVal REC8 As String,  _
+                    ByVal REC9 As String) As IM_V_CANDIDATO_RENUNCIARow
             Dim rowIM_V_CANDIDATO_RENUNCIARow As IM_V_CANDIDATO_RENUNCIARow = CType(Me.NewRow,IM_V_CANDIDATO_RENUNCIARow)
-            Dim columnValuesArray() As Object = New Object() {CODIGO_CANDIDATOS, IDENTIDAD, NOMBRE, APELLIDO, POSICION, CARGO, CODIGO_DEPARTAMENTO, DEPARTAMENTO, CODIGO_MUNICIPIO, MUNICIPIO, CODIGO_PARTIDO, PARTIDO, CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO, MOTIVO, RENUNCIA, CODIGO_CARGO_ELECTIVO, Imagen_firma, Sustituido}
+            Dim columnValuesArray() As Object = New Object() {CODIGO_CANDIDATOS, IDENTIDAD, NOMBRE, APELLIDO, POSICION, CARGO, CODIGO_DEPARTAMENTO, DEPARTAMENTO, CODIGO_MUNICIPIO, MUNICIPIO, CODIGO_PARTIDO, PARTIDO, CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO, MOTIVO, RENUNCIA, CODIGO_CARGO_ELECTIVO, Imagen_firma, Sustituido, REC1, REC2, REC3, REC4, REC5, REC6, REC7, REC8, REC9}
             rowIM_V_CANDIDATO_RENUNCIARow.ItemArray = columnValuesArray
             Me.Rows.Add(rowIM_V_CANDIDATO_RENUNCIARow)
             Return rowIM_V_CANDIDATO_RENUNCIARow
@@ -802,6 +892,15 @@ Partial Public Class DT_Renuncia
             Me.columnCODIGO_CARGO_ELECTIVO = MyBase.Columns("CODIGO_CARGO_ELECTIVO")
             Me.columnImagen_firma = MyBase.Columns("Imagen_firma")
             Me.columnSustituido = MyBase.Columns("Sustituido")
+            Me.columnREC1 = MyBase.Columns("REC1")
+            Me.columnREC2 = MyBase.Columns("REC2")
+            Me.columnREC3 = MyBase.Columns("REC3")
+            Me.columnREC4 = MyBase.Columns("REC4")
+            Me.columnREC5 = MyBase.Columns("REC5")
+            Me.columnREC6 = MyBase.Columns("REC6")
+            Me.columnREC7 = MyBase.Columns("REC7")
+            Me.columnREC8 = MyBase.Columns("REC8")
+            Me.columnREC9 = MyBase.Columns("REC9")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -844,6 +943,24 @@ Partial Public Class DT_Renuncia
             MyBase.Columns.Add(Me.columnImagen_firma)
             Me.columnSustituido = New Global.System.Data.DataColumn("Sustituido", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSustituido)
+            Me.columnREC1 = New Global.System.Data.DataColumn("REC1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnREC1)
+            Me.columnREC2 = New Global.System.Data.DataColumn("REC2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnREC2)
+            Me.columnREC3 = New Global.System.Data.DataColumn("REC3", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnREC3)
+            Me.columnREC4 = New Global.System.Data.DataColumn("REC4", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnREC4)
+            Me.columnREC5 = New Global.System.Data.DataColumn("REC5", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnREC5)
+            Me.columnREC6 = New Global.System.Data.DataColumn("REC6", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnREC6)
+            Me.columnREC7 = New Global.System.Data.DataColumn("REC7", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnREC7)
+            Me.columnREC8 = New Global.System.Data.DataColumn("REC8", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnREC8)
+            Me.columnREC9 = New Global.System.Data.DataColumn("REC9", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnREC9)
             Me.columnIDENTIDAD.MaxLength = 15
             Me.columnNOMBRE.MaxLength = 100
             Me.columnAPELLIDO.MaxLength = 100
@@ -852,6 +969,15 @@ Partial Public Class DT_Renuncia
             Me.columnMUNICIPIO.MaxLength = 100
             Me.columnPARTIDO.MaxLength = 100
             Me.columnNOMBRE_MOVIMIENTO.MaxLength = 200
+            Me.columnREC1.MaxLength = 1
+            Me.columnREC2.MaxLength = 1
+            Me.columnREC3.MaxLength = 1
+            Me.columnREC4.MaxLength = 1
+            Me.columnREC5.MaxLength = 1
+            Me.columnREC6.MaxLength = 1
+            Me.columnREC7.MaxLength = 1
+            Me.columnREC8.MaxLength = 1
+            Me.columnREC9.MaxLength = 1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -3911,6 +4037,132 @@ Partial Public Class DT_Renuncia
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property REC1() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC1Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'REC1' in table 'IM_V_CANDIDATO_RENUNCIA' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property REC2() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC2Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'REC2' in table 'IM_V_CANDIDATO_RENUNCIA' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC2Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property REC3() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC3Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'REC3' in table 'IM_V_CANDIDATO_RENUNCIA' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC3Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property REC4() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC4Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'REC4' in table 'IM_V_CANDIDATO_RENUNCIA' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC4Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property REC5() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC5Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'REC5' in table 'IM_V_CANDIDATO_RENUNCIA' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC5Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property REC6() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC6Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'REC6' in table 'IM_V_CANDIDATO_RENUNCIA' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC6Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property REC7() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC7Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'REC7' in table 'IM_V_CANDIDATO_RENUNCIA' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC7Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property REC8() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC8Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'REC8' in table 'IM_V_CANDIDATO_RENUNCIA' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC8Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property REC9() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC9Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'REC9' in table 'IM_V_CANDIDATO_RENUNCIA' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC9Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsCODIGO_CANDIDATOSNull() As Boolean
             Return Me.IsNull(Me.tableIM_V_CANDIDATO_RENUNCIA.CODIGO_CANDIDATOSColumn)
         End Function
@@ -4098,6 +4350,96 @@ Partial Public Class DT_Renuncia
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetSustituidoNull()
             Me(Me.tableIM_V_CANDIDATO_RENUNCIA.SustituidoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsREC1Null() As Boolean
+            Return Me.IsNull(Me.tableIM_V_CANDIDATO_RENUNCIA.REC1Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetREC1Null()
+            Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC1Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsREC2Null() As Boolean
+            Return Me.IsNull(Me.tableIM_V_CANDIDATO_RENUNCIA.REC2Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetREC2Null()
+            Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC2Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsREC3Null() As Boolean
+            Return Me.IsNull(Me.tableIM_V_CANDIDATO_RENUNCIA.REC3Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetREC3Null()
+            Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC3Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsREC4Null() As Boolean
+            Return Me.IsNull(Me.tableIM_V_CANDIDATO_RENUNCIA.REC4Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetREC4Null()
+            Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC4Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsREC5Null() As Boolean
+            Return Me.IsNull(Me.tableIM_V_CANDIDATO_RENUNCIA.REC5Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetREC5Null()
+            Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC5Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsREC6Null() As Boolean
+            Return Me.IsNull(Me.tableIM_V_CANDIDATO_RENUNCIA.REC6Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetREC6Null()
+            Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC6Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsREC7Null() As Boolean
+            Return Me.IsNull(Me.tableIM_V_CANDIDATO_RENUNCIA.REC7Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetREC7Null()
+            Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC7Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsREC8Null() As Boolean
+            Return Me.IsNull(Me.tableIM_V_CANDIDATO_RENUNCIA.REC8Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetREC8Null()
+            Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC8Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsREC9Null() As Boolean
+            Return Me.IsNull(Me.tableIM_V_CANDIDATO_RENUNCIA.REC9Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetREC9Null()
+            Me(Me.tableIM_V_CANDIDATO_RENUNCIA.REC9Column) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -6131,6 +6473,15 @@ Namespace DT_RenunciaTableAdapters
             tableMapping.ColumnMappings.Add("MOTIVO", "MOTIVO")
             tableMapping.ColumnMappings.Add("RENUNCIA", "RENUNCIA")
             tableMapping.ColumnMappings.Add("CODIGO_CARGO_ELECTIVO", "CODIGO_CARGO_ELECTIVO")
+            tableMapping.ColumnMappings.Add("REC1", "REC1")
+            tableMapping.ColumnMappings.Add("REC2", "REC2")
+            tableMapping.ColumnMappings.Add("REC3", "REC3")
+            tableMapping.ColumnMappings.Add("REC4", "REC4")
+            tableMapping.ColumnMappings.Add("REC5", "REC5")
+            tableMapping.ColumnMappings.Add("REC6", "REC6")
+            tableMapping.ColumnMappings.Add("REC7", "REC7")
+            tableMapping.ColumnMappings.Add("REC8", "REC8")
+            tableMapping.ColumnMappings.Add("REC9", "REC9")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -6145,11 +6496,17 @@ Namespace DT_RenunciaTableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        CODIGO_CANDIDATOS, IDENTIDAD, NOMBRE, APELLIDO, POSICION, CARGO, CO"& _ 
-                "DIGO_DEPARTAMENTO, DEPARTAMENTO, CODIGO_MUNICIPIO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         MU"& _ 
-                "NICIPIO, CODIGO_PARTIDO, PARTIDO, CODIGO_MOVIMIENTO, NOMBRE_MOVIMIENTO, MOTIVO, "& _ 
-                "RENUNCIA, CODIGO_CARGO_ELECTIVO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_CANDIDATO_RENUNCIA"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE "& _ 
-                "       (IDENTIDAD = :Identidad)"
+            Me._commandCollection(0).CommandText = "SELECT        a.CODIGO_CANDIDATOS, a.IDENTIDAD, a.NOMBRE,a. APELLIDO, a.POSICION,"& _ 
+                "a.CARGO, a.CODIGO_DEPARTAMENTO,a.DEPARTAMENTO, a.CODIGO_MUNICIPIO, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
+                "             a. MUNICIPIO, a.CODIGO_PARTIDO, a.PARTIDO,a.CODIGO_MOVIMIENTO, a.NO"& _ 
+                "MBRE_MOVIMIENTO, a.MOTIVO, a.RENUNCIA, a.CODIGO_CARGO_ELECTIVO,"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"               "& _ 
+                "         b.rec1,  b.rec2,  b.rec3,  b.rec4,  b.rec5,  b.rec6,  b.rec7,  b.rec8, "& _ 
+                " b.rec9"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_V_CANDIDATO_RENUNCIA a, im_v_planilla_requisito b"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"w"& _ 
+                "here a.identidad=b.identidad and a.codigo_partido=b.codigo_partido and a.codigo_"& _ 
+                "movimiento=b.codigo_movimiento"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and a.codigo_departamento=b.codigo_departamento "& _ 
+                "and a.codigo_municipio=b.codigo_municipio and a.codigo_cargo_electivo=b.codigo_c"& _ 
+                "argo_electivo and a.codigo_candidatos=b.codigo_candidatos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" and a.IDENTIDAD = :I"& _ 
+                "dentidad"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.OracleClient.OracleParameter("Identidad", Global.System.Data.OracleClient.OracleType.VarChar, 15, Global.System.Data.ParameterDirection.Input, "IDENTIDAD", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub

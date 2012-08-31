@@ -21,7 +21,7 @@ Partial Class xfrmSustituciondeCandidatos
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(xfrmSustituciondeCandidatos))
-        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject
+        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject
         Me.IMVCANDIDATORENUNCIABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DT_Renuncia = New Inscripcion_de_Moviemientos.DT_Renuncia
         Me.IMMOTIVOSRENUNCIABindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -53,6 +53,16 @@ Partial Class xfrmSustituciondeCandidatos
         Me.colIMAGEN = New DevExpress.XtraGrid.Columns.GridColumn
         Me.RepositoryItemPictureEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit
         Me.colSustituido = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colREC1 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.RepositoryItemCheckEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+        Me.colREC2 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colREC3 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colREC4 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colREC5 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colREC6 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colREC7 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colREC8 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colREC9 = New DevExpress.XtraGrid.Columns.GridColumn
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl
@@ -75,6 +85,13 @@ Partial Class xfrmSustituciondeCandidatos
         Me.IM_SUSTITUCIONES = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_SUSTITUCIONESTableAdapter = New Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_SUSTITUCIONESTableAdapter
         Me.IM_MOTIVO_SUSTITUCIONTableAdapter = New Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_MOTIVO_SUSTITUCIONTableAdapter
+        Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl
+        Me.PictureEdit2 = New DevExpress.XtraEditors.PictureEdit
+        Me.LabelControl7 = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl
+        Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
+        Me.PictureEdit3 = New DevExpress.XtraEditors.PictureEdit
+        Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl
         CType(Me.IMVCANDIDATORENUNCIABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DT_Renuncia, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMMOTIVOSRENUNCIABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -86,6 +103,7 @@ Partial Class xfrmSustituciondeCandidatos
         CType(Me.RepositoryItemLookUpEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemCheckEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -97,6 +115,9 @@ Partial Class xfrmSustituciondeCandidatos
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IM_SUSTITUCIONES, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureEdit3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IMVCANDIDATORENUNCIABindingSource
@@ -142,17 +163,19 @@ Partial Class xfrmSustituciondeCandidatos
         Me.GrdRepetidos.MainView = Me.GridView1
         Me.GrdRepetidos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GrdRepetidos.Name = "GrdRepetidos"
-        Me.GrdRepetidos.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1, Me.RepositoryItemLookUpEdit1, Me.RepositoryItemPictureEdit1})
+        Me.GrdRepetidos.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemCheckEdit1, Me.RepositoryItemLookUpEdit1, Me.RepositoryItemPictureEdit1, Me.RepositoryItemCheckEdit2})
         Me.GrdRepetidos.Size = New System.Drawing.Size(759, 153)
         Me.GrdRepetidos.TabIndex = 18
         Me.GrdRepetidos.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
         'GridView1
         '
-        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_CANDIDATOS, Me.colIDENTIDAD, Me.colNOMBRE, Me.colAPELLIDO, Me.colPOSICION, Me.colCARGO, Me.colCODIGO_DEPARTAMENTO, Me.colDEPARTAMENTO, Me.colCODIGO_MUNICIPIO, Me.colMUNICIPIO, Me.colCODIGO_PARTIDO, Me.colPARTIDO, Me.colCODIGO_MOVIMIENTO, Me.colNOMBRE_MOVIMIENTO, Me.colMOTIVO, Me.colRENUNCIA, Me.colCODIGO_CARGO_ELECTIVO, Me.colIMAGEN, Me.colSustituido})
+        Me.GridView1.ColumnPanelRowHeight = 50
+        Me.GridView1.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.colCODIGO_CANDIDATOS, Me.colIDENTIDAD, Me.colNOMBRE, Me.colAPELLIDO, Me.colPOSICION, Me.colCARGO, Me.colCODIGO_DEPARTAMENTO, Me.colDEPARTAMENTO, Me.colCODIGO_MUNICIPIO, Me.colMUNICIPIO, Me.colCODIGO_PARTIDO, Me.colPARTIDO, Me.colCODIGO_MOVIMIENTO, Me.colNOMBRE_MOVIMIENTO, Me.colMOTIVO, Me.colRENUNCIA, Me.colCODIGO_CARGO_ELECTIVO, Me.colIMAGEN, Me.colSustituido, Me.colREC1, Me.colREC2, Me.colREC3, Me.colREC4, Me.colREC5, Me.colREC6, Me.colREC7, Me.colREC8, Me.colREC9})
         Me.GridView1.GridControl = Me.GrdRepetidos
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsView.ShowGroupPanel = False
+        Me.GridView1.RowHeight = 50
         '
         'colCODIGO_CANDIDATOS
         '
@@ -192,7 +215,7 @@ Partial Class xfrmSustituciondeCandidatos
         Me.colPOSICION.OptionsColumn.AllowEdit = False
         Me.colPOSICION.Visible = True
         Me.colPOSICION.VisibleIndex = 4
-        Me.colPOSICION.Width = 60
+        Me.colPOSICION.Width = 43
         '
         'colCARGO
         '
@@ -202,7 +225,7 @@ Partial Class xfrmSustituciondeCandidatos
         Me.colCARGO.OptionsColumn.AllowEdit = False
         Me.colCARGO.Visible = True
         Me.colCARGO.VisibleIndex = 5
-        Me.colCARGO.Width = 87
+        Me.colCARGO.Width = 62
         '
         'colCODIGO_DEPARTAMENTO
         '
@@ -217,7 +240,7 @@ Partial Class xfrmSustituciondeCandidatos
         Me.colDEPARTAMENTO.OptionsColumn.AllowEdit = False
         Me.colDEPARTAMENTO.Visible = True
         Me.colDEPARTAMENTO.VisibleIndex = 6
-        Me.colDEPARTAMENTO.Width = 87
+        Me.colDEPARTAMENTO.Width = 62
         '
         'colCODIGO_MUNICIPIO
         '
@@ -232,7 +255,7 @@ Partial Class xfrmSustituciondeCandidatos
         Me.colMUNICIPIO.OptionsColumn.AllowEdit = False
         Me.colMUNICIPIO.Visible = True
         Me.colMUNICIPIO.VisibleIndex = 7
-        Me.colMUNICIPIO.Width = 100
+        Me.colMUNICIPIO.Width = 73
         '
         'colCODIGO_PARTIDO
         '
@@ -247,7 +270,7 @@ Partial Class xfrmSustituciondeCandidatos
         Me.colPARTIDO.OptionsColumn.AllowEdit = False
         Me.colPARTIDO.Visible = True
         Me.colPARTIDO.VisibleIndex = 2
-        Me.colPARTIDO.Width = 97
+        Me.colPARTIDO.Width = 70
         '
         'colCODIGO_MOVIMIENTO
         '
@@ -261,7 +284,7 @@ Partial Class xfrmSustituciondeCandidatos
         Me.colNOMBRE_MOVIMIENTO.Name = "colNOMBRE_MOVIMIENTO"
         Me.colNOMBRE_MOVIMIENTO.Visible = True
         Me.colNOMBRE_MOVIMIENTO.VisibleIndex = 3
-        Me.colNOMBRE_MOVIMIENTO.Width = 97
+        Me.colNOMBRE_MOVIMIENTO.Width = 70
         '
         'colMOTIVO
         '
@@ -271,7 +294,7 @@ Partial Class xfrmSustituciondeCandidatos
         Me.colMOTIVO.Name = "colMOTIVO"
         Me.colMOTIVO.Visible = True
         Me.colMOTIVO.VisibleIndex = 1
-        Me.colMOTIVO.Width = 105
+        Me.colMOTIVO.Width = 63
         '
         'RepositoryItemLookUpEdit1
         '
@@ -313,6 +336,7 @@ Partial Class xfrmSustituciondeCandidatos
         Me.colIMAGEN.Name = "colIMAGEN"
         Me.colIMAGEN.Visible = True
         Me.colIMAGEN.VisibleIndex = 8
+        Me.colIMAGEN.Width = 54
         '
         'RepositoryItemPictureEdit1
         '
@@ -328,12 +352,159 @@ Partial Class xfrmSustituciondeCandidatos
         Me.colSustituido.Name = "colSustituido"
         Me.colSustituido.Visible = True
         Me.colSustituido.VisibleIndex = 0
+        Me.colSustituido.Width = 62
+        '
+        'colREC1
+        '
+        Me.colREC1.AppearanceHeader.Options.UseTextOptions = True
+        Me.colREC1.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colREC1.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colREC1.Caption = "Hondureño por Nacimiento"
+        Me.colREC1.ColumnEdit = Me.RepositoryItemCheckEdit2
+        Me.colREC1.FieldName = "REC1"
+        Me.colREC1.Name = "colREC1"
+        Me.colREC1.OptionsColumn.AllowEdit = False
+        Me.colREC1.Visible = True
+        Me.colREC1.VisibleIndex = 9
+        Me.colREC1.Width = 74
+        '
+        'RepositoryItemCheckEdit2
+        '
+        Me.RepositoryItemCheckEdit2.AutoHeight = False
+        Me.RepositoryItemCheckEdit2.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.UserDefined
+        Me.RepositoryItemCheckEdit2.Name = "RepositoryItemCheckEdit2"
+        Me.RepositoryItemCheckEdit2.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
+        Me.RepositoryItemCheckEdit2.PictureChecked = CType(resources.GetObject("RepositoryItemCheckEdit2.PictureChecked"), System.Drawing.Image)
+        Me.RepositoryItemCheckEdit2.PictureGrayed = CType(resources.GetObject("RepositoryItemCheckEdit2.PictureGrayed"), System.Drawing.Image)
+        Me.RepositoryItemCheckEdit2.PictureUnchecked = CType(resources.GetObject("RepositoryItemCheckEdit2.PictureUnchecked"), System.Drawing.Image)
+        Me.RepositoryItemCheckEdit2.ValueChecked = "1"
+        Me.RepositoryItemCheckEdit2.ValueGrayed = "2"
+        Me.RepositoryItemCheckEdit2.ValueUnchecked = "0"
+        '
+        'colREC2
+        '
+        Me.colREC2.AppearanceHeader.Options.UseTextOptions = True
+        Me.colREC2.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colREC2.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colREC2.Caption = "Existencia o Habilitado CNE"
+        Me.colREC2.ColumnEdit = Me.RepositoryItemCheckEdit2
+        Me.colREC2.FieldName = "REC2"
+        Me.colREC2.Name = "colREC2"
+        Me.colREC2.OptionsColumn.AllowEdit = False
+        Me.colREC2.Visible = True
+        Me.colREC2.VisibleIndex = 10
+        Me.colREC2.Width = 63
+        '
+        'colREC3
+        '
+        Me.colREC3.AppearanceHeader.Options.UseTextOptions = True
+        Me.colREC3.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colREC3.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colREC3.Caption = "Nombres Apellidos Iguales CNE"
+        Me.colREC3.ColumnEdit = Me.RepositoryItemCheckEdit2
+        Me.colREC3.FieldName = "REC3"
+        Me.colREC3.Name = "colREC3"
+        Me.colREC3.OptionsColumn.AllowEdit = False
+        Me.colREC3.Visible = True
+        Me.colREC3.VisibleIndex = 11
+        Me.colREC3.Width = 56
+        '
+        'colREC4
+        '
+        Me.colREC4.AppearanceHeader.Options.UseTextOptions = True
+        Me.colREC4.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colREC4.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colREC4.Caption = "Mayor de 18 años"
+        Me.colREC4.ColumnEdit = Me.RepositoryItemCheckEdit2
+        Me.colREC4.FieldName = "REC4"
+        Me.colREC4.Name = "colREC4"
+        Me.colREC4.OptionsColumn.AllowEdit = False
+        Me.colREC4.Visible = True
+        Me.colREC4.VisibleIndex = 12
+        Me.colREC4.Width = 57
+        '
+        'colREC5
+        '
+        Me.colREC5.AppearanceHeader.Options.UseTextOptions = True
+        Me.colREC5.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colREC5.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colREC5.Caption = "Mayor de 21 años"
+        Me.colREC5.ColumnEdit = Me.RepositoryItemCheckEdit2
+        Me.colREC5.FieldName = "REC5"
+        Me.colREC5.Name = "colREC5"
+        Me.colREC5.OptionsColumn.AllowEdit = False
+        Me.colREC5.Visible = True
+        Me.colREC5.VisibleIndex = 13
+        Me.colREC5.Width = 53
+        '
+        'colREC6
+        '
+        Me.colREC6.AppearanceHeader.Options.UseTextOptions = True
+        Me.colREC6.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colREC6.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colREC6.Caption = "Mayor de 30 años"
+        Me.colREC6.ColumnEdit = Me.RepositoryItemCheckEdit2
+        Me.colREC6.FieldName = "REC6"
+        Me.colREC6.Name = "colREC6"
+        Me.colREC6.OptionsColumn.AllowEdit = False
+        Me.colREC6.Visible = True
+        Me.colREC6.VisibleIndex = 14
+        Me.colREC6.Width = 46
+        '
+        'colREC7
+        '
+        Me.colREC7.AppearanceHeader.Options.UseTextOptions = True
+        Me.colREC7.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colREC7.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colREC7.Caption = "Fotografia Reciente"
+        Me.colREC7.ColumnEdit = Me.RepositoryItemCheckEdit2
+        Me.colREC7.FieldName = "REC7"
+        Me.colREC7.Name = "colREC7"
+        Me.colREC7.OptionsColumn.AllowEdit = False
+        Me.colREC7.Visible = True
+        Me.colREC7.VisibleIndex = 15
+        Me.colREC7.Width = 61
+        '
+        'colREC8
+        '
+        Me.colREC8.AppearanceHeader.Options.UseTextOptions = True
+        Me.colREC8.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colREC8.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colREC8.Caption = "Constancia de Vecindad"
+        Me.colREC8.ColumnEdit = Me.RepositoryItemCheckEdit2
+        Me.colREC8.FieldName = "REC8"
+        Me.colREC8.Name = "colREC8"
+        Me.colREC8.OptionsColumn.AllowEdit = False
+        Me.colREC8.Visible = True
+        Me.colREC8.VisibleIndex = 16
+        Me.colREC8.Width = 41
+        '
+        'colREC9
+        '
+        Me.colREC9.AppearanceHeader.Options.UseTextOptions = True
+        Me.colREC9.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
+        Me.colREC9.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.colREC9.Caption = "Candidato no Existe en Planilla"
+        Me.colREC9.ColumnEdit = Me.RepositoryItemCheckEdit2
+        Me.colREC9.FieldName = "REC9"
+        Me.colREC9.Name = "colREC9"
+        Me.colREC9.OptionsColumn.AllowEdit = False
+        Me.colREC9.Visible = True
+        Me.colREC9.VisibleIndex = 17
+        Me.colREC9.Width = 61
         '
         'PanelControl1
         '
         Me.PanelControl1.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.PanelControl1.Appearance.Options.UseBackColor = True
         Me.PanelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PanelControl1.Controls.Add(Me.LabelControl4)
+        Me.PanelControl1.Controls.Add(Me.PictureEdit3)
+        Me.PanelControl1.Controls.Add(Me.LabelControl6)
+        Me.PanelControl1.Controls.Add(Me.PictureEdit2)
+        Me.PanelControl1.Controls.Add(Me.LabelControl7)
+        Me.PanelControl1.Controls.Add(Me.LabelControl8)
+        Me.PanelControl1.Controls.Add(Me.PictureEdit1)
         Me.PanelControl1.Controls.Add(Me.PictureBox1)
         Me.PanelControl1.Controls.Add(Me.LabelControl2)
         Me.PanelControl1.Controls.Add(Me.GroupBox1)
@@ -376,7 +547,7 @@ Partial Class xfrmSustituciondeCandidatos
         Me.GroupBox1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(21, 111)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(561, 69)
+        Me.GroupBox1.Size = New System.Drawing.Size(505, 69)
         Me.GroupBox1.TabIndex = 18
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Información del Candidato"
@@ -486,7 +657,7 @@ Partial Class xfrmSustituciondeCandidatos
         Me.btnbusqueda.Location = New System.Drawing.Point(218, 81)
         Me.btnbusqueda.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnbusqueda.Name = "btnbusqueda"
-        Me.btnbusqueda.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, CType(resources.GetObject("btnbusqueda.Properties.Buttons"), System.Drawing.Image), New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "Presionar para realizar búsqueda", Nothing, Nothing, True)})
+        Me.btnbusqueda.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, CType(resources.GetObject("btnbusqueda.Properties.Buttons"), System.Drawing.Image), New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "Presionar para realizar búsqueda", Nothing, Nothing, True)})
         Me.btnbusqueda.Properties.MaxLength = 13
         Me.btnbusqueda.Properties.NullValuePrompt = "Enter para realizar búsqueda"
         Me.btnbusqueda.Properties.NullValuePromptShowForEmptyValue = True
@@ -556,6 +727,88 @@ Partial Class xfrmSustituciondeCandidatos
         '
         Me.IM_MOTIVO_SUSTITUCIONTableAdapter.ClearBeforeFill = True
         '
+        'LabelControl6
+        '
+        Me.LabelControl6.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl6.Location = New System.Drawing.Point(567, 127)
+        Me.LabelControl6.Name = "LabelControl6"
+        Me.LabelControl6.Size = New System.Drawing.Size(138, 14)
+        Me.LabelControl6.TabIndex = 30
+        Me.LabelControl6.Text = "Registro inconsistente"
+        '
+        'PictureEdit2
+        '
+        Me.PictureEdit2.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.errorIcon
+        Me.PictureEdit2.Location = New System.Drawing.Point(537, 123)
+        Me.PictureEdit2.Name = "PictureEdit2"
+        Me.PictureEdit2.Properties.AllowFocused = False
+        Me.PictureEdit2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.PictureEdit2.Properties.Appearance.Options.UseBackColor = True
+        Me.PictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PictureEdit2.Properties.ShowMenu = False
+        Me.PictureEdit2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
+        Me.PictureEdit2.Size = New System.Drawing.Size(24, 25)
+        Me.PictureEdit2.TabIndex = 31
+        '
+        'LabelControl7
+        '
+        Me.LabelControl7.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.LabelControl7.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl7.Location = New System.Drawing.Point(567, 96)
+        Me.LabelControl7.Name = "LabelControl7"
+        Me.LabelControl7.Size = New System.Drawing.Size(129, 14)
+        Me.LabelControl7.TabIndex = 32
+        Me.LabelControl7.Text = "Registro Consistente"
+        '
+        'LabelControl8
+        '
+        Me.LabelControl8.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl8.Appearance.ForeColor = System.Drawing.Color.OrangeRed
+        Me.LabelControl8.Location = New System.Drawing.Point(537, 72)
+        Me.LabelControl8.Name = "LabelControl8"
+        Me.LabelControl8.Size = New System.Drawing.Size(75, 14)
+        Me.LabelControl8.TabIndex = 29
+        Me.LabelControl8.Text = "Indicadores:"
+        '
+        'PictureEdit1
+        '
+        Me.PictureEdit1.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Ok
+        Me.PictureEdit1.Location = New System.Drawing.Point(537, 92)
+        Me.PictureEdit1.Name = "PictureEdit1"
+        Me.PictureEdit1.Properties.AllowFocused = False
+        Me.PictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.PictureEdit1.Properties.Appearance.Options.UseBackColor = True
+        Me.PictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PictureEdit1.Properties.ShowMenu = False
+        Me.PictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
+        Me.PictureEdit1.Size = New System.Drawing.Size(24, 25)
+        Me.PictureEdit1.TabIndex = 28
+        '
+        'PictureEdit3
+        '
+        Me.PictureEdit3.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._nothing
+        Me.PictureEdit3.Location = New System.Drawing.Point(537, 154)
+        Me.PictureEdit3.Name = "PictureEdit3"
+        Me.PictureEdit3.Properties.AllowFocused = False
+        Me.PictureEdit3.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.PictureEdit3.Properties.Appearance.Options.UseBackColor = True
+        Me.PictureEdit3.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PictureEdit3.Properties.ShowMenu = False
+        Me.PictureEdit3.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
+        Me.PictureEdit3.Size = New System.Drawing.Size(24, 25)
+        Me.PictureEdit3.TabIndex = 33
+        '
+        'LabelControl4
+        '
+        Me.LabelControl4.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.LabelControl4.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl4.Location = New System.Drawing.Point(567, 158)
+        Me.LabelControl4.Name = "LabelControl4"
+        Me.LabelControl4.Size = New System.Drawing.Size(106, 14)
+        Me.LabelControl4.TabIndex = 34
+        Me.LabelControl4.Text = "No aplica al cargo"
+        '
         'xfrmSustituciondeCandidatos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -576,6 +829,7 @@ Partial Class xfrmSustituciondeCandidatos
         CType(Me.RepositoryItemLookUpEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemCheckEdit2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         Me.PanelControl1.PerformLayout()
@@ -589,6 +843,9 @@ Partial Class xfrmSustituciondeCandidatos
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IM_SUSTITUCIONES, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureEdit3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -645,4 +902,21 @@ Partial Class xfrmSustituciondeCandidatos
     Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BindingSource2 As System.Windows.Forms.BindingSource
     Friend WithEvents IM_MOTIVO_SUSTITUCIONTableAdapter As Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_MOTIVO_SUSTITUCIONTableAdapter
+    Friend WithEvents colREC1 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colREC2 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colREC3 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colREC4 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colREC5 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colREC6 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colREC7 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colREC8 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colREC9 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryItemCheckEdit2 As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+    Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents PictureEdit3 As DevExpress.XtraEditors.PictureEdit
+    Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents PictureEdit2 As DevExpress.XtraEditors.PictureEdit
+    Friend WithEvents LabelControl7 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl8 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents PictureEdit1 As DevExpress.XtraEditors.PictureEdit
 End Class
