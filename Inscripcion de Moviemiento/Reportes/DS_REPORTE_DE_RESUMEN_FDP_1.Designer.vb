@@ -282,6 +282,10 @@ Partial Public Class DS_REPORTE_DE_RESUMEN_FDP_1
         
         Private columnESTADO As Global.System.Data.DataColumn
         
+        Private columnCODIGO_DEPARTAMENTO As Global.System.Data.DataColumn
+        
+        Private columnCODIGO_MUNICIPIO As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -370,6 +374,20 @@ Partial Public Class DS_REPORTE_DE_RESUMEN_FDP_1
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CODIGO_DEPARTAMENTOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCODIGO_DEPARTAMENTO
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CODIGO_MUNICIPIOColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCODIGO_MUNICIPIO
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -399,9 +417,9 @@ Partial Public Class DS_REPORTE_DE_RESUMEN_FDP_1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddIM_REPORTE_RESUMEN_FIRMAS_DPRow(ByVal DEPARTAMENTO As String, ByVal MUNICIPIO As String, ByVal NOMBRE_PARTIDO As String, ByVal NOMBRE_MOVIMIENTO As String, ByVal IDENTIDAD As String, ByVal NOMBRE As String, ByVal APELLIDOS As String, ByVal ESTADO As String) As IM_REPORTE_RESUMEN_FIRMAS_DPRow
+        Public Overloads Function AddIM_REPORTE_RESUMEN_FIRMAS_DPRow(ByVal DEPARTAMENTO As String, ByVal MUNICIPIO As String, ByVal NOMBRE_PARTIDO As String, ByVal NOMBRE_MOVIMIENTO As String, ByVal IDENTIDAD As String, ByVal NOMBRE As String, ByVal APELLIDOS As String, ByVal ESTADO As String, ByVal CODIGO_DEPARTAMENTO As Decimal, ByVal CODIGO_MUNICIPIO As Decimal) As IM_REPORTE_RESUMEN_FIRMAS_DPRow
             Dim rowIM_REPORTE_RESUMEN_FIRMAS_DPRow As IM_REPORTE_RESUMEN_FIRMAS_DPRow = CType(Me.NewRow,IM_REPORTE_RESUMEN_FIRMAS_DPRow)
-            Dim columnValuesArray() As Object = New Object() {DEPARTAMENTO, MUNICIPIO, NOMBRE_PARTIDO, NOMBRE_MOVIMIENTO, IDENTIDAD, NOMBRE, APELLIDOS, ESTADO}
+            Dim columnValuesArray() As Object = New Object() {DEPARTAMENTO, MUNICIPIO, NOMBRE_PARTIDO, NOMBRE_MOVIMIENTO, IDENTIDAD, NOMBRE, APELLIDOS, ESTADO, CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO}
             rowIM_REPORTE_RESUMEN_FIRMAS_DPRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowIM_REPORTE_RESUMEN_FIRMAS_DPRow)
             Return rowIM_REPORTE_RESUMEN_FIRMAS_DPRow
@@ -429,6 +447,8 @@ Partial Public Class DS_REPORTE_DE_RESUMEN_FDP_1
             Me.columnNOMBRE = MyBase.Columns("NOMBRE")
             Me.columnAPELLIDOS = MyBase.Columns("APELLIDOS")
             Me.columnESTADO = MyBase.Columns("ESTADO")
+            Me.columnCODIGO_DEPARTAMENTO = MyBase.Columns("CODIGO_DEPARTAMENTO")
+            Me.columnCODIGO_MUNICIPIO = MyBase.Columns("CODIGO_MUNICIPIO")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -449,6 +469,10 @@ Partial Public Class DS_REPORTE_DE_RESUMEN_FDP_1
             MyBase.Columns.Add(Me.columnAPELLIDOS)
             Me.columnESTADO = New Global.System.Data.DataColumn("ESTADO", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnESTADO)
+            Me.columnCODIGO_DEPARTAMENTO = New Global.System.Data.DataColumn("CODIGO_DEPARTAMENTO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_DEPARTAMENTO)
+            Me.columnCODIGO_MUNICIPIO = New Global.System.Data.DataColumn("CODIGO_MUNICIPIO", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCODIGO_MUNICIPIO)
             Me.columnDEPARTAMENTO.AllowDBNull = false
             Me.columnDEPARTAMENTO.MaxLength = 100
             Me.columnMUNICIPIO.AllowDBNull = false
@@ -462,6 +486,8 @@ Partial Public Class DS_REPORTE_DE_RESUMEN_FDP_1
             Me.columnNOMBRE.MaxLength = 101
             Me.columnAPELLIDOS.MaxLength = 101
             Me.columnESTADO.MaxLength = 13
+            Me.columnCODIGO_DEPARTAMENTO.AllowDBNull = false
+            Me.columnCODIGO_MUNICIPIO.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -691,6 +717,26 @@ Partial Public Class DS_REPORTE_DE_RESUMEN_FDP_1
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CODIGO_DEPARTAMENTO() As Decimal
+            Get
+                Return CType(Me(Me.tableIM_REPORTE_RESUMEN_FIRMAS_DP.CODIGO_DEPARTAMENTOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIM_REPORTE_RESUMEN_FIRMAS_DP.CODIGO_DEPARTAMENTOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CODIGO_MUNICIPIO() As Decimal
+            Get
+                Return CType(Me(Me.tableIM_REPORTE_RESUMEN_FIRMAS_DP.CODIGO_MUNICIPIOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIM_REPORTE_RESUMEN_FIRMAS_DP.CODIGO_MUNICIPIOColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsNOMBRENull() As Boolean
             Return Me.IsNull(Me.tableIM_REPORTE_RESUMEN_FIRMAS_DP.NOMBREColumn)
         End Function
@@ -886,6 +932,8 @@ Namespace DS_REPORTE_DE_RESUMEN_FDP_1TableAdapters
             tableMapping.ColumnMappings.Add("NOMBRE", "NOMBRE")
             tableMapping.ColumnMappings.Add("APELLIDOS", "APELLIDOS")
             tableMapping.ColumnMappings.Add("ESTADO", "ESTADO")
+            tableMapping.ColumnMappings.Add("CODIGO_DEPARTAMENTO", "CODIGO_DEPARTAMENTO")
+            tableMapping.ColumnMappings.Add("CODIGO_MUNICIPIO", "CODIGO_MUNICIPIO")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -900,8 +948,12 @@ Namespace DS_REPORTE_DE_RESUMEN_FDP_1TableAdapters
             Me._commandCollection = New Global.System.Data.OracleClient.OracleCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OracleClient.OracleCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        DEPARTAMENTO, MUNICIPIO, ""NOMBRE PARTIDO"", ""NOMBRE MOVIMIENTO"", IDE"& _ 
-                "NTIDAD, NOMBRE, APELLIDOS, ESTADO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            IM_REPORTE_RESUMEN_FIRMAS_DP"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(0).CommandText = "SELECT       DEP.CODIGO_DEPARTAMENTO, rf.DEPARTAMENTO,MUNI.CODIGO_MUNICIPIO,  rf."& _ 
+                "MUNICIPIO, rf.""NOMBRE PARTIDO"", rf.""NOMBRE MOVIMIENTO"", rf.IDENTIDAD,rf.NOMBRE, "& _ 
+                "rf.APELLIDOS, rf.ESTADO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM          IM_REPORTE_RESUMEN_FIRMAS_DP RF, im_depar"& _ 
+                "tamentos dep, im_municipios muni"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"where rf.departamento = DEP.DESCRIPCION "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and "& _ 
+                "DEP.CODIGO_DEPARTAMENTO = MUNI.CODIGO_DEPARTAMENTO"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"and RF.MUNICIPIO = MUNI.DESC"& _ 
+                "RIPCION"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
