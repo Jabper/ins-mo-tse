@@ -34,7 +34,25 @@ Public Class XfrmLogin
                     'CREAR EN EL MENU PRINCIPAL UN PROCEDIMIENTO QUE ME MUESTRE EL USUARIO CONECTADO
                     'XFrmMenuPrincipal.showuser(NombreUsuario)
 
+
+                    'timer
+                    Try
+                        Dim tiempo As Date = COracle.ObtenerDatos("select flag_timer from im_usuarios where codigo_usuario='" & usuario & "'", "flag_timer")
+                        Dim diferencia As String = DateDiff(DateInterval.Minute, tiempo, DateTime.Now)
+                        If CInt(diferencia) > 3 Then
+                            COracle.ejecutarconsulta("update im_usuarios set conectado='N' where codigo_usuario='" & usuario & "'")
+
+                        End If
+                    Catch ex As Exception
+
+                    End Try
+                    
+
+
                     If COracle.ObtenerDatos("select conectado from im_usuarios where codigo_usuario='" & usuario & "'", "CONECTADO") = "S" And usuario <> "TSE" Then
+
+                        'COracle.ejecutarconsulta("update im_usuarios set flag_timer=to_date('" & DateTime.Now.Date & "'), conectado='S' where codigo_usuario='" & usuario & "'")
+
                         Mensajes.mimensaje("El usuario ya ha iniciado sesión en otro equipo")
 
                     ElseIf COracle.ObtenerDatos("select conectado from im_usuarios where codigo_usuario='" & usuario & "'", "CONECTADO") = "S" And usuario = "TSE" Then
@@ -44,7 +62,7 @@ Public Class XfrmLogin
                         XFrmMenuPrincipal.verificar_permisos()
 
                         XFrmMenuPrincipal.Visible = True
-                        COracle.ejecutarconsulta("update im_usuarios set conectado='S' where codigo_usuario='" & usuario & "'")
+                        COracle.ejecutarconsulta("update im_usuarios set flag_timer=sysdate, conectado='S' where codigo_usuario='" & usuario & "'")
                         XFrmMenuPrincipal.Focus()
                         Me.Close()
                     Else
@@ -55,7 +73,7 @@ Public Class XfrmLogin
                         XFrmMenuPrincipal.verificar_permisos()
 
                         XFrmMenuPrincipal.Visible = True
-                        COracle.ejecutarconsulta("update im_usuarios set conectado='S' where codigo_usuario='" & usuario & "'")
+                        COracle.ejecutarconsulta("update im_usuarios set flag_timer=sysdate,  conectado='S' where codigo_usuario='" & usuario & "'")
                         XFrmMenuPrincipal.Focus()
                         Me.Close()
                     End If

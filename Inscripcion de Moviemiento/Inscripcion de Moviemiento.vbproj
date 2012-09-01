@@ -407,6 +407,17 @@
     <Compile Include="Renuncias\DT_Renuncia.vb">
       <DependentUpon>DT_Renuncia.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Renuncias\DT_REPORTE_SUSTITUCION.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DT_REPORTE_SUSTITUCION.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Renuncias\REPORTE_DE_SUSTITUCIONES.Designer.vb">
+      <DependentUpon>REPORTE_DE_SUSTITUCIONES.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Renuncias\REPORTE_DE_SUSTITUCIONES.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Renuncias\XfrmMSustitucion.Designer.vb">
       <DependentUpon>XfrmMSustitucion.vb</DependentUpon>
     </Compile>
@@ -435,6 +446,18 @@
       <DependentUpon>xfrmRenunciaCandidatosN.vb</DependentUpon>
     </Compile>
     <Compile Include="Renuncias\xfrmRenunciaCandidatosN.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Renuncias\xfrmSustitucionCandidatosMod.Designer.vb">
+      <DependentUpon>xfrmSustitucionCandidatosMod.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Renuncias\xfrmSustitucionCandidatosMod.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Renuncias\xfrmSustitucionCandidatosN.Designer.vb">
+      <DependentUpon>xfrmSustitucionCandidatosN.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Renuncias\xfrmSustitucionCandidatosN.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Renuncias\xfrmSustituciondeCandidatos.Designer.vb">
@@ -1308,6 +1331,10 @@
       <DependentUpon>xfrmValidaciones.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Renuncias\REPORTE_DE_SUSTITUCIONES.resx">
+      <DependentUpon>REPORTE_DE_SUSTITUCIONES.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Renuncias\XfrmMSustitucion.resx">
       <DependentUpon>XfrmMSustitucion.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -1326,6 +1353,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Renuncias\xfrmRenunciaCandidatosN.resx">
       <DependentUpon>xfrmRenunciaCandidatosN.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Renuncias\xfrmSustitucionCandidatosMod.resx">
+      <DependentUpon>xfrmSustitucionCandidatosMod.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Renuncias\xfrmSustitucionCandidatosN.resx">
+      <DependentUpon>xfrmSustitucionCandidatosN.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Renuncias\xfrmSustituciondeCandidatos.resx">
@@ -1956,6 +1991,17 @@
     </None>
     <None Include="Renuncias\DT_Renuncia.xss">
       <DependentUpon>DT_Renuncia.xsd</DependentUpon>
+    </None>
+    <None Include="Renuncias\DT_REPORTE_SUSTITUCION.xsc">
+      <DependentUpon>DT_REPORTE_SUSTITUCION.xsd</DependentUpon>
+    </None>
+    <None Include="Renuncias\DT_REPORTE_SUSTITUCION.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DT_REPORTE_SUSTITUCION.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Renuncias\DT_REPORTE_SUSTITUCION.xss">
+      <DependentUpon>DT_REPORTE_SUSTITUCION.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DS_CANDIDATOS_DUPLICADOS_MOV.xsc">
       <DependentUpon>DS_CANDIDATOS_DUPLICADOS_MOV.xsd</DependentUpon>

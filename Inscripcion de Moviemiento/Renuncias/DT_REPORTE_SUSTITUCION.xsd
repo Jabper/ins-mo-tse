@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DT_REPORTE_SUSTITUCION" targetNamespace="http://tempuri.org/DT_REPORTE_SUSTITUCION.xsd" xmlns:mstns="http://tempuri.org/DT_REPORTE_SUSTITUCION.xsd" xmlns="http://tempuri.org/DT_REPORTE_SUSTITUCION.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (MySettings)" PropertyReference="ApplicationSettings.Inscripcion_de_Moviemientos.My.MySettings.GlobalReference.Default.ConnectionString" Provider="System.Data.OracleClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="IM_V_REPORTE_SUSTITUCIONESTableAdapter" GeneratorDataComponentClassName="IM_V_REPORTE_SUSTITUCIONESTableAdapter" Name="IM_V_REPORTE_SUSTITUCIONES" UserDataComponentName="IM_V_REPORTE_SUSTITUCIONESTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (MySettings)" DbObjectName="TSE.IM_V_REPORTE_SUSTITUCIONES" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        CODIGO_CANDIDATO, POSICION, CODIGO_CARGO_ELECTIVO, CODIGO_CARGO, CARGO, CODIGO_DEPARTAMENTO, DEPARTAMENTO, CODIGO_MUNICIPIO, 
+                         MUNICIPIO, MOVIMIENTO, CODIGO_MOVIMIENTO, IDENTIDAD, CODIGO_PARTIDO, SALIENTE, FECHA_ADICION, CODIGO_MOTIVO, IDENTIDAD_ENTRANTE, 
+                         ENTRANTE, MOTIVO_SUSTITUCION
+FROM            IM_V_REPORTE_SUSTITUCIONES</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CODIGO_CANDIDATO" DataSetColumn="CODIGO_CANDIDATO" />
+              <Mapping SourceColumn="POSICION" DataSetColumn="POSICION" />
+              <Mapping SourceColumn="CODIGO_CARGO_ELECTIVO" DataSetColumn="CODIGO_CARGO_ELECTIVO" />
+              <Mapping SourceColumn="CODIGO_CARGO" DataSetColumn="CODIGO_CARGO" />
+              <Mapping SourceColumn="CARGO" DataSetColumn="CARGO" />
+              <Mapping SourceColumn="CODIGO_DEPARTAMENTO" DataSetColumn="CODIGO_DEPARTAMENTO" />
+              <Mapping SourceColumn="DEPARTAMENTO" DataSetColumn="DEPARTAMENTO" />
+              <Mapping SourceColumn="CODIGO_MUNICIPIO" DataSetColumn="CODIGO_MUNICIPIO" />
+              <Mapping SourceColumn="MUNICIPIO" DataSetColumn="MUNICIPIO" />
+              <Mapping SourceColumn="MOVIMIENTO" DataSetColumn="MOVIMIENTO" />
+              <Mapping SourceColumn="CODIGO_MOVIMIENTO" DataSetColumn="CODIGO_MOVIMIENTO" />
+              <Mapping SourceColumn="IDENTIDAD" DataSetColumn="IDENTIDAD" />
+              <Mapping SourceColumn="CODIGO_PARTIDO" DataSetColumn="CODIGO_PARTIDO" />
+              <Mapping SourceColumn="SALIENTE" DataSetColumn="SALIENTE" />
+              <Mapping SourceColumn="FECHA_ADICION" DataSetColumn="FECHA_ADICION" />
+              <Mapping SourceColumn="CODIGO_MOTIVO" DataSetColumn="CODIGO_MOTIVO" />
+              <Mapping SourceColumn="IDENTIDAD_ENTRANTE" DataSetColumn="IDENTIDAD_ENTRANTE" />
+              <Mapping SourceColumn="ENTRANTE" DataSetColumn="ENTRANTE" />
+              <Mapping SourceColumn="MOTIVO_SUSTITUCION" DataSetColumn="MOTIVO_SUSTITUCION" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DT_REPORTE_SUSTITUCION" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DT_REPORTE_SUSTITUCION" msprop:Generator_DataSetName="DT_REPORTE_SUSTITUCION" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="IM_V_REPORTE_SUSTITUCIONES" msprop:Generator_UserTableName="IM_V_REPORTE_SUSTITUCIONES" msprop:Generator_RowDeletedName="IM_V_REPORTE_SUSTITUCIONESRowDeleted" msprop:Generator_RowChangedName="IM_V_REPORTE_SUSTITUCIONESRowChanged" msprop:Generator_RowClassName="IM_V_REPORTE_SUSTITUCIONESRow" msprop:Generator_RowChangingName="IM_V_REPORTE_SUSTITUCIONESRowChanging" msprop:Generator_RowEvArgName="IM_V_REPORTE_SUSTITUCIONESRowChangeEvent" msprop:Generator_RowEvHandlerName="IM_V_REPORTE_SUSTITUCIONESRowChangeEventHandler" msprop:Generator_TableClassName="IM_V_REPORTE_SUSTITUCIONESDataTable" msprop:Generator_TableVarName="tableIM_V_REPORTE_SUSTITUCIONES" msprop:Generator_RowDeletingName="IM_V_REPORTE_SUSTITUCIONESRowDeleting" msprop:Generator_TablePropName="IM_V_REPORTE_SUSTITUCIONES">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CODIGO_CANDIDATO" msprop:Generator_UserColumnName="CODIGO_CANDIDATO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_CANDIDATO" msprop:Generator_ColumnPropNameInRow="CODIGO_CANDIDATO" msprop:Generator_ColumnPropNameInTable="CODIGO_CANDIDATOColumn" type="xs:decimal" />
+              <xs:element name="POSICION" msprop:Generator_UserColumnName="POSICION" msprop:Generator_ColumnVarNameInTable="columnPOSICION" msprop:Generator_ColumnPropNameInRow="POSICION" msprop:Generator_ColumnPropNameInTable="POSICIONColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CODIGO_CARGO_ELECTIVO" msprop:Generator_UserColumnName="CODIGO_CARGO_ELECTIVO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_CARGO_ELECTIVO" msprop:Generator_ColumnPropNameInRow="CODIGO_CARGO_ELECTIVO" msprop:Generator_ColumnPropNameInTable="CODIGO_CARGO_ELECTIVOColumn" type="xs:decimal" />
+              <xs:element name="CODIGO_CARGO" msprop:Generator_UserColumnName="CODIGO_CARGO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_CARGO" msprop:Generator_ColumnPropNameInRow="CODIGO_CARGO" msprop:Generator_ColumnPropNameInTable="CODIGO_CARGOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CARGO" msprop:Generator_UserColumnName="CARGO" msprop:Generator_ColumnVarNameInTable="columnCARGO" msprop:Generator_ColumnPropNameInRow="CARGO" msprop:Generator_ColumnPropNameInTable="CARGOColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="88" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODIGO_DEPARTAMENTO" msprop:Generator_UserColumnName="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_DEPARTAMENTOColumn" type="xs:decimal" />
+              <xs:element name="DEPARTAMENTO" msprop:Generator_UserColumnName="DEPARTAMENTO" msprop:Generator_ColumnVarNameInTable="columnDEPARTAMENTO" msprop:Generator_ColumnPropNameInRow="DEPARTAMENTO" msprop:Generator_ColumnPropNameInTable="DEPARTAMENTOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODIGO_MUNICIPIO" msprop:Generator_UserColumnName="CODIGO_MUNICIPIO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MUNICIPIO" msprop:Generator_ColumnPropNameInRow="CODIGO_MUNICIPIO" msprop:Generator_ColumnPropNameInTable="CODIGO_MUNICIPIOColumn" type="xs:decimal" />
+              <xs:element name="MUNICIPIO" msprop:Generator_UserColumnName="MUNICIPIO" msprop:Generator_ColumnVarNameInTable="columnMUNICIPIO" msprop:Generator_ColumnPropNameInRow="MUNICIPIO" msprop:Generator_ColumnPropNameInTable="MUNICIPIOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MOVIMIENTO" msprop:Generator_UserColumnName="MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnMOVIMIENTO" msprop:Generator_ColumnPropNameInRow="MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="MOVIMIENTOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODIGO_MOVIMIENTO" msprop:Generator_UserColumnName="CODIGO_MOVIMIENTO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOVIMIENTO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOVIMIENTOColumn" type="xs:decimal" />
+              <xs:element name="IDENTIDAD" msprop:Generator_UserColumnName="IDENTIDAD" msprop:Generator_ColumnVarNameInTable="columnIDENTIDAD" msprop:Generator_ColumnPropNameInRow="IDENTIDAD" msprop:Generator_ColumnPropNameInTable="IDENTIDADColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CODIGO_PARTIDO" msprop:Generator_UserColumnName="CODIGO_PARTIDO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_PARTIDO" msprop:Generator_ColumnPropNameInRow="CODIGO_PARTIDO" msprop:Generator_ColumnPropNameInTable="CODIGO_PARTIDOColumn" type="xs:decimal" />
+              <xs:element name="SALIENTE" msprop:Generator_UserColumnName="SALIENTE" msprop:Generator_ColumnVarNameInTable="columnSALIENTE" msprop:Generator_ColumnPropNameInRow="SALIENTE" msprop:Generator_ColumnPropNameInTable="SALIENTEColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="403" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FECHA_ADICION" msprop:Generator_UserColumnName="FECHA_ADICION" msprop:Generator_ColumnVarNameInTable="columnFECHA_ADICION" msprop:Generator_ColumnPropNameInRow="FECHA_ADICION" msprop:Generator_ColumnPropNameInTable="FECHA_ADICIONColumn" type="xs:dateTime" />
+              <xs:element name="CODIGO_MOTIVO" msprop:Generator_UserColumnName="CODIGO_MOTIVO" msprop:Generator_ColumnVarNameInTable="columnCODIGO_MOTIVO" msprop:Generator_ColumnPropNameInRow="CODIGO_MOTIVO" msprop:Generator_ColumnPropNameInTable="CODIGO_MOTIVOColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="IDENTIDAD_ENTRANTE" msprop:Generator_UserColumnName="IDENTIDAD_ENTRANTE" msprop:Generator_ColumnVarNameInTable="columnIDENTIDAD_ENTRANTE" msprop:Generator_ColumnPropNameInRow="IDENTIDAD_ENTRANTE" msprop:Generator_ColumnPropNameInTable="IDENTIDAD_ENTRANTEColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ENTRANTE" msprop:Generator_UserColumnName="ENTRANTE" msprop:Generator_ColumnVarNameInTable="columnENTRANTE" msprop:Generator_ColumnPropNameInRow="ENTRANTE" msprop:Generator_ColumnPropNameInTable="ENTRANTEColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="403" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MOTIVO_SUSTITUCION" msprop:Generator_UserColumnName="MOTIVO_SUSTITUCION" msprop:Generator_ColumnPropNameInRow="MOTIVO_SUSTITUCION" msprop:Generator_ColumnVarNameInTable="columnMOTIVO_SUSTITUCION" msprop:Generator_ColumnPropNameInTable="MOTIVO_SUSTITUCIONColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

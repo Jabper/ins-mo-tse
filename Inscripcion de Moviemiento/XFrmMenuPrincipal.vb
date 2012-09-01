@@ -677,5 +677,15 @@ Public Class XFrmMenuPrincipal
 
     Private Sub BtnMotivoSustitucion_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnMotivoSustitucion.ItemClick
         Padre(xfrmMotivosSustitucion)
+        
+    End Sub
+
+    Private Sub BtnReporteSustitucion_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnReporteSustitucion.ItemClick
+        Dim REPORTE As REPORTE_DE_SUSTITUCIONES = New REPORTE_DE_SUSTITUCIONES
+        REPORTE.ShowPreview()
+    End Sub
+
+    Private Sub BtnModSustitucion_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnModSustitucion.ItemClick
+        Padre(xfrmSustitucionCandidatosMod)
     End Sub
 End Class
