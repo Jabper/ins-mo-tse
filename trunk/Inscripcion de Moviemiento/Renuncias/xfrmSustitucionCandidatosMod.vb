@@ -273,7 +273,7 @@ Public Class xfrmSustitucionCandidatosMod
 
 
                 '***REESTABLECIENDO CANDIDATO AL MOVIMIENTO
-                Dim BKcandidatos As String = "insert into im_candidatos (" & campos1 & ") select " & campos & " from im_renuncias WHERE CODIGO_CANDIDATO=" & GridView1.GetRowCellValue(i, "CODIGO_CANDIDATO").ToString & " AND CODIGO_PARTIDO=" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO").ToString & " AND CODIGO_MOVIMIENTO=" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO").ToString
+                Dim BKcandidatos As String = "insert into im_candidatos (" & campos1 & ") select " & campos & " from im_sustituciones WHERE CODIGO_CANDIDATO=" & GridView1.GetRowCellValue(i, "CODIGO_CANDIDATO").ToString & " AND CODIGO_PARTIDO=" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO").ToString & " AND CODIGO_MOVIMIENTO=" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO").ToString
                 COracle.ejecutarconsulta(BKcandidatos)
 
                 '***ACTUALIZAR INSERT DEL INSERT ANTERIOR AGREGADO POR Y FECHA
@@ -299,7 +299,7 @@ Public Class xfrmSustitucionCandidatosMod
                 mensaje = "No se puede revertir este candidato por que ya existe alguien ocupando el puesto con la siguiente información: "
                 mensaje &= vbCrLf & "Cargo: " & GridView1.GetRowCellValue(i, "CARGO")
                 mensaje &= vbCrLf & "Partido: " & GridView1.GetRowCellValue(i, "PARTIDO")
-                mensaje &= vbCrLf & "Movimiento: " & GridView1.GetRowCellValue(i, "NOMBRE_MOVIMIENTO")
+                mensaje &= vbCrLf & "Movimiento: " & GridView1.GetRowCellValue(i, "MOVIMIENTO")
                 mensaje &= vbCrLf & "Departamento: " & GridView1.GetRowCellValue(i, "DEPARTAMENTO")
                 mensaje &= vbCrLf & "Municipio: " & GridView1.GetRowCellValue(i, "MUNICIPIO")
                 mensaje &= vbCrLf
