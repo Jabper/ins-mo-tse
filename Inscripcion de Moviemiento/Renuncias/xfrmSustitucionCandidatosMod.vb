@@ -255,7 +255,7 @@ Public Class xfrmSustitucionCandidatosMod
         & "and codigo_municipio='" & GridView1.GetRowCellValue(i, "CODIGO_MUNICIPIO").ToString & "' " _
         & "and codigo_cargo_electivo='" & GridView1.GetRowCellValue(i, "CODIGO_CARGO_ELECTIVO").ToString & "' " _
         & "and posicion='" & GridView1.GetRowCellValue(i, "POSICION").ToString & "' " _
-        & "and identidad='" & GridView1.GetRowCellValue(i, "IDENTIDAD").ToString & "' "
+        ' "and identidad='" & GridView1.GetRowCellValue(i, "IDENTIDAD").ToString & "' "
 
 
             If COracle.ObtenerDatos(sqlvalida, "identidad") = "N" Then
