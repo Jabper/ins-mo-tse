@@ -478,7 +478,7 @@ Partial Class XFrmMenuPrincipal
         Me.BtnRFirmas.Caption = "Reportes de Firmas "
         Me.BtnRFirmas.Id = 36
         Me.BtnRFirmas.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.FIRMAS1
-        Me.BtnRFirmas.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BtnFDP), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnFirmasinc), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnCrucemov), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnCrucepar), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnResumenFir)})
+        Me.BtnRFirmas.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BtnFDP), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnFirmasinc), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnCrucemov), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.None, False, Me.BtnCrucepar, False), New DevExpress.XtraBars.LinkPersistInfo(Me.BtnResumenFir)})
         Me.BtnRFirmas.Name = "BtnRFirmas"
         '
         'BtnFDP
@@ -504,6 +504,7 @@ Partial Class XFrmMenuPrincipal
         Me.BtnCrucepar.Caption = "Reporte de Cruce de Firmas Entre Partidos"
         Me.BtnCrucepar.Id = 43
         Me.BtnCrucepar.Name = "BtnCrucepar"
+        Me.BtnCrucepar.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
         '
         'BtnResumenFir
         '
