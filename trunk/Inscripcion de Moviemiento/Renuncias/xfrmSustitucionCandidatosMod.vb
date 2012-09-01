@@ -258,7 +258,7 @@ Public Class xfrmSustitucionCandidatosMod
         & "and identidad='" & GridView1.GetRowCellValue(i, "IDENTIDAD").ToString & "' "
 
 
-            If COracle.ObtenerDatos(sqlvalida, "identidad") <> "N" Then
+            If COracle.ObtenerDatos(sqlvalida, "identidad") = "N" Then
 
 
                 Dim campos1 As String = "CODIGO_CANDIDATOS, POSICION, CODIGO_CARGO_ELECTIVO, " _
