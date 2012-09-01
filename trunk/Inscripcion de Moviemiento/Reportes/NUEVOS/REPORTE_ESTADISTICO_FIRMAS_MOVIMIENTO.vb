@@ -102,11 +102,14 @@ Public Class REPORTE_ESTADISTICO_FIRMAS_MOVIMIENTO
         Dim total_firmas_inc As String = 0
         Dim porcentaje_consis As String = 0
         Dim porcentaje_incons As String = 0
-
+        Dim firmas_requeridas As String = 0
         ''abrir conexion de la base de datos 
         conn.ConnectionString = oradb
         conn.Open()
 
+        'firmas requeridas
+        firmas_requeridas = COracle.ObtenerDatos("select PA.CANTIDAD_FIRMAS TOTAL_FP from im_partidos_politicos pa where PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "'", "TOTAL_FP")
+        requeridas.Text = firmas_requeridas.ToString
         'total firmas Presentadas
         total_firmas_pre = COracle.ObtenerDatos("SELECT COUNT (1) TOTAL_FP FROM im_ciudadanos_respaldan ca,im_partidos_politicos pa,im_movimientos mov WHERE CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO AND CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_FP")
         Total_firmas.Text = total_firmas_pre.ToString

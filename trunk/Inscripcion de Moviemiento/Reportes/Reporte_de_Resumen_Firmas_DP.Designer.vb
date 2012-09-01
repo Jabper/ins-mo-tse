@@ -36,7 +36,6 @@ Partial Public Class Reporte_de_Resumen_Firmas_DP
         Me.GroupHeaderBand2 = New DevExpress.XtraReports.UI.GroupHeaderBand
         Me.XrLabel6 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel
-        Me.GroupHeaderBand3 = New DevExpress.XtraReports.UI.GroupHeaderBand
         Me.XrLabel8 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel9 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel10 = New DevExpress.XtraReports.UI.XRLabel
@@ -58,34 +57,40 @@ Partial Public Class Reporte_de_Resumen_Firmas_DP
         Me.DS_REPORTE_DE_RESUMEN_FDP_11 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_RESUMEN_FDP_1
         Me.IM_REPORTE_RESUMEN_FIRMAS_DPTableAdapter = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_RESUMEN_FDP_1TableAdapters.IM_REPORTE_RESUMEN_FIRMAS_DPTableAdapter
         Me.PageHeader = New DevExpress.XtraReports.UI.PageHeaderBand
-        Me.XrLabel20 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel21 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrPictureBox1 = New DevExpress.XtraReports.UI.XRPictureBox
         Me.XrPictureBox2 = New DevExpress.XtraReports.UI.XRPictureBox
-        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DS_LOG = New Inscripcion_de_Moviemientos.DS_LOG
-        Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
         Me.BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DS_LOG = New Inscripcion_de_Moviemientos.DS_LOG
+        Me.XrPictureBox1 = New DevExpress.XtraReports.UI.XRPictureBox
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.XrLabel21 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel20 = New DevExpress.XtraReports.UI.XRLabel
+        Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
         Me.IM_MOVIMIENTOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
+        Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
+        Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
+        Me.GroupHeader1 = New DevExpress.XtraReports.UI.GroupHeaderBand
+        Me.XrLabel17 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel22 = New DevExpress.XtraReports.UI.XRLabel
         CType(Me.DS_REPORTE_DE_RESUMEN_FDP_11, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
         'Detail
         '
-        Me.Detail.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel13, Me.XrLabel14, Me.XrLabel15, Me.XrLabel16})
-        Me.Detail.HeightF = 50.41666!
+        Me.Detail.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel22, Me.XrLabel13, Me.XrLabel14, Me.XrLabel15, Me.XrLabel16})
+        Me.Detail.HeightF = 23.00002!
         Me.Detail.Name = "Detail"
         Me.Detail.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
+        Me.Detail.SortFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("CODIGO_DEPARTAMENTO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending), New DevExpress.XtraReports.UI.GroupField("CODIGO_MUNICIPIO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
         Me.Detail.StyleName = "DataField"
         Me.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
         '
         'XrLabel13
         '
         Me.XrLabel13.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_REPORTE_RESUMEN_FIRMAS_DP.MUNICIPIO")})
-        Me.XrLabel13.LocationFloat = New DevExpress.Utils.PointFloat(49.83999!, 0.0!)
+        Me.XrLabel13.LocationFloat = New DevExpress.Utils.PointFloat(85.88069!, 1.041667!)
         Me.XrLabel13.Name = "XrLabel13"
         Me.XrLabel13.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel13.SizeF = New System.Drawing.SizeF(119.535!, 15.0!)
@@ -121,7 +126,7 @@ Partial Public Class Reporte_de_Resumen_Firmas_DP
         'XrLabel12
         '
         Me.XrLabel12.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_REPORTE_RESUMEN_FIRMAS_DP.DEPARTAMENTO")})
-        Me.XrLabel12.LocationFloat = New DevExpress.Utils.PointFloat(220.5833!, 56.83333!)
+        Me.XrLabel12.LocationFloat = New DevExpress.Utils.PointFloat(319.5416!, 3.000005!)
         Me.XrLabel12.Name = "XrLabel12"
         Me.XrLabel12.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel12.SizeF = New System.Drawing.SizeF(517.1591!, 14.99999!)
@@ -130,10 +135,10 @@ Partial Public Class Reporte_de_Resumen_Firmas_DP
         '
         'GroupHeaderBand1
         '
-        Me.GroupHeaderBand1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel3, Me.XrLabel4, Me.XrLabel1, Me.XrLabel2, Me.XrLabel7, Me.XrLabel12})
+        Me.GroupHeaderBand1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel3, Me.XrLabel4, Me.XrLabel1, Me.XrLabel2})
         Me.GroupHeaderBand1.GroupFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("NOMBRE PARTIDO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending), New DevExpress.XtraReports.UI.GroupField("NOMBRE MOVIMIENTO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
-        Me.GroupHeaderBand1.HeightF = 81.83333!
-        Me.GroupHeaderBand1.Level = 2
+        Me.GroupHeaderBand1.HeightF = 38.08333!
+        Me.GroupHeaderBand1.Level = 3
         Me.GroupHeaderBand1.Name = "GroupHeaderBand1"
         '
         'XrLabel3
@@ -180,7 +185,7 @@ Partial Public Class Reporte_de_Resumen_Firmas_DP
         'XrLabel7
         '
         Me.XrLabel7.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel7.LocationFloat = New DevExpress.Utils.PointFloat(6.00001!, 56.83333!)
+        Me.XrLabel7.LocationFloat = New DevExpress.Utils.PointFloat(5.999979!, 0.0!)
         Me.XrLabel7.Name = "XrLabel7"
         Me.XrLabel7.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel7.SizeF = New System.Drawing.SizeF(178.5824!, 18.0!)
@@ -192,7 +197,7 @@ Partial Public Class Reporte_de_Resumen_Firmas_DP
         Me.GroupHeaderBand2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel6, Me.XrLabel5})
         Me.GroupHeaderBand2.GroupFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("ESTADO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
         Me.GroupHeaderBand2.HeightF = 36.0!
-        Me.GroupHeaderBand2.Level = 1
+        Me.GroupHeaderBand2.Level = 2
         Me.GroupHeaderBand2.Name = "GroupHeaderBand2"
         '
         'XrLabel6
@@ -214,16 +219,9 @@ Partial Public Class Reporte_de_Resumen_Firmas_DP
         Me.XrLabel5.StyleName = "FieldCaption"
         Me.XrLabel5.Text = "ESTADO DE LAS FIRMAS: "
         '
-        'GroupHeaderBand3
-        '
-        Me.GroupHeaderBand3.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel8, Me.XrLabel9, Me.XrLabel10, Me.XrLabel11, Me.XrLine1, Me.XrLine2})
-        Me.GroupHeaderBand3.HeightF = 43.75!
-        Me.GroupHeaderBand3.Name = "GroupHeaderBand3"
-        Me.GroupHeaderBand3.StyleName = "FieldCaption"
-        '
         'XrLabel8
         '
-        Me.XrLabel8.LocationFloat = New DevExpress.Utils.PointFloat(65.04741!, 9.000015!)
+        Me.XrLabel8.LocationFloat = New DevExpress.Utils.PointFloat(65.04739!, 30.87502!)
         Me.XrLabel8.Name = "XrLabel8"
         Me.XrLabel8.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel8.SizeF = New System.Drawing.SizeF(119.535!, 18.0!)
@@ -232,7 +230,7 @@ Partial Public Class Reporte_de_Resumen_Firmas_DP
         '
         'XrLabel9
         '
-        Me.XrLabel9.LocationFloat = New DevExpress.Utils.PointFloat(352.034!, 7.000001!)
+        Me.XrLabel9.LocationFloat = New DevExpress.Utils.PointFloat(352.034!, 28.875!)
         Me.XrLabel9.Name = "XrLabel9"
         Me.XrLabel9.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel9.SizeF = New System.Drawing.SizeF(120.9752!, 18.0!)
@@ -240,7 +238,7 @@ Partial Public Class Reporte_de_Resumen_Firmas_DP
         '
         'XrLabel10
         '
-        Me.XrLabel10.LocationFloat = New DevExpress.Utils.PointFloat(547.5079!, 7.000001!)
+        Me.XrLabel10.LocationFloat = New DevExpress.Utils.PointFloat(547.5079!, 28.875!)
         Me.XrLabel10.Name = "XrLabel10"
         Me.XrLabel10.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel10.SizeF = New System.Drawing.SizeF(118.3671!, 18.0!)
@@ -250,7 +248,7 @@ Partial Public Class Reporte_de_Resumen_Firmas_DP
         '
         'XrLabel11
         '
-        Me.XrLabel11.LocationFloat = New DevExpress.Utils.PointFloat(796.5846!, 9.000015!)
+        Me.XrLabel11.LocationFloat = New DevExpress.Utils.PointFloat(796.5846!, 30.87502!)
         Me.XrLabel11.Name = "XrLabel11"
         Me.XrLabel11.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel11.SizeF = New System.Drawing.SizeF(122.4154!, 18.0!)
@@ -260,13 +258,13 @@ Partial Public Class Reporte_de_Resumen_Firmas_DP
         '
         'XrLine1
         '
-        Me.XrLine1.LocationFloat = New DevExpress.Utils.PointFloat(6.0!, 5.0!)
+        Me.XrLine1.LocationFloat = New DevExpress.Utils.PointFloat(6.00001!, 26.87499!)
         Me.XrLine1.Name = "XrLine1"
         Me.XrLine1.SizeF = New System.Drawing.SizeF(1030.0!, 2.0!)
         '
         'XrLine2
         '
-        Me.XrLine2.LocationFloat = New DevExpress.Utils.PointFloat(6.000002!, 27.00001!)
+        Me.XrLine2.LocationFloat = New DevExpress.Utils.PointFloat(6.00001!, 48.87502!)
         Me.XrLine2.Name = "XrLine2"
         Me.XrLine2.SizeF = New System.Drawing.SizeF(1030.0!, 2.0!)
         '
@@ -362,7 +360,8 @@ Partial Public Class Reporte_de_Resumen_Firmas_DP
         'GroupFooter1
         '
         Me.GroupFooter1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel19, Me.XrLabel18})
-        Me.GroupFooter1.HeightF = 44.79167!
+        Me.GroupFooter1.HeightF = 39.58333!
+        Me.GroupFooter1.Level = 1
         Me.GroupFooter1.Name = "GroupFooter1"
         '
         'XrLabel19
@@ -390,30 +389,23 @@ Partial Public Class Reporte_de_Resumen_Firmas_DP
         Me.PageHeader.HeightF = 132.2917!
         Me.PageHeader.Name = "PageHeader"
         '
-        'XrLabel20
+        'XrPictureBox2
         '
-        Me.XrLabel20.Font = New System.Drawing.Font("Times New Roman", 18.0!, CType((System.Drawing.FontStyle.Italic Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
-        Me.XrLabel20.LocationFloat = New DevExpress.Utils.PointFloat(105.4157!, 0.0!)
-        Me.XrLabel20.Multiline = True
-        Me.XrLabel20.Name = "XrLabel20"
-        Me.XrLabel20.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel20.SizeF = New System.Drawing.SizeF(842.7084!, 69.875!)
-        Me.XrLabel20.StylePriority.UseFont = False
-        Me.XrLabel20.StylePriority.UseTextAlignment = False
-        Me.XrLabel20.Text = "TRIBUNAL SUPREMO ELECTORAL" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SISTEMA DE INCRIPCION DE MOVIMIENTOS Y CANDIDATOS"
-        Me.XrLabel20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        Me.XrPictureBox2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSource2, "IMAGEN")})
+        Me.XrPictureBox2.LocationFloat = New DevExpress.Utils.PointFloat(948.1241!, 0.0!)
+        Me.XrPictureBox2.Name = "XrPictureBox2"
+        Me.XrPictureBox2.SizeF = New System.Drawing.SizeF(100.0!, 69.875!)
+        Me.XrPictureBox2.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze
         '
-        'XrLabel21
+        'BindingSource2
         '
-        Me.XrLabel21.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Italic)
-        Me.XrLabel21.LocationFloat = New DevExpress.Utils.PointFloat(105.4157!, 69.87498!)
-        Me.XrLabel21.Name = "XrLabel21"
-        Me.XrLabel21.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel21.SizeF = New System.Drawing.SizeF(842.7084!, 22.99998!)
-        Me.XrLabel21.StylePriority.UseFont = False
-        Me.XrLabel21.StylePriority.UseTextAlignment = False
-        Me.XrLabel21.Text = "Reporte de Firmas por División Política"
-        Me.XrLabel21.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        Me.BindingSource2.DataMember = "IM_MOVIMIENTOS_imagen"
+        Me.BindingSource2.DataSource = Me.DS_LOG
+        '
+        'DS_LOG
+        '
+        Me.DS_LOG.DataSetName = "DS_LOG"
+        Me.DS_LOG.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'XrPictureBox1
         '
@@ -421,54 +413,100 @@ Partial Public Class Reporte_de_Resumen_Firmas_DP
         Me.XrPictureBox1.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 0.0!)
         Me.XrPictureBox1.Name = "XrPictureBox1"
         Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(100.0!, 69.875!)
-        '
-        'XrPictureBox2
-        '
-        Me.XrPictureBox2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSource2, "IMAGEN")})
-        Me.XrPictureBox2.LocationFloat = New DevExpress.Utils.PointFloat(948.1241!, 0.0!)
-        Me.XrPictureBox2.Name = "XrPictureBox2"
-        Me.XrPictureBox2.SizeF = New System.Drawing.SizeF(100.0!, 69.875!)
+        Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze
         '
         'BindingSource1
         '
         Me.BindingSource1.DataMember = "IM_PARTIDOS_POLITICOS_imagen"
         Me.BindingSource1.DataSource = Me.DS_LOG
         '
-        'DS_LOG
+        'XrLabel21
         '
-        Me.DS_LOG.DataSetName = "DS_LOG"
-        Me.DS_LOG.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.XrLabel21.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Italic)
+        Me.XrLabel21.LocationFloat = New DevExpress.Utils.PointFloat(105.4157!, 69.87498!)
+        Me.XrLabel21.Name = "XrLabel21"
+        Me.XrLabel21.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel21.SizeF = New System.Drawing.SizeF(842.7084!, 22.99998!)
+        Me.XrLabel21.StylePriority.UseFont = False
+        Me.XrLabel21.StylePriority.UseTextAlignment = False
+        Me.XrLabel21.Text = "Reporte de Firmas por División Política"
+        Me.XrLabel21.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'XrLabel20
+        '
+        Me.XrLabel20.Font = New System.Drawing.Font("Times New Roman", 18.0!, CType((System.Drawing.FontStyle.Italic Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
+        Me.XrLabel20.LocationFloat = New DevExpress.Utils.PointFloat(105.4157!, 0.0!)
+        Me.XrLabel20.Multiline = True
+        Me.XrLabel20.Name = "XrLabel20"
+        Me.XrLabel20.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel20.SizeF = New System.Drawing.SizeF(842.7084!, 69.875!)
+        Me.XrLabel20.StylePriority.UseFont = False
+        Me.XrLabel20.StylePriority.UseTextAlignment = False
+        Me.XrLabel20.Text = "TRIBUNAL SUPREMO ELECTORAL" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SISTEMA DE INCRIPCION DE MOVIMIENTOS Y CANDIDATOS"
+        Me.XrLabel20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'IM_PARTIDOS_POLITICOS_imagenTableAdapter
         '
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter.ClearBeforeFill = True
         '
-        'BindingSource2
-        '
-        Me.BindingSource2.DataMember = "IM_MOVIMIENTOS_imagen"
-        Me.BindingSource2.DataSource = Me.DS_LOG
-        '
         'IM_MOVIMIENTOS_imagenTableAdapter
         '
         Me.IM_MOVIMIENTOS_imagenTableAdapter.ClearBeforeFill = True
         '
+        'NombrePartido
+        '
+        Me.NombrePartido.Description = "Partido Político"
+        Me.NombrePartido.Name = "NombrePartido"
+        '
+        'NombreMovimiento
+        '
+        Me.NombreMovimiento.Description = "Movimiento Político"
+        Me.NombreMovimiento.Name = "NombreMovimiento"
+        '
+        'GroupHeader1
+        '
+        Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel17, Me.XrLabel12, Me.XrLabel7, Me.XrLabel10, Me.XrLine1, Me.XrLabel11, Me.XrLine2, Me.XrLabel9, Me.XrLabel8})
+        Me.GroupHeader1.GroupFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("DEPARTAMENTO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
+        Me.GroupHeader1.HeightF = 55.20833!
+        Me.GroupHeader1.Name = "GroupHeader1"
+        '
+        'XrLabel17
+        '
+        Me.XrLabel17.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_REPORTE_RESUMEN_FIRMAS_DP.CODIGO_DEPARTAMENTO")})
+        Me.XrLabel17.LocationFloat = New DevExpress.Utils.PointFloat(221.8257!, 3.000005!)
+        Me.XrLabel17.Name = "XrLabel17"
+        Me.XrLabel17.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
+        Me.XrLabel17.SizeF = New System.Drawing.SizeF(97.17433!, 14.99999!)
+        Me.XrLabel17.Text = "XrLabel17"
+        '
+        'XrLabel22
+        '
+        Me.XrLabel22.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_REPORTE_RESUMEN_FIRMAS_DP.CODIGO_MUNICIPIO")})
+        Me.XrLabel22.LocationFloat = New DevExpress.Utils.PointFloat(5.999979!, 1.041667!)
+        Me.XrLabel22.Name = "XrLabel22"
+        Me.XrLabel22.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
+        Me.XrLabel22.SizeF = New System.Drawing.SizeF(77.08334!, 14.99999!)
+        Me.XrLabel22.Text = "XrLabel22"
+        '
         'Reporte_de_Resumen_Firmas_DP
         '
-        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.GroupHeaderBand1, Me.GroupHeaderBand2, Me.GroupHeaderBand3, Me.PageFooterBand1, Me.TopMarginBand1, Me.BottomMarginBand1, Me.GroupFooter1, Me.PageHeader})
+        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.GroupHeaderBand1, Me.GroupHeaderBand2, Me.PageFooterBand1, Me.TopMarginBand1, Me.BottomMarginBand1, Me.GroupFooter1, Me.PageHeader, Me.GroupHeader1})
         Me.DataAdapter = Me.IM_REPORTE_RESUMEN_FIRMAS_DPTableAdapter
         Me.DataMember = "IM_REPORTE_RESUMEN_FIRMAS_DP"
         Me.DataSource = Me.DS_REPORTE_DE_RESUMEN_FDP_11
+        Me.FilterString = "[NOMBRE PARTIDO] = ?NombrePartido And [NOMBRE MOVIMIENTO] = ?NombreMovimiento"
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(16, 34, 31, 100)
         Me.PageHeight = 850
         Me.PageWidth = 1100
+        Me.Parameters.AddRange(New DevExpress.XtraReports.Parameters.Parameter() {Me.NombrePartido, Me.NombreMovimiento})
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
         Me.StyleSheet.AddRange(New DevExpress.XtraReports.UI.XRControlStyle() {Me.Title, Me.FieldCaption, Me.PageInfo, Me.DataField})
         Me.Version = "11.2"
         CType(Me.DS_REPORTE_DE_RESUMEN_FDP_11, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub
@@ -486,7 +524,6 @@ Partial Public Class Reporte_de_Resumen_Firmas_DP
     Friend WithEvents GroupHeaderBand2 As DevExpress.XtraReports.UI.GroupHeaderBand
     Friend WithEvents XrLabel6 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel5 As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents GroupHeaderBand3 As DevExpress.XtraReports.UI.GroupHeaderBand
     Friend WithEvents XrLabel7 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel8 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel9 As DevExpress.XtraReports.UI.XRLabel
@@ -518,4 +555,9 @@ Partial Public Class Reporte_de_Resumen_Firmas_DP
     Friend WithEvents IM_PARTIDOS_POLITICOS_imagenTableAdapter As Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
     Friend WithEvents BindingSource2 As System.Windows.Forms.BindingSource
     Friend WithEvents IM_MOVIMIENTOS_imagenTableAdapter As Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
+    Friend WithEvents NombrePartido As DevExpress.XtraReports.Parameters.Parameter
+    Friend WithEvents NombreMovimiento As DevExpress.XtraReports.Parameters.Parameter
+    Friend WithEvents GroupHeader1 As DevExpress.XtraReports.UI.GroupHeaderBand
+    Friend WithEvents XrLabel22 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel17 As DevExpress.XtraReports.UI.XRLabel
 End Class
