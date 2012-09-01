@@ -6,6 +6,7 @@ Imports DevExpress.XtraEditors
 Imports System.Data.OracleClient
 Public Class xfrmSustitucionCandidatosMod
     Dim mensajeerror As String = ""
+    Dim flag As Boolean = False
     Sub limpiarLabels()
         'LIMPIA LOS LABELES DE INFORMACION EN CASO DE NO ENCONTRAR DATA Y SI ENCUENTRA MUESTRA LA INFORMACION DEL CANDIDATO
         If GridView1.DataRowCount <= 0 Then
@@ -74,6 +75,7 @@ Public Class xfrmSustitucionCandidatosMod
 
                     Me.SUSTITUCIONESTableAdapter.FillBy(Me.DT_Renuncia.SUSTITUCIONES, Me.btnbusqueda.Text)
                     limpiarLabels()
+
                     Mensajes.MensajeActualizar()
                 Catch ex As Exception
                     MsgBox(ex.Message)
@@ -246,7 +248,7 @@ Public Class xfrmSustitucionCandidatosMod
         Try
 
             Dim sqlvalida As String
-            sqlvalida = "select * from im_candidatos" _
+            sqlvalida = "select * from im_candidatos " _
         & "where codigo_partido='" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO").ToString & "' " _
         & "and codigo_movimiento='" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO").ToString & "' " _
         & "and codigo_departamento='" & GridView1.GetRowCellValue(i, "CODIGO_DEPARTAMENTO").ToString & "' " _
@@ -302,6 +304,7 @@ Public Class xfrmSustitucionCandidatosMod
                 mensaje &= vbCrLf & "Municipio: " & GridView1.GetRowCellValue(i, "MUNICIPIO")
                 mensaje &= vbCrLf
                 MsgBox(mensaje & vbCrLf & "Elimine manualmente al candidato en esta posición para poder realizar los cambios", MsgBoxStyle.Critical)
+                flag = True
             End If
 
         Catch ex As Exception
