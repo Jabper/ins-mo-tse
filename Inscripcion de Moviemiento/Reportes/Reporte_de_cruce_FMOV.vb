@@ -61,4 +61,9 @@ Public Class Reporte_de_cruce_FMOV
             End If
         Next
     End Sub
+
+    Private Sub Reporte_de_cruce_FMOV_ParametersRequestSubmit(ByVal sender As Object, ByVal e As DevExpress.XtraReports.Parameters.ParametersRequestEventArgs) Handles Me.ParametersRequestSubmit
+        users.Text = usuario
+
+    End Sub
 End Class
