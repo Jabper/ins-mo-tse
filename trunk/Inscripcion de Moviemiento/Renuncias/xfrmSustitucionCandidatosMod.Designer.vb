@@ -279,7 +279,6 @@ Partial Class xfrmSustitucionCandidatosMod
         Me.colREESTABLECER.ColumnEdit = Me.RepositoryItemCheckEdit1
         Me.colREESTABLECER.FieldName = "REESTABLECER"
         Me.colREESTABLECER.Name = "colREESTABLECER"
-        Me.colREESTABLECER.OptionsColumn.AllowEdit = False
         Me.colREESTABLECER.Visible = True
         Me.colREESTABLECER.VisibleIndex = 0
         Me.colREESTABLECER.Width = 70
