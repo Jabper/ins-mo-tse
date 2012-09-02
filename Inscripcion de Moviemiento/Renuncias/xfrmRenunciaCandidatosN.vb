@@ -6,6 +6,7 @@ Imports DevExpress.XtraEditors
 Imports System.Data.OracleClient
 Public Class xfrmRenunciaCandidatosN
     Dim mensajeerror As String = ""
+    Dim flag As Boolean = False
     Sub limpiarLabels()
         'LIMPIA LOS LABELES DE INFORMACION EN CASO DE NO ENCONTRAR DATA Y SI ENCUENTRA MUESTRA LA INFORMACION DEL CANDIDATO
         If GridView1.DataRowCount <= 0 Then
@@ -43,6 +44,7 @@ Public Class xfrmRenunciaCandidatosN
 
 
     Sub ValidarFilas()
+        flag = False
         Dim contador As Integer = 0
         Dim view As GridView = GridView1
         If view.DataRowCount > 0 Then
@@ -65,7 +67,13 @@ Public Class xfrmRenunciaCandidatosN
 
                     Me.RENUNCIASTableAdapter.FillBy(Me.DT_Renuncia.RENUNCIAS, Me.btnbusqueda.Text)
                     limpiarLabels()
-                    Mensajes.MensajeGuardar()
+
+                    If flag = False Then
+                        Mensajes.MensajeActualizar()
+                    Else
+                        Mensajes.mimensaje("Algunos cambios no pudieron ser aplicados")
+                    End If
+
                 Catch ex As Exception
                     MsgBox(ex.Message)
                 End Try
@@ -149,42 +157,70 @@ Public Class xfrmRenunciaCandidatosN
 
 
     Sub GuardarEnBase(ByVal i As Integer)
+
         Try
-            Dim campos1 As String = "CODIGO_CANDIDATOS, POSICION, CODIGO_CARGO_ELECTIVO, " _
-          & "CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, CODIGO_MOVIMIENTO, IDENTIDAD, CODIGO_PARTIDO, " _
-           & "ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, Primer_Nombre," _
-           & "Segundo_Nombre,PRIMER_APELLIDO, SEGUNDO_APELLIDO"
-
-            Dim campos As String = "CODIGO_CANDIDATO, POSICION, CODIGO_CARGO_ELECTIVO, " _
-           & "CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, CODIGO_MOVIMIENTO, IDENTIDAD, CODIGO_PARTIDO, " _
-            & "ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, Primer_Nombre," _
-            & "Segundo_Nombre,PRIMER_APELLIDO, SEGUNDO_APELLIDO"
-           
-
-            '***REESTABLECIENDO CANDIDATO AL MOVIMIENTO
-            Dim BKcandidatos As String = "insert into im_candidatos (" & campos1 & ") select " & campos & " from im_renuncias WHERE CODIGO_CANDIDATO=" & GridView1.GetRowCellValue(i, "CODIGO_CANDIDATO").ToString & " AND CODIGO_PARTIDO=" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO").ToString & " AND CODIGO_MOVIMIENTO=" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO").ToString
-            COracle.ejecutarconsulta(BKcandidatos)
-
-            '***ACTUALIZAR INSERT DEL INSERT ANTERIOR AGREGADO POR Y FECHA
-            Dim candidatosUPD As String = "update  im_candidatos set adicionado_por='" & usuario & "' , fecha_adicion=to_date('" & DateTime.Now.Date & "','dd/mm/yyyy') WHERE CODIGO_CANDIDATOS=" & GridView1.GetRowCellValue(i, "CODIGO_CANDIDATO").ToString & " AND CODIGO_PARTIDO=" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO").ToString & " AND CODIGO_MOVIMIENTO=" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO").ToString
-            COracle.ejecutarconsulta(candidatosUPD)
-
-            '***REESTABLECIENDO REQUISITOS DEL CANDIDATO 
-            Dim BKrequisitos As String = "insert into IM_REQUISITOS_X_CANDIDATO select * from im_requisitos_renuncia WHERE CODIGO_CANDIDATO=" & GridView1.GetRowCellValue(i, "CODIGO_CANDIDATO").ToString & " AND CODIGO_PARTIDO=" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO").ToString & " AND CODIGO_MOVIMIENTO=" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO").ToString
-            COracle.ejecutarconsulta(BKrequisitos)
-
-            '***ACTUALIZAR INSERT DEL INSERT ANTERIOR AGREGADO POR Y FECHA
 
 
-            'BORRAR REGISTROS DE BACKUP DE REQUISITOS
-            Dim requisitos As String = "DELETE im_requisitos_renuncia WHERE CODIGO_CANDIDATO=" & GridView1.GetRowCellValue(i, "CODIGO_CANDIDATO").ToString & " AND CODIGO_PARTIDO=" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO").ToString & " AND CODIGO_MOVIMIENTO=" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO").ToString
-            COracle.ejecutarconsulta(requisitos)
+            Dim sqlvalida As String
+            sqlvalida = "select * from im_candidatos " _
+        & "where codigo_partido='" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO").ToString & "' " _
+        & "and codigo_movimiento='" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO").ToString & "' " _
+        & "and codigo_departamento='" & GridView1.GetRowCellValue(i, "CODIGO_DEPARTAMENTO").ToString & "' " _
+        & "and codigo_municipio='" & GridView1.GetRowCellValue(i, "CODIGO_MUNICIPIO").ToString & "' " _
+        & "and codigo_cargo_electivo='" & GridView1.GetRowCellValue(i, "CODIGO_CARGO_ELECTIVO").ToString & "' " _
+        & "and posicion='" & GridView1.GetRowCellValue(i, "POSICION").ToString & "' " _
+        ' "and identidad='" & GridView1.GetRowCellValue(i, "IDENTIDAD").ToString & "' "
 
-            'BORRAR REGISTROS DE RENUNCIAS
-            Dim sql As String = "DELETE im_renuncias WHERE CODIGO_CANDIDATO=" & GridView1.GetRowCellValue(i, "CODIGO_CANDIDATO").ToString & " AND CODIGO_PARTIDO=" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO").ToString & " AND CODIGO_MOVIMIENTO=" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO").ToString
-            COracle.ejecutarconsulta(sql)
+
+            If COracle.ObtenerDatos(sqlvalida, "identidad") = "N" Then
 
 
+                Dim campos1 As String = "CODIGO_CANDIDATOS, POSICION, CODIGO_CARGO_ELECTIVO, " _
+              & "CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, CODIGO_MOVIMIENTO, IDENTIDAD, CODIGO_PARTIDO, " _
+               & "ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, Primer_Nombre," _
+               & "Segundo_Nombre,PRIMER_APELLIDO, SEGUNDO_APELLIDO"
+
+                Dim campos As String = "CODIGO_CANDIDATO, POSICION, CODIGO_CARGO_ELECTIVO, " _
+               & "CODIGO_DEPARTAMENTO, CODIGO_MUNICIPIO, CODIGO_MOVIMIENTO, IDENTIDAD, CODIGO_PARTIDO, " _
+                & "ADICIONADO_POR, FECHA_ADICION, MODIFICADO_POR, FECHA_MODIFICACION, Primer_Nombre," _
+                & "Segundo_Nombre,PRIMER_APELLIDO, SEGUNDO_APELLIDO"
+
+
+                '***REESTABLECIENDO CANDIDATO AL MOVIMIENTO
+                Dim BKcandidatos As String = "insert into im_candidatos (" & campos1 & ") select " & campos & " from im_renuncias WHERE CODIGO_CANDIDATO=" & GridView1.GetRowCellValue(i, "CODIGO_CANDIDATO").ToString & " AND CODIGO_PARTIDO=" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO").ToString & " AND CODIGO_MOVIMIENTO=" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO").ToString
+                COracle.ejecutarconsulta(BKcandidatos)
+
+                '***ACTUALIZAR INSERT DEL INSERT ANTERIOR AGREGADO POR Y FECHA
+                Dim candidatosUPD As String = "update  im_candidatos set adicionado_por='" & usuario & "' , fecha_adicion=to_date('" & DateTime.Now.Date & "','dd/mm/yyyy') WHERE CODIGO_CANDIDATOS=" & GridView1.GetRowCellValue(i, "CODIGO_CANDIDATO").ToString & " AND CODIGO_PARTIDO=" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO").ToString & " AND CODIGO_MOVIMIENTO=" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO").ToString
+                COracle.ejecutarconsulta(candidatosUPD)
+
+                '***REESTABLECIENDO REQUISITOS DEL CANDIDATO 
+                Dim BKrequisitos As String = "insert into IM_REQUISITOS_X_CANDIDATO select * from im_requisitos_renuncia WHERE CODIGO_CANDIDATO=" & GridView1.GetRowCellValue(i, "CODIGO_CANDIDATO").ToString & " AND CODIGO_PARTIDO=" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO").ToString & " AND CODIGO_MOVIMIENTO=" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO").ToString
+                COracle.ejecutarconsulta(BKrequisitos)
+
+                '***ACTUALIZAR INSERT DEL INSERT ANTERIOR AGREGADO POR Y FECHA
+
+
+                'BORRAR REGISTROS DE BACKUP DE REQUISITOS
+                Dim requisitos As String = "DELETE im_requisitos_renuncia WHERE CODIGO_CANDIDATO=" & GridView1.GetRowCellValue(i, "CODIGO_CANDIDATO").ToString & " AND CODIGO_PARTIDO=" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO").ToString & " AND CODIGO_MOVIMIENTO=" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO").ToString
+                COracle.ejecutarconsulta(requisitos)
+
+                'BORRAR REGISTROS DE RENUNCIAS
+                Dim sql As String = "DELETE im_renuncias WHERE CODIGO_CANDIDATO=" & GridView1.GetRowCellValue(i, "CODIGO_CANDIDATO").ToString & " AND CODIGO_PARTIDO=" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO").ToString & " AND CODIGO_MOVIMIENTO=" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO").ToString
+                COracle.ejecutarconsulta(sql)
+
+            Else
+                Dim mensaje As String
+                mensaje = "No se puede revertir este candidato por que ya existe alguien ocupando el puesto con la siguiente información: "
+                mensaje &= vbCrLf & "Cargo: " & GridView1.GetRowCellValue(i, "CARGO")
+                mensaje &= vbCrLf & "Partido: " & GridView1.GetRowCellValue(i, "PARTIDO")
+                mensaje &= vbCrLf & "Movimiento: " & GridView1.GetRowCellValue(i, "MOVIMIENTO")
+                mensaje &= vbCrLf & "Departamento: " & GridView1.GetRowCellValue(i, "DEPARTAMENTO")
+                mensaje &= vbCrLf & "Municipio: " & GridView1.GetRowCellValue(i, "MUNICIPIO")
+                mensaje &= vbCrLf
+                MsgBox(mensaje & vbCrLf & "Elimine manualmente al candidato en esta posición para poder realizar los cambios", MsgBoxStyle.Critical)
+                flag = True
+            End If
 
         Catch ex As Exception
             MsgBox(ex.Message)
