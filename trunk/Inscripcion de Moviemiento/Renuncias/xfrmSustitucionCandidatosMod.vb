@@ -48,6 +48,7 @@ Public Class xfrmSustitucionCandidatosMod
 
 
     Sub ValidarFilas()
+        flag = False
         Dim contador As Integer = 0
         Dim view As GridView = GridView1
         If view.DataRowCount > 0 Then
@@ -76,7 +77,12 @@ Public Class xfrmSustitucionCandidatosMod
                     Me.SUSTITUCIONESTableAdapter.FillBy(Me.DT_Renuncia.SUSTITUCIONES, Me.btnbusqueda.Text)
                     limpiarLabels()
 
-                    Mensajes.MensajeActualizar()
+                    If flag = False Then
+                        Mensajes.MensajeActualizar()
+                    Else
+                        Mensajes.mimensaje("Algunos cambios no pudieron ser aplicados")
+                    End If
+
                 Catch ex As Exception
                     MsgBox(ex.Message)
                 End Try
