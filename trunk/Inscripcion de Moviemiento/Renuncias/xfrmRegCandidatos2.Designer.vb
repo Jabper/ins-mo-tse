@@ -22,9 +22,11 @@ Partial Class xfrmRegCandidatos2
         Me.components = New System.ComponentModel.Container
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
-        Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
         Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton
         Me.BtnEliminar = New DevExpress.XtraEditors.SimpleButton
+        Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton
+        Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton
+        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton
         Me.BtnSalir = New DevExpress.XtraEditors.SimpleButton
         Me.DSInsCandidatos = New Inscripcion_de_Moviemientos.DSInsCandidatos
         Me.IMDEPARTAMENTOSBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -108,7 +110,6 @@ Partial Class xfrmRegCandidatos2
         Me.lblmujeres = New DevExpress.XtraEditors.LabelControl
         Me.LabelControl16 = New DevExpress.XtraEditors.LabelControl
         Me.PanelControl5 = New DevExpress.XtraEditors.PanelControl
-        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
@@ -156,34 +157,22 @@ Partial Class xfrmRegCandidatos2
         Me.PanelControl1.Controls.Add(Me.FlowLayoutPanel1)
         Me.PanelControl1.Location = New System.Drawing.Point(1, 24)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(271, 58)
+        Me.PanelControl1.Size = New System.Drawing.Size(349, 58)
         Me.PanelControl1.TabIndex = 0
         '
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.Transparent
-        Me.FlowLayoutPanel1.Controls.Add(Me.BtnNuevo)
         Me.FlowLayoutPanel1.Controls.Add(Me.BtnGuardar)
-        Me.FlowLayoutPanel1.Controls.Add(Me.SimpleButton1)
         Me.FlowLayoutPanel1.Controls.Add(Me.BtnEliminar)
+        Me.FlowLayoutPanel1.Controls.Add(Me.BtnNuevo)
+        Me.FlowLayoutPanel1.Controls.Add(Me.SimpleButton1)
+        Me.FlowLayoutPanel1.Controls.Add(Me.SimpleButton2)
         Me.FlowLayoutPanel1.Controls.Add(Me.BtnSalir)
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(11, 5)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(248, 48)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(338, 48)
         Me.FlowLayoutPanel1.TabIndex = 10
-        '
-        'BtnNuevo
-        '
-        Me.BtnNuevo.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.BtnNuevo.Appearance.Options.UseFont = True
-        Me.BtnNuevo.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
-        Me.BtnNuevo.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomCenter
-        Me.BtnNuevo.Location = New System.Drawing.Point(3, 3)
-        Me.BtnNuevo.Name = "BtnNuevo"
-        Me.BtnNuevo.Size = New System.Drawing.Size(55, 39)
-        Me.BtnNuevo.TabIndex = 0
-        Me.BtnNuevo.Text = "Nuevo"
-        Me.BtnNuevo.Visible = False
         '
         'BtnGuardar
         '
@@ -191,7 +180,7 @@ Partial Class xfrmRegCandidatos2
         Me.BtnGuardar.Appearance.Options.UseFont = True
         Me.BtnGuardar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._1340376772_accept
         Me.BtnGuardar.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomCenter
-        Me.BtnGuardar.Location = New System.Drawing.Point(64, 3)
+        Me.BtnGuardar.Location = New System.Drawing.Point(3, 3)
         Me.BtnGuardar.Name = "BtnGuardar"
         Me.BtnGuardar.Size = New System.Drawing.Size(55, 39)
         Me.BtnGuardar.TabIndex = 1
@@ -204,13 +193,51 @@ Partial Class xfrmRegCandidatos2
         Me.BtnEliminar.Appearance.Options.UseFont = True
         Me.BtnEliminar.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.eliminar
         Me.BtnEliminar.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomCenter
-        Me.BtnEliminar.Location = New System.Drawing.Point(186, 3)
+        Me.BtnEliminar.Location = New System.Drawing.Point(64, 3)
         Me.BtnEliminar.Name = "BtnEliminar"
         Me.BtnEliminar.Size = New System.Drawing.Size(55, 39)
         Me.BtnEliminar.TabIndex = 2
         Me.BtnEliminar.Text = "Nuevo"
         Me.BtnEliminar.ToolTip = "Presione para eliminar el candidato seleccionado en la tabla inferior"
         Me.BtnEliminar.Visible = False
+        '
+        'BtnNuevo
+        '
+        Me.BtnNuevo.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.BtnNuevo.Appearance.Options.UseFont = True
+        Me.BtnNuevo.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
+        Me.BtnNuevo.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomCenter
+        Me.BtnNuevo.Location = New System.Drawing.Point(125, 3)
+        Me.BtnNuevo.Name = "BtnNuevo"
+        Me.BtnNuevo.Size = New System.Drawing.Size(55, 39)
+        Me.BtnNuevo.TabIndex = 0
+        Me.BtnNuevo.Text = "Nuevo"
+        '
+        'SimpleButton2
+        '
+        Me.SimpleButton2.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.SimpleButton2.Appearance.Options.UseFont = True
+        Me.SimpleButton2.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.im_aim
+        Me.SimpleButton2.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomCenter
+        Me.SimpleButton2.Location = New System.Drawing.Point(247, 3)
+        Me.SimpleButton2.Name = "SimpleButton2"
+        Me.SimpleButton2.Size = New System.Drawing.Size(55, 39)
+        Me.SimpleButton2.TabIndex = 37
+        Me.SimpleButton2.Text = "Salir"
+        Me.SimpleButton2.ToolTip = "Presione para Salir"
+        '
+        'SimpleButton1
+        '
+        Me.SimpleButton1.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.SimpleButton1.Appearance.Options.UseFont = True
+        Me.SimpleButton1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._1345396919_txt2
+        Me.SimpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomCenter
+        Me.SimpleButton1.Location = New System.Drawing.Point(186, 3)
+        Me.SimpleButton1.Name = "SimpleButton1"
+        Me.SimpleButton1.Size = New System.Drawing.Size(55, 39)
+        Me.SimpleButton1.TabIndex = 36
+        Me.SimpleButton1.Text = "Nuevo"
+        Me.SimpleButton1.ToolTip = "Presione para Habilitar los Campos para Cambiar Nombres"
         '
         'BtnSalir
         '
@@ -985,19 +1012,6 @@ Partial Class xfrmRegCandidatos2
         Me.PanelControl5.Size = New System.Drawing.Size(150, 293)
         Me.PanelControl5.TabIndex = 58
         '
-        'SimpleButton1
-        '
-        Me.SimpleButton1.Appearance.Font = New System.Drawing.Font("Tahoma", 7.0!, System.Drawing.FontStyle.Bold)
-        Me.SimpleButton1.Appearance.Options.UseFont = True
-        Me.SimpleButton1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._1345396919_txt2
-        Me.SimpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomCenter
-        Me.SimpleButton1.Location = New System.Drawing.Point(125, 3)
-        Me.SimpleButton1.Name = "SimpleButton1"
-        Me.SimpleButton1.Size = New System.Drawing.Size(55, 39)
-        Me.SimpleButton1.TabIndex = 36
-        Me.SimpleButton1.Text = "Nuevo"
-        Me.SimpleButton1.ToolTip = "Presione para Habilitar los Campos para Cambiar Nombres"
-        '
         'LabelControl6
         '
         Me.LabelControl6.Appearance.BackColor = System.Drawing.Color.Transparent
@@ -1171,4 +1185,5 @@ Partial Class xfrmRegCandidatos2
     Friend WithEvents PanelControl5 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents SimpleButton2 As DevExpress.XtraEditors.SimpleButton
 End Class

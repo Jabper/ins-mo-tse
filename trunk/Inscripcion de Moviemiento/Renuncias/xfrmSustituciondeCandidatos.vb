@@ -4,8 +4,10 @@ Imports DevExpress.XtraEditors.Controls
 Imports DevExpress.XtraGrid.Columns
 Imports DevExpress.XtraEditors
 Imports System.Data.OracleClient
+
 Public Class xfrmSustituciondeCandidatos
     Dim mensajeerror As String = ""
+    Dim CODIGO_CANDIDATO As Integer
     Sub limpiarLabels()
         'LIMPIA LOS LABELES DE INFORMACION EN CASO DE NO ENCONTRAR DATA Y SI ENCUENTRA MUESTRA LA INFORMACION DEL CANDIDATO
         If GridView1.DataRowCount <= 0 Then
@@ -128,7 +130,8 @@ Public Class xfrmSustituciondeCandidatos
                         'GUARDAR SUSTITUCIONES
                         If view.GetRowCellValue(i, "Sustituido").ToString = "S" And Not view.GetRowCellValue(i, "MOTIVO").Equals(String.Empty) Then
                             contador += 1
-                            GuardarSustitucion(i)
+                            'GuardarSustitucion(i)
+                            mostrarpantalla(i)
 
                         End If
 
@@ -137,7 +140,7 @@ Public Class xfrmSustituciondeCandidatos
 
                     Me.IM_V_CANDIDATO_RENUNCIATableAdapter.Fill(Me.DT_Renuncia.IM_V_CANDIDATO_RENUNCIA, Me.btnbusqueda.Text)
                     limpiarLabels()
-                    Mensajes.MensajeGuardar()
+                    ' Mensajes.MensajeGuardar()
                 Catch ex As Exception
                     MsgBox(ex.Message)
                 End Try
@@ -294,14 +297,14 @@ Public Class xfrmSustituciondeCandidatos
     End Sub
 
 
-    Sub GuardarSustitucion(ByVal i As Integer)
+    Public Sub GuardarSustitucion(ByVal i As Integer)
         Try
-
+            CODIGO_CANDIDATO = CInt(COracle.ObtenerDatos("SELECT  NVL(MAX(CODIGO_CANDIDATO),0) + 1 CODIGO_CANDIDATO FROM IM_SUSTITUCIONES", "CODIGO_CANDIDATO"))
 
             Dim ciudadanos As DT_Renuncia.IM_SUSTITUCIONESRow
             ciudadanos = DT_Renuncia.IM_SUSTITUCIONES.NewIM_SUSTITUCIONESRow
             With ciudadanos
-                .CODIGO_CANDIDATO = GridView1.GetRowCellValue(i, "CODIGO_CANDIDATOS").ToString
+                .CODIGO_CANDIDATO = CODIGO_CANDIDATO      'GridView1.GetRowCellValue(i, "CODIGO_CANDIDATOS").ToString
                 .CODIGO_PARTIDO = GridView1.GetRowCellValue(i, "CODIGO_PARTIDO").ToString
                 .CODIGO_MOVIMIENTO = GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO").ToString
                 .POSICION = GridView1.GetRowCellValue(i, "POSICION").ToString
@@ -319,6 +322,7 @@ Public Class xfrmSustituciondeCandidatos
                 .SEGUNDO_NOMBRE = COracle.ObtenerDatos(consulta, "SEGUNDO_NOMBRE")
                 .PRIMER_APELLIDO = COracle.ObtenerDatos(consulta, "PRIMER_APELLIDO")
                 .SEGUNDO_APELLIDO = COracle.ObtenerDatos(consulta, "SEGUNDO_APELLIDO")
+                .CODIGO_CANDIDATO_SUSTITUIDO = GridView1.GetRowCellValue(i, "CODIGO_CANDIDATOS").ToString
                 If IsDBNull(GridView1.GetRowCellValue(i, "Imagen_firma")) Then
 
                 Else
@@ -338,11 +342,12 @@ Public Class xfrmSustituciondeCandidatos
             Dim requisitos As String = "DELETE IM_REQUISITOS_X_CANDIDATO WHERE CODIGO_CANDIDATO=" & GridView1.GetRowCellValue(i, "CODIGO_CANDIDATOS").ToString & " AND CODIGO_PARTIDO=" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO").ToString & " AND CODIGO_MOVIMIENTO=" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO").ToString
             COracle.ejecutarconsulta(requisitos)
 
+
             'ELIMINANDO CANDIDATO DE LA TABLA PRINCIPAL
             Dim sql As String = "DELETE IM_CANDIDATOS WHERE CODIGO_CANDIDATOS=" & GridView1.GetRowCellValue(i, "CODIGO_CANDIDATOS").ToString & " AND CODIGO_PARTIDO=" & GridView1.GetRowCellValue(i, "CODIGO_PARTIDO").ToString & " AND CODIGO_MOVIMIENTO=" & GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO").ToString
             COracle.ejecutarconsulta(sql)
 
-            mostrarpantalla(i)
+            'mostrarpantalla(i)
 
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -367,6 +372,7 @@ Public Class xfrmSustituciondeCandidatos
             Dim cons As String = String.Format("SELECT NOMBRE FROM IM_PARTIDOS_POLITICOS WHERE CODIGO_PARTIDO = {0}", GridView1.GetRowCellValue(i, "CODIGO_PARTIDO"))
             Dim con As String = String.Format("SELECT NOMBRE_MOVIMIENTO FROM IM_MOVIMIENTOS WHERE CODIGO_PARTIDO = {0} AND CODIGO_MOVIMIENTO = {1}", GridView1.GetRowCellValue(i, "CODIGO_PARTIDO"), GridView1.GetRowCellValue(i, "CODIGO_MOVIMIENTO"))
 
+            .CicloRenuncias = i
             .lblMovimiento.Text = COracle.ObtenerDatos(con, "NOMBRE_MOVIMIENTO")
             .lblPartido.Text = COracle.ObtenerDatos(cons, "NOMBRE")
             .lblidpartido.Text = GridView1.GetRowCellValue(i, "CODIGO_PARTIDO")
