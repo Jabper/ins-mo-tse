@@ -23,6 +23,9 @@ Public Class xfrmRegCandidatos2
     Dim id As String
     Dim permitir_up As Integer = 0
     Dim ingreso_hombre As Integer
+    Public CicloRenuncias As Integer
+    Public permitir_guardar As Integer
+    Dim RowHandle As Integer
 
 
     Sub Validarleyendas()
@@ -1071,6 +1074,7 @@ Public Class xfrmRegCandidatos2
 
                     'Mensajes.MensajeGuardar()
                     Validarleyendas()
+                    'Mensajes.MensajeGuardar()
 
                 Else
                     Mensajes.MensajeError(myCMD.Parameters("PVO_MENSAJE").Value)
@@ -1467,7 +1471,11 @@ Public Class xfrmRegCandidatos2
                     If (Me.cboCargo.EditValue = 6 Or Me.cboCargo.EditValue = 7 Or Me.cboCargo.EditValue = 8) And (Me.cboDepartamento.EditValue = 0 Or Me.cboMunicipio.EditValue = 0) Then
                         Mensajes.MensajeError("Seleccione el Departamento y/o Municipio")
                     Else
-                        guardar(e.RowHandle)
+
+                        'xfrmSustituciondeCandidatos.GuardarSustitucion(CicloRenuncias)
+                        'guardar(e.RowHandle)
+                        RowHandle = e.RowHandle
+                        permitir_guardar = 1
 
                         'AGREGADO 18 AGOSTO
                         GridView1.Columns("PRIMER_NOMBRE").OptionsColumn.AllowEdit = False
@@ -1594,16 +1602,26 @@ Public Class xfrmRegCandidatos2
 
 
     Private Sub BtnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnNuevo.Click
-        Validarleyendas()
+        'Validarleyendas()
+        
+
     End Sub
 
     Private Sub BtnGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnGuardar.Click
-        If GuardoSustituto = True Then
+        'If GuardoSustituto = True Then
+
+        If permitir_guardar = 1 Then
+            xfrmSustituciondeCandidatos.GuardarSustitucion(CicloRenuncias)
+            guardar(RowHandle)
             MsgBox("Cambios realizados Correctamente", MsgBoxStyle.Information)
             Me.Close()
-        Else
-            MsgBox("Debe de agregar un sustituto para el cargo seleccionado", MsgBoxStyle.Critical)
         End If
+        permitir_guardar = 0
+
+        
+        'Else
+        'MsgBox("Debe de agregar un sustituto para el cargo seleccionado", MsgBoxStyle.Critical)
+        'End If
 
     End Sub
 
@@ -1668,5 +1686,9 @@ Public Class xfrmRegCandidatos2
 
     Private Sub cboMunicipio_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboMunicipio.EditValueChanged
 
+    End Sub
+
+    Private Sub SimpleButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton2.Click
+        Me.Close()
     End Sub
 End Class
