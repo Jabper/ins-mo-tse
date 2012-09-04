@@ -21,7 +21,7 @@ Partial Class xfrmSustituciondeCandidatos
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(xfrmSustituciondeCandidatos))
-        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject
+        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject
         Me.IMVCANDIDATORENUNCIABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DT_Renuncia = New Inscripcion_de_Moviemientos.DT_Renuncia
         Me.IMMOTIVOSRENUNCIABindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -64,6 +64,13 @@ Partial Class xfrmSustituciondeCandidatos
         Me.colREC8 = New DevExpress.XtraGrid.Columns.GridColumn
         Me.colREC9 = New DevExpress.XtraGrid.Columns.GridColumn
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl
+        Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl
+        Me.PictureEdit3 = New DevExpress.XtraEditors.PictureEdit
+        Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl
+        Me.PictureEdit2 = New DevExpress.XtraEditors.PictureEdit
+        Me.LabelControl7 = New DevExpress.XtraEditors.LabelControl
+        Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl
+        Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
@@ -85,13 +92,6 @@ Partial Class xfrmSustituciondeCandidatos
         Me.IM_SUSTITUCIONES = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_SUSTITUCIONESTableAdapter = New Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_SUSTITUCIONESTableAdapter
         Me.IM_MOTIVO_SUSTITUCIONTableAdapter = New Inscripcion_de_Moviemientos.DT_RenunciaTableAdapters.IM_MOTIVO_SUSTITUCIONTableAdapter
-        Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl
-        Me.PictureEdit2 = New DevExpress.XtraEditors.PictureEdit
-        Me.LabelControl7 = New DevExpress.XtraEditors.LabelControl
-        Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl
-        Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
-        Me.PictureEdit3 = New DevExpress.XtraEditors.PictureEdit
-        Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl
         CType(Me.IMVCANDIDATORENUNCIABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DT_Renuncia, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IMMOTIVOSRENUNCIABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -106,6 +106,9 @@ Partial Class xfrmSustituciondeCandidatos
         CType(Me.RepositoryItemCheckEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
+        CType(Me.PictureEdit3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
@@ -115,9 +118,6 @@ Partial Class xfrmSustituciondeCandidatos
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IM_SUSTITUCIONES, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureEdit3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IMVCANDIDATORENUNCIABindingSource
@@ -516,6 +516,88 @@ Partial Class xfrmSustituciondeCandidatos
         Me.PanelControl1.Size = New System.Drawing.Size(759, 185)
         Me.PanelControl1.TabIndex = 20
         '
+        'LabelControl4
+        '
+        Me.LabelControl4.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.LabelControl4.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl4.Location = New System.Drawing.Point(567, 158)
+        Me.LabelControl4.Name = "LabelControl4"
+        Me.LabelControl4.Size = New System.Drawing.Size(106, 14)
+        Me.LabelControl4.TabIndex = 34
+        Me.LabelControl4.Text = "No aplica al cargo"
+        '
+        'PictureEdit3
+        '
+        Me.PictureEdit3.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._nothing
+        Me.PictureEdit3.Location = New System.Drawing.Point(537, 154)
+        Me.PictureEdit3.Name = "PictureEdit3"
+        Me.PictureEdit3.Properties.AllowFocused = False
+        Me.PictureEdit3.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.PictureEdit3.Properties.Appearance.Options.UseBackColor = True
+        Me.PictureEdit3.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PictureEdit3.Properties.ShowMenu = False
+        Me.PictureEdit3.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
+        Me.PictureEdit3.Size = New System.Drawing.Size(24, 25)
+        Me.PictureEdit3.TabIndex = 33
+        '
+        'LabelControl6
+        '
+        Me.LabelControl6.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl6.Location = New System.Drawing.Point(567, 127)
+        Me.LabelControl6.Name = "LabelControl6"
+        Me.LabelControl6.Size = New System.Drawing.Size(138, 14)
+        Me.LabelControl6.TabIndex = 30
+        Me.LabelControl6.Text = "Registro inconsistente"
+        '
+        'PictureEdit2
+        '
+        Me.PictureEdit2.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.errorIcon
+        Me.PictureEdit2.Location = New System.Drawing.Point(537, 123)
+        Me.PictureEdit2.Name = "PictureEdit2"
+        Me.PictureEdit2.Properties.AllowFocused = False
+        Me.PictureEdit2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.PictureEdit2.Properties.Appearance.Options.UseBackColor = True
+        Me.PictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PictureEdit2.Properties.ShowMenu = False
+        Me.PictureEdit2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
+        Me.PictureEdit2.Size = New System.Drawing.Size(24, 25)
+        Me.PictureEdit2.TabIndex = 31
+        '
+        'LabelControl7
+        '
+        Me.LabelControl7.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.LabelControl7.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl7.Location = New System.Drawing.Point(567, 96)
+        Me.LabelControl7.Name = "LabelControl7"
+        Me.LabelControl7.Size = New System.Drawing.Size(129, 14)
+        Me.LabelControl7.TabIndex = 32
+        Me.LabelControl7.Text = "Registro Consistente"
+        '
+        'LabelControl8
+        '
+        Me.LabelControl8.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl8.Appearance.ForeColor = System.Drawing.Color.OrangeRed
+        Me.LabelControl8.Location = New System.Drawing.Point(537, 72)
+        Me.LabelControl8.Name = "LabelControl8"
+        Me.LabelControl8.Size = New System.Drawing.Size(75, 14)
+        Me.LabelControl8.TabIndex = 29
+        Me.LabelControl8.Text = "Indicadores:"
+        '
+        'PictureEdit1
+        '
+        Me.PictureEdit1.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Ok
+        Me.PictureEdit1.Location = New System.Drawing.Point(537, 92)
+        Me.PictureEdit1.Name = "PictureEdit1"
+        Me.PictureEdit1.Properties.AllowFocused = False
+        Me.PictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.PictureEdit1.Properties.Appearance.Options.UseBackColor = True
+        Me.PictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.PictureEdit1.Properties.ShowMenu = False
+        Me.PictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
+        Me.PictureEdit1.Size = New System.Drawing.Size(24, 25)
+        Me.PictureEdit1.TabIndex = 28
+        '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.sustitucion
@@ -657,7 +739,7 @@ Partial Class xfrmSustituciondeCandidatos
         Me.btnbusqueda.Location = New System.Drawing.Point(218, 81)
         Me.btnbusqueda.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnbusqueda.Name = "btnbusqueda"
-        Me.btnbusqueda.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, CType(resources.GetObject("btnbusqueda.Properties.Buttons"), System.Drawing.Image), New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "Presionar para realizar búsqueda", Nothing, Nothing, True)})
+        Me.btnbusqueda.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, CType(resources.GetObject("btnbusqueda.Properties.Buttons"), System.Drawing.Image), New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "Presionar para realizar búsqueda", Nothing, Nothing, True)})
         Me.btnbusqueda.Properties.MaxLength = 13
         Me.btnbusqueda.Properties.NullValuePrompt = "Enter para realizar búsqueda"
         Me.btnbusqueda.Properties.NullValuePromptShowForEmptyValue = True
@@ -727,88 +809,6 @@ Partial Class xfrmSustituciondeCandidatos
         '
         Me.IM_MOTIVO_SUSTITUCIONTableAdapter.ClearBeforeFill = True
         '
-        'LabelControl6
-        '
-        Me.LabelControl6.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl6.Location = New System.Drawing.Point(567, 127)
-        Me.LabelControl6.Name = "LabelControl6"
-        Me.LabelControl6.Size = New System.Drawing.Size(138, 14)
-        Me.LabelControl6.TabIndex = 30
-        Me.LabelControl6.Text = "Registro inconsistente"
-        '
-        'PictureEdit2
-        '
-        Me.PictureEdit2.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.errorIcon
-        Me.PictureEdit2.Location = New System.Drawing.Point(537, 123)
-        Me.PictureEdit2.Name = "PictureEdit2"
-        Me.PictureEdit2.Properties.AllowFocused = False
-        Me.PictureEdit2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.PictureEdit2.Properties.Appearance.Options.UseBackColor = True
-        Me.PictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PictureEdit2.Properties.ShowMenu = False
-        Me.PictureEdit2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
-        Me.PictureEdit2.Size = New System.Drawing.Size(24, 25)
-        Me.PictureEdit2.TabIndex = 31
-        '
-        'LabelControl7
-        '
-        Me.LabelControl7.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.LabelControl7.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl7.Location = New System.Drawing.Point(567, 96)
-        Me.LabelControl7.Name = "LabelControl7"
-        Me.LabelControl7.Size = New System.Drawing.Size(129, 14)
-        Me.LabelControl7.TabIndex = 32
-        Me.LabelControl7.Text = "Registro Consistente"
-        '
-        'LabelControl8
-        '
-        Me.LabelControl8.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl8.Appearance.ForeColor = System.Drawing.Color.OrangeRed
-        Me.LabelControl8.Location = New System.Drawing.Point(537, 72)
-        Me.LabelControl8.Name = "LabelControl8"
-        Me.LabelControl8.Size = New System.Drawing.Size(75, 14)
-        Me.LabelControl8.TabIndex = 29
-        Me.LabelControl8.Text = "Indicadores:"
-        '
-        'PictureEdit1
-        '
-        Me.PictureEdit1.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.Ok
-        Me.PictureEdit1.Location = New System.Drawing.Point(537, 92)
-        Me.PictureEdit1.Name = "PictureEdit1"
-        Me.PictureEdit1.Properties.AllowFocused = False
-        Me.PictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.PictureEdit1.Properties.Appearance.Options.UseBackColor = True
-        Me.PictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PictureEdit1.Properties.ShowMenu = False
-        Me.PictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
-        Me.PictureEdit1.Size = New System.Drawing.Size(24, 25)
-        Me.PictureEdit1.TabIndex = 28
-        '
-        'PictureEdit3
-        '
-        Me.PictureEdit3.EditValue = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._nothing
-        Me.PictureEdit3.Location = New System.Drawing.Point(537, 154)
-        Me.PictureEdit3.Name = "PictureEdit3"
-        Me.PictureEdit3.Properties.AllowFocused = False
-        Me.PictureEdit3.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.PictureEdit3.Properties.Appearance.Options.UseBackColor = True
-        Me.PictureEdit3.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PictureEdit3.Properties.ShowMenu = False
-        Me.PictureEdit3.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
-        Me.PictureEdit3.Size = New System.Drawing.Size(24, 25)
-        Me.PictureEdit3.TabIndex = 33
-        '
-        'LabelControl4
-        '
-        Me.LabelControl4.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.LabelControl4.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl4.Location = New System.Drawing.Point(567, 158)
-        Me.LabelControl4.Name = "LabelControl4"
-        Me.LabelControl4.Size = New System.Drawing.Size(106, 14)
-        Me.LabelControl4.TabIndex = 34
-        Me.LabelControl4.Text = "No aplica al cargo"
-        '
         'xfrmSustituciondeCandidatos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -833,6 +833,9 @@ Partial Class xfrmSustituciondeCandidatos
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         Me.PanelControl1.PerformLayout()
+        CType(Me.PictureEdit3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -843,9 +846,6 @@ Partial Class xfrmSustituciondeCandidatos
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IM_SUSTITUCIONES, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureEdit3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

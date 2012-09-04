@@ -123,6 +123,7 @@ Partial Class XFrmMenuPrincipal
         Me.BtnMotivoSustitucion = New DevExpress.XtraBars.BarButtonItem
         Me.BtnSustitucion = New DevExpress.XtraBars.BarButtonItem
         Me.BtnReporteSustitucion = New DevExpress.XtraBars.BarButtonItem
+        Me.BtnModSustitucion = New DevExpress.XtraBars.BarButtonItem
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage
@@ -155,7 +156,6 @@ Partial Class XFrmMenuPrincipal
         Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit
         Me.BarSubItem1 = New DevExpress.XtraBars.BarSubItem
         Me.RibbonPageGroup10 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup
-        Me.BtnModSustitucion = New DevExpress.XtraBars.BarButtonItem
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -670,7 +670,7 @@ Partial Class XFrmMenuPrincipal
         'BarStaticItem2
         '
         Me.BarStaticItem2.AllowRightClickInMenu = False
-        Me.BarStaticItem2.Caption = "Version 5.0 CS"
+        Me.BarStaticItem2.Caption = "Version 5.3 CS"
         Me.BarStaticItem2.Id = 71
         Me.BarStaticItem2.Name = "BarStaticItem2"
         Me.BarStaticItem2.TextAlignment = System.Drawing.StringAlignment.Near
@@ -870,6 +870,13 @@ Partial Class XFrmMenuPrincipal
         Me.BtnReporteSustitucion.Id = 115
         Me.BtnReporteSustitucion.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources.sustitucion
         Me.BtnReporteSustitucion.Name = "BtnReporteSustitucion"
+        '
+        'BtnModSustitucion
+        '
+        Me.BtnModSustitucion.Caption = "Modificación de Sustituciones"
+        Me.BtnModSustitucion.Id = 116
+        Me.BtnModSustitucion.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
+        Me.BtnModSustitucion.Name = "BtnModSustitucion"
         '
         'RibbonPage1
         '
@@ -1124,13 +1131,6 @@ Partial Class XFrmMenuPrincipal
         'RibbonPageGroup10
         '
         Me.RibbonPageGroup10.Name = "RibbonPageGroup10"
-        '
-        'BtnModSustitucion
-        '
-        Me.BtnModSustitucion.Caption = "Modificación de Sustituciones"
-        Me.BtnModSustitucion.Id = 116
-        Me.BtnModSustitucion.LargeGlyph = Global.Inscripcion_de_Moviemientos.My.Resources.Resources._new
-        Me.BtnModSustitucion.Name = "BtnModSustitucion"
         '
         'XFrmMenuPrincipal
         '
