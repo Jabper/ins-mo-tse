@@ -110,6 +110,9 @@ Public Class XFrmMenuPrincipal
         Me.BtnSalir.Visibility = BarItemVisibility.Always
         BtnCambiarPass.Visibility = BarItemVisibility.Always
         BarButtonItem5.Visibility = BarItemVisibility.Never
+        BtnRepCumplimientoCifras.Visibility = BarItemVisibility.Never
+        BtnRepCumplimiento.Visibility = BarItemVisibility.Never
+        BtnRPlanilla.Visibility = BarItemVisibility.Never
         XfrmBack.MdiParent = Me
         XfrmBack.Show()
     End Sub
