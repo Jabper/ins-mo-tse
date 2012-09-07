@@ -25,12 +25,13 @@ Partial Public Class Reporte_de_cruce_FPA
         Me.XrLabel11 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel12 = New DevExpress.XtraReports.UI.XRLabel
         Me.GroupHeaderBand2 = New DevExpress.XtraReports.UI.GroupHeaderBand
-        Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel15 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel6 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel7 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel8 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLine1 = New DevExpress.XtraReports.UI.XRLine
         Me.XrLine2 = New DevExpress.XtraReports.UI.XRLine
+        Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel
         Me.PageFooterBand1 = New DevExpress.XtraReports.UI.PageFooterBand
         Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo
         Me.XrPageInfo2 = New DevExpress.XtraReports.UI.XRPageInfo
@@ -45,7 +46,6 @@ Partial Public Class Reporte_de_cruce_FPA
         Me.NombreDepartamento = New DevExpress.XtraReports.Parameters.Parameter
         Me.DS_REPORTE_DE_FPAR_11 = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FPAR_1
         Me.IM_V_CRUCE_FIRMAS_PARTableAdapter = New Inscripcion_de_Moviemientos.DS_REPORTE_DE_FPAR_1TableAdapters.IM_V_CRUCE_FIRMAS_PARTableAdapter
-        Me.XrLabel15 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel9 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel2 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel
@@ -108,13 +108,13 @@ Partial Public Class Reporte_de_cruce_FPA
         Me.GroupHeaderBand2.Name = "GroupHeaderBand2"
         Me.GroupHeaderBand2.StyleName = "FieldCaption"
         '
-        'XrLabel5
+        'XrLabel15
         '
-        Me.XrLabel5.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 14.70833!)
-        Me.XrLabel5.Name = "XrLabel5"
-        Me.XrLabel5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel5.SizeF = New System.Drawing.SizeF(144.3344!, 18.0!)
-        Me.XrLabel5.Text = "PARTIDO POLITICO:"
+        Me.XrLabel15.LocationFloat = New DevExpress.Utils.PointFloat(20.04061!, 6.291708!)
+        Me.XrLabel15.Name = "XrLabel15"
+        Me.XrLabel15.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel15.SizeF = New System.Drawing.SizeF(144.3344!, 18.0!)
+        Me.XrLabel15.Text = "MOVIMIENTO"
         '
         'XrLabel6
         '
@@ -152,6 +152,14 @@ Partial Public Class Reporte_de_cruce_FPA
         Me.XrLine2.Name = "XrLine2"
         Me.XrLine2.SizeF = New System.Drawing.SizeF(1030.0!, 2.0!)
         '
+        'XrLabel5
+        '
+        Me.XrLabel5.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 14.70833!)
+        Me.XrLabel5.Name = "XrLabel5"
+        Me.XrLabel5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel5.SizeF = New System.Drawing.SizeF(144.3344!, 18.0!)
+        Me.XrLabel5.Text = "PARTIDO POLITICO:"
+        '
         'PageFooterBand1
         '
         Me.PageFooterBand1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrPageInfo1, Me.XrPageInfo2})
@@ -160,6 +168,7 @@ Partial Public Class Reporte_de_cruce_FPA
         '
         'XrPageInfo1
         '
+        Me.XrPageInfo1.Format = "{0:dddd, dd' de 'MMMM' de 'yyyy hh:mm tt}"
         Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(13.04591!, 65.79164!)
         Me.XrPageInfo1.Name = "XrPageInfo1"
         Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -259,14 +268,6 @@ Partial Public Class Reporte_de_cruce_FPA
         'IM_V_CRUCE_FIRMAS_PARTableAdapter
         '
         Me.IM_V_CRUCE_FIRMAS_PARTableAdapter.ClearBeforeFill = True
-        '
-        'XrLabel15
-        '
-        Me.XrLabel15.LocationFloat = New DevExpress.Utils.PointFloat(20.04061!, 6.291708!)
-        Me.XrLabel15.Name = "XrLabel15"
-        Me.XrLabel15.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel15.SizeF = New System.Drawing.SizeF(144.3344!, 18.0!)
-        Me.XrLabel15.Text = "MOVIMIENTO"
         '
         'XrLabel9
         '

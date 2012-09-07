@@ -55,6 +55,11 @@ Partial Public Class REPORTE_RAZONADO_PLANILLAS_2
         Me.XrPageInfo2 = New DevExpress.XtraReports.UI.XRPageInfo
         Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo
         Me.PageHeader = New DevExpress.XtraReports.UI.PageHeaderBand
+        Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLine1 = New DevExpress.XtraReports.UI.XRLine
+        Me.XrLabel6 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel16 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel15 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel17 = New DevExpress.XtraReports.UI.XRLabel
@@ -63,11 +68,6 @@ Partial Public Class REPORTE_RAZONADO_PLANILLAS_2
         Me.XrLabel11 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel14 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel13 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel6 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLine1 = New DevExpress.XtraReports.UI.XRLine
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -324,6 +324,7 @@ Partial Public Class REPORTE_RAZONADO_PLANILLAS_2
         '
         'XrPageInfo1
         '
+        Me.XrPageInfo1.Format = "{0:dddd, dd' de 'MMMM' de 'yyyy hh:mm tt}"
         Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 9.999974!)
         Me.XrPageInfo1.Name = "XrPageInfo1"
         Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -335,6 +336,53 @@ Partial Public Class REPORTE_RAZONADO_PLANILLAS_2
         Me.PageHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel4, Me.XrLine1, Me.XrLabel6, Me.XrLabel3, Me.XrLabel5, Me.XrLabel16, Me.XrLabel15, Me.XrLabel17, Me.XrLine2, Me.XrLabel12, Me.XrLabel11, Me.XrLabel14, Me.XrLabel13})
         Me.PageHeader.HeightF = 147.7917!
         Me.PageHeader.Name = "PageHeader"
+        '
+        'XrLabel4
+        '
+        Me.XrLabel4.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(11.35435!, 22.99995!)
+        Me.XrLabel4.Name = "XrLabel4"
+        Me.XrLabel4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel4.SizeF = New System.Drawing.SizeF(180.2083!, 22.99998!)
+        Me.XrLabel4.StylePriority.UseFont = False
+        Me.XrLabel4.Text = "MOVIMIENTO POLITICO:"
+        '
+        'XrLine1
+        '
+        Me.XrLine1.BorderWidth = 1
+        Me.XrLine1.LineWidth = 2
+        Me.XrLine1.LocationFloat = New DevExpress.Utils.PointFloat(10.00039!, 55.00002!)
+        Me.XrLine1.Name = "XrLine1"
+        Me.XrLine1.SizeF = New System.Drawing.SizeF(1001.708!, 19.79166!)
+        Me.XrLine1.StylePriority.UseBorderWidth = False
+        '
+        'XrLabel6
+        '
+        Me.XrLabel6.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_ESTADISTICAS.NOMBRE_MOVIMIENTO")})
+        Me.XrLabel6.LocationFloat = New DevExpress.Utils.PointFloat(200.3127!, 22.99995!)
+        Me.XrLabel6.Name = "XrLabel6"
+        Me.XrLabel6.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel6.SizeF = New System.Drawing.SizeF(498.9584!, 23.00002!)
+        Me.XrLabel6.Text = "XrLabel6"
+        '
+        'XrLabel3
+        '
+        Me.XrLabel3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel3.LocationFloat = New DevExpress.Utils.PointFloat(11.35435!, 0.0!)
+        Me.XrLabel3.Name = "XrLabel3"
+        Me.XrLabel3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel3.SizeF = New System.Drawing.SizeF(157.2917!, 23.0!)
+        Me.XrLabel3.StylePriority.UseFont = False
+        Me.XrLabel3.Text = "PARTIDO POLITICO:"
+        '
+        'XrLabel5
+        '
+        Me.XrLabel5.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_ESTADISTICAS.PARTIDO")})
+        Me.XrLabel5.LocationFloat = New DevExpress.Utils.PointFloat(200.3127!, 0.0!)
+        Me.XrLabel5.Name = "XrLabel5"
+        Me.XrLabel5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel5.SizeF = New System.Drawing.SizeF(498.9584!, 23.0!)
+        Me.XrLabel5.Text = "XrLabel5"
         '
         'XrLabel16
         '
@@ -424,53 +472,6 @@ Partial Public Class REPORTE_RAZONADO_PLANILLAS_2
         Me.XrLabel13.StylePriority.UseTextAlignment = False
         Me.XrLabel13.Text = "TOTAL INGRESADOS"
         Me.XrLabel13.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'XrLabel3
-        '
-        Me.XrLabel3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel3.LocationFloat = New DevExpress.Utils.PointFloat(11.35435!, 0.0!)
-        Me.XrLabel3.Name = "XrLabel3"
-        Me.XrLabel3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel3.SizeF = New System.Drawing.SizeF(157.2917!, 23.0!)
-        Me.XrLabel3.StylePriority.UseFont = False
-        Me.XrLabel3.Text = "PARTIDO POLITICO:"
-        '
-        'XrLabel5
-        '
-        Me.XrLabel5.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_ESTADISTICAS.PARTIDO")})
-        Me.XrLabel5.LocationFloat = New DevExpress.Utils.PointFloat(200.3127!, 0.0!)
-        Me.XrLabel5.Name = "XrLabel5"
-        Me.XrLabel5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel5.SizeF = New System.Drawing.SizeF(498.9584!, 23.0!)
-        Me.XrLabel5.Text = "XrLabel5"
-        '
-        'XrLabel6
-        '
-        Me.XrLabel6.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_ESTADISTICAS.NOMBRE_MOVIMIENTO")})
-        Me.XrLabel6.LocationFloat = New DevExpress.Utils.PointFloat(200.3127!, 22.99995!)
-        Me.XrLabel6.Name = "XrLabel6"
-        Me.XrLabel6.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel6.SizeF = New System.Drawing.SizeF(498.9584!, 23.00002!)
-        Me.XrLabel6.Text = "XrLabel6"
-        '
-        'XrLabel4
-        '
-        Me.XrLabel4.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(11.35435!, 22.99995!)
-        Me.XrLabel4.Name = "XrLabel4"
-        Me.XrLabel4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel4.SizeF = New System.Drawing.SizeF(180.2083!, 22.99998!)
-        Me.XrLabel4.StylePriority.UseFont = False
-        Me.XrLabel4.Text = "MOVIMIENTO POLITICO:"
-        '
-        'XrLine1
-        '
-        Me.XrLine1.BorderWidth = 1
-        Me.XrLine1.LineWidth = 2
-        Me.XrLine1.LocationFloat = New DevExpress.Utils.PointFloat(10.00039!, 55.00002!)
-        Me.XrLine1.Name = "XrLine1"
-        Me.XrLine1.SizeF = New System.Drawing.SizeF(1001.708!, 19.79166!)
-        Me.XrLine1.StylePriority.UseBorderWidth = False
         '
         'REPORTE_RAZONADO_PLANILLAS_2
         '

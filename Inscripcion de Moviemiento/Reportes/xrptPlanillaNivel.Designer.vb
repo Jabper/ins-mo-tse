@@ -305,7 +305,7 @@ Partial Public Class xrptPlanillaNivel
         'XrLabel22
         '
         Me.XrLabel22.Font = New System.Drawing.Font("Times New Roman", 10.0!)
-        Me.XrLabel22.LocationFloat = New DevExpress.Utils.PointFloat(260.6471!, 18.04164!)
+        Me.XrLabel22.LocationFloat = New DevExpress.Utils.PointFloat(346.8651!, 18.04161!)
         Me.XrLabel22.Name = "XrLabel22"
         Me.XrLabel22.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel22.SizeF = New System.Drawing.SizeF(77.55884!, 23.00002!)
@@ -317,7 +317,7 @@ Partial Public Class xrptPlanillaNivel
         'txtusuario
         '
         Me.txtusuario.Font = New System.Drawing.Font("Times New Roman", 10.0!)
-        Me.txtusuario.LocationFloat = New DevExpress.Utils.PointFloat(338.2059!, 18.04164!)
+        Me.txtusuario.LocationFloat = New DevExpress.Utils.PointFloat(425.089!, 17.95826!)
         Me.txtusuario.Name = "txtusuario"
         Me.txtusuario.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.txtusuario.SizeF = New System.Drawing.SizeF(403.8771!, 23.00002!)
@@ -328,11 +328,12 @@ Partial Public Class xrptPlanillaNivel
         '
         'XrPageInfo1
         '
-        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(14.54773!, 18.04164!)
+        Me.XrPageInfo1.Format = "{0:dddd, dd' de 'MMMM' de 'yyyy hh:mm tt}"
+        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(14.54773!, 18.04161!)
         Me.XrPageInfo1.Name = "XrPageInfo1"
         Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
-        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(236.4583!, 23.0!)
+        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(295.8333!, 23.0!)
         '
         'XrPageInfo2
         '

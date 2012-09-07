@@ -39,6 +39,13 @@ Partial Public Class REPORTE_DE_CUMPLIMIENTO_2
         Me.NombrePartido = New DevExpress.XtraReports.Parameters.Parameter
         Me.NombreMovimiento = New DevExpress.XtraReports.Parameters.Parameter
         Me.GroupHeader2 = New DevExpress.XtraReports.UI.GroupHeaderBand
+        Me.genero_6 = New DevExpress.XtraReports.UI.XRLabel
+        Me.genero_5 = New DevExpress.XtraReports.UI.XRLabel
+        Me.genero_4 = New DevExpress.XtraReports.UI.XRLabel
+        Me.genero_3 = New DevExpress.XtraReports.UI.XRLabel
+        Me.genero_2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.genero_1 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel37 = New DevExpress.XtraReports.UI.XRLabel
         Me.nombre = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel36 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel35 = New DevExpress.XtraReports.UI.XRLabel
@@ -117,13 +124,6 @@ Partial Public Class REPORTE_DE_CUMPLIMIENTO_2
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
         Me.IM_MOVIMIENTOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
-        Me.XrLabel37 = New DevExpress.XtraReports.UI.XRLabel
-        Me.genero_1 = New DevExpress.XtraReports.UI.XRLabel
-        Me.genero_2 = New DevExpress.XtraReports.UI.XRLabel
-        Me.genero_3 = New DevExpress.XtraReports.UI.XRLabel
-        Me.genero_4 = New DevExpress.XtraReports.UI.XRLabel
-        Me.genero_5 = New DevExpress.XtraReports.UI.XRLabel
-        Me.genero_6 = New DevExpress.XtraReports.UI.XRLabel
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -218,11 +218,12 @@ Partial Public Class REPORTE_DE_CUMPLIMIENTO_2
         '
         'XrPageInfo1
         '
-        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(871.0416!, 10.00001!)
+        Me.XrPageInfo1.Format = "{0:dddd, dd' de 'MMMM' de 'yyyy hh:mm tt}"
+        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(780.4166!, 10.00001!)
         Me.XrPageInfo1.Name = "XrPageInfo1"
         Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
-        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(186.9583!, 23.0!)
+        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(277.5833!, 23.0!)
         Me.XrPageInfo1.StylePriority.UseTextAlignment = False
         Me.XrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
         '
@@ -277,6 +278,118 @@ Partial Public Class REPORTE_DE_CUMPLIMIENTO_2
         Me.GroupHeader2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.genero_6, Me.genero_5, Me.genero_4, Me.genero_3, Me.genero_2, Me.genero_1, Me.XrLabel37, Me.nombre, Me.XrLabel36, Me.XrLabel35, Me.XrLabel34, Me.XrLabel33, Me.XrLabel32, Me.XrLabel31, Me.XrLabel30, Me.XrLabel6, Me.XrLabel5, Me.Prese_6, Me.Prese_5, Me.Prese_4, Me.incom_6, Me.incom_5, Me.incom_4, Me.incons_6, Me.incons_5, Me.incons_4, Me.comp_6, Me.comp_5, Me.comp_4, Me.Coin_6, Me.Coin_5, Me.Coin_4, Me.Prese_3, Me.incom_3, Me.incons_3, Me.comp_3, Me.Coin_3, Me.Fisico_6, Me.Fisico_5, Me.Fisico_4, Me.Fisico_3, Me.Prese_2, Me.incom_2, Me.incons_2, Me.comp_2, Me.Coin_2, Me.Fisico_2, Me.Prese_1, Me.incom_1, Me.incons_1, Me.comp_1, Me.Coin_1, Me.Fisico_1, Me.CD_6, Me.CD_5, Me.CD_4, Me.CD_3, Me.CD_2, Me.CD_1, Me.XrLabel29, Me.XrLabel28, Me.XrLabel27, Me.XrLabel26, Me.XrLabel25, Me.XrLabel24, Me.XrLabel23, Me.XrLabel22, Me.XrLabel21, Me.XrLabel20, Me.XrLabel19, Me.XrLabel18, Me.XrLabel17, Me.XrLabel16, Me.XrLabel15, Me.XrLabel14, Me.XrLabel13, Me.XrLabel12, Me.XrLabel11, Me.XrLabel10, Me.XrLabel9, Me.XrLabel8, Me.XrLabel7})
         Me.GroupHeader2.HeightF = 495.4167!
         Me.GroupHeader2.Name = "GroupHeader2"
+        '
+        'genero_6
+        '
+        Me.genero_6.Borders = CType((DevExpress.XtraPrinting.BorderSide.Right Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+        Me.genero_6.BorderWidth = 2
+        Me.genero_6.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.genero_6.LocationFloat = New DevExpress.Utils.PointFloat(834.9999!, 183.4167!)
+        Me.genero_6.Name = "genero_6"
+        Me.genero_6.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.genero_6.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.genero_6.StylePriority.UseBorders = False
+        Me.genero_6.StylePriority.UseBorderWidth = False
+        Me.genero_6.StylePriority.UseFont = False
+        Me.genero_6.StylePriority.UseTextAlignment = False
+        Me.genero_6.Text = "genero_6"
+        Me.genero_6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'genero_5
+        '
+        Me.genero_5.Borders = DevExpress.XtraPrinting.BorderSide.Right
+        Me.genero_5.BorderWidth = 2
+        Me.genero_5.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.genero_5.LocationFloat = New DevExpress.Utils.PointFloat(834.9999!, 160.4169!)
+        Me.genero_5.Name = "genero_5"
+        Me.genero_5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.genero_5.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.genero_5.StylePriority.UseBorders = False
+        Me.genero_5.StylePriority.UseBorderWidth = False
+        Me.genero_5.StylePriority.UseFont = False
+        Me.genero_5.StylePriority.UseTextAlignment = False
+        Me.genero_5.Text = "genero_5"
+        Me.genero_5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'genero_4
+        '
+        Me.genero_4.Borders = DevExpress.XtraPrinting.BorderSide.Right
+        Me.genero_4.BorderWidth = 2
+        Me.genero_4.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.genero_4.LocationFloat = New DevExpress.Utils.PointFloat(835.0001!, 137.4169!)
+        Me.genero_4.Name = "genero_4"
+        Me.genero_4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.genero_4.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.genero_4.StylePriority.UseBorders = False
+        Me.genero_4.StylePriority.UseBorderWidth = False
+        Me.genero_4.StylePriority.UseFont = False
+        Me.genero_4.StylePriority.UseTextAlignment = False
+        Me.genero_4.Text = "genero_4"
+        Me.genero_4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'genero_3
+        '
+        Me.genero_3.Borders = DevExpress.XtraPrinting.BorderSide.Right
+        Me.genero_3.BorderWidth = 2
+        Me.genero_3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.genero_3.LocationFloat = New DevExpress.Utils.PointFloat(835.0001!, 114.4168!)
+        Me.genero_3.Name = "genero_3"
+        Me.genero_3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.genero_3.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.genero_3.StylePriority.UseBorders = False
+        Me.genero_3.StylePriority.UseBorderWidth = False
+        Me.genero_3.StylePriority.UseFont = False
+        Me.genero_3.StylePriority.UseTextAlignment = False
+        Me.genero_3.Text = "genero_3"
+        Me.genero_3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'genero_2
+        '
+        Me.genero_2.Borders = DevExpress.XtraPrinting.BorderSide.Right
+        Me.genero_2.BorderWidth = 2
+        Me.genero_2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.genero_2.LocationFloat = New DevExpress.Utils.PointFloat(835.0001!, 91.41664!)
+        Me.genero_2.Name = "genero_2"
+        Me.genero_2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.genero_2.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.genero_2.StylePriority.UseBorders = False
+        Me.genero_2.StylePriority.UseBorderWidth = False
+        Me.genero_2.StylePriority.UseFont = False
+        Me.genero_2.StylePriority.UseTextAlignment = False
+        Me.genero_2.Text = "genero_2"
+        Me.genero_2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'genero_1
+        '
+        Me.genero_1.Borders = DevExpress.XtraPrinting.BorderSide.Right
+        Me.genero_1.BorderWidth = 2
+        Me.genero_1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.genero_1.LocationFloat = New DevExpress.Utils.PointFloat(834.9999!, 68.41663!)
+        Me.genero_1.Name = "genero_1"
+        Me.genero_1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.genero_1.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.genero_1.StylePriority.UseBorders = False
+        Me.genero_1.StylePriority.UseBorderWidth = False
+        Me.genero_1.StylePriority.UseFont = False
+        Me.genero_1.StylePriority.UseTextAlignment = False
+        Me.genero_1.Text = "genero_1"
+        Me.genero_1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'XrLabel37
+        '
+        Me.XrLabel37.Borders = CType((DevExpress.XtraPrinting.BorderSide.Right Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+        Me.XrLabel37.BorderWidth = 2
+        Me.XrLabel37.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel37.LocationFloat = New DevExpress.Utils.PointFloat(835.0!, 32.99999!)
+        Me.XrLabel37.Name = "XrLabel37"
+        Me.XrLabel37.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel37.SizeF = New System.Drawing.SizeF(100.0!, 35.41666!)
+        Me.XrLabel37.StylePriority.UseBorders = False
+        Me.XrLabel37.StylePriority.UseBorderWidth = False
+        Me.XrLabel37.StylePriority.UseFont = False
+        Me.XrLabel37.StylePriority.UseTextAlignment = False
+        Me.XrLabel37.Text = "Incompletas por Genero"
+        Me.XrLabel37.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
         '
         'nombre
         '
@@ -1429,118 +1542,6 @@ Partial Public Class REPORTE_DE_CUMPLIMIENTO_2
         'IM_MOVIMIENTOS_imagenTableAdapter
         '
         Me.IM_MOVIMIENTOS_imagenTableAdapter.ClearBeforeFill = True
-        '
-        'XrLabel37
-        '
-        Me.XrLabel37.Borders = CType((DevExpress.XtraPrinting.BorderSide.Right Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
-        Me.XrLabel37.BorderWidth = 2
-        Me.XrLabel37.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel37.LocationFloat = New DevExpress.Utils.PointFloat(835.0!, 32.99999!)
-        Me.XrLabel37.Name = "XrLabel37"
-        Me.XrLabel37.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel37.SizeF = New System.Drawing.SizeF(100.0!, 35.41666!)
-        Me.XrLabel37.StylePriority.UseBorders = False
-        Me.XrLabel37.StylePriority.UseBorderWidth = False
-        Me.XrLabel37.StylePriority.UseFont = False
-        Me.XrLabel37.StylePriority.UseTextAlignment = False
-        Me.XrLabel37.Text = "Incompletas por Genero"
-        Me.XrLabel37.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
-        '
-        'genero_1
-        '
-        Me.genero_1.Borders = DevExpress.XtraPrinting.BorderSide.Right
-        Me.genero_1.BorderWidth = 2
-        Me.genero_1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.genero_1.LocationFloat = New DevExpress.Utils.PointFloat(834.9999!, 68.41663!)
-        Me.genero_1.Name = "genero_1"
-        Me.genero_1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.genero_1.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.genero_1.StylePriority.UseBorders = False
-        Me.genero_1.StylePriority.UseBorderWidth = False
-        Me.genero_1.StylePriority.UseFont = False
-        Me.genero_1.StylePriority.UseTextAlignment = False
-        Me.genero_1.Text = "genero_1"
-        Me.genero_1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'genero_2
-        '
-        Me.genero_2.Borders = DevExpress.XtraPrinting.BorderSide.Right
-        Me.genero_2.BorderWidth = 2
-        Me.genero_2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.genero_2.LocationFloat = New DevExpress.Utils.PointFloat(835.0001!, 91.41664!)
-        Me.genero_2.Name = "genero_2"
-        Me.genero_2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.genero_2.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.genero_2.StylePriority.UseBorders = False
-        Me.genero_2.StylePriority.UseBorderWidth = False
-        Me.genero_2.StylePriority.UseFont = False
-        Me.genero_2.StylePriority.UseTextAlignment = False
-        Me.genero_2.Text = "genero_2"
-        Me.genero_2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'genero_3
-        '
-        Me.genero_3.Borders = DevExpress.XtraPrinting.BorderSide.Right
-        Me.genero_3.BorderWidth = 2
-        Me.genero_3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.genero_3.LocationFloat = New DevExpress.Utils.PointFloat(835.0001!, 114.4168!)
-        Me.genero_3.Name = "genero_3"
-        Me.genero_3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.genero_3.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.genero_3.StylePriority.UseBorders = False
-        Me.genero_3.StylePriority.UseBorderWidth = False
-        Me.genero_3.StylePriority.UseFont = False
-        Me.genero_3.StylePriority.UseTextAlignment = False
-        Me.genero_3.Text = "genero_3"
-        Me.genero_3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'genero_4
-        '
-        Me.genero_4.Borders = DevExpress.XtraPrinting.BorderSide.Right
-        Me.genero_4.BorderWidth = 2
-        Me.genero_4.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.genero_4.LocationFloat = New DevExpress.Utils.PointFloat(835.0001!, 137.4169!)
-        Me.genero_4.Name = "genero_4"
-        Me.genero_4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.genero_4.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.genero_4.StylePriority.UseBorders = False
-        Me.genero_4.StylePriority.UseBorderWidth = False
-        Me.genero_4.StylePriority.UseFont = False
-        Me.genero_4.StylePriority.UseTextAlignment = False
-        Me.genero_4.Text = "genero_4"
-        Me.genero_4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'genero_5
-        '
-        Me.genero_5.Borders = DevExpress.XtraPrinting.BorderSide.Right
-        Me.genero_5.BorderWidth = 2
-        Me.genero_5.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.genero_5.LocationFloat = New DevExpress.Utils.PointFloat(834.9999!, 160.4169!)
-        Me.genero_5.Name = "genero_5"
-        Me.genero_5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.genero_5.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.genero_5.StylePriority.UseBorders = False
-        Me.genero_5.StylePriority.UseBorderWidth = False
-        Me.genero_5.StylePriority.UseFont = False
-        Me.genero_5.StylePriority.UseTextAlignment = False
-        Me.genero_5.Text = "genero_5"
-        Me.genero_5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
-        '
-        'genero_6
-        '
-        Me.genero_6.Borders = CType((DevExpress.XtraPrinting.BorderSide.Right Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
-        Me.genero_6.BorderWidth = 2
-        Me.genero_6.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.genero_6.LocationFloat = New DevExpress.Utils.PointFloat(834.9999!, 183.4167!)
-        Me.genero_6.Name = "genero_6"
-        Me.genero_6.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.genero_6.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
-        Me.genero_6.StylePriority.UseBorders = False
-        Me.genero_6.StylePriority.UseBorderWidth = False
-        Me.genero_6.StylePriority.UseFont = False
-        Me.genero_6.StylePriority.UseTextAlignment = False
-        Me.genero_6.Text = "genero_6"
-        Me.genero_6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'REPORTE_DE_CUMPLIMIENTO_2
         '

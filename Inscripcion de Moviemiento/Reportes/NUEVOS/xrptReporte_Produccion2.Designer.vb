@@ -33,6 +33,7 @@ Partial Public Class xrptReporte_Produccion2
         Me.IM_V_REPORTE_PRODUCCION2TableAdapter = New Inscripcion_de_Moviemientos.DT_Produccion2TableAdapters.IM_V_REPORTE_PRODUCCION2TableAdapter
         Me.Partido = New DevExpress.XtraReports.Parameters.Parameter
         Me.GroupHeader1 = New DevExpress.XtraReports.UI.GroupHeaderBand
+        Me.XrPictureBox2 = New DevExpress.XtraReports.UI.XRPictureBox
         Me.XrLabel9 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel8 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLine3 = New DevExpress.XtraReports.UI.XRLine
@@ -46,11 +47,11 @@ Partial Public Class xrptReporte_Produccion2
         Me.XrLabel12 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel11 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel7 = New DevExpress.XtraReports.UI.XRLabel
+        Me.partidopolitico = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel10 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrPictureBox1 = New DevExpress.XtraReports.UI.XRPictureBox
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.DS_LOG = New Inscripcion_de_Moviemientos.DS_LOG
-        Me.partidopolitico = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel10 = New DevExpress.XtraReports.UI.XRLabel
         Me.BindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupFooter1 = New DevExpress.XtraReports.UI.GroupFooterBand
         Me.PageFooter = New DevExpress.XtraReports.UI.PageFooterBand
@@ -60,7 +61,6 @@ Partial Public Class xrptReporte_Produccion2
         Me.XrLabel22 = New DevExpress.XtraReports.UI.XRLabel
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
         Me.IM_MOVIMIENTOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
-        Me.XrPictureBox2 = New DevExpress.XtraReports.UI.XRPictureBox
         CType(Me.DT_Produccion21, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -176,6 +176,14 @@ Partial Public Class xrptReporte_Produccion2
         Me.GroupHeader1.HeightF = 254.9107!
         Me.GroupHeader1.Name = "GroupHeader1"
         Me.GroupHeader1.RepeatEveryPage = True
+        '
+        'XrPictureBox2
+        '
+        Me.XrPictureBox2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Nothing, "IM_V_REPORTE_PRODUCCION2.IMAGEN_MOVIMIENTO")})
+        Me.XrPictureBox2.LocationFloat = New DevExpress.Utils.PointFloat(886.168!, 0.0!)
+        Me.XrPictureBox2.Name = "XrPictureBox2"
+        Me.XrPictureBox2.SizeF = New System.Drawing.SizeF(91.0642!, 67.99035!)
+        Me.XrPictureBox2.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze
         '
         'XrLabel9
         '
@@ -312,24 +320,6 @@ Partial Public Class xrptReporte_Produccion2
         Me.XrLabel7.SizeF = New System.Drawing.SizeF(460.261!, 23.00002!)
         Me.XrLabel7.Text = "XrLabel7"
         '
-        'XrPictureBox1
-        '
-        Me.XrPictureBox1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSource1, "IMAGEN")})
-        Me.XrPictureBox1.LocationFloat = New DevExpress.Utils.PointFloat(13.87332!, 0.0!)
-        Me.XrPictureBox1.Name = "XrPictureBox1"
-        Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(91.0642!, 67.99035!)
-        Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze
-        '
-        'BindingSource1
-        '
-        Me.BindingSource1.DataMember = "IM_PARTIDOS_POLITICOS_imagen"
-        Me.BindingSource1.DataSource = Me.DS_LOG
-        '
-        'DS_LOG
-        '
-        Me.DS_LOG.DataSetName = "DS_LOG"
-        Me.DS_LOG.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'partidopolitico
         '
         Me.partidopolitico.Font = New System.Drawing.Font("Times New Roman", 20.0!, CType((System.Drawing.FontStyle.Italic Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle))
@@ -354,6 +344,24 @@ Partial Public Class xrptReporte_Produccion2
         Me.XrLabel10.StylePriority.UseTextAlignment = False
         Me.XrLabel10.Text = "REPORTE DE PRODUCCION DETALLADO POR PARTIDO Y MOVIMIENTO NO VALIDADO "
         Me.XrLabel10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'XrPictureBox1
+        '
+        Me.XrPictureBox1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Me.BindingSource1, "IMAGEN")})
+        Me.XrPictureBox1.LocationFloat = New DevExpress.Utils.PointFloat(13.87332!, 0.0!)
+        Me.XrPictureBox1.Name = "XrPictureBox1"
+        Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(91.0642!, 67.99035!)
+        Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze
+        '
+        'BindingSource1
+        '
+        Me.BindingSource1.DataMember = "IM_PARTIDOS_POLITICOS_imagen"
+        Me.BindingSource1.DataSource = Me.DS_LOG
+        '
+        'DS_LOG
+        '
+        Me.DS_LOG.DataSetName = "DS_LOG"
+        Me.DS_LOG.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BindingSource2
         '
@@ -386,11 +394,12 @@ Partial Public Class xrptReporte_Produccion2
         '
         'XrPageInfo1
         '
-        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(21.88774!, 10.08327!)
+        Me.XrPageInfo1.Format = "{0:dddd, dd' de 'MMMM' de 'yyyy hh:mm tt}"
+        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(3.873356!, 10.08326!)
         Me.XrPageInfo1.Name = "XrPageInfo1"
         Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
-        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(236.4583!, 23.0!)
+        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(271.1393!, 23.00002!)
         '
         'XrPageInfo2
         '
@@ -421,14 +430,6 @@ Partial Public Class xrptReporte_Produccion2
         'IM_MOVIMIENTOS_imagenTableAdapter
         '
         Me.IM_MOVIMIENTOS_imagenTableAdapter.ClearBeforeFill = True
-        '
-        'XrPictureBox2
-        '
-        Me.XrPictureBox2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Image", Nothing, "IM_V_REPORTE_PRODUCCION2.IMAGEN_MOVIMIENTO")})
-        Me.XrPictureBox2.LocationFloat = New DevExpress.Utils.PointFloat(886.168!, 0.0!)
-        Me.XrPictureBox2.Name = "XrPictureBox2"
-        Me.XrPictureBox2.SizeF = New System.Drawing.SizeF(91.0642!, 67.99035!)
-        Me.XrPictureBox2.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze
         '
         'xrptReporte_Produccion2
         '

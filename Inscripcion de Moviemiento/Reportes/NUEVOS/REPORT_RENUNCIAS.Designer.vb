@@ -378,11 +378,12 @@ Partial Public Class REPORT_RENUNCIAS
         '
         'XrPageInfo1
         '
-        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(45.80771!, 23.66669!)
+        Me.XrPageInfo1.Format = "{0:dddd, dd' de 'MMMM' de 'yyyy hh:mm tt}"
+        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 23.6667!)
         Me.XrPageInfo1.Name = "XrPageInfo1"
         Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
-        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(236.4583!, 23.0!)
+        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(283.7243!, 22.99999!)
         '
         'XrPageInfo2
         '

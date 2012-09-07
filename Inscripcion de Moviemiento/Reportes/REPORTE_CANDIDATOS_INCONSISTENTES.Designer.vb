@@ -327,6 +327,7 @@ Partial Public Class REPORTE_CANDIDATOS_INCONSISTENTES
         '
         'XrPageInfo1
         '
+        Me.XrPageInfo1.Format = "{0:dddd, dd' de 'MMMM' de 'yyyy hh:mm tt}"
         Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(10.00001!, 15.95834!)
         Me.XrPageInfo1.Name = "XrPageInfo1"
         Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)

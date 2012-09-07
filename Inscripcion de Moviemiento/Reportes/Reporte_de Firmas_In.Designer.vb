@@ -41,8 +41,8 @@ Partial Public Class Reporte_de_Firmas_In
         Me.XrLabel7 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel8 = New DevExpress.XtraReports.UI.XRLabel
         Me.GroupHeaderBand2 = New DevExpress.XtraReports.UI.GroupHeaderBand
-        Me.XrLabel29 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel28 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel29 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel25 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel23 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel9 = New DevExpress.XtraReports.UI.XRLabel
@@ -286,15 +286,6 @@ Partial Public Class Reporte_de_Firmas_In
         Me.GroupHeaderBand2.Level = 1
         Me.GroupHeaderBand2.Name = "GroupHeaderBand2"
         '
-        'XrLabel29
-        '
-        Me.XrLabel29.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_INCONSISTENTES.CODIGO_MUNICIPIO")})
-        Me.XrLabel29.LocationFloat = New DevExpress.Utils.PointFloat(225.2084!, 8.333365!)
-        Me.XrLabel29.Name = "XrLabel29"
-        Me.XrLabel29.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel29.SizeF = New System.Drawing.SizeF(36.53564!, 16.00002!)
-        Me.XrLabel29.Text = "XrLabel29"
-        '
         'XrLabel28
         '
         Me.XrLabel28.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_INCONSISTENTES.CODIGO_DEPARTAMENTO")})
@@ -303,6 +294,15 @@ Partial Public Class Reporte_de_Firmas_In
         Me.XrLabel28.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel28.SizeF = New System.Drawing.SizeF(36.53564!, 17.79165!)
         Me.XrLabel28.Text = "XrLabel28"
+        '
+        'XrLabel29
+        '
+        Me.XrLabel29.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_FIRMAS_INCONSISTENTES.CODIGO_MUNICIPIO")})
+        Me.XrLabel29.LocationFloat = New DevExpress.Utils.PointFloat(225.2084!, 8.333365!)
+        Me.XrLabel29.Name = "XrLabel29"
+        Me.XrLabel29.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel29.SizeF = New System.Drawing.SizeF(36.53564!, 16.00002!)
+        Me.XrLabel29.Text = "XrLabel29"
         '
         'XrLabel25
         '
@@ -411,7 +411,7 @@ Partial Public Class Reporte_de_Firmas_In
         '
         'user
         '
-        Me.user.LocationFloat = New DevExpress.Utils.PointFloat(289.119!, 47.0417!)
+        Me.user.LocationFloat = New DevExpress.Utils.PointFloat(458.9106!, 47.04164!)
         Me.user.Name = "user"
         Me.user.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.user.SizeF = New System.Drawing.SizeF(315.6249!, 23.0!)
@@ -419,7 +419,7 @@ Partial Public Class Reporte_de_Firmas_In
         '
         'XrLabel27
         '
-        Me.XrLabel27.LocationFloat = New DevExpress.Utils.PointFloat(211.4583!, 47.0417!)
+        Me.XrLabel27.LocationFloat = New DevExpress.Utils.PointFloat(381.25!, 47.04164!)
         Me.XrLabel27.Name = "XrLabel27"
         Me.XrLabel27.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel27.SizeF = New System.Drawing.SizeF(77.66066!, 23.00002!)
@@ -427,11 +427,12 @@ Partial Public Class Reporte_de_Firmas_In
         '
         'XrPageInfo1
         '
+        Me.XrPageInfo1.Format = "{0:dddd, dd' de 'MMMM' de 'yyyy hh:mm tt}"
         Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(6.00001!, 47.04164!)
         Me.XrPageInfo1.Name = "XrPageInfo1"
         Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
-        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(188.4583!, 23.00002!)
+        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(255.7441!, 23.00002!)
         Me.XrPageInfo1.StyleName = "PageInfo"
         '
         'XrPageInfo2
