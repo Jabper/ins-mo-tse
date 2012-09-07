@@ -143,12 +143,12 @@ Public Class REPORTE_DE_CUMPLIMIENTO_3
         Dim CUMPLE5 As String = 0
         Dim CUMPLE6 As String = 0
 
-
-
+       
 
         ''abrir conexion de la base de datos 
         conn.ConnectionString = oradb
         conn.Open()
+        
 
         ''PARTICIPACION 
         PARTICIPACION_PRESIDENCIAL = COracle.ObtenerDatos("select count(1)TOTAL_CM from im_estadisticas es, IM_PARTIDOS_POLITICOS PA, IM_MOVIMIENTOS MOV where decode (es.puesto_requeridos,es.total_ingresados,'S','N') = 'S' and ES.CODIGO_CARGO_ELECTIVO in (1,9) and es.mujeres_ingresadas < es.mujeres_necesarias and es.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and ES.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND es.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")

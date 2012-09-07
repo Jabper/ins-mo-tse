@@ -134,10 +134,29 @@ Public Class REPORTE_DE_CUMPLIMIENTO_2
         Dim PARTICIPACION_CONGRESO_SUP As String = 0
         Dim PARTICIPACION_CORPORACION As String = 0
 
+        'declaracion de variables para almacenar los datos iniciales que presento cada movimiento
+        Dim cd_presidencialp As String = 0
+        Dim cd_parlacenPro As String = 0
+        Dim cd_parlacenSup As String = 0
+        Dim cd_congresopro As String = 0
+        Dim cd_congresosupl As String = 0
+        Dim cd_municipalidad As String = 0
+
+
 
         ''abrir conexion de la base de datos 
         conn.ConnectionString = oradb
         conn.Open()
+
+
+        ''DATOS PRESENNTADOS 
+        cd_presidencialp = COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos_cargados CA,IM_PARTIDOS_POLITICOS PA, IM_MOVIMIENTOS MOV where CA.CODIGO_CARGO_ELECTIVO in (1,9) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
+        cd_parlacenPro = COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos_cargados CA,IM_PARTIDOS_POLITICOS PA, IM_MOVIMIENTOS MOV where CA.CODIGO_CARGO_ELECTIVO in (2) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
+        cd_parlacenSup = COracle.ObtenerDatos("select count(1)TOTAL_CM from im_candidatos_cargados CA,IM_PARTIDOS_POLITICOS PA, IM_MOVIMIENTOS MOV where CA.CODIGO_CARGO_ELECTIVO in (3) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
+        cd_congresopro = COracle.ObtenerDatos("SELECT COUNT(1)TOTAL_CM FROM (select count(1)TOTAL_CM1, ca.codigo_departamento  from im_candidatos_cargados CA,IM_PARTIDOS_POLITICOS PA, IM_MOVIMIENTOS MOV where CA.CODIGO_CARGO_ELECTIVO in (4) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "' group by ca.codigo_departamento)", "TOTAL_CM")
+        cd_congresosupl = COracle.ObtenerDatos("SELECT COUNT(1)TOTAL_CM FROM (select count(1)TOTAL_CM1, ca.codigo_departamento  from im_candidatos_cargados CA,IM_PARTIDOS_POLITICOS PA, IM_MOVIMIENTOS MOV where CA.CODIGO_CARGO_ELECTIVO in (5) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "' group by ca.codigo_departamento)", "TOTAL_CM")
+        cd_municipalidad = COracle.ObtenerDatos("SELECT COUNT(1)TOTAL_CM FROM (select count(1)TOTAL_CM1, ca.codigo_departamento,CA.CODIGO_MUNICIPIO from im_candidatos_cargados CA,IM_PARTIDOS_POLITICOS PA, IM_MOVIMIENTOS MOV where CA.CODIGO_CARGO_ELECTIVO in (6,7,8) and CA.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and CA.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO and CA.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "' group by ca.codigo_departamento,CA.CODIGO_MUNICIPIO)", "TOTAL_CM")
+
 
         ''PARTICIPACION 
         PARTICIPACION_PRESIDENCIAL = COracle.ObtenerDatos("select count(1)TOTAL_CM from im_estadisticas es, IM_PARTIDOS_POLITICOS PA, IM_MOVIMIENTOS MOV where decode (es.puesto_requeridos,es.total_ingresados,'S','N') = 'S' and ES.CODIGO_CARGO_ELECTIVO in (1,9) and es.mujeres_ingresadas < es.mujeres_necesarias and es.CODIGO_PARTIDO = PA.CODIGO_PARTIDO and ES.CODIGO_PARTIDO = MOV.CODIGO_PARTIDO AND es.CODIGO_MOVIMIENTO = MOV.CODIGO_MOVIMIENTO and PA.NOMBRE ='" & Me.NombrePartido.Value.ToString & "' and MOV.NOMBRE_MOVIMIENTO ='" & Me.NombreMovimiento.Value.ToString & "'", "TOTAL_CM")
@@ -614,6 +633,65 @@ Public Class REPORTE_DE_CUMPLIMIENTO_2
         Me.IM_MOVIMIENTOS_imagenTableAdapter.Fill(DS_LOG.IM_MOVIMIENTOS_imagen, NombreMovimiento.Value.ToString)
 
         nombre.Text = NombreUsuario.ToString
+
+        'asignacion
+        If cd_presidencialp > 0 Then
+            CD_1.Text = "1"
+        Else
+            CD_1.Text = "0"
+        End If
+
+        If cd_parlacenPro > 0 Then
+            CD_2.Text = "1"
+        Else
+            CD_2.Text = "0"
+        End If
+
+        If cd_parlacenSup > 0 Then
+            CD_3.Text = "1"
+        Else
+            CD_3.Text = "0"
+        End If
+
+
+        If cd_congresopro > 0 And congresop_completo > 0 Then
+            Coin_4.Text = cd_congresopro.ToString
+        Else
+            Coin_4.Text = "0"
+
+        End If
+
+        If cd_congresosupl > 0 And congresos_completo > 0 Then
+            Coin_5.Text = cd_congresosupl.ToString
+        Else
+            Coin_5.Text = "0"
+
+        End If
+
+
+        If cd_municipalidad > 0 And muni_completo > 0 Then
+            Coin_6.Text = cd_municipalidad.ToString
+        Else
+            Coin_6.Text = "0"
+
+        End If
+
+        If cd_municipalidad > (CInt(muni_completo) + CInt(muni_incompleto)) Then
+            Coin_6.Text = (CInt(muni_completo) + CInt(muni_incompleto)).ToString
+        Else
+            Coin_6.Text = cd_municipalidad.ToString
+        End If
+
+
+        'CD_1.Text = cd_presidencialp.ToString
+        'CD_2.Text = cd_parlacenPro.ToString
+        'CD_3.Text = cd_parlacenSup.ToString
+        CD_4.Text = cd_congresopro.ToString
+        CD_5.Text = cd_congresosupl.ToString
+        CD_6.Text = cd_municipalidad.ToString
+
+
+
 
     End Sub
 
