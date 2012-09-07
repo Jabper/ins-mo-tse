@@ -249,10 +249,10 @@ Partial Public Class Reporte_de_Participacion_de_Genero
         'txtusuario
         '
         Me.txtusuario.Font = New System.Drawing.Font("Times New Roman", 10.0!)
-        Me.txtusuario.LocationFloat = New DevExpress.Utils.PointFloat(250.7365!, 9.916687!)
+        Me.txtusuario.LocationFloat = New DevExpress.Utils.PointFloat(366.3615!, 9.916687!)
         Me.txtusuario.Name = "txtusuario"
         Me.txtusuario.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.txtusuario.SizeF = New System.Drawing.SizeF(378.8771!, 23.00002!)
+        Me.txtusuario.SizeF = New System.Drawing.SizeF(277.8354!, 23.00002!)
         Me.txtusuario.StylePriority.UseFont = False
         Me.txtusuario.StylePriority.UseTextAlignment = False
         Me.txtusuario.Text = "TSE"
@@ -260,11 +260,12 @@ Partial Public Class Reporte_de_Participacion_de_Genero
         '
         'XrPageInfo1
         '
-        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 11.45836!)
+        Me.XrPageInfo1.Format = "{0:dddd, dd' de 'MMMM' de 'yyyy hh:mm tt}"
+        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 11.45833!)
         Me.XrPageInfo1.Name = "XrPageInfo1"
         Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
-        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(173.1777!, 23.0!)
+        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(276.3554!, 23.00002!)
         '
         'XrPageInfo2
         '
@@ -279,7 +280,7 @@ Partial Public Class Reporte_de_Participacion_de_Genero
         'XrLabel22
         '
         Me.XrLabel22.Font = New System.Drawing.Font("Times New Roman", 10.0!)
-        Me.XrLabel22.LocationFloat = New DevExpress.Utils.PointFloat(173.1777!, 9.916698!)
+        Me.XrLabel22.LocationFloat = New DevExpress.Utils.PointFloat(288.8026!, 9.916687!)
         Me.XrLabel22.Name = "XrLabel22"
         Me.XrLabel22.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel22.SizeF = New System.Drawing.SizeF(77.55884!, 23.00002!)

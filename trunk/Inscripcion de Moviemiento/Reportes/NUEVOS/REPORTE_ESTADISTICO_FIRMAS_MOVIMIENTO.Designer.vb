@@ -34,6 +34,8 @@ Partial Public Class REPORTE_ESTADISTICO_FIRMAS_MOVIMIENTO
         Dim SideBySideBar3DSeriesView4 As DevExpress.XtraCharts.SideBySideBar3DSeriesView = New DevExpress.XtraCharts.SideBySideBar3DSeriesView
         Me.GraficO_FIRMAS_ESTADISTICO1 = New Inscripcion_de_Moviemientos.GRAFICO_FIRMAS_ESTADISTICO
         Me.Detail = New DevExpress.XtraReports.UI.DetailBand
+        Me.requeridas = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel13 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel12 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel11 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrChart1 = New DevExpress.XtraReports.UI.XRChart
@@ -72,8 +74,6 @@ Partial Public Class REPORTE_ESTADISTICO_FIRMAS_MOVIMIENTO
         Me.PARTIDO = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel10 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel9 = New DevExpress.XtraReports.UI.XRLabel
-        Me.XrLabel13 = New DevExpress.XtraReports.UI.XRLabel
-        Me.requeridas = New DevExpress.XtraReports.UI.XRLabel
         CType(Me.GraficO_FIRMAS_ESTADISTICO1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrChart1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(XyDiagram3D1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -105,6 +105,26 @@ Partial Public Class REPORTE_ESTADISTICO_FIRMAS_MOVIMIENTO
         Me.Detail.Name = "Detail"
         Me.Detail.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
+        '
+        'requeridas
+        '
+        Me.requeridas.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.requeridas.LocationFloat = New DevExpress.Utils.PointFloat(613.5417!, 41.25001!)
+        Me.requeridas.Name = "requeridas"
+        Me.requeridas.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.requeridas.SizeF = New System.Drawing.SizeF(100.0!, 19.79166!)
+        Me.requeridas.StylePriority.UseFont = False
+        Me.requeridas.Text = "requeridas"
+        '
+        'XrLabel13
+        '
+        Me.XrLabel13.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.XrLabel13.LocationFloat = New DevExpress.Utils.PointFloat(400.0!, 41.25001!)
+        Me.XrLabel13.Name = "XrLabel13"
+        Me.XrLabel13.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel13.SizeF = New System.Drawing.SizeF(192.7084!, 19.79167!)
+        Me.XrLabel13.StylePriority.UseFont = False
+        Me.XrLabel13.Text = "Total de Firmas Requeridas:"
         '
         'XrLabel12
         '
@@ -379,15 +399,15 @@ Partial Public Class REPORTE_ESTADISTICO_FIRMAS_MOVIMIENTO
         '
         'usuario_1
         '
-        Me.usuario_1.LocationFloat = New DevExpress.Utils.PointFloat(327.7083!, 12.08334!)
+        Me.usuario_1.LocationFloat = New DevExpress.Utils.PointFloat(400.0!, 12.08331!)
         Me.usuario_1.Name = "usuario_1"
         Me.usuario_1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.usuario_1.SizeF = New System.Drawing.SizeF(353.125!, 23.0!)
+        Me.usuario_1.SizeF = New System.Drawing.SizeF(300.0!, 23.00002!)
         Me.usuario_1.Text = "usuario_1"
         '
         'XrLabel5
         '
-        Me.XrLabel5.LocationFloat = New DevExpress.Utils.PointFloat(248.5416!, 12.08334!)
+        Me.XrLabel5.LocationFloat = New DevExpress.Utils.PointFloat(320.8333!, 12.08331!)
         Me.XrLabel5.Name = "XrLabel5"
         Me.XrLabel5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel5.SizeF = New System.Drawing.SizeF(79.16667!, 23.0!)
@@ -404,11 +424,12 @@ Partial Public Class REPORTE_ESTADISTICO_FIRMAS_MOVIMIENTO
         '
         'XrPageInfo1
         '
-        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(5.208333!, 12.08334!)
+        Me.XrPageInfo1.Format = "{0:dddd, dd' de 'MMMM' de 'yyyy hh:mm tt}"
+        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(5.208333!, 12.08331!)
         Me.XrPageInfo1.Name = "XrPageInfo1"
         Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
-        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(243.3333!, 22.99998!)
+        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(288.125!, 22.99998!)
         '
         'NombrePartido
         '
@@ -461,26 +482,6 @@ Partial Public Class REPORTE_ESTADISTICO_FIRMAS_MOVIMIENTO
         Me.XrLabel9.SizeF = New System.Drawing.SizeF(157.2917!, 23.0!)
         Me.XrLabel9.StylePriority.UseFont = False
         Me.XrLabel9.Text = "PARTIDO POLITICO:"
-        '
-        'XrLabel13
-        '
-        Me.XrLabel13.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel13.LocationFloat = New DevExpress.Utils.PointFloat(400.0!, 41.25001!)
-        Me.XrLabel13.Name = "XrLabel13"
-        Me.XrLabel13.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel13.SizeF = New System.Drawing.SizeF(192.7084!, 19.79167!)
-        Me.XrLabel13.StylePriority.UseFont = False
-        Me.XrLabel13.Text = "Total de Firmas Requeridas:"
-        '
-        'requeridas
-        '
-        Me.requeridas.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.requeridas.LocationFloat = New DevExpress.Utils.PointFloat(613.5417!, 41.25001!)
-        Me.requeridas.Name = "requeridas"
-        Me.requeridas.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.requeridas.SizeF = New System.Drawing.SizeF(100.0!, 19.79166!)
-        Me.requeridas.StylePriority.UseFont = False
-        Me.requeridas.Text = "requeridas"
         '
         'REPORTE_ESTADISTICO_FIRMAS_MOVIMIENTO
         '

@@ -78,6 +78,7 @@ Partial Public Class REPORTE_REQUISITOS_CANDIDATOS
         Me.IM_V_REQUISITOS_PLANILLA_REPTableAdapter = New Inscripcion_de_Moviemientos.DS_REQUISITOSTableAdapters.IM_V_REQUISITOS_PLANILLA_REPTableAdapter
         Me.XrLabel11 = New DevExpress.XtraReports.UI.XRLabel
         Me.GroupHeader4 = New DevExpress.XtraReports.UI.GroupHeaderBand
+        Me.XrLine3 = New DevExpress.XtraReports.UI.XRLine
         Me.XrLabel13 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel12 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel15 = New DevExpress.XtraReports.UI.XRLabel
@@ -89,10 +90,9 @@ Partial Public Class REPORTE_REQUISITOS_CANDIDATOS
         Me.IM_MOVIMIENTOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
         Me.GroupHeader1 = New DevExpress.XtraReports.UI.GroupHeaderBand
         Me.GroupHeader2 = New DevExpress.XtraReports.UI.GroupHeaderBand
-        Me.XrLine1 = New DevExpress.XtraReports.UI.XRLine
-        Me.XrLine3 = New DevExpress.XtraReports.UI.XRLine
-        Me.XrLabel16 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel17 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel16 = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLine1 = New DevExpress.XtraReports.UI.XRLine
         CType(Me.XrTable2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -524,6 +524,7 @@ Partial Public Class REPORTE_REQUISITOS_CANDIDATOS
         '
         'XrPageInfo1
         '
+        Me.XrPageInfo1.Format = "{0:dddd, dd' de 'MMMM' de 'yyyy hh:mm tt}"
         Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(40.47919!, 0.0!)
         Me.XrPageInfo1.Name = "XrPageInfo1"
         Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -558,6 +559,12 @@ Partial Public Class REPORTE_REQUISITOS_CANDIDATOS
         Me.GroupHeader4.HeightF = 38.14354!
         Me.GroupHeader4.Level = 1
         Me.GroupHeader4.Name = "GroupHeader4"
+        '
+        'XrLine3
+        '
+        Me.XrLine3.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 0.0!)
+        Me.XrLine3.Name = "XrLine3"
+        Me.XrLine3.SizeF = New System.Drawing.SizeF(1057.0!, 9.999999!)
         '
         'XrLabel13
         '
@@ -640,17 +647,16 @@ Partial Public Class REPORTE_REQUISITOS_CANDIDATOS
         Me.GroupHeader2.HeightF = 124.8494!
         Me.GroupHeader2.Name = "GroupHeader2"
         '
-        'XrLine1
+        'XrLabel17
         '
-        Me.XrLine1.LocationFloat = New DevExpress.Utils.PointFloat(0.0001378806!, 0.0!)
-        Me.XrLine1.Name = "XrLine1"
-        Me.XrLine1.SizeF = New System.Drawing.SizeF(1037.0!, 10.0!)
-        '
-        'XrLine3
-        '
-        Me.XrLine3.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 0.0!)
-        Me.XrLine3.Name = "XrLine3"
-        Me.XrLine3.SizeF = New System.Drawing.SizeF(1057.0!, 9.999999!)
+        Me.XrLabel17.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_REQUISITOS_PLANILLA_REP.CARGO")})
+        Me.XrLabel17.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Italic)
+        Me.XrLabel17.LocationFloat = New DevExpress.Utils.PointFloat(151.0416!, 32.99997!)
+        Me.XrLabel17.Name = "XrLabel17"
+        Me.XrLabel17.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel17.SizeF = New System.Drawing.SizeF(442.3401!, 22.99998!)
+        Me.XrLabel17.StylePriority.UseFont = False
+        Me.XrLabel17.Text = "XrLabel11"
         '
         'XrLabel16
         '
@@ -662,16 +668,11 @@ Partial Public Class REPORTE_REQUISITOS_CANDIDATOS
         Me.XrLabel16.StylePriority.UseFont = False
         Me.XrLabel16.Text = "CARGO ELECTIVO:"
         '
-        'XrLabel17
+        'XrLine1
         '
-        Me.XrLabel17.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_REQUISITOS_PLANILLA_REP.CARGO")})
-        Me.XrLabel17.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Italic)
-        Me.XrLabel17.LocationFloat = New DevExpress.Utils.PointFloat(151.0416!, 32.99997!)
-        Me.XrLabel17.Name = "XrLabel17"
-        Me.XrLabel17.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel17.SizeF = New System.Drawing.SizeF(442.3401!, 22.99998!)
-        Me.XrLabel17.StylePriority.UseFont = False
-        Me.XrLabel17.Text = "XrLabel11"
+        Me.XrLine1.LocationFloat = New DevExpress.Utils.PointFloat(0.0001378806!, 0.0!)
+        Me.XrLine1.Name = "XrLine1"
+        Me.XrLine1.SizeF = New System.Drawing.SizeF(1037.0!, 10.0!)
         '
         'REPORTE_REQUISITOS_CANDIDATOS
         '

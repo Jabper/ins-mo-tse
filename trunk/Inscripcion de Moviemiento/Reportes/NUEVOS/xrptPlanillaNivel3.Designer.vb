@@ -303,7 +303,7 @@ Partial Public Class xrptPlanillaNivel3
         'XrLabel22
         '
         Me.XrLabel22.Font = New System.Drawing.Font("Times New Roman", 10.0!)
-        Me.XrLabel22.LocationFloat = New DevExpress.Utils.PointFloat(183.8854!, 17.95831!)
+        Me.XrLabel22.LocationFloat = New DevExpress.Utils.PointFloat(301.9552!, 17.87497!)
         Me.XrLabel22.Name = "XrLabel22"
         Me.XrLabel22.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel22.SizeF = New System.Drawing.SizeF(77.55884!, 23.00002!)
@@ -315,7 +315,7 @@ Partial Public Class xrptPlanillaNivel3
         'txtusuario
         '
         Me.txtusuario.Font = New System.Drawing.Font("Times New Roman", 10.0!)
-        Me.txtusuario.LocationFloat = New DevExpress.Utils.PointFloat(261.4442!, 17.95831!)
+        Me.txtusuario.LocationFloat = New DevExpress.Utils.PointFloat(379.5141!, 18.04167!)
         Me.txtusuario.Name = "txtusuario"
         Me.txtusuario.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.txtusuario.SizeF = New System.Drawing.SizeF(240.2864!, 23.00002!)
@@ -326,19 +326,20 @@ Partial Public Class xrptPlanillaNivel3
         '
         'XrPageInfo1
         '
-        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 18.04165!)
+        Me.XrPageInfo1.Format = "{0:dddd, dd' de 'MMMM' de 'yyyy hh:mm tt}"
+        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 18.04167!)
         Me.XrPageInfo1.Name = "XrPageInfo1"
         Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
-        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(165.9553!, 23.00001!)
+        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(275.0645!, 23.00002!)
         '
         'XrPageInfo2
         '
         Me.XrPageInfo2.Format = "Página {0} de {1}"
-        Me.XrPageInfo2.LocationFloat = New DevExpress.Utils.PointFloat(552.0921!, 18.12498!)
+        Me.XrPageInfo2.LocationFloat = New DevExpress.Utils.PointFloat(631.2588!, 17.95832!)
         Me.XrPageInfo2.Name = "XrPageInfo2"
         Me.XrPageInfo2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrPageInfo2.SizeF = New System.Drawing.SizeF(187.5!, 22.91667!)
+        Me.XrPageInfo2.SizeF = New System.Drawing.SizeF(131.25!, 22.91667!)
         Me.XrPageInfo2.StylePriority.UseTextAlignment = False
         Me.XrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
         '

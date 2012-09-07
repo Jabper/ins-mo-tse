@@ -22,6 +22,7 @@ Partial Public Class REPORTE_DE_SUSTITUCIONES
         Me.components = New System.ComponentModel.Container
         Dim XrSummary1 As DevExpress.XtraReports.UI.XRSummary = New DevExpress.XtraReports.UI.XRSummary
         Me.Detail = New DevExpress.XtraReports.UI.DetailBand
+        Me.XrLabel28 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel26 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLabel25 = New DevExpress.XtraReports.UI.XRLabel
         Me.XrLine1 = New DevExpress.XtraReports.UI.XRLine
@@ -70,7 +71,6 @@ Partial Public Class REPORTE_DE_SUSTITUCIONES
         Me.Movimiento = New DevExpress.XtraReports.Parameters.Parameter
         Me.IM_PARTIDOS_POLITICOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_PARTIDOS_POLITICOS_imagenTableAdapter
         Me.IM_MOVIMIENTOS_imagenTableAdapter = New Inscripcion_de_Moviemientos.DS_LOGTableAdapters.IM_MOVIMIENTOS_imagenTableAdapter
-        Me.XrLabel28 = New DevExpress.XtraReports.UI.XRLabel
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DS_LOG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -87,6 +87,17 @@ Partial Public Class REPORTE_DE_SUSTITUCIONES
         Me.Detail.SortFields.AddRange(New DevExpress.XtraReports.UI.GroupField() {New DevExpress.XtraReports.UI.GroupField("CODIGO_CARGO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending), New DevExpress.XtraReports.UI.GroupField("POSICION", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending), New DevExpress.XtraReports.UI.GroupField("CODIGO_DEPARTAMENTO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending), New DevExpress.XtraReports.UI.GroupField("CODIGO_MUNICIPIO", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
         Me.Detail.StylePriority.UseFont = False
         Me.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
+        '
+        'XrLabel28
+        '
+        Me.XrLabel28.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_REPORTE_SUSTITUCIONES.FECHA_ADICION", "Fecha de Realización: {0:dd/MM/yyyy}")})
+        Me.XrLabel28.LocationFloat = New DevExpress.Utils.PointFloat(510.4162!, 175.5001!)
+        Me.XrLabel28.Name = "XrLabel28"
+        Me.XrLabel28.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel28.SizeF = New System.Drawing.SizeF(235.4171!, 23.00002!)
+        Me.XrLabel28.StylePriority.UseTextAlignment = False
+        Me.XrLabel28.Text = "XrLabel28"
+        Me.XrLabel28.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
         '
         'XrLabel26
         '
@@ -424,11 +435,12 @@ Partial Public Class REPORTE_DE_SUSTITUCIONES
         '
         'XrPageInfo1
         '
-        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 8.45836!)
+        Me.XrPageInfo1.Format = "{0:dddd, dd' de 'MMMM' de 'yyyy hh:mm tt}"
+        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(6.28554!, 8.458392!)
         Me.XrPageInfo1.Name = "XrPageInfo1"
         Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
-        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(176.0416!, 23.08334!)
+        Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(283.3333!, 23.08334!)
         '
         'XrPageInfo2
         '
@@ -443,10 +455,10 @@ Partial Public Class REPORTE_DE_SUSTITUCIONES
         'txtusuario
         '
         Me.txtusuario.Font = New System.Drawing.Font("Times New Roman", 10.0!)
-        Me.txtusuario.LocationFloat = New DevExpress.Utils.PointFloat(279.1232!, 8.458328!)
+        Me.txtusuario.LocationFloat = New DevExpress.Utils.PointFloat(438.4982!, 8.458328!)
         Me.txtusuario.Name = "txtusuario"
         Me.txtusuario.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.txtusuario.SizeF = New System.Drawing.SizeF(357.0021!, 23.08343!)
+        Me.txtusuario.SizeF = New System.Drawing.SizeF(201.5992!, 23.08343!)
         Me.txtusuario.StylePriority.UseFont = False
         Me.txtusuario.StylePriority.UseTextAlignment = False
         Me.txtusuario.Text = "TSE"
@@ -455,7 +467,7 @@ Partial Public Class REPORTE_DE_SUSTITUCIONES
         'XrLabel24
         '
         Me.XrLabel24.Font = New System.Drawing.Font("Times New Roman", 10.0!)
-        Me.XrLabel24.LocationFloat = New DevExpress.Utils.PointFloat(196.356!, 8.541743!)
+        Me.XrLabel24.LocationFloat = New DevExpress.Utils.PointFloat(355.731!, 8.541743!)
         Me.XrLabel24.Name = "XrLabel24"
         Me.XrLabel24.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel24.SizeF = New System.Drawing.SizeF(82.76715!, 23.00002!)
@@ -596,17 +608,6 @@ Partial Public Class REPORTE_DE_SUSTITUCIONES
         'IM_MOVIMIENTOS_imagenTableAdapter
         '
         Me.IM_MOVIMIENTOS_imagenTableAdapter.ClearBeforeFill = True
-        '
-        'XrLabel28
-        '
-        Me.XrLabel28.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "IM_V_REPORTE_SUSTITUCIONES.FECHA_ADICION", "Fecha de Realización: {0:dd/MM/yyyy}")})
-        Me.XrLabel28.LocationFloat = New DevExpress.Utils.PointFloat(510.4162!, 175.5001!)
-        Me.XrLabel28.Name = "XrLabel28"
-        Me.XrLabel28.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96.0!)
-        Me.XrLabel28.SizeF = New System.Drawing.SizeF(235.4171!, 23.00002!)
-        Me.XrLabel28.StylePriority.UseTextAlignment = False
-        Me.XrLabel28.Text = "XrLabel28"
-        Me.XrLabel28.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
         '
         'REPORTE_DE_SUSTITUCIONES
         '

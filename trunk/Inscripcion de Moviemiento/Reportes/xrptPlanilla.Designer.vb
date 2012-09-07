@@ -315,7 +315,7 @@ Partial Public Class xrptPlanilla
         'XrLabel15
         '
         Me.XrLabel15.Font = New System.Drawing.Font("Times New Roman", 10.0!)
-        Me.XrLabel15.LocationFloat = New DevExpress.Utils.PointFloat(256.0994!, 0.0!)
+        Me.XrLabel15.LocationFloat = New DevExpress.Utils.PointFloat(263.183!, 0.0!)
         Me.XrLabel15.Name = "XrLabel15"
         Me.XrLabel15.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel15.SizeF = New System.Drawing.SizeF(83.27527!, 23.00002!)
