@@ -645,6 +645,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_REPORTE_ESTADISTICO_DP.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\DS_REPORT_ESTADISTICO.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_REPORT_ESTADISTICO.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DS_REP_DETALLE_ESTADISTICA.Designer.vb" />
     <Compile Include="Reportes\DT_Planillas_Por_Nivel.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -2343,6 +2348,17 @@
     </None>
     <None Include="Reportes\DS_REPORTE_ESTADISTICO_DP.xss">
       <DependentUpon>DS_REPORTE_ESTADISTICO_DP.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORT_ESTADISTICO.xsc">
+      <DependentUpon>DS_REPORT_ESTADISTICO.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DS_REPORT_ESTADISTICO.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_REPORT_ESTADISTICO.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reportes\DS_REPORT_ESTADISTICO.xss">
+      <DependentUpon>DS_REPORT_ESTADISTICO.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DS_REP_DETALLE_ESTADISTICA.xsc">
       <DependentUpon>DS_REP_DETALLE_ESTADISTICA.xsd</DependentUpon>
