@@ -167,7 +167,7 @@ Public Class XfrmConPlanilla
 
         For i = 0 To view.DataRowCount - 1
             Dim cnx As New OracleConnection(Configuracion.verconfig)
-            Dim sqlString As String = String.Format("UPDATE TSE.IM_CANDIDATOS SET VALIDADO='{0}' WHERE CODIGO_CANDIDATOS={1}", _
+            Dim sqlString As String = String.Format("UPDATE IM_CANDIDATOS SET VALIDADO='{0}' WHERE CODIGO_CANDIDATOS={1}", _
                                                     If(view.GetRowCellValue(i, "VALIDADO") = "1", "S", "N"), _
                                                     view.GetRowCellValue(i, "CODIGO_CANDIDATOS"))
             Try
