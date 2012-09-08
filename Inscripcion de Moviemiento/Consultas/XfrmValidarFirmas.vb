@@ -110,7 +110,7 @@ Public Class XfrmValidarFirmas
 
         For i = 0 To view.DataRowCount - 1
             Dim cnx As New OracleConnection(Configuracion.verconfig)
-            Dim sqlString As String = String.Format("UPDATE TSE.IM_CIUDADANOS_RESPALDAN SET VALIDADO='{0}' WHERE CODIGO_CUIDADANOS_RESPALDAN={1}", _
+            Dim sqlString As String = String.Format("UPDATE IM_CIUDADANOS_RESPALDAN SET VALIDADO='{0}' WHERE CODIGO_CUIDADANOS_RESPALDAN={1}", _
                                                     view.GetRowCellValue(i, "VALIDADO"), view.GetRowCellValue(i, "CODIGO_CUIDADANOS_RESPALDAN"))
             Try
                 Dim cmd As New OracleCommand(sqlString, cnx)
